@@ -35,25 +35,21 @@ const routes: Routes = [
       },
       {
         path: "profile",
-        canActivate: [MsalGuard],
         loadChildren: () =>
           import("./profile/profile.module").then((m) => m.ProfileModule),
       },
       {
         path: "dashboard",
-        canActivate: [MsalGuard],
         loadChildren: () =>
           import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
       {
         path: "trabajador",
-        canActivate: [MsalGuard],
         loadChildren: () =>
           import("./trabajador/trabajador.module").then((m) => m.DashboardModule),
       },
       {
         path: "components",
-        canActivate: [MsalGuard],
         loadChildren: () =>
           import("./material-component/material.module").then(
             (m) => m.MaterialComponentsModule
