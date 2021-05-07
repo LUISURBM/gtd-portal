@@ -24,7 +24,6 @@ const MaterialRoutes: Routes = [
   {
     path: "",
     component: MaterialComponent,
-    canActivate: [MsalGuard],
     children: [
       {
         path: "",

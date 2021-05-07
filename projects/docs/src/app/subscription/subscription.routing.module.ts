@@ -7,7 +7,6 @@ const SubscriptionRoutes: Routes = [
   {
     path: "",
     component: SubscriptionComponent,
-    canActivate: [MsalGuard],
   },
 ];
 
