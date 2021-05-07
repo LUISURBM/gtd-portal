@@ -1,0 +1,38 @@
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+// Variables
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+$bodyfont: 'Poppins', sans-serif;
+$headingfont: 'Poppins', sans-serif;
+
+@import '~@angular/material/theming';
+
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Poppins, sans-serif'
+);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+
+@import 'theme/default.scss';
+@import 'theme/unicorn.scss';
+@import 'theme/unicorn-black.scss';
+
+
+.ne-gtd {
+  @include angular-material-theme($theme);
+}
+
+.unicorn-light-theme {
+  @include angular-material-theme($candy-app-theme);
+}
+.unicorn-dark-theme {
+  @include angular-material-color($dark-theme);
+}

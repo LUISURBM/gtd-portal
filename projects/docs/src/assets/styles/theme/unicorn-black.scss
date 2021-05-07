@@ -1,0 +1,15 @@
+
+
+
+
+// Unicorn light theme
+$dark-primary: mat-palette($mat-deep-orange);
+$dark-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
+$dark-warn:    mat-palette($mat-amber);
+$dark-theme:   mat-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  )
+));
