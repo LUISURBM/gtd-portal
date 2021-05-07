@@ -46,6 +46,12 @@ const routes: Routes = [
           import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
       {
+        path: "trabajador",
+        canActivate: [MsalGuard],
+        loadChildren: () =>
+          import("./trabajador/trabajador.module").then((m) => m.DashboardModule),
+      },
+      {
         path: "components",
         canActivate: [MsalGuard],
         loadChildren: () =>

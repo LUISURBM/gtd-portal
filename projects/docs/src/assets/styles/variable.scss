@@ -26,13 +26,3 @@ $custom-typography: mat-typography-config(
 @import 'theme/unicorn-black.scss';
 
 
-.ne-gtd {
-  @include angular-material-theme($theme);
-}
-
-.unicorn-light-theme {
-  @include angular-material-theme($candy-app-theme);
-}
-.unicorn-dark-theme {
-  @include angular-material-color($dark-theme);
-}

@@ -144,6 +144,5 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.getContainerElement().classList.add('unicorn-dark-theme');
   }
 }

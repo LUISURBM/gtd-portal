@@ -1,0 +1,86 @@
+<!-- ============================================================== -->
+<!-- Simple four boxes Row -->
+<!-- ============================================================== -->
+<div fxLayout="row wrap">
+    <!-- column -->
+    <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
+
+      <form [formGroup]="form">
+        <div mat-dialog-content>
+          <p>Trabajador INFO!?</p>
+          <mat-form-field>
+            <input
+              matInput
+              tabindex="1"
+              formControlName="nombre"
+              placeholder="Nombre"
+              id="nombre"
+              type="text"
+              class="form-control"
+            />
+            <div
+              *ngIf="f.nombre.touched && f.nombre.invalid"
+              class="alert alert-danger"
+            >
+              <div *ngIf="f.nombre.errors?.required">nombre is required.</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              tabindex="1"
+              formControlName="cedula"
+              placeholder="Cédula"
+              id="cedula"
+              type="text"
+              class="form-control"
+            />
+            <div
+              *ngIf="f.cedula.touched && f.cedula.invalid"
+              class="alert alert-danger"
+            >
+              <div *ngIf="f.cedula.errors?.required">cedula is required.</div>
+            </div>
+          </mat-form-field>
+
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="save()" tabindex="3">Ok</button>
+          <button mat-button (click)="onNoClick()" tabindex="-1">
+            No Thanks
+          </button>
+        </div>
+      </form>
+
+        <app-sales-overview-grap></app-sales-overview-grap>
+
+    </div>
+    <!-- column -->
+    <!-- column -->
+    <div fxFlex.gt-lg="33" fxFlex.gt-md="33" fxFlex.gt-xs="100" fxFlex="100">
+
+        <app-visiter-graph></app-visiter-graph>
+
+    </div>
+    <!-- column -->
+</div>
+
+<!-- ============================================================== -->
+<!-- Image Card row-->
+<!-- ============================================================== -->
+<div fxLayout="row wrap">
+    <!-- Card column -->
+    <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
+
+        <app-sticker></app-sticker>
+        <app-contacts></app-contacts>
+
+    </div>
+    <!-- Card column -->
+    <!-- Card column -->
+    <div fxFlex.gt-lg="75" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
+
+        <app-activity></app-activity>
+
+    </div>
+</div>

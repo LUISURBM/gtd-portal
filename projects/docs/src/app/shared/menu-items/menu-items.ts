@@ -10,6 +10,7 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
+  { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'av_timer' },
   { state: 'subscription', type: 'link', name: 'Subscription', icon: 'crop_7_5' },
   { state: '/components/button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'components/grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },

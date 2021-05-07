@@ -6,7 +6,8 @@ import {
   RequestInfoUtilities,
   ParsedRequestUrl,
 } from "angular-in-memory-web-api";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
+import { NgGtdThemes } from "../types/common-types";
 import { VALUES_CATALOG, VALUES_BUSINESS } from "../values-catalog";
 import { InMemDataService, ValuesCatalog } from "./in-mem-data-service";
 
@@ -43,10 +44,12 @@ function guid() {
 export class InMemService extends InMemDataService {
 
   public empresas: BehaviorSubject<ValuesCatalog[]>;
+  public uiPalette: BehaviorSubject<NgGtdThemes>;
 
   constructor(){
     super();
     this.empresas = new BehaviorSubject<ValuesCatalog[]>(VALUES_BUSINESS);
+    this.uiPalette = new BehaviorSubject<NgGtdThemes>('unicorn-dark-theme');
   }
 
   // Overrides id generator and delivers next available `id`, starting with 1001.
@@ -133,6 +136,10 @@ export class InMemService extends InMemDataService {
     options.headers = headers;
     options.url = url;
     return options;
+  }
+
+  chanegPalette(value:NgGtdThemes){
+    this.uiPalette.next(value);
   }
 }
 //
