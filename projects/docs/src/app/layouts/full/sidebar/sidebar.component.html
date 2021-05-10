@@ -1,3 +1,21 @@
+
+<div class="navbar-header">
+  <ng-content></ng-content>
+  <a class="navbar-brand">
+      <!--End Logo icon -->
+      <!-- Logo text -->
+      <span>
+       <!-- Light Logo text -->
+       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+          <clipPath id="clip">
+            <text x="70" y="35" font-family="Arial" font-size="30px" font-weight="800">Nómina</text>
+          </clipPath>
+        </defs>
+      </svg>
+       <div class="sign-gtd" ></div>
+      </span> </a>
+</div>
 <!-- ============================================================== -->
 <!-- sidebar -->
 <!-- ============================================================== -->
@@ -7,7 +25,7 @@
     <!-- ============================================================== -->
     <!-- Profile - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe <i class="ti-angle-down font-12 m-l-5"></i></a></div>
+    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Administrador <i class="ti-angle-down font-12 m-l-5"></i></a></div>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
         <button mat-menu-item>
             <mat-icon>settings</mat-icon> Settings </button>
@@ -20,6 +38,11 @@
     </mat-menu>
 
 </div>
+<form class="navbar-form">
+  <div class="input-group no-border">
+    <input type="text" value="" class="form-control" placeholder="Buscar...">
+  </div>
+</form>
 <mat-nav-list appAccordion>
     <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected" group="{{menuitem.state}}">
         <a class="" appAccordionToggle [routerLink]="menuitem.state" *ngIf="menuitem.type === 'link'">

@@ -11,6 +11,9 @@ import { VisiterGraphComponent } from './dashboard-components/visiter-graph/visi
 import { StickerComponent } from './dashboard-components/sticker/sticker.component';
 import { ContactsComponent } from './dashboard-components/contacts/contacts.component';
 import { ActivityComponent } from './dashboard-components/activity/activity.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { PayrollOverviewGrapComponent } from './dashboard-components/payroll-overview-grap/payroll-overview-grap.component';
+import { PaymentOverviewGrapComponent } from './dashboard-components/payment-overview-grap/payment-overview-grap.component';
 
 @NgModule({
   imports: [
@@ -18,8 +21,18 @@ import { ActivityComponent } from './dashboard-components/activity/activity.comp
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
-    RouterModule.forChild(DashboardRoutes)
+    RouterModule.forChild(DashboardRoutes),
+    GoogleChartsModule,
   ],
-  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent]
+  declarations: [
+    DashboardComponent,
+    SalesOverviewGrapComponent,
+    VisiterGraphComponent,
+    StickerComponent,
+    ContactsComponent,
+    ActivityComponent,
+    PayrollOverviewGrapComponent,
+    PaymentOverviewGrapComponent
+  ],
 })
 export class DashboardModule {}

@@ -2,15 +2,98 @@
 <!-- Simple four boxes Row -->
 <!-- ============================================================== -->
 <div fxLayout="row wrap">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="mat-card card card-stats">
+      <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">drive_folder_upload</i>
+        </div>
+        <p class="card-category">Total cargados</p>
+        <h3 class="card-title">49/50
+          <small>NI</small>
+        </h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons text-danger">warning</i>
+          <a href="javascript:;">Ver más...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="mat-card card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">store</i>
+        </div>
+        <p class="card-category">Total pagado</p>
+        <h3 class="card-title">$34'245.090</h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">date_range</i> últimas 24h
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="mat-card card card-stats">
+      <div class="card-header card-header-danger card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">info_outline</i>
+        </div>
+        <p class="card-category">Total devengados</p>
+        <h3 class="card-title">75</h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">local_offer</i> sin procesar
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="mat-card card card-stats">
+      <div class="card-header card-header-info card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">money_off</i>
+        </div>
+        <p class="card-category">Total deducciones</p>
+        <h3 class="card-title">+245</h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">update</i> Actualizado hace 1s
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div fxLayout="row wrap">
     <!-- column -->
-    <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
+    <div fxFlex.gt-lg="25" fxFlex.gt-md="33" fxFlex.gt-xs="50" fxFlex="50">
+
+      <app-payment-overview-grap></app-payment-overview-grap>
+
+    </div>
+
+    <!-- column -->
+    <div fxFlex.gt-lg="25" fxFlex.gt-md="33" fxFlex.gt-xs="50" fxFlex="50">
+
+      <app-payroll-overview-grap></app-payroll-overview-grap>
+
+    </div>
+
+    <!-- column -->
+    <div fxFlex.gt-lg="25" fxFlex.gt-md="33" fxFlex.gt-xs="50" fxFlex="50">
 
         <app-sales-overview-grap></app-sales-overview-grap>
 
     </div>
     <!-- column -->
     <!-- column -->
-    <div fxFlex.gt-lg="33" fxFlex.gt-md="33" fxFlex.gt-xs="100" fxFlex="100">
+    <div fxFlex.gt-lg="25" fxFlex.gt-md="100" fxFlex.gt-xs="50" fxFlex="50">
 
         <app-visiter-graph></app-visiter-graph>
 
@@ -18,22 +101,3 @@
     <!-- column -->
 </div>
 
-<!-- ============================================================== -->
-<!-- Image Card row-->
-<!-- ============================================================== -->
-<div fxLayout="row wrap">
-    <!-- Card column -->
-    <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
-
-        <app-sticker></app-sticker>
-        <app-contacts></app-contacts>
-
-    </div>
-    <!-- Card column -->
-    <!-- Card column -->
-    <div fxFlex.gt-lg="75" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
-
-        <app-activity></app-activity>
-
-    </div>
-</div>

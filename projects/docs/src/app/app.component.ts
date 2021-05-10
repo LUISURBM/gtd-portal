@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ThemeService } from './srv/theme.service';
+import { NgGtdThemes } from './types/common-types';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'docs';
+
+  constructor(public themeSrv:ThemeService){
+  }
+
+  get themeSkin$(){
+    return this.themeSrv.uiPalette;
+  }
+
+
 }

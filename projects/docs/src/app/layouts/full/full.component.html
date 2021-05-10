@@ -1,62 +1,27 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="main-container">
-    <!-- ============================================================== -->
-    <!-- Topbar - style you can find in header.scss -->
-    <!-- ============================================================== -->
-    <mat-toolbar color="primary" class="topbar telative">
-        <!-- ============================================================== -->
-        <!-- Logo - style you can find in header.scss -->
-        <!-- ============================================================== -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
-                <!-- Logo icon --><b>
-                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                    <!-- Dark Logo icon -->
-                    <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo">
-                    <!-- Light Logo icon -->
-                    <img src="assets/images/logo__globaltek.png" alt="homepage" class="light-logo" style="height:72px">
-                </b>
-                <!--End Logo icon -->
-                <!-- Logo text -->
-                <span fxShow="false" fxShow.gt-xs>
-                 <!-- dark Logo text -->
-                 <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo">
-                 <!-- Light Logo text -->
-                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-                  <defs>
-                    <clipPath id="clip">
-                      <text x="100" y="45" font-family="Arial" font-size="30px" font-weight="800">Nómina</text>
-                    </clipPath>
-                  </defs>
-                </svg>
-                 <div class="sign-gtd" ></div>
-                </span> </a>
-        </div>
-        <!-- ============================================================== -->
-        <!-- sidebar toggle -->
-        <!-- ============================================================== -->
+<div class="page-wrapper">
 
-        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span fxFlex></span>
-        <!-- ============================================================== -->
-        <!-- app header component - style you can find in header.scss / header.component.ts-->
-        <!-- ============================================================== -->
-        <app-header></app-header>
-    </mat-toolbar>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0" >
+
+    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  style="direction: rtl " >
+        <app-sidebar>
+          <!-- ============================================================== -->
+          <!-- sidebar toggle -->
+          <!-- ============================================================== -->
+
+          <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+              <mat-icon>menu</mat-icon>
+          </button></app-sidebar>
+    </mat-sidenav>
     <!-- ============================================================== -->
     <!-- End Topbar - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0" >
-        <!-- ============================================================== -->
-        <!-- Sidebar - style you can find in sidebar.scss -->
-        <!-- ============================================================== -->
-        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  style="direction: rtl " >
-            <app-sidebar></app-sidebar>
-        </mat-sidenav>
+
         <!-- ============================================================== -->
         <!-- Sidebar - style you can find in sidebar.scss -->
         <!-- ============================================================== -->
@@ -64,15 +29,38 @@
         <!-- ============================================================== -->
         <!-- Page container - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <mat-sidenav-content class="page-wrapper">
+    <mat-sidenav-content class="main-container">
 
-                <div class="page-content">
+          <!-- ============================================================== -->
+      <!-- Topbar - style you can find in header.scss -->
+      <!-- ============================================================== -->
+      <mat-toolbar color="primary" class="topbar telative">
+        <!-- ============================================================== -->
+        <!-- Logo - style you can find in header.scss -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" (click)="snav.toggle()">
+                <!-- Logo icon --><b>
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <img src="assets/images/logo-icon.ico" alt="homepage" class="dark-logo">
+                    <img src="assets/images/logo__globaltek.png" alt="homepage" class="light-logo" style="height:60px; padding-top: 5px;">
+                    <!-- Light Logo icon -->
+                  </b></a>
+        </div>
+        <span fxFlex></span>
+        <!-- ============================================================== -->
+        <!-- app header component - style you can find in header.scss / header.component.ts-->
+        <!-- ============================================================== -->
+        <app-header></app-header>
+      </mat-toolbar>
+      <div class="page-content">
 
-                        <router-outlet><app-spinner></app-spinner></router-outlet>
+              <router-outlet><app-spinner></app-spinner></router-outlet>
 
-                </div>
+      </div>
 
-        </mat-sidenav-content>
+      </mat-sidenav-content>
         <!-- ============================================================== -->
         <!-- Page container - style you can find in pages.scss -->
         <!-- ============================================================== -->

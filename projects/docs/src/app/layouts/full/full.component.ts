@@ -1,5 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component,OnDestroy,AfterViewInit} from '@angular/core';
+import {ChangeDetectorRef, Component,OnDestroy,AfterViewInit, ViewChild} from '@angular/core';
+import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { MenuItems } from '../../shared/menu-items/menu-items';
 
 
@@ -14,6 +15,9 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
+
+  @ViewChild(ToolbarComponent)
+  selectedPane: any;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,

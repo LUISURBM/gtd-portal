@@ -1,4 +1,5 @@
 import { ValuesCatalog } from "./srv/in-mem-data-service";
+import { NgGtdThemes, ValueOption } from "./types/common-types";
 
 function formatToDate(date:string): Date {
   return new Date(date);
@@ -30,3 +31,29 @@ export const VALUES_BUSINESS : ValuesCatalog[] = [
   { id: 20, name: 'Tiendas boyacenses', code: '20TO', catalog: 'VC', fecha: formatToDate('5/17/2021') }
 ];
 
+export const THEMES_OPTIONS : ValueOption[] = [
+  {
+    "backgroundColor": "#fff",
+    "buttonColor": "#ffc107",
+    "headingColor": "#673ab7",
+    "label": "Deep Purple & Amber",
+    "value": "deeppurple-amber",
+    "catalog": NgGtdThemes.NeGtd
+  },
+  {
+    "backgroundColor": "#fff",
+    "buttonColor": "#ff4081",
+    "headingColor": "#3f51b5",
+    "label": "Indigo & Pink",
+    "value": "indigo-pink",
+    "catalog": NgGtdThemes.UnicornLightTheme
+  },
+  {
+    "backgroundColor": "#303030",
+    "buttonColor": "#607d8b",
+    "headingColor": "#e91e63",
+    "label": "Pink & Blue Grey",
+    "value": "pink-bluegrey",
+    "catalog": NgGtdThemes.UnicornDarkTheme
+  }
+]

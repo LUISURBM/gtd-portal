@@ -37,8 +37,11 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import {OverlayContainer} from '@angular/cdk/overlay';
-
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { pairwise } from 'rxjs/operators';
+import { ThemeService } from './srv/theme.service';
+import { StyleManagerService } from './srv/style-manager.service';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -111,6 +114,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppRoutingModule,
     MsalModule,
     MatToolbarModule,
+    GoogleChartsModule
   ],
   providers: [
     {
@@ -139,10 +143,17 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     MsalBroadcastService,
     InMemService,
     InMemDataService,
+    ThemeService,
+    StyleManagerService
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(overlayContainer: OverlayContainer) {
+  constructor(overlayContainer: OverlayContainer, inMemSrv: ThemeService) {
+    inMemSrv.uiPalette.pipe(pairwise()).subscribe(([p, q]) => {
+      console.log(p,q);
+      if (q) overlayContainer.getContainerElement().classList.remove(q);
+      if (p) overlayContainer.getContainerElement().classList.add(p);
+    });
   }
 }

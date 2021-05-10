@@ -1,4 +1,7 @@
 
+@import '~@angular/material/theming';
+@include mat-core();
+
 
 /*Default light Theme Colors*/
 
@@ -75,8 +78,32 @@ $radius: 4px;
 $form-brd: #d9d9d9;
 
 
-$accent: mat-palette($mat-blue, 500);
-$warn: mat-palette($mat-pink, 500);
-$theme: mat-light-theme($primary, $accent, $warn);
+$primary-theme: mat-palette($mat-blue-grey);
+$accent-theme: mat-palette($mat-amber, A200, A100, A400);
+$warn-theme: mat-palette($mat-pink);
+// $accent: mat-palette($mat-blue, 500);
+// $warn: mat-palette($mat-pink, 500);
+$theme: mat-light-theme($primary-theme, $accent-theme, $warn-theme);
 $background: map-get($theme, background);
 $foreground: map-get($theme, foreground);
+/*Material Theme Colors*/
+$bodyfont: 'Poppins', sans-serif;
+$headingfont: 'Poppins', sans-serif;
+// $theme: mat-light-theme((
+//   color: (
+//     primary: $primary,
+//     accent: $accent,
+//     warn: $warn,
+//   )
+// ));
+// $background: map-get($theme, background);
+// $foreground: map-get($theme, foreground);
+$custom-typography: mat-typography-config(
+  $font-family: 'Poppins, sans-serif'
+);
+
+.default-theme {
+  @include angular-material-theme($theme);
+  --primary: #{$primary};
+  --background: #{mat-color($background)};
+}

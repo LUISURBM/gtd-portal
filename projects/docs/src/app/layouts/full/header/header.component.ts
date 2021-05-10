@@ -1,14 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MSAL_GUARD_CONFIG, MsalGuardConfiguration, MsalService, MsalBroadcastService } from '@azure/msal-angular';
-import { AuthenticationResult, InteractionStatus, EventMessage, EventType, RedirectRequest, PopupRequest, InteractionType } from '@azure/msal-browser';
+import {
+  MsalBroadcastService, MsalGuardConfiguration,
+  MsalService, MSAL_GUARD_CONFIG
+} from '@azure/msal-angular';
+import {
+  AuthenticationResult,
+
+  EventMessage,
+  EventType, InteractionStatus,
+
+
+
+
+  InteractionType, PopupRequest, RedirectRequest
+} from '@azure/msal-browser';
 import { AuthError } from 'msal';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { b2cPolicies } from '../../../b2c-config';
 import { InMemService } from '../../../srv/in-mem-service';
+import { ThemeService } from '../../../srv/theme.service';
+import {
+  NgGtdThemes,
+  ValueOption
+} from '../../../types/common-types';
+import { THEMES_OPTIONS } from '../../../values-catalog';
 import { SignInComponent } from './sign-in.component';
-
 
 interface IdTokenClaims extends AuthenticationResult {
   idTokenClaims: {
@@ -16,26 +35,30 @@ interface IdTokenClaims extends AuthenticationResult {
   };
 }
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
 export class AppHeaderComponent implements OnInit, OnDestroy {
-  title = "MSAL Angular v2 B2C Sample";
+  title = 'MSAL Angular v2 B2C Sample';
   isIframe = false;
   loginDisplay = false;
   private readonly _destroying$ = new Subject<void>();
-  email:string | undefined;
-  name: "compañer@"|undefined;
+  email: string | undefined;
+  name: 'compañer@' | undefined;
+  themes: BehaviorSubject<ValueOption[]>;
   constructor(
     @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
     private authService: MsalService,
     private msalBroadcastService: MsalBroadcastService,
     public dialog: MatDialog,
-    public inMemSrv: InMemService
-  ) {}
+    public inMemSrv: InMemService,
+    public http: HttpClient,
+    public themeSrv: ThemeService
+  ) {
+    this.themes = new BehaviorSubject(THEMES_OPTIONS);
+  }
 
   ngOnInit(): void {
     this.isIframe = window !== window.parent && !window.opener;
@@ -70,14 +93,14 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
         if (payload.idTokenClaims?.acr === b2cPolicies.names.forgotPassword) {
           window.alert(
-            "Password has been reset successfully. \nPlease sign-in with your new password."
+            'Password has been reset successfully. \nPlease sign-in with your new password.'
           );
           return this.authService.logout();
         } else if (
-          payload.idTokenClaims["acr"] === b2cPolicies.names.editProfile
+          payload.idTokenClaims['acr'] === b2cPolicies.names.editProfile
         ) {
           window.alert(
-            "Profile has been updated successfully. \nPlease sign-in again."
+            'Profile has been updated successfully. \nPlease sign-in again.'
           );
           return this.authService.logout();
         }
@@ -98,10 +121,10 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
         if (result.error instanceof AuthError) {
           // Check for forgot password error
           // Learn more about AAD error codes at https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes
-          if (result.error.message.includes("AADB2C90118")) {
+          if (result.error.message.includes('AADB2C90118')) {
             // login request with reset authority
             let resetPasswordFlowRequest = {
-              scopes: ["openid"],
+              scopes: ['openid'],
               authority: b2cPolicies.authorities.forgotPassword.authority,
             };
 
@@ -148,7 +171,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   logout() {
     if (this.msalGuardConfig.interactionType === InteractionType.Popup) {
       this.authService.logoutPopup({
-        mainWindowRedirectUri: "/",
+        mainWindowRedirectUri: '/',
       });
     } else {
       this.authService.logoutRedirect();
@@ -157,7 +180,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   editProfile() {
     let editProfileFlowRequest = {
-      scopes: ["openid"],
+      scopes: ['openid'],
       authority: b2cPolicies.authorities.editProfile.authority,
     };
 
@@ -169,16 +192,20 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     this._destroying$.complete();
   }
 
-
   openDialog(): void {
     const dialogRef = this.dialog.open(SignInComponent, {
       width: '250px',
-      data: { name: this.name, email: this.email }
+      data: { name: this.name, email: this.email },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.email = result;
     });
+  }
+
+  changeTheme(themeToSet: NgGtdThemes) {
+    // this.themeSrv.installTheme(themeToSet);
+    this.themeSrv.uiPalette.next(themeToSet);
   }
 }

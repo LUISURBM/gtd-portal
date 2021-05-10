@@ -44,12 +44,10 @@ function guid() {
 export class InMemService extends InMemDataService {
 
   public empresas: BehaviorSubject<ValuesCatalog[]>;
-  public uiPalette: BehaviorSubject<NgGtdThemes>;
 
   constructor(){
     super();
     this.empresas = new BehaviorSubject<ValuesCatalog[]>(VALUES_BUSINESS);
-    this.uiPalette = new BehaviorSubject<NgGtdThemes>('unicorn-dark-theme');
   }
 
   // Overrides id generator and delivers next available `id`, starting with 1001.
@@ -138,8 +136,6 @@ export class InMemService extends InMemDataService {
     return options;
   }
 
-  chanegPalette(value:NgGtdThemes){
-    this.uiPalette.next(value);
-  }
+
 }
 //

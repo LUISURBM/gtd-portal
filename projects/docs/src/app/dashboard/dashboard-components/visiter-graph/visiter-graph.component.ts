@@ -3,7 +3,7 @@ import * as Chartist from 'chartist';
 import { ChartType, ChartEvent } from 'ng-chartist';
 declare var require: any;
 
-const data= require('./data.json');
+import data from './data.json';
 
 export interface Chart {
 	type: ChartType;

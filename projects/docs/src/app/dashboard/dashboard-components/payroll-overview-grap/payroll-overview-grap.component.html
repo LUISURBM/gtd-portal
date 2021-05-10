@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-content>
+      <div class="d-flex flex-wrap">
+          <div>
+              <mat-card-title>Payroll Overview</mat-card-title>
+               <mat-card-subtitle>Total payrolls uploaded to date</mat-card-subtitle>
+           </div>
+          <div class="ml-auto">
+              <ul class="list-inline">
+                  <li>
+                      <h6 class="text-success m-0"><i class="mdi mdi-checkbox-blank-circle font-10 m-r-10 "></i>May</h6> </li>
+              </ul>
+          </div>
+      </div>
+
+      <div id="chart_wrap" class="barchrt" style="height:360px;">
+        <google-chart
+          id="piechart"
+          [type]="type"
+          [data]="data"
+          [columns]="columnNames"
+          [options]="options"
+          [height]="height" >
+        </google-chart>
+      </div>
+  </mat-card-content>
+</mat-card>

@@ -38,8 +38,15 @@
             "styles": [
               "projects/docs/src/styles.scss",
               "projects/docs/src/assets/styles/style.scss",
-              "node_modules/chartist/dist/chartist.css"
+              "node_modules/chartist/dist/chartist.css",
+              "projects/docs/src/assets/styles/theme/default.scss",
+              "projects/docs/src/assets/styles/theme/unicorn.scss",
+              "projects/docs/src/assets/styles/theme/unicorn-black.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]},
             "scripts": []
           },
           "configurations": {
