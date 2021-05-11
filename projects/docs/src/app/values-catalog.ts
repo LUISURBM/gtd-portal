@@ -31,6 +31,6 @@ export const VALUES_BUSINESS : ValuesCatalog[] = [
 ];
 
 export const VALUES_WORKER : Trabajador[] = [
-  { id: 1, documento: 1037, codigo: 6969 ,nombre: 'John', otroNombre: 'Bayron', primerApellido: 'Ocampo', segundoApellido: 'Fonnegra' }
+  { id: 1, numeroDocumento: 1037, codigoTrabajador: 6969 ,primerNombre: 'John', otrosNombres: 'Bayron', primerApellido: 'Ocampo', segundoApellido: 'Fonnegra' }
 ];
 

@@ -1,8 +1,8 @@
 
  <mat-card>
   <mat-card-content>
-	<mat-card-title>Suscripciones</mat-card-title>
-  <mat-card-subtitle>Angular Material table for <code>subscriptions</code> elements. </mat-card-subtitle>
+	<mat-card-title>Trabajadores</mat-card-title>
+  <mat-card-subtitle>Agrega y Edita trabajador de tu empresa. </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Find</mat-label>
@@ -20,27 +20,27 @@
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="codigo">
+        <ng-container matColumnDef="codigoTrabajador">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>codigo</th>
-          <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.codigoTrabajador }}</td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="documento">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>documento</th>
-          <td mat-cell *matCellDef="let element">{{ element.documento }}</td>
+        <ng-container matColumnDef="numeroDocumento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero Documento</th>
+          <td mat-cell *matCellDef="let element">{{ element.numeroDocumento }}</td>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="nombre">
+        <ng-container matColumnDef="primerNombre">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>nombre</th>
-          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.primerNombre }}</td>
         </ng-container>
 
                
-        <ng-container matColumnDef="otroNombre">
+        <ng-container matColumnDef="otrosNombres">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Segundo nombre</th>
-          <td mat-cell *matCellDef="let element">{{ element.otroNombre }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.otrosNombres }}</td>
         </ng-container>
 
         <ng-container matColumnDef="primerApellido">
@@ -62,7 +62,7 @@
               <mat-icon>edit</mat-icon>
             </button>
 
-            <button mat-icon-button color="primary" (click)="delete(element.name)" color="accent">
+            <button mat-icon-button color="primary" (click)="delete(element.primerNombre)" color="accent">
               <mat-icon>delete</mat-icon>
             </button>
           </td>

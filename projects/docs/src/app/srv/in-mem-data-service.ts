@@ -14,10 +14,10 @@ export interface ValuesCatalog {
 
 export interface Trabajador {
   id: number;
-  documento?: number;
-  codigo?: number;
-  nombre?: string;
-  otroNombre?: string;
+  numeroDocumento?: number;
+  codigoTrabajador?: number;
+  primerNombre?: string;
+  otrosNombres?: string;
   primerApellido?: string;
   segundoApellido?: string;  
 };

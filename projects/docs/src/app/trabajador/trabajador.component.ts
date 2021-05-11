@@ -11,15 +11,15 @@ import { FilterValueComponent } from "./filter.componet";
 
 
 @Component({
-	selector: 'app-dashboard',
+	selector: 'app-trabajador',
 	templateUrl: './trabajador.component.html',
 	styleUrls: ['./trabajador.component.scss']
 })
-export class DashboardComponent implements AfterViewInit {
+export class TrabajadorComponent implements AfterViewInit {
 
   dataSource: MatTableDataSource<ValuesCatalog>;
  
-  displayedColumns: string[] = ["id", "documento", "codigo", "nombre", "otroNombre", "primerApellido", "segundoApellido", "action"];
+  displayedColumns: string[] = ["id", "numeroDocumento", "codigoTrabajador", "primerNombre", "otrosNombres", "primerApellido", "segundoApellido", "action"];
   panelOpenState = false;
   step = 0;
 
@@ -55,7 +55,7 @@ export class DashboardComponent implements AfterViewInit {
       primerNombre:  new FormControl(''),
       otrosNombres:  new FormControl(''),
       primerApellido: new FormControl(''),
-      segundoApellido:  new FormControl(''),
+      segundoApellido:  new FormControl(''),  
 
       lugarTrabajoDepartamentoEstado:  new FormControl(),
       lugarTrabajoDireccion: new FormControl(''),
