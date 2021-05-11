@@ -2,6 +2,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component,OnDestroy,AfterViewInit, ViewChild} from '@angular/core';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { MenuItems } from '../../shared/menu-items/menu-items';
+import { ThemeService } from '../../srv/theme.service';
 
 
 /** @title Responsive sidenav */
@@ -22,7 +23,8 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    public menuItems: MenuItems
+    public menuItems: MenuItems,
+    public themeSrv: ThemeService
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -33,4 +35,8 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   ngAfterViewInit() {}
+
+  toggleMenu(){
+    this.themeSrv.toggleMenu();
+  }
 }

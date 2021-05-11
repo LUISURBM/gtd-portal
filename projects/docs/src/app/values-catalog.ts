@@ -1,7 +1,7 @@
 import { ValuesCatalog } from "./srv/in-mem-data-service";
 import { NgGtdThemes, ValueOption } from "./types/common-types";
 
-function formatToDate(date:string): Date {
+export function formatToDate(date:string): Date {
   return new Date(date);
 }
 

@@ -14,8 +14,8 @@ export class AppComponent {
   constructor(public themeSrv:ThemeService){
   }
 
-  get themeSkin$(){
-    return this.themeSrv.uiPalette;
+  get themeState$(){
+    return this.themeSrv.themeState$;
   }
 
 

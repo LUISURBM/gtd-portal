@@ -1,9 +1,10 @@
 <!-- ============================================================== -->
 <!-- Sidebar - style you can find in sidebar.scss -->
 <!-- ============================================================== -->
-<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-  <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0"
-    [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" style="direction: ltr ">
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0" *ngIf="themeState$ | async as state">
+
+  <mat-sidenav #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0"
+    [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" style="direction: rtl ">
 
     <!-- ============================================================== -->
     <!-- sidebar toggle -->
@@ -19,7 +20,7 @@
             style="position: absolute; width: 0; height: 0; overflow: hidden;">
             <defs>
               <clipPath id="clip">
-                <text x="70" y="35" font-family="Arial" font-size="30px" font-weight="800">Nómina</text>
+                <text x="185" y="45" font-family="Arial" font-size="30px" font-weight="800">Nómina</text>
               </clipPath>
             </defs>
           </svg>
@@ -54,12 +55,12 @@
       </mat-menu>
 
     </div>
-    <form class="navbar-form">
+    <form class="navbar-form" style="direction: ltr ">
       <div class="input-group no-border">
         <input type="text" value="" class="form-control" placeholder="Buscar...">
       </div>
     </form>
-    <mat-nav-list appAccordion>
+    <mat-nav-list appAccordion style="direction: ltr ">
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
         group="{{menuitem.state}}">
         <a class="" appAccordionToggle [routerLink]="menuitem.state" *ngIf="menuitem.type === 'link'">
@@ -81,7 +82,29 @@
     </button>
   </app-helper-overview-grap>
 
-  <ng-content></ng-content>
+
+      <!-- ============================================================== -->
+      <!-- End Topbar - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- Sidebar - style you can find in sidebar.scss -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- Page container - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <mat-sidenav-content class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar - style you can find in header.scss -->
+        <!-- ============================================================== -->
+        <ng-content></ng-content>
+
+      </mat-sidenav-content>
+      <!-- ============================================================== -->
+        <!-- Page container - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->

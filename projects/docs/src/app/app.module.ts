@@ -101,7 +101,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
-    HelperComponent
+    HelperComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,16 +147,16 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     InMemDataService,
     ThemeService,
     StyleManagerService,
-
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer, inMemSrv: ThemeService) {
-    inMemSrv.uiPalette.pipe(pairwise()).subscribe(([p, q]) => {
-      console.log(p,q);
-      if (q) overlayContainer.getContainerElement().classList.remove(q);
-      if (p) overlayContainer.getContainerElement().classList.add(p);
+    inMemSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
+      console.log(p, q);
+      if (q)
+        overlayContainer.getContainerElement().classList.remove(q.uiPalette);
+      if (p) overlayContainer.getContainerElement().classList.add(p.uiPalette);
     });
   }
 }

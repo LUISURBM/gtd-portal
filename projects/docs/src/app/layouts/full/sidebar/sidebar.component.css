@@ -1,5 +1,6 @@
 :host .mat-drawer-inner-container{
   overflow: none!important;
+  height: calc(100vh - 64px);
 }
 
 .sign-gtd {

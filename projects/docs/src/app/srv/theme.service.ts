@@ -4,13 +4,22 @@ import THEMES_CATALOG from '../../assets/themes.json';
 import { BehaviorSubject } from 'rxjs';
 import { NgGtdThemes } from '../types/common-types';
 
+interface ThemeState {
+  uiPalette: NgGtdThemes;
+  visibleMenu: boolean;
+}
+
 @Injectable()
 export class ThemeService {
   themes: any;
-  public uiPalette: BehaviorSubject<NgGtdThemes>;
+  public themeState$: BehaviorSubject<ThemeState>;
+
   constructor(private styleManager: StyleManagerService) {
     this.themes = THEMES_CATALOG;
-    this.uiPalette = new BehaviorSubject<NgGtdThemes>(NgGtdThemes.NeGtd);
+    this.themeState$ = new BehaviorSubject<ThemeState>({
+      uiPalette: NgGtdThemes.NeGtd,
+      visibleMenu: false,
+    });
   }
 
   setTheme(themeToSet: string) {
@@ -20,8 +29,12 @@ export class ThemeService {
     );
   }
 
+  setUiPalette(themeToSet: NgGtdThemes) {
+    this.themeState$.next({ ...this.themeState$.value, uiPalette: themeToSet });
+  }
+
   installTheme(themeName: string) {
-    debugger
+    debugger;
     if (document != null && document.getElementById('themeAsset')) {
       var element = <HTMLLinkElement>document.getElementById('themeAsset')!;
       element.href = `/projects/docs/src/assets/styles/theme/${themeName}.css`;
@@ -41,6 +54,13 @@ export class ThemeService {
 
   changeTheme(themeToSet: NgGtdThemes) {
     // this.themeSrv.installTheme(themeToSet);
-    this.uiPalette.next(themeToSet);
+    this.themeState$.next({ ...this.themeState$.value, uiPalette: themeToSet });
+  }
+
+  toggleMenu() {
+    this.themeState$.next({
+      ...this.themeState$.value,
+      visibleMenu: !this.themeState$.value.visibleMenu,
+    });
   }
 }

@@ -8,11 +8,10 @@ import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
 import { AnticipoComponent } from './payroll-components/anticipo/anticipo.component';
 import { PayrollRoutes } from './payroll.routing';
-import { PayrollComponent } from "./payroll.component";
+import { PayrollComponent } from './payroll.component';
+import { AnticipoFormComponent } from './payroll-components/anticipo/anticipo-form.component';
 @NgModule({
-  declarations: [
-    PayrollComponent,
-    AnticipoComponent],
+  declarations: [PayrollComponent, AnticipoComponent, AnticipoFormComponent],
   imports: [
     CommonModule,
     DemoMaterialModule,
