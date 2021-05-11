@@ -42,6 +42,7 @@ import { pairwise } from 'rxjs/operators';
 import { ThemeService } from './srv/theme.service';
 import { StyleManagerService } from './srv/style-manager.service';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { HelperComponent } from './layouts/full/helper/helper.component';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -100,6 +101,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
+    HelperComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppRoutingModule,
     MsalModule,
     MatToolbarModule,
-    GoogleChartsModule
+    GoogleChartsModule,
   ],
   providers: [
     {
@@ -144,7 +146,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     InMemService,
     InMemDataService,
     ThemeService,
-    StyleManagerService
+    StyleManagerService,
+
   ],
   bootstrap: [AppComponent],
 })
