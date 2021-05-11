@@ -57,7 +57,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     auth: {
       clientId: '81564fb6-eaa3-4c3f-918b-b5f567d4b595',
       authority: b2cPolicies.authorities.signUpSignIn.authority,
-      redirectUri: 'http://localhost:4200/',
+      redirectUri: 'https://payroll.dev.fpicolombia.com/',
       postLogoutRedirectUri: '/',
       knownAuthorities: [b2cPolicies.authorityDomain],
     },

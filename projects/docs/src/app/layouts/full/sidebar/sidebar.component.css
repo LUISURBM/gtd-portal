@@ -4,7 +4,8 @@
 }
 
 .sign-gtd {
-  position: absolute;
+  position: sticky;
+  height: 69px;
   top: 0;
   bottom: 0;
   left: 0;

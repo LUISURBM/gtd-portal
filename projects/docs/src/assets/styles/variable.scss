@@ -13,3 +13,20 @@
 
 @import './theme/unicorn-black';
 
+@import './theme/alt-theme';
+
+
+.deeppurple-amber {
+  @import '@angular/material/prebuilt-themes/deeppurple-amber';
+}
+.indigo-pink {
+  @import '@angular/material/prebuilt-themes/indigo-pink';
+}
+.pink-bluegrey {
+  @import '@angular/material/prebuilt-themes/pink-bluegrey';
+}
+.purple-green {
+  @import '@angular/material/prebuilt-themes/purple-green';
+}
+
+

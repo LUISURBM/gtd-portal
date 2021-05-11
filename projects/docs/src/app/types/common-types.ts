@@ -1,5 +1,12 @@
 export enum NgGtdThemes {
-  NeGtd = 'default-theme', UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme' };
+  NeGtd = 'default-theme', UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme',
+  DeeppurpleAmber = 'deeppurple-amber',
+  IndigoPink =  'indigo-pink',
+  PinkBluegrey =  'pink-bluegrey',
+  PurpleGreen =  'purple-green',
+  AltTheme =  'theme-alternate',
+  AltThemeBlack =  'theme-alternate-black',
+};
 
 
 export interface EnumObject {
