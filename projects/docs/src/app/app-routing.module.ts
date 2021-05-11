@@ -49,6 +49,11 @@ const routes: Routes = [
           import("./trabajador/trabajador.module").then((m) => m.DashboardModule),
       },
       {
+        path: "payroll",
+        loadChildren: () =>
+          import("./payroll/payroll.module").then((m) => m.PayrollModule),
+      },
+      {
         path: "components",
         loadChildren: () =>
           import("./material-component/material.module").then(

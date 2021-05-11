@@ -17174,7 +17174,7 @@ html[dir="rtl"] .sidebar .nav i {
 }
 
 html[dir="rtl"] .card.card-chart {
-  direction: ltr;
+  direction: rtl;
 }
 
 html[dir="rtl"] .card.card-chart .card-title,
@@ -17184,7 +17184,7 @@ html[dir="rtl"] .card.card-chart .card-category {
 
 html[dir="rtl"] .card .card-body,
 html[dir="rtl"] .card .card-footer {
-  direction: rtl;
+  direction: ltr;
 }
 
 html[dir="rtl"] .form-check .form-check-sign .check:before {
