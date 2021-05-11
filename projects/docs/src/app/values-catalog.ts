@@ -1,4 +1,4 @@
-import { ValuesCatalog } from "./srv/in-mem-data-service";
+import { ValuesCatalog,Trabajador } from "./srv/in-mem-data-service";
 
 function formatToDate(date:string): Date {
   return new Date(date);
@@ -28,5 +28,9 @@ export const VALUES_BUSINESS : ValuesCatalog[] = [
   { id: 18, name: 'Barcelona', code: '18DR', catalog: 'VC', fecha: formatToDate('5/17/2021') },
   { id: 19, name: 'Malaga', code: '19MA', catalog: 'VC', fecha: formatToDate('5/17/2021') },
   { id: 20, name: 'Tiendas boyacenses', code: '20TO', catalog: 'VC', fecha: formatToDate('5/17/2021') }
+];
+
+export const VALUES_WORKER : Trabajador[] = [
+  { id: 1, documento: 1037, codigo: 6969 ,nombre: 'John', otroNombre: 'Bayron', primerApellido: 'Ocampo', segundoApellido: 'Fonnegra' }
 ];
 

@@ -12,6 +12,16 @@ export interface ValuesCatalog {
   business?: ValuesCatalog;
 };
 
+export interface Trabajador {
+  id: number;
+  documento?: number;
+  codigo?: number;
+  nombre?: string;
+  otroNombre?: string;
+  primerApellido?: string;
+  segundoApellido?: string;  
+};
+
 
 @Injectable({
   providedIn: "root",

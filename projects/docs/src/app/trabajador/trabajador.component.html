@@ -1,59 +1,79 @@
-<!-- ============================================================== -->
-<!-- Simple four boxes Row -->
-<!-- ============================================================== -->
-<div fxLayout="row wrap">
-    <!-- column -->
-    <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
 
-      <form [formGroup]="form">
-        <div mat-dialog-content>
-          <p>Trabajador INFO!?</p>
-          <mat-form-field>
-            <input
-              matInput
-              tabindex="1"
-              formControlName="nombre"
-              placeholder="Nombre"
-              id="nombre"
-              type="text"
-              class="form-control"
-            />
-            <div
-              *ngIf="f.nombre.touched && f.nombre.invalid"
-              class="alert alert-danger"
-            >
-              <div *ngIf="f.nombre.errors?.required">nombre is required.</div>
-            </div>
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              matInput
-              tabindex="1"
-              formControlName="cedula"
-              placeholder="Cédula"
-              id="cedula"
-              type="text"
-              class="form-control"
-            />
-            <div
-              *ngIf="f.cedula.touched && f.cedula.invalid"
-              class="alert alert-danger"
-            >
-              <div *ngIf="f.cedula.errors?.required">cedula is required.</div>
-            </div>
-          </mat-form-field>
+ <mat-card>
+  <mat-card-content>
+	<mat-card-title>Suscripciones</mat-card-title>
+  <mat-card-subtitle>Angular Material table for <code>subscriptions</code> elements. </mat-card-subtitle>
+    <h4>
+      <mat-form-field class="example-full-width">
+        <mat-label>Find</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+      </mat-form-field>
+    </h4>
 
-        </div>
-        <div mat-dialog-actions>
-          <button mat-button (click)="save()" tabindex="3">Ok</button>
-          <button mat-button (click)="onNoClick()" tabindex="-1">
-            No Thanks
-          </button>
-        </div>
-      </form>
-
-
-    </div>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort style="width:100%">
     
-</div>
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="documento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>documento</th>
+          <td mat-cell *matCellDef="let element">{{ element.documento }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+               
+        <ng-container matColumnDef="otroNombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Segundo nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.otroNombre }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="primerApellido">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>primerApellido</th>
+          <td mat-cell *matCellDef="let element">{{ element.primerApellido }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="segundoApellido">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>segundoApellido</th>
+          <td mat-cell *matCellDef="let element">{{ element.segundoApellido }}</td>
+        </ng-container>
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="delete(element.name)" color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
 
