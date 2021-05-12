@@ -115,20 +115,22 @@ import { InMemService } from "../srv/in-mem-service";
             </mat-select>
           </mat-form-field>             
         
-          <mat-radio-group aria-label="Alto Riesgo">
-            <mat-radio-button value="1">Si</mat-radio-button>
-            <mat-radio-button value="2">No</mat-radio-button>
-          </mat-radio-group>  
+ 
+          <section class="riesgo-section">
+            <mat-checkbox class="example-margin">Alto Riesgo</mat-checkbox>
+          </section>
+
+        <section class="integral-section">
+          <mat-checkbox class="example-margin">Salario Interal</mat-checkbox>
+        </section>
       
-          <mat-radio-group aria-label="Salario Interal">
-            <mat-radio-button value="1">Si</mat-radio-button>
-            <mat-radio-button value="2">No</mat-radio-button>
-          </mat-radio-group>
         </div>   
-          <div mat-dialog-actions>
-            <button mat-button color="warn" (click)="prevStep()">Previous</button>
-            <button mat-button color="primary" (click)="nextStep()">End</button>                
-          </div>
+        <div mat-dialog-actions>
+        <button mat-button (click)="save()" tabindex="3">Ok</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          No Thanks
+        </button>
+      </div>
       </form>
      
     `,
