@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Formulario Lugar Generación XML {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Lugar Generación XML nuevo</h4>
+            <p class="card-category">Información de Lugar Generación XML</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+
+              <mat-form-field >
+                <mat-select class="example-select" #departamento tabindex="1" formControlName="pais"
+                  placeholder="pais" id="pais" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsPaises" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select class="example-select" #departamentoEstado tabindex="1" formControlName="departamentoEstado"
+                  placeholder="departamentoEstado" id="departamentoEstado" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsDepartamentos" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select class="example-select" #municipioCiudad tabindex="1" formControlName="municipioCiudad"
+                  placeholder="municipioCiudad" id="municipioCiudad" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsCiudades" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field >
+                <mat-select class="example-select" #idioma tabindex="1" formControlName="idioma"
+                  placeholder="idioma" id="idioma" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsIdiomas" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+                <button mat-button (click)="save()" tabindex="9999">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Periodos</mat-card-title>
+    <mat-card-subtitle>Angular Material table for <code>Periodos</code> elements. </mat-card-subtitle>
+    <h4>
+      <mat-form-field class="example-full-width">
+        <mat-label>Buscar</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. 14/08/2021" #input>
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+      </mat-form-field>
+    </h4>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort style="width:100%">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Libranza #</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaGen">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Geneneración</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaGen | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaIngreso">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>fechaIngreso</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaIngreso | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaLiquidacion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Liquidación</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaLiquidacion | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaLiquidacionInicio">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Liquidación Inicio </th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaLiquidacionInicio | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaLiquidacionFin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Liquidación Fin</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaLiquidacionFin | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fechaRetiro">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Retiro</th>
+          <td mat-cell *matCellDef="let element">{{ element.fechaRetiro | date: 'short' }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="tiempoLaborado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tiempo Laborado</th>
+          <td mat-cell *matCellDef="let element">{{ element.tiempoLaborado }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="delete(element)" color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

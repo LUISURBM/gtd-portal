@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>Formulario periodo {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar periodo nuevo</h4>
+            <p class="card-category">Información de periodo</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha generación</mat-label>
+                <input matInput [matDatepicker]="fechaGen" formControlName="fechaGen" />
+                <mat-datepicker-toggle matSuffix [for]="fechaGen"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaGen></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha Ingreso</mat-label>
+                <input matInput [matDatepicker]="fechaIngreso" formControlName="fechaIngreso" />
+                <mat-datepicker-toggle matSuffix [for]="fechaIngreso"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaIngreso></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha Liquidación</mat-label>
+                <input matInput [matDatepicker]="fechaLiquidacion" formControlName="fechaLiquidacion" />
+                <mat-datepicker-toggle matSuffix [for]="fechaLiquidacion"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaLiquidacion></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha Liquidación inicio</mat-label>
+                <input matInput [matDatepicker]="fechaLiquidacionInicio" formControlName="fechaLiquidacionInicio" />
+                <mat-datepicker-toggle matSuffix [for]="fechaLiquidacionInicio"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaLiquidacionInicio></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha Liquidación fin</mat-label>
+                <input matInput [matDatepicker]="fechaLiquidacionFin" formControlName="fechaLiquidacionFin" />
+                <mat-datepicker-toggle matSuffix [for]="fechaLiquidacionFin"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaLiquidacionFin></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha Retiro</mat-label>
+                <input matInput [matDatepicker]="fechaRetiro" formControlName="fechaRetiro" />
+                <mat-datepicker-toggle matSuffix [for]="fechaRetiro"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #fechaRetiro></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha tiempo laborado</mat-label>
+                <input matInput [matDatepicker]="tiempoLaborado" formControlName="tiempoLaborado" />
+                <mat-datepicker-toggle matSuffix [for]="tiempoLaborado"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #tiempoLaborado></mat-datepicker>
+              </mat-form-field>
+
+
+
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

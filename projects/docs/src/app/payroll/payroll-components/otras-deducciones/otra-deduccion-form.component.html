@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Formulario Otra Deducción {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Otra Deducción nueva</h4>
+            <p class="card-category">Información de la Otra Deducción</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="otraDeduccion" placeholder="Valor de la otra deducción"
+                  id="otraDeduccion" type="text" class="form-control" />
+                <div *ngIf="f.otraDeduccion.touched && f.otraDeduccion.invalid" class="alert alert-danger">
+                  <div *ngIf="f.otraDeduccion.errors?.required">
+                    Otra Deducción is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Formulario fecha pago {{ data.id }}</h1>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Agregar fecha pago nuevo</h4>
+                <p class="card-category">Información de fecha pago</p>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="form">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Fecha pago</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechaPago" />
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                  </mat-form-field>
+
+
+                  <div mat-dialog-actions>
+                    <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                    <button mat-button (click)="onNoClick()" tabindex="-1">
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

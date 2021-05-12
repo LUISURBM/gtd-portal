@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Bonificaciones</mat-card-title>
+    <mat-card-subtitle>Angular Material table for <code>bonificaciones</code> elements. </mat-card-subtitle>
+    <h4>
+      <mat-form-field class="example-full-width">
+        <mat-label>Buscar</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+      </mat-form-field>
+    </h4>
+
+    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+      <table mat-table [dataSource]="dataSource.datasource" matSort style="width:100%">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Bonificacion #</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="bonificacionNS">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>NS</th>
+          <td mat-cell *matCellDef="let element">{{ element.bonificacionNS }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="bonificacionS">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>S</th>
+          <td mat-cell *matCellDef="let element">{{ element.bonificacionS }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="delete(element)" color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

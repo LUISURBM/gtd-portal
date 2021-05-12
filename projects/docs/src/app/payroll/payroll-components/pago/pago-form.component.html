@@ -1,0 +1,76 @@
+<h1 mat-dialog-title>Formulario Pago {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Pago nuevo</h4>
+            <p class="card-category">Información de Pago</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="banco" placeholder="banco" id="banco" type="text"
+                  class="form-control" />
+                <div *ngIf="f.banco.touched && f.banco.invalid" class="alert alert-danger">
+                  <div *ngIf="f.banco.errors?.required">
+                    banco is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="forma" placeholder="forma" id="forma" type="text"
+                  class="form-control" />
+                <div *ngIf="f.forma.touched && f.forma.invalid" class="alert alert-danger">
+                  <div *ngIf="f.forma.errors?.required">
+                    forma is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="metodo" placeholder="metodo" id="metodo" type="text"
+                  class="form-control" />
+                <div *ngIf="f.metodo.touched && f.metodo.invalid" class="alert alert-danger">
+                  <div *ngIf="f.metodo.errors?.required">
+                    metodo is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="numeroCuenta" placeholder="numeroCuenta" id="numeroCuenta"
+                  type="text" class="form-control" />
+                <div *ngIf="f.numeroCuenta.touched && f.numeroCuenta.invalid" class="alert alert-danger">
+                  <div *ngIf="f.numeroCuenta.errors?.required">
+                    numeroCuenta is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="tipoCuenta" placeholder="tipoCuenta" id="tipoCuenta"
+                  type="text" class="form-control" />
+                <div *ngIf="f.tipoCuenta.touched && f.tipoCuenta.invalid" class="alert alert-danger">
+                  <div *ngIf="f.tipoCuenta.errors?.required">
+                    tipoCuenta is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+                <button mat-button (click)="save()" tabindex="9999">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
