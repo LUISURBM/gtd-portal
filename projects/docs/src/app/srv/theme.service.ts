@@ -14,14 +14,14 @@ export class ThemeService {
   themes: any;
   public themeState$: BehaviorSubject<ThemeState> =
     new BehaviorSubject<ThemeState>({
-      uiPalette: NgGtdThemes.NeGtd,
+      uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
     });
 
   constructor(private styleManager: StyleManagerService) {
     this.themes = THEMES_CATALOG;
     this.themeState$?.next({
-      uiPalette: NgGtdThemes.NeGtd,
+      uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
     });
   }

@@ -1,4 +1,4 @@
-
+@import "~/src/assets/styles/variable.scss";
 
 .position-relative {
 	position: relative;
@@ -1047,6 +1047,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  margin-top: 25px
 }
 
 .no-gutters {
@@ -17554,7 +17555,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-warning,
 .card.card-rotate.bg-warning .front,
 .card.card-rotate.bg-warning .back {
-  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  background: linear-gradient(60deg, $light-warning, $warning-dark);
 }
 
 .card .card-header-danger .card-icon,

@@ -12,6 +12,7 @@
 @import './theme/unicorn-black';
 @import './theme/alt-theme';
 @import './theme/fpi';
+@import './theme/gtd-blue';
 
 
 .deeppurple-amber {
@@ -25,7 +26,7 @@
 }
 .pink-bluegrey {
   @import '@angular/material/prebuilt-themes/pink-bluegrey';
-  --themecolor-alt: #FFD3BA;
+  --themecolor-alt: #3082d4;
 }
 .purple-green {
   @import '@angular/material/prebuilt-themes/purple-green';

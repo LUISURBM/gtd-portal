@@ -153,7 +153,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer, inMemSrv: ThemeService) {
-    overlayContainer.getContainerElement().classList.add(NgGtdThemes.NeGtd);
+    overlayContainer.getContainerElement().classList.add(inMemSrv.themeState$.value.uiPalette);
     inMemSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
       console.log(p, q);
       if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);

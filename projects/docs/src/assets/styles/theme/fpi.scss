@@ -225,7 +225,6 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 .fpi-skin {
   @include angular-material-theme($altTheme);
   --themecolor-alt: #{$themecolor-alt};
-
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

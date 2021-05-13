@@ -9,7 +9,7 @@ export enum NgGtdThemes {
   PurpleGreen =  'purple-green',
   AltTheme =  'theme-alternate',
   AltThemeBlack =  'theme-alternate-black',
-  GtdBlueGrey =  'theme-blue-grey',
+  GtdBlueGrey =  'gtd-blue',
 };
 
 
