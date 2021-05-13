@@ -12,17 +12,6 @@ export interface ValuesCatalog {
   business?: ValuesCatalog;
 };
 
-export interface Trabajador {
-  id: number;
-  numeroDocumento?: number;
-  codigoTrabajador?: number;
-  primerNombre?: string;
-  otrosNombres?: string;
-  primerApellido?: string;
-  segundoApellido?: string;  
-};
-
-
 @Injectable({
   providedIn: "root",
 })

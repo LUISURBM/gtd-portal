@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatTableDataSource } from "@angular/material/table";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { InMemService } from '../srv/in-mem-service';
-import { VALUES_WORKER } from "../values-catalog";
 import { MatDialog } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatTableDataSource } from "@angular/material/table";
 import { ValuesCatalog } from "../srv/in-mem-data-service";
+import { InMemService } from '../srv/in-mem-service';
 import { FilterValueComponent } from "./filter.componet";
+import { VALUES_WORKER } from './trabajador-data';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { FilterValueComponent } from "./filter.componet";
 export class TrabajadorComponent implements AfterViewInit {
 
   dataSource: MatTableDataSource<ValuesCatalog>;
- 
+
   displayedColumns: string[] = ["id", "numeroDocumento", "codigoTrabajador", "primerNombre", "otrosNombres", "primerApellido", "segundoApellido", "action"];
   panelOpenState = false;
   step = 0;
@@ -49,25 +49,25 @@ export class TrabajadorComponent implements AfterViewInit {
     this.form = new FormGroup({
 
       id: new FormControl(),
-     
+
       tipoDocumento: new FormControl(''),
       numeroDocumento:  new FormControl(Number),
       primerNombre:  new FormControl(''),
       otrosNombres:  new FormControl(''),
       primerApellido: new FormControl(''),
-      segundoApellido:  new FormControl(''),  
+      segundoApellido:  new FormControl(''),
 
       lugarTrabajoDepartamentoEstado:  new FormControl(),
       lugarTrabajoDireccion: new FormControl(''),
       lugarTrabajoMunicipioCiudad: new FormControl(),
       lugarTrabajoPais:  new FormControl(),
-      
+
       altoRiesgoPension: new FormControl(Boolean),
-      codigoTrabajador: new FormControl(Number),      
-      salarioIntegral:  new FormControl(),      
+      codigoTrabajador: new FormControl(Number),
+      salarioIntegral:  new FormControl(),
       subTipoTrabajador:  new FormControl(),
       sueldo:  new FormControl(),
-      tipoContrato:  new FormControl(),  
+      tipoContrato:  new FormControl(),
       tipoTrabajador:  new FormControl()
     });
   }

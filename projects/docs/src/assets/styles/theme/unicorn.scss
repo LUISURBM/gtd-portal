@@ -99,6 +99,6 @@ $background: map-get($candy-app-theme, background);
   --light: #{$light};
   --secondary: #{$secondary};
   --background: #{mat-color($background)};
-
+  --themecolor-alt: #{$themecolor-alt};
 
 }

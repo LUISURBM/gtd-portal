@@ -12,11 +12,15 @@ interface ThemeState {
 @Injectable()
 export class ThemeService {
   themes: any;
-  public themeState$: BehaviorSubject<ThemeState>;
+  public themeState$: BehaviorSubject<ThemeState> =
+    new BehaviorSubject<ThemeState>({
+      uiPalette: NgGtdThemes.NeGtd,
+      visibleMenu: false,
+    });
 
   constructor(private styleManager: StyleManagerService) {
     this.themes = THEMES_CATALOG;
-    this.themeState$ = new BehaviorSubject<ThemeState>({
+    this.themeState$?.next({
       uiPalette: NgGtdThemes.NeGtd,
       visibleMenu: false,
     });

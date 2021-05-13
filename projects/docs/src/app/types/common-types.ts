@@ -1,6 +1,7 @@
 import { MatTableDataSource } from "@angular/material/table";
 
 export enum NgGtdThemes {
+  FpiSkin =  'fpi-skin',
   NeGtd = 'default-theme', UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme',
   DeeppurpleAmber = 'deeppurple-amber',
   IndigoPink =  'indigo-pink',
@@ -8,6 +9,7 @@ export enum NgGtdThemes {
   PurpleGreen =  'purple-green',
   AltTheme =  'theme-alternate',
   AltThemeBlack =  'theme-alternate-black',
+  GtdBlueGrey =  'theme-blue-grey',
 };
 
 

@@ -85,7 +85,7 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #fafafa;
+$light-background:    #F1F1F1;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
@@ -147,19 +147,23 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #cc33ca;
-  --primary-lighter-color: #f0c2ef;
-  --primary-darker-color: #b920b7;
+  --primary-color: #ff8214;
+  --primary-lighter-color: #d6af8d;
+  --primary-darker-color: #472609;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
+$themecolor-alt: #3082d4;
+
+$inverse: #097df2;
+
 $mat-primary: (
-  main: #cc33ca,
-  lighter: #f0c2ef,
-  darker: #b920b7,
-  200: #cc33ca, // For slide toggle,
+  main: #ff8214,
+  lighter: #777575,
+  darker: #000000,
+  200: #db543c, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -167,8 +171,6 @@ $mat-primary: (
   )
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
-$themecolor-alt: #5c0e1fc9;
-
 
 body {
   --accent-color: #797979;
@@ -218,13 +220,12 @@ $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 // Theme Init
-.theme-alternate-black {
+.gtd-blue-black {
 @include angular-material-theme($theme);
 }
 
-.theme-alternate {
+.gtd-blue {
   @include angular-material-theme($altTheme);
-  --themecolor-alt: #{$themecolor-alt};
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

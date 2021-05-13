@@ -1,7 +1,7 @@
 <mat-card>
-  <mat-card-content>
-	<mat-card-title>Vacaciones</mat-card-title>
-  <mat-card-subtitle>Angular Material table for <code>vacaciones</code> elements. </mat-card-subtitle>
+  <mat-card-content *ngIf="dataSource$ | async as dataSource" >
+    <mat-card-title>Vacaciones</mat-card-title>
+    <mat-card-subtitle>Angular Material table for <code>vacaciones</code> elements. </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
@@ -10,9 +10,8 @@
       </mat-form-field>
     </h4>
 
-    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
-      <table mat-table [dataSource]="dataSource.datasource" matSort style="width:100%">
-
+    <div class="mat-elevation-z8">
+      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Vacacion #</th>

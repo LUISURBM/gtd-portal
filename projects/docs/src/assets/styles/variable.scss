@@ -8,25 +8,28 @@
 
 
 @import './theme/default';
-
 @import './theme/unicorn';
-
 @import './theme/unicorn-black';
-
 @import './theme/alt-theme';
+@import './theme/fpi';
 
 
 .deeppurple-amber {
   @import '@angular/material/prebuilt-themes/deeppurple-amber';
+  --themecolor-alt: #b38c0a;
 }
+
 .indigo-pink {
   @import '@angular/material/prebuilt-themes/indigo-pink';
+  --themecolor-alt: #b30a6d;
 }
 .pink-bluegrey {
   @import '@angular/material/prebuilt-themes/pink-bluegrey';
+  --themecolor-alt: #FFD3BA;
 }
 .purple-green {
   @import '@angular/material/prebuilt-themes/purple-green';
+  --themecolor-alt: #0ab326;
 }
 
 

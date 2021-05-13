@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+interface MenuState {
+  menuItems: Menu[];
+}
 
 export interface Menu {
   state: string;
   name: string;
   type: string;
   icon: string;
-  badge?:[{ type: string, value: string}]
+  badge?:[{ type: string, value: string}],
+  menuItems?: Menu[];
 }
 
-const MENUITEMS = [
+const MENUITEMS:Menu[] = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
   { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'av_timer' },
   { state: 'payroll', name: 'Nómina Individual', type: 'link', icon: 'av_timer' },
@@ -58,7 +64,18 @@ const MENUITEMS = [
 
 @Injectable()
 export class MenuItems {
-  getMenuitem(): Menu[] {
-    return MENUITEMS;
+  public menuState$: BehaviorSubject<MenuState> =
+    new BehaviorSubject<MenuState>({
+      menuItems: MENUITEMS,
+    });
+
+  filter(filter: string) {
+    if(filter) {
+      this.menuState$.next({
+        menuItems: MENUITEMS.filter((item) => item.name
+            ?.toLocaleLowerCase()
+            .includes(filter?.toLocaleLowerCase())) } );
+    } else
+    { this.menuState$.next({ menuItems: MENUITEMS }); }
   }
 }
