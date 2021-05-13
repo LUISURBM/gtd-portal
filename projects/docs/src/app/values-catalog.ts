@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { ValuesCatalog } from "./srv/in-mem-data-service";
 import { NgGtdThemes, ValueOption } from "./types/common-types";
+=======
+import { ValuesCatalog,Trabajador } from "./srv/in-mem-data-service";
+>>>>>>> 257b06e8043f162fc80cb8cb97956a566037bb1d
 
 export function formatToDate(date:string): Date {
   return new Date(date);
@@ -31,6 +35,7 @@ export const VALUES_BUSINESS : ValuesCatalog[] = [
   { id: 20, name: 'Tiendas boyacenses', code: '20TO', catalog: 'VC', fecha: formatToDate('5/17/2021') }
 ];
 
+<<<<<<< HEAD
 export const THEMES_OPTIONS : ValueOption[] = [
   {
     "backgroundColor": "#fff",
@@ -105,3 +110,9 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "catalog": NgGtdThemes.AltThemeBlack
   }
 ]
+=======
+export const VALUES_WORKER : Trabajador[] = [
+  { id: 1, numeroDocumento: 1037, codigoTrabajador: 6969 ,primerNombre: 'John', otrosNombres: 'Bayron', primerApellido: 'Ocampo', segundoApellido: 'Fonnegra' }
+];
+
+>>>>>>> 257b06e8043f162fc80cb8cb97956a566037bb1d
