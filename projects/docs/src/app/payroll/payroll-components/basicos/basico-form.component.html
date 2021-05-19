@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Formulario Basicos {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Basicos nuevo</h4>
+            <p class="card-category">Información de Basicos</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Dias trabajados</span>
+                <mat-form-field>
+                  <input matInput tabindex="1" formControlName="diasTrabajados" placeholder="diasTrabajados"
+                    id="diasTrabajados" type="text" class="form-control" />
+                  <div *ngIf="f.diasTrabajados.touched && f.diasTrabajados.invalid" class="alert alert-danger">
+                    <div *ngIf="f.diasTrabajados.errors?.required">
+                      diasTrabajados is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Sueldo trabajado</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="sueldoTrabajado" placeholder="sueldoTrabajado"
+                    id="sueldoTrabajado" type="text" class="form-control" />
+                  <div *ngIf="f.sueldoTrabajado.touched && f.sueldoTrabajado.invalid" class="alert alert-danger">
+                    <div *ngIf="f.sueldoTrabajado.errors?.required">
+                      sueldoTrabajado is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+
+              </div>
+              <div mat-dialog-actions>
+                <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

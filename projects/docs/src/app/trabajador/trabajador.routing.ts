@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from './trabajador.component';
+import { TrabajadorComponent } from './trabajador.component';
 
-export const DashboardRoutes: Routes = [{
+export const TrabajadorRoutes: Routes = [{
   path: '',
-  component: DashboardComponent
+  component: TrabajadorComponent
 }];

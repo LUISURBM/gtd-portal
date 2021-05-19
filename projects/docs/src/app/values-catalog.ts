@@ -1,7 +1,7 @@
 import { ValuesCatalog } from "./srv/in-mem-data-service";
 import { NgGtdThemes, ValueOption } from "./types/common-types";
 
-function formatToDate(date:string): Date {
+export function formatToDate(date:string): Date {
   return new Date(date);
 }
 
@@ -33,9 +33,17 @@ export const VALUES_BUSINESS : ValuesCatalog[] = [
 
 export const THEMES_OPTIONS : ValueOption[] = [
   {
+    "backgroundColor": "#F1F1F1",
+    "buttonColor": "#f75c59",
+    "headingColor": "#181818",
+    "label": "Fpi Skin",
+    "value": "Fpi Skin",
+    "catalog": NgGtdThemes.FpiSkin
+  },
+  {
     "backgroundColor": "#fff",
-    "buttonColor": "#ffc107",
-    "headingColor": "#673ab7",
+    "buttonColor": "##26c6da",
+    "headingColor": "##607d8b",
     "label": "Deep Purple & Amber",
     "value": "deeppurple-amber",
     "catalog": NgGtdThemes.NeGtd
@@ -51,9 +59,66 @@ export const THEMES_OPTIONS : ValueOption[] = [
   {
     "backgroundColor": "#303030",
     "buttonColor": "#607d8b",
-    "headingColor": "#e91e63",
-    "label": "Pink & Blue Grey",
-    "value": "pink-bluegrey",
+    "headingColor": "#ff5722",
+    "label": "Deep orange & Blue Grey",
+    "value": "deeporange-bluegrey",
     "catalog": NgGtdThemes.UnicornDarkTheme
+  },
+  {
+    "backgroundColor": "#fff",
+    "buttonColor": "#607d8b",
+    "headingColor": "#7b1fa2",
+    "label": "Deep purple Amber",
+    "value": "Deep purple Amber",
+    "catalog": NgGtdThemes.DeeppurpleAmber
+  },
+  {
+    "backgroundColor": "#fff",
+    "buttonColor": "#607d8b",
+    "headingColor": "#3f51b5",
+    "label": "Indigo Pink",
+    "value": "Indigo Pink",
+    "catalog": NgGtdThemes.IndigoPink
+  },
+  {
+    "backgroundColor": "#303030",
+    "buttonColor": "#607d8b",
+    "headingColor": "#e91e63",
+    "label": "PinkBlue grey",
+    "value": "PinkBlue grey",
+    "catalog": NgGtdThemes.PinkBluegrey
+  },
+  {
+    "backgroundColor": "#303030",
+    "buttonColor": "#607d8b",
+    "headingColor": "#7b1fa2",
+    "label": "PurpleG reen",
+    "value": "PurpleG reen",
+    "catalog": NgGtdThemes.PurpleGreen
+  },
+  {
+    "backgroundColor": "#fafafa",
+    "buttonColor": "#797979",
+    "headingColor": "#cc33ca",
+    "label": "Alt theme",
+    "value": "Alt theme",
+    "catalog": NgGtdThemes.AltTheme
+  },
+  {
+    "backgroundColor": "#303030",
+    "buttonColor": "#d7d7d7",
+    "headingColor": "#cc33ca",
+    "label": "Alt theme black",
+    "value": "Alt theme black",
+    "catalog": NgGtdThemes.AltThemeBlack
+  },
+  {
+    "backgroundColor": "#c1ccd7",
+    "buttonColor": "#cc33ca",
+    "headingColor": "#097df2",
+    "label": "GtdBlueGrey",
+    "value": "GtdBlueGrey",
+    "catalog": NgGtdThemes.GtdBlueGrey
   }
-]
+];
+

@@ -12,7 +12,6 @@ export interface ValuesCatalog {
   business?: ValuesCatalog;
 };
 
-
 @Injectable({
   providedIn: "root",
 })

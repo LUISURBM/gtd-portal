@@ -206,6 +206,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeToSet: NgGtdThemes) {
     // this.themeSrv.installTheme(themeToSet);
-    this.themeSrv.uiPalette.next(themeToSet);
+    this.themeSrv.setUiPalette(themeToSet);
   }
 }

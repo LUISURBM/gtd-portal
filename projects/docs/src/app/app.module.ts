@@ -1,3 +1,4 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -24,25 +25,25 @@ import {
   IPublicClientApplication,
   PublicClientApplication,
 } from '@azure/msal-browser';
+import { GoogleChartsModule } from 'angular-google-charts';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LogLevel } from 'msal';
+import { pairwise } from 'rxjs/operators';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { apiConfig, b2cPolicies } from './b2c-config';
 import { DemoMaterialModule } from './demo-material-module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
+import { HelperComponent } from './layouts/full/helper/helper.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { pairwise } from 'rxjs/operators';
-import { ThemeService } from './srv/theme.service';
 import { StyleManagerService } from './srv/style-manager.service';
-import { GoogleChartsModule } from 'angular-google-charts';
-import { HelperComponent } from './layouts/full/helper/helper.component';
+import { ThemeService } from './srv/theme.service';
+import { NgGtdThemes } from './types/common-types';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -57,7 +58,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     auth: {
       clientId: '81564fb6-eaa3-4c3f-918b-b5f567d4b595',
       authority: b2cPolicies.authorities.signUpSignIn.authority,
-      redirectUri: 'http://localhost:4200/',
+      redirectUri: 'https://payroll.dev.fpicolombia.com/',
       postLogoutRedirectUri: '/',
       knownAuthorities: [b2cPolicies.authorityDomain],
     },
@@ -101,7 +102,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
-    HelperComponent
+    HelperComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,16 +148,16 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     InMemDataService,
     ThemeService,
     StyleManagerService,
-
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer, inMemSrv: ThemeService) {
-    inMemSrv.uiPalette.pipe(pairwise()).subscribe(([p, q]) => {
-      console.log(p,q);
-      if (q) overlayContainer.getContainerElement().classList.remove(q);
-      if (p) overlayContainer.getContainerElement().classList.add(p);
+    overlayContainer.getContainerElement().classList.add(inMemSrv.themeState$.value.uiPalette);
+    inMemSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
+      console.log(p, q);
+      if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
+      if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
     });
   }
 }

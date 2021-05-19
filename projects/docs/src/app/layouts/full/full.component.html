@@ -6,53 +6,23 @@
     <!-- ============================================================== -->
     <!-- Sidebar - style you can find in sidebar.scss -->
     <!-- ============================================================== -->
+
+  <mat-toolbar color="primary" class="topbar telative">
+    <!-- ============================================================== -->
+    <!-- Logo - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span fxFlex></span>
+    <!-- ============================================================== -->
+    <!-- app header component - style you can find in header.scss / header.component.ts-->
+    <!-- ============================================================== -->
+    <app-header></app-header>
+  </mat-toolbar>
+  <div class="page-content">
     <app-sidebar>
-
-
-
-      <!-- ============================================================== -->
-      <!-- End Topbar - style you can find in pages.scss -->
-      <!-- ============================================================== -->
-
-      <!-- ============================================================== -->
-      <!-- Sidebar - style you can find in sidebar.scss -->
-      <!-- ============================================================== -->
-
-      <!-- ============================================================== -->
-      <!-- Page container - style you can find in pages.scss -->
-      <!-- ============================================================== -->
-      <mat-sidenav-content class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar - style you can find in header.scss -->
-        <!-- ============================================================== -->
-        <mat-toolbar color="primary" class="topbar telative">
-          <!-- ============================================================== -->
-          <!-- Logo - style you can find in header.scss -->
-          <!-- ============================================================== -->
-          <div class="navbar-header">
-            <a class="navbar-brand" >
-                  <!-- Logo icon --><b>
-                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                      <!-- Dark Logo icon -->
-                      <img src="assets/images/logo-icon.ico" alt="homepage" class="dark-logo">
-                      <img src="assets/images/logo__globaltek.png" alt="homepage" class="light-logo" style="height:60px; padding-top: 5px;">
-                      <!-- Light Logo icon -->
-                    </b></a>
-                  </div>
-          <span fxFlex></span>
-          <!-- ============================================================== -->
-          <!-- app header component - style you can find in header.scss / header.component.ts-->
-          <!-- ============================================================== -->
-          <app-header></app-header>
-        </mat-toolbar>
-        <div class="page-content">
-          <router-outlet><app-spinner></app-spinner></router-outlet>
-        </div>
-
-      </mat-sidenav-content>
-      <!-- ============================================================== -->
-        <!-- Page container - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-
-  </app-sidebar>
+      <router-outlet><app-spinner></app-spinner></router-outlet>
+    </app-sidebar>
+  </div>
   </div>

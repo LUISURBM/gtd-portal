@@ -1,32 +1,13 @@
 <!-- ============================================================== -->
 <!-- Sidebar - style you can find in sidebar.scss -->
 <!-- ============================================================== -->
-<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-  <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0"
-    [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" style="direction: ltr ">
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+  *ngIf="themeState$ | async as state">
 
-    <!-- ============================================================== -->
-    <!-- sidebar toggle -->
-    <!-- ============================================================== -->
+  <mat-sidenav #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs"
+    [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches"
+    [disableClose]="mobileQuery.matches" style="direction: rtl ">
 
-    <div class="navbar-header" >
-      <a class="navbar-brand">
-        <!--End Logo icon -->
-        <!-- Logo text -->
-        <span>
-          <!-- Light Logo text -->
-          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-            style="position: absolute; width: 0; height: 0; overflow: hidden;">
-            <defs>
-              <clipPath id="clip">
-                <text x="70" y="35" font-family="Arial" font-size="30px" font-weight="800">Nómina</text>
-              </clipPath>
-            </defs>
-          </svg>
-          <div class="sign-gtd"></div>
-        </span>
-      </a>
-    </div>
     <!-- ============================================================== -->
     <!-- sidebar -->
     <!-- ============================================================== -->
@@ -36,8 +17,12 @@
       <!-- ============================================================== -->
       <!-- Profile - style you can find in header.scss -->
       <!-- ============================================================== -->
-      <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Administrador <i
-            class="ti-angle-down font-12 m-l-5"></i></a></div>
+      <div class="profile-text">
+        <a [matMenuTriggerFor]="sdprofile" class="">
+          Administrador
+        <em class="ti-angle-down font-12 m-l-5"></em>
+        </a>
+      </div>
       <mat-menu #sdprofile="matMenu" class="mymegamenu">
         <button mat-menu-item>
           <mat-icon>settings</mat-icon> Settings
@@ -52,15 +37,17 @@
           <mat-icon>exit_to_app</mat-icon> Sign Out
         </button>
       </mat-menu>
-
     </div>
-    <form class="navbar-form">
-      <div class="input-group no-border">
-        <input type="text" value="" class="form-control" placeholder="Buscar...">
-      </div>
-    </form>
-    <mat-nav-list appAccordion>
-      <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+
+    <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
+      <form [formGroup]="form">
+        <mat-form-field class="example-full-width" style="direction: ltr; padding: 0px 15px ">
+          <mat-label>Buscar...</mat-label>
+          <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
+          <mat-icon (click)="buscar.value = ''; filter('');" matSuffix mat-fab color="primary">clear</mat-icon>
+        </mat-form-field>
+      </form>
+      <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
         group="{{menuitem.state}}">
         <a class="" appAccordionToggle [routerLink]="menuitem.state" *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
@@ -68,20 +55,39 @@
           <span fxFlex></span>
           <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
         </a>
-
-
       </mat-list-item>
-
     </mat-nav-list>
 
   </mat-sidenav>
-  <app-helper-overview-grap >
+  <app-helper-overview-grap>
     <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
       <mat-icon>menu</mat-icon>
     </button>
   </app-helper-overview-grap>
 
-  <ng-content></ng-content>
+
+  <!-- ============================================================== -->
+  <!-- End Topbar - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- Sidebar - style you can find in sidebar.scss -->
+  <!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- Page container - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <mat-sidenav-content class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+  <!-- ============================================================== -->
+  <!-- Page container - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->

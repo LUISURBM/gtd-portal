@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Formulario comision {{ data.id }}</h1>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Agregar comision nuevo</h4>
+                <p class="card-category">Información de comision</p>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="form">
+                  <mat-form-field>
+                    <input
+                      matInput
+                      tabindex="1"
+                      formControlName="comision"
+                      placeholder="Valor de la comision"
+                      id="comision"
+                      type="text"
+                      class="form-control"
+                    />
+                    <div
+                      *ngIf="f.comision.touched && f.comision.invalid"
+                      class="alert alert-danger"
+                    >
+                      <div *ngIf="f.comision.errors?.required">
+                        comision is required.
+                      </div>
+                    </div>
+                  </mat-form-field>
+
+
+                  <div mat-dialog-actions>
+                    <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                    <button mat-button (click)="onNoClick()" tabindex="-1">
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

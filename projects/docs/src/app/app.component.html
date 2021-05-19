@@ -2,5 +2,8 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 
-<div [attr.class]="themeSkin$|async"><router-outlet><app-spinner></app-spinner></router-outlet></div>
-
+<div *ngIf="themeState$|async as state" [attr.class]="state.uiPalette">
+  <router-outlet>
+    <app-spinner></app-spinner>
+  </router-outlet>
+</div>

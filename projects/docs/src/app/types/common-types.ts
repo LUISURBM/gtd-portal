@@ -1,5 +1,16 @@
+import { MatTableDataSource } from "@angular/material/table";
+
 export enum NgGtdThemes {
-  NeGtd = 'default-theme', UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme' };
+  FpiSkin =  'fpi-skin',
+  NeGtd = 'default-theme', UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme',
+  DeeppurpleAmber = 'deeppurple-amber',
+  IndigoPink =  'indigo-pink',
+  PinkBluegrey =  'pink-bluegrey',
+  PurpleGreen =  'purple-green',
+  AltTheme =  'theme-alternate',
+  AltThemeBlack =  'theme-alternate-black',
+  GtdBlueGrey =  'gtd-blue',
+};
 
 
 export interface EnumObject {
@@ -28,4 +39,11 @@ export interface ValueOption {
   label: string;
   value: string;
   catalog: NgGtdThemes;
+}
+
+
+
+export interface NgGtdDS {
+  datasource: MatTableDataSource<any>;
+  displayedColumns: string[];
 }

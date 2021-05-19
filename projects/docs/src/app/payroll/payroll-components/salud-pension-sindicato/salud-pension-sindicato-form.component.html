@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Formulario {{data.catalog}} {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar {{data.catalog}} nuevo</h4>
+            <p class="card-category">Información de {{data.catalog}}</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Ver tipo</span>
+                <mat-form-field>
+                  <mat-select class="example-select" #catalog tabindex="1" formControlName="catalog" id="catalog">
+                    <mat-option *ngFor="let bus of catalogs" [value]="bus">
+                      {{bus.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Deducción</span>
+                <mat-form-field>
+                  <input matInput tabindex="1" formControlName="deduccion" placeholder="Deducción" id="deduccion"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.deduccion.errors?.required">
+                      deduccion is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Porcentaje</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.porcentaje.touched && f.porcentaje.invalid" class="alert alert-danger">
+                    <div *ngIf="f.porcentaje.errors?.required">
+                      porcentaje is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+
+              </div>
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

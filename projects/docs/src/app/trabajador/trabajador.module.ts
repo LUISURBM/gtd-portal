@@ -1,30 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DemoMaterialModule } from '../demo-material-module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { DashboardComponent } from './trabajador.component';
-import { DashboardRoutes } from './trabajador.routing';
-import { ChartistModule } from 'ng-chartist';
-import { SalesOverviewGrapComponent } from './dashboard-components/sales-overview-grap/sales-overview-grap.component';
-import { VisiterGraphComponent } from './dashboard-components/visiter-graph/visiter-graph.component';
-import { StickerComponent } from './dashboard-components/sticker/sticker.component';
-import { ContactsComponent } from './dashboard-components/contacts/contacts.component';
-import { ActivityComponent } from './dashboard-components/activity/activity.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ChartistModule } from 'ng-chartist';
+import { DemoMaterialModule } from '../demo-material-module';
+import { FilterValueComponent } from './filter.componet';
+import { TrabajadorComponent } from './trabajador.component';
+import { TrabajadorRoutes } from './trabajador.routing';
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
-    RouterModule.forChild(DashboardRoutes),
+    RouterModule.forChild(TrabajadorRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  declarations: [DashboardComponent, SalesOverviewGrapComponent, VisiterGraphComponent, StickerComponent, ContactsComponent, ActivityComponent]
+  declarations: [TrabajadorComponent, FilterValueComponent],
 })
 export class DashboardModule {}

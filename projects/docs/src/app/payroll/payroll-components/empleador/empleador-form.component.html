@@ -1,0 +1,136 @@
+<h1 mat-dialog-title>Formulario Empleador {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Empleador nuevo</h4>
+            <p class="card-category">Información de Empleador</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="nit" placeholder="nit"
+                  id="nit" type="text" class="form-control" />
+                <div *ngIf="f.nit.touched && f.nit.invalid" class="alert alert-danger">
+                  <div *ngIf="f.nit.errors?.required">
+                    nit is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="primerApellido" placeholder="primerApellido"
+                  id="primerApellido" type="text" class="form-control" />
+                <div *ngIf="f.primerApellido.touched && f.primerApellido.invalid" class="alert alert-danger">
+                  <div *ngIf="f.primerApellido.errors?.required">
+                    primerApellido is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="primerNombre" placeholder="primerNombre"
+                  id="primerNombre" type="text" class="form-control" />
+                <div *ngIf="f.primerNombre.touched && f.primerNombre.invalid" class="alert alert-danger">
+                  <div *ngIf="f.primerNombre.errors?.required">
+                    primerNombre is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="razonSocial" placeholder="razonSocial"
+                  id="razonSocial" type="text" class="form-control" />
+                <div *ngIf="f.razonSocial.touched && f.razonSocial.invalid" class="alert alert-danger">
+                  <div *ngIf="f.razonSocial.errors?.required">
+                    razonSocial is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="segundoApellido" placeholder="segundoApellido"
+                  id="segundoApellido" type="text" class="form-control" />
+                <div *ngIf="f.segundoApellido.touched && f.segundoApellido.invalid" class="alert alert-danger">
+                  <div *ngIf="f.segundoApellido.errors?.required">
+                    segundoApellido is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="softwareId" placeholder="softwareId"
+                  id="softwareId" type="text" class="form-control" />
+                <div *ngIf="f.softwareId.touched && f.softwareId.invalid" class="alert alert-danger">
+                  <div *ngIf="f.softwareId.errors?.required">
+                    softwareId is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="softwareSC" placeholder="softwareSC"
+                  id="softwareSC" type="text" class="form-control" />
+                <div *ngIf="f.softwareSC.touched && f.softwareSC.invalid" class="alert alert-danger">
+                  <div *ngIf="f.softwareSC.errors?.required">
+                    softwareSC is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="dv" placeholder="dv"
+                  id="dv" type="text" class="form-control" />
+                <div *ngIf="f.dv.touched && f.dv.invalid" class="alert alert-danger">
+                  <div *ngIf="f.dv.errors?.required">
+                    dv is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="otrosNombres" placeholder="otrosNombres"
+                  id="otrosNombres" type="text" class="form-control" />
+                <div *ngIf="f.otrosNombres.touched && f.otrosNombres.invalid" class="alert alert-danger">
+                  <div *ngIf="f.otrosNombres.errors?.required">
+                    otrosNombres is required.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field >
+                <mat-select class="example-select" #departamento tabindex="1" formControlName="pais"
+                  placeholder="pais" id="pais" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsPaises" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select class="example-select" #departamentoEstado tabindex="1" formControlName="departamentoEstado"
+                  placeholder="departamentoEstado" id="departamentoEstado" type="text" class="form-control">
+                  <mat-option *ngFor="let bus of catalogsDepartamentos" [value]="bus">
+                    {{bus.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+                <button mat-button (click)="save()" tabindex="9999">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

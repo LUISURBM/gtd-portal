@@ -22,10 +22,12 @@ export interface Chart {
 export class PaymentOverviewGrapComponent implements OnInit {
   type = GChartType.AreaChart;
   data = [
-    ['2013', 1000, 400],
-    ['2014', 1170, 460],
-    ['2015', 660, 1120],
-    ['2016', 1030, 540],
+    ['2015', 930, 540],
+    ['2016', 1030, 399],
+    ['2017', 985, 500],
+    ['2018', 1000, 540],
+    ['2019', 1170, 560],
+    ['2020', 660, 1120],
   ];
   columnNames = ['Year', 'Sales', 'Expenses'];
   options = {

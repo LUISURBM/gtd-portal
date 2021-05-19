@@ -136,6 +136,9 @@ export class InMemService extends InMemDataService {
     return options;
   }
 
+  getDataParsed<T extends { id: any, [index:string]:any }>(data:T): number{
+    return 0;
+  }
 
 }
 //

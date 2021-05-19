@@ -1,0 +1,133 @@
+<h1 mat-dialog-title>Formulario Devengados {{ data.id }}</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Devengados nuevo</h4>
+            <p class="card-category">Información de Devengados</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Ver basicos</span>
+                <mat-form-field>
+                  <mat-select class="example-select" #catalog tabindex="1" formControlName="basicoId" id="basicoId">
+                    <mat-option value="1"> Basico 1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Ver primas</span>
+                <mat-form-field>
+                  <mat-select class="example-select" #catalog tabindex="1" formControlName="primasId" id="primasId">
+                    <mat-option value="1"> Prima 1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Ver basicos</span>
+                <mat-form-field>
+                  <mat-select class="example-select" #catalog tabindex="1" formControlName="cesantiasId"
+                    id="cesantiasId">
+                    <mat-option value="1"> Cesantía 1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>Dotación</span>
+                <mat-form-field>
+                  <input matInput tabindex="1" formControlName="dotacion" placeholder="Dotación" id="dotacion"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.dotacion.touched && f.dotacion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.dotacion.errors?.required">
+                      dotacion is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>apoyoSost</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="apoyoSost" placeholder="apoyoSost" id="apoyoSost"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.apoyoSost.touched && f.apoyoSost.invalid" class="alert alert-danger">
+                    <div *ngIf="f.apoyoSost.errors?.required">
+                      apoyoSost is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>teletrabajo</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="teletrabajo" placeholder="teletrabajo" id="teletrabajo"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.teletrabajo.touched && f.teletrabajo.invalid" class="alert alert-danger">
+                    <div *ngIf="f.teletrabajo.errors?.required">
+                      teletrabajo is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>bonifRetiro</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="bonifRetiro" placeholder="bonifRetiro" id="bonifRetiro"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.bonifRetiro.touched && f.bonifRetiro.invalid" class="alert alert-danger">
+                    <div *ngIf="f.bonifRetiro.errors?.required">
+                      bonifRetiro is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>indemnizacion</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="indemnizacion" placeholder="indemnizacion"
+                    id="indemnizacion" type="text" class="form-control" />
+                  <div *ngIf="f.indemnizacion.touched && f.indemnizacion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.indemnizacion.errors?.required">
+                      indemnizacion is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div class="example-tooltip-host" matTooltip="Tooltip!">
+                <span>reintegro</span>
+                <mat-form-field>
+                  <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro"
+                    type="text" class="form-control" />
+                  <div *ngIf="f.reintegro.touched && f.reintegro.invalid" class="alert alert-danger">
+                    <div *ngIf="f.reintegro.errors?.required">
+                      reintegro is required.
+                    </div>
+                  </div>
+                </mat-form-field>
+              </div>
+
+              <div mat-dialog-actions>
+                <button mat-button (click)="save()" tabindex="3">Guardar</button>
+                <button mat-button (click)="onNoClick()" tabindex="-1">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
