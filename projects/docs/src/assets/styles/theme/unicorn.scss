@@ -6,6 +6,7 @@
 /*Black Theme Colors*/
 
 
+$app-bar: #2196f3;
 $topbar: #2196f3;
 $sidebar: #fff;
 $sidebar-white: #e5edef;
@@ -13,7 +14,6 @@ $sidebar-alt: #f2f6f8;
 $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c;
-$sidebar-text: #607d8b;
 $sidebar-icons: #99abb4;
 
 $font-16: 16px;
@@ -35,6 +35,8 @@ $dark: #263238;
 $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #727b84;
+$secondary-light: #b9f6ca;
+
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -98,7 +100,9 @@ $background: map-get($candy-app-theme, background);
   --dark: #{$dark};
   --light: #{$light};
   --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
   --background: #{mat-color($background)};
   --themecolor-alt: #{$themecolor-alt};
+  --toolbar: #{$topbar};
 
 }

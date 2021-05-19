@@ -153,6 +153,7 @@ body {
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
+  --topbar: #2196f3;
 }
 
 $mat-primary: (
@@ -168,6 +169,8 @@ $mat-primary: (
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 $themecolor-alt: #5c0e1fc9;
+$secondary: #b9f6ca;
+$secondary-light: #b9f6ca;
 
 
 body {
@@ -225,6 +228,9 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 .theme-alternate {
   @include angular-material-theme($altTheme);
   --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --toolbar: #{$topbar};
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

@@ -1,103 +1,100 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { MsalGuard } from "@azure/msal-angular";
-import { ButtonsComponent } from "./buttons/buttons.component";
-import { ChipsComponent } from "./chips/chips.component";
-import { DialogComponent } from "./dialog/dialog.component";
-import { ExpansionComponent } from "./expansion/expansion.component";
-import { GridComponent } from "./grid/grid.component";
-import { ListsComponent } from "./lists/lists.component";
-import { MaterialComponent } from "./material.component";
-import { MenuComponent } from "./menu/menu.component";
-import { ProgressSnipperComponent } from "./progress-snipper/progress-snipper.component";
-import { ProgressComponent } from "./progress/progress.component";
-import { SlideToggleComponent } from "./slide-toggle/slide-toggle.component";
-import { SliderComponent } from "./slider/slider.component";
-import { SnackbarComponent } from "./snackbar/snackbar.component";
-import { StepperComponent } from "./stepper/stepper.component";
-import { SubscriptionComponent } from "../subscription/subscription.component";
-import { TabsComponent } from "./tabs/tabs.component";
-import { ToolbarComponent } from "./toolbar/toolbar.component";
-import { TooltipComponent } from "./tooltip/tooltip.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { ChipsComponent } from './chips/chips.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { ExpansionComponent } from './expansion/expansion.component';
+import { GridComponent } from './grid/grid.component';
+import { ListsComponent } from './lists/lists.component';
+import { MaterialComponent } from './material.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
+import { ProgressComponent } from './progress/progress.component';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { SliderComponent } from './slider/slider.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+import { StepperComponent } from './stepper/stepper.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 const MaterialRoutes: Routes = [
   {
-    path: "",
+    path: '',
     component: MaterialComponent,
     children: [
       {
-        path: "",
-        canActivateChild: [MsalGuard],
+        path: '',
         children: [
           {
-            path: "button",
+            path: 'button',
             component: ButtonsComponent,
           },
           {
-            path: "grid",
+            path: 'grid',
             component: GridComponent,
           },
           {
-            path: "lists",
+            path: 'lists',
             component: ListsComponent,
           },
           {
-            path: "menu",
+            path: 'menu',
             component: MenuComponent,
           },
           {
-            path: "tabs",
+            path: 'tabs',
             component: TabsComponent,
           },
           {
-            path: "stepper",
+            path: 'stepper',
             component: StepperComponent,
           },
           {
-            path: "expansion",
+            path: 'expansion',
             component: ExpansionComponent,
           },
           {
-            path: "chips",
+            path: 'chips',
             component: ChipsComponent,
           },
           {
-            path: "toolbar",
+            path: 'toolbar',
             component: ToolbarComponent,
           },
           {
-            path: "progress-snipper",
+            path: 'progress-snipper',
             component: ProgressSnipperComponent,
           },
           {
-            path: "progress",
+            path: 'progress',
             component: ProgressComponent,
           },
           {
-            path: "dialog",
+            path: 'dialog',
             component: DialogComponent,
           },
           {
-            path: "tooltip",
+            path: 'tooltip',
             component: TooltipComponent,
           },
           {
-            path: "snackbar",
+            path: 'snackbar',
             component: SnackbarComponent,
           },
           {
-            path: "slider",
+            path: 'slider',
             component: SliderComponent,
           },
           {
-            path: "slide-toggle",
+            path: 'slide-toggle',
             component: SlideToggleComponent,
           },
           {
             path: '',
             redirectTo: '/button',
-            pathMatch: 'full'
-          }
+            pathMatch: 'full',
+          },
         ],
       },
     ],

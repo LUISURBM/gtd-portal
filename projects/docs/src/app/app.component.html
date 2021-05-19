@@ -7,3 +7,11 @@
     <app-spinner></app-spinner>
   </router-outlet>
 </div>
+<div class="loading-overlay" *ngIf="loading">
+  <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
+  <mat-card-content>
+    <mat-card-title>Buffer progress-bar</mat-card-title>
+    <mat-card-subtitle><code>&lt;mat-progress-bar mode="buffer"&gt;</code> is a horizontal progress-bar for indicating progress and activity.</mat-card-subtitle>
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+  </mat-card-content>
+</div>

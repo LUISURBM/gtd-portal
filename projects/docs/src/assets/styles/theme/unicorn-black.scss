@@ -10,7 +10,6 @@ $sidebar-alt: #f2f6f8;
 $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c;
-$sidebar-text: #607d8b;
 $sidebar-icons: #99abb4;
 
 $font-16: 16px;
@@ -32,6 +31,7 @@ $dark: #263238;
 $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #727b84;
+$secondary-light: #b9f6ca;
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -87,4 +87,7 @@ $custom-typography: mat-typography-config(
   @include angular-material-color($dark-theme);
   --background: #{mat-color($background)};
   --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --toolbar: #{$topbar};
 }

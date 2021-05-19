@@ -4,10 +4,10 @@
 */
 
 @import '~@angular/material/theming';
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
+// INCLUDE THE COMMON STYLES FOR ANGULAR MATERIAL. WE INCLUDE THIS HERE SO THAT YOU ONLY
+// HAVE TO LOAD A SINGLE CSS FILE FOR ANGULAR MATERIAL IN YOUR APP.
 
-// Fonts
+// FONTS
 @import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
@@ -27,18 +27,31 @@ $fontConfig: (
   input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
 );
 
-// Foreground Elements
+// Compute font config
+@include mat-core($fontConfig);
 
-// Light Theme Text
-$dark-text: #000000;
+//// F O R E G R O U N D   E L E M E N T S
+
+// LIGHT THEME TEXT
+$dark-text: #181818;
+$light-text: #FFFFFF;
+$sidebar-icons: rgba($light-primary-text, 0.7);
+
 $dark-primary-text: rgba($dark-text, 0.87);
 $dark-accent-text: rgba($dark-primary-text, 0.54);
 $dark-disabled-text: rgba($dark-primary-text, 0.38);
 $dark-dividers: rgba($dark-primary-text, 0.12);
 $dark-focused: rgba($dark-primary-text, 0.12);
 
+// DARK THEME TEXT
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+
 $mat-light-theme-foreground: (
-  base:              black,
+  base:              $dark-primary-text,
   divider:           $dark-dividers,
   dividers:          $dark-dividers,
   disabled:          $dark-disabled-text,
@@ -55,14 +68,6 @@ $mat-light-theme-foreground: (
   slider-off:        rgba($dark-text, 0.26),
   slider-off-active: $dark-disabled-text,
 );
-
-// Dark Theme text
-$light-text: #ffffff;
-$light-primary-text: $light-text;
-$light-accent-text: rgba($light-primary-text, 0.7);
-$light-disabled-text: rgba($light-primary-text, 0.5);
-$light-dividers: rgba($light-primary-text, 0.12);
-$light-focused: rgba($light-primary-text, 0.12);
 
 $mat-dark-theme-foreground: (
   base:              $light-text,
@@ -83,25 +88,39 @@ $mat-dark-theme-foreground: (
   slider-off-active: rgba($light-text, 0.3),
 );
 
-// Background config
-// Light bg
-$light-background:    #F1F1F1;
+// BACKGROUND CONFIG
+// LIGHT BG
+$light-background:  #F1F1F1;
+$app-bar-dark:      #181818;
+// DARK BG
+$dark-background:   #181818;
+$app-bar-alt:       #86b30a;
+
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
+$ligth-app-bar-5:     lighten($app-bar-alt, 5%);
+$dark-app-bar-5:     lighten($app-bar-dark, 5%);
 $dark-bg-tooltip:     lighten(#2c2c2c, 20%);
 $dark-bg-alpha-4:     rgba(#2c2c2c, 0.04);
 $dark-bg-alpha-12:    rgba(#2c2c2c, 0.12);
 
+$dark-bg-lighter-5:   darken($dark-background, 5%);
+$dark-bg-lighter-10:  lighten($dark-background, 10%);
+$dark-bg-lighter-20:  lighten($dark-background, 20%);
+$dark-bg-lighter-30:  lighten($dark-background, 30%);
+$light-bg-alpha-4:    rgba(#fafafa, 0.04);
+$light-bg-alpha-12:   rgba(#fafafa, 0.12);
+
 $mat-light-theme-background: (
   background:               $light-background,
   status-bar:               $light-bg-darker-20,
-  app-bar:                  $light-bg-darker-5,
+  app-bar:                  $app-bar-alt,
   hover:                    $dark-bg-alpha-4,
-  card:                     $light-bg-lighter-5,
-  dialog:                   $light-bg-lighter-5,
+  card:                     $ligth-app-bar-5,
+  dialog:                   $ligth-app-bar-5,
   tooltip:                  $dark-bg-tooltip,
   disabled-button:          $dark-bg-alpha-12,
   raised-button:            $light-bg-lighter-5,
@@ -113,26 +132,16 @@ $mat-light-theme-background: (
   disabled-list-option:     $light-bg-darker-10,
 );
 
-// Dark bg
-$dark-background:     #2c2c2c;
-$dark-bg-lighter-5:   lighten($dark-background, 5%);
-$dark-bg-lighter-10:  lighten($dark-background, 10%);
-$dark-bg-lighter-20:  lighten($dark-background, 20%);
-$dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#fafafa, 0.04);
-$light-bg-alpha-12:   rgba(#fafafa, 0.12);
-
-// Background palette for dark themes.
 $mat-dark-theme-background: (
-  background:               $dark-background,
+  background:               $dark-bg-lighter-30,
   status-bar:               $dark-bg-lighter-20,
-  app-bar:                  $dark-bg-lighter-5,
+  app-bar:                  $app-bar-dark,
   hover:                    $light-bg-alpha-4,
   card:                     $dark-bg-lighter-5,
-  dialog:                   $dark-bg-lighter-5,
+  dialog:                   $dark-app-bar-5,
   tooltip:                  $dark-bg-lighter-20,
   disabled-button:          $light-bg-alpha-12,
-  raised-button:            $dark-bg-lighter-5,
+  raised-button:            $dark-bg-lighter-30,
   focused-button:           $light-focused,
   selected-button:          $dark-bg-lighter-20,
   selected-disabled-button: $dark-bg-lighter-30,
@@ -141,27 +150,31 @@ $mat-dark-theme-background: (
   disabled-list-option:     $dark-bg-lighter-10,
 );
 
-// Compute font config
-@include mat-core($fontConfig);
 
-// Theme Config
+// THEME CONFIG
 
 body {
-  --primary-color: #181818;
+  --primary-color: #86b30a;
   --primary-lighter-color: #f0c2ef;
   --primary-darker-color: #b920b7;
-  --text-primary-color: #{$light-primary-text};
-  --text-primary-lighter-color: #{$dark-primary-text};
-  --text-primary-darker-color: #{$light-primary-text};
+  --text-primary-color: #{$dark-primary-text};
+  --text-primary-lighter-color: #{$light-primary-text};
+  --text-primary-darker-color: #{$dark-primary-text};
+
 }
 
-$themecolor-alt: #86b30a;
+$themecolor-alt: #F78E59;
+$theme-alt-lighter-5:   lighten($themecolor-alt, 5%);
+$theme-alt-lighter-10:  lighten($themecolor-alt, 10%);
+$theme-alt-lighter-20:  lighten($themecolor-alt, 20%);
+$theme-alt-lighter-30:  lighten($themecolor-alt, 30%);
+
 
 $mat-primary: (
-  main: #181818,
-  lighter: #777575,
-  darker: #000000,
-  200: #db543c, // For slide toggle,
+  main: #e7e4e4,
+  lighter: #15bb0d,
+  darker: #777575,
+  200: #db543c, // FOR SLIDE TOGGLE,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -183,7 +196,7 @@ $mat-accent: (
   main: #797979,
   lighter: #d7d7d7,
   darker: #5c5c5c,
-  200: #797979, // For slide toggle,
+  200: #797979, // FOR SLIDE TOGGLE,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -205,31 +218,123 @@ $mat-warn: (
   main: #ff0000,
   lighter: #ffb3b3,
   darker: #ff0000,
-  200: #ff0000, // For slide toggle,
+  200: #ff0000, // FOR SLIDE TOGGLE,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
     darker: $light-primary-text,
   )
 );
-$theme-warn: mat-palette($mat-warn, main, lighter, darker);;
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
-// Theme Init
-.fpi-skin-black {
-@include angular-material-theme($theme);
-}
-
-.fpi-skin {
+// THEME INIT
+.fpi-skin-alt {
   @include angular-material-theme($altTheme);
-  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$theme-alt-lighter-5};
+  --secondary-light: #{$theme-alt-lighter-10};
+  --toolbar: mat-color($mat-primary,main);
+  --inverse: mat-color($mat-accent,main);
+  --bg-dialog: #{$dark-app-bar-5};
 }
 
-// Specific component overrides, pieces that are not in line with the general theming
 
-// Handle buttons appropriately, with respect to line-height
+
+// THEME CONFIG
+
+$mat-primary-black: (
+  main: #181818,
+  lighter: #777575,
+  darker: #000000,
+  200: #db543c, // FOR SLIDE TOGGLE,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+
+
+$themecolor-alt-black: #86b30a;
+$theme-alt-blacker-5:   lighten($themecolor-alt-black, 5%);
+$theme-alt-blacker-10:  lighten($themecolor-alt-black, 10%);
+$theme-alt-blacker-20:  lighten($themecolor-alt-black, 20%);
+$theme-alt-blacker-30:  lighten($themecolor-alt-black, 30%);
+
+body {
+  --primary-color: #86b30a;
+  --primary-lighter-color: #f0c2ef;
+  --primary-darker-color: #b920b7;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+}
+
+
+$theme-primary-black: mat-palette($mat-primary-black, main, darker, lighter);
+
+body {
+  --accent-color: #797979;
+  --accent-lighter-color: #d7d7d7;
+  --accent-darker-color: #5c5c5c;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+}
+
+$mat-accent-black: (
+  main: #797979,
+  lighter: #d7d7d7,
+  darker: #5c5c5c,
+  200: #797979, // FOR SLIDE TOGGLE,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-accent-black: mat-palette($mat-accent-black, main, lighter, darker);
+
+body {
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+$mat-warn: (
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000, // FOR SLIDE TOGGLE,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-warn-black: mat-palette($mat-warn, main, lighter, darker);
+
+
+$theme-black: mat-dark-theme($theme-primary-black, $theme-accent-black, $theme-warn-black);
+
+.fpi-skin-black {
+  @include angular-material-theme($theme-black);
+  --themecolor-alt: #{$themecolor-alt-black};
+  --secondary: #{$theme-alt-blacker-5};
+  --secondary-light: #{$theme-alt-blacker-10};
+  --toolbar: mat-color($mat-primary-black,main);
+  --inverse: #F78E59;
+  --bg-dialog: #{$dark-bg-lighter-30};
+}
+
+
+// SPECIFIC COMPONENT OVERRIDES, PIECES THAT ARE NOT IN LINE WITH THE GENERAL THEMING
+
+// HANDLE BUTTONS APPROPRIATELY, WITH RESPECT TO LINE-HEIGHT
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {
   padding: 0 1.15em;
   margin: 0 .65em;

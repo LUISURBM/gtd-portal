@@ -2,6 +2,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
+import { NavigationService } from '../../../srv/navigation.service';
 import { ThemeService } from '../../../srv/theme.service';
 @Component({
   selector: 'app-sidebar',
@@ -18,14 +19,15 @@ export class AppSidebarComponent implements OnDestroy {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     public menuItemsSrv: MenuItems,
-    public themeSrv: ThemeService
+    public themeSrv: ThemeService,
+    public navSrv: NavigationService
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.form = new FormGroup({ menuItem: new FormControl() });
     this.form.valueChanges.subscribe((filter) => {
-      debugger;
+
       this.menuItemsSrv.filter(filter?.menuItem);
     });
   }

@@ -18,19 +18,27 @@
 .deeppurple-amber {
   @import '@angular/material/prebuilt-themes/deeppurple-amber';
   --themecolor-alt: #b38c0a;
+  --secondary: #69F0AE;
+  --secondary-light: #b9f6ca;
 }
 
 .indigo-pink {
   @import '@angular/material/prebuilt-themes/indigo-pink';
   --themecolor-alt: #b30a6d;
+  --secondary: #00bcd4;
+  --secondary-light: #26c6da;
 }
 .pink-bluegrey {
   @import '@angular/material/prebuilt-themes/pink-bluegrey';
   --themecolor-alt: #3082d4;
+  --secondary: #00bcd4;
+  --secondary-light: #26c6da;
 }
 .purple-green {
   @import '@angular/material/prebuilt-themes/purple-green';
-  --themecolor-alt: #0ab326;
+  --themecolor-alt: #69F0AE;
+  --secondary: #00e676;
+  --secondary-light: #69f0ae;
 }
 
 

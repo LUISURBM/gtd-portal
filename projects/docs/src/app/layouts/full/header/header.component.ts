@@ -17,16 +17,14 @@ import {
   InteractionType, PopupRequest, RedirectRequest
 } from '@azure/msal-browser';
 import { AuthError } from 'msal';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { b2cPolicies } from '../../../b2c-config';
 import { InMemService } from '../../../srv/in-mem-service';
 import { ThemeService } from '../../../srv/theme.service';
 import {
-  NgGtdThemes,
-  ValueOption
+  NgGtdThemes
 } from '../../../types/common-types';
-import { THEMES_OPTIONS } from '../../../values-catalog';
 import { SignInComponent } from './sign-in.component';
 
 interface IdTokenClaims extends AuthenticationResult {
@@ -47,7 +45,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   private readonly _destroying$ = new Subject<void>();
   email: string | undefined;
   name: 'compañer@' | undefined;
-  themes: BehaviorSubject<ValueOption[]>;
+
   constructor(
     @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
     private authService: MsalService,
@@ -57,7 +55,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     public http: HttpClient,
     public themeSrv: ThemeService
   ) {
-    this.themes = new BehaviorSubject(THEMES_OPTIONS);
   }
 
   ngOnInit(): void {
@@ -205,7 +202,10 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   }
 
   changeTheme(themeToSet: NgGtdThemes) {
-    // this.themeSrv.installTheme(themeToSet);
     this.themeSrv.setUiPalette(themeToSet);
+  }
+
+  invertTheme() {
+    this.themeSrv.invertTheme();
   }
 }

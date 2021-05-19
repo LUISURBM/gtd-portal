@@ -38,15 +38,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#181818",
     "label": "Fpi Skin",
     "value": "Fpi Skin",
-    "catalog": NgGtdThemes.FpiSkin
-  },
-  {
-    "backgroundColor": "#fff",
-    "buttonColor": "##26c6da",
-    "headingColor": "##607d8b",
-    "label": "Deep Purple & Amber",
-    "value": "deeppurple-amber",
-    "catalog": NgGtdThemes.NeGtd
+    "catalog": NgGtdThemes.FpiSkin,
+    "alternate": NgGtdThemes.FpiSkinBlack
   },
   {
     "backgroundColor": "#fff",
@@ -54,15 +47,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#3f51b5",
     "label": "Indigo & Pink",
     "value": "indigo-pink",
-    "catalog": NgGtdThemes.UnicornLightTheme
-  },
-  {
-    "backgroundColor": "#303030",
-    "buttonColor": "#607d8b",
-    "headingColor": "#ff5722",
-    "label": "Deep orange & Blue Grey",
-    "value": "deeporange-bluegrey",
-    "catalog": NgGtdThemes.UnicornDarkTheme
+    "catalog": NgGtdThemes.UnicornLightTheme,
+    "alternate": NgGtdThemes.UnicornDarkTheme
   },
   {
     "backgroundColor": "#fff",
@@ -70,7 +56,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#7b1fa2",
     "label": "Deep purple Amber",
     "value": "Deep purple Amber",
-    "catalog": NgGtdThemes.DeeppurpleAmber
+    "catalog": NgGtdThemes.DeeppurpleAmber,
+    "alternate": NgGtdThemes.PurpleGreen
   },
   {
     "backgroundColor": "#fff",
@@ -78,7 +65,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#3f51b5",
     "label": "Indigo Pink",
     "value": "Indigo Pink",
-    "catalog": NgGtdThemes.IndigoPink
+    "catalog": NgGtdThemes.IndigoPink,
+    "alternate": NgGtdThemes.IndigoPink
   },
   {
     "backgroundColor": "#303030",
@@ -86,7 +74,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#e91e63",
     "label": "PinkBlue grey",
     "value": "PinkBlue grey",
-    "catalog": NgGtdThemes.PinkBluegrey
+    "catalog": NgGtdThemes.PinkBluegrey,
+    "alternate": NgGtdThemes.UnicornLightTheme
   },
   {
     "backgroundColor": "#303030",
@@ -94,7 +83,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#7b1fa2",
     "label": "PurpleG reen",
     "value": "PurpleG reen",
-    "catalog": NgGtdThemes.PurpleGreen
+    "catalog": NgGtdThemes.PurpleGreen,
+    "alternate": NgGtdThemes.DeeppurpleAmber
   },
   {
     "backgroundColor": "#fafafa",
@@ -102,7 +92,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#cc33ca",
     "label": "Alt theme",
     "value": "Alt theme",
-    "catalog": NgGtdThemes.AltTheme
+    "catalog": NgGtdThemes.AltTheme,
+    "alternate": NgGtdThemes.AltThemeBlack
   },
   {
     "backgroundColor": "#303030",
@@ -110,7 +101,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#cc33ca",
     "label": "Alt theme black",
     "value": "Alt theme black",
-    "catalog": NgGtdThemes.AltThemeBlack
+    "catalog": NgGtdThemes.NeGtd,
+    "alternate": NgGtdThemes.NeGtdBlack
   },
   {
     "backgroundColor": "#c1ccd7",
@@ -118,7 +110,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "headingColor": "#097df2",
     "label": "GtdBlueGrey",
     "value": "GtdBlueGrey",
-    "catalog": NgGtdThemes.GtdBlueGrey
+    "catalog": NgGtdThemes.GtdBlueGrey,
+    "alternate": NgGtdThemes.GtdBlueBlack
   }
 ];
 

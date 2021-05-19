@@ -48,8 +48,8 @@
         </mat-form-field>
       </form>
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
-        group="{{menuitem.state}}">
-        <a class="" appAccordionToggle [routerLink]="menuitem.state" *ngIf="menuitem.type === 'link'">
+        group="{{menuitem.state}}" >
+        <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name }}</span>
           <span fxFlex></span>
@@ -60,7 +60,7 @@
 
   </mat-sidenav>
   <app-helper-overview-grap>
-    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" [attr.style]="'color: $light-accent-text;'">
       <mat-icon>menu</mat-icon>
     </button>
   </app-helper-overview-grap>

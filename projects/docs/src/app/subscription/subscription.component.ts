@@ -51,7 +51,7 @@ export class SubscriptionComponent implements OnInit, AfterViewInit {
   getProfile() {
     this.http.get(GRAPH_ENDPOINT).subscribe({
       next: (profile) => {
-        debugger;
+
         this.profile = profile;
       },
       error: (err: AuthError) => {},

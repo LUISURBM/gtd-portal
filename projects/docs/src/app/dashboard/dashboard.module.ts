@@ -10,6 +10,7 @@ import { ContactsComponent } from './dashboard-components/contacts/contacts.comp
 import { MetricsComponent } from './dashboard-components/metrics/metrics.component';
 import { PaymentOverviewGrapComponent } from './dashboard-components/payment-overview-grap/payment-overview-grap.component';
 import { PayrollOverviewGrapComponent } from './dashboard-components/payroll-overview-grap/payroll-overview-grap.component';
+import { WebdatarocksComponent } from './dashboard-components/pivot-table/pivot-table.component';
 import { SalesOverviewGrapComponent } from './dashboard-components/sales-overview-grap/sales-overview-grap.component';
 import { StickerComponent } from './dashboard-components/sticker/sticker.component';
 import { VisiterGraphComponent } from './dashboard-components/visiter-graph/visiter-graph.component';
@@ -26,6 +27,7 @@ import { DashboardRoutes } from './dashboard.routing';
     GoogleChartsModule,
   ],
   declarations: [
+    WebdatarocksComponent,
     DashboardComponent,
     SalesOverviewGrapComponent,
     VisiterGraphComponent,

@@ -1,8 +1,9 @@
-import { CommonModule, KeyValuePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
@@ -50,6 +51,8 @@ import { PagoFormComponent } from './payroll-components/pago/pago-form.component
 import { PagosComponent } from './payroll-components/pago/pagos.component';
 import { PagoTerceroFormComponent } from './payroll-components/pagos-terceros/pago-tercero-form.component';
 import { PagosTercerosComponent } from './payroll-components/pagos-terceros/pagos-terceros.component';
+import { PayrollFormComponent } from './payroll-components/payroll-table/payroll-form.component';
+import { PayrollTableComponent } from './payroll-components/payroll-table/payroll-table.component';
 import { PeriodoFormComponent } from './payroll-components/periodo/periodo-form.component';
 import { PeriodosComponent } from './payroll-components/periodo/periodos.component';
 import { PrimaFormComponent } from './payroll-components/primas/prima-form.component';
@@ -126,7 +129,9 @@ import { PayrollRoutes } from './payroll.routing';
     BasicosComponent,
     BasicoFormComponent,
     PrimasComponent,
-    PrimaFormComponent
+    PrimaFormComponent,
+    PayrollTableComponent,
+    PayrollFormComponent,
   ],
   imports: [
     CommonModule,
@@ -138,6 +143,9 @@ import { PayrollRoutes } from './payroll.routing';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [KeyValuePipe],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  }],
 })
 export class PayrollModule {}

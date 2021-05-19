@@ -49,7 +49,7 @@ const routes: Routes = [
           import("./trabajador/trabajador.module").then((m) => m.DashboardModule),
       },
       {
-        path: "payroll",
+        path: "nómina",
         loadChildren: () =>
           import("./payroll/payroll.module").then((m) => m.PayrollModule),
       },

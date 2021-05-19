@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { StyleManagerService } from './style-manager.service';
-import THEMES_CATALOG from '../../assets/themes.json';
 import { BehaviorSubject } from 'rxjs';
-import { NgGtdThemes } from '../types/common-types';
+import { NgGtdThemes, ValueOption } from '../types/common-types';
+import { THEMES_OPTIONS } from '../values-catalog';
+import { StyleManagerService } from './style-manager.service';
 
 interface ThemeState {
   uiPalette: NgGtdThemes;
   visibleMenu: boolean;
 }
-
 @Injectable()
 export class ThemeService {
-  themes: any;
+  themes: ValueOption[] = THEMES_OPTIONS;
   public themeState$: BehaviorSubject<ThemeState> =
     new BehaviorSubject<ThemeState>({
       uiPalette: NgGtdThemes.FpiSkin,
@@ -19,7 +18,6 @@ export class ThemeService {
     });
 
   constructor(private styleManager: StyleManagerService) {
-    this.themes = THEMES_CATALOG;
     this.themeState$?.next({
       uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
@@ -37,27 +35,19 @@ export class ThemeService {
     this.themeState$.next({ ...this.themeState$.value, uiPalette: themeToSet });
   }
 
-  installTheme(themeName: string) {
-    debugger;
-    if (document != null && document.getElementById('themeAsset')) {
-      var element = <HTMLLinkElement>document.getElementById('themeAsset')!;
-      element.href = `/projects/docs/src/assets/styles/theme/${themeName}.css`;
-    }
-    const theme = this.themes.find(
-      (currentTheme: any) => currentTheme.name === themeName
-    );
-    if (!theme) {
-      return;
-    }
-    if (theme.isDefault) {
-      this.styleManager.removeStyle('theme');
-    } else {
-      this.styleManager.setStyle('theme', `/assets/theme/${theme.name}.scss`);
-    }
+  invertTheme() {
+    let themeToSet: NgGtdThemes = NgGtdThemes.FpiSkin;
+    this.themes.forEach((theme) => {
+      if (this.themeState$.value.uiPalette == theme.catalog) {
+        themeToSet = theme.alternate;
+      } else if (this.themeState$.value.uiPalette == theme.alternate) {
+        themeToSet = theme.catalog;
+      }
+    });
+    this.setUiPalette(themeToSet);
   }
 
   changeTheme(themeToSet: NgGtdThemes) {
-    // this.themeSrv.installTheme(themeToSet);
     this.themeState$.next({ ...this.themeState$.value, uiPalette: themeToSet });
   }
 

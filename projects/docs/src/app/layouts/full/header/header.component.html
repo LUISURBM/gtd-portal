@@ -1,9 +1,48 @@
-
-<button [matMenuTriggerFor]="accesibility" mat-icon-button class="m-r-5">
-  <mat-icon>accessibility</mat-icon>
-</button>
-<mat-menu  #accesibility="matMenu" class="mymegamenu">
-  <button mat-menu-item *ngFor="let option of themes | async" mat-menu-item (click)="changeTheme(option.catalog)">
+<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button color="accent">10</a>
+<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn">7</a>
+<button [matMenuTriggerFor]="options" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png"
+    alt="user" class="profile-pic"> </button>
+<mat-menu #options="matMenu" class="mymegamenu">
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon> Disable notifications
+  </button>
+  <button mat-menu-item *ngIf="!loginDisplay" (click)="openDialog()">
+    <mat-icon>exit_to_app</mat-icon> Log In
+  </button>
+  <button mat-menu-item *ngIf="!loginDisplay" (click)="login()">
+    <mat-icon>exit_to_app</mat-icon> Sign In
+  </button>
+  <button mat-menu-item *ngIf="loginDisplay" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon> Sign Out
+  </button>
+  <button mat-menu-item [routerLink]="['profile']" [matMenuTriggerFor]="profile">
+    <mat-icon>account_box</mat-icon> Profile
+  </button>
+</mat-menu>
+<mat-menu #profile="matMenu" class="mymegamenu">
+  <button mat-menu-item [matMenuTriggerFor]="accessibility">
+    <mat-icon>accessibility</mat-icon> Accesibilidad
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon> Disable notifications
+  </button>
+  <button mat-menu-item (click)="editProfile()">
+    <mat-icon>settings</mat-icon> Editar perfil
+  </button>
+  <button mat-menu-item (click)="invertTheme()">
+    <mat-icon>invert_colors</mat-icon> Invertir colores
+  </button>
+  <button [matMenuTriggerFor]="palette" mat-menu-item (click)="invertTheme();$event.stopPropagation();">
+    <mat-icon>palette</mat-icon> Paleta colores
+  </button>
+</mat-menu>
+<mat-menu #accessibility="matMenu" class="mymegamenu">
+  <button mat-menu-item>
+    <mat-icon>open_in_full</mat-icon> Pantalla completa
+  </button>
+</mat-menu>
+<mat-menu #palette="matMenu" class="mymegamenu" >
+  <button mat-menu-item *ngFor="let option of themeSrv.themes" (click)="changeTheme(option.catalog)">
     <mat-icon role="img" svgicon="theme-example" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%"
         viewBox="0 0 80 80" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
@@ -24,31 +63,5 @@
       </svg>
     </mat-icon>
     <span>{{ option.label }}</span>
-  </button>
-</mat-menu>
-<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button
-  color="accent">10</a>
-<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button
-  color="warn">7</a>
-<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png" alt="user"
-    class="profile-pic"> </button>
-<mat-menu #profile="matMenu" class="mymegamenu">
-  <button mat-menu-item *ngIf="loginDisplay" (click)="editProfile()">
-    <mat-icon>settings</mat-icon> Settings
-  </button>
-  <button mat-menu-item [routerLink]="['profile']">
-    <mat-icon>account_box</mat-icon> Profile
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon> Disable notifications
-  </button>
-  <button mat-menu-item *ngIf="!loginDisplay" (click)="openDialog()">
-    <mat-icon>exit_to_app</mat-icon> Log In
-  </button>
-  <button mat-menu-item *ngIf="!loginDisplay" (click)="login()">
-    <mat-icon>exit_to_app</mat-icon> Sign In
-  </button>
-  <button mat-menu-item *ngIf="loginDisplay" (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon> Sign Out
   </button>
 </mat-menu>

@@ -15,10 +15,10 @@ export interface Menu {
 }
 
 const MENUITEMS:Menu[] = [
-  { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-  { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'av_timer' },
-  { state: 'payroll', name: 'Nómina Individual', type: 'link', icon: 'av_timer' },
-  { state: 'subscription', type: 'link', name: 'Subscription', icon: 'crop_7_5' },
+  { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'dashboard' },
+  { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'face' },
+  { state: 'nómina', name: 'Nómina', type: 'link', icon: 'people' },
+  { state: 'subscription', type: 'link', name: 'Subscription', icon: 'subscriptions' },
   { state: '/components/button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'components/grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'components/lists', type: 'link', name: 'Lists', icon: 'view_list' },
