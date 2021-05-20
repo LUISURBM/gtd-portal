@@ -9,6 +9,7 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { NgGtdDS } from '../../../types/common-types';
 import { Basico, basicos, displayedColumns, EMPTY } from './basico-data';
 import { BasicoFormComponent } from './basico-form.component';
+import { HuelgasService } from '../../../service/mgmt/huelgas/huelgas.service';
 
 @Component({
   selector: 'app-payroll-basicos',
@@ -26,7 +27,8 @@ export class BasicosComponent implements OnInit, AfterViewInit {
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private huelgasService:HuelgasService
   ) {
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Basico>(basicos),
@@ -37,13 +39,20 @@ export class BasicosComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
+    this.huelgasService.getAllHuelgas()
+    .subscribe(response => {
+
+      console.log(response);
+      let datasource = new MatTableDataSource<Basico>(response);
+      datasource.paginator = this.paginator;
+      datasource.sort = this.sort;
+      this.dataSource$.next({
+        ...this.dataSource$.value,
+        datasource: datasource,
+      });
+
     });
+    
   }
 
   add(name: Basico): void {
