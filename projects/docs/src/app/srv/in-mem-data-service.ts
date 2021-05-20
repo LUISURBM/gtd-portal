@@ -56,10 +56,10 @@ export class InMemDataService implements InMemoryDbService {
 
     switch (returnType) {
       case "observable":
-        return of(db).pipe(delay(10));
+        return of(db).pipe(delay(3600));
       case "promise":
         return new Promise((resolve) => {
-          setTimeout(() => resolve(db), 10);
+          setTimeout(() => resolve(db), 3600);
         });
       default:
         return db;

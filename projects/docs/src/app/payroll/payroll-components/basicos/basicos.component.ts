@@ -9,6 +9,7 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { NgGtdDS } from '../../../types/common-types';
 import { Basico, basicos, displayedColumns, EMPTY } from './basico-data';
 import { BasicoFormComponent } from './basico-form.component';
+import { BasicoService } from '../../../service/mgmt/basicos/basicos';
 
 @Component({
   selector: 'app-payroll-basicos',
@@ -26,7 +27,8 @@ export class BasicosComponent implements OnInit, AfterViewInit {
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private basicoService:BasicoService
   ) {
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Basico>(basicos),
@@ -37,28 +39,28 @@ export class BasicosComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
+    this.basicoService.getAllHuelgas()
+    .subscribe(response => {
+
+      console.log(response);
+      let datasource = new MatTableDataSource<Basico>(response);
+      datasource.paginator = this.paginator;
+      datasource.sort = this.sort;
+      this.dataSource$.next({
+        ...this.dataSource$.value,
+        datasource: datasource,
+      });
+
     });
+    
   }
 
-  add(name: Basico): void {
-    if (!name) {
+  add(basico: Basico): void {
+    if (!basico) {
       return;
     }
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = [
-      ...datasource.data,
-      { ...name, id: this.memSrv.genId(datasource.data, 'basicos') },
-    ];
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
+    basico.id = "67489e34-8a49-4ebb-a925-4ab5b1812bf1";
+    this.basicoService.save(basico);
   }
 
   delete(basico: Basico): void {

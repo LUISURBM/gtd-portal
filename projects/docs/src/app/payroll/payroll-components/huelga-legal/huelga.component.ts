@@ -1,3 +1,4 @@
+import { Basico } from './../basicos/basico-data';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -32,10 +33,13 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {
+
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Huelga>(huelgas),
       displayedColumns: displayedColumns,
     });
+
+    
   }
 
   ngOnInit(): void {}
@@ -48,6 +52,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
   }
 
   add(name: Huelga): void {
+    
     if (!name) {
       return;
     }

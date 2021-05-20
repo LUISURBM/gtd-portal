@@ -112,7 +112,6 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemDataService),
     SharedModule,
     AppRoutingModule,
     MsalModule,
