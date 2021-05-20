@@ -78,7 +78,7 @@ const isIframe = window !== window.parent && !window.opener;
     {
       preloadingStrategy: SelectivePreloadingStrategyService,
       initialNavigation: !isIframe ? "enabled" : "disabled",
-
+      useHash: true
     })],
   exports: [RouterModule]
 })

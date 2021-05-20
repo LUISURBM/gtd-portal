@@ -87,22 +87,4 @@ $candy-app-theme: mat-light-theme($candy-app-primary,$candy-app-accent);
 
 $background: map-get($candy-app-theme, background);
 
-.unicorn-theme {
-  @include angular-material-color($candy-app-theme);
-
-  --danger: #{$danger};
-  --success: #{$success};
-  --warning: #{$warning};
-  --primary: #{$primary};
-  --info: #{$info};
-  --inverse: #{$inverse};
-  --muted: #{$muted};
-  --dark: #{$dark};
-  --light: #{$light};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-  --background: #{mat-color($background)};
-  --themecolor-alt: #{$themecolor-alt};
-  --toolbar: #{$topbar};
-
-}
+@include angular-material-theme($candy-app-theme);

@@ -15,8 +15,7 @@ File: scss
  *	8. Custom Templates
  */
 
-
- /** Global Styles **/
+/** Global Styles **/
 
 * {
   outline: none;
@@ -24,13 +23,13 @@ File: scss
 }
 
 body {
-  font-family: $bodyfont;
+  font-family: var(--bodyfont);
   // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   margin: 0;
   overflow-x: hidden;
-  color: $bodytext;
+  color: var(--bodytext);
   // color: #212529;
-  background: $inverse;
+  background: var(--inverse);
   font-size: 1rem;
   font-weight: 300;
   // font-weight: 400;
@@ -42,7 +41,7 @@ body {
 html {
   position: relative;
   min-height: 100%;
-  background: $white;
+  background: var(--white);
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -57,11 +56,11 @@ a {
   text-decoration: none;
 }
 a.link {
-  color: $headingtext;
+  color: var(--headingtext);
   text-decoration: none;
   &:hover,
   &:focus {
-    color: $themecolor;
+    color: var(--themecolor);
   }
 }
 .img-responsive {
@@ -74,7 +73,7 @@ a.link {
   height: auto;
 }
 .img-rounded {
-  border-radius: $radius;
+  border-radius: var(--radius);
 }
 html body .mdi:before,
 html body .mdi-set {
@@ -83,8 +82,8 @@ html body .mdi-set {
 code {
   padding: 0.2rem 0.4rem;
   font-size: 90%;
-  color: $danger;
-  background-color: $light-danger;
+  color: var(--danger);
+  background-color: var(--light-danger);
   border-radius: 0.25rem;
 }
 
@@ -101,7 +100,7 @@ code {
   margin-right: auto;
 }
 .rounded {
-  border-radius: $radius;
+  border-radius: var(--radius);
 }
 /*******************
 Headings
@@ -113,7 +112,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $headingfont;
+  font-family: var(--headingfont);
   font-weight: 400;
 }
 
@@ -158,7 +157,7 @@ body {
   }
 }
 .box {
-  border-radius: $radius;
+  border-radius: var(--radius);
   padding: 10px;
 }
 html body {
@@ -201,8 +200,8 @@ Blockquote
 *******************/
 
 html body blockquote {
-  border: 1px solid $border;
-  border-left: 5px solid $themecolor;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--themecolor);
   padding: 15px;
   margin: 20px 0;
 }
@@ -487,19 +486,19 @@ html body {
     border: none;
   }
   .b-r {
-    border-right: 1px solid $border;
+    border-right: 1px solid var(--border);
   }
   .b-l {
-    border-left: 1px solid $border;
+    border-left: 1px solid var(--border);
   }
   .b-b {
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid var(--border);
   }
   .b-t {
-    border-top: 1px solid $border;
+    border-top: 1px solid var(--border);
   }
   .b-all {
-    border: 1px solid $border;
+    border: 1px solid var(--border);
   }
 }
 /*******************
@@ -527,60 +526,60 @@ Thumb size
   border-radius: 100%;
 }
 .radius {
-  border-radius: $radius;
+  border-radius: var(--radius);
 }
 /*******************
 Text Colors
 *******************/
 .text-white {
-  color: $white !important;
+  color: var(--white) !important;
 }
 
 .text-danger {
-  color: $danger !important;
+  color: var(--danger) !important;
 }
 
 .text-muted {
-  color: $muted !important;
+  color: var(--muted) !important;
 }
 
 .text-warning {
-  color: $warning !important;
+  color: var(--warning) !important;
 }
 
 .text-success {
-  color: $success !important;
+  color: var(--success) !important;
 }
 
 .text-info {
-  color: $info !important;
+  color: var(--info) !important;
 }
 
 .text-inverse {
-  color: $inverse !important;
+  color: var(--inverse) !important;
 }
 html body {
   .text-blue {
-    color: $blue;
+    color: var(--blue);
   }
 
   .text-purple {
-    color: $purple;
+    color: var(--purple);
   }
 
   .text-primary {
-    color: $primary;
+    color: var(--primary);
   }
 
   .text-megna {
-    color: $megna;
+    color: var(--megna);
   }
 
   .text-dark {
-    color: $bodytext;
+    color: var(--bodytext);
   }
   .text-themecolor {
-    color: $themecolor;
+    color: var(--themecolor);
   }
   .text-center {
     text-align: center;
@@ -597,71 +596,71 @@ Background Colors
 *******************/
 
 .bg-primary {
-  background-color: $primary !important;
+  background-color: var(--primary) !important;
 }
 
 .bg-success {
-  background-color: $success !important;
+  background-color: var(--success) !important;
 }
 
 .bg-info {
-  background-color: $info !important;
+  background-color: var(--info) !important;
 }
 
 .bg-warning {
-  background-color: $warning !important;
+  background-color: var(--warning) !important;
 }
 
 .bg-danger {
-  background-color: $danger !important;
+  background-color: var(--danger) !important;
 }
 html body {
   .bg-megna {
-    background-color: $megna;
+    background-color: var(--megna);
   }
   .bg-theme {
-    background-color: $themecolor;
+    background-color: var(--themecolor);
   }
 
   .bg-inverse {
-    background-color: $inverse;
+    background-color: var(--inverse);
   }
 
   .bg-purple {
-    background-color: $purple !important;
+    background-color: var(--purple) !important;
   }
 
   .bg-light-primary {
-    background-color: $light-primary;
+    background-color: var(--light-primary);
   }
 
   .bg-light-success {
-    background-color: $light-success;
+    background-color: var(--light-success);
   }
 
   .bg-light-info {
-    background-color: $light-info;
+    background-color: var(--light-info);
   }
   .bg-light-extra {
-    background-color: $extra-light;
+    background-color: var(--extra-light);
   }
 
   .bg-light-warning {
-    background-color: $light-warning;
+    background-color: var(--light-warning);
   }
 
   .bg-light-danger {
-    background-color: $light-danger;
+    background-color: var(--light-danger);
   }
 
   .bg-light-inverse {
-    background-color: $light-inverse;
+    background-color: var(--light-inverse);
   }
   .bg-light {
-    background-color: $light;
+    background-color: var(--light);
   }
   .bg-white {
-    background-color: $white;
+    background-color: var(--white);
   }
 }
 .img-circle {
@@ -673,27 +672,27 @@ html body {
 hr {
   border: 0px;
   height: 1px;
-  background: $border;
+  background: var(--border);
 }
 /*******************
 Rounds
 *******************/
 .round {
   line-height: 48px;
-  color: $white;
+  color: var(--white);
   width: 45px;
   height: 45px;
   display: inline-block;
   font-weight: 400;
   text-align: center;
   border-radius: 100%;
-  background: $info;
+  background: var(--info);
   img {
     border-radius: 100%;
   }
 }
 .round.round-info {
-  background: $info;
+  background: var(--info);
 }
 
 .btn-block {
@@ -711,13 +710,20 @@ froms
   line-height: 25px;
   padding: 10px;
   width: 100%;
-  font-size: $font-16;
+  font-size: var(--font-16);
 }
 .mat-form-field-underline {
   background-color: rgba(0, 0, 0, 0.25);
 }
 .mat-form-field {
   width: 100%;
+  color: var(--accent-color)!important;
+  mat-label{
+    color: var(--accent-color)!important;
+  }
+}
+.mat-input-element{
+  color: var(--accent-color)!important;
 }
 /*******************
 Mat card
@@ -727,8 +733,8 @@ Mat card
   -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05) !important;
   margin: 35px 15px;
   padding: 0px !important;
-  border-radius: $radius;
-
+  border-radius: var(--radius);
+  background-color: var(--bg-card) !important;
   .mat-card-content {
     font-size: 1rem;
     line-height: 23px;
@@ -739,22 +745,26 @@ Mat card
     margin: 0 0px 0px 0px;
   }
   .mat-card-header {
-    border-radius: $radius $radius 0 0;
     flex-direction: column;
     // padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: #fff;
     // border-radius: 3px;
     margin-top: -20px;
     margin: 0 15px;
     padding: 15px;
     position: relative;
-    background: linear-gradient(60deg, var(--secondary-light), var(--secondary));
+    background: linear-gradient(
+      60deg,
+      var(--secondary),
+      var(--secondary-light)
+    );
     border-radius: 4px;
     top: -13px;
+    color: var(--text-accent-color) !important;
     .mat-card-title {
       margin-bottom: 2px;
       font-size: 20px;
+      color: var(--text-accent-color) !important;
     }
     .mat-card-subtitle,
     .mat-card-subtitle:not(:first-child) {
@@ -764,7 +774,7 @@ Mat card
     }
     &.text-white {
       .mat-card-title {
-        color: $white;
+        color: var(--white);
       }
       .mat-card-subtitle {
         color: rgba(255, 255, 255, 0.7);
@@ -781,6 +791,25 @@ Mat card
   .mat-card-actions {
     margin: 0px !important;
   }
+  div {
+    table {
+      background-color: var(--bg-card) !important;
+      thead{
+        tr{
+          &.mat-header-row {
+            background-color: var(--bg-dialog) !important;
+          }
+        }
+      }
+      tbody{
+        tr{
+          td{
+            color: var(--text-primary-color)!important;
+          }
+        }
+      }
+    }
+  }
 }
 
 /*******************
@@ -796,7 +825,7 @@ Table
   width: 100%;
   text-align: left;
 }
-.table-rasponsive {
+.table-responsive {
   overflow: auto;
   .mat-table {
     min-width: 280px;
@@ -805,9 +834,11 @@ Table
     .mat-header-cell {
       white-space: nowrap;
     }
+    background-color: var(--bg-card) !important;
   }
   .mat-cell {
     white-space: nowrap;
+    color: var(--text-primary-color)!important;
   }
 }
 /*******************
@@ -835,22 +866,22 @@ list inline
     .drop-title {
       font-weight: 500;
       padding: 11px 20px 15px;
-      border-bottom: 1px solid $border;
+      border-bottom: 1px solid var(--border);
     }
     .nav-link {
-      border-top: 1px solid $border;
+      border-top: 1px solid var(--border);
       padding-top: 15px;
     }
   }
   .message-widget {
     position: relative;
     a {
-      border-bottom: 1px solid $border;
+      border-bottom: 1px solid var(--border);
       display: flex;
       text-decoration: none;
       padding: 9px 15px;
       &:hover {
-        background: $light;
+        background: var(--light);
       }
       &:last-child {
         border-bottom: 0px;
@@ -867,7 +898,7 @@ list inline
           width: 100%;
         }
         .profile-status {
-          border: 2px solid $white;
+          border: 2px solid var(--white);
           border-radius: 50%;
           display: inline-block;
           height: 10px;
@@ -877,16 +908,16 @@ list inline
           width: 10px;
         }
         .online {
-          background: $success;
+          background: var(--success);
         }
         .busy {
-          background: $danger;
+          background: var(--danger);
         }
         .away {
-          background: $warning;
+          background: var(--warning);
         }
         .offline {
-          background: $warning;
+          background: var(--warning);
         }
       }
       .mail-contnet {
@@ -904,7 +935,7 @@ list inline
           margin: 1px 0;
           text-overflow: ellipsis;
           overflow: hidden;
-          color: $bodytext;
+          color: var(--bodytext);
           white-space: nowrap;
         }
       }
@@ -918,33 +949,31 @@ list inline
   top: 57px;
 }
 
-:host ::ng-deep .mat-drawer-inner-container{
-  overflow-y: scroll!important;
+.mat-drawer-inner-container {
+  overflow-y: scroll !important;
   height: calc(100vh - 64px);
 }
 
-
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 16px;
   background-color: var(--bg-dialog);
 }
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px var(--secondary-light);
   box-shadow: inset 0 0 4px #707070;
-  background-color: mat-color($background, background);
+  background-color: var(--background);
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-image: -webkit-gradient(linear,
-                     left bottom,
-                     left top,
-                     color-stop(0.44, var(--secondary)),
-                     color-stop(0.72, var(--secondary)),
-                     color-stop(0.86, var(--secondary)));
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.44, var(--secondary)),
+    color-stop(0.72, var(--secondary)),
+    color-stop(0.86, var(--secondary))
+  );
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-light);

@@ -14,7 +14,7 @@ export class PayrollFormComponent {
 
   form: FormGroup;
   catalogs = catalogs;
-  private payrollDataUrl = environment.API_GATEWAY + 'documents/primas/list';
+  private payrollDataUrl = environment.API_GATEWAY;
 
 
   constructor(public builder: FormBuilder, private route: ActivatedRoute
@@ -38,19 +38,19 @@ export class PayrollFormComponent {
     });
 
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':`Api-Key 82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68` })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization':`82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68` })
     };
-    this.http.get<string>(this.payrollDataUrl, httpOptions).subscribe( data => {
+    this.http.get<string>(this.payrollDataUrl + 'documents/primas/list', httpOptions).subscribe( data => {
       console.dir(data);
 
     });
-    this.http.post<string>(this.payrollDataUrl, {}, httpOptions).subscribe(data => {
+    this.http.post<string>(this.payrollDataUrl + 'documents/primas/send-list', [], httpOptions).subscribe(data => {
       console.dir(data);
     });
   }
 
   onNoClick(): void {
-    this.navSrv.back();
+    this.navSrv.navigate('nómina');
   }
 
   save() {

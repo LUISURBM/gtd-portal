@@ -151,12 +151,25 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(overlayContainer: OverlayContainer, inMemSrv: ThemeService) {
-    overlayContainer.getContainerElement().classList.add(inMemSrv.themeState$.value.uiPalette);
-    inMemSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
-      console.log(p, q);
-      if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
-      if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
+  constructor(overlayContainer: OverlayContainer, themeSrv: ThemeService) {
+    const altTheme = themeSrv.themes.filter(
+      (themeOpt) => themeSrv.themeState$.value.uiPalette == themeOpt.catalog
+    )?.[0]?.alternate;
+    if (themeSrv.themeState$.value.darkPalette) {
+      overlayContainer.getContainerElement().classList.add(altTheme);
+    } else {
+      overlayContainer.getContainerElement().classList.remove(altTheme);
+    }
+    themeSrv.themeState$.next({
+      ...themeSrv.themeState$.value,
+      darkPalette: !themeSrv.themeState$.value.darkPalette,
     });
+    // overlayContainer.getContainerElement().classList.add(altTheme);
+    themeSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
+      console.log(p, q);
+      // if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
+      // if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
+    });
+
   }
 }

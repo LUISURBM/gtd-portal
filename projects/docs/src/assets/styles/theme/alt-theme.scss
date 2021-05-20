@@ -168,6 +168,19 @@ $mat-primary: (
   )
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
+
+$mat-primary-dark: (
+  main: #cc33ca,
+  lighter: #f0c2ef,
+  darker: #b920b7,
+  200: #cc33ca, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-primary-dark: mat-palette($mat-primary-dark, main, lighter, darker);
 $themecolor-alt: #5c0e1fc9;
 $secondary: #b9f6ca;
 $secondary-light: #b9f6ca;
@@ -195,6 +208,19 @@ $mat-accent: (
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
+$mat-accent-dark: (
+  main: #797979,
+  lighter: #d7d7d7,
+  darker: #5c5c5c,
+  200: #797979, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-accent-dark: mat-palette($mat-accent-dark, main, lighter, darker);
+
 body {
   --warn-color: #ff0000;
   --warn-lighter-color: #ffb3b3;
@@ -215,23 +241,33 @@ $mat-warn: (
     darker: $light-primary-text,
   )
 );
-$theme-warn: mat-palette($mat-warn, main, lighter, darker);;
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$mat-warn-dark: (
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+$theme-warn-dark: mat-palette($mat-warn-dark, main, lighter, darker);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+@include angular-material-theme($theme);
+
+
+$altTheme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn-dark);
 
 // Theme Init
 .theme-alternate-black {
-@include angular-material-theme($theme);
+@include angular-material-color($altTheme);
 }
 
-.theme-alternate {
-  @include angular-material-theme($altTheme);
-  --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-  --toolbar: #{$topbar};
-}
 
 // Specific component overrides, pieces that are not in line with the general theming
 

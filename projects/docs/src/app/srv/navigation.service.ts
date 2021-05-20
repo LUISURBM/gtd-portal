@@ -21,12 +21,4 @@ export class NavigationService {
     this.router.navigate([route, { data: data }], { skipLocationChange: true });
   }
 
-  back(): void {
-    this.history.pop();
-    if (this.history.length > 0) {
-      this.router.navigate(this.previous);
-    } else {
-      this.router.navigateByUrl('/');
-    }
-  }
 }

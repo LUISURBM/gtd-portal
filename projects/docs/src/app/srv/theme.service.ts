@@ -6,6 +6,7 @@ import { StyleManagerService } from './style-manager.service';
 
 interface ThemeState {
   uiPalette: NgGtdThemes;
+  darkPalette?: boolean;
   visibleMenu: boolean;
 }
 @Injectable()

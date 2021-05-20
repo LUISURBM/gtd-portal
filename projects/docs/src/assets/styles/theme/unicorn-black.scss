@@ -83,11 +83,4 @@ $custom-typography: mat-typography-config(
 
 
 
-.unicorn-dark-theme {
-  @include angular-material-color($dark-theme);
-  --background: #{mat-color($background)};
-  --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-  --toolbar: #{$topbar};
-}
+@include angular-material-theme($dark-theme);

@@ -44,7 +44,7 @@
         <mat-form-field class="example-full-width" style="direction: ltr; padding: 0px 15px ">
           <mat-label>Buscar...</mat-label>
           <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
-          <mat-icon (click)="buscar.value = ''; filter('');" matSuffix mat-fab color="primary">clear</mat-icon>
+          <mat-icon (click)="buscar.value = ''; filter('');" matSuffix mat-fab >clear</mat-icon>
         </mat-form-field>
       </form>
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
