@@ -9,7 +9,7 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { NgGtdDS } from '../../../types/common-types';
 import { Basico, basicos, displayedColumns, EMPTY } from './basico-data';
 import { BasicoFormComponent } from './basico-form.component';
-import { HuelgasService } from '../../../service/mgmt/huelgas/huelgas.service';
+import { BasicoService } from '../../../service/mgmt/basicos/basicos';
 
 @Component({
   selector: 'app-payroll-basicos',
@@ -28,7 +28,7 @@ export class BasicosComponent implements OnInit, AfterViewInit {
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private huelgasService:HuelgasService
+    private basicoService:BasicoService
   ) {
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Basico>(basicos),
@@ -39,7 +39,7 @@ export class BasicosComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.huelgasService.getAllHuelgas()
+    this.basicoService.getAllHuelgas()
     .subscribe(response => {
 
       console.log(response);
@@ -55,19 +55,12 @@ export class BasicosComponent implements OnInit, AfterViewInit {
     
   }
 
-  add(name: Basico): void {
-    if (!name) {
+  add(basico: Basico): void {
+    if (!basico) {
       return;
     }
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = [
-      ...datasource.data,
-      { ...name, id: this.memSrv.genId(datasource.data, 'basicos') },
-    ];
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
+    basico.id = "67489e34-8a49-4ebb-a925-4ab5b1812bf1";
+    this.basicoService.save(basico);
   }
 
   delete(basico: Basico): void {

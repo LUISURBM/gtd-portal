@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class HuelgasService {
+export class BasicoService {
 
   private path = "http://localhost:8092/basico";
 
