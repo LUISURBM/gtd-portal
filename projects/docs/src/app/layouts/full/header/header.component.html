@@ -1,5 +1,15 @@
-<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button color="accent">10</a>
-<a href="/payroll" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn">7</a>
+<mat-icon [matMenuTriggerFor]="messagesMenu" matBadge="15" class=" m-r-20 hidden-sm-up" mat-raised-button color="accent" matBadgeColor="warn">messages</mat-icon>
+<mat-icon [matMenuTriggerFor]="notificationsMenu" matBadge="15" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn" matBadgeColor="warn">notifications</mat-icon>
+<mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
+  <button mat-menu-item *ngFor="let option of messages" (click)="$event.stopPropagation();">
+    <mat-icon>{{option.ico}}</mat-icon> {{option.label}}
+  </button>
+</mat-menu>
+<mat-menu #notificationsMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
+  <button mat-menu-item *ngFor="let option of notifications" (click)="$event.stopPropagation();">
+    <mat-icon>{{option.ico}}</mat-icon> {{option.label}}
+  </button>
+</mat-menu>
 <button [matMenuTriggerFor]="options" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png"
     alt="user" class="profile-pic"> </button>
 <mat-menu #options="matMenu" class="mymegamenu">

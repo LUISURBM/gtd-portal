@@ -20,7 +20,8 @@ export class PayrollFormComponent {
   constructor(public builder: FormBuilder, private route: ActivatedRoute
     ,private router: Router
     ,public navSrv: NavigationService
-    ,public http: HttpClient
+    ,public http: HttpClient,
+
     ) {
     this.form = this.builder.group({
       id: 0,
@@ -56,6 +57,8 @@ export class PayrollFormComponent {
   save() {
 
   }
+
+  nav = (route:string) => this.navSrv.navigate(route);
 
   get f() {
     return this.form.controls;

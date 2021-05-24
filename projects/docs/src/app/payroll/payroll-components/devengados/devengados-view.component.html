@@ -1,0 +1,106 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="m-0 d-flex main-container main-form">
+
+  <!-- ============================================================== -->
+  <!-- Topbar - style you can find in header.scss -->
+  <!-- ============================================================== -->
+  <mat-toolbar color="primary" class="topbar telative">
+    <!-- ============================================================== -->
+    <!-- sidebar toggle -->
+    <!-- ============================================================== -->
+
+    <button mat-icon-button (click)="formMenu.toggle()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- ============================================================== -->
+    <!-- Logo - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <div class="navbar-header d-flex align-items-center">
+      <a class="navbar-brand" href="nómina">
+        <strong>
+          Nómina
+        </strong>
+      </a>
+       >
+      <a class="navbar-brand" href="nómina/devengados">
+        <strong>
+          Devengados
+        </strong>
+      </a>
+       >
+      <a class="navbar-brand" >
+          Nuevo
+      </a>
+    </div>
+
+    <span fxFlex></span>
+
+    <button mat-button (click)="save()" tabindex="2">
+      <mat-icon>save</mat-icon>Guardar
+    </button>
+    <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="primary" color="accent">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #sdprofile="matMenu" class="mymegamenu">
+      <button mat-menu-item (click)="toggleFullScreen()">
+        <mat-icon>open_in_full</mat-icon> Pantalla completa
+      </button>
+      <button mat-menu-item (click)="onNoClick()" tabindex="1">
+        <mat-icon>cancel</mat-icon>Cancelar
+      </button>
+    </mat-menu>
+    <!-- ============================================================== -->
+    <!-- app header component - style you can find in header.scss / header.component.ts-->
+    <!-- ============================================================== -->
+
+  </mat-toolbar>
+  <!-- ============================================================== -->
+  <!-- End Topbar - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <mat-sidenav-container class="example-sidenav-container" style.marginTop.px="0">
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" mode="side" fixedTopGap="0" opened="true"
+      style="direction: rtl;">
+
+      <mat-nav-list appAccordion style="direction: ltr ">
+        <form [formGroup]="form" class="m-0 d-flex main-container main-form">
+          <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
+            <mat-label>Buscar...</mat-label>
+            <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
+            <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
+          </mat-form-field>
+        </form>
+        <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
+          group="{{menuitem.state}}">
+          <a class="" appAccordionToggle [routerLink]="[menuitem.state]" *ngIf="menuitem.type === 'link'">
+            <mat-icon>{{ menuitem.icon }}</mat-icon>
+            <span>{{ menuitem.name }}</span>
+            <span fxFlex></span>
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-content class="page-wrapper" style="height: calc(100vh - 128px);">
+      <router-outlet><app-spinner></app-spinner></router-outlet>
+    </mat-sidenav-content>
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+  </mat-sidenav-container>
+
+
+</div>

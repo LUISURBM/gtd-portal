@@ -1,6 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { ThemeService } from '../../../srv/theme.service';
@@ -14,6 +15,7 @@ export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   form: FormGroup;
   private _mobileQueryListener: () => void;
+  @ViewChild('snav') sidenav!: MatSidenav;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -48,5 +50,10 @@ export class AppSidebarComponent implements OnDestroy {
     const filterValue =
       (event?.target as HTMLInputElement)?.value?.trim()?.toLowerCase() || '';
     this.filter(filterValue);
+  }
+
+
+  close(reason: string) {
+    this.sidenav.close();
   }
 }

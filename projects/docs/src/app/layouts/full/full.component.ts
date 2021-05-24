@@ -39,4 +39,9 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   toggleMenu(){
     this.themeSrv.toggleMenu();
   }
+
+  get themeState$() {
+    return this.themeSrv.themeState$;
+  }
+
 }

@@ -718,7 +718,7 @@ froms
 .mat-form-field {
   width: 100%;
   color: var(--accent-color)!important;
-  mat-label{
+  span, mat-label, .mat-form-field-label {
     color: var(--accent-color)!important;
   }
 }
@@ -812,6 +812,23 @@ Mat card
   }
 }
 
+.mat-select-value{
+  color: var(--accent-color)!important;
+}
+.mat-tooltip-trigger {
+  color: var(--accent-color)!important;
+}
+.mat-button, .mat-icon-button, .mat-stroked-button {
+  color: var(--black)!important;
+}
+.mat-calendar-body-selected {
+  background-color: var(--secondary-light);
+  color: var(--white);
+}
+.primary{
+  color: var(--white)!important;
+  background: var(--primary-color)!important;
+}
 /*******************
 Grid
 *******************/

@@ -231,7 +231,7 @@ button {
 
 button:focus {
   outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: 5px auto var(--secondary-light);
 }
 
 input,
@@ -427,7 +427,7 @@ template {
 
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    border: 1px solid var(--secondary-light) !important;
   }
 }
 
@@ -652,7 +652,7 @@ button {
 
 button:focus {
   outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: 5px auto var(--secondary-light);
 }
 
 input,
@@ -4354,8 +4354,7 @@ tbody.collapse.show {
 .navbar-brand {
   display: inline-block;
   padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  margin-right: 1rem;
+  margin: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
@@ -11827,6 +11826,14 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
 
 form {
   margin-bottom: 1.125rem;
+  button {
+    color: var(--text-accent-color)!important;
+    margin-left: 4px!important;
+    background: var(--secondary-light)!important;
+  }
+  button:first-child {
+    background: transparent!important;
+  }
 }
 
 .card form {
@@ -16993,7 +17000,7 @@ legend {
 }
 
 a {
-  color: #9c27b0;
+  color: var(----text-primary-color);
 }
 
 a:hover,

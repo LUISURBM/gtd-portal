@@ -9,7 +9,7 @@ import { InMemService } from "../srv/in-mem-service";
     <form [formGroup]="form">
       <div mat-dialog-content>
         <p>What's your info?</p>
-        <div class="example-tooltip-host" matTooltip="Tooltip!" *ngIf="inMemSrv.empresas | async as businesses">
+        <div class="type-tooltip-ne" matTooltip="Tooltip!" *ngIf="inMemSrv.empresas | async as businesses">
           <span>Show business</span>
           <mat-form-field>
 				    <mat-select class="example-select"

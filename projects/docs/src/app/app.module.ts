@@ -17,16 +17,15 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG,
+  MSAL_INTERCEPTOR_CONFIG
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
   InteractionType,
   IPublicClientApplication,
-  PublicClientApplication,
+  PublicClientApplication
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LogLevel } from 'msal';
 import { pairwise } from 'rxjs/operators';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +37,6 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { HelperComponent } from './layouts/full/helper/helper.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
-import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
 import { StyleManagerService } from './srv/style-manager.service';
@@ -100,7 +98,6 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     AppComponent,
     FullComponent,
     AppHeaderComponent,
-    SpinnerComponent,
     AppSidebarComponent,
     HelperComponent,
   ],
@@ -152,24 +149,12 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer, themeSrv: ThemeService) {
-    const altTheme = themeSrv.themes.filter(
-      (themeOpt) => themeSrv.themeState$.value.uiPalette == themeOpt.catalog
-    )?.[0]?.alternate;
-    if (themeSrv.themeState$.value.darkPalette) {
-      overlayContainer.getContainerElement().classList.add(altTheme);
-    } else {
-      overlayContainer.getContainerElement().classList.remove(altTheme);
-    }
-    themeSrv.themeState$.next({
-      ...themeSrv.themeState$.value,
-      darkPalette: !themeSrv.themeState$.value.darkPalette,
-    });
-    // overlayContainer.getContainerElement().classList.add(altTheme);
+    overlayContainer.getContainerElement().classList.add(NgGtdThemes.FpiSkin);
     themeSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
       console.log(p, q);
-      // if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
-      // if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
+      if (q)
+        overlayContainer.getContainerElement().classList.remove(p.uiPalette);
+      if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
     });
-
   }
 }

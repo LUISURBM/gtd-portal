@@ -11,7 +11,7 @@
           <div class="card-body">
             <form [formGroup]="form">
               <ng-container *ngFor="let row of f | keyvalue; let i = index;">
-                <div [ngSwitch]="typeof(row.value)" class="example-tooltip-host" matTooltip="Tooltip!">
+                <div [ngSwitch]="typeof(row.value)" class="type-tooltip-ne" matTooltip="Tooltip!">
                   <span>{{row.key}}</span>
                   <mat-form-field *ngSwitchCase="'string'">
                     <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"

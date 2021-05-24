@@ -1,12 +1,12 @@
 <!-- ============================================================== -->
 <!-- Sidebar - style you can find in sidebar.scss -->
 <!-- ============================================================== -->
-<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
-  *ngIf="themeState$ | async as state">
+<mat-drawer-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+  *ngIf="themeState$ | async as state" (backdropClick)="close('backdrop')">
 
-  <mat-sidenav #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs"
-    [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches"
-    [disableClose]="mobileQuery.matches" style="direction: rtl ">
+  <mat-drawer #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs"
+    [mode]="mobileQuery.matches ? 'over' : 'side'" fixedTopGap="0" [opened]="mobileQuery.matches"
+    [disableClose]="mobileQuery.matches" style="direction: rtl " (keydown.escape)="close('escape')" disableClose>
 
     <!-- ============================================================== -->
     <!-- sidebar -->
@@ -20,7 +20,7 @@
       <div class="profile-text">
         <a [matMenuTriggerFor]="sdprofile" class="">
           Administrador
-        <em class="ti-angle-down font-12 m-l-5"></em>
+          <em class="ti-angle-down font-12 m-l-5"></em>
         </a>
       </div>
       <mat-menu #sdprofile="matMenu" class="mymegamenu">
@@ -41,14 +41,14 @@
 
     <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
       <form [formGroup]="form">
-        <mat-form-field class="example-full-width" style="direction: ltr; padding: 0px 15px ">
+        <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
           <mat-label>Buscar...</mat-label>
           <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
-          <mat-icon (click)="buscar.value = ''; filter('');" matSuffix mat-fab >clear</mat-icon>
+          <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
         </mat-form-field>
       </form>
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
-        group="{{menuitem.state}}" >
+        group="{{menuitem.state}}">
         <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name }}</span>
@@ -58,9 +58,10 @@
       </mat-list-item>
     </mat-nav-list>
 
-  </mat-sidenav>
+  </mat-drawer>
+
   <app-helper-overview-grap>
-    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" [attr.style]="'color: $light-accent-text;'">
+    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="color: var(--light-accent-text)">
       <mat-icon>menu</mat-icon>
     </button>
   </app-helper-overview-grap>
@@ -77,13 +78,13 @@
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->
-  <mat-sidenav-content class="page-wrapper">
+  <mat-drawer-content class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Topbar - style you can find in header.scss -->
     <!-- ============================================================== -->
     <ng-content></ng-content>
 
-  </mat-sidenav-content>
+  </mat-drawer-content>
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->
@@ -91,4 +92,4 @@
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->
-</mat-sidenav-container>
+</mat-drawer-container>

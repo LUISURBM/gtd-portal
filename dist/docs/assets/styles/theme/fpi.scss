@@ -54,15 +54,15 @@ $sidebar-icons: rgba($dark-primary-text, 0.7);
 
 $mat-light-theme-foreground: (
   base:              $light-primary-text,
-  divider:           $dark-dividers,
-  dividers:          $dark-dividers,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
   disabled:          $light-disabled-text,
   disabled-button:   rgba($light-text, 0.26),
   disabled-text:     $light-disabled-text,
   elevation:         black,
   secondary-text:    $light-accent-text,
   hint-text:         $light-disabled-text,
-  accent-text:       $light-accent-text,
+  accent-text:       $dark-accent-text,
   icon:              $dark-accent-text,
   icons:             $dark-accent-text,
   text:              $light-primary-text,
@@ -80,7 +80,7 @@ $mat-dark-theme-foreground: (
   disabled-text:     $dark-disabled-text,
   elevation:         black,
   hint-text:         $dark-disabled-text,
-  secondary-text:    $light-text,
+  secondary-text:    $dark-accent-text,
   accent-text:       $dark-accent-text,
   icon:              $light-text,
   icons:             $light-text,
@@ -154,6 +154,7 @@ $dark-transparent: rgba(0, 0, 0, 0.05);
 
 /*Normal Color*/
 $white: #ffffff;
+$black: #181818;
 $red: #fb3a3a;
 $yellow: #a0aec4;
 $purple: #7460ee;
@@ -176,7 +177,7 @@ $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$ligth-app-bar-5:     lighten($app-bar-alt, 5%);
+$light-app-bar-5:     lighten($app-bar-alt, 5%);
 $dark-app-bar-5:     lighten($app-bar-dark, 5%);
 $dark-bg-tooltip:     lighten(#2c2c2c, 20%);
 $dark-bg-alpha-4:     rgba(#2c2c2c, 0.04);
@@ -188,13 +189,13 @@ $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
 $light-bg-alpha-4:    rgba(#fafafa, 0.04);
 $light-bg-alpha-12:   rgba(#fafafa, 0.12);
-
+// fpi-skin-black
 $mat-light-theme-background: (
-  background:               $dark-bg-lighter-30,
+  background:               $light-bg-darker-30,
   status-bar:               $dark-bg-lighter-20,
   app-bar:                  $app-bar-dark,
   hover:                    $light-bg-alpha-4,
-  card:                     $ligth-app-bar-5,
+  card:                     $dark-app-bar-5,
   dialog:                   $dark-app-bar-5,
   tooltip:                  $dark-bg-lighter-20,
   disabled-button:          $light-bg-alpha-12,
@@ -207,13 +208,14 @@ $mat-light-theme-background: (
   disabled-list-option:     $dark-bg-lighter-10,
 );
 
+// fpi-skin-alt
 $mat-dark-theme-background: (
-  background:               $light-bg-darker-30,
+  background:               $dark-bg-lighter-30,
   status-bar:               $light-bg-darker-20,
   app-bar:                  $app-bar-alt,
   hover:                    $dark-bg-alpha-4,
-  card:                     $dark-app-bar-5,
-  dialog:                   $ligth-app-bar-5,
+  card:                     $light-app-bar-5,
+  dialog:                   $light-app-bar-5,
   tooltip:                  $dark-bg-tooltip,
   disabled-button:          $dark-bg-alpha-12,
   raised-button:            $light-bg-lighter-5,
@@ -232,7 +234,7 @@ $mat-primary-black: (
   main: #181818,
   lighter: #777575,
   darker: #000000,
-  200: #db543c, // FOR SLIDE TOGGLE,
+  200: #86b30a, // FOR SLIDE TOGGLE,
   contrast : (
     main: $dark-primary-text,
     lighter: $light-primary-text,
@@ -256,9 +258,9 @@ $mat-accent-black: (
   darker: #5c5c5c,
   200: #797979, // FOR SLIDE TOGGLE,
   contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-accent-black: mat-palette($mat-accent-black, main, lighter, darker);
@@ -303,6 +305,7 @@ $theme-black: mat-light-theme($theme-primary-black, $theme-accent-black, $theme-
   --border: #{$border};
   --radius: #{$radius};
   --white: #{$white};
+  --black: #{$black};
   --danger: #{$danger};
   --muted: #{$muted};
   --warning: #{$warning};
@@ -402,11 +405,12 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --secondary-light: #{$theme-alt-lighter-10};
   --toolbar: mat-color($mat-primary,main);
   --inverse: mat-color($mat-accent,main);
-  --bg-dialog: #{$dark-app-bar-5};
+  --bg-dialog: #{$light-app-bar-5};
   --bg-card: #{$dark-background};
+  --background: mat-color($mat-primary,main);
 
 
-  --primary-color: #86b30a;
+  --primary-color: #813405;
   --primary-lighter-color: #f0c2ef;
   --primary-darker-color: #b920b7;
   --text-primary-color: #{$dark-primary-text};

@@ -1,4 +1,5 @@
-import { ValuesCatalog } from '../../../srv/in-mem-data-service';
+import { Trabajador, VALUES_WORKER } from '../../../trabajador/trabajador-data';
+import { Basico, basicos } from '../basicos/basico-data';
 
 export interface Devengados {
   id: number;
@@ -11,6 +12,8 @@ export interface Devengados {
   bonifRetiro?: number;
   indemnizacion?: number;
   reintegro?: number;
+  basico?: Basico;
+  trabajador?: Trabajador;
 }
 
 export const devengados: Devengados[] = [
@@ -25,6 +28,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 2,
@@ -37,6 +42,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 3,
@@ -49,6 +56,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 4,
@@ -61,6 +70,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 5,
@@ -73,6 +84,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 6,
@@ -85,6 +98,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 7,
@@ -97,6 +112,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 8,
@@ -109,6 +126,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 9,
@@ -121,6 +140,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 10,
@@ -133,6 +154,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 11,
@@ -145,6 +168,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 12,
@@ -157,6 +182,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 13,
@@ -169,6 +196,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 14,
@@ -181,6 +210,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 15,
@@ -193,6 +224,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 16,
@@ -205,6 +238,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 17,
@@ -217,6 +252,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 18,
@@ -229,6 +266,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 19,
@@ -241,6 +280,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
   {
     id: 20,
@@ -253,6 +294,8 @@ export const devengados: Devengados[] = [
     bonifRetiro: 34,
     indemnizacion: 34,
     reintegro: 1,
+    basico: basicos[0],
+    trabajador: VALUES_WORKER[0],
   },
 ];
 
@@ -281,5 +324,24 @@ export const EMPTY = {
   bonifRetiro: 0,
   indemnizacion: 0,
   reintegro: 1,
+  basico: basicos[0],
+  trabajador: VALUES_WORKER[0],
 };
 
+
+export const MENU_ITEMS = [
+  { state: '/nómina/devengados/view/form', name: 'General devengos', type: 'link', icon: 'work' },
+  { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
+  { state: 'auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm' },
+  { state: 'bonificaciones', name: 'Bonificación', type: 'link', icon: 'money' },
+  { state: 'bonos', name: 'Bonos', type: 'link', icon: 'local_atm' },
+  { state: 'cesantías', name: 'Cesantías', type: 'link', icon: 'savings' },
+  { state: 'comisines', name: 'Comisión', type: 'link', icon: 'price_check' },
+  { state: 'compensaciones', name: 'Compensaciones', type: 'link', icon: 'shopping_basket' },
+  { state: 'horariosAdicionales', name: 'Horarios Adicionales', type: 'link', icon: 'receipt' },
+  { state: 'licencias', name: 'Licencias', type: 'link', icon: 'receipt' },
+  { state: 'otrosConceptos', name: 'Otros Conceptos', type: 'link', icon: 'receipt' },
+  { state: 'pagosTerceros', name: 'Pagos de Tercero', type: 'link', icon: 'payments' },
+  { state: 'transportes', name: 'Transporte', type: 'link', icon: 'transfer_within_a_station' },
+  { state: 'vacaciones', name: 'Vacaciones', type: 'link', icon: 'flight_takeoff' },
+];

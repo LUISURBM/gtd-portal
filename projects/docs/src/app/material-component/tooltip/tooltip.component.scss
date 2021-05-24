@@ -1,7 +1,9 @@
-.example-tooltip-host {
+.type-tooltip-ne {
   display: inline-flex;
   align-items: center;
   margin: 50px;
+  font-size: 14px;
+  color: var(--text-primary-color) !important
 }
 
 .example-select {

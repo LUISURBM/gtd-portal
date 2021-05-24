@@ -7,6 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
+import { SharedModule } from '../shared/shared.module';
 import { AnticipoFormComponent } from './payroll-components/anticipo/anticipo-form.component';
 import { AnticipoComponent } from './payroll-components/anticipo/anticipo.component';
 import { AuxilioFormComponent } from './payroll-components/auxilio/auxilio-form.component';
@@ -24,6 +25,7 @@ import { ComisionesComponent } from './payroll-components/comisiones/comisiones.
 import { CompensacionFormComponent } from './payroll-components/compensaciones/compensacion-form.component';
 import { CompensacionesComponent } from './payroll-components/compensaciones/compensaciones.component';
 import { DevengadosFormComponent } from './payroll-components/devengados/devengados-form.component';
+import { DevengadosViewComponent } from './payroll-components/devengados/devengados-view.component';
 import { DevengadosComponent } from './payroll-components/devengados/devengados.component';
 import { EmpleadorFormComponent } from './payroll-components/empleador/empleador-form.component';
 import { EmpleadoresComponent } from './payroll-components/empleador/empleadores.component';
@@ -126,6 +128,7 @@ import { PayrollRoutes } from './payroll.routing';
     PagoFormComponent,
     DevengadosComponent,
     DevengadosFormComponent,
+    DevengadosViewComponent,
     BasicosComponent,
     BasicoFormComponent,
     PrimasComponent,
@@ -138,14 +141,11 @@ import { PayrollRoutes } from './payroll.routing';
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
-    RouterModule.forChild(PayrollRoutes),
+    RouterModule.forChild(PayrollRoutes, ),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
   ],
-  providers: [{
-    provide: MatDialogRef,
-    useValue: {}
-  }],
 })
 export class PayrollModule {}

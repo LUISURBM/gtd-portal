@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
+import { NavigationService } from '../../../srv/navigation.service';
 import { NgGtdDS } from '../../../types/common-types';
 import {
   Devengados,
@@ -32,6 +33,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
+    ,public navSrv: NavigationService
   ) {
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Devengados>(devengados),
