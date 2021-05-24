@@ -11,7 +11,7 @@ mat-sidenav {
   width: 240px;
   padding-top: 0px;
 }
-#snav{
+#snav,#formMenu{
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     .mat-list-item {
         height: auto;
@@ -38,7 +38,7 @@ mat-sidenav {
             display: flex;
             font-size: 15px;
             white-space: nowrap;
-            color: $sidebar-icons;
+            color: var(--sidebar-icons);
             mat-icon:not(.dd-icon){
                 margin-right: 8px;
             }
