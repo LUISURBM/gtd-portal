@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { NgGtdThemes, ValueOption } from '../types/common-types';
 import { THEMES_OPTIONS } from '../values-catalog';
@@ -8,6 +8,7 @@ interface ThemeState {
   uiPalette: NgGtdThemes;
   darkPalette?: boolean;
   visibleMenu: boolean;
+  fullScreen: boolean;
 }
 @Injectable()
 export class ThemeService {
@@ -16,12 +17,19 @@ export class ThemeService {
     new BehaviorSubject<ThemeState>({
       uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
+      fullScreen: false
     });
 
-  constructor(private styleManager: StyleManagerService) {
+  private renderer: Renderer2;
+  constructor(
+    private styleManager: StyleManagerService,
+    rendererFactory: RendererFactory2
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
     this.themeState$?.next({
       uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
+      fullScreen: false
     });
   }
 
@@ -59,7 +67,17 @@ export class ThemeService {
     });
   }
 
+  toggleFullScreen(nativeElement: any) {
+    if (!this.themeState$.value.fullScreen) {
+      this.openFullscreen(nativeElement);
+    } else {
+      this.closeFullscreen(nativeElement);
+    }
+  }
+
   openFullscreen(documentElement: any) {
+    this.themeState$.next({ ...this.themeState$.value, fullScreen: true });
+    this.renderer.addClass(documentElement, 'full-screen-view');
     if (documentElement.requestFullscreen) {
       documentElement.requestFullscreen();
     } else if (documentElement.mozRequestFullScreen) {
@@ -71,10 +89,15 @@ export class ThemeService {
     } else if (documentElement.msRequestFullscreen) {
       /* IE/Edge */
       documentElement.msRequestFullscreen();
+    } else {
+      this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
+      this.renderer.removeClass(documentElement, 'full-screen-view');
     }
   }
 
   closeFullscreen(document: any) {
+    this.renderer.removeClass(document, 'full-screen-view');
+    this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.mozCancelFullScreen) {
@@ -86,6 +109,8 @@ export class ThemeService {
     } else if (document.msExitFullscreen) {
       /* IE/Edge */
       document.msExitFullscreen();
+    } else {
+      (document as any).exitFullscreen();
     }
   }
 }

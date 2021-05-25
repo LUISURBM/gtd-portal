@@ -52,14 +52,13 @@ export class BasicosComponent implements OnInit, AfterViewInit {
       });
 
     });
-    
+
   }
 
   add(basico: Basico): void {
     if (!basico) {
       return;
     }
-    basico.id = "67489e34-8a49-4ebb-a925-4ab5b1812bf1";
     this.basicoService.save(basico);
   }
 

@@ -30,68 +30,74 @@ export const PayrollRoutes: Routes = [
     component: PayrollFormComponent,
   },
   {
-    path: 'devengados',
-    component: DevengadosComponent,
-  },
-  {
-    path: 'devengados/view',
-    component: DevengadosViewComponent,
+    path: 'devengos',
     children: [
       {
-        path: 'form',
-        component: DevengadosFormComponent,
+        path: '',
+        component: DevengadosComponent,
+        pathMatch: 'full',
       },
       {
-        path: 'licencias',
-        component: LicenciaComponent,
-      },
-      {
-        path: 'auxilios',
-        component: AuxiliosComponent,
-      },
-      {
-        path: 'vacaciones',
-        component: VacacionesComponent,
-      },
-      {
-        path: 'bonificaciones',
-        component: BonificacionesComponent,
-      },
-      {
-        path: 'anticipos',
-        component: AnticipoComponent,
-      },
-      {
-        path: 'pagosTerceros',
-        component: PagosTercerosComponent,
-      },
-      {
-        path: 'bonos',
-        component: BonosEPCTVComponent,
-      },
-      {
-        path: 'compensaciones',
-        component: CompensacionesComponent,
-      },
-      {
-        path: 'cesantías',
-        component: CesantiasComponent,
-      },
-      {
-        path: 'transportes',
-        component: TransportesComponent,
-      },
-      {
-        path: 'otrosConceptos',
-        component: OtrosConceptosComponent,
-      },
-      {
-        path: 'comisines',
-        component: ComisionesComponent,
-      },
-      {
-        path: 'horariosAdicionales',
-        component: HorariosAdicionalesComponent,
+        path: 'view',
+        component: DevengadosViewComponent,
+        children: [
+          {
+            path: 'form',
+            component: DevengadosFormComponent,
+          },
+          {
+            path: 'licencias',
+            component: LicenciaComponent,
+          },
+          {
+            path: 'auxilios',
+            component: AuxiliosComponent,
+          },
+          {
+            path: 'vacaciones',
+            component: VacacionesComponent,
+          },
+          {
+            path: 'bonificaciones',
+            component: BonificacionesComponent,
+          },
+          {
+            path: 'anticipos',
+            component: AnticipoComponent,
+          },
+          {
+            path: 'pagosTerceros',
+            component: PagosTercerosComponent,
+          },
+          {
+            path: 'bonos',
+            component: BonosEPCTVComponent,
+          },
+          {
+            path: 'compensaciones',
+            component: CompensacionesComponent,
+          },
+          {
+            path: 'cesantías',
+            component: CesantiasComponent,
+          },
+          {
+            path: 'transportes',
+            component: TransportesComponent,
+          },
+          {
+            path: 'otrosConceptos',
+            component: OtrosConceptosComponent,
+          },
+          {
+            path: 'comisiones',
+            component: ComisionesComponent,
+          },
+          {
+            path: 'horariosAdicionales',
+            component: HorariosAdicionalesComponent,
+          },
+        ],
       },
     ],
   },

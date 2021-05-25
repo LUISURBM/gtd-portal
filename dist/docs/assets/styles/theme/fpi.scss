@@ -115,6 +115,20 @@ $card-brd: #d7dfe3;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
+body{
+  --radius: #{$radius};
+  --white: #{$white};
+  --black: #{$black};
+  --danger: #{$danger};
+  --muted: #{$muted};
+  --warning: #{$warning};
+  --success: #{$success};
+  --info: #{$info};
+  --blue: #{$blue};
+  --primary: #{$primary};
+  --megna: #{$megna};
+  --purple: #{$purple};
+}
 
 $light-primary-text: rgba($light-text, 0.87);
 $light-accent-text: rgba($light-primary-text, 0.84);
@@ -161,7 +175,7 @@ $mat-light-theme-foreground: (
   accent-text:       $dark-accent-text,
   icon:              $light-accent-text,
   icons:             $light-accent-text,
-  text:              $dark-text,
+  text:              $light-text,
   slider-min:        $light-primary-text,
   slider-off:        rgba($light-text, 0.26),
   slider-off-active: $light-disabled-text,
@@ -195,7 +209,7 @@ $mat-light-theme-background: (
   hover:                    $light-bg-alpha-4,
   card:                     $dark-app-bar-5,
   dialog:                   $dark-app-bar-5,
-  tooltip:                  $dark-bg-lighter-20,
+  tooltip:                  $dark-bg-lighter-5,
   disabled-button:          $light-bg-alpha-12,
   raised-button:            $dark-bg-lighter-30,
   focused-button:           $dark-focused,
@@ -213,7 +227,7 @@ $mat-dark-theme-background: (
   app-bar:                  $app-bar-alt,
   hover:                    $dark-bg-alpha-4,
   card:                     $light-app-bar-5,
-  dialog:                   $light-app-bar-5,
+  dialog:                   $app-bar-alt,
   tooltip:                  $dark-bg-tooltip,
   disabled-button:          $dark-bg-alpha-12,
   raised-button:            $light-bg-lighter-5,
@@ -242,10 +256,10 @@ $mat-primary-black: (
 
 
 $themecolor-alt-black: #86b30a;
-$theme-alt-blacker-5:   darker($themecolor-alt-black, 5%);
-$theme-alt-blacker-10:  darker($themecolor-alt-black, 10%);
-$theme-alt-blacker-20:  darker($themecolor-alt-black, 20%);
-$theme-alt-blacker-30:  darker($themecolor-alt-black, 30%);
+$theme-alt-blacker-5:   lighten($themecolor-alt-black, 5%);
+$theme-alt-blacker-10:  lighten($themecolor-alt-black, 10%);
+$theme-alt-blacker-20:  lighten($themecolor-alt-black, 20%);
+$theme-alt-blacker-30:  lighten($themecolor-alt-black, 30%);
 
 
 $theme-primary-black: mat-palette($mat-primary-black, main, darker, lighter);
@@ -303,18 +317,6 @@ $theme-black: mat-light-theme($theme-primary-black, $theme-accent-black, $theme-
   --headingfont: #{$headingfont};
   --sidebar-icons: #{$sidebar-icons};
   --border: #{$border};
-  --radius: #{$radius};
-  --white: #{$white};
-  --black: #{$black};
-  --danger: #{$danger};
-  --muted: #{$muted};
-  --warning: #{$warning};
-  --success: #{$success};
-  --info: #{$info};
-  --blue: #{$blue};
-  --primary: #{$primary};
-  --megna: #{$megna};
-  --purple: #{$purple};
   --light-primary: #{$light-primary};
   --light-success: #{$light-success};
   --light-info: #{$light-info};
@@ -349,7 +351,7 @@ $theme-black: mat-light-theme($theme-primary-black, $theme-accent-black, $theme-
 $sidebar-icons: #9d7c62;
 
 
-$themecolor-alt: #813405;
+$themecolor-alt: #93656c;
 $theme-alt-lighter-5:   lighten($themecolor-alt, 5%);
 $theme-alt-lighter-10:  lighten($themecolor-alt, 10%);
 $theme-alt-lighter-20:  lighten($themecolor-alt, 20%);
@@ -357,7 +359,7 @@ $theme-alt-lighter-30:  lighten($themecolor-alt, 30%);
 
 
 $mat-primary: (
-  main: $dark-background,
+  main: #A37C82,
   lighter: #15bb0d,
   darker: #777575,
   200: #db543c, // FOR SLIDE TOGGLE,
@@ -415,7 +417,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --primary-color: #813405;
   --primary-lighter-color: #f0c2ef;
   --primary-darker-color: #b920b7;
-  --text-primary-color: #{$light-primary-text};
+  --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$light-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
   --accent-color: #797979;

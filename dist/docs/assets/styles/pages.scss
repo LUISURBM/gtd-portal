@@ -3,108 +3,124 @@
 File: scss
 */
 
-
 /*==============================================================
  For all pages
  ============================================================== */
-
 
 /*******************
  Main container
 *******************/
 
 .main-container {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	overflow: hidden;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.mat-drawer-container{
-		background: $bodycolor;
-
+.mat-drawer-container {
+  background: $bodycolor;
+  height: 100vh;
 }
 
-html .page-wrapper{
-		height:calc(100vh - 64px);
-		.page-content{
-				padding: 15px;
-		}
+html .page-wrapper {
+  height: calc(100vh - 128px);
+  .page-content {
+    padding: 15px;
+  }
 }
 
-.align-items-center{
-		align-items: center;
+.page-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+		causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.page-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+	`<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.full-screen-view {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh; z-index: 998;
+}
+
+.align-items-center {
+  align-items: center;
 }
 
 /*******************
 Chartistt chart css
 ******************/
-.barchrt{
-		.ct-series-a .ct-bar{
-				stroke:$success;
-		}
-		.ct-series-b .ct-bar{
-				stroke:$info;
-		}
+.barchrt {
+  .ct-series-a .ct-bar {
+    stroke: $success;
+  }
+  .ct-series-b .ct-bar {
+    stroke: $info;
+  }
 }
 #chart_wrap {
   position: relative;
   padding-bottom: 100%;
   height: 0;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 #piechart {
   width: 100%;
   min-height: 450px;
 }
-.piechart{
-		.ct-series-a .ct-slice-donut{
-				stroke:$info
-		}
-		.ct-series-b .ct-slice-donut{
-				stroke:$success
-		}
-		.ct-series-c .ct-slice-donut{
-				stroke:$purple
-		}
-		.ct-series-d .ct-slice-donut{
-				stroke:$light
-		}
-		.ct-series-e .ct-slice-donut{
-				stroke:$warning
-		}
+.piechart {
+  .ct-series-a .ct-slice-donut {
+    stroke: $info;
+  }
+  .ct-series-b .ct-slice-donut {
+    stroke: $success;
+  }
+  .ct-series-c .ct-slice-donut {
+    stroke: $purple;
+  }
+  .ct-series-d .ct-slice-donut {
+    stroke: $light;
+  }
+  .ct-series-e .ct-slice-donut {
+    stroke: $warning;
+  }
 }
 
 /*******************/
 /*social-profile-first*/
 /*******************/
-.little-profile{
-	.pro-img, .pro-img:first-child {
-		margin-top: -110px;
-		margin-bottom: 20px;
-	img {
-		width: 128px;
-		height: 128px;
-		-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-		box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-		border-radius: 100%;
-			}
- }
+.little-profile {
+  .pro-img,
+  .pro-img:first-child {
+    margin-top: -110px;
+    margin-bottom: 20px;
+    img {
+      width: 128px;
+      height: 128px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+    }
+  }
 }
 
-.button-row button{
-	margin-bottom: 5px;
-    	margin-right: 5px;
+.button-row button {
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .pl-5 {
-	padding-left: 5px;
+  padding-left: 5px;
 }
 .pr-5 {
-	padding-right: 5px;
+  padding-right: 5px;
 }

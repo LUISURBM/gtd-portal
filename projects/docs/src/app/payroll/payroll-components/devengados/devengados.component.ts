@@ -19,7 +19,7 @@ import { DevengadosFormComponent } from './devengados-form.component';
 @Component({
   selector: 'app-payroll-devengados',
   templateUrl: './devengados.component.html',
-  styleUrls: ['./devengados.component.css'],
+  styleUrls: ['./devengados.component.scss'],
 })
 export class DevengadosComponent implements OnInit, AfterViewInit {
   dataSource$: BehaviorSubject<NgGtdDS>;

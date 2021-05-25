@@ -14409,7 +14409,7 @@ h6,
 .footer-big h4 a,
 .media .media-heading,
 .media .media-heading a {
-  color: #3C4858;
+  color: var(--text-primary-color);
   text-decoration: none;
 }
 
@@ -17000,12 +17000,12 @@ legend {
 }
 
 a {
-  color: var(----text-primary-color);
+  color: var(--text-primary-color);
 }
 
 a:hover,
 a:focus {
-  color: #89229b;
+  color: var(--secondary-light);
   text-decoration: none;
 }
 

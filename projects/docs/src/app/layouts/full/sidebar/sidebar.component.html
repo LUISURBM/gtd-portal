@@ -1,12 +1,12 @@
 <!-- ============================================================== -->
 <!-- Sidebar - style you can find in sidebar.scss -->
 <!-- ============================================================== -->
-<mat-drawer-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
+<mat-drawer-container class="page-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
   *ngIf="themeState$ | async as state" (backdropClick)="close('backdrop')">
 
   <mat-drawer #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs"
-    [mode]="mobileQuery.matches ? 'over' : 'side'" fixedTopGap="0" [opened]="mobileQuery.matches"
-    [disableClose]="mobileQuery.matches" style="direction: rtl " (keydown.escape)="close('escape')" disableClose>
+    mode="over" [opened]="mobileQuery.matches"
+    [disableClose]="mobileQuery.matches" style="direction: rtl " (keydown.escape)="close('escape')">
 
     <!-- ============================================================== -->
     <!-- sidebar -->
@@ -49,7 +49,7 @@
       </form>
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
         group="{{menuitem.state}}">
-        <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
+        <a class="" appAccordionToggle (click)="snav.toggle(); navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name }}</span>
           <span fxFlex></span>
@@ -78,7 +78,7 @@
   <!-- ============================================================== -->
   <!-- Page container - style you can find in pages.scss -->
   <!-- ============================================================== -->
-  <mat-drawer-content class="page-wrapper">
+  <mat-drawer-content >
     <!-- ============================================================== -->
     <!-- Topbar - style you can find in header.scss -->
     <!-- ============================================================== -->

@@ -1,7 +1,6 @@
-import { UUID } from "angular2-uuid";
 
 export interface Basico {
-  id: UUID;
+  id: number;
   diasTrabajados?: number;
   sueldoTrabajado?: number;
 }

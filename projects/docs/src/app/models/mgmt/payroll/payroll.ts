@@ -1,11 +1,10 @@
-import { UUID } from "angular2-uuid";
 
 export interface PayrollEntity{
 
-    id:UUID;
+  id:string;
 
-	docNumber:String;
+	docNumber:string;
 
-	subscriptionId:UUID;
+	subscriptionId:string;
 
 }

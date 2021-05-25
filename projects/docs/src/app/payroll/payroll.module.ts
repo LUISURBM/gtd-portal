@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
@@ -141,7 +140,7 @@ import { PayrollRoutes } from './payroll.routing';
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
-    RouterModule.forChild(PayrollRoutes, ),
+    RouterModule.forChild(PayrollRoutes),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

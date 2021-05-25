@@ -2,27 +2,27 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <div class="main-container">
-
   <!-- ============================================================== -->
   <!-- Sidebar - style you can find in sidebar.scss -->
   <!-- ============================================================== -->
-
-<mat-toolbar class="topbar telative">
-  <!-- ============================================================== -->
-  <!-- Logo - style you can find in header.scss -->
-  <!-- ============================================================== -->
-  <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed" style="color: var(--secondary-light)!important">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span fxFlex></span>
-  <!-- ============================================================== -->
-  <!-- app header component - style you can find in header.scss / header.component.ts-->
-  <!-- ============================================================== -->
-  <app-header></app-header>
-</mat-toolbar>
-<div class="page-content">
   <app-sidebar>
-    <router-outlet><app-spinner></app-spinner></router-outlet>
+    <mat-toolbar class="topbar telative">
+      <!-- ============================================================== -->
+      <!-- Logo - style you can find in header.scss -->
+      <!-- ============================================================== -->
+      <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed"
+        style="color: var(--secondary-light)!important">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span fxFlex></span>
+      <!-- ============================================================== -->
+      <!-- app header component - style you can find in header.scss / header.component.ts-->
+      <!-- ============================================================== -->
+      <app-header></app-header>
+    </mat-toolbar>
+
+    <router-outlet>
+      <app-spinner></app-spinner>
+    </router-outlet>
   </app-sidebar>
-</div>
 </div>
