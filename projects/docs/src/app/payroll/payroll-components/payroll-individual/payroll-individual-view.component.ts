@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Menu } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { ThemeService } from '../../../srv/theme.service';
@@ -12,7 +12,7 @@ import { environment } from '../../../../environments/environment';
   selector: 'app-payroll-individual-view',
   templateUrl: './payroll-individual-view.component.html',
 })
-export class PayrollindividualViewComponent {
+export class PayrollindividualViewComponent implements OnInit{
   position = 'below';
   public menuItems: Menu[];
   private payrollDataUrl = environment.API_GATEWAY;
@@ -20,6 +20,7 @@ export class PayrollindividualViewComponent {
   form: FormGroup;
   constructor(
     public builder: FormBuilder,
+    public router: Router,
     private route: ActivatedRoute,
     public themeSrv: ThemeService,
     private elRef:ElementRef
@@ -68,6 +69,9 @@ export class PayrollindividualViewComponent {
     });
   }
 
+  ngOnInit(){
+    console.log('configured routes: ', this.router.config);
+  }
   onNoClick(): void {}
 
   save() {}

@@ -45,8 +45,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "backgroundColor": "#fff",
     "buttonColor": "#ff4081",
     "headingColor": "#3f51b5",
-    "label": "Indigo & Pink",
-    "value": "indigo-pink",
+    "label": "Unicorn",
+    "value": "Unicorn",
     "catalog": NgGtdThemes.UnicornLightTheme,
     "alternate": NgGtdThemes.UnicornDarkTheme
   },
@@ -75,14 +75,14 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "label": "PinkBlue grey",
     "value": "PinkBlue grey",
     "catalog": NgGtdThemes.PinkBluegrey,
-    "alternate": NgGtdThemes.UnicornLightTheme
+    "alternate": NgGtdThemes.PinkBluegrey
   },
   {
     "backgroundColor": "#303030",
     "buttonColor": "#607d8b",
     "headingColor": "#7b1fa2",
-    "label": "PurpleG reen",
-    "value": "PurpleG reen",
+    "label": "Purple green",
+    "value": "Purple green",
     "catalog": NgGtdThemes.PurpleGreen,
     "alternate": NgGtdThemes.DeeppurpleAmber
   },

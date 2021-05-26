@@ -120,17 +120,23 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
+
+body{
+  --primary: #{$primary};
+  --background: #{mat-color(map-get($theme-black, background))};
+  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+}
+
+
 // $primary-theme: mat-palette($mat-blue-grey);
 // $accent-theme: mat-palette($mat-amber, A200, A100, A400);
 // $warn-theme: mat-palette($mat-pink);
 // $accent: mat-palette($mat-blue, 500);
 // $warn: mat-palette($mat-pink, 500);
-$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-@include angular-material-theme($theme);
 
 // $theme: mat-light-theme($primary-theme, $accent-theme, $warn-theme);
-$background: map-get($theme, background);
-$foreground: map-get($theme, foreground);
 /*Material Theme Colors*/
 $bodyfont: 'Poppins', sans-serif;
 $headingfont: 'Poppins', sans-serif;
@@ -187,14 +193,18 @@ $accent-theme-black: mat-palette($mat-accent-black);
 $warn-theme-black: mat-palette($mat-warn-black);
 // $accent: mat-palette($mat-blue, 500);
 // $warn: mat-palette($mat-pink, 500);
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+// $background: map-get($theme, background);
+// $foreground: map-get($theme, foreground);
+
+
+@include angular-material-theme($theme);
+
+
 $theme-black: mat-dark-theme($primary-theme-black, $accent-theme-black, $warn-theme-black);
 
 .default-theme-black {
   @include angular-material-color($theme-black);
-  --primary: #{$primary};
-  --background: #{mat-color(map-get($theme-black, background))};
-  --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
 }
 

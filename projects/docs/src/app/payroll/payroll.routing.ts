@@ -18,28 +18,32 @@ import { LicenciaComponent } from './payroll-components/licencias/licencias.comp
 import { OtrasDeduccionesComponent } from './payroll-components/otras-deducciones/otras-deducciones.component';
 import { OtrosConceptosComponent } from './payroll-components/otros-conceptos/otros-conceptos.component';
 import { PagosTercerosComponent } from './payroll-components/pagos-terceros/pagos-terceros.component';
+import { PayrollTableComponent } from './payroll-components/payroll-general/table/payroll-table.component';
 import { PayrollIndividualFormComponent } from './payroll-components/payroll-individual/payroll-individual-form.component';
+import { PayrollIndividualTableComponent } from './payroll-components/payroll-individual/payroll-individual-table.component';
 import { PayrollindividualViewComponent } from './payroll-components/payroll-individual/payroll-individual-view.component';
 import { SaludPensionSindicatosComponent } from './payroll-components/salud-pension-sindicato/salud-pension-sindicato.component';
 import { SancionComponent } from './payroll-components/sancion/sancion.component';
 import { TransportesComponent } from './payroll-components/transporte/transporte.component';
 import { VacacionesComponent } from './payroll-components/vacaciones-comunes/vacaciones.component';
-import { PayrollComponent } from './payroll.component';
 
 export const PayrollRoutes: Routes = [
   {
     path: '',
-    component: PayrollComponent,
+    component: PayrollTableComponent,
     pathMatch: 'full',
-  },
-  {
-    path: 'individual',
-    component: PayrollindividualViewComponent,
     children: [
+      {
+        path: 'individual',
+        component: PayrollIndividualTableComponent,
+      },
+      {
+        path: 'view',
+        component: PayrollindividualViewComponent,
+      },
       {
         path: 'form',
         component: PayrollIndividualFormComponent,
-        pathMatch: 'full',
       },
       {
         path: 'devengos',

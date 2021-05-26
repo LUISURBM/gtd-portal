@@ -11,8 +11,7 @@ import { BehaviorSubject, EMPTY } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NgGtdDS } from '../../../types/common-types';
-import { displayedColumns } from '../auxilio/auxilio-data';
-import { Payroll, nominas } from '../payroll-general/payroll-data';
+import { Payroll, nominas, displayedColumns } from '../payroll-general/payroll-data';
 import { PayrollIndividualFormComponent } from './payroll-individual-form.component';
 
 @Component({
