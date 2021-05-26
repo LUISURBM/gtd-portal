@@ -1,6 +1,7 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Nómina</mat-card-title>
+    <mat-card-subtitle><code>&lt;Nómina&gt;</code>listado de nóminas gestionadas en el corte. <code class=""><a  (click)="openDialog()">Crear nueva</a></code></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
@@ -17,7 +18,7 @@
           <mat-label>Buscar</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
             formControlName="filtro">
-          <mat-icon (click)="navSrv.navigate('/nómina/form',selected)" matSuffix mat-fab color="primary">
+          <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">
             add_circle_outline
           </mat-icon>
         </mat-form-field>
@@ -61,15 +62,21 @@
         <!-- Symbol Column -->
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element">
-
-            <button mat-icon-button (click)="delete(element)">
-              <mat-icon>delete</mat-icon>
+          <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="sdprofile">
+            <button mat-icon-button color="primary"color="accent">
+              <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-icon-button (click)="openDialog(element.id)">
-              <mat-icon>edit</mat-icon>
-            </button>
-
+            <mat-menu #sdprofile="matMenu" class="mymegamenu">
+              <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/individual/form', element)" tabindex="4">
+                <mat-icon>eye</mat-icon> Ver
+              </button>
+              <button mat-menu-item color="primary" (click)="openDialog(element.id)">
+                <mat-icon>edit</mat-icon> Editar
+              </button>
+              <button mat-menu-item (click)="delete(element)" >
+                <mat-icon>delete</mat-icon> Eliminar
+              </button>
+            </mat-menu>
           </td>
         </ng-container>
 

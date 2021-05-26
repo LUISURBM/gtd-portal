@@ -705,13 +705,13 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-optgroup-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-optgroup-disabled .mat-optgroup-label {
   color: rgba(255, 255, 255, 0.38);
 }
 .fpi-skin-black .mat-pseudo-checkbox {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-pseudo-checkbox::after {
   color: #cccccc;
@@ -1130,7 +1130,7 @@ body {
 }
 .fpi-skin-black .mat-button-toggle-checked {
   background-color: white;
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
   color: white;
@@ -1163,10 +1163,10 @@ body {
   box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2), 0px 0px 0px 0px rgba(255, 255, 255, 0.14), 0px 0px 0px 0px rgba(255, 255, 255, 0.12);
 }
 .fpi-skin-black .mat-card-subtitle {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-checkbox-frame {
-  border-color: #181818;
+  border-color: white;
 }
 .fpi-skin-black .mat-checkbox-checkmark {
   fill: #cccccc;
@@ -1193,7 +1193,7 @@ body {
   border-color: #b0b0b0;
 }
 .fpi-skin-black .mat-checkbox-disabled .mat-checkbox-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-checkbox .mat-ripple-element {
   background-color: rgba(255, 255, 255, 0.87);
@@ -1277,7 +1277,7 @@ body {
   border-bottom-color: rgba(24, 24, 24, 0.12);
 }
 .fpi-skin-black .mat-header-cell {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-cell, .fpi-skin-black .mat-footer-cell {
   color: white;
@@ -1297,7 +1297,7 @@ body {
   background: rgba(24, 24, 24, 0.12);
 }
 .fpi-skin-black .mat-calendar-body-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-calendar-body-cell-content,
 .fpi-skin-black .mat-date-range-input-separator {
@@ -1487,7 +1487,7 @@ body {
 }
 .fpi-skin-black .mat-expansion-panel-header-description,
 .fpi-skin-black .mat-expansion-indicator::after {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-expansion-panel-header[aria-disabled=true] {
   color: rgba(255, 255, 255, 0.26);
@@ -1503,10 +1503,10 @@ body {
   height: 64px;
 }
 .fpi-skin-black .mat-form-field-label {
-  color: rgba(24, 24, 24, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .fpi-skin-black .mat-hint {
-  color: rgba(24, 24, 24, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .fpi-skin-black .mat-form-field.mat-focused .mat-form-field-label {
   color: #dce5aa;
@@ -1556,10 +1556,10 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-form-field-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-hint {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: rgba(24, 24, 24, 0.42);
@@ -1626,7 +1626,7 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-form-field-type-mat-native-select .mat-form-field-infix::after {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-input-element:disabled,
 .fpi-skin-black .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
@@ -1636,16 +1636,16 @@ body {
   caret-color: #dce5aa;
 }
 .fpi-skin-black .mat-input-element::placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element::-moz-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element::-webkit-input-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element:-ms-input-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-form-field.mat-accent .mat-input-element {
   caret-color: #797979;
@@ -1664,7 +1664,7 @@ body {
   color: white;
 }
 .fpi-skin-black .mat-list-base .mat-subheader {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-list-item-disabled {
   background-color: #fffad0;
@@ -1708,7 +1708,7 @@ body {
 }
 .fpi-skin-black .mat-paginator,
 .fpi-skin-black .mat-paginator-page-size .mat-select-trigger {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-paginator-decrement,
 .fpi-skin-black .mat-paginator-increment {
@@ -1765,7 +1765,7 @@ body {
   stroke: red;
 }
 .fpi-skin-black .mat-radio-outer-circle {
-  border-color: #181818;
+  border-color: white;
 }
 .fpi-skin-black .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
   border-color: #dce5aa;
@@ -1806,13 +1806,13 @@ body {
   color: white;
 }
 .fpi-skin-black .mat-select-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-select-disabled .mat-select-value {
   color: rgba(255, 255, 255, 0.38);
 }
 .fpi-skin-black .mat-select-arrow {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-select-panel {
   background: #252525;
@@ -1996,10 +1996,10 @@ body {
 }
 .fpi-skin-black .mat-step-header .mat-step-label,
 .fpi-skin-black .mat-step-header .mat-step-optional {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-step-header .mat-step-icon {
-  background-color: #181818;
+  background-color: white;
   color: #181818;
 }
 .fpi-skin-black .mat-step-header .mat-step-icon-selected,
@@ -2065,7 +2065,7 @@ body {
   top: 36px;
 }
 .fpi-skin-black .mat-sort-header-arrow {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-tab-nav-bar,
 .fpi-skin-black .mat-tab-header {
@@ -5917,6 +5917,7 @@ pre code {
 @media (max-width: 767.98px) {
   .table-responsive {
     width: 100%;
+    display: block !important;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -8881,6 +8882,11 @@ button.close {
   width: auto;
   margin: 0.5rem;
   pointer-events: none;
+}
+.mat-dialog-container {
+  background: transparent !important;
+  padding: 0 !important;
+  overflow: visible !important;
 }
 .modal.fade .modal-dialog {
   transition: transform 0.3s ease-out;
@@ -23263,13 +23269,13 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-optgroup-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-optgroup-disabled .mat-optgroup-label {
   color: rgba(255, 255, 255, 0.38);
 }
 .fpi-skin-black .mat-pseudo-checkbox {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-pseudo-checkbox::after {
   color: #cccccc;
@@ -23688,7 +23694,7 @@ body {
 }
 .fpi-skin-black .mat-button-toggle-checked {
   background-color: white;
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-button-toggle-checked.mat-button-toggle-appearance-standard {
   color: white;
@@ -23721,10 +23727,10 @@ body {
   box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.2), 0px 0px 0px 0px rgba(255, 255, 255, 0.14), 0px 0px 0px 0px rgba(255, 255, 255, 0.12);
 }
 .fpi-skin-black .mat-card-subtitle {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-checkbox-frame {
-  border-color: #181818;
+  border-color: white;
 }
 .fpi-skin-black .mat-checkbox-checkmark {
   fill: #cccccc;
@@ -23751,7 +23757,7 @@ body {
   border-color: #b0b0b0;
 }
 .fpi-skin-black .mat-checkbox-disabled .mat-checkbox-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-checkbox .mat-ripple-element {
   background-color: rgba(255, 255, 255, 0.87);
@@ -23835,7 +23841,7 @@ body {
   border-bottom-color: rgba(24, 24, 24, 0.12);
 }
 .fpi-skin-black .mat-header-cell {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-cell, .fpi-skin-black .mat-footer-cell {
   color: white;
@@ -23855,7 +23861,7 @@ body {
   background: rgba(24, 24, 24, 0.12);
 }
 .fpi-skin-black .mat-calendar-body-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-calendar-body-cell-content,
 .fpi-skin-black .mat-date-range-input-separator {
@@ -24045,7 +24051,7 @@ body {
 }
 .fpi-skin-black .mat-expansion-panel-header-description,
 .fpi-skin-black .mat-expansion-indicator::after {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-expansion-panel-header[aria-disabled=true] {
   color: rgba(255, 255, 255, 0.26);
@@ -24061,10 +24067,10 @@ body {
   height: 64px;
 }
 .fpi-skin-black .mat-form-field-label {
-  color: rgba(24, 24, 24, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .fpi-skin-black .mat-hint {
-  color: rgba(24, 24, 24, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 .fpi-skin-black .mat-form-field.mat-focused .mat-form-field-label {
   color: #dce5aa;
@@ -24114,10 +24120,10 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-form-field-label {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-hint {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: rgba(24, 24, 24, 0.42);
@@ -24184,7 +24190,7 @@ body {
   color: red;
 }
 .fpi-skin-black .mat-form-field-type-mat-native-select .mat-form-field-infix::after {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-input-element:disabled,
 .fpi-skin-black .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
@@ -24194,16 +24200,16 @@ body {
   caret-color: #dce5aa;
 }
 .fpi-skin-black .mat-input-element::placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element::-moz-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element::-webkit-input-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-input-element:-ms-input-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-form-field.mat-accent .mat-input-element {
   caret-color: #797979;
@@ -24222,7 +24228,7 @@ body {
   color: white;
 }
 .fpi-skin-black .mat-list-base .mat-subheader {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-list-item-disabled {
   background-color: #fffad0;
@@ -24266,7 +24272,7 @@ body {
 }
 .fpi-skin-black .mat-paginator,
 .fpi-skin-black .mat-paginator-page-size .mat-select-trigger {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-paginator-decrement,
 .fpi-skin-black .mat-paginator-increment {
@@ -24323,7 +24329,7 @@ body {
   stroke: red;
 }
 .fpi-skin-black .mat-radio-outer-circle {
-  border-color: #181818;
+  border-color: white;
 }
 .fpi-skin-black .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
   border-color: #dce5aa;
@@ -24364,13 +24370,13 @@ body {
   color: white;
 }
 .fpi-skin-black .mat-select-placeholder {
-  color: rgba(24, 24, 24, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 .fpi-skin-black .mat-select-disabled .mat-select-value {
   color: rgba(255, 255, 255, 0.38);
 }
 .fpi-skin-black .mat-select-arrow {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-select-panel {
   background: #252525;
@@ -24554,10 +24560,10 @@ body {
 }
 .fpi-skin-black .mat-step-header .mat-step-label,
 .fpi-skin-black .mat-step-header .mat-step-optional {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-step-header .mat-step-icon {
-  background-color: #181818;
+  background-color: white;
   color: #181818;
 }
 .fpi-skin-black .mat-step-header .mat-step-icon-selected,
@@ -24623,7 +24629,7 @@ body {
   top: 36px;
 }
 .fpi-skin-black .mat-sort-header-arrow {
-  color: #181818;
+  color: white;
 }
 .fpi-skin-black .mat-tab-nav-bar,
 .fpi-skin-black .mat-tab-header {
@@ -27324,6 +27330,10 @@ Mat card
 .mat-card div table tbody tr td {
   color: var(--text-primary-color) !important;
 }
+.mat-card div table tbody tr td.mat-column-action {
+  width: 20px;
+  padding-right: 8px;
+}
 .mat-card div mat-paginator {
   color: var(--text-accent-lighter-color) !important;
 }
@@ -27397,6 +27407,12 @@ list inline
 }
 .list-inline li:last-child {
   margin-right: 0px;
+}
+/*******************
+tabs
+*******************/
+.mat-tab-label, .mat-tab-link {
+  color: var(--text-accent-darker-color) !important;
 }
 /*******************/
 /*Chat widget*/

@@ -7,12 +7,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InMemService } from '../../../../srv/in-mem-service';
+import { NavigationService } from '../../../../srv/navigation.service';
+import { NgGtdDS } from '../../../../types/common-types';
+
 import { BehaviorSubject } from 'rxjs';
-import { InMemService } from '../../../srv/in-mem-service';
-import { NavigationService } from '../../../srv/navigation.service';
-import { NgGtdDS } from '../../../types/common-types';
-import { displayedColumns, EMPTY, nominas, Payroll } from './payroll-data';
-import { PayrollFormComponent } from './payroll-form.component';
+import { displayedColumns, EMPTY, nominas, Payroll } from '../payroll-data';
+import { PayrollGeneralFormComponent } from '../payroll-general.component';
 
 @Component({
   selector: 'app-payroll-table',
@@ -141,8 +142,8 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
     let datasource = this.dataSource$.value.datasource;
     const editing = datasource.data.filter((v: any) => v.id == id)?.[0];
     console.log(editing);
-    const dialogRef = this.dialog.open(PayrollFormComponent, {
-      width: '250px',
+    const dialogRef = this.dialog.open(PayrollGeneralFormComponent, {
+      width: '500px',
       data: editing ? editing : EMPTY,
     });
 

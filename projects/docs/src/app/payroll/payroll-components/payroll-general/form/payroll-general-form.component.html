@@ -1,10 +1,11 @@
-<div class="mat-card">
-  <div class="mat-card-header card-header-primary">
-    <h4 class="card-title">{{ f.id.value ? 'Editar Nómina Individual {{f.id.value}}' : 'Agregar Nómina Individual' }}</h4>
-    <p class="card-category">Información de Nómina Individual</p>
-  </div>
-  <div class="card-body">
-    <form [formGroup]="form">
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible">
+  <div class="m-0 mat-card">
+    <div class="mat-card-header card-header-primary">
+      <h4 class="card-title">{{ f.id.value ? 'Editar Nómina general {{f.id.value}}' : 'Agregar Nómina general' }}
+      </h4>
+      <p class="card-category">Información de Nómina general</p>
+    </div>
+    <div class="card-body">
       <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
         <span>Tipo</span>
         <mat-form-field>
@@ -23,8 +24,8 @@
         </div>
       </mat-form-field>
       <mat-form-field class="col-6">
-        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad"
-          id="cantidad" type="text" class="form-control" />
+        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="text"
+          class="form-control" />
         <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
           <div *ngIf="f.cantidad.errors?.required">
             cantidad is required.
@@ -46,12 +47,13 @@
         <mat-datepicker touchUi #pickerFin></mat-datepicker>
       </mat-form-field>
 
-      <button mat-button (click)="onNoClick()" tabindex="-1" >
+      <button mat-button (click)="onNoClick()" tabindex="-1">
         Cancelar
       </button>
-      <button mat-button (click)="save()" tabindex="4" >Guardar</button>
-      <button mat-button (click)="nav('/nómina/devengos')" tabindex="4" >Nuevo devengado</button>
+      <button mat-button (click)="save()" tabindex="4">Guardar</button>
+      <button mat-button (click)="navSrv.navigate('/nómina/individual', form.value)" tabindex="4">Ver individuales</button>
 
-    </form>
+    </div>
   </div>
-</div>
+
+</form>

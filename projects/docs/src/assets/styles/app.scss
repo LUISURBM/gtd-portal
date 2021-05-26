@@ -829,6 +829,10 @@ Mat card
         tr {
           td {
             color: var(--text-primary-color) !important;
+            &.mat-column-action {
+              width: 20px;
+              padding-right: 8px;
+            }
           }
         }
       }
@@ -906,6 +910,14 @@ list inline
       margin-right: 0px;
     }
   }
+}
+
+/*******************
+tabs
+*******************/
+.mat-tab-label, .mat-tab-link{
+  color: var(--text-accent-darker-color)!important;
+
 }
 
 /*******************/

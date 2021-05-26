@@ -23,6 +23,9 @@ import { ComisionFormComponent } from './payroll-components/comisiones/comision-
 import { ComisionesComponent } from './payroll-components/comisiones/comisiones.component';
 import { CompensacionFormComponent } from './payroll-components/compensaciones/compensacion-form.component';
 import { CompensacionesComponent } from './payroll-components/compensaciones/compensaciones.component';
+import { DeduccionesFormComponent } from './payroll-components/deducciones/deducciones-form.component';
+import { DeduccionesViewComponent } from './payroll-components/deducciones/deducciones-view.component';
+import { DeduccionesComponent } from './payroll-components/deducciones/deducciones.component';
 import { DevengadosFormComponent } from './payroll-components/devengados/devengados-form.component';
 import { DevengadosViewComponent } from './payroll-components/devengados/devengados-view.component';
 import { DevengadosComponent } from './payroll-components/devengados/devengados.component';
@@ -52,8 +55,11 @@ import { PagoFormComponent } from './payroll-components/pago/pago-form.component
 import { PagosComponent } from './payroll-components/pago/pagos.component';
 import { PagoTerceroFormComponent } from './payroll-components/pagos-terceros/pago-tercero-form.component';
 import { PagosTercerosComponent } from './payroll-components/pagos-terceros/pagos-terceros.component';
-import { PayrollFormComponent } from './payroll-components/payroll-table/payroll-form.component';
-import { PayrollTableComponent } from './payroll-components/payroll-table/payroll-table.component';
+import { PayrollGeneralFormComponent } from './payroll-components/payroll-general/payroll-general.component';
+import { PayrollTableComponent } from './payroll-components/payroll-general/table/payroll-table.component';
+import { PayrollIndividualFormComponent } from './payroll-components/payroll-individual/payroll-individual-form.component';
+import { PayrollIndividualTableComponent } from './payroll-components/payroll-individual/payroll-individual-table.component';
+import { PayrollindividualViewComponent } from './payroll-components/payroll-individual/payroll-individual-view.component';
 import { PeriodoFormComponent } from './payroll-components/periodo/periodo-form.component';
 import { PeriodosComponent } from './payroll-components/periodo/periodos.component';
 import { PrimaFormComponent } from './payroll-components/primas/prima-form.component';
@@ -126,14 +132,20 @@ import { PayrollRoutes } from './payroll.routing';
     PagosComponent,
     PagoFormComponent,
     DevengadosComponent,
-    DevengadosFormComponent,
     DevengadosViewComponent,
+    DevengadosFormComponent,
     BasicosComponent,
     BasicoFormComponent,
     PrimasComponent,
     PrimaFormComponent,
+    DeduccionesComponent,
+    DeduccionesViewComponent,
+    DeduccionesFormComponent,
+    PayrollGeneralFormComponent,
     PayrollTableComponent,
-    PayrollFormComponent,
+    PayrollindividualViewComponent,
+    PayrollIndividualFormComponent,
+    PayrollIndividualTableComponent,
   ],
   imports: [
     CommonModule,

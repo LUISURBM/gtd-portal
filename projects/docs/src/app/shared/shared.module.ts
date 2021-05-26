@@ -3,7 +3,7 @@ import {
   OverlayContainer,
 } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   AccordionAnchorDirective,
   AccordionDirective,
@@ -27,7 +27,10 @@ import { MenuItems } from './menu-items/menu-items';
     {
       provide: MatDialogRef,
       useValue: {},
-    },
+    },{
+      provide: MAT_DIALOG_DATA,
+      useValue: {} // Add any data you wish to test if it is passed/used correctly
+    }
     // { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
   ],
 })

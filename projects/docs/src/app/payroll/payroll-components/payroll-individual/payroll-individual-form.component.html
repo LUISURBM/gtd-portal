@@ -1,0 +1,60 @@
+<form [formGroup]="form" class="d-flex main-container main-form">
+  <div class="mat-card">
+    <div class="mat-card-header card-header-primary">
+      <h4 class="card-title">{{ f.id.value ? 'Editar Nómina individual {{f.id.value}}' : 'Agregar Nómina individual' }}
+      </h4>
+      <p class="card-category">Información de Nómina individual</p>
+    </div>
+    <div class="card-body">
+      <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Tipo</span>
+        <mat-form-field>
+          <mat-select class="example-select" #business tabindex="1" formControlName="catalog" id="business">
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.code"> {{catalog.name}} </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field class="col-6">
+        <input matInput tabindex="2" formControlName="pago" placeholder="Valor de la pago" id="pago" type="text"
+          class="form-control" />
+        <div *ngIf="f.pago.touched && f.pago.invalid" class="alert alert-danger">
+          <div *ngIf="f.pago.errors?.required">
+            pago is required.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field class="col-6">
+        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="text"
+          class="form-control" />
+        <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          <div *ngIf="f.cantidad.errors?.required">
+            cantidad is required.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field class="col-6" appearance="fill">
+        <mat-label>Fecha Inicio</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaInicio" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="col-6" appearance="fill">
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [matDatepicker]="pickerFin" formControlName="fechaFin" />
+        <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #pickerFin></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-button (click)="onNoClick()" tabindex="-1">
+        Cancelar
+      </button>
+      <button mat-button (click)="save()" tabindex="4">Guardar</button>
+      <button mat-button (click)="nav('/nómina/individual/devengos')" tabindex="4">Ver devengos</button>
+      <button mat-button (click)="nav('/nómina/individual/deducciones')" tabindex="4">Ver deducciones</button>
+
+    </div>
+  </div>
+
+</form>

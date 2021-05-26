@@ -4270,6 +4270,1226 @@ CompensacionesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
 
 /***/ }),
 
+/***/ 6418:
+/*!******************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/deducciones/deducciones-data.ts ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "deducciones": () => (/* binding */ deducciones),
+/* harmony export */   "displayedColumns": () => (/* binding */ displayedColumns),
+/* harmony export */   "EMPTY": () => (/* binding */ EMPTY),
+/* harmony export */   "MENU_ITEMS": () => (/* binding */ MENU_ITEMS)
+/* harmony export */ });
+const deducciones = [
+    {
+        id: 1,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 2,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 3,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 4,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 5,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 6,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 7,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 8,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 9,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 10,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 11,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 12,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 13,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 14,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 15,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 16,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 17,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 18,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 19,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+    {
+        id: 20,
+        pensionVoluntaria: 1,
+        retencionFuente: 1,
+        afc: 1,
+        cooperativa: 1,
+        embargoFiscal: 1,
+        planComplementarios: 1,
+        educacion: 1,
+        reintegro: 1,
+        deuda: 1,
+    },
+];
+const displayedColumns = [
+    'id',
+    'pensionVoluntaria',
+    'retencionFuente',
+    'afc',
+    'cooperativa',
+    'embargoFiscal',
+    'planComplementarios',
+    'educacion',
+    'reintegro',
+    'deuda',
+    'action',
+];
+const EMPTY = {
+    id: 0,
+    pensionVoluntaria: 0,
+    retencionFuente: 0,
+    afc: 0,
+    cooperativa: 0,
+    embargoFiscal: 0,
+    planComplementarios: 0,
+    educacion: 0,
+    reintegro: 0,
+    deuda: 0,
+};
+const MENU_ITEMS = [
+    { state: '/nómina/individual/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work' },
+    { state: '/nómina/individual/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
+    { state: '/nómina/individual/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm' },
+    { state: '/nómina/individual/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money' },
+    { state: '/nómina/individual/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm' },
+    { state: '/nómina/individual/deducciones/view/sanciones', name: 'Sanciones', type: 'link', icon: 'savings' },
+    { state: '/nómina/individual/deducciones/view/salud-pension-sindicato', name: 'salud-pension-sindicato', type: 'link', icon: 'savings' },
+];
+
+
+/***/ }),
+
+/***/ 4639:
+/*!****************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/deducciones/deducciones-form.component.ts ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DeduccionesFormComponent": () => (/* binding */ DeduccionesFormComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/tooltip */ 1436);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 8583);
+
+
+
+
+
+
+
+function DeduccionesFormComponent_div_14_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Pensi\u00F3n Voluntaria is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_14_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.f.pensionVoluntaria.errors == null ? null : ctx_r0.f.pensionVoluntaria.errors.required);
+} }
+function DeduccionesFormComponent_div_20_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Retenci\u00F3n Fuente is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_20_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_20_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.f.retencionFuente.errors == null ? null : ctx_r1.f.retencionFuente.errors.required);
+} }
+function DeduccionesFormComponent_div_26_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " afc is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_26_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_26_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.f.afc.errors == null ? null : ctx_r2.f.afc.errors.required);
+} }
+function DeduccionesFormComponent_div_32_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " cooperativa is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_32_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_32_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r3.f.cooperativa.errors == null ? null : ctx_r3.f.cooperativa.errors.required);
+} }
+function DeduccionesFormComponent_div_38_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " embargoFiscal is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_38_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_38_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r4.f.embargoFiscal.errors == null ? null : ctx_r4.f.embargoFiscal.errors.required);
+} }
+function DeduccionesFormComponent_div_44_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " planComplementarios is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_44_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_44_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r5.f.planComplementarios.errors == null ? null : ctx_r5.f.planComplementarios.errors.required);
+} }
+function DeduccionesFormComponent_div_51_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " planComplementarios is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function DeduccionesFormComponent_div_51_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DeduccionesFormComponent_div_51_div_1_Template, 2, 0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r6.f.planComplementarios.errors == null ? null : ctx_r6.f.planComplementarios.errors.required);
+} }
+class DeduccionesFormComponent {
+    constructor(builder, route) {
+        this.builder = builder;
+        this.route = route;
+        this.position = 'below';
+        this.form = this.builder.group({
+            id: builder.control(0),
+            pensionVoluntaria: builder.control(0),
+            retencionFuente: builder.control(0),
+            afc: builder.control(0),
+            cooperativa: builder.control(0),
+            embargoFiscal: builder.control(0),
+            planComplementarios: builder.control(0),
+            educacion: builder.control(0),
+            reintegro: builder.control(0),
+            deuda: builder.control(0),
+            anticipos: builder.array([])
+        });
+        this.route.queryParams.subscribe((params) => {
+            const data1 = params['data'];
+            this.form.patchValue(data1);
+        });
+    }
+    onNoClick() { }
+    save() { }
+    get f() {
+        return this.form.controls;
+    }
+}
+DeduccionesFormComponent.ɵfac = function DeduccionesFormComponent_Factory(t) { return new (t || DeduccionesFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.ActivatedRoute)); };
+DeduccionesFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DeduccionesFormComponent, selectors: [["app-deducciones-form"]], decls: 62, vars: 8, consts: [[1, "m-0", "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "mat-card"], [1, "mat-card-header", "card-header-primary"], [1, "card-title"], [1, "card-category"], [1, "row", "card-body"], ["matTooltip", "Tooltip!", 1, "col-6", "flex-column"], ["matTooltip", "Tooltip!", 1, "col-12", "type-tooltip-ne"], ["matInput", "", "tabindex", "1", "formControlName", "pensionVoluntaria", "placeholder", "Dotaci\u00F3n", "id", "pensionVoluntaria", "type", "text", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["matInput", "", "tabindex", "2", "formControlName", "retencionFuente", "placeholder", "retencionFuente", "id", "retencionFuente", "type", "text", 1, "form-control"], ["matInput", "", "tabindex", "2", "formControlName", "afc", "placeholder", "afc", "id", "afc", "type", "text", 1, "form-control"], ["matInput", "", "tabindex", "2", "formControlName", "cooperativa", "placeholder", "cooperativa", "id", "cooperativa", "type", "text", 1, "form-control"], ["matInput", "", "tabindex", "2", "formControlName", "embargoFiscal", "placeholder", "embargoFiscal", "id", "embargoFiscal", "type", "text", 1, "form-control"], ["matInput", "", "tabindex", "2", "formControlName", "planComplementarios", "placeholder", "planComplementarios", "id", "planComplementarios", "type", "text", 1, "form-control"], [1, "col-6", "flex-column"], [1, "col-12", "type-tooltip-ne"], [1, "type-tooltip-ne"], ["matInput", "", "tabindex", "2", "formControlName", "reintegro", "placeholder", "reintegro", "id", "reintegro", "type", "text", 1, "form-control"], ["matInput", "", "tabindex", "2", "formControlName", "deuda", "placeholder", "deuda", "id", "deuda", "type", "text", 1, "form-control"], [1, "alert", "alert-danger"], [4, "ngIf"]], template: function DeduccionesFormComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "h4", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Agregar nueva Deducci\u00F3n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "p", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Informaci\u00F3n de Deducci\u00F3n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Pensi\u00F3n Voluntaria");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "input", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, DeduccionesFormComponent_div_14_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Retenci\u00F3n Fuente");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "input", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, DeduccionesFormComponent_div_20_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "afc");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](25, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](26, DeduccionesFormComponent_div_26_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "cooperativa");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](31, "input", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, DeduccionesFormComponent_div_32_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "embargoFiscal");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](37, "input", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, DeduccionesFormComponent_div_38_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "planComplementarios");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](43, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, DeduccionesFormComponent_div_44_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](48, "educacion");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](50, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](51, DeduccionesFormComponent_div_51_Template, 2, 1, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54, "reintegro");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](56, "input", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "deuda");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](61, "input", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.pensionVoluntaria.touched && ctx.f.pensionVoluntaria.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.retencionFuente.touched && ctx.f.retencionFuente.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.afc.touched && ctx.f.afc.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.cooperativa.touched && ctx.f.cooperativa.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.embargoFiscal.touched && ctx.f.embargoFiscal.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.planComplementarios.touched && ctx.f.planComplementarios.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.f.planComplementarios.touched && ctx.f.planComplementarios.invalid);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_3__.MatTooltip, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_4__.MatFormField, _angular_material_input__WEBPACK_IMPORTED_MODULE_5__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_6__.NgIf], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlZHVjY2lvbmVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUNBQUE7QUFDRiIsImZpbGUiOiJkZWR1Y2Npb25lcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50eXBlLXRvb2x0aXAtbmV7XHJcbiAgY29sb3I6IHZhcigtLWFjY2VudC1kYXJrZXItY29sb3IpO1xyXG59XHJcbiJdfQ== */"] });
+
+
+/***/ }),
+
+/***/ 3570:
+/*!****************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/deducciones/deducciones-view.component.ts ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DeduccionesViewComponent": () => (/* binding */ DeduccionesViewComponent)
+/* harmony export */ });
+/* harmony import */ var _deducciones_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deducciones-data */ 6418);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _srv_theme_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../srv/theme.service */ 920);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ 4935);
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/list */ 7746);
+/* harmony import */ var _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/accordion/accordion.directive */ 5002);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/accordion/accordionlink.directive */ 2457);
+/* harmony import */ var _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/accordion/accordionanchor.directive */ 6671);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function DeduccionesViewComponent_mat_toolbar_1_ng_container_26_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, "open_in_full");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, " Pantalla completa");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerEnd"]();
+} }
+function DeduccionesViewComponent_mat_toolbar_1_ng_container_27_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, "close_fullscreen");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, " Pantalla normal");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerEnd"]();
+} }
+function DeduccionesViewComponent_mat_toolbar_1_Template(rf, ctx) { if (rf & 1) {
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-toolbar", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "button", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_toolbar_1_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r10); _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](5); return _r1.toggle(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](2, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, "menu");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "a", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](7, " N\u00F3mina ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](8, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "a", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](10, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](11, " Deducciones ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](12, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](13, "a", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](14, " Nuevo ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](15, "span", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](16, "button", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_toolbar_1_Template_button_click_16_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r10); const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r11.save(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](17, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](18, "save");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](19, "Guardar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](20, "button", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](21, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](22, "more_vert");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](23, "mat-menu", 22, 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](25, "button", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_toolbar_1_Template_button_click_25_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r10); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r12.toggleFullScreen(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](26, DeduccionesViewComponent_mat_toolbar_1_ng_container_26_Template, 4, 0, "ng-container", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](27, DeduccionesViewComponent_mat_toolbar_1_ng_container_27_Template, 4, 0, "ng-container", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](28, "button", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_toolbar_1_Template_button_click_28_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r10); const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r13.onNoClick(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](29, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](30, "cancel");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](31, "Cancelar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const state_r5 = ctx.ngIf;
+    const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("matMenuTriggerFor", _r6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !state_r5.fullScreen);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", state_r5.fullScreen);
+} }
+function DeduccionesViewComponent_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
+    const _r15 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-icon", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_icon_13_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r15); const ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](12); _r2.value = ""; return ctx_r14.filter(""); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1, "clear");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} }
+function DeduccionesViewComponent_mat_list_item_14_a_1_span_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const badge_r19 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵclassMapInterpolate1"]("label label-", badge_r19.type, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](badge_r19.value);
+} }
+function DeduccionesViewComponent_mat_list_item_14_a_1_Template(rf, ctx) { if (rf & 1) {
+    const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "a", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DeduccionesViewComponent_mat_list_item_14_a_1_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r22); const menuitem_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit; const ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r20.navSrv.navigate(menuitem_r16.state); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](5, "span", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](6, DeduccionesViewComponent_mat_list_item_14_a_1_span_6_Template, 2, 4, "span", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const menuitem_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r16.icon);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r16.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", menuitem_r16.badge);
+} }
+function DeduccionesViewComponent_mat_list_item_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-list-item", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, DeduccionesViewComponent_mat_list_item_14_a_1_Template, 7, 3, "a", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const menuitem_r16 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpropertyInterpolate"]("group", menuitem_r16.state);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", menuitem_r16.type === "link");
+} }
+class DeduccionesViewComponent {
+    constructor(builder, route, themeSrv, elRef, navSrv) {
+        this.builder = builder;
+        this.route = route;
+        this.themeSrv = themeSrv;
+        this.elRef = elRef;
+        this.navSrv = navSrv;
+        this.position = 'below';
+        this.toggleFullScreen = () => this.themeSrv.toggleFullScreen(this.elRef.nativeElement);
+        this.menuItems = _deducciones_data__WEBPACK_IMPORTED_MODULE_0__.MENU_ITEMS;
+        this.form = this.builder.group({
+            menuItem: builder.control(''),
+        });
+        this.route.queryParams.subscribe((params) => {
+            const data1 = params['data'];
+            this.form.patchValue(data1);
+        });
+        this.form.valueChanges.subscribe((filter) => {
+            this.filter(filter === null || filter === void 0 ? void 0 : filter.menuItem);
+        });
+    }
+    onNoClick() { }
+    save() { }
+    get f() {
+        return this.form.controls;
+    }
+    filter(menuItemName) {
+        this.menuItems = _deducciones_data__WEBPACK_IMPORTED_MODULE_0__.MENU_ITEMS;
+        if (menuItemName) {
+            this.menuItems = this.menuItems.filter((item) => {
+                var _a;
+                return (_a = item.name) === null || _a === void 0 ? void 0 : _a.toLocaleLowerCase().includes(menuItemName === null || menuItemName === void 0 ? void 0 : menuItemName.toLocaleLowerCase());
+            });
+        }
+    }
+    prepareRoute(outlet) {
+        return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+    }
+}
+DeduccionesViewComponent.ɵfac = function DeduccionesViewComponent_Factory(t) { return new (t || DeduccionesViewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_theme_service__WEBPACK_IMPORTED_MODULE_1__.ThemeService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_6__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__.NavigationService)); };
+DeduccionesViewComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({ type: DeduccionesViewComponent, selectors: [["app-deducciones-view"]], decls: 17, vars: 6, consts: [[1, "m-0", "d-flex", "main-container", "main-form"], ["color", "primary", "class", "topbar telative", 4, "ngIf"], ["style.marginTop.px", "0", 1, "page-container", 2, "height", "calc(100vh - 128px)"], ["id", "formMenu", "mode", "side", "fixedTopGap", "0", "opened", "true", 1, "dark-sidebar", "pl-xs", 2, "direction", "rtl"], ["formMenu", ""], ["appAccordion", "", 2, "direction", "ltr"], [1, "m-0", "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "find-menu-item", 2, "direction", "ltr", "padding", "0px 15px"], ["type", "text", "matInput", "", "formControlName", "menuItem", "placeholder", "Buscar"], ["buscar", ""], ["matSuffix", "", "mat-fab", "", 3, "click", 4, "ngIf"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group", 4, "ngFor", "ngForOf"], [1, "page-wrapper"], ["color", "primary", 1, "topbar", "telative"], ["mat-icon-button", "", "value", "sidebarclosed", 3, "click"], [1, "navbar-header", "d-flex", "align-items-center"], ["href", "n\u00F3mina", 1, "navbar-brand"], ["href", "n\u00F3mina/devengos", 1, "navbar-brand"], [1, "navbar-brand"], ["fxFlex", ""], ["mat-button", "", "tabindex", "2", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "matMenuTriggerFor"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", 3, "click"], [4, "ngIf"], ["mat-menu-item", "", "tabindex", "1", 3, "click"], ["matSuffix", "", "mat-fab", "", 3, "click"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group"], ["class", "", "appAccordionToggle", "", 3, "click", 4, "ngIf"], ["appAccordionToggle", "", 1, "", 3, "click"], [3, "class", 4, "ngFor", "ngForOf"]], template: function DeduccionesViewComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, DeduccionesViewComponent_mat_toolbar_1_Template, 32, 3, "mat-toolbar", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipe"](2, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "mat-sidenav-container", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "mat-sidenav", 3, 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "mat-nav-list", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](7, "form", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](8, "mat-form-field", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](10, "Buscar...");
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](11, "input", 8, 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](13, DeduccionesViewComponent_mat_icon_13_Template, 2, 0, "mat-icon", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](14, DeduccionesViewComponent_mat_list_item_14_Template, 2, 2, "mat-list-item", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](15, "mat-sidenav-content", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](16, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipeBind1"](2, 4, ctx.themeSrv.themeState$));
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("formGroup", ctx.form);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _r2.value);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", ctx.menuItems);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgIf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__.MatSidenav, _angular_material_list__WEBPACK_IMPORTED_MODULE_11__.MatNavList, _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_3__.AccordionDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormGroupDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_13__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgForOf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__.MatSidenavContent, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterOutlet, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_15__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_17__.DefaultFlexDirective, _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__.MatMenuTrigger, _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__.MatMenuItem, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatSuffix, _angular_material_list__WEBPACK_IMPORTED_MODULE_11__.MatListItem, _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_4__.AccordionLinkDirective, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterLinkActive, _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_5__.AccordionAnchorDirective], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlZHVjY2lvbmVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUNBQUE7QUFDRiIsImZpbGUiOiJkZWR1Y2Npb25lcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50eXBlLXRvb2x0aXAtbmV7XHJcbiAgY29sb3I6IHZhcigtLWFjY2VudC1kYXJrZXItY29sb3IpO1xyXG59XHJcbiJdfQ== */"] });
+
+
+/***/ }),
+
+/***/ 5025:
+/*!***********************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/deducciones/deducciones.component.ts ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DeduccionesComponent": () => (/* binding */ DeduccionesComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/paginator */ 9692);
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sort */ 1494);
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/table */ 2091);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 6215);
+/* harmony import */ var _deducciones_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deducciones-data */ 6418);
+/* harmony import */ var _deducciones_form_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./deducciones-form.component */ 4639);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/in-mem-service */ 6556);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/snack-bar */ 7001);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/card */ 3738);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ 1095);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function DeduccionesComponent_div_18_th_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "#");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_4_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r27 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r27.id);
+} }
+function DeduccionesComponent_div_18_th_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Pensi\u00F3n Voluntaria");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_7_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r28 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r28.pensionVoluntaria);
+} }
+function DeduccionesComponent_div_18_th_9_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Retenci\u00F3n Fuente");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_10_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r29 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r29.retencionFuente);
+} }
+function DeduccionesComponent_div_18_th_12_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "afc");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_13_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r30 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r30.afc);
+} }
+function DeduccionesComponent_div_18_th_15_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "cooperativa");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_16_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r31 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r31.cooperativa);
+} }
+function DeduccionesComponent_div_18_th_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Embargo F\u00EDscal");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_19_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r32 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r32.embargoFiscal);
+} }
+function DeduccionesComponent_div_18_th_21_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Plan Complementarios");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_22_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r33 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r33.planComplementarios);
+} }
+function DeduccionesComponent_div_18_th_24_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Educaci\u00F3n");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_25_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r34 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r34.educacion);
+} }
+function DeduccionesComponent_div_18_th_27_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Reintegro");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_28_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r35 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r35.reintegro);
+} }
+function DeduccionesComponent_div_18_th_30_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "deuda");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_31_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r36 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r36.deuda);
+} }
+function DeduccionesComponent_div_18_th_33_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Acciones");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_td_34_Template(rf, ctx) { if (rf & 1) {
+    const _r39 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "button", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DeduccionesComponent_div_18_td_34_Template_button_click_1_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r38 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r38.openDialog(element_r37.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "edit");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "button", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DeduccionesComponent_div_18_td_34_Template_button_click_4_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r40.delete(element_r37); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "delete");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function DeduccionesComponent_div_18_tr_35_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 29);
+} }
+function DeduccionesComponent_div_18_tr_36_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 30);
+} }
+const _c0 = function () { return [5, 10, 20]; };
+function DeduccionesComponent_div_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "table", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](2, 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](3, DeduccionesComponent_div_18_th_3_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](4, DeduccionesComponent_div_18_td_4_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](5, 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](6, DeduccionesComponent_div_18_th_6_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](7, DeduccionesComponent_div_18_td_7_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](8, 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](9, DeduccionesComponent_div_18_th_9_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](10, DeduccionesComponent_div_18_td_10_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](11, 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](12, DeduccionesComponent_div_18_th_12_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](13, DeduccionesComponent_div_18_td_13_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](14, 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](15, DeduccionesComponent_div_18_th_15_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](16, DeduccionesComponent_div_18_td_16_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](17, 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, DeduccionesComponent_div_18_th_18_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](19, DeduccionesComponent_div_18_td_19_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](20, 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](21, DeduccionesComponent_div_18_th_21_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](22, DeduccionesComponent_div_18_td_22_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](23, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](24, DeduccionesComponent_div_18_th_24_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](25, DeduccionesComponent_div_18_td_25_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](26, 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](27, DeduccionesComponent_div_18_th_27_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](28, DeduccionesComponent_div_18_td_28_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](29, 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](30, DeduccionesComponent_div_18_th_30_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](31, DeduccionesComponent_div_18_td_31_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](32, 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](33, DeduccionesComponent_div_18_th_33_Template, 2, 0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](34, DeduccionesComponent_div_18_td_34_Template, 7, 0, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](35, DeduccionesComponent_div_18_tr_35_Template, 1, 0, "tr", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](36, DeduccionesComponent_div_18_tr_36_Template, 1, 0, "tr", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](37, "mat-paginator", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const dataSource_r2 = ctx.ngIf;
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("dataSource", dataSource_r2.datasource);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matHeaderRowDef", dataSource_r2.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matRowDefColumns", dataSource_r2.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction0"](4, _c0));
+} }
+class DeduccionesComponent {
+    constructor(memSrv, dialog, _snackBar, navSrv) {
+        this.memSrv = memSrv;
+        this.dialog = dialog;
+        this._snackBar = _snackBar;
+        this.navSrv = navSrv;
+        this.dataSource$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__.BehaviorSubject({
+            datasource: new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatTableDataSource(_deducciones_data__WEBPACK_IMPORTED_MODULE_0__.deducciones),
+            displayedColumns: _deducciones_data__WEBPACK_IMPORTED_MODULE_0__.displayedColumns,
+        });
+    }
+    ngOnInit() { }
+    ngAfterViewInit() {
+        let datasource = this.dataSource$.value.datasource;
+        datasource.paginator = this.paginator;
+        datasource.sort = this.sort;
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    add(name) {
+        if (!name) {
+            return;
+        }
+        let datasource = this.dataSource$.value.datasource;
+        datasource.data = [
+            ...datasource.data,
+            Object.assign(Object.assign({}, name), { id: this.memSrv.genId(datasource.data, 'incapacidads') }),
+        ];
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    delete(deduccion) {
+        let datasource = this.dataSource$.value.datasource;
+        datasource.data = datasource.data.filter((h) => h.id !== deduccion.id);
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+        this._snackBar.open(`${deduccion.id}`, 'deleted!', { duration: 2000 });
+    }
+    edit(deduccion) {
+        let datasource = this.dataSource$.value.datasource;
+        const editedData = datasource.data.map((h) => h.id !== deduccion.id ? h : deduccion);
+        datasource.data = editedData;
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    applyFilter(event) {
+        const filterValue = event.target.value;
+        let datasource = this.dataSource$.value.datasource;
+        datasource.filter = filterValue.trim().toLowerCase();
+        if (datasource.paginator) {
+            datasource.paginator.firstPage();
+        }
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    openDialog(id) {
+        var _a;
+        let datasource = this.dataSource$.value.datasource;
+        const editing = (_a = datasource.data.filter((v) => v.id == id)) === null || _a === void 0 ? void 0 : _a[0];
+        console.log(editing);
+        const dialogRef = this.dialog.open(_deducciones_form_component__WEBPACK_IMPORTED_MODULE_1__.DeduccionesFormComponent, {
+            width: '250px',
+            data: editing ? editing : _deducciones_data__WEBPACK_IMPORTED_MODULE_0__.EMPTY,
+        });
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log(result);
+            if (result === null || result === void 0 ? void 0 : result.id)
+                this.edit(result);
+            else
+                this.add(result);
+        });
+    }
+}
+DeduccionesComponent.ɵfac = function DeduccionesComponent_Factory(t) { return new (t || DeduccionesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__.InMemService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__.MatDialog), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__.MatSnackBar), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__.NavigationService)); };
+DeduccionesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: DeduccionesComponent, selectors: [["app-payroll-deducciones"]], viewQuery: function DeduccionesComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__.MatPaginator, 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSort, 5);
+    } if (rf & 2) {
+        let _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
+    } }, decls: 20, vars: 3, consts: [[1, "example-full-width"], ["type", "tel", "matInput", "", "placeholder", "Ej. Mia", 3, "keyup"], ["input", ""], ["mat-icon-button", "", "matSuffix", "", "mat-fab", "", "color", "primary", 3, "click"], ["class", "mat-elevation-z8", 4, "ngIf"], [1, "mat-elevation-z8"], ["mat-table", "", "matSort", "", 1, "table-responsive", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "id"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "pensionVoluntaria"], ["matColumnDef", "retencionFuente"], ["matColumnDef", "afc"], ["matColumnDef", "cooperativa"], ["matColumnDef", "embargoFiscal"], ["matColumnDef", "planComplementarios"], ["matColumnDef", "educacion"], ["matColumnDef", "reintegro"], ["matColumnDef", "deuda"], ["matColumnDef", "action"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["showFirstLastButtons", "", 3, "pageSizeOptions"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], ["mat-header-cell", ""], ["mat-icon-button", "", "color", "primary", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]], template: function DeduccionesComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "mat-card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "mat-card-header");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-card-title");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "Deducciones");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "mat-card-subtitle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](5, "Angular Material table for ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](6, "code");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](7, "deducciones");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](8, " elements. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](9, "mat-card-content");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](10, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](11, "mat-form-field", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](13, "Buscar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](14, "input", 1, 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("keyup", function DeduccionesComponent_Template_input_keyup_14_listener($event) { return ctx.applyFilter($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](16, "mat-icon", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DeduccionesComponent_Template_mat_icon_click_16_listener() { return ctx.navSrv.navigate("/n\u00F3mina/individual/deducciones/view/form"); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "add");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, DeduccionesComponent_div_18_Template, 38, 5, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](19, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](19, 1, ctx.dataSource$));
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardSubtitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardContent, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_13__.MatInput, _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__.MatIcon, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatSuffix, _angular_common__WEBPACK_IMPORTED_MODULE_15__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatCell, _angular_material_button__WEBPACK_IMPORTED_MODULE_16__.MatButton, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_15__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlZHVjY2lvbmVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUNBQUE7QUFDRiIsImZpbGUiOiJkZWR1Y2Npb25lcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50eXBlLXRvb2x0aXAtbmV7XHJcbiAgY29sb3I6IHZhcigtLWFjY2VudC1kYXJrZXItY29sb3IpO1xyXG59XHJcbiJdfQ== */"] });
+
+
+/***/ }),
+
 /***/ 8771:
 /*!****************************************************************************************!*\
   !*** ./projects/docs/src/app/payroll/payroll-components/devengados/devengados-data.ts ***!
@@ -4598,20 +5818,20 @@ const EMPTY = {
     trabajador: _trabajador_trabajador_data__WEBPACK_IMPORTED_MODULE_0__.VALUES_WORKER[0],
 };
 const MENU_ITEMS = [
-    { state: '/nómina/devengos/view/form', name: 'General devengos', type: 'link', icon: 'work' },
-    { state: '/nómina/devengos/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
-    { state: '/nómina/devengos/view/auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm' },
-    { state: '/nómina/devengos/view/bonificaciones', name: 'Bonificación', type: 'link', icon: 'money' },
-    { state: '/nómina/devengos/view/bonos', name: 'Bonos', type: 'link', icon: 'local_atm' },
-    { state: '/nómina/devengos/view/cesantías', name: 'Cesantías', type: 'link', icon: 'savings' },
-    { state: '/nómina/devengos/view/comisiones', name: 'Comisión', type: 'link', icon: 'price_check' },
-    { state: '/nómina/devengos/view/compensaciones', name: 'Compensaciones', type: 'link', icon: 'shopping_basket' },
-    { state: '/nómina/devengos/view/horariosAdicionales', name: 'Horarios Adicionales', type: 'link', icon: 'receipt' },
-    { state: '/nómina/devengos/view/licencias', name: 'Licencias', type: 'link', icon: 'receipt' },
-    { state: '/nómina/devengos/view/otrosConceptos', name: 'Otros Conceptos', type: 'link', icon: 'receipt' },
-    { state: '/nómina/devengos/view/pagosTerceros', name: 'Pagos de Tercero', type: 'link', icon: 'payments' },
-    { state: '/nómina/devengos/view/transportes', name: 'Transporte', type: 'link', icon: 'transfer_within_a_station' },
-    { state: '/nómina/devengos/view/vacaciones', name: 'Vacaciones', type: 'link', icon: 'flight_takeoff' },
+    { state: '/nómina/individual/devengos/view/form', name: 'General devengos', type: 'link', icon: 'work' },
+    { state: '/nómina/individual/devengos/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
+    { state: '/nómina/individual/devengos/view/auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm' },
+    { state: '/nómina/individual/devengos/view/bonificaciones', name: 'Bonificación', type: 'link', icon: 'money' },
+    { state: '/nómina/individual/devengos/view/bonos', name: 'Bonos', type: 'link', icon: 'local_atm' },
+    { state: '/nómina/individual/devengos/view/cesantías', name: 'Cesantías', type: 'link', icon: 'savings' },
+    { state: '/nómina/individual/devengos/view/comisiones', name: 'Comisión', type: 'link', icon: 'price_check' },
+    { state: '/nómina/individual/devengos/view/compensaciones', name: 'Compensaciones', type: 'link', icon: 'shopping_basket' },
+    { state: '/nómina/individual/devengos/view/horariosAdicionales', name: 'Horarios Adicionales', type: 'link', icon: 'receipt' },
+    { state: '/nómina/individual/devengos/view/licencias', name: 'Licencias', type: 'link', icon: 'receipt' },
+    { state: '/nómina/individual/devengos/view/otrosConceptos', name: 'Otros Conceptos', type: 'link', icon: 'receipt' },
+    { state: '/nómina/individual/devengos/view/pagosTerceros', name: 'Pagos de Tercero', type: 'link', icon: 'payments' },
+    { state: '/nómina/individual/devengos/view/transportes', name: 'Transporte', type: 'link', icon: 'transfer_within_a_station' },
+    { state: '/nómina/individual/devengos/view/vacaciones', name: 'Vacaciones', type: 'link', icon: 'flight_takeoff' },
 ];
 
 
@@ -4947,16 +6167,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _srv_theme_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../srv/theme.service */ 920);
 /* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sidenav */ 4935);
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/list */ 7746);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/sidenav */ 4935);
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/list */ 7746);
 /* harmony import */ var _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/accordion/accordion.directive */ 5002);
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/input */ 3166);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ 1095);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/icon */ 6627);
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/input */ 3166);
 /* harmony import */ var _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/accordion/accordionlink.directive */ 2457);
 /* harmony import */ var _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/accordion/accordionanchor.directive */ 6671);
 
@@ -4979,7 +6199,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function DevengadosViewComponent_mat_toolbar_1_ng_container_26_Template(rf, ctx) { if (rf & 1) {
+function DevengadosViewComponent_div_0_a_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "a", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, " N\u00F3mina ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} }
+function DevengadosViewComponent_div_0_ng_container_25_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerStart"](0);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, "open_in_full");
@@ -4987,7 +6214,7 @@ function DevengadosViewComponent_mat_toolbar_1_ng_container_26_Template(rf, ctx)
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, " Pantalla completa");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerEnd"]();
 } }
-function DevengadosViewComponent_mat_toolbar_1_ng_container_27_Template(rf, ctx) { if (rf & 1) {
+function DevengadosViewComponent_div_0_ng_container_26_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerStart"](0);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2, "close_fullscreen");
@@ -4995,118 +6222,150 @@ function DevengadosViewComponent_mat_toolbar_1_ng_container_27_Template(rf, ctx)
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, " Pantalla normal");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementContainerEnd"]();
 } }
-function DevengadosViewComponent_mat_toolbar_1_Template(rf, ctx) { if (rf & 1) {
-    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-toolbar", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "button", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_toolbar_1_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r11); _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](5); return _r1.toggle(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](2, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, "menu");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "a", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](7, " N\u00F3mina ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](8, " > ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "a", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](10, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](11, " Devengados ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](12, " > ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](13, "a", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](14, " Nuevo ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](15, "span", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](16, "button", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_toolbar_1_Template_button_click_16_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r11); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r12.save(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](17, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](18, "save");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](19, "Guardar ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](20, "button", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](21, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](22, "more_vert");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](23, "mat-menu", 23, 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](25, "button", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_toolbar_1_Template_button_click_25_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r11); const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r13.toggleFullScreen(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](26, DevengadosViewComponent_mat_toolbar_1_ng_container_26_Template, 4, 0, "ng-container", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](27, DevengadosViewComponent_mat_toolbar_1_ng_container_27_Template, 4, 0, "ng-container", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](28, "button", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_toolbar_1_Template_button_click_28_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r11); const ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r14.onNoClick(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](29, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](30, "cancel");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](31, "Cancelar ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const state_r6 = ctx.ngIf;
-    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("matMenuTriggerFor", _r7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !state_r6.fullScreen);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", state_r6.fullScreen);
-} }
-function DevengadosViewComponent_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
-    const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-icon", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_icon_13_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r16); const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](12); _r2.value = ""; return ctx_r15.filter(""); });
+function DevengadosViewComponent_div_0_mat_icon_41_Template(rf, ctx) { if (rf & 1) {
+    const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-icon", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_mat_icon_41_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r12); _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](40); const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); _r7.value = ""; return ctx_r11.filter(""); });
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1, "clear");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
 } }
-function DevengadosViewComponent_mat_list_item_14_a_1_span_6_Template(rf, ctx) { if (rf & 1) {
+function DevengadosViewComponent_div_0_mat_list_item_42_a_1_span_6_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const badge_r20 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵclassMapInterpolate1"]("label label-", badge_r20.type, "");
+    const badge_r16 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵclassMapInterpolate1"]("label label-", badge_r16.type, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](badge_r20.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](badge_r16.value);
 } }
-function DevengadosViewComponent_mat_list_item_14_a_1_Template(rf, ctx) { if (rf & 1) {
-    const _r23 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "a", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_mat_list_item_14_a_1_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r23); const menuitem_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit; const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r21.navSrv.navigate(menuitem_r17.state); });
+function DevengadosViewComponent_div_0_mat_list_item_42_a_1_Template(rf, ctx) { if (rf & 1) {
+    const _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "a", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_mat_list_item_42_a_1_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r19); const menuitem_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit; const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2); return ctx_r17.navSrv.navigate(menuitem_r13.state); });
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](5, "span", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](6, DevengadosViewComponent_mat_list_item_14_a_1_span_6_Template, 2, 4, "span", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](5, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](6, DevengadosViewComponent_div_0_mat_list_item_42_a_1_span_6_Template, 2, 4, "span", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const menuitem_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
+    const menuitem_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r17.icon);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r13.icon);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r17.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](menuitem_r13.name);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", menuitem_r17.badge);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", menuitem_r13.badge);
 } }
-function DevengadosViewComponent_mat_list_item_14_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-list-item", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, DevengadosViewComponent_mat_list_item_14_a_1_Template, 7, 3, "a", 30);
+function DevengadosViewComponent_div_0_mat_list_item_42_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "mat-list-item", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, DevengadosViewComponent_div_0_mat_list_item_42_a_1_Template, 7, 3, "a", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const menuitem_r17 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpropertyInterpolate"]("group", menuitem_r17.state);
+    const menuitem_r13 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpropertyInterpolate"]("group", menuitem_r13.state);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", menuitem_r17.type === "link");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", menuitem_r13.type === "link");
+} }
+function DevengadosViewComponent_div_0_Template(rf, ctx) { if (rf & 1) {
+    const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](1, "mat-toolbar", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](2, "button", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_Template_button_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r22); const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](33); return _r6.toggle(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](4, "menu");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](6, DevengadosViewComponent_div_0_a_6_Template, 3, 0, "a", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](7, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](8, "a", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](10, " Devengados ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](11, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](12, "a", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](13, " Nuevo ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](14, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](15, "button", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_Template_button_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r22); const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r23.save(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](16, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](17, "save");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](18, "Guardar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](19, "button", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](20, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](21, "more_vert");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](22, "mat-menu", 11, 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](24, "button", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_Template_button_click_24_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r22); const ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r24.toggleFullScreen(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](25, DevengadosViewComponent_div_0_ng_container_25_Template, 4, 0, "ng-container", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](26, DevengadosViewComponent_div_0_ng_container_26_Template, 4, 0, "ng-container", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](27, "button", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("click", function DevengadosViewComponent_div_0_Template_button_click_27_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrestoreView"](_r22); const ctx_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](); return ctx_r25.onNoClick(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](28, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](29, "cancel");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](30, "Cancelar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](31, "mat-sidenav-container", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](32, "mat-sidenav", 17, 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](34, "mat-nav-list", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](35, "form", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](36, "mat-form-field", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](37, "mat-label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](38, "Buscar...");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](39, "input", 22, 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](41, DevengadosViewComponent_div_0_mat_icon_41_Template, 2, 0, "mat-icon", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](42, DevengadosViewComponent_div_0_mat_list_item_42_Template, 2, 2, "mat-list-item", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](43, "mat-sidenav-content", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](44, "router-outlet", null, 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const state_r1 = ctx.ngIf;
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](23);
+    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](40);
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](45);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", state_r1.XSmall || state_r1.Small);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("matMenuTriggerFor", _r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", !state_r1.fullScreen);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", state_r1.fullScreen);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("mode", state_r1.XSmall || state_r1.Small ? "over" : "side")("opened", !(state_r1.XSmall || state_r1.Small));
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("formGroup", ctx_r0.form);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _r7.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", ctx_r0.menuItems);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("@routeAnimations", ctx_r0.prepareRoute(_r10));
 } }
 const slideInAnimation = (0,_angular_animations__WEBPACK_IMPORTED_MODULE_7__.trigger)('routeAnimations', [
     (0,_angular_animations__WEBPACK_IMPORTED_MODULE_7__.transition)('HomePage <=> AboutPage', [
@@ -5198,44 +6457,12 @@ class DevengadosViewComponent {
     }
 }
 DevengadosViewComponent.ɵfac = function DevengadosViewComponent_Factory(t) { return new (t || DevengadosViewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_9__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_theme_service__WEBPACK_IMPORTED_MODULE_1__.ThemeService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_6__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__.NavigationService)); };
-DevengadosViewComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({ type: DevengadosViewComponent, selectors: [["app-devengados-view"]], decls: 18, vars: 7, consts: [[1, "m-0", "d-flex", "main-container", "main-form"], ["color", "primary", "class", "topbar telative", 4, "ngIf"], ["style.marginTop.px", "0", 1, "page-container", 2, "height", "calc(100vh - 128px)"], ["id", "formMenu", "mode", "side", "fixedTopGap", "0", "opened", "true", 1, "dark-sidebar", "pl-xs", 2, "direction", "rtl"], ["formMenu", ""], ["appAccordion", "", 2, "direction", "ltr"], [1, "m-0", "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "find-menu-item", 2, "direction", "ltr", "padding", "0px 15px"], ["type", "text", "matInput", "", "formControlName", "menuItem", "placeholder", "Buscar"], ["buscar", ""], ["matSuffix", "", "mat-fab", "", 3, "click", 4, "ngIf"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group", 4, "ngFor", "ngForOf"], [1, "page-wrapper"], ["outlet", "outlet"], ["color", "primary", 1, "topbar", "telative"], ["mat-icon-button", "", "value", "sidebarclosed", 3, "click"], [1, "navbar-header", "d-flex", "align-items-center"], ["href", "n\u00F3mina", 1, "navbar-brand"], ["href", "n\u00F3mina/devengos", 1, "navbar-brand"], [1, "navbar-brand"], ["fxFlex", ""], ["mat-button", "", "tabindex", "2", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "matMenuTriggerFor"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", 3, "click"], [4, "ngIf"], ["mat-menu-item", "", "tabindex", "1", 3, "click"], ["matSuffix", "", "mat-fab", "", 3, "click"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group"], ["class", "", "appAccordionToggle", "", 3, "click", 4, "ngIf"], ["appAccordionToggle", "", 1, "", 3, "click"], [3, "class", 4, "ngFor", "ngForOf"]], template: function DevengadosViewComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, DevengadosViewComponent_mat_toolbar_1_Template, 32, 3, "mat-toolbar", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipe"](2, "async");
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "mat-sidenav-container", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "mat-sidenav", 3, 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "mat-nav-list", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](7, "form", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](8, "mat-form-field", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "mat-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](10, "Buscar...");
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](11, "input", 8, 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](13, DevengadosViewComponent_mat_icon_13_Template, 2, 0, "mat-icon", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](14, DevengadosViewComponent_mat_list_item_14_Template, 2, 2, "mat-list-item", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](15, "mat-sidenav-content", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](16, "router-outlet", null, 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+DevengadosViewComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({ type: DevengadosViewComponent, selectors: [["app-devengados-view"]], decls: 2, vars: 3, consts: [["class", "m-0 d-flex main-container main-form", 4, "ngIf"], [1, "m-0", "d-flex", "main-container", "main-form"], ["color", "primary", 1, "topbar", "telative"], ["mat-icon-button", "", "value", "sidebarclosed", 3, "click"], [1, "navbar-header", "d-flex", "align-items-center"], ["class", "navbar-brand", "href", "n\u00F3mina", 4, "ngIf"], ["href", "n\u00F3mina/devengos", 1, "navbar-brand"], [1, "navbar-brand"], ["fxFlex", ""], ["mat-button", "", "tabindex", "2", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "matMenuTriggerFor"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", 3, "click"], [4, "ngIf"], ["mat-menu-item", "", "tabindex", "1", 3, "click"], ["style.marginTop.px", "0", 1, "page-container", 2, "height", "calc(100vh - 128px)"], ["id", "formMenu", "fixedTopGap", "0", "opened", "true", "fixedTopGap", "0", 1, "dark-sidebar", "pl-xs", 2, "direction", "rtl", 3, "mode", "opened"], ["formMenu", ""], ["appAccordion", "", 2, "direction", "ltr"], [1, "m-0", "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "find-menu-item", 2, "direction", "ltr", "padding", "0px 15px"], ["type", "text", "matInput", "", "formControlName", "menuItem", "placeholder", "Buscar"], ["buscar", ""], ["matSuffix", "", "mat-fab", "", 3, "click", 4, "ngIf"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group", 4, "ngFor", "ngForOf"], [1, "page-wrapper"], ["outlet", "outlet"], ["href", "n\u00F3mina", 1, "navbar-brand"], ["matSuffix", "", "mat-fab", "", 3, "click"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group"], ["class", "", "appAccordionToggle", "", 3, "click", 4, "ngIf"], ["appAccordionToggle", "", 1, "", 3, "click"], [3, "class", 4, "ngFor", "ngForOf"]], template: function DevengadosViewComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, DevengadosViewComponent_div_0_Template, 46, 10, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipe"](1, "async");
     } if (rf & 2) {
-        const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](12);
-        const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipeBind1"](2, 5, ctx.themeSrv.themeState$));
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("formGroup", ctx.form);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _r2.value);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngForOf", ctx.menuItems);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("@routeAnimations", ctx.prepareRoute(_r5));
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_10__.NgIf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__.MatSidenav, _angular_material_list__WEBPACK_IMPORTED_MODULE_12__.MatNavList, _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_3__.AccordionDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_14__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_10__.NgForOf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__.MatSidenavContent, _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterOutlet, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_15__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_16__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_18__.DefaultFlexDirective, _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__.MatMenuTrigger, _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__.MatMenuItem, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatSuffix, _angular_material_list__WEBPACK_IMPORTED_MODULE_12__.MatListItem, _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_4__.AccordionLinkDirective, _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterLinkActive, _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_5__.AccordionAnchorDirective], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_10__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtBQUNGIiwiZmlsZSI6ImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudHlwZS10b29sdGlwLW5le1xyXG4gIGNvbG9yOiB2YXIoLS1hY2NlbnQtZGFya2VyLWNvbG9yKTtcclxufVxyXG4iXX0= */"], data: { animation: [
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpipeBind1"](1, 1, ctx.themeSrv.themeState$));
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_10__.NgIf, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_12__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_13__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_14__.DefaultFlexDirective, _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__.MatMenuTrigger, _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__.MatMenuItem, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_16__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_16__.MatSidenav, _angular_material_list__WEBPACK_IMPORTED_MODULE_17__.MatNavList, _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_3__.AccordionDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_19__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_10__.NgForOf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_16__.MatSidenavContent, _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterOutlet, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__.MatSuffix, _angular_material_list__WEBPACK_IMPORTED_MODULE_17__.MatListItem, _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_4__.AccordionLinkDirective, _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterLinkActive, _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_5__.AccordionAnchorDirective], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_10__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtBQUNGIiwiZmlsZSI6ImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudHlwZS10b29sdGlwLW5le1xyXG4gIGNvbG9yOiB2YXIoLS1hY2NlbnQtZGFya2VyLWNvbG9yKTtcclxufVxyXG4iXX0= */"], data: { animation: [
             slideInAnimation
             // animation triggers go here
         ] } });
@@ -5254,23 +6481,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DevengadosComponent": () => (/* binding */ DevengadosComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/paginator */ 9692);
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sort */ 1494);
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/table */ 2091);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 6215);
-/* harmony import */ var _devengados_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./devengados-data */ 8771);
-/* harmony import */ var _devengados_form_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./devengados-form.component */ 9787);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/in-mem-service */ 6556);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/snack-bar */ 7001);
-/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/card */ 3738);
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/input */ 3166);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/icon */ 6627);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/paginator */ 9692);
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/sort */ 1494);
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/table */ 2091);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../environments/environment */ 2404);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 6215);
+/* harmony import */ var _devengados_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./devengados-data */ 8771);
+/* harmony import */ var _devengados_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./devengados-form.component */ 9787);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/in-mem-service */ 6556);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/snack-bar */ 7001);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ 3738);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/button */ 1095);
+
+
+
 
 
 
@@ -5292,247 +6524,276 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function DevengadosComponent_div_18_th_3_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "#");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "#");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_4_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r27 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r27.id);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r27.id);
 } }
 function DevengadosComponent_div_18_th_6_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Basico");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Basico");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_7_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r28 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r28.basicoId);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r28.basicoId);
 } }
 function DevengadosComponent_div_18_th_9_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "primasId");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "primasId");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_10_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r29 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r29.primasId);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r29.primasId);
 } }
 function DevengadosComponent_div_18_th_12_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "cesantiasId");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "cesantiasId");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_13_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r30 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r30.cesantiasId);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r30.cesantiasId);
 } }
 function DevengadosComponent_div_18_th_15_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "dotacion");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "dotacion");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_16_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r31 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r31.dotacion);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r31.dotacion);
 } }
 function DevengadosComponent_div_18_th_18_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "apoyoSost");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "apoyoSost");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_19_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r32 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r32.apoyoSost);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r32.apoyoSost);
 } }
 function DevengadosComponent_div_18_th_21_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "teletrabajo");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "teletrabajo");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_22_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r33 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r33.teletrabajo);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r33.teletrabajo);
 } }
 function DevengadosComponent_div_18_th_24_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "bonifRetiro");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "bonifRetiro");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_25_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r34 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r34.bonifRetiro);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r34.bonifRetiro);
 } }
 function DevengadosComponent_div_18_th_27_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "indemnizacion");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "indemnizacion");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_28_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r35 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r35.indemnizacion);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r35.indemnizacion);
 } }
 function DevengadosComponent_div_18_th_30_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "reintegro");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "reintegro");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_31_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const element_r36 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r36.reintegro);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r36.reintegro);
 } }
 function DevengadosComponent_div_18_th_33_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Acciones");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Acciones");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_td_34_Template(rf, ctx) { if (rf & 1) {
-    const _r39 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "button", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DevengadosComponent_div_18_td_34_Template_button_click_1_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r38 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r38.openDialog(element_r37.id); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "edit");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "button", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DevengadosComponent_div_18_td_34_Template_button_click_4_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r40.delete(element_r37); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "delete");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    const _r39 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "button", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function DevengadosComponent_div_18_td_34_Template_button_click_1_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r38 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r38.openDialog(element_r37.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "edit");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "button", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function DevengadosComponent_div_18_td_34_Template_button_click_4_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r39); const element_r37 = restoredCtx.$implicit; const ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r40.delete(element_r37); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6, "delete");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } }
 function DevengadosComponent_div_18_tr_35_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "tr", 29);
 } }
 function DevengadosComponent_div_18_tr_36_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "tr", 30);
 } }
 const _c0 = function () { return [5, 10, 20]; };
 function DevengadosComponent_div_18_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "table", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](2, 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](3, DevengadosComponent_div_18_th_3_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](4, DevengadosComponent_div_18_td_4_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](5, 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](6, DevengadosComponent_div_18_th_6_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](7, DevengadosComponent_div_18_td_7_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](8, 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](9, DevengadosComponent_div_18_th_9_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](10, DevengadosComponent_div_18_td_10_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](11, 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](12, DevengadosComponent_div_18_th_12_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](13, DevengadosComponent_div_18_td_13_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](14, 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](15, DevengadosComponent_div_18_th_15_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](16, DevengadosComponent_div_18_td_16_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](17, 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, DevengadosComponent_div_18_th_18_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](19, DevengadosComponent_div_18_td_19_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](20, 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](21, DevengadosComponent_div_18_th_21_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](22, DevengadosComponent_div_18_td_22_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](23, 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](24, DevengadosComponent_div_18_th_24_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](25, DevengadosComponent_div_18_td_25_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](26, 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](27, DevengadosComponent_div_18_th_27_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](28, DevengadosComponent_div_18_td_28_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](29, 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](30, DevengadosComponent_div_18_th_30_Template, 2, 0, "th", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](31, DevengadosComponent_div_18_td_31_Template, 2, 1, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](32, 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](33, DevengadosComponent_div_18_th_33_Template, 2, 0, "th", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](34, DevengadosComponent_div_18_td_34_Template, 7, 0, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](35, DevengadosComponent_div_18_tr_35_Template, 1, 0, "tr", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](36, DevengadosComponent_div_18_tr_36_Template, 1, 0, "tr", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](37, "mat-paginator", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "table", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](2, 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](3, DevengadosComponent_div_18_th_3_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](4, DevengadosComponent_div_18_td_4_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](5, 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](6, DevengadosComponent_div_18_th_6_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](7, DevengadosComponent_div_18_td_7_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](8, 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](9, DevengadosComponent_div_18_th_9_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](10, DevengadosComponent_div_18_td_10_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](11, 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](12, DevengadosComponent_div_18_th_12_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, DevengadosComponent_div_18_td_13_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](14, 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](15, DevengadosComponent_div_18_th_15_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](16, DevengadosComponent_div_18_td_16_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](17, 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](18, DevengadosComponent_div_18_th_18_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](19, DevengadosComponent_div_18_td_19_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](20, 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](21, DevengadosComponent_div_18_th_21_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](22, DevengadosComponent_div_18_td_22_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](23, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](24, DevengadosComponent_div_18_th_24_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](25, DevengadosComponent_div_18_td_25_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](26, 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](27, DevengadosComponent_div_18_th_27_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](28, DevengadosComponent_div_18_td_28_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](29, 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](30, DevengadosComponent_div_18_th_30_Template, 2, 0, "th", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](31, DevengadosComponent_div_18_td_31_Template, 2, 1, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](32, 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](33, DevengadosComponent_div_18_th_33_Template, 2, 0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](34, DevengadosComponent_div_18_td_34_Template, 7, 0, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](35, DevengadosComponent_div_18_tr_35_Template, 1, 0, "tr", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](36, DevengadosComponent_div_18_tr_36_Template, 1, 0, "tr", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](37, "mat-paginator", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const dataSource_r2 = ctx.ngIf;
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("dataSource", dataSource_r2.datasource);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](34);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matHeaderRowDef", dataSource_r2.displayedColumns);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matRowDefColumns", dataSource_r2.displayedColumns);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpureFunction0"](4, _c0));
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("dataSource", dataSource_r2.datasource);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matHeaderRowDef", dataSource_r2.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matRowDefColumns", dataSource_r2.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction0"](4, _c0));
 } }
 class DevengadosComponent {
-    constructor(memSrv, dialog, _snackBar, navSrv) {
+    constructor(memSrv, dialog, _snackBar, navSrv, http) {
         this.memSrv = memSrv;
         this.dialog = dialog;
         this._snackBar = _snackBar;
         this.navSrv = navSrv;
-        this.dataSource$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__.BehaviorSubject({
-            datasource: new _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatTableDataSource(_devengados_data__WEBPACK_IMPORTED_MODULE_0__.devengados),
-            displayedColumns: _devengados_data__WEBPACK_IMPORTED_MODULE_0__.displayedColumns,
+        this.http = http;
+        this.dataSource$ = new rxjs__WEBPACK_IMPORTED_MODULE_6__.BehaviorSubject({
+            datasource: new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatTableDataSource(_devengados_data__WEBPACK_IMPORTED_MODULE_1__.devengados),
+            displayedColumns: _devengados_data__WEBPACK_IMPORTED_MODULE_1__.displayedColumns,
         });
+        this.payrollDataUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.API_GATEWAY;
+        const httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpHeaders({
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                'content-Type': 'application/json',
+                Authorization: '82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68'
+            }),
+        };
+        this.http
+            .post(this.payrollDataUrl + 'documents/payrolls/procedure', { "body": { "params": {
+                    "trabajadorId": "FF841F95-5FDC-4879-A6BD-EE8C93A82943"
+                } },
+            "header": {
+                "cliente": "FF841F95-5FDC-4879-A6BD-EE8C93A82943",
+                "esquema": "payroll",
+                "procedimientoAlmacenado": "ConsultarDevengadosTest",
+            } }, httpOptions)
+            .subscribe((data) => {
+            console.dir(data);
+            this.dataSource$.next({
+                datasource: new _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatTableDataSource(data === null || data === void 0 ? void 0 : data.body),
+                displayedColumns: _devengados_data__WEBPACK_IMPORTED_MODULE_1__.displayedColumns,
+            });
+        });
+    }
+    get data() {
+        var _a, _b, _c, _d;
+        return (_d = (_c = (_b = (_a = this.dataSource$) === null || _a === void 0 ? void 0 : _a.value) === null || _b === void 0 ? void 0 : _b.datasource) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d[0];
     }
     ngOnInit() { }
     ngAfterViewInit() {
@@ -5578,9 +6839,9 @@ class DevengadosComponent {
         let datasource = this.dataSource$.value.datasource;
         const editing = (_a = datasource.data.filter((v) => v.id == id)) === null || _a === void 0 ? void 0 : _a[0];
         console.log(editing);
-        const dialogRef = this.dialog.open(_devengados_form_component__WEBPACK_IMPORTED_MODULE_1__.DevengadosFormComponent, {
+        const dialogRef = this.dialog.open(_devengados_form_component__WEBPACK_IMPORTED_MODULE_2__.DevengadosFormComponent, {
             width: '250px',
-            data: editing ? editing : _devengados_data__WEBPACK_IMPORTED_MODULE_0__.EMPTY,
+            data: editing ? editing : _devengados_data__WEBPACK_IMPORTED_MODULE_1__.EMPTY,
         });
         dialogRef.afterClosed().subscribe((result) => {
             console.log(result);
@@ -5591,51 +6852,51 @@ class DevengadosComponent {
         });
     }
 }
-DevengadosComponent.ɵfac = function DevengadosComponent_Factory(t) { return new (t || DevengadosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__.InMemService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__.MatDialog), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__.MatSnackBar), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__.NavigationService)); };
-DevengadosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: DevengadosComponent, selectors: [["app-payroll-devengados"]], viewQuery: function DevengadosComponent_Query(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__.MatPaginator, 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSort, 5);
+DevengadosComponent.ɵfac = function DevengadosComponent_Factory(t) { return new (t || DevengadosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_srv_in_mem_service__WEBPACK_IMPORTED_MODULE_3__.InMemService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__.MatDialog), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__.MatSnackBar), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_4__.NavigationService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpClient)); };
+DevengadosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: DevengadosComponent, selectors: [["app-payroll-devengados"]], viewQuery: function DevengadosComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__.MatPaginator, 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_12__.MatSort, 5);
     } if (rf & 2) {
         let _t;
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
     } }, decls: 20, vars: 3, consts: [[1, "example-full-width"], ["type", "tel", "matInput", "", "placeholder", "Ej. Mia", 3, "keyup"], ["input", ""], ["mat-icon-button", "", "matSuffix", "", "mat-fab", "", "color", "primary", 3, "click"], ["class", "mat-elevation-z8", 4, "ngIf"], [1, "mat-elevation-z8"], ["mat-table", "", "matSort", "", 1, "table-responsive", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "id"], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "basicoId"], ["matColumnDef", "primasId"], ["matColumnDef", "cesantiasId"], ["matColumnDef", "dotacion"], ["matColumnDef", "apoyoSost"], ["matColumnDef", "teletrabajo"], ["matColumnDef", "bonifRetiro"], ["matColumnDef", "indemnizacion"], ["matColumnDef", "reintegro"], ["matColumnDef", "action"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["showFirstLastButtons", "", 3, "pageSizeOptions"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], ["mat-header-cell", ""], ["mat-icon-button", "", "color", "primary", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "click"], ["mat-header-row", ""], ["mat-row", ""]], template: function DevengadosComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "mat-card");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "mat-card-header");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-card-title");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "Devengados");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "mat-card-subtitle");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](5, "Angular Material table for ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](6, "code");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](7, "Devengados");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](8, " elements. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](9, "mat-card-content");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](10, "h4");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](11, "mat-form-field", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "mat-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](13, "Buscar");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](14, "input", 1, 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("keyup", function DevengadosComponent_Template_input_keyup_14_listener($event) { return ctx.applyFilter($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](16, "mat-icon", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function DevengadosComponent_Template_mat_icon_click_16_listener() { return ctx.navSrv.navigate("/n\u00F3mina/devengos/view/form"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "add");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, DevengadosComponent_div_18_Template, 38, 5, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](19, "async");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "mat-card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "mat-card-header");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "mat-card-title");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "Devengados");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "mat-card-subtitle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](5, "Angular Material table for ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](6, "code");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "Devengados");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8, " elements. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "mat-card-content");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "mat-form-field", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](12, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](13, "Buscar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](14, "input", 1, 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("keyup", function DevengadosComponent_Template_input_keyup_14_listener($event) { return ctx.applyFilter($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](16, "mat-icon", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function DevengadosComponent_Template_mat_icon_click_16_listener() { return ctx.navSrv.navigate("/n\u00F3mina/individual/devengos/view/form", ctx.data); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](17, "add");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](18, DevengadosComponent_div_18_Template, 38, 5, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipe"](19, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](19, 1, ctx.dataSource$));
-    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardSubtitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_11__.MatCardContent, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_13__.MatInput, _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__.MatIcon, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatSuffix, _angular_common__WEBPACK_IMPORTED_MODULE_15__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_9__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatCell, _angular_material_button__WEBPACK_IMPORTED_MODULE_16__.MatButton, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_6__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_15__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtBQUNGIiwiZmlsZSI6ImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudHlwZS10b29sdGlwLW5le1xyXG4gIGNvbG9yOiB2YXIoLS1hY2NlbnQtZGFya2VyLWNvbG9yKTtcclxufVxyXG4iXX0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipeBind1"](19, 1, ctx.dataSource$));
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_13__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_13__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_13__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_13__.MatCardSubtitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_13__.MatCardContent, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_15__.MatInput, _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__.MatIcon, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__.MatSuffix, _angular_common__WEBPACK_IMPORTED_MODULE_17__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_11__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_12__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCell, _angular_material_button__WEBPACK_IMPORTED_MODULE_18__.MatButton, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_17__.AsyncPipe], styles: [".type-tooltip-ne[_ngcontent-%COMP%] {\n  color: var(--accent-darker-color);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtBQUNGIiwiZmlsZSI6ImRldmVuZ2Fkb3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudHlwZS10b29sdGlwLW5le1xyXG4gIGNvbG9yOiB2YXIoLS1hY2NlbnQtZGFya2VyLWNvbG9yKTtcclxufVxyXG4iXX0= */"] });
 
 
 /***/ }),
@@ -13583,10 +14844,10 @@ PagosTercerosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MOD
 
 /***/ }),
 
-/***/ 7524:
-/*!****************************************************************************************!*\
-  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-table/payroll-data.ts ***!
-  \****************************************************************************************/
+/***/ 6389:
+/*!******************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-general/payroll-data.ts ***!
+  \******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -13595,7 +14856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "nominas": () => (/* binding */ nominas),
 /* harmony export */   "catalogs": () => (/* binding */ catalogs),
 /* harmony export */   "displayedColumns": () => (/* binding */ displayedColumns),
-/* harmony export */   "EMPTY": () => (/* binding */ EMPTY)
+/* harmony export */   "EMPTY": () => (/* binding */ EMPTY),
+/* harmony export */   "MENU_ITEMS": () => (/* binding */ MENU_ITEMS)
 /* harmony export */ });
 /* harmony import */ var _periodo_periodo_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../periodo/periodo-data */ 9816);
 
@@ -13760,24 +15022,29 @@ const EMPTY = {
     estado: '1',
     descripcion: '',
 };
+const MENU_ITEMS = [
+    { state: '/nómina/individual/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
+    { state: '/nómina/individual/devengos', name: 'Devengos', type: 'link', icon: 'paid' },
+    { state: '/nómina/individual/deducciones', name: 'Deducciones', type: 'link', icon: 'local_atm' },
+];
 
 
 /***/ }),
 
-/***/ 5309:
-/*!**************************************************************************************************!*\
-  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-table/payroll-form.component.ts ***!
-  \**************************************************************************************************/
+/***/ 8811:
+/*!*******************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-general/payroll-general.component.ts ***!
+  \*******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "PayrollFormComponent": () => (/* binding */ PayrollFormComponent)
+/* harmony export */   "PayrollGeneralFormComponent": () => (/* binding */ PayrollGeneralFormComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ 1841);
-/* harmony import */ var projects_docs_src_environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! projects/docs/src/environments/environment */ 2404);
-/* harmony import */ var _payroll_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./payroll-data */ 7524);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../environments/environment */ 2404);
+/* harmony import */ var _payroll_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./payroll-data */ 6389);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9895);
@@ -13806,7 +15073,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function PayrollFormComponent_mat_option_14_Template(rf, ctx) { if (rf & 1) {
+function PayrollGeneralFormComponent_mat_option_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "mat-option", 23);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
@@ -13816,35 +15083,35 @@ function PayrollFormComponent_mat_option_14_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", catalog_r6.name, " ");
 } }
-function PayrollFormComponent_div_17_div_1_Template(rf, ctx) { if (rf & 1) {
+function PayrollGeneralFormComponent_div_17_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " pago is required. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 } }
-function PayrollFormComponent_div_17_Template(rf, ctx) { if (rf & 1) {
+function PayrollGeneralFormComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollFormComponent_div_17_div_1_Template, 2, 0, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollGeneralFormComponent_div_17_div_1_Template, 2, 0, "div", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx_r2.f.pago.errors == null ? null : ctx_r2.f.pago.errors.required);
 } }
-function PayrollFormComponent_div_20_div_1_Template(rf, ctx) { if (rf & 1) {
+function PayrollGeneralFormComponent_div_20_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " cantidad is required. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 } }
-function PayrollFormComponent_div_20_Template(rf, ctx) { if (rf & 1) {
+function PayrollGeneralFormComponent_div_20_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollFormComponent_div_20_div_1_Template, 2, 0, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollGeneralFormComponent_div_20_div_1_Template, 2, 0, "div", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx_r3.f.cantidad.errors == null ? null : ctx_r3.f.cantidad.errors.required);
 } }
-class PayrollFormComponent {
+class PayrollGeneralFormComponent {
     constructor(builder, route, router, navSrv, http) {
         this.builder = builder;
         this.route = route;
@@ -13853,8 +15120,7 @@ class PayrollFormComponent {
         this.http = http;
         this.position = 'below';
         this.catalogs = _payroll_data__WEBPACK_IMPORTED_MODULE_1__.catalogs;
-        this.payrollDataUrl = projects_docs_src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.API_GATEWAY;
-        this.nav = (route) => this.navSrv.navigate(route);
+        this.payrollDataUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.API_GATEWAY;
         this.form = this.builder.group({
             id: 0,
             fechaInicio: new Date(),
@@ -13888,36 +15154,36 @@ class PayrollFormComponent {
         return this.form.controls;
     }
 }
-PayrollFormComponent.ɵfac = function PayrollFormComponent_Factory(t) { return new (t || PayrollFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__.NavigationService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpClient)); };
-PayrollFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: PayrollFormComponent, selectors: [["app-payroll-form-dialog"]], decls: 41, vars: 9, consts: [[1, "mat-card"], [1, "mat-card-header", "card-header-primary"], [1, "card-title"], [1, "card-category"], [1, "card-body"], [3, "formGroup"], ["matTooltip", "Tooltip!", 1, "col-12", "type-tooltip-ne"], ["tabindex", "1", "formControlName", "catalog", "id", "business", 1, "example-select"], ["business", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "col-6"], ["matInput", "", "tabindex", "2", "formControlName", "pago", "placeholder", "Valor de la pago", "id", "pago", "type", "text", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["matInput", "", "tabindex", "3", "formControlName", "cantidad", "placeholder", "Cantidad", "id", "cantidad", "type", "text", 1, "form-control"], ["appearance", "fill", 1, "col-6"], ["matInput", "", "formControlName", "fechaInicio", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["touchUi", ""], ["picker", ""], ["matInput", "", "formControlName", "fechaFin", 3, "matDatepicker"], ["pickerFin", ""], ["mat-button", "", "tabindex", "-1", 3, "click"], ["mat-button", "", "tabindex", "4", 3, "click"], [3, "value"], [1, "alert", "alert-danger"], [4, "ngIf"]], template: function PayrollFormComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
+PayrollGeneralFormComponent.ɵfac = function PayrollGeneralFormComponent_Factory(t) { return new (t || PayrollGeneralFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__.NavigationService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpClient)); };
+PayrollGeneralFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: PayrollGeneralFormComponent, selectors: [["app-payroll-general-form-dialog"]], decls: 41, vars: 9, consts: [[1, "m-0", "d-flex", "main-container", "main-form", 2, "overflow", "visible", 3, "formGroup"], [1, "m-0", "mat-card"], [1, "mat-card-header", "card-header-primary"], [1, "card-title"], [1, "card-category"], [1, "card-body"], ["matTooltip", "Tooltip!", 1, "col-12", "type-tooltip-ne"], ["tabindex", "1", "formControlName", "catalog", "id", "business", 1, "example-select"], ["business", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "col-6"], ["matInput", "", "tabindex", "2", "formControlName", "pago", "placeholder", "Valor de la pago", "id", "pago", "type", "text", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["matInput", "", "tabindex", "3", "formControlName", "cantidad", "placeholder", "Cantidad", "id", "cantidad", "type", "text", 1, "form-control"], ["appearance", "fill", 1, "col-6"], ["matInput", "", "formControlName", "fechaInicio", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["touchUi", ""], ["picker", ""], ["matInput", "", "formControlName", "fechaFin", 3, "matDatepicker"], ["pickerFin", ""], ["mat-button", "", "tabindex", "-1", 3, "click"], ["mat-button", "", "tabindex", "4", 3, "click"], [3, "value"], [1, "alert", "alert-danger"], [4, "ngIf"]], template: function PayrollGeneralFormComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "h4", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "h4", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "p", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, "Informaci\u00F3n de N\u00F3mina Individual");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "p", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "Informaci\u00F3n de N\u00F3mina general");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "form", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "span");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "Tipo");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "mat-form-field");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "mat-select", 7, 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, PayrollFormComponent_mat_option_14_Template, 2, 2, "mat-option", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, PayrollGeneralFormComponent_mat_option_14_Template, 2, 2, "mat-option", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "mat-form-field", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](16, "input", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, PayrollFormComponent_div_17_Template, 2, 1, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, PayrollGeneralFormComponent_div_17_Template, 2, 1, "div", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "mat-form-field", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](19, "input", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, PayrollFormComponent_div_20_Template, 2, 1, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, PayrollGeneralFormComponent_div_20_Template, 2, 1, "div", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "mat-form-field", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "mat-label");
@@ -13936,16 +15202,16 @@ PayrollFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](33, "mat-datepicker", 17, 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "button", 21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollFormComponent_Template_button_click_35_listener() { return ctx.onNoClick(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollGeneralFormComponent_Template_button_click_35_listener() { return ctx.onNoClick(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](36, " Cancelar ");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](37, "button", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollFormComponent_Template_button_click_37_listener() { return ctx.save(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollGeneralFormComponent_Template_button_click_37_listener() { return ctx.save(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](38, "Guardar");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](39, "button", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollFormComponent_Template_button_click_39_listener() { return ctx.nav("/n\u00F3mina/devengos"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](40, "Nuevo devengado");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollGeneralFormComponent_Template_button_click_39_listener() { return ctx.navSrv.navigate("/n\u00F3mina/individual", ctx.form.value); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](40, "Ver individuales");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
@@ -13953,11 +15219,10 @@ PayrollFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
     } if (rf & 2) {
         const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](27);
         const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](34);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](ctx.f.id.value ? "Editar N\u00F3mina Individual {{f.id.value}}" : "Agregar N\u00F3mina Individual");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.form);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("", ctx.f.id.value ? "Editar N\u00F3mina general {{f.id.value}}" : "Agregar N\u00F3mina general", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", ctx.catalogs);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.f.pago.touched && ctx.f.pago.invalid);
@@ -13976,10 +15241,10 @@ PayrollFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
 
 /***/ }),
 
-/***/ 6371:
-/*!***************************************************************************************************!*\
-  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-table/payroll-table.component.ts ***!
-  \***************************************************************************************************/
+/***/ 8059:
+/*!***********************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-general/table/payroll-table.component.ts ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -13992,22 +15257,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/sort */ 1494);
 /* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/table */ 2091);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 6215);
-/* harmony import */ var _payroll_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./payroll-data */ 7524);
-/* harmony import */ var _payroll_form_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./payroll-form.component */ 5309);
+/* harmony import */ var _payroll_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../payroll-data */ 6389);
+/* harmony import */ var _payroll_general_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../payroll-general.component */ 8811);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/in-mem-service */ 6556);
+/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../srv/in-mem-service */ 6556);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
 /* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/snack-bar */ 7001);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../srv/navigation.service */ 2358);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/card */ 3738);
 /* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
 /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/input */ 3166);
 /* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/datepicker */ 3220);
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/icon */ 6627);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/button */ 1095);
 
 
 
@@ -14032,13 +15298,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function PayrollTableComponent_div_22_th_3_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+
+function PayrollTableComponent_div_29_th_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "N\u00F3mina # ");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_4_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
+function PayrollTableComponent_div_29_td_4_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -14046,13 +15313,13 @@ function PayrollTableComponent_div_22_td_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r18.id);
 } }
-function PayrollTableComponent_div_22_th_6_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+function PayrollTableComponent_div_29_th_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Nombre");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_7_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
+function PayrollTableComponent_div_29_td_7_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -14060,13 +15327,13 @@ function PayrollTableComponent_div_22_td_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r19.nombre);
 } }
-function PayrollTableComponent_div_22_th_9_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+function PayrollTableComponent_div_29_th_9_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "estado");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_10_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
+function PayrollTableComponent_div_29_td_10_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -14074,13 +15341,13 @@ function PayrollTableComponent_div_22_td_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r20.estado);
 } }
-function PayrollTableComponent_div_22_th_12_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+function PayrollTableComponent_div_29_th_12_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "descripcion");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_13_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
+function PayrollTableComponent_div_29_td_13_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -14088,13 +15355,13 @@ function PayrollTableComponent_div_22_td_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](element_r21.descripcion);
 } }
-function PayrollTableComponent_div_22_th_15_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 26);
+function PayrollTableComponent_div_29_th_15_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "periodo");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_16_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
+function PayrollTableComponent_div_29_td_16_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](2, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
@@ -14103,69 +15370,95 @@ function PayrollTableComponent_div_22_td_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind2"](2, 1, element_r22.periodo == null ? null : element_r22.periodo.fechaLiquidacion, "short"));
 } }
-function PayrollTableComponent_div_22_th_18_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 28);
+function PayrollTableComponent_div_29_th_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "th", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "Acciones");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
-function PayrollTableComponent_div_22_td_19_Template(rf, ctx) { if (rf & 1) {
-    const _r25 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "button", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_22_td_19_Template_button_click_1_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r25); const element_r23 = restoredCtx.$implicit; const ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r24.delete(element_r23); });
+function PayrollTableComponent_div_29_td_19_button_6_Template(rf, ctx) { if (rf & 1) {
+    const _r28 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "button", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_29_td_19_button_6_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r28); const element_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"]().$implicit; const ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r26.navSrv.navigate("/n\u00F3mina/individual/form", element_r23); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](2, "eye");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, " Ver ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} }
+function PayrollTableComponent_div_29_td_19_Template(rf, ctx) { if (rf & 1) {
+    const _r30 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "td", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "button", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "delete");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "more_vert");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "button", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_22_td_19_Template_button_click_4_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r25); const element_r23 = restoredCtx.$implicit; const ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r26.openDialog(element_r23.id); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "mat-icon");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "edit");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "mat-menu", 34, 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](6, PayrollTableComponent_div_29_td_19_button_6_Template, 4, 0, "button", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "button", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_29_td_19_Template_button_click_7_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r30); const element_r23 = restoredCtx.$implicit; const ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r29.openDialog(element_r23.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](8, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](9, "edit");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](10, " Editar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](11, "button", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_29_td_19_Template_button_click_11_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r30); const element_r23 = restoredCtx.$implicit; const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r31.delete(element_r23); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](13, "delete");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](14, " Eliminar ");
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r23 = ctx.$implicit;
+    const _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵreference"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matMenuTriggerFor", _r24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", element_r23.id);
 } }
-function PayrollTableComponent_div_22_tr_20_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 30);
+function PayrollTableComponent_div_29_tr_20_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "tr", 40);
 } }
-function PayrollTableComponent_div_22_tr_21_Template(rf, ctx) { if (rf & 1) {
-    const _r29 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "tr", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_22_tr_21_Template_tr_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r29); const row_r27 = restoredCtx.$implicit; const ctx_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r28.selection.toggle(row_r27); });
+function PayrollTableComponent_div_29_tr_21_Template(rf, ctx) { if (rf & 1) {
+    const _r34 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "tr", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_div_29_tr_21_Template_tr_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrestoreView"](_r34); const row_r32 = restoredCtx.$implicit; const ctx_r33 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"](2); return ctx_r33.selection.toggle(row_r32); });
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } }
 const _c0 = function () { return [5, 10, 20]; };
-function PayrollTableComponent_div_22_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "table", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](2, 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](3, PayrollTableComponent_div_22_th_3_Template, 2, 0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](4, PayrollTableComponent_div_22_td_4_Template, 2, 1, "td", 16);
+function PayrollTableComponent_div_29_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "table", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](2, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](3, PayrollTableComponent_div_29_th_3_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](4, PayrollTableComponent_div_29_td_4_Template, 2, 1, "td", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](5, 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](6, PayrollTableComponent_div_22_th_6_Template, 2, 0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](7, PayrollTableComponent_div_22_td_7_Template, 2, 1, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](5, 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](6, PayrollTableComponent_div_29_th_6_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](7, PayrollTableComponent_div_29_td_7_Template, 2, 1, "td", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](8, 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](9, PayrollTableComponent_div_22_th_9_Template, 2, 0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](10, PayrollTableComponent_div_22_td_10_Template, 2, 1, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](8, 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](9, PayrollTableComponent_div_29_th_9_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](10, PayrollTableComponent_div_29_td_10_Template, 2, 1, "td", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](11, 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](12, PayrollTableComponent_div_22_th_12_Template, 2, 0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](13, PayrollTableComponent_div_22_td_13_Template, 2, 1, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](11, 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](12, PayrollTableComponent_div_29_th_12_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](13, PayrollTableComponent_div_29_td_13_Template, 2, 1, "td", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](14, 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](15, PayrollTableComponent_div_22_th_15_Template, 2, 0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](16, PayrollTableComponent_div_22_td_16_Template, 3, 4, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](14, 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](15, PayrollTableComponent_div_29_th_15_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](16, PayrollTableComponent_div_29_td_16_Template, 3, 4, "td", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](17, 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, PayrollTableComponent_div_22_th_18_Template, 2, 0, "th", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](19, PayrollTableComponent_div_22_td_19_Template, 7, 0, "td", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](17, 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](18, PayrollTableComponent_div_29_th_18_Template, 2, 0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](19, PayrollTableComponent_div_29_td_19_Template, 15, 2, "td", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](20, PayrollTableComponent_div_22_tr_20_Template, 1, 0, "tr", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](21, PayrollTableComponent_div_22_tr_21_Template, 1, 0, "tr", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](20, PayrollTableComponent_div_29_tr_20_Template, 1, 0, "tr", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](21, PayrollTableComponent_div_29_tr_21_Template, 1, 0, "tr", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](22, "mat-paginator", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](22, "mat-paginator", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const dataSource_r3 = ctx.ngIf;
@@ -14261,8 +15554,8 @@ class PayrollTableComponent {
         let datasource = this.dataSource$.value.datasource;
         const editing = (_a = datasource.data.filter((v) => v.id == id)) === null || _a === void 0 ? void 0 : _a[0];
         console.log(editing);
-        const dialogRef = this.dialog.open(_payroll_form_component__WEBPACK_IMPORTED_MODULE_1__.PayrollFormComponent, {
-            width: '250px',
+        const dialogRef = this.dialog.open(_payroll_general_component__WEBPACK_IMPORTED_MODULE_1__.PayrollGeneralFormComponent, {
+            width: '500px',
             data: editing ? editing : _payroll_data__WEBPACK_IMPORTED_MODULE_0__.EMPTY,
         });
         dialogRef.afterClosed().subscribe((result) => {
@@ -14282,47 +15575,59 @@ PayrollTableComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
-    } }, decls: 24, vars: 7, consts: [[3, "formGroup"], [1, "display:", "flex"], ["formGroupName", "periodo"], [1, "example-full-width"], ["matInput", "", "formControlName", "fechaLiquidacion", "placeholder", "Ej. Mia", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["startView", "year", "touchUi", "", 3, "startAt"], ["picker", ""], ["type", "tel", "matInput", "", "placeholder", "Ej. Mia", "formControlName", "filtro", 3, "keyup"], ["input", ""], ["matSuffix", "", "mat-fab", "", "color", "primary", 3, "click"], ["class", "mat-elevation-z8", 4, "ngIf"], [1, "mat-elevation-z8"], ["mat-table", "", "matSort", "", 1, "table-responsive", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "id", "sticky", ""], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "nombre"], ["matColumnDef", "estado"], ["matColumnDef", "descripcion"], ["matColumnDef", "periodo"], ["matColumnDef", "action", "stickyEnd", ""], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 3, "click", 4, "matRowDef", "matRowDefColumns"], ["showFirstLastButtons", "", 3, "pageSizeOptions"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], ["mat-header-cell", ""], ["mat-icon-button", "", 3, "click"], ["mat-header-row", ""], ["mat-row", "", 3, "click"]], template: function PayrollTableComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 31, vars: 7, consts: [[1, ""], [3, "click"], [3, "formGroup"], [1, "display:", "flex"], ["formGroupName", "periodo"], [1, "example-full-width"], ["matInput", "", "formControlName", "fechaLiquidacion", "placeholder", "Ej. Mia", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["startView", "year", "touchUi", "", 3, "startAt"], ["picker", ""], ["type", "tel", "matInput", "", "placeholder", "Ej. Mia", "formControlName", "filtro", 3, "keyup"], ["input", ""], ["matSuffix", "", "mat-fab", "", "color", "primary", 3, "click"], ["class", "mat-elevation-z8", 4, "ngIf"], [1, "mat-elevation-z8"], ["mat-table", "", "matSort", "", 1, "table-responsive", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "id", "sticky", ""], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "nombre"], ["matColumnDef", "estado"], ["matColumnDef", "descripcion"], ["matColumnDef", "periodo"], ["matColumnDef", "action", "stickyEnd", ""], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "matMenuTriggerFor", 4, "matCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 3, "click", 4, "matRowDef", "matRowDefColumns"], ["showFirstLastButtons", "", 3, "pageSizeOptions"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], ["mat-header-cell", ""], ["mat-cell", "", 3, "matMenuTriggerFor"], ["mat-icon-button", "", "color", "primary", "color", "accent"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", "tabindex", "4", 3, "click", 4, "ngIf"], ["mat-menu-item", "", "color", "primary", 3, "click"], ["mat-menu-item", "", 3, "click"], ["mat-menu-item", "", "tabindex", "4", 3, "click"], ["mat-header-row", ""], ["mat-row", "", 3, "click"]], template: function PayrollTableComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "mat-card");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "mat-card-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "mat-card-title");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, "N\u00F3mina");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "mat-card-subtitle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "code");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "<N\u00F3mina>");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "mat-card-content");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](5, "form", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](6, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](7, 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](8, "mat-form-field", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](9, "mat-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](10, "Fecha corte");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](7, "listado de n\u00F3minas gestionadas en el corte. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](8, "code", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](9, "a", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_Template_a_click_9_listener() { return ctx.openDialog(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](10, "Crear nueva");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](11, "input", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](12, "mat-datepicker-toggle", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](13, "mat-datepicker", 6, 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](11, "mat-card-content");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](12, "form", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](13, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerStart"](14, 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](15, "mat-form-field", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](16, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "Fecha corte");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](18, "input", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](19, "mat-datepicker-toggle", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](20, "mat-datepicker", 8, 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementContainerEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](15, "mat-form-field", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](16, "mat-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "Buscar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](22, "mat-form-field", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](23, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](24, "Buscar");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](18, "input", 8, 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("keyup", function PayrollTableComponent_Template_input_keyup_18_listener($event) { return ctx.applyFilter($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](25, "input", 10, 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("keyup", function PayrollTableComponent_Template_input_keyup_25_listener($event) { return ctx.applyFilter($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](20, "mat-icon", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_Template_mat_icon_click_20_listener() { return ctx.navSrv.navigate("/n\u00F3mina/form", ctx.selected); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](21, " add_circle_outline ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](27, "mat-icon", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("click", function PayrollTableComponent_Template_mat_icon_click_27_listener() { return ctx.openDialog(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](28, " add_circle_outline ");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](22, PayrollTableComponent_div_22_Template, 23, 5, "div", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](23, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](29, PayrollTableComponent_div_29_Template, 23, 5, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](30, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵreference"](14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](5);
+        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵreference"](21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](12);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("formGroup", ctx.form);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("matDatepicker", _r0);
@@ -14331,8 +15636,918 @@ PayrollTableComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("startAt", ctx.startDate);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](23, 5, ctx.dataSource$));
-    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardContent, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupName, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_16__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.DefaultValueAccessor, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepickerInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormControlName, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepickerToggle, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatSuffix, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepicker, _angular_material_icon__WEBPACK_IMPORTED_MODULE_18__.MatIcon, _angular_common__WEBPACK_IMPORTED_MODULE_19__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_12__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCell, _angular_material_button__WEBPACK_IMPORTED_MODULE_20__.MatButton, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_19__.AsyncPipe, _angular_common__WEBPACK_IMPORTED_MODULE_19__.DatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwYXlyb2xsLXRhYmxlLmNvbXBvbmVudC5jc3MifQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](30, 5, ctx.dataSource$));
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardSubtitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_14__.MatCardContent, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormGroupName, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_16__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.DefaultValueAccessor, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepickerInput, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormControlName, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepickerToggle, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__.MatSuffix, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_17__.MatDatepicker, _angular_material_icon__WEBPACK_IMPORTED_MODULE_18__.MatIcon, _angular_common__WEBPACK_IMPORTED_MODULE_19__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_12__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatCell, _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__.MatMenuTrigger, _angular_material_button__WEBPACK_IMPORTED_MODULE_21__.MatButton, _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__.MatMenuItem, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_7__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_19__.AsyncPipe, _angular_common__WEBPACK_IMPORTED_MODULE_19__.DatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwYXlyb2xsLXRhYmxlLmNvbXBvbmVudC5jc3MifQ== */"] });
+
+
+/***/ }),
+
+/***/ 7045:
+/*!******************************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-individual/payroll-individual-form.component.ts ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PayrollIndividualFormComponent": () => (/* binding */ PayrollIndividualFormComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../environments/environment */ 2404);
+/* harmony import */ var _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../payroll-general/payroll-data */ 6389);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/tooltip */ 1436);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/select */ 7441);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/datepicker */ 3220);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/core */ 7817);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function PayrollIndividualFormComponent_mat_option_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "mat-option", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const catalog_r6 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("value", catalog_r6.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" ", catalog_r6.name, " ");
+} }
+function PayrollIndividualFormComponent_div_17_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " pago is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualFormComponent_div_17_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollIndividualFormComponent_div_17_div_1_Template, 2, 0, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx_r2.f.pago.errors == null ? null : ctx_r2.f.pago.errors.required);
+} }
+function PayrollIndividualFormComponent_div_20_div_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, " cantidad is required. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualFormComponent_div_20_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, PayrollIndividualFormComponent_div_20_div_1_Template, 2, 0, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx_r3.f.cantidad.errors == null ? null : ctx_r3.f.cantidad.errors.required);
+} }
+class PayrollIndividualFormComponent {
+    constructor(builder, route, router, navSrv, http) {
+        this.builder = builder;
+        this.route = route;
+        this.router = router;
+        this.navSrv = navSrv;
+        this.http = http;
+        this.position = 'below';
+        this.catalogs = _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_1__.catalogs;
+        this.payrollDataUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.API_GATEWAY;
+        this.nav = (route) => this.navSrv.navigate(route);
+        this.form = this.builder.group({
+            id: 0,
+            fechaInicio: new Date(),
+            fechaFin: new Date(),
+            cantidad: 0,
+            pago: 0,
+            catalog: _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_1__.catalogs[0],
+            nombre: '',
+            estado: '',
+        });
+        this.route.queryParams.subscribe((params) => {
+            const data1 = params['data'];
+            this.form.patchValue(data1);
+        });
+        const httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpHeaders({
+                'content-Type': 'application/json',
+                Authorization: `82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68`,
+            }),
+        };
+        this.http
+            .get(this.payrollDataUrl + 'documents/primas/list', httpOptions)
+            .subscribe((data) => {
+            console.dir(data);
+        });
+    }
+    onNoClick() {
+        this.navSrv.navigate('nómina');
+    }
+    save() { }
+    get f() {
+        return this.form.controls;
+    }
+}
+PayrollIndividualFormComponent.ɵfac = function PayrollIndividualFormComponent_Factory(t) { return new (t || PayrollIndividualFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_2__.NavigationService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__.HttpClient)); };
+PayrollIndividualFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: PayrollIndividualFormComponent, selectors: [["app-payroll-individual-form-dialog"]], decls: 43, vars: 9, consts: [[1, "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "mat-card"], [1, "mat-card-header", "card-header-primary"], [1, "card-title"], [1, "card-category"], [1, "card-body"], ["matTooltip", "Tooltip!", 1, "col-12", "type-tooltip-ne"], ["tabindex", "1", "formControlName", "catalog", "id", "business", 1, "example-select"], ["business", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "col-6"], ["matInput", "", "tabindex", "2", "formControlName", "pago", "placeholder", "Valor de la pago", "id", "pago", "type", "text", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["matInput", "", "tabindex", "3", "formControlName", "cantidad", "placeholder", "Cantidad", "id", "cantidad", "type", "text", 1, "form-control"], ["appearance", "fill", 1, "col-6"], ["matInput", "", "formControlName", "fechaInicio", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["touchUi", ""], ["picker", ""], ["matInput", "", "formControlName", "fechaFin", 3, "matDatepicker"], ["pickerFin", ""], ["mat-button", "", "tabindex", "-1", 3, "click"], ["mat-button", "", "tabindex", "4", 3, "click"], [3, "value"], [1, "alert", "alert-danger"], [4, "ngIf"]], template: function PayrollIndividualFormComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "form", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "h4", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "p", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "Informaci\u00F3n de N\u00F3mina individual");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "Tipo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "mat-form-field");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "mat-select", 7, 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, PayrollIndividualFormComponent_mat_option_14_Template, 2, 2, "mat-option", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "mat-form-field", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](16, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, PayrollIndividualFormComponent_div_17_Template, 2, 1, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "mat-form-field", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](19, "input", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](20, PayrollIndividualFormComponent_div_20_Template, 2, 1, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "mat-form-field", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](23, "Fecha Inicio");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](24, "input", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](25, "mat-datepicker-toggle", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](26, "mat-datepicker", 17, 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "mat-form-field", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](29, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](30, "Fecha Fin");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](31, "input", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](32, "mat-datepicker-toggle", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](33, "mat-datepicker", 17, 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](35, "button", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollIndividualFormComponent_Template_button_click_35_listener() { return ctx.onNoClick(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](36, " Cancelar ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](37, "button", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollIndividualFormComponent_Template_button_click_37_listener() { return ctx.save(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](38, "Guardar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](39, "button", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollIndividualFormComponent_Template_button_click_39_listener() { return ctx.nav("/n\u00F3mina/individual/devengos"); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](40, "Ver devengos");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](41, "button", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PayrollIndividualFormComponent_Template_button_click_41_listener() { return ctx.nav("/n\u00F3mina/individual/deducciones"); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](42, "Ver deducciones");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](27);
+        const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.form);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"]("", ctx.f.id.value ? "Editar N\u00F3mina individual {{f.id.value}}" : "Agregar N\u00F3mina individual", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", ctx.catalogs);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.f.pago.touched && ctx.f.pago.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", ctx.f.cantidad.touched && ctx.f.cantidad.invalid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("matDatepicker", _r4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("for", _r4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("matDatepicker", _r5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("for", _r5);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormGroupDirective, _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_7__.MatTooltip, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatFormField, _angular_material_select__WEBPACK_IMPORTED_MODULE_9__.MatSelect, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_10__.NgForOf, _angular_material_input__WEBPACK_IMPORTED_MODULE_11__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_common__WEBPACK_IMPORTED_MODULE_10__.NgIf, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatLabel, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_12__.MatDatepickerInput, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_12__.MatDatepickerToggle, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatSuffix, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_12__.MatDatepicker, _angular_material_button__WEBPACK_IMPORTED_MODULE_13__.MatButton, _angular_material_core__WEBPACK_IMPORTED_MODULE_14__.MatOption], encapsulation: 2 });
+
+
+/***/ }),
+
+/***/ 4180:
+/*!*******************************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-individual/payroll-individual-table.component.ts ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PayrollIndividualTableComponent": () => (/* binding */ PayrollIndividualTableComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/collections */ 7860);
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/paginator */ 9692);
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/sort */ 1494);
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/table */ 2091);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ 6215);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ 9193);
+/* harmony import */ var _auxilio_auxilio_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../auxilio/auxilio-data */ 7132);
+/* harmony import */ var _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../payroll-general/payroll-data */ 6389);
+/* harmony import */ var _payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./payroll-individual-form.component */ 7045);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/in-mem-service */ 6556);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/snack-bar */ 7001);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/card */ 3738);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/datepicker */ 3220);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/button */ 1095);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function PayrollIndividualTableComponent_div_29_th_3_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Individual # ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_4_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r18 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r18.id);
+} }
+function PayrollIndividualTableComponent_div_29_th_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Nombre");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_7_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r19 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r19.nombre);
+} }
+function PayrollIndividualTableComponent_div_29_th_9_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "estado");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_10_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r20 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r20.estado);
+} }
+function PayrollIndividualTableComponent_div_29_th_12_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "descripcion");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_13_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r21 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](element_r21.descripcion);
+} }
+function PayrollIndividualTableComponent_div_29_th_15_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "periodo");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_16_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipe"](2, "date");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r22 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipeBind2"](2, 1, element_r22.periodo == null ? null : element_r22.periodo.fechaLiquidacion, "short"));
+} }
+function PayrollIndividualTableComponent_div_29_th_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "th", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](1, "Acciones");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_19_button_6_Template(rf, ctx) { if (rf & 1) {
+    const _r28 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "button", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_div_29_td_19_button_6_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r28); const element_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]().$implicit; const ctx_r26 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r26.navSrv.navigate("/n\u00F3mina/individual/form", element_r23); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, "details");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, " Ver ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+function PayrollIndividualTableComponent_div_29_td_19_Template(rf, ctx) { if (rf & 1) {
+    const _r30 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "td", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "button", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "more_vert");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "mat-menu", 34, 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](6, PayrollIndividualTableComponent_div_29_td_19_button_6_Template, 4, 0, "button", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "button", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_div_29_td_19_Template_button_click_7_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r30); const element_r23 = restoredCtx.$implicit; const ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r29.openDialog(element_r23.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](8, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](9, "edit");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](10, " Editar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "button", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_div_29_td_19_Template_button_click_11_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r30); const element_r23 = restoredCtx.$implicit; const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r31.delete(element_r23); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](12, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](13, "delete");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](14, " Eliminar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const element_r23 = ctx.$implicit;
+    const _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵreference"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matMenuTriggerFor", _r24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matMenuTriggerFor", _r24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", element_r23.id);
+} }
+function PayrollIndividualTableComponent_div_29_tr_20_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "tr", 40);
+} }
+function PayrollIndividualTableComponent_div_29_tr_21_Template(rf, ctx) { if (rf & 1) {
+    const _r34 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "tr", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_div_29_tr_21_Template_tr_click_0_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrestoreView"](_r34); const row_r32 = restoredCtx.$implicit; const ctx_r33 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2); return ctx_r33.selection.toggle(row_r32); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} }
+const _c0 = function () { return [5, 10, 20]; };
+function PayrollIndividualTableComponent_div_29_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "table", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](2, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](3, PayrollIndividualTableComponent_div_29_th_3_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](4, PayrollIndividualTableComponent_div_29_td_4_Template, 2, 1, "td", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](5, 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](6, PayrollIndividualTableComponent_div_29_th_6_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](7, PayrollIndividualTableComponent_div_29_td_7_Template, 2, 1, "td", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](8, 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](9, PayrollIndividualTableComponent_div_29_th_9_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](10, PayrollIndividualTableComponent_div_29_td_10_Template, 2, 1, "td", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](11, 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](12, PayrollIndividualTableComponent_div_29_th_12_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](13, PayrollIndividualTableComponent_div_29_td_13_Template, 2, 1, "td", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](14, 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](15, PayrollIndividualTableComponent_div_29_th_15_Template, 2, 0, "th", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](16, PayrollIndividualTableComponent_div_29_td_16_Template, 3, 4, "td", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](17, 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](18, PayrollIndividualTableComponent_div_29_th_18_Template, 2, 0, "th", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](19, PayrollIndividualTableComponent_div_29_td_19_Template, 15, 3, "td", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](20, PayrollIndividualTableComponent_div_29_tr_20_Template, 1, 0, "tr", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](21, PayrollIndividualTableComponent_div_29_tr_21_Template, 1, 0, "tr", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](22, "mat-paginator", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const dataSource_r3 = ctx.ngIf;
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("dataSource", dataSource_r3.datasource);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matHeaderRowDef", dataSource_r3.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matRowDefColumns", dataSource_r3.displayedColumns);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction0"](4, _c0));
+} }
+class PayrollIndividualTableComponent {
+    constructor(formBuilder, memSrv, dialog, _snackBar, route, router, navSrv) {
+        this.formBuilder = formBuilder;
+        this.memSrv = memSrv;
+        this.dialog = dialog;
+        this._snackBar = _snackBar;
+        this.route = route;
+        this.router = router;
+        this.navSrv = navSrv;
+        this.myFilter = (d) => {
+            const day = (d || new Date()).getDate();
+            // Prevent Saturday and Sunday from being selected.
+            return day !== 0 && day !== 6;
+        };
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_6__.SelectionModel(false, []);
+        this.today = new Date();
+        this.startDate = new Date(this.today.getFullYear(), this.today.getMonth() + 2, this.today.getDate());
+        this.form = this.formBuilder.group({
+            filtro: '',
+            periodo: this.formBuilder.group({
+                id: 1,
+                fechaGen: new Date(),
+                fechaIngreso: new Date(),
+                fechaLiquidacion: new Date(),
+                fechaLiquidacionInicio: new Date(),
+                fechaLiquidacionFin: new Date(),
+                fechaRetiro: new Date(),
+                tiempoLaborado: new Date(),
+            }),
+        });
+        this.dataSource$ = new rxjs__WEBPACK_IMPORTED_MODULE_7__.BehaviorSubject({
+            datasource: new _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatTableDataSource(_payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_1__.nominas),
+            displayedColumns: _auxilio_auxilio_data__WEBPACK_IMPORTED_MODULE_0__.displayedColumns,
+        });
+    }
+    get selected() {
+        var _a, _b;
+        return (_b = (_a = this.selection) === null || _a === void 0 ? void 0 : _a.selected[0]) !== null && _b !== void 0 ? _b : rxjs__WEBPACK_IMPORTED_MODULE_9__.EMPTY;
+    }
+    ngOnInit() { }
+    ngAfterViewInit() {
+        let datasource = this.dataSource$.value.datasource;
+        datasource.paginator = this.paginator;
+        datasource.sort = this.sort;
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    add(name) {
+        if (!name) {
+            return;
+        }
+        let datasource = this.dataSource$.value.datasource;
+        datasource.data = [
+            ...datasource.data,
+            Object.assign(Object.assign({}, name), { id: this.memSrv.genId(datasource.data, 'nominas') }),
+        ];
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    delete(libranza) {
+        let datasource = this.dataSource$.value.datasource;
+        datasource.data = datasource.data.filter((h) => h.id !== libranza.id);
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+        this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 2000 });
+    }
+    edit(libranza) {
+        let datasource = this.dataSource$.value.datasource;
+        const editedData = datasource.data.map((h) => h.id !== libranza.id ? h : libranza);
+        datasource.data = editedData;
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    applyFilter(event) {
+        const filterValue = event.target.value;
+        let datasource = this.dataSource$.value.datasource;
+        datasource.filter = filterValue.trim().toLowerCase();
+        if (datasource.paginator) {
+            datasource.paginator.firstPage();
+        }
+        this.dataSource$.next(Object.assign(Object.assign({}, this.dataSource$.value), { datasource: datasource }));
+    }
+    openDialog(id) {
+        var _a;
+        let datasource = this.dataSource$.value.datasource;
+        const editing = (_a = datasource.data.filter((v) => v.id == id)) === null || _a === void 0 ? void 0 : _a[0];
+        console.log(editing);
+        const dialogRef = this.dialog.open(_payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_2__.PayrollIndividualFormComponent, {
+            width: '500px',
+            data: editing ? editing : rxjs__WEBPACK_IMPORTED_MODULE_9__.EMPTY,
+        });
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log(result);
+            if (result === null || result === void 0 ? void 0 : result.id)
+                this.edit(result);
+            else
+                this.add(result);
+        });
+    }
+}
+PayrollIndividualTableComponent.ɵfac = function PayrollIndividualTableComponent_Factory(t) { return new (t || PayrollIndividualTableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_srv_in_mem_service__WEBPACK_IMPORTED_MODULE_3__.InMemService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__.MatDialog), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_12__.MatSnackBar), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_13__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_13__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_4__.NavigationService)); };
+PayrollIndividualTableComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: PayrollIndividualTableComponent, selectors: [["app-payroll-individual-table"]], viewQuery: function PayrollIndividualTableComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_angular_material_paginator__WEBPACK_IMPORTED_MODULE_14__.MatPaginator, 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_angular_material_sort__WEBPACK_IMPORTED_MODULE_15__.MatSort, 5);
+    } if (rf & 2) {
+        let _t;
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx.sort = _t.first);
+    } }, decls: 31, vars: 7, consts: [[1, ""], [3, "click"], [3, "formGroup"], [1, "display:", "flex"], ["formGroupName", "periodo"], [1, "example-full-width"], ["matInput", "", "formControlName", "fechaLiquidacion", "placeholder", "Ej. Mia", 3, "matDatepicker"], ["matSuffix", "", 3, "for"], ["startView", "year", "touchUi", "", 3, "startAt"], ["picker", ""], ["type", "tel", "matInput", "", "placeholder", "Ej. Mia", "formControlName", "filtro", 3, "keyup"], ["input", ""], ["matSuffix", "", "mat-fab", "", "color", "primary", 3, "click"], ["class", "mat-elevation-z8", 4, "ngIf"], [1, "mat-elevation-z8"], ["mat-table", "", "matSort", "", 1, "table-responsive", 2, "width", "100%", 3, "dataSource"], ["matColumnDef", "id", "sticky", ""], ["mat-header-cell", "", "mat-sort-header", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "nombre"], ["matColumnDef", "estado"], ["matColumnDef", "descripcion"], ["matColumnDef", "periodo"], ["matColumnDef", "action", "stickyEnd", ""], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 3, "matMenuTriggerFor", 4, "matCellDef"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 3, "click", 4, "matRowDef", "matRowDefColumns"], ["showFirstLastButtons", "", 3, "pageSizeOptions"], ["mat-header-cell", "", "mat-sort-header", ""], ["mat-cell", ""], ["mat-header-cell", ""], ["mat-cell", "", 3, "matMenuTriggerFor"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "matMenuTriggerFor"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", "tabindex", "4", 3, "click", 4, "ngIf"], ["mat-menu-item", "", "color", "primary", 3, "click"], ["mat-menu-item", "", 3, "click"], ["mat-menu-item", "", "tabindex", "4", 3, "click"], ["mat-header-row", ""], ["mat-row", "", 3, "click"]], template: function PayrollIndividualTableComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "mat-card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "mat-card-header");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](2, "mat-card-title");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3, "N\u00F3mina");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "mat-card-subtitle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](5, "code");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6, "<N\u00F3mina>");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](7, "listado de n\u00F3minas individuales. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](8, "code", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "a", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_Template_a_click_9_listener() { return ctx.openDialog(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](10, "Crear nueva");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](11, "mat-card-content");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](12, "form", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](13, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerStart"](14, 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](15, "mat-form-field", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](16, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](17, "Fecha corte");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](18, "input", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](19, "mat-datepicker-toggle", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](20, "mat-datepicker", 8, 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementContainerEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](22, "mat-form-field", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](23, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](24, "Buscar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](25, "input", 10, 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("keyup", function PayrollIndividualTableComponent_Template_input_keyup_25_listener($event) { return ctx.applyFilter($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](27, "mat-icon", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵlistener"]("click", function PayrollIndividualTableComponent_Template_mat_icon_click_27_listener() { return ctx.openDialog(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](28, " add_circle_outline ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](29, PayrollIndividualTableComponent_div_29_Template, 23, 5, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipe"](30, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵreference"](21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("formGroup", ctx.form);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("matDatepicker", _r0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("for", _r0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("startAt", ctx.startDate);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpipeBind1"](30, 5, ctx.dataSource$));
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_16__.MatCard, _angular_material_card__WEBPACK_IMPORTED_MODULE_16__.MatCardHeader, _angular_material_card__WEBPACK_IMPORTED_MODULE_16__.MatCardTitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_16__.MatCardSubtitle, _angular_material_card__WEBPACK_IMPORTED_MODULE_16__.MatCardContent, _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormGroupName, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_17__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_17__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_18__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_10__.DefaultValueAccessor, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_19__.MatDatepickerInput, _angular_forms__WEBPACK_IMPORTED_MODULE_10__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormControlName, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_19__.MatDatepickerToggle, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_17__.MatSuffix, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_19__.MatDatepicker, _angular_material_icon__WEBPACK_IMPORTED_MODULE_20__.MatIcon, _angular_common__WEBPACK_IMPORTED_MODULE_21__.NgIf, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatTable, _angular_material_sort__WEBPACK_IMPORTED_MODULE_15__.MatSort, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatRowDef, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_14__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderCell, _angular_material_sort__WEBPACK_IMPORTED_MODULE_15__.MatSortHeader, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatCell, _angular_material_menu__WEBPACK_IMPORTED_MODULE_22__.MatMenuTrigger, _angular_material_button__WEBPACK_IMPORTED_MODULE_23__.MatButton, _angular_material_menu__WEBPACK_IMPORTED_MODULE_22__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_22__.MatMenuItem, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatRow], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_21__.AsyncPipe, _angular_common__WEBPACK_IMPORTED_MODULE_21__.DatePipe], encapsulation: 2 });
+
+
+/***/ }),
+
+/***/ 1168:
+/*!******************************************************************************************************************!*\
+  !*** ./projects/docs/src/app/payroll/payroll-components/payroll-individual/payroll-individual-view.component.ts ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PayrollindividualViewComponent": () => (/* binding */ PayrollindividualViewComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../payroll-general/payroll-data */ 6389);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../environments/environment */ 2404);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _srv_theme_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../srv/theme.service */ 920);
+/* harmony import */ var _srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../srv/navigation.service */ 2358);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/menu */ 3935);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/sidenav */ 4935);
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/list */ 7746);
+/* harmony import */ var _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/accordion/accordion.directive */ 5002);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/form-field */ 8295);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/input */ 3166);
+/* harmony import */ var _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/accordion/accordionlink.directive */ 2457);
+/* harmony import */ var _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/accordion/accordionanchor.directive */ 6671);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function PayrollindividualViewComponent_div_0_a_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "a", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](1, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](2, " N\u00F3mina ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} }
+function PayrollindividualViewComponent_div_0_ng_container_25_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](2, "open_in_full");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](3, " Pantalla completa");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainerEnd"]();
+} }
+function PayrollindividualViewComponent_div_0_ng_container_26_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](2, "close_fullscreen");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](3, " Pantalla normal");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainerEnd"]();
+} }
+function PayrollindividualViewComponent_div_0_mat_icon_41_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "mat-icon", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_mat_icon_41_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r11); _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](40); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); _r7.value = ""; return ctx_r10.filter(""); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1, "clear");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} }
+function PayrollindividualViewComponent_div_0_mat_list_item_42_a_1_span_6_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const badge_r15 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMapInterpolate1"]("label label-", badge_r15.type, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate"](badge_r15.value);
+} }
+function PayrollindividualViewComponent_div_0_mat_list_item_42_a_1_Template(rf, ctx) { if (rf & 1) {
+    const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "a", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_mat_list_item_42_a_1_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r17); const menuitem_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit; _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](33); const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); _r6.toggle(); return ctx_r16.navSrv.navigate(menuitem_r12.state); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](1, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](5, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](6, PayrollindividualViewComponent_div_0_mat_list_item_42_a_1_span_6_Template, 2, 4, "span", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const menuitem_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate"](menuitem_r12.icon);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate"](menuitem_r12.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngForOf", menuitem_r12.badge);
+} }
+function PayrollindividualViewComponent_div_0_mat_list_item_42_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "mat-list-item", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, PayrollindividualViewComponent_div_0_mat_list_item_42_a_1_Template, 7, 3, "a", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const menuitem_r12 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpropertyInterpolate"]("group", menuitem_r12.state);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", menuitem_r12.type === "link");
+} }
+function PayrollindividualViewComponent_div_0_Template(rf, ctx) { if (rf & 1) {
+    const _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](1, "mat-toolbar", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](2, "button", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_Template_button_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r21); const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](33); return _r6.toggle(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](4, "menu");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](5, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](6, PayrollindividualViewComponent_div_0_a_6_Template, 3, 0, "a", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](7, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](8, "a", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](9, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](10, " Individual ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](11, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](12, "a", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](13, " Nueva ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](14, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](15, "button", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_Template_button_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r21); const ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); return ctx_r22.save(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](16, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](17, "save");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](18, "Guardar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](19, "button", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](20, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](21, "more_vert");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](22, "mat-menu", 11, 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](24, "button", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_Template_button_click_24_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r21); const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); return ctx_r23.toggleFullScreen(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](25, PayrollindividualViewComponent_div_0_ng_container_25_Template, 4, 0, "ng-container", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](26, PayrollindividualViewComponent_div_0_ng_container_26_Template, 4, 0, "ng-container", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](27, "button", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function PayrollindividualViewComponent_div_0_Template_button_click_27_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r21); const ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](); return ctx_r24.onNoClick(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](28, "mat-icon");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](29, "cancel");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](30, "Cancelar ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](31, "mat-sidenav-container", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](32, "mat-sidenav", 17, 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](34, "mat-nav-list", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](35, "form", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](36, "mat-form-field", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](37, "mat-label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](38, "Buscar...");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](39, "input", 22, 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](41, PayrollindividualViewComponent_div_0_mat_icon_41_Template, 2, 0, "mat-icon", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](42, PayrollindividualViewComponent_div_0_mat_list_item_42_Template, 2, 2, "mat-list-item", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](43, "mat-sidenav-content", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](44, "router-outlet");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const state_r1 = ctx.ngIf;
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](23);
+    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](40);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", state_r1.XSmall || state_r1.Small);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("matMenuTriggerFor", _r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", !state_r1.fullScreen);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", state_r1.fullScreen);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("mode", state_r1.XSmall || state_r1.Small ? "over" : "side")("opened", !(state_r1.XSmall || state_r1.Small));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("formGroup", ctx_r0.form);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", _r7.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngForOf", ctx_r0.menuItems);
+} }
+class PayrollindividualViewComponent {
+    constructor(builder, route, themeSrv, elRef, navSrv, http) {
+        this.builder = builder;
+        this.route = route;
+        this.themeSrv = themeSrv;
+        this.elRef = elRef;
+        this.navSrv = navSrv;
+        this.http = http;
+        this.position = 'below';
+        this.payrollDataUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.API_GATEWAY;
+        this.toggleFullScreen = () => this.themeSrv.toggleFullScreen(this.elRef.nativeElement);
+        const httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpHeaders({
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                'content-Type': 'application/json',
+                Authorization: '82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68'
+            }),
+        };
+        this.http
+            .post(this.payrollDataUrl + 'documents/payrolls/procedure', { "body": { "params": {
+                    "trabajadorId": "FF841F95-5FDC-4879-A6BD-EE8C93A82943"
+                } },
+            "header": {
+                "cliente": "FF841F95-5FDC-4879-A6BD-EE8C93A82943",
+                "esquema": "payroll",
+                "procedimientoAlmacenado": "ConsultarDevengadosTest",
+            } }, httpOptions)
+            .subscribe((data) => {
+            console.dir(data);
+            debugger;
+        });
+        this.menuItems = _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_0__.MENU_ITEMS;
+        this.form = this.builder.group({
+            menuItem: builder.control(''),
+        });
+        this.route.queryParams.subscribe((params) => {
+            const data1 = params['data'];
+            this.form.patchValue(data1);
+        });
+        this.form.valueChanges.subscribe((filter) => {
+            this.filter(filter === null || filter === void 0 ? void 0 : filter.menuItem);
+        });
+    }
+    onNoClick() { }
+    save() { }
+    get f() {
+        return this.form.controls;
+    }
+    filter(menuItemName) {
+        this.menuItems = _payroll_general_payroll_data__WEBPACK_IMPORTED_MODULE_0__.MENU_ITEMS;
+        if (menuItemName) {
+            this.menuItems = this.menuItems.filter((item) => {
+                var _a;
+                return (_a = item.name) === null || _a === void 0 ? void 0 : _a.toLocaleLowerCase().includes(menuItemName === null || menuItemName === void 0 ? void 0 : menuItemName.toLocaleLowerCase());
+            });
+        }
+    }
+}
+PayrollindividualViewComponent.ɵfac = function PayrollindividualViewComponent_Factory(t) { return new (t || PayrollindividualViewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_10__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_srv_theme_service__WEBPACK_IMPORTED_MODULE_2__.ThemeService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_7__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_srv_navigation_service__WEBPACK_IMPORTED_MODULE_3__.NavigationService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpClient)); };
+PayrollindividualViewComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({ type: PayrollindividualViewComponent, selectors: [["app-payroll-individual-view"]], decls: 2, vars: 3, consts: [["class", "m-0 d-flex main-container main-form", 4, "ngIf"], [1, "m-0", "d-flex", "main-container", "main-form"], ["color", "primary", 1, "topbar", "telative"], ["mat-icon-button", "", "value", "sidebarclosed", 3, "click"], [1, "navbar-header", "d-flex", "align-items-center"], ["class", "navbar-brand", "href", "n\u00F3mina", 4, "ngIf"], ["href", "n\u00F3mina/devengos", 1, "navbar-brand"], [1, "navbar-brand"], ["fxFlex", ""], ["mat-button", "", "tabindex", "2", 3, "click"], ["mat-icon-button", "", "color", "primary", "color", "accent", 3, "matMenuTriggerFor"], [1, "mymegamenu"], ["sdprofile", "matMenu"], ["mat-menu-item", "", 3, "click"], [4, "ngIf"], ["mat-menu-item", "", "tabindex", "1", 3, "click"], ["style.marginTop.px", "0", 1, "page-container", 2, "height", "calc(100vh - 128px)"], ["id", "formMenu", "fixedTopGap", "0", "opened", "true", "fixedTopGap", "0", 1, "dark-sidebar", "pl-xs", 2, "direction", "rtl", 3, "mode", "opened"], ["formMenu", ""], ["appAccordion", "", 2, "direction", "ltr"], [1, "m-0", "d-flex", "main-container", "main-form", 3, "formGroup"], [1, "find-menu-item", 2, "direction", "ltr", "padding", "0px 15px"], ["type", "text", "matInput", "", "formControlName", "menuItem", "placeholder", "Buscar"], ["buscar", ""], ["matSuffix", "", "mat-fab", "", 3, "click", 4, "ngIf"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group", 4, "ngFor", "ngForOf"], [1, "page-wrapper"], ["href", "n\u00F3mina", 1, "navbar-brand"], ["matSuffix", "", "mat-fab", "", 3, "click"], ["appAccordionLink", "", "routerLinkActive", "selected", 3, "group"], ["class", "", "appAccordionToggle", "", 3, "click", 4, "ngIf"], ["appAccordionToggle", "", 1, "", 3, "click"], [3, "class", 4, "ngFor", "ngForOf"]], template: function PayrollindividualViewComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, PayrollindividualViewComponent_div_0_Template, 45, 9, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpipe"](1, "async");
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpipeBind1"](1, 1, ctx.themeSrv.themeState$));
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_11__.NgIf, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_13__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_14__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_15__.DefaultFlexDirective, _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__.MatMenuTrigger, _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__.MatMenu, _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__.MatMenuItem, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__.MatSidenavContainer, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__.MatSidenav, _angular_material_list__WEBPACK_IMPORTED_MODULE_18__.MatNavList, _shared_accordion_accordion_directive__WEBPACK_IMPORTED_MODULE_4__.AccordionDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormGroupDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_20__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_11__.NgForOf, _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_17__.MatSidenavContent, _angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterOutlet, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__.MatSuffix, _angular_material_list__WEBPACK_IMPORTED_MODULE_18__.MatListItem, _shared_accordion_accordionlink_directive__WEBPACK_IMPORTED_MODULE_5__.AccordionLinkDirective, _angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterLinkActive, _shared_accordion_accordionanchor_directive__WEBPACK_IMPORTED_MODULE_6__.AccordionAnchorDirective], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_11__.AsyncPipe], encapsulation: 2 });
 
 
 /***/ }),
@@ -18721,7 +20936,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _srv_in_mem_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../srv/in-mem-service */ 6556);
 /* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
-/* harmony import */ var _payroll_components_payroll_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./payroll-components/payroll-table/payroll-table.component */ 6371);
+/* harmony import */ var _payroll_components_payroll_general_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./payroll-components/payroll-general/table/payroll-table.component */ 8059);
 
 
 
@@ -18741,7 +20956,7 @@ PayrollComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2_
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "app-payroll-table");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-    } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__.DefaultLayoutDirective, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__.DefaultFlexDirective, _payroll_components_payroll_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_1__.PayrollTableComponent], styles: [".position-relative[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.add-contact[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 17px;\n  top: 57px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBheXJvbGwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxrQkFBQTtBQUNEOztBQUVBO0VBQ0Msa0JBQUE7RUFDRyxXQUFBO0VBQ0EsU0FBQTtBQUNKIiwiZmlsZSI6InBheXJvbGwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9zaXRpb24tcmVsYXRpdmUge1xyXG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLmFkZC1jb250YWN0IHtcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogMTdweDtcclxuICAgIHRvcDogNTdweDtcclxufSJdfQ== */"] });
+    } }, directives: [_angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__.DefaultLayoutDirective, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_4__.DefaultFlexDirective, _payroll_components_payroll_general_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_1__.PayrollTableComponent], styles: [".position-relative[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.add-contact[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 17px;\n  top: 57px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBheXJvbGwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxrQkFBQTtBQUNEOztBQUVBO0VBQ0Msa0JBQUE7RUFDRyxXQUFBO0VBQ0EsU0FBQTtBQUNKIiwiZmlsZSI6InBheXJvbGwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9zaXRpb24tcmVsYXRpdmUge1xyXG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLmFkZC1jb250YWN0IHtcclxuXHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogMTdweDtcclxuICAgIHRvcDogNTdweDtcclxufSJdfQ== */"] });
 
 
 /***/ }),
@@ -18757,12 +20972,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PayrollModule": () => (/* binding */ PayrollModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @angular/common/http */ 1841);
-/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! @angular/flex-layout */ 5830);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! @angular/router */ 9895);
-/* harmony import */ var ng_chartist__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ng-chartist */ 4735);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! @angular/flex-layout */ 5830);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var ng_chartist__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ng-chartist */ 4735);
 /* harmony import */ var _demo_material_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../demo-material-module */ 4217);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/shared.module */ 5175);
 /* harmony import */ var _payroll_components_anticipo_anticipo_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./payroll-components/anticipo/anticipo-form.component */ 7553);
@@ -18781,54 +20996,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _payroll_components_comisiones_comisiones_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./payroll-components/comisiones/comisiones.component */ 7210);
 /* harmony import */ var _payroll_components_compensaciones_compensacion_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payroll-components/compensaciones/compensacion-form.component */ 6084);
 /* harmony import */ var _payroll_components_compensaciones_compensaciones_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./payroll-components/compensaciones/compensaciones.component */ 1472);
-/* harmony import */ var _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-form.component */ 9787);
-/* harmony import */ var _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-view.component */ 8034);
-/* harmony import */ var _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payroll-components/devengados/devengados.component */ 8655);
-/* harmony import */ var _payroll_components_empleador_empleador_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./payroll-components/empleador/empleador-form.component */ 2089);
-/* harmony import */ var _payroll_components_empleador_empleadores_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./payroll-components/empleador/empleadores.component */ 1684);
-/* harmony import */ var _payroll_components_fechas_pago_fecha_pago_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./payroll-components/fechas-pago/fecha-pago-form.component */ 29);
-/* harmony import */ var _payroll_components_fechas_pago_fechas_pago_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./payroll-components/fechas-pago/fechas-pago.component */ 537);
-/* harmony import */ var _payroll_components_horarios_adicionales_horario_adicional_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horario-adicional-form.component */ 4773);
-/* harmony import */ var _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horarios-adicionales.component */ 9515);
-/* harmony import */ var _payroll_components_huelga_legal_huelga_form_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./payroll-components/huelga-legal/huelga-form.component */ 5146);
-/* harmony import */ var _payroll_components_huelga_legal_huelga_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./payroll-components/huelga-legal/huelga.component */ 8699);
-/* harmony import */ var _payroll_components_incapacidades_incapacidad_form_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./payroll-components/incapacidades/incapacidad-form.component */ 272);
-/* harmony import */ var _payroll_components_incapacidades_incapacidades_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./payroll-components/incapacidades/incapacidades.component */ 6528);
-/* harmony import */ var _payroll_components_libranza_libranza_form_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./payroll-components/libranza/libranza-form.component */ 9523);
-/* harmony import */ var _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./payroll-components/libranza/libranza.component */ 6330);
-/* harmony import */ var _payroll_components_licencias_licencia_form_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./payroll-components/licencias/licencia-form.component */ 1757);
-/* harmony import */ var _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./payroll-components/licencias/licencias.component */ 6777);
-/* harmony import */ var _payroll_components_lugar_gen_xml_lugar_gen_xml_form_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./payroll-components/lugar-gen-xml/lugar-gen-xml-form.component */ 7892);
-/* harmony import */ var _payroll_components_lugar_gen_xml_lugar_gen_xml_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./payroll-components/lugar-gen-xml/lugar-gen-xml.component */ 7383);
-/* harmony import */ var _payroll_components_notas_nota_form_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./payroll-components/notas/nota-form.component */ 4013);
-/* harmony import */ var _payroll_components_notas_notas_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./payroll-components/notas/notas.component */ 1490);
-/* harmony import */ var _payroll_components_otras_deducciones_otra_deduccion_form_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./payroll-components/otras-deducciones/otra-deduccion-form.component */ 603);
-/* harmony import */ var _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./payroll-components/otras-deducciones/otras-deducciones.component */ 7765);
-/* harmony import */ var _payroll_components_otros_conceptos_otro_concepto_form_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otro-concepto-form.component */ 5097);
-/* harmony import */ var _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otros-conceptos.component */ 1989);
-/* harmony import */ var _payroll_components_pago_pago_form_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./payroll-components/pago/pago-form.component */ 7853);
-/* harmony import */ var _payroll_components_pago_pagos_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./payroll-components/pago/pagos.component */ 6058);
-/* harmony import */ var _payroll_components_pagos_terceros_pago_tercero_form_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pago-tercero-form.component */ 1098);
-/* harmony import */ var _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pagos-terceros.component */ 120);
-/* harmony import */ var _payroll_components_payroll_table_payroll_form_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./payroll-components/payroll-table/payroll-form.component */ 5309);
-/* harmony import */ var _payroll_components_payroll_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./payroll-components/payroll-table/payroll-table.component */ 6371);
-/* harmony import */ var _payroll_components_periodo_periodo_form_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./payroll-components/periodo/periodo-form.component */ 4467);
-/* harmony import */ var _payroll_components_periodo_periodos_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./payroll-components/periodo/periodos.component */ 6021);
-/* harmony import */ var _payroll_components_primas_prima_form_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./payroll-components/primas/prima-form.component */ 2393);
-/* harmony import */ var _payroll_components_primas_primas_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./payroll-components/primas/primas.component */ 1240);
-/* harmony import */ var _payroll_components_proveedor_xml_proveedor_xml_form_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./payroll-components/proveedor-xml/proveedor-xml-form.component */ 4070);
-/* harmony import */ var _payroll_components_proveedor_xml_proveedores_xml_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./payroll-components/proveedor-xml/proveedores-xml.component */ 5560);
-/* harmony import */ var _payroll_components_salud_pension_sindicato_salud_pension_sindicato_form_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./payroll-components/salud-pension-sindicato/salud-pension-sindicato-form.component */ 7346);
-/* harmony import */ var _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./payroll-components/salud-pension-sindicato/salud-pension-sindicato.component */ 3743);
-/* harmony import */ var _payroll_components_sancion_sancion_form_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./payroll-components/sancion/sancion-form.component */ 243);
-/* harmony import */ var _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./payroll-components/sancion/sancion.component */ 8870);
-/* harmony import */ var _payroll_components_transporte_transporte_form_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./payroll-components/transporte/transporte-form.component */ 1919);
-/* harmony import */ var _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./payroll-components/transporte/transporte.component */ 8);
-/* harmony import */ var _payroll_components_vacaciones_comunes_vacacion_form_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacacion-form.component */ 9277);
-/* harmony import */ var _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacaciones.component */ 3322);
-/* harmony import */ var _payroll_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./payroll.component */ 5854);
-/* harmony import */ var _payroll_routing__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./payroll.routing */ 6437);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _payroll_components_deducciones_deducciones_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones-form.component */ 4639);
+/* harmony import */ var _payroll_components_deducciones_deducciones_view_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones-view.component */ 3570);
+/* harmony import */ var _payroll_components_deducciones_deducciones_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones.component */ 5025);
+/* harmony import */ var _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-form.component */ 9787);
+/* harmony import */ var _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-view.component */ 8034);
+/* harmony import */ var _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./payroll-components/devengados/devengados.component */ 8655);
+/* harmony import */ var _payroll_components_empleador_empleador_form_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./payroll-components/empleador/empleador-form.component */ 2089);
+/* harmony import */ var _payroll_components_empleador_empleadores_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./payroll-components/empleador/empleadores.component */ 1684);
+/* harmony import */ var _payroll_components_fechas_pago_fecha_pago_form_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./payroll-components/fechas-pago/fecha-pago-form.component */ 29);
+/* harmony import */ var _payroll_components_fechas_pago_fechas_pago_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./payroll-components/fechas-pago/fechas-pago.component */ 537);
+/* harmony import */ var _payroll_components_horarios_adicionales_horario_adicional_form_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horario-adicional-form.component */ 4773);
+/* harmony import */ var _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horarios-adicionales.component */ 9515);
+/* harmony import */ var _payroll_components_huelga_legal_huelga_form_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./payroll-components/huelga-legal/huelga-form.component */ 5146);
+/* harmony import */ var _payroll_components_huelga_legal_huelga_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./payroll-components/huelga-legal/huelga.component */ 8699);
+/* harmony import */ var _payroll_components_incapacidades_incapacidad_form_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./payroll-components/incapacidades/incapacidad-form.component */ 272);
+/* harmony import */ var _payroll_components_incapacidades_incapacidades_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./payroll-components/incapacidades/incapacidades.component */ 6528);
+/* harmony import */ var _payroll_components_libranza_libranza_form_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./payroll-components/libranza/libranza-form.component */ 9523);
+/* harmony import */ var _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./payroll-components/libranza/libranza.component */ 6330);
+/* harmony import */ var _payroll_components_licencias_licencia_form_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./payroll-components/licencias/licencia-form.component */ 1757);
+/* harmony import */ var _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./payroll-components/licencias/licencias.component */ 6777);
+/* harmony import */ var _payroll_components_lugar_gen_xml_lugar_gen_xml_form_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./payroll-components/lugar-gen-xml/lugar-gen-xml-form.component */ 7892);
+/* harmony import */ var _payroll_components_lugar_gen_xml_lugar_gen_xml_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./payroll-components/lugar-gen-xml/lugar-gen-xml.component */ 7383);
+/* harmony import */ var _payroll_components_notas_nota_form_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./payroll-components/notas/nota-form.component */ 4013);
+/* harmony import */ var _payroll_components_notas_notas_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./payroll-components/notas/notas.component */ 1490);
+/* harmony import */ var _payroll_components_otras_deducciones_otra_deduccion_form_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./payroll-components/otras-deducciones/otra-deduccion-form.component */ 603);
+/* harmony import */ var _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./payroll-components/otras-deducciones/otras-deducciones.component */ 7765);
+/* harmony import */ var _payroll_components_otros_conceptos_otro_concepto_form_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otro-concepto-form.component */ 5097);
+/* harmony import */ var _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otros-conceptos.component */ 1989);
+/* harmony import */ var _payroll_components_pago_pago_form_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./payroll-components/pago/pago-form.component */ 7853);
+/* harmony import */ var _payroll_components_pago_pagos_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./payroll-components/pago/pagos.component */ 6058);
+/* harmony import */ var _payroll_components_pagos_terceros_pago_tercero_form_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pago-tercero-form.component */ 1098);
+/* harmony import */ var _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pagos-terceros.component */ 120);
+/* harmony import */ var _payroll_components_payroll_general_payroll_general_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./payroll-components/payroll-general/payroll-general.component */ 8811);
+/* harmony import */ var _payroll_components_payroll_general_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./payroll-components/payroll-general/table/payroll-table.component */ 8059);
+/* harmony import */ var _payroll_components_payroll_individual_payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./payroll-components/payroll-individual/payroll-individual-form.component */ 7045);
+/* harmony import */ var _payroll_components_payroll_individual_payroll_individual_table_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./payroll-components/payroll-individual/payroll-individual-table.component */ 4180);
+/* harmony import */ var _payroll_components_payroll_individual_payroll_individual_view_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./payroll-components/payroll-individual/payroll-individual-view.component */ 1168);
+/* harmony import */ var _payroll_components_periodo_periodo_form_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./payroll-components/periodo/periodo-form.component */ 4467);
+/* harmony import */ var _payroll_components_periodo_periodos_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./payroll-components/periodo/periodos.component */ 6021);
+/* harmony import */ var _payroll_components_primas_prima_form_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./payroll-components/primas/prima-form.component */ 2393);
+/* harmony import */ var _payroll_components_primas_primas_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./payroll-components/primas/primas.component */ 1240);
+/* harmony import */ var _payroll_components_proveedor_xml_proveedor_xml_form_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./payroll-components/proveedor-xml/proveedor-xml-form.component */ 4070);
+/* harmony import */ var _payroll_components_proveedor_xml_proveedores_xml_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./payroll-components/proveedor-xml/proveedores-xml.component */ 5560);
+/* harmony import */ var _payroll_components_salud_pension_sindicato_salud_pension_sindicato_form_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./payroll-components/salud-pension-sindicato/salud-pension-sindicato-form.component */ 7346);
+/* harmony import */ var _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./payroll-components/salud-pension-sindicato/salud-pension-sindicato.component */ 3743);
+/* harmony import */ var _payroll_components_sancion_sancion_form_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./payroll-components/sancion/sancion-form.component */ 243);
+/* harmony import */ var _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./payroll-components/sancion/sancion.component */ 8870);
+/* harmony import */ var _payroll_components_transporte_transporte_form_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./payroll-components/transporte/transporte-form.component */ 1919);
+/* harmony import */ var _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./payroll-components/transporte/transporte.component */ 8);
+/* harmony import */ var _payroll_components_vacaciones_comunes_vacacion_form_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacacion-form.component */ 9277);
+/* harmony import */ var _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacaciones.component */ 3322);
+/* harmony import */ var _payroll_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./payroll.component */ 5854);
+/* harmony import */ var _payroll_routing__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./payroll.routing */ 6437);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! @angular/core */ 7716);
+
+
+
+
+
+
 
 
 
@@ -18905,85 +21132,91 @@ __webpack_require__.r(__webpack_exports__);
 class PayrollModule {
 }
 PayrollModule.ɵfac = function PayrollModule_Factory(t) { return new (t || PayrollModule)(); };
-PayrollModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵdefineNgModule"]({ type: PayrollModule });
-PayrollModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵdefineInjector"]({ imports: [[
-            _angular_common__WEBPACK_IMPORTED_MODULE_66__.CommonModule,
+PayrollModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_71__["ɵɵdefineNgModule"]({ type: PayrollModule });
+PayrollModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_71__["ɵɵdefineInjector"]({ imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_72__.CommonModule,
             _demo_material_module__WEBPACK_IMPORTED_MODULE_0__.DemoMaterialModule,
-            _angular_flex_layout__WEBPACK_IMPORTED_MODULE_67__.FlexLayoutModule,
-            ng_chartist__WEBPACK_IMPORTED_MODULE_68__.ChartistModule,
-            _angular_router__WEBPACK_IMPORTED_MODULE_69__.RouterModule.forChild(_payroll_routing__WEBPACK_IMPORTED_MODULE_64__.PayrollRoutes),
-            _angular_forms__WEBPACK_IMPORTED_MODULE_70__.FormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_70__.ReactiveFormsModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_71__.HttpClientModule,
+            _angular_flex_layout__WEBPACK_IMPORTED_MODULE_73__.FlexLayoutModule,
+            ng_chartist__WEBPACK_IMPORTED_MODULE_74__.ChartistModule,
+            _angular_router__WEBPACK_IMPORTED_MODULE_75__.RouterModule.forChild(_payroll_routing__WEBPACK_IMPORTED_MODULE_70__.PayrollRoutes),
+            _angular_forms__WEBPACK_IMPORTED_MODULE_76__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_76__.ReactiveFormsModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_77__.HttpClientModule,
             _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_65__["ɵɵsetNgModuleScope"](PayrollModule, { declarations: [_payroll_component__WEBPACK_IMPORTED_MODULE_63__.PayrollComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_71__["ɵɵsetNgModuleScope"](PayrollModule, { declarations: [_payroll_component__WEBPACK_IMPORTED_MODULE_69__.PayrollComponent,
         _payroll_components_anticipo_anticipo_component__WEBPACK_IMPORTED_MODULE_3__.AnticipoComponent,
         _payroll_components_anticipo_anticipo_form_component__WEBPACK_IMPORTED_MODULE_2__.AnticipoFormComponent,
-        _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_58__.SancionComponent,
-        _payroll_components_sancion_sancion_form_component__WEBPACK_IMPORTED_MODULE_57__.SancionFormComponent,
-        _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_32__.LibranzaComponent,
-        _payroll_components_libranza_libranza_form_component__WEBPACK_IMPORTED_MODULE_31__.LibranzaFormComponent,
-        _payroll_components_notas_notas_component__WEBPACK_IMPORTED_MODULE_38__.NotasComponent,
-        _payroll_components_notas_nota_form_component__WEBPACK_IMPORTED_MODULE_37__.NotaFormComponent,
-        _payroll_components_fechas_pago_fechas_pago_component__WEBPACK_IMPORTED_MODULE_24__.FechasPagoComponent,
-        _payroll_components_fechas_pago_fecha_pago_form_component__WEBPACK_IMPORTED_MODULE_23__.FechaPagoFormComponent,
+        _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_64__.SancionComponent,
+        _payroll_components_sancion_sancion_form_component__WEBPACK_IMPORTED_MODULE_63__.SancionFormComponent,
+        _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_35__.LibranzaComponent,
+        _payroll_components_libranza_libranza_form_component__WEBPACK_IMPORTED_MODULE_34__.LibranzaFormComponent,
+        _payroll_components_notas_notas_component__WEBPACK_IMPORTED_MODULE_41__.NotasComponent,
+        _payroll_components_notas_nota_form_component__WEBPACK_IMPORTED_MODULE_40__.NotaFormComponent,
+        _payroll_components_fechas_pago_fechas_pago_component__WEBPACK_IMPORTED_MODULE_27__.FechasPagoComponent,
+        _payroll_components_fechas_pago_fecha_pago_form_component__WEBPACK_IMPORTED_MODULE_26__.FechaPagoFormComponent,
         _payroll_components_comisiones_comisiones_component__WEBPACK_IMPORTED_MODULE_15__.ComisionesComponent,
         _payroll_components_comisiones_comision_form_component__WEBPACK_IMPORTED_MODULE_14__.ComisionFormComponent,
-        _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_62__.VacacionesComponent,
-        _payroll_components_vacaciones_comunes_vacacion_form_component__WEBPACK_IMPORTED_MODULE_61__.VacacionFormComponent,
-        _payroll_components_huelga_legal_huelga_component__WEBPACK_IMPORTED_MODULE_28__.HuelgasComponent,
-        _payroll_components_huelga_legal_huelga_form_component__WEBPACK_IMPORTED_MODULE_27__.HuelgaFormComponent,
-        _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_34__.LicenciaComponent,
-        _payroll_components_licencias_licencia_form_component__WEBPACK_IMPORTED_MODULE_33__.LicenciaFormComponent,
-        _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_60__.TransportesComponent,
-        _payroll_components_transporte_transporte_form_component__WEBPACK_IMPORTED_MODULE_59__.TransporteFormComponent,
-        _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_42__.OtrosConceptosComponent,
-        _payroll_components_otros_conceptos_otro_concepto_form_component__WEBPACK_IMPORTED_MODULE_41__.OtroConceptoFormComponent,
+        _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_68__.VacacionesComponent,
+        _payroll_components_vacaciones_comunes_vacacion_form_component__WEBPACK_IMPORTED_MODULE_67__.VacacionFormComponent,
+        _payroll_components_huelga_legal_huelga_component__WEBPACK_IMPORTED_MODULE_31__.HuelgasComponent,
+        _payroll_components_huelga_legal_huelga_form_component__WEBPACK_IMPORTED_MODULE_30__.HuelgaFormComponent,
+        _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_37__.LicenciaComponent,
+        _payroll_components_licencias_licencia_form_component__WEBPACK_IMPORTED_MODULE_36__.LicenciaFormComponent,
+        _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_66__.TransportesComponent,
+        _payroll_components_transporte_transporte_form_component__WEBPACK_IMPORTED_MODULE_65__.TransporteFormComponent,
+        _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_45__.OtrosConceptosComponent,
+        _payroll_components_otros_conceptos_otro_concepto_form_component__WEBPACK_IMPORTED_MODULE_44__.OtroConceptoFormComponent,
         _payroll_components_compensaciones_compensaciones_component__WEBPACK_IMPORTED_MODULE_17__.CompensacionesComponent,
         _payroll_components_compensaciones_compensacion_form_component__WEBPACK_IMPORTED_MODULE_16__.CompensacionFormComponent,
         _payroll_components_auxilio_auxilios_component__WEBPACK_IMPORTED_MODULE_5__.AuxiliosComponent,
         _payroll_components_auxilio_auxilio_form_component__WEBPACK_IMPORTED_MODULE_4__.AuxilioFormComponent,
         _payroll_components_bono_bonos_component__WEBPACK_IMPORTED_MODULE_11__.BonosEPCTVComponent,
         _payroll_components_bono_bono_form_component__WEBPACK_IMPORTED_MODULE_10__.BonoEPCTVFormComponent,
-        _payroll_components_incapacidades_incapacidades_component__WEBPACK_IMPORTED_MODULE_30__.IncapacidadesComponent,
-        _payroll_components_incapacidades_incapacidad_form_component__WEBPACK_IMPORTED_MODULE_29__.IncapacidadFormComponent,
-        _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_26__.HorariosAdicionalesComponent,
-        _payroll_components_horarios_adicionales_horario_adicional_form_component__WEBPACK_IMPORTED_MODULE_25__.HorarioAdicionalFormComponent,
+        _payroll_components_incapacidades_incapacidades_component__WEBPACK_IMPORTED_MODULE_33__.IncapacidadesComponent,
+        _payroll_components_incapacidades_incapacidad_form_component__WEBPACK_IMPORTED_MODULE_32__.IncapacidadFormComponent,
+        _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_29__.HorariosAdicionalesComponent,
+        _payroll_components_horarios_adicionales_horario_adicional_form_component__WEBPACK_IMPORTED_MODULE_28__.HorarioAdicionalFormComponent,
         _payroll_components_bonificaciones_bonificaciones_component__WEBPACK_IMPORTED_MODULE_9__.BonificacionesComponent,
         _payroll_components_bonificaciones_bonificacion_form_component__WEBPACK_IMPORTED_MODULE_8__.BonificacionFormComponent,
         _payroll_components_cesantias_cesantias_component__WEBPACK_IMPORTED_MODULE_13__.CesantiasComponent,
         _payroll_components_cesantias_cesantia_form_component__WEBPACK_IMPORTED_MODULE_12__.CesantiaFormComponent,
-        _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_46__.PagosTercerosComponent,
-        _payroll_components_pagos_terceros_pago_tercero_form_component__WEBPACK_IMPORTED_MODULE_45__.PagoTerceroFormComponent,
-        _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_56__.SaludPensionSindicatosComponent,
-        _payroll_components_salud_pension_sindicato_salud_pension_sindicato_form_component__WEBPACK_IMPORTED_MODULE_55__.SaludPensionSindicatoFormComponent,
-        _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_40__.OtrasDeduccionesComponent,
-        _payroll_components_otras_deducciones_otra_deduccion_form_component__WEBPACK_IMPORTED_MODULE_39__.OtraDeduccionFormComponent,
-        _payroll_components_periodo_periodos_component__WEBPACK_IMPORTED_MODULE_50__.PeriodosComponent,
-        _payroll_components_periodo_periodo_form_component__WEBPACK_IMPORTED_MODULE_49__.PeriodoFormComponent,
-        _payroll_components_lugar_gen_xml_lugar_gen_xml_component__WEBPACK_IMPORTED_MODULE_36__.LugaresGeneracionXMLComponent,
-        _payroll_components_lugar_gen_xml_lugar_gen_xml_form_component__WEBPACK_IMPORTED_MODULE_35__.LugarGeneracionXMLFormComponent,
-        _payroll_components_proveedor_xml_proveedor_xml_form_component__WEBPACK_IMPORTED_MODULE_53__.ProveedorXMLFormComponent,
-        _payroll_components_proveedor_xml_proveedores_xml_component__WEBPACK_IMPORTED_MODULE_54__.ProveedoresXMLComponent,
-        _payroll_components_empleador_empleadores_component__WEBPACK_IMPORTED_MODULE_22__.EmpleadoresComponent,
-        _payroll_components_empleador_empleador_form_component__WEBPACK_IMPORTED_MODULE_21__.EmpleadorFormComponent,
-        _payroll_components_pago_pagos_component__WEBPACK_IMPORTED_MODULE_44__.PagosComponent,
-        _payroll_components_pago_pago_form_component__WEBPACK_IMPORTED_MODULE_43__.PagoFormComponent,
-        _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_20__.DevengadosComponent,
-        _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_18__.DevengadosFormComponent,
-        _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_19__.DevengadosViewComponent,
+        _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_49__.PagosTercerosComponent,
+        _payroll_components_pagos_terceros_pago_tercero_form_component__WEBPACK_IMPORTED_MODULE_48__.PagoTerceroFormComponent,
+        _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_62__.SaludPensionSindicatosComponent,
+        _payroll_components_salud_pension_sindicato_salud_pension_sindicato_form_component__WEBPACK_IMPORTED_MODULE_61__.SaludPensionSindicatoFormComponent,
+        _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_43__.OtrasDeduccionesComponent,
+        _payroll_components_otras_deducciones_otra_deduccion_form_component__WEBPACK_IMPORTED_MODULE_42__.OtraDeduccionFormComponent,
+        _payroll_components_periodo_periodos_component__WEBPACK_IMPORTED_MODULE_56__.PeriodosComponent,
+        _payroll_components_periodo_periodo_form_component__WEBPACK_IMPORTED_MODULE_55__.PeriodoFormComponent,
+        _payroll_components_lugar_gen_xml_lugar_gen_xml_component__WEBPACK_IMPORTED_MODULE_39__.LugaresGeneracionXMLComponent,
+        _payroll_components_lugar_gen_xml_lugar_gen_xml_form_component__WEBPACK_IMPORTED_MODULE_38__.LugarGeneracionXMLFormComponent,
+        _payroll_components_proveedor_xml_proveedor_xml_form_component__WEBPACK_IMPORTED_MODULE_59__.ProveedorXMLFormComponent,
+        _payroll_components_proveedor_xml_proveedores_xml_component__WEBPACK_IMPORTED_MODULE_60__.ProveedoresXMLComponent,
+        _payroll_components_empleador_empleadores_component__WEBPACK_IMPORTED_MODULE_25__.EmpleadoresComponent,
+        _payroll_components_empleador_empleador_form_component__WEBPACK_IMPORTED_MODULE_24__.EmpleadorFormComponent,
+        _payroll_components_pago_pagos_component__WEBPACK_IMPORTED_MODULE_47__.PagosComponent,
+        _payroll_components_pago_pago_form_component__WEBPACK_IMPORTED_MODULE_46__.PagoFormComponent,
+        _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_23__.DevengadosComponent,
+        _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_22__.DevengadosViewComponent,
+        _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_21__.DevengadosFormComponent,
         _payroll_components_basicos_basicos_component__WEBPACK_IMPORTED_MODULE_7__.BasicosComponent,
         _payroll_components_basicos_basico_form_component__WEBPACK_IMPORTED_MODULE_6__.BasicoFormComponent,
-        _payroll_components_primas_primas_component__WEBPACK_IMPORTED_MODULE_52__.PrimasComponent,
-        _payroll_components_primas_prima_form_component__WEBPACK_IMPORTED_MODULE_51__.PrimaFormComponent,
-        _payroll_components_payroll_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_48__.PayrollTableComponent,
-        _payroll_components_payroll_table_payroll_form_component__WEBPACK_IMPORTED_MODULE_47__.PayrollFormComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_66__.CommonModule,
+        _payroll_components_primas_primas_component__WEBPACK_IMPORTED_MODULE_58__.PrimasComponent,
+        _payroll_components_primas_prima_form_component__WEBPACK_IMPORTED_MODULE_57__.PrimaFormComponent,
+        _payroll_components_deducciones_deducciones_component__WEBPACK_IMPORTED_MODULE_20__.DeduccionesComponent,
+        _payroll_components_deducciones_deducciones_view_component__WEBPACK_IMPORTED_MODULE_19__.DeduccionesViewComponent,
+        _payroll_components_deducciones_deducciones_form_component__WEBPACK_IMPORTED_MODULE_18__.DeduccionesFormComponent,
+        _payroll_components_payroll_general_payroll_general_component__WEBPACK_IMPORTED_MODULE_50__.PayrollGeneralFormComponent,
+        _payroll_components_payroll_general_table_payroll_table_component__WEBPACK_IMPORTED_MODULE_51__.PayrollTableComponent,
+        _payroll_components_payroll_individual_payroll_individual_view_component__WEBPACK_IMPORTED_MODULE_54__.PayrollindividualViewComponent,
+        _payroll_components_payroll_individual_payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_52__.PayrollIndividualFormComponent,
+        _payroll_components_payroll_individual_payroll_individual_table_component__WEBPACK_IMPORTED_MODULE_53__.PayrollIndividualTableComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_72__.CommonModule,
         _demo_material_module__WEBPACK_IMPORTED_MODULE_0__.DemoMaterialModule,
-        _angular_flex_layout__WEBPACK_IMPORTED_MODULE_67__.FlexLayoutModule,
-        ng_chartist__WEBPACK_IMPORTED_MODULE_68__.ChartistModule, _angular_router__WEBPACK_IMPORTED_MODULE_69__.RouterModule, _angular_forms__WEBPACK_IMPORTED_MODULE_70__.FormsModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_70__.ReactiveFormsModule,
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_71__.HttpClientModule,
+        _angular_flex_layout__WEBPACK_IMPORTED_MODULE_73__.FlexLayoutModule,
+        ng_chartist__WEBPACK_IMPORTED_MODULE_74__.ChartistModule, _angular_router__WEBPACK_IMPORTED_MODULE_75__.RouterModule, _angular_forms__WEBPACK_IMPORTED_MODULE_76__.FormsModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_76__.ReactiveFormsModule,
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_77__.HttpClientModule,
         _shared_shared_module__WEBPACK_IMPORTED_MODULE_1__.SharedModule] }); })();
 
 
@@ -19007,17 +21240,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _payroll_components_cesantias_cesantias_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./payroll-components/cesantias/cesantias.component */ 2165);
 /* harmony import */ var _payroll_components_comisiones_comisiones_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./payroll-components/comisiones/comisiones.component */ 7210);
 /* harmony import */ var _payroll_components_compensaciones_compensaciones_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./payroll-components/compensaciones/compensaciones.component */ 1472);
-/* harmony import */ var _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-form.component */ 9787);
-/* harmony import */ var _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-view.component */ 8034);
-/* harmony import */ var _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./payroll-components/devengados/devengados.component */ 8655);
-/* harmony import */ var _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horarios-adicionales.component */ 9515);
-/* harmony import */ var _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./payroll-components/licencias/licencias.component */ 6777);
-/* harmony import */ var _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otros-conceptos.component */ 1989);
-/* harmony import */ var _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pagos-terceros.component */ 120);
-/* harmony import */ var _payroll_components_payroll_table_payroll_form_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./payroll-components/payroll-table/payroll-form.component */ 5309);
-/* harmony import */ var _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./payroll-components/transporte/transporte.component */ 8);
-/* harmony import */ var _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacaciones.component */ 3322);
-/* harmony import */ var _payroll_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./payroll.component */ 5854);
+/* harmony import */ var _payroll_components_deducciones_deducciones_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones-form.component */ 4639);
+/* harmony import */ var _payroll_components_deducciones_deducciones_view_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones-view.component */ 3570);
+/* harmony import */ var _payroll_components_deducciones_deducciones_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./payroll-components/deducciones/deducciones.component */ 5025);
+/* harmony import */ var _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-form.component */ 9787);
+/* harmony import */ var _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./payroll-components/devengados/devengados-view.component */ 8034);
+/* harmony import */ var _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./payroll-components/devengados/devengados.component */ 8655);
+/* harmony import */ var _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./payroll-components/horarios-adicionales/horarios-adicionales.component */ 9515);
+/* harmony import */ var _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./payroll-components/libranza/libranza.component */ 6330);
+/* harmony import */ var _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./payroll-components/licencias/licencias.component */ 6777);
+/* harmony import */ var _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./payroll-components/otras-deducciones/otras-deducciones.component */ 7765);
+/* harmony import */ var _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./payroll-components/otros-conceptos/otros-conceptos.component */ 1989);
+/* harmony import */ var _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./payroll-components/pagos-terceros/pagos-terceros.component */ 120);
+/* harmony import */ var _payroll_components_payroll_individual_payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./payroll-components/payroll-individual/payroll-individual-form.component */ 7045);
+/* harmony import */ var _payroll_components_payroll_individual_payroll_individual_view_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./payroll-components/payroll-individual/payroll-individual-view.component */ 1168);
+/* harmony import */ var _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./payroll-components/salud-pension-sindicato/salud-pension-sindicato.component */ 3743);
+/* harmony import */ var _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./payroll-components/sancion/sancion.component */ 8870);
+/* harmony import */ var _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./payroll-components/transporte/transporte.component */ 8);
+/* harmony import */ var _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./payroll-components/vacaciones-comunes/vacaciones.component */ 3322);
+/* harmony import */ var _payroll_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./payroll.component */ 5854);
+
+
+
+
+
+
+
+
 
 
 
@@ -19039,80 +21288,131 @@ __webpack_require__.r(__webpack_exports__);
 const PayrollRoutes = [
     {
         path: '',
-        component: _payroll_component__WEBPACK_IMPORTED_MODULE_17__.PayrollComponent,
+        component: _payroll_component__WEBPACK_IMPORTED_MODULE_25__.PayrollComponent,
         pathMatch: 'full',
     },
     {
-        path: 'form',
-        component: _payroll_components_payroll_table_payroll_form_component__WEBPACK_IMPORTED_MODULE_14__.PayrollFormComponent,
-    },
-    {
-        path: 'devengos',
+        path: 'individual',
+        component: _payroll_components_payroll_individual_payroll_individual_view_component__WEBPACK_IMPORTED_MODULE_20__.PayrollindividualViewComponent,
         children: [
             {
-                path: '',
-                component: _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_9__.DevengadosComponent,
+                path: 'form',
+                component: _payroll_components_payroll_individual_payroll_individual_form_component__WEBPACK_IMPORTED_MODULE_19__.PayrollIndividualFormComponent,
                 pathMatch: 'full',
             },
             {
-                path: 'view',
-                component: _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_8__.DevengadosViewComponent,
+                path: 'devengos',
                 children: [
                     {
-                        path: 'form',
-                        component: _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_7__.DevengadosFormComponent,
+                        path: '',
+                        component: _payroll_components_devengados_devengados_component__WEBPACK_IMPORTED_MODULE_12__.DevengadosComponent,
+                        pathMatch: 'full',
                     },
                     {
-                        path: 'licencias',
-                        component: _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_11__.LicenciaComponent,
+                        path: 'view',
+                        component: _payroll_components_devengados_devengados_view_component__WEBPACK_IMPORTED_MODULE_11__.DevengadosViewComponent,
+                        children: [
+                            {
+                                path: 'form',
+                                component: _payroll_components_devengados_devengados_form_component__WEBPACK_IMPORTED_MODULE_10__.DevengadosFormComponent,
+                            },
+                            {
+                                path: 'licencias',
+                                component: _payroll_components_licencias_licencias_component__WEBPACK_IMPORTED_MODULE_15__.LicenciaComponent,
+                            },
+                            {
+                                path: 'auxilios',
+                                component: _payroll_components_auxilio_auxilios_component__WEBPACK_IMPORTED_MODULE_1__.AuxiliosComponent,
+                            },
+                            {
+                                path: 'vacaciones',
+                                component: _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_24__.VacacionesComponent,
+                            },
+                            {
+                                path: 'bonificaciones',
+                                component: _payroll_components_bonificaciones_bonificaciones_component__WEBPACK_IMPORTED_MODULE_2__.BonificacionesComponent,
+                            },
+                            {
+                                path: 'anticipos',
+                                component: _payroll_components_anticipo_anticipo_component__WEBPACK_IMPORTED_MODULE_0__.AnticipoComponent,
+                            },
+                            {
+                                path: 'pagosTerceros',
+                                component: _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_18__.PagosTercerosComponent,
+                            },
+                            {
+                                path: 'bonos',
+                                component: _payroll_components_bono_bonos_component__WEBPACK_IMPORTED_MODULE_3__.BonosEPCTVComponent,
+                            },
+                            {
+                                path: 'compensaciones',
+                                component: _payroll_components_compensaciones_compensaciones_component__WEBPACK_IMPORTED_MODULE_6__.CompensacionesComponent,
+                            },
+                            {
+                                path: 'cesantías',
+                                component: _payroll_components_cesantias_cesantias_component__WEBPACK_IMPORTED_MODULE_4__.CesantiasComponent,
+                            },
+                            {
+                                path: 'transportes',
+                                component: _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_23__.TransportesComponent,
+                            },
+                            {
+                                path: 'otrosConceptos',
+                                component: _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_17__.OtrosConceptosComponent,
+                            },
+                            {
+                                path: 'comisiones',
+                                component: _payroll_components_comisiones_comisiones_component__WEBPACK_IMPORTED_MODULE_5__.ComisionesComponent,
+                            },
+                            {
+                                path: 'horariosAdicionales',
+                                component: _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_13__.HorariosAdicionalesComponent,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                path: 'deducciones',
+                children: [
+                    {
+                        path: '',
+                        component: _payroll_components_deducciones_deducciones_component__WEBPACK_IMPORTED_MODULE_9__.DeduccionesComponent,
+                        pathMatch: 'full',
                     },
                     {
-                        path: 'auxilios',
-                        component: _payroll_components_auxilio_auxilios_component__WEBPACK_IMPORTED_MODULE_1__.AuxiliosComponent,
-                    },
-                    {
-                        path: 'vacaciones',
-                        component: _payroll_components_vacaciones_comunes_vacaciones_component__WEBPACK_IMPORTED_MODULE_16__.VacacionesComponent,
-                    },
-                    {
-                        path: 'bonificaciones',
-                        component: _payroll_components_bonificaciones_bonificaciones_component__WEBPACK_IMPORTED_MODULE_2__.BonificacionesComponent,
-                    },
-                    {
-                        path: 'anticipos',
-                        component: _payroll_components_anticipo_anticipo_component__WEBPACK_IMPORTED_MODULE_0__.AnticipoComponent,
-                    },
-                    {
-                        path: 'pagosTerceros',
-                        component: _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_13__.PagosTercerosComponent,
-                    },
-                    {
-                        path: 'bonos',
-                        component: _payroll_components_bono_bonos_component__WEBPACK_IMPORTED_MODULE_3__.BonosEPCTVComponent,
-                    },
-                    {
-                        path: 'compensaciones',
-                        component: _payroll_components_compensaciones_compensaciones_component__WEBPACK_IMPORTED_MODULE_6__.CompensacionesComponent,
-                    },
-                    {
-                        path: 'cesantías',
-                        component: _payroll_components_cesantias_cesantias_component__WEBPACK_IMPORTED_MODULE_4__.CesantiasComponent,
-                    },
-                    {
-                        path: 'transportes',
-                        component: _payroll_components_transporte_transporte_component__WEBPACK_IMPORTED_MODULE_15__.TransportesComponent,
-                    },
-                    {
-                        path: 'otrosConceptos',
-                        component: _payroll_components_otros_conceptos_otros_conceptos_component__WEBPACK_IMPORTED_MODULE_12__.OtrosConceptosComponent,
-                    },
-                    {
-                        path: 'comisiones',
-                        component: _payroll_components_comisiones_comisiones_component__WEBPACK_IMPORTED_MODULE_5__.ComisionesComponent,
-                    },
-                    {
-                        path: 'horariosAdicionales',
-                        component: _payroll_components_horarios_adicionales_horarios_adicionales_component__WEBPACK_IMPORTED_MODULE_10__.HorariosAdicionalesComponent,
+                        path: 'view',
+                        component: _payroll_components_deducciones_deducciones_view_component__WEBPACK_IMPORTED_MODULE_8__.DeduccionesViewComponent,
+                        children: [
+                            {
+                                path: 'form',
+                                component: _payroll_components_deducciones_deducciones_form_component__WEBPACK_IMPORTED_MODULE_7__.DeduccionesFormComponent,
+                            },
+                            {
+                                path: 'anticipos',
+                                component: _payroll_components_anticipo_anticipo_component__WEBPACK_IMPORTED_MODULE_0__.AnticipoComponent,
+                            },
+                            {
+                                path: 'libranzas',
+                                component: _payroll_components_libranza_libranza_component__WEBPACK_IMPORTED_MODULE_14__.LibranzaComponent,
+                            },
+                            {
+                                path: 'otras-deducciones',
+                                component: _payroll_components_otras_deducciones_otras_deducciones_component__WEBPACK_IMPORTED_MODULE_16__.OtrasDeduccionesComponent,
+                            },
+                            {
+                                path: 'pago-terceros',
+                                component: _payroll_components_pagos_terceros_pagos_terceros_component__WEBPACK_IMPORTED_MODULE_18__.PagosTercerosComponent,
+                            },
+                            {
+                                path: 'sanciones',
+                                component: _payroll_components_sancion_sancion_component__WEBPACK_IMPORTED_MODULE_22__.SancionComponent,
+                            },
+                            {
+                                path: 'salud-pension-sindicato',
+                                component: _payroll_components_salud_pension_sindicato_salud_pension_sindicato_component__WEBPACK_IMPORTED_MODULE_21__.SaludPensionSindicatosComponent,
+                            },
+                        ],
                     },
                 ],
             },

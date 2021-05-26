@@ -646,18 +646,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _material_component_toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../material-component/toolbar/toolbar.component */ 8365);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/layout */ 5072);
 /* harmony import */ var _shared_menu_items_menu_items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/menu-items/menu-items */ 2243);
 /* harmony import */ var _srv_theme_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../srv/theme.service */ 920);
 /* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar/sidebar.component */ 7907);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ 1095);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/icon */ 6627);
-/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/toolbar */ 2522);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ 1095);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ 6627);
+/* harmony import */ var _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/flex-layout/flex */ 5618);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header/header.component */ 9713);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 9895);
 /* harmony import */ var _shared_spinner_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/spinner.component */ 6817);
-
 
 
 
@@ -672,15 +670,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /** @title Responsive sidenav */
 class FullComponent {
-    constructor(changeDetectorRef, media, menuItems, themeSrv) {
+    constructor(menuItems, themeSrv) {
         this.menuItems = menuItems;
         this.themeSrv = themeSrv;
-        this.mobileQuery = media.matchMedia('(min-width: 768px)');
-        this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-        this.mobileQuery.addListener(this._mobileQueryListener);
     }
     ngOnDestroy() {
-        this.mobileQuery.removeListener(this._mobileQueryListener);
     }
     ngAfterViewInit() { }
     toggleMenu() {
@@ -690,7 +684,7 @@ class FullComponent {
         return this.themeSrv.themeState$;
     }
 }
-FullComponent.ɵfac = function FullComponent_Factory(t) { return new (t || FullComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_6__.ChangeDetectorRef), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_7__.MediaMatcher), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_shared_menu_items_menu_items__WEBPACK_IMPORTED_MODULE_1__.MenuItems), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_theme_service__WEBPACK_IMPORTED_MODULE_2__.ThemeService)); };
+FullComponent.ɵfac = function FullComponent_Factory(t) { return new (t || FullComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_shared_menu_items_menu_items__WEBPACK_IMPORTED_MODULE_1__.MenuItems), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_srv_theme_service__WEBPACK_IMPORTED_MODULE_2__.ThemeService)); };
 FullComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({ type: FullComponent, selectors: [["app-full-layout"]], viewQuery: function FullComponent_Query(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵviewQuery"](_material_component_toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_0__.ToolbarComponent, 5);
     } if (rf & 2) {
@@ -714,7 +708,7 @@ FullComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    } }, directives: [_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_3__.AppSidebarComponent, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_8__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_9__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_11__.DefaultFlexDirective, _header_header_component__WEBPACK_IMPORTED_MODULE_4__.AppHeaderComponent, _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterOutlet, _shared_spinner_component__WEBPACK_IMPORTED_MODULE_5__.SpinnerComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJmdWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
+    } }, directives: [_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_3__.AppSidebarComponent, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_7__.MatToolbar, _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatButton, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIcon, _angular_flex_layout_flex__WEBPACK_IMPORTED_MODULE_10__.DefaultFlexDirective, _header_header_component__WEBPACK_IMPORTED_MODULE_4__.AppHeaderComponent, _angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterOutlet, _shared_spinner_component__WEBPACK_IMPORTED_MODULE_5__.SpinnerComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJmdWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
 /***/ }),
@@ -1936,7 +1930,10 @@ SharedModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["�
         {
             provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogRef,
             useValue: {},
-        },
+        }, {
+            provide: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MAT_DIALOG_DATA,
+            useValue: {} // Add any data you wish to test if it is passed/used correctly
+        }
         // { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
     ] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](SharedModule, { declarations: [_accordion__WEBPACK_IMPORTED_MODULE_0__.AccordionAnchorDirective,
@@ -2348,31 +2345,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ThemeService": () => (/* binding */ ThemeService)
 /* harmony export */ });
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/layout */ 5072);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 6215);
 /* harmony import */ var _types_common_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../types/common-types */ 5906);
 /* harmony import */ var _values_catalog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../values-catalog */ 7176);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _style_manager_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style-manager.service */ 273);
 
 
 
 
 
+
+
 class ThemeService {
-    constructor(styleManager, rendererFactory) {
-        var _a;
+    constructor(breakpointObserver, media, styleManager, rendererFactory) {
         this.styleManager = styleManager;
         this.themes = _values_catalog__WEBPACK_IMPORTED_MODULE_1__.THEMES_OPTIONS;
         this.themeState$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__.BehaviorSubject({
             uiPalette: _types_common_types__WEBPACK_IMPORTED_MODULE_0__.NgGtdThemes.FpiSkin,
             visibleMenu: false,
-            fullScreen: false
+            fullScreen: false,
         });
-        this.renderer = rendererFactory.createRenderer(null, null);
-        (_a = this.themeState$) === null || _a === void 0 ? void 0 : _a.next({
-            uiPalette: _types_common_types__WEBPACK_IMPORTED_MODULE_0__.NgGtdThemes.FpiSkin,
-            visibleMenu: false,
-            fullScreen: false
+        breakpointObserver
+            .observe([
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.XSmall,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Small,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Medium,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Large,
+        ])
+            .subscribe({
+            next: (state) => {
+                var _a;
+                return (_a = this.themeState$) === null || _a === void 0 ? void 0 : _a.next({
+                    uiPalette: _types_common_types__WEBPACK_IMPORTED_MODULE_0__.NgGtdThemes.FpiSkin,
+                    visibleMenu: false,
+                    fullScreen: false,
+                    XSmall: state.breakpoints[_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.XSmall],
+                    Small: state.breakpoints[_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Small],
+                    Medium: state.breakpoints[_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Medium],
+                    Large: state.breakpoints[_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.Breakpoints.Large],
+                });
+            },
         });
     }
     setTheme(themeToSet) {
@@ -2409,7 +2423,6 @@ class ThemeService {
     }
     openFullscreen(documentElement) {
         this.themeState$.next(Object.assign(Object.assign({}, this.themeState$.value), { fullScreen: true }));
-        this.renderer.addClass(documentElement, 'full-screen-view');
         if (documentElement.requestFullscreen) {
             documentElement.requestFullscreen();
         }
@@ -2427,11 +2440,9 @@ class ThemeService {
         }
         else {
             this.themeState$.next(Object.assign(Object.assign({}, this.themeState$.value), { fullScreen: false }));
-            this.renderer.removeClass(documentElement, 'full-screen-view');
         }
     }
     closeFullscreen(document) {
-        this.renderer.removeClass(document, 'full-screen-view');
         this.themeState$.next(Object.assign(Object.assign({}, this.themeState$.value), { fullScreen: false }));
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -2453,8 +2464,8 @@ class ThemeService {
         }
     }
 }
-ThemeService.ɵfac = function ThemeService_Factory(t) { return new (t || ThemeService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_style_manager_service__WEBPACK_IMPORTED_MODULE_2__.StyleManagerService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_4__.RendererFactory2)); };
-ThemeService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: ThemeService, factory: ThemeService.ɵfac });
+ThemeService.ɵfac = function ThemeService_Factory(t) { return new (t || ThemeService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.BreakpointObserver), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__.MediaMatcher), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_style_manager_service__WEBPACK_IMPORTED_MODULE_2__.StyleManagerService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_5__.RendererFactory2)); };
+ThemeService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({ token: ThemeService, factory: ThemeService.ɵfac });
 
 
 /***/ }),

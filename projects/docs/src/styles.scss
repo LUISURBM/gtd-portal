@@ -2263,6 +2263,7 @@ pre code {
 @media (max-width: 767.98px) {
   .table-responsive {
     width: 100%;
+    display: block!important;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -5741,6 +5742,12 @@ button.close {
   width: auto;
   margin: 0.5rem;
   pointer-events: none;
+}
+
+.mat-dialog-container {
+    background: transparent!important;
+    padding: 0!important;
+    overflow: visible!important;
 }
 
 .modal.fade .modal-dialog {

@@ -1,97 +1,44 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { environment } from '../../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NgGtdDS } from '../../../types/common-types';
 import {
-  Devengados,
-  devengados,
+  Deducciones,
+  deducciones,
   displayedColumns,
   EMPTY,
-} from './devengados-data';
-import { DevengadosFormComponent } from './devengados-form.component';
+} from './deducciones-data';
+import { DeduccionesFormComponent } from './deducciones-form.component';
 
 @Component({
-  selector: 'app-payroll-devengados',
-  templateUrl: './devengados.component.html',
-  styleUrls: ['./devengados.component.scss'],
+  selector: 'app-payroll-deducciones',
+  templateUrl: './deducciones.component.html',
+  styleUrls: ['./deducciones.component.scss'],
 })
-export class DevengadosComponent implements OnInit, AfterViewInit {
-  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<Devengados>(devengados),
-    displayedColumns: displayedColumns,
-  });
+export class DeduccionesComponent implements OnInit, AfterViewInit {
+  dataSource$: BehaviorSubject<NgGtdDS>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
   @ViewChild(MatSort) sort!: MatSort;
-  private payrollDataUrl = environment.API_GATEWAY;
-
-  get data(){
-    return this.dataSource$?.value?.datasource?.data?.[0];
-  }
 
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
-    ,public navSrv: NavigationService
-    ,public http: HttpClient
-    ) {
-
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'content-Type': 'application/json'
-        ,Authorization:'82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68'
-      }),
-    };
-    this.http
-      .post<any>(
-        this.payrollDataUrl + 'documents/payrolls/procedure',
-        {"body":{"params": {
-          "trabajadorId": "FF841F95-5FDC-4879-A6BD-EE8C93A82943"
-        }},
-      "header":{
-        "cliente": "FF841F95-5FDC-4879-A6BD-EE8C93A82943",
-        "esquema": "payroll",
-        "procedimientoAlmacenado": "ConsultarDevengadosTest",
-      }},
-        httpOptions
-      )
-      .subscribe((data:any) => {
-        console.dir(data);
-        let newarray = data?.body.map((element:any) => {
-          var key, keys = Object.keys(element);
-          var n = keys.length;
-          var newobj : any ={};
-          while (n--) {
-            key = keys[n];
-            newobj[key.toLowerCase()] = element[key];
-          }
-          return newobj;
-        });
-
-        this.dataSource$.next({
-          datasource: new MatTableDataSource<Devengados>(newarray),
-          displayedColumns: displayedColumns,
-        });
-
-      });
-
-
-
-
-
+    private _snackBar: MatSnackBar,
+    public navSrv: NavigationService
+  ) {
+    this.dataSource$ = new BehaviorSubject<NgGtdDS>({
+      datasource: new MatTableDataSource<Deducciones>(deducciones),
+      displayedColumns: displayedColumns,
+    });
   }
 
   ngOnInit(): void {}
@@ -106,7 +53,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  add(name: Devengados): void {
+  add(name: Deducciones): void {
     if (!name) {
       return;
     }
@@ -121,20 +68,20 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  delete(devengados: Devengados): void {
+  delete(deduccion: Deducciones): void {
     let datasource = this.dataSource$.value.datasource;
-    datasource.data = datasource.data.filter((h) => h.id !== devengados.id);
+    datasource.data = datasource.data.filter((h) => h.id !== deduccion.id);
     this.dataSource$.next({
       ...this.dataSource$.value,
       datasource: datasource,
     });
-    this._snackBar.open(`${devengados.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${deduccion.id}`, 'deleted!', { duration: 2000 });
   }
 
-  edit(devengados: Devengados): void {
+  edit(deduccion: Deducciones): void {
     let datasource = this.dataSource$.value.datasource;
     const editedData = datasource.data.map((h) =>
-      h.id !== devengados.id ? h : devengados
+      h.id !== deduccion.id ? h : deduccion
     );
     datasource.data = editedData;
     this.dataSource$.next({
@@ -161,7 +108,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     let datasource = this.dataSource$.value.datasource;
     const editing = datasource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
-    const dialogRef = this.dialog.open(DevengadosFormComponent, {
+    const dialogRef = this.dialog.open(DeduccionesFormComponent, {
       width: '250px',
       data: editing ? editing : EMPTY,
     });

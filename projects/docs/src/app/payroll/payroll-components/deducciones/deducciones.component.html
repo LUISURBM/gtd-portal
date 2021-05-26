@@ -1,0 +1,94 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Deducciones</mat-card-title>
+    <mat-card-subtitle>Angular Material table for <code>deducciones</code> elements. </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h4>
+      <mat-form-field class="example-full-width">
+        <mat-label>Buscar</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
+        <mat-icon mat-icon-button (click)="navSrv.navigate('/nómina/individual/deducciones/view/form')" matSuffix mat-fab color="primary">add</mat-icon>
+      </mat-form-field>
+    </h4>
+
+    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="pensionVoluntaria">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pensión Voluntaria</th>
+          <td mat-cell *matCellDef="let element">{{ element.pensionVoluntaria }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="retencionFuente">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Retención Fuente</th>
+          <td mat-cell *matCellDef="let element">{{ element.retencionFuente }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="afc">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>afc</th>
+          <td mat-cell *matCellDef="let element">{{ element.afc }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="cooperativa">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>cooperativa</th>
+          <td mat-cell *matCellDef="let element">{{ element.cooperativa }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="embargoFiscal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Embargo Físcal</th>
+          <td mat-cell *matCellDef="let element">{{ element.embargoFiscal }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="planComplementarios">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Plan Complementarios</th>
+          <td mat-cell *matCellDef="let element">{{ element.planComplementarios }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="educacion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Educación</th>
+          <td mat-cell *matCellDef="let element">{{ element.educacion }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="reintegro">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Reintegro</th>
+          <td mat-cell *matCellDef="let element">{{ element.reintegro }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="deuda">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>deuda</th>
+          <td mat-cell *matCellDef="let element">{{ element.deuda }}</td>
+        </ng-container>
+
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="delete(element)" color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

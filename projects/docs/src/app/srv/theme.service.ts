@@ -1,5 +1,17 @@
-import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {
+  BreakpointObserver,
+  Breakpoints,
+  BreakpointState,
+  MediaMatcher,
+} from '@angular/cdk/layout';
+import {
+  ApplicationRef,
+  ChangeDetectorRef,
+  Injectable,
+  Renderer2,
+  RendererFactory2,
+} from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { NgGtdThemes, ValueOption } from '../types/common-types';
 import { THEMES_OPTIONS } from '../values-catalog';
 import { StyleManagerService } from './style-manager.service';
@@ -9,6 +21,10 @@ interface ThemeState {
   darkPalette?: boolean;
   visibleMenu: boolean;
   fullScreen: boolean;
+  XSmall?: boolean;
+  Small?: boolean;
+  Medium?: boolean;
+  Large?: boolean;
 }
 @Injectable()
 export class ThemeService {
@@ -17,20 +33,34 @@ export class ThemeService {
     new BehaviorSubject<ThemeState>({
       uiPalette: NgGtdThemes.FpiSkin,
       visibleMenu: false,
-      fullScreen: false
+      fullScreen: false,
     });
 
-  private renderer: Renderer2;
   constructor(
+    breakpointObserver: BreakpointObserver,
+    media: MediaMatcher,
     private styleManager: StyleManagerService,
     rendererFactory: RendererFactory2
   ) {
-    this.renderer = rendererFactory.createRenderer(null, null);
-    this.themeState$?.next({
-      uiPalette: NgGtdThemes.FpiSkin,
-      visibleMenu: false,
-      fullScreen: false
-    });
+    breakpointObserver
+      .observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+      ])
+      .subscribe({
+        next: (state) =>
+          this.themeState$?.next({
+            uiPalette: NgGtdThemes.FpiSkin,
+            visibleMenu: false,
+            fullScreen: false,
+            XSmall: state.breakpoints[Breakpoints.XSmall],
+            Small: state.breakpoints[Breakpoints.Small],
+            Medium: state.breakpoints[Breakpoints.Medium],
+            Large: state.breakpoints[Breakpoints.Large],
+          }),
+      });
   }
 
   setTheme(themeToSet: string) {
@@ -77,7 +107,6 @@ export class ThemeService {
 
   openFullscreen(documentElement: any) {
     this.themeState$.next({ ...this.themeState$.value, fullScreen: true });
-    this.renderer.addClass(documentElement, 'full-screen-view');
     if (documentElement.requestFullscreen) {
       documentElement.requestFullscreen();
     } else if (documentElement.mozRequestFullScreen) {
@@ -91,12 +120,10 @@ export class ThemeService {
       documentElement.msRequestFullscreen();
     } else {
       this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
-      this.renderer.removeClass(documentElement, 'full-screen-view');
     }
   }
 
   closeFullscreen(document: any) {
-    this.renderer.removeClass(document, 'full-screen-view');
     this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
     if (document.exitFullscreen) {
       document.exitFullscreen();

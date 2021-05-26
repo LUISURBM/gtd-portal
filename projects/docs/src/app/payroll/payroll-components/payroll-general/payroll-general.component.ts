@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'projects/docs/src/environments/environment';
+import { environment } from '../../../../environments/environment';
 import { NavigationService } from '../../../srv/navigation.service';
-import { catalogs, Payroll } from './payroll-data';
+import { catalogs } from './payroll-data';
 @Component({
-  selector: 'app-payroll-form-dialog',
-  templateUrl: './payroll-form.component.html',
+  selector: 'app-payroll-general-form-dialog',
+  templateUrl: './form/payroll-general-form.component.html',
 })
-export class PayrollFormComponent {
+export class PayrollGeneralFormComponent {
   position = 'below';
 
   form: FormGroup;
@@ -57,8 +57,6 @@ export class PayrollFormComponent {
   save() {
 
   }
-
-  nav = (route:string) => this.navSrv.navigate(route);
 
   get f() {
     return this.form.controls;

@@ -1,0 +1,124 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<form [formGroup]="form" class="m-0 d-flex main-container main-form">
+
+  <div class="mat-card">
+    <div class="mat-card-header card-header-primary">
+      <h4 class="card-title">Agregar nueva Deducción</h4>
+      <p class="card-category">Información de Deducción</p>
+    </div>
+    <div class="row card-body">
+
+      <div class="col-6 flex-column" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>Pensión Voluntaria</span>
+          <mat-form-field>
+            <input matInput tabindex="1" formControlName="pensionVoluntaria" placeholder="Dotación"
+              id="pensionVoluntaria" type="text" class="form-control" />
+            <div *ngIf="f.pensionVoluntaria.touched && f.pensionVoluntaria.invalid" class="alert alert-danger">
+              <div *ngIf="f.pensionVoluntaria.errors?.required">
+                Pensión Voluntaria is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>Retención Fuente</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="retencionFuente" placeholder="retencionFuente"
+              id="retencionFuente" type="text" class="form-control" />
+            <div *ngIf="f.retencionFuente.touched && f.retencionFuente.invalid" class="alert alert-danger">
+              <div *ngIf="f.retencionFuente.errors?.required">
+                Retención Fuente is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>afc</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="afc" placeholder="afc" id="afc" type="text"
+              class="form-control" />
+            <div *ngIf="f.afc.touched && f.afc.invalid" class="alert alert-danger">
+              <div *ngIf="f.afc.errors?.required">
+                afc is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>cooperativa</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="cooperativa" placeholder="cooperativa" id="cooperativa"
+              type="text" class="form-control" />
+            <div *ngIf="f.cooperativa.touched && f.cooperativa.invalid" class="alert alert-danger">
+              <div *ngIf="f.cooperativa.errors?.required">
+                cooperativa is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>embargoFiscal</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="embargoFiscal" placeholder="embargoFiscal" id="embargoFiscal"
+              type="text" class="form-control" />
+            <div *ngIf="f.embargoFiscal.touched && f.embargoFiscal.invalid" class="alert alert-danger">
+              <div *ngIf="f.embargoFiscal.errors?.required">
+                embargoFiscal is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+          <span>planComplementarios</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="planComplementarios" placeholder="planComplementarios"
+              id="planComplementarios" type="text" class="form-control" />
+            <div *ngIf="f.planComplementarios.touched && f.planComplementarios.invalid" class="alert alert-danger">
+              <div *ngIf="f.planComplementarios.errors?.required">
+                planComplementarios is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-6 flex-column">
+        <div class="col-12 type-tooltip-ne">
+          <span>educacion</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="planComplementarios" placeholder="planComplementarios"
+              id="planComplementarios" type="text" class="form-control" />
+            <div *ngIf="f.planComplementarios.touched && f.planComplementarios.invalid" class="alert alert-danger">
+              <div *ngIf="f.planComplementarios.errors?.required">
+                planComplementarios is required.
+              </div>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="type-tooltip-ne">
+          <span>reintegro</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro" type="text"
+              class="form-control" />
+          </mat-form-field>
+        </div>
+
+        <div class="type-tooltip-ne">
+          <span>deuda</span>
+          <mat-form-field>
+            <input matInput tabindex="2" formControlName="deuda" placeholder="deuda" id="deuda" type="text"
+              class="form-control" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
