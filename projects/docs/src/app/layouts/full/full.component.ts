@@ -1,11 +1,5 @@
-import { MediaMatcher } from '@angular/cdk/layout';
-import {
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  AfterViewInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { MenuItems } from '../../shared/menu-items/menu-items';
 import { ThemeService } from '../../srv/theme.service';
@@ -16,15 +10,21 @@ import { ThemeService } from '../../srv/theme.service';
   templateUrl: 'full.component.html',
   styleUrls: ['full.component.scss'],
 })
-export class FullComponent implements OnDestroy, AfterViewInit {
+export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(ToolbarComponent)
   selectedPane: any;
 
-  constructor(public menuItems: MenuItems, public themeSrv: ThemeService) {}
+  constructor(
+    public menuItems: MenuItems,
+    public themeSrv: ThemeService,
+    public router: Router
+  ) {}
 
-  ngOnDestroy(): void {
 
+  ngOnInit(){
+    console.log('configured routes: ', this.router.config);
   }
+  ngOnDestroy(): void {}
   ngAfterViewInit() {}
 
   toggleMenu() {

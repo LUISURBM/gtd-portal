@@ -5,10 +5,15 @@ import { InMemService } from "../srv/in-mem-service";
 
 @Component({
   selector: "app-filter-value-dialog",
-  template: `<h1 mat-dialog-title>Hi {{ data.name }}</h1>
-    <form [formGroup]="form">
-      <div mat-dialog-content>
+  template: `
+    <form [formGroup]="form" class="pt-3 pb-3 m-0 d-flex main-container main-form" style="overflow:visible">
+      <div class="m-0 mat-card">
+        <div class="mat-card-header card-header-primary">
+        <h1 class="card-title">{{ f.id.value ? 'Editar Subscripción {{f.id.value}}' : 'Agregar Subscripción' }}</h1>
+        <p class="card-category">Información de Subscripción</p>
         <p>What's your info?</p>
+      </div>
+      <div class="card-body">
         <div class="type-tooltip-ne" matTooltip="Tooltip!" *ngIf="inMemSrv.empresas | async as businesses">
           <span>Show business</span>
           <mat-form-field>
@@ -89,14 +94,14 @@ import { InMemService } from "../srv/in-mem-service";
           hidden
           class="form-control"
         />
+          <button mat-button (click)="save()" tabindex="3">Ok</button>
+          <button mat-button (click)="onNoClick()" tabindex="-1">
+            No Thanks
+          </button>
+        </div>
       </div>
-      <div mat-dialog-actions>
-        <button mat-button (click)="save()" tabindex="3">Ok</button>
-        <button mat-button (click)="onNoClick()" tabindex="-1">
-          No Thanks
-        </button>
-      </div>
-    </form> `,
+    </form>
+  `,
 })
 export class FilterValueComponent {
   position = 'below';

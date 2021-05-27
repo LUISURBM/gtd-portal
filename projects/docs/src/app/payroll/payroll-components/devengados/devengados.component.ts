@@ -17,6 +17,7 @@ import {
   EMPTY,
 } from './devengados-data';
 import { DevengadosFormComponent } from './devengados-form.component';
+// import { Request, StoredProcedureService } from 'projects/payroll-api-client';
 
 @Component({
   selector: 'app-payroll-devengados',
@@ -35,45 +36,59 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   private payrollDataUrl = environment.API_GATEWAY;
 
-  get data(){
+  get data() {
     return this.dataSource$?.value?.datasource?.data?.[0];
   }
 
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
-    ,public navSrv: NavigationService
-    ,public http: HttpClient
-    ) {
+    private _snackBar: MatSnackBar,
+    public navSrv: NavigationService,
+    public http: HttpClient,
+    // private storedProcedureAPISrv: StoredProcedureService
+  ) {
+    const request: any = {
+      body: {
+        params: {
+          trabajadorId: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943' as Object,
+        },
+      },
+      header: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+        esquema: 'payroll',
+        procedimientoAlmacenado: 'ConsultarDevengadosTest',
+      },
+    };
 
+    // storedProcedureAPISrv
+    //   .exectuteProcedureUsingPOST(request, 'events', true, {
+    //     httpHeaderAccept: 'application/json',
+    //   })
+    //   .subscribe((data) => {
+    //     console.log(data);
+    //   });
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'content-Type': 'application/json'
-        ,Authorization:'82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68'
+        'content-Type': 'application/json',
+        Authorization: '82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68',
       }),
     };
     this.http
       .post<any>(
         this.payrollDataUrl + 'documents/payrolls/procedure',
-        {"body":{"params": {
-          "trabajadorId": "FF841F95-5FDC-4879-A6BD-EE8C93A82943"
-        }},
-      "header":{
-        "cliente": "FF841F95-5FDC-4879-A6BD-EE8C93A82943",
-        "esquema": "payroll",
-        "procedimientoAlmacenado": "ConsultarDevengadosTest",
-      }},
+        request,
         httpOptions
       )
-      .subscribe((data:any) => {
+      .subscribe((data: any) => {
         console.dir(data);
-        let newarray = data?.body.map((element:any) => {
-          var key, keys = Object.keys(element);
+        let newarray = data?.body.map((element: any) => {
+          var key,
+            keys = Object.keys(element);
           var n = keys.length;
-          var newobj : any ={};
+          var newobj: any = {};
           while (n--) {
             key = keys[n];
             newobj[key.toLowerCase()] = element[key];
@@ -85,13 +100,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
           datasource: new MatTableDataSource<Devengados>(newarray),
           displayedColumns: displayedColumns,
         });
-
       });
-
-
-
-
-
   }
 
   ngOnInit(): void {}

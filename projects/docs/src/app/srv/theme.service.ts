@@ -52,9 +52,8 @@ export class ThemeService {
       .subscribe({
         next: (state) =>
           this.themeState$?.next({
-            uiPalette: NgGtdThemes.FpiSkin,
-            visibleMenu: false,
-            fullScreen: false,
+            ...this.themeState$.value,
+            uiPalette: this.themeState$?.value.uiPalette ?? NgGtdThemes.FpiSkin,
             XSmall: state.breakpoints[Breakpoints.XSmall],
             Small: state.breakpoints[Breakpoints.Small],
             Medium: state.breakpoints[Breakpoints.Medium],
@@ -86,9 +85,6 @@ export class ThemeService {
     this.setUiPalette(themeToSet);
   }
 
-  changeTheme(themeToSet: NgGtdThemes) {
-    this.themeState$.next({ ...this.themeState$.value, uiPalette: themeToSet });
-  }
 
   toggleMenu() {
     this.themeState$.next({

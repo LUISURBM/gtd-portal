@@ -1013,7 +1013,7 @@ tabs
 }
 
 .mat-drawer-inner-container {
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
   height: calc(100vh - 64px);
 }
 

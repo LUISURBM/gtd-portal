@@ -17,18 +17,20 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG,
+  MSAL_INTERCEPTOR_CONFIG
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
   InteractionType,
   IPublicClientApplication,
-  PublicClientApplication,
+  PublicClientApplication
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LogLevel } from 'msal';
+import { ApiModule, Configuration, ConfigurationParameters } from 'projects/payroll-api-client/';
+
 import { pairwise } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { apiConfig, b2cPolicies } from './b2c-config';
@@ -94,6 +96,15 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     },
   };
 }
+export function apiConfigFactory (): Configuration {
+  const params: ConfigurationParameters = {
+    'apiKeys': {
+      'content-Type': 'application/json',
+      Authorization: `82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68`},
+      basePath: environment.API_GATEWAY,
+  };
+  return new Configuration(params);
+}
 
 @NgModule({
   declarations: [
@@ -118,6 +129,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     MsalModule,
     MatToolbarModule,
     GoogleChartsModule,
+    ApiModule.forRoot(apiConfigFactory),
+
   ],
   providers: [
     {

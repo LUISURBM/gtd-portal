@@ -18,14 +18,14 @@
     <!-- ============================================================== -->
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <div class="navbar-header d-flex align-items-center">
-      <a class="navbar-brand" href="nómina">
+    <div class="navbar-header d-flex align-items-center" *ngIf="!(state.XSmall || state.Small)">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')" >
         <strong>
           Nómina
         </strong>
       </a>
       >
-      <a class="navbar-brand" href="nómina/devengos">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/deducciones')" >
         <strong>
           Deducciones
         </strong>

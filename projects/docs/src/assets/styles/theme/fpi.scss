@@ -423,7 +423,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --accent-color: #797979;
   --accent-lighter-color: #d7d7d7;
   --accent-darker-color: #5c5c5c;
-  --text-accent-color: #{$light-primary-text};
+  --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$light-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
   --warn-color: #ff0000;

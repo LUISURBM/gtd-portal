@@ -6,6 +6,7 @@
     "baseUrl": "./src",
     "types": [],
     "paths": {
+      "@src/*": [ "src/*" ],
       "@srv/*" : ["src/app/srv/*"],
       "@types/*" : ["app/types/*"],
     }
@@ -15,6 +16,13 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "payroll-api-client/**/*.ts"
+  ],
+  "references": [
+    { 
+      "path": "../payroll-api-client",
+      "appended": true
+    },
   ]
 }

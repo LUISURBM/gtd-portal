@@ -4,9 +4,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
+import { animationsForm } from "../../../animations/form-animation";
 import { NavigationService } from '../../../srv/navigation.service';
 import { catalogs } from '../payroll-general/payroll-data';
-import { animationsForm } from "../../../animations/form-animation";
 @Component({
   selector: 'app-payroll-individual-form-dialog',
   templateUrl: './payroll-individual-form.component.html',
@@ -20,7 +20,7 @@ export class PayrollIndividualFormComponent {
   form: FormGroup;
   catalogs = catalogs;
   private payrollDataUrl = environment.API_GATEWAY;
-  state = "closed";
+  state = "open";
 
   constructor(
     public builder: FormBuilder,
