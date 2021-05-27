@@ -1,11 +1,11 @@
-<form [formGroup]="form" class="d-flex main-container main-form">
-  <div class="mat-card">
-    <div class="mat-card-header card-header-primary">
+<form #formView [formGroup]="form" class="d-flex main-container main-form">
+  <div class="mat-card" >
+    <div class="mat-card-header card-header-primary" (click)="changeState()">
       <h4 class="card-title">{{ f.id.value ? 'Editar Nómina individual {{f.id.value}}' : 'Agregar Nómina individual' }}
       </h4>
       <p class="card-category">Información de Nómina individual</p>
     </div>
-    <div class="card-body">
+    <div class="card-body" [@heightGrow]="state">
       <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
         <span>Tipo</span>
         <mat-form-field>

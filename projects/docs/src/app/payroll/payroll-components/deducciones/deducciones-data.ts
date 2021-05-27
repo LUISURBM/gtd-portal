@@ -287,11 +287,11 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: '/nómina/individual/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work' },
-  { state: '/nómina/individual/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
-  { state: '/nómina/individual/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm' },
-  { state: '/nómina/individual/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money' },
-  { state: '/nómina/individual/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm' },
-  { state: '/nómina/individual/deducciones/view/sanciones', name: 'Sanciones', type: 'link', icon: 'savings' },
-  { state: '/nómina/individual/deducciones/view/salud-pension-sindicato', name: 'salud-pension-sindicato', type: 'link', icon: 'savings' },
+  { state: '/nómina/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work' },
+  { state: '/nómina/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
+  { state: '/nómina/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm' },
+  { state: '/nómina/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money' },
+  { state: '/nómina/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm' },
+  { state: '/nómina/deducciones/view/sanciones', name: 'Sanciones', type: 'link', icon: 'savings' },
+  { state: '/nómina/deducciones/view/salud-pension-sindicato', name: 'salud-pension-sindicato', type: 'link', icon: 'savings' },
 ];

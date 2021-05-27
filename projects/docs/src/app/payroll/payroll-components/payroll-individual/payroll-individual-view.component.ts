@@ -7,6 +7,7 @@ import { NavigationService } from '../../../srv/navigation.service';
 import { ThemeService } from '../../../srv/theme.service';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
 import { environment } from '../../../../environments/environment';
+import { HasElementRef } from '@angular/material/core/common-behaviors/color';
 
 @Component({
   selector: 'app-payroll-individual-view',
@@ -93,4 +94,10 @@ export class PayrollindividualViewComponent implements OnInit{
 
   toggleFullScreen = () =>  this.themeSrv.toggleFullScreen(this.elRef.nativeElement);
 
+  scrollToElement(el:ElementRef): void {
+
+    // document?.getElementById(el)?.scrollTo({ behavior: "smooth", top: 0 });
+    // this.router.navigate([], { fragment: el });
+    el.nativeElement.scrollIntoView();
+  }
 }

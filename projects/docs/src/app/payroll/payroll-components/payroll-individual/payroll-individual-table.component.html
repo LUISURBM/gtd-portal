@@ -67,7 +67,7 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #sdprofile="matMenu" class="mymegamenu">
-              <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/form')" tabindex="4">
+              <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/view')" tabindex="4">
                 <mat-icon>details</mat-icon> Ver
               </button>
               <button mat-menu-item color="primary" (click)="openDialog(element.id)">

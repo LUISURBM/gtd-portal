@@ -114,4 +114,3 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "alternate": NgGtdThemes.GtdBlueBlack
   }
 ];
-

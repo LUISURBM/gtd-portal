@@ -177,7 +177,8 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: '/nómina/individual/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
-  { state: '/nómina/individual/devengos', name: 'Devengos', type: 'link', icon: 'paid' },
-  { state: '/nómina/individual/deducciones', name: 'Deducciones', type: 'link', icon: 'local_atm' },
+  { state: '/nómina/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
+  { state: '/nómina/devengos', name: 'Devengos', type: 'link', icon: 'paid' },
+  { state: '/nómina/deducciones', name: 'Deducciones', type: 'link', icon: 'local_atm' },
+  { state: '/nómina/totales', name: 'Totales', type: 'link', icon: 'local_atm' },
 ];

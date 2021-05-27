@@ -78,7 +78,7 @@
         </form>
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
           group="{{menuitem.state}}">
-          <a class="" appAccordionToggle (click)="formMenu.toggle(); navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ind.formView)" *ngIf="menuitem.type === 'link'">
             <mat-icon>{{ menuitem.icon }}</mat-icon>
             <span>{{ menuitem.name }}</span>
             <span fxFlex></span>
@@ -96,7 +96,9 @@
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
-      <router-outlet ></router-outlet>
+      <app-payroll-individual-form-dialog #ind></app-payroll-individual-form-dialog>
+      <app-devengados-form></app-devengados-form>
+      <app-deducciones-form></app-deducciones-form>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

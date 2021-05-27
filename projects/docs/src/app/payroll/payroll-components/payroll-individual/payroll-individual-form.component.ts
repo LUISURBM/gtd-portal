@@ -1,20 +1,26 @@
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { NavigationService } from '../../../srv/navigation.service';
 import { catalogs } from '../payroll-general/payroll-data';
+import { animationsForm } from "../../../animations/form-animation";
 @Component({
   selector: 'app-payroll-individual-form-dialog',
   templateUrl: './payroll-individual-form.component.html',
+  animations: animationsForm
 })
 export class PayrollIndividualFormComponent {
   position = 'below';
+  @ViewChild("formView") formView:any;
+
 
   form: FormGroup;
   catalogs = catalogs;
   private payrollDataUrl = environment.API_GATEWAY;
+  state = "closed";
 
   constructor(
     public builder: FormBuilder,
@@ -22,7 +28,8 @@ export class PayrollIndividualFormComponent {
     private router: Router,
     public navSrv: NavigationService,
     public http: HttpClient
-  ) {
+    ,private elRef:ElementRef
+    ) {
     this.form = this.builder.group({
       id: 0,
       fechaInicio: new Date(),
@@ -62,4 +69,10 @@ export class PayrollIndividualFormComponent {
   get f() {
     return this.form.controls;
   }
+
+  changeState(): void {
+    (this.state == "closed") ? this.state = "open" : this.state = "closed";
+  }
+
+
 }
