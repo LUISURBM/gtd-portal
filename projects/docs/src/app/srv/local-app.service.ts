@@ -1,22 +1,14 @@
 import {
   BreakpointObserver,
-  Breakpoints,
-  BreakpointState,
-  MediaMatcher,
+  Breakpoints
 } from '@angular/cdk/layout';
-import {
-  ApplicationRef,
-  ChangeDetectorRef,
-  Injectable,
-  Renderer2,
-  RendererFactory2,
-} from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { NgGtdThemes, ValueOption } from '../types/common-types';
 import { THEMES_OPTIONS } from '../values-catalog';
 import { StyleManagerService } from './style-manager.service';
 
-interface ThemeState {
+interface UIState {
   uiPalette: NgGtdThemes;
   darkPalette?: boolean;
   visibleMenu: boolean;
@@ -26,21 +18,21 @@ interface ThemeState {
   Medium?: boolean;
   Large?: boolean;
 }
-@Injectable()
-export class ThemeService {
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AppStateService {
   themes: ValueOption[] = THEMES_OPTIONS;
-  public themeState$: BehaviorSubject<ThemeState> =
-    new BehaviorSubject<ThemeState>({
-      uiPalette: NgGtdThemes.FpiSkin,
-      visibleMenu: false,
-      fullScreen: false,
-    });
+  public themeState$: BehaviorSubject<UIState> = new BehaviorSubject<UIState>({
+    uiPalette: NgGtdThemes.FpiSkin,
+    visibleMenu: false,
+    fullScreen: false,
+  });
 
   constructor(
     breakpointObserver: BreakpointObserver,
-    media: MediaMatcher,
-    private styleManager: StyleManagerService,
-    rendererFactory: RendererFactory2
+    private styleManager: StyleManagerService
   ) {
     breakpointObserver
       .observe([
@@ -84,7 +76,6 @@ export class ThemeService {
     });
     this.setUiPalette(themeToSet);
   }
-
 
   toggleMenu() {
     this.themeState$.next({

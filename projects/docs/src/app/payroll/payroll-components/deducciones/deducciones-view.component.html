@@ -6,7 +6,7 @@
   <!-- ============================================================== -->
   <!-- Topbar - style you can find in header.scss -->
   <!-- ============================================================== -->
-  <mat-toolbar color="primary" class="topbar telative" *ngIf="themeSrv.themeState$ | async as state">
+  <mat-toolbar color="primary" class="topbar telative" *ngIf="stateSrv.themeState$ | async as state">
     <!-- ============================================================== -->
     <!-- sidebar toggle -->
     <!-- ============================================================== -->
@@ -18,22 +18,34 @@
     <!-- ============================================================== -->
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <div class="navbar-header d-flex align-items-center" *ngIf="!(state.XSmall || state.Small)">
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')" >
+    <div class="navbar-header d-flex align-items-center">
+      <ng-container *ngIf="(state.Large)">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+          <strong>
+            Individual
+          </strong>
+        </a>
+        >
+      </ng-container>
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
         <strong>
-          Nómina
+          Luis F. Urbina
         </strong>
       </a>
-      >
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/deducciones')" >
-        <strong>
-          Deducciones
-        </strong>
-      </a>
-      >
-      <a class="navbar-brand">
-        Nuevo
-      </a>
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
+          <strong>
+            Deducciones
+          </strong>
+        </a>
+        >
+      </ng-container>
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        >
+        <a class="navbar-brand">
+          Nuevo
+        </a>
+      </ng-container>
     </div>
 
     <span fxFlex></span>
@@ -46,8 +58,12 @@
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
       <button mat-menu-item (click)="toggleFullScreen()">
-        <ng-container *ngIf="!state.fullScreen"><mat-icon>open_in_full</mat-icon> Pantalla completa</ng-container>
-        <ng-container *ngIf="state.fullScreen"><mat-icon>close_fullscreen</mat-icon> Pantalla normal</ng-container>
+        <ng-container *ngIf="!state.fullScreen">
+          <mat-icon>open_in_full</mat-icon> Pantalla completa
+        </ng-container>
+        <ng-container *ngIf="state.fullScreen">
+          <mat-icon>close_fullscreen</mat-icon> Pantalla normal
+        </ng-container>
       </button>
       <button mat-menu-item (click)="onNoClick()" tabindex="1">
         <mat-icon>cancel</mat-icon>Cancelar
@@ -96,7 +112,7 @@
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
-      <router-outlet ></router-outlet>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

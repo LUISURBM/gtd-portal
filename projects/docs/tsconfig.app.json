@@ -6,6 +6,7 @@
     "baseUrl": "./src",
     "types": [],
     "paths": {
+      "@gtd-docs/*" : ["projects/docs/src/*"],
       "@src/*": [ "src/*" ],
       "@srv/*" : ["src/app/srv/*"],
       "@types/*" : ["app/types/*"],
@@ -17,12 +18,5 @@
   ],
   "include": [
     "src/**/*.d.ts",
-    "payroll-api-client/**/*.ts"
   ],
-  "references": [
-    { 
-      "path": "../payroll-api-client",
-      "appended": true
-    },
-  ]
 }

@@ -1,7 +1,7 @@
-<mat-card>
+<mat-card *ngIf="dataSource$ | async as dataSource">
   <mat-card-header>
-    <mat-card-title>Nómina</mat-card-title>
-    <mat-card-subtitle><code>&lt;Nómina&gt;</code>listado de nóminas individuales. <code class=""><a  (click)="openDialog()">Crear nueva</a></code></mat-card-subtitle>
+    <mat-card-title>Individuales</mat-card-title>
+    <mat-card-subtitle><code class=""><a >{{dataSource.datasource.data.length}}</a></code> <code (click)="navSrv.navigate('/nómina')">&lt;Nóminas individuales&gt;</code> del corte. </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
@@ -18,26 +18,26 @@
           <mat-label>Buscar</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
             formControlName="filtro">
-          <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">
+          <mat-icon (click)="navSrv.navigate('/nómina/view')" matSuffix mat-fab color="primary">
             add_circle_outline
           </mat-icon>
         </mat-form-field>
       </div>
     </form>
 
-    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+    <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Checkbox Column -->
         <ng-container matColumnDef="id" sticky>
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Individual # </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header># </th>
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Trabajador</th>
+          <td mat-cell *matCellDef="let element">{{ element.trabajador.primerNombre }} {{ element.trabajador.primerApellido }}</td>
         </ng-container>
 
         <!-- Name Column -->
@@ -46,37 +46,16 @@
           <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="descripcion">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>descripcion</th>
-          <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="periodo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>periodo</th>
-          <td mat-cell *matCellDef="let element">{{ element.periodo?.fechaLiquidacion | date:'short' }}</td>
-        </ng-container>
-
-
         <!-- Symbol Column -->
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="sdprofile">
-            <button mat-icon-button color="primary"color="accent">
-              <mat-icon>more_vert</mat-icon>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="navSrv.navigate('/nómina/view')">
+              <mat-icon>edit</mat-icon>
             </button>
-            <mat-menu #sdprofile="matMenu" class="mymegamenu">
-              <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/view')" tabindex="4">
-                <mat-icon>details</mat-icon> Ver
-              </button>
-              <button mat-menu-item color="primary" (click)="openDialog(element.id)">
-                <mat-icon>edit</mat-icon> Editar
-              </button>
-              <button mat-menu-item (click)="delete(element)" >
-                <mat-icon>delete</mat-icon> Eliminar
-              </button>
-            </mat-menu>
+            <button mat-icon-button color="accent" (click)="openDialog(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </ng-container>
 

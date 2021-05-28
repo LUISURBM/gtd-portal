@@ -258,14 +258,19 @@ $theme-warn-dark: mat-palette($mat-warn-dark, main, lighter, darker);
 
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
-@include angular-material-theme($theme);
+.theme-alternate {
+  @include angular-material-theme($theme);
+  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+}
 
 
 $altTheme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn-dark);
 
 // Theme Init
 .theme-alternate-black {
-@include angular-material-color($altTheme);
+  @include angular-material-color($altTheme);
 }
 
 

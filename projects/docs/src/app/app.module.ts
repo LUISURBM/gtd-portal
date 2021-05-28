@@ -27,7 +27,6 @@ import {
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { LogLevel } from 'msal';
-import { ApiModule, Configuration, ConfigurationParameters } from 'projects/payroll-api-client/';
 
 import { pairwise } from 'rxjs/operators';
 import { environment } from '../environments/environment';
@@ -43,8 +42,10 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
+import { ApiModule } from './srv/payroll/api/api.module';
+import { Configuration, ConfigurationParameters } from './srv/payroll/api/configuration';
 import { StyleManagerService } from './srv/style-manager.service';
-import { ThemeService } from './srv/theme.service';
+import { AppStateService } from './srv/local-app.service';
 import { NgGtdThemes } from './types/common-types';
 
 const isIE =
@@ -159,15 +160,15 @@ export function apiConfigFactory (): Configuration {
     MsalBroadcastService,
     InMemService,
     InMemDataService,
-    ThemeService,
+    AppStateService,
     StyleManagerService,
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(overlayContainer: OverlayContainer, themeSrv: ThemeService) {
+  constructor(overlayContainer: OverlayContainer, stateSrv: AppStateService) {
     overlayContainer.getContainerElement().classList.add(NgGtdThemes.FpiSkin);
-    themeSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
+    stateSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
       console.log(p, q);
       if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
       if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);

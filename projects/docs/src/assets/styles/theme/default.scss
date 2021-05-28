@@ -81,6 +81,15 @@ $form-brd: #d9d9d9;
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
+body{
+  --primary: #{$primary};
+  --background: #{mat-color(map-get($theme-black, background))};
+  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+}
+
+
 $mat-primary: (
   main: #e7e4e4,
   lighter: #15bb0d,
@@ -121,13 +130,6 @@ $mat-warn: (
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
 
-body{
-  --primary: #{$primary};
-  --background: #{mat-color(map-get($theme-black, background))};
-  --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-}
 
 
 // $primary-theme: mat-palette($mat-blue-grey);
@@ -199,11 +201,11 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 // $foreground: map-get($theme, foreground);
 
 
-@include angular-material-theme($theme);
-
+.default-theme {
+  @include angular-material-theme($theme);
+}
 
 $theme-black: mat-dark-theme($primary-theme-black, $accent-theme-black, $warn-theme-black);
-
 .default-theme-black {
   @include angular-material-color($theme-black);
 }

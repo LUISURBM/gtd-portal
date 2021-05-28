@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Menu } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
-import { ThemeService } from '../../../srv/theme.service';
+import { AppStateService } from '../../../srv/local-app.service';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
 import { environment } from '../../../../environments/environment';
 import { HasElementRef } from '@angular/material/core/common-behaviors/color';
@@ -23,7 +23,7 @@ export class PayrollindividualViewComponent implements OnInit{
     public builder: FormBuilder,
     public router: Router,
     private route: ActivatedRoute,
-    public themeSrv: ThemeService,
+    public stateSrv: AppStateService,
     private elRef:ElementRef
     , public navSrv: NavigationService
     ,public http: HttpClient
@@ -92,7 +92,7 @@ export class PayrollindividualViewComponent implements OnInit{
     }
   }
 
-  toggleFullScreen = () =>  this.themeSrv.toggleFullScreen(this.elRef.nativeElement);
+  toggleFullScreen = () =>  this.stateSrv.toggleFullScreen(this.elRef.nativeElement);
 
   scrollToElement(el:ElementRef): void {
 

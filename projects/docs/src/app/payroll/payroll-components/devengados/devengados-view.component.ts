@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Menu } from '../../../shared/menu-items/menu-items';
 import { EMPTY, MENU_ITEMS } from './devengados-data';
 import { DOCUMENT } from '@angular/common';
-import { ThemeService } from '../../../srv/theme.service';
+import { AppStateService } from '../../../srv/local-app.service';
 import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
 import { NavigationService } from '../../../srv/navigation.service';
 export const slideInAnimation =
@@ -75,7 +75,7 @@ export class DevengadosViewComponent {
   constructor(
     public builder: FormBuilder,
     private route: ActivatedRoute,
-    public themeSrv: ThemeService,
+    public stateSrv: AppStateService,
     private elRef:ElementRef
     , public navSrv: NavigationService
   ) {
@@ -113,7 +113,7 @@ export class DevengadosViewComponent {
     }
   }
 
-  toggleFullScreen = () =>  this.themeSrv.toggleFullScreen(this.elRef.nativeElement);
+  toggleFullScreen = () =>  this.stateSrv.toggleFullScreen(this.elRef.nativeElement);
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;

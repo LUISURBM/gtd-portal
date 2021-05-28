@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "generate:api": "openapi-generator-cli generate -i http://localhost:8092/v2/api-docs?group=documents -g typescript-angular -o projects/payroll-api-client --additional-properties=ngVersion=6.1.7,npmName=restClient,supportsES6=true,npmVersion=6.9.0,withInterfaces=true",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "swagger": "swagger-codegen generate -i swagger.json -l typescript-angular -o ng-client-demo/backend"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +25,7 @@
     "@angular/router": "~12.0.0",
     "@azure/msal-angular": "^2.0.0-beta.5",
     "@azure/msal-browser": "^2.14.1",
+    "@openapitools/openapi-generator-cli": "^2.3.3",
     "angular-google-charts": "^2.2.1",
     "angular-in-memory-web-api": "^0.11.0",
     "chartist": "^0.11.4",
@@ -33,6 +34,7 @@
     "morgan": "^1.10.0",
     "msal": "^1.4.10",
     "ng-chartist": "^4.1.0",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
@@ -42,7 +44,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.0.0",
     "@angular/cli": "~12.0.0",
-    "@angular/compiler-cli": "~12.0.0",
+    "@angular/compiler-cli": "^12.0.2",
     "@types/chartist": "^0.9.46",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

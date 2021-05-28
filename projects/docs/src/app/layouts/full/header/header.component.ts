@@ -21,7 +21,7 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { b2cPolicies } from '../../../b2c-config';
 import { InMemService } from '../../../srv/in-mem-service';
-import { ThemeService } from '../../../srv/theme.service';
+import { AppStateService } from '../../../srv/local-app.service';
 import {
   NgGtdThemes
 } from '../../../types/common-types';
@@ -55,7 +55,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public inMemSrv: InMemService,
     public http: HttpClient,
-    public themeSrv: ThemeService
+    public stateSrv: AppStateService
   ) {
   }
 
@@ -204,10 +204,10 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   }
 
   changeTheme(themeToSet: NgGtdThemes) {
-    this.themeSrv.setUiPalette(themeToSet);
+    this.stateSrv.setUiPalette(themeToSet);
   }
 
   invertTheme() {
-    this.themeSrv.invertTheme();
+    this.stateSrv.invertTheme();
   }
 }

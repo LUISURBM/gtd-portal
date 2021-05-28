@@ -36,8 +36,8 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "backgroundColor": "#F1F1F1",
     "buttonColor": "#f75c59",
     "headingColor": "#181818",
-    "label": "Fpi Skin",
-    "value": "Fpi Skin",
+    "label": "FPI Skin",
+    "value": "FPI Skin",
     "catalog": NgGtdThemes.FpiSkin,
     "alternate": NgGtdThemes.FpiSkinBlack
   },
@@ -50,6 +50,34 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "catalog": NgGtdThemes.UnicornLightTheme,
     "alternate": NgGtdThemes.UnicornDarkTheme
   },
+  {
+    "backgroundColor": "#fafafa",
+    "buttonColor": "#797979",
+    "headingColor": "#cc33ca",
+    "label": "Alt theme",
+    "value": "Alt theme",
+    "catalog": NgGtdThemes.AltTheme,
+    "alternate": NgGtdThemes.AltThemeBlack
+  },
+  {
+    "backgroundColor": "#303030",
+    "buttonColor": "#d7d7d7",
+    "headingColor": "#cc33ca",
+    "label": "NE Skin",
+    "value": "NE Skin",
+    "catalog": NgGtdThemes.NeGtd,
+    "alternate": NgGtdThemes.NeGtdBlack
+  },
+  {
+    "backgroundColor": "#c1ccd7",
+    "buttonColor": "#cc33ca",
+    "headingColor": "#097df2",
+    "label": "GTD Azul",
+    "value": "GTD Azul",
+    "catalog": NgGtdThemes.GtdBlueGrey,
+    "alternate": NgGtdThemes.GtdBlueBlack
+  },
+  // init angular css themes
   {
     "backgroundColor": "#fff",
     "buttonColor": "#607d8b",
@@ -86,31 +114,4 @@ export const THEMES_OPTIONS : ValueOption[] = [
     "catalog": NgGtdThemes.PurpleGreen,
     "alternate": NgGtdThemes.DeeppurpleAmber
   },
-  {
-    "backgroundColor": "#fafafa",
-    "buttonColor": "#797979",
-    "headingColor": "#cc33ca",
-    "label": "Alt theme",
-    "value": "Alt theme",
-    "catalog": NgGtdThemes.AltTheme,
-    "alternate": NgGtdThemes.AltThemeBlack
-  },
-  {
-    "backgroundColor": "#303030",
-    "buttonColor": "#d7d7d7",
-    "headingColor": "#cc33ca",
-    "label": "Alt theme black",
-    "value": "Alt theme black",
-    "catalog": NgGtdThemes.NeGtd,
-    "alternate": NgGtdThemes.NeGtdBlack
-  },
-  {
-    "backgroundColor": "#c1ccd7",
-    "buttonColor": "#cc33ca",
-    "headingColor": "#097df2",
-    "label": "GtdBlueGrey",
-    "value": "GtdBlueGrey",
-    "catalog": NgGtdThemes.GtdBlueGrey,
-    "alternate": NgGtdThemes.GtdBlueBlack
-  }
 ];

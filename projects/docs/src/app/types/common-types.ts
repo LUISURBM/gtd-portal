@@ -1,19 +1,17 @@
 import { MatTableDataSource } from "@angular/material/table";
 
 export enum NgGtdThemes {
-  FpiSkin =  'fpi-skin-black',
-  FpiSkinBlack =  'fpi-skin-alt',
-  NeGtd = 'default-theme',
-  NeGtdBlack = 'default-theme-black',
-  UnicornLightTheme = 'unicorn-theme', UnicornDarkTheme = 'unicorn-dark-theme',
+  FpiSkin           = 'fpi-skin-black',   FpiSkinBlack     = 'fpi-skin-alt',
+  NeGtd             = 'default-theme',    NeGtdBlack       = 'default-theme-black',
+  UnicornLightTheme = 'unicorn-theme',    UnicornDarkTheme = 'unicorn-dark-theme',
+  AltTheme          = 'theme-alternate',  AltThemeBlack    = 'theme-alternate-black',
+  GtdBlueGrey       = 'gtd-blue',         GtdBlueBlack     = 'gtd-blue-black',
+  // init angular css themes
   DeeppurpleAmber = 'deeppurple-amber',
-  IndigoPink =  'indigo-pink',
-  PinkBluegrey =  'pink-bluegrey',
-  PurpleGreen =  'purple-green',
-  AltTheme =  'theme-alternate',
-  AltThemeBlack =  'theme-alternate-black',
-  GtdBlueGrey =  'gtd-blue',
-  GtdBlueBlack =  'gtd-blue-black',
+  IndigoPink      = 'indigo-pink',
+  PinkBluegrey    = 'pink-bluegrey',
+  PurpleGreen     = 'purple-green',
+  // end angular css themes
 };
 
 

@@ -86,7 +86,9 @@ export class SubscriptionComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(FilterValueComponent, {
       width: "480px",
       data: editing ? editing : { id: undefined, name: "" },
-      backdropClass: 'blur-overlay'
+      backdropClass: 'blur-overlay',
+      panelClass: 'ne-dialog-panel',
+      closeOnNavigation: true,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -278,7 +278,10 @@ $theme-warn-dark: mat-palette($mat-warn-dark, main, lighter, darker);
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 $altTheme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn-dark);
 
-@include angular-material-theme($theme);
+.gtd-blue {
+  @include angular-material-theme($theme);
+}
+
 // Theme Init
 .gtd-blue-black {
   @include angular-material-color($altTheme);

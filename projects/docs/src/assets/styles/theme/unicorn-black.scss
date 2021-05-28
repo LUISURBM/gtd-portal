@@ -82,5 +82,6 @@ $custom-typography: mat-typography-config(
 );
 
 
-
-@include angular-material-theme($dark-theme);
+.unicorn-dark-theme {
+  @include angular-material-theme($dark-theme);
+}

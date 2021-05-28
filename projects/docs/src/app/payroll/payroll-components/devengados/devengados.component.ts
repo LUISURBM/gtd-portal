@@ -17,7 +17,7 @@ import {
   EMPTY,
 } from './devengados-data';
 import { DevengadosFormComponent } from './devengados-form.component';
-// import { Request, StoredProcedureService } from 'projects/payroll-api-client';
+import { StoredProcedureService } from '../../../srv/payroll/api/storedProcedure.service';
 
 @Component({
   selector: 'app-payroll-devengados',
@@ -46,7 +46,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     private _snackBar: MatSnackBar,
     public navSrv: NavigationService,
     public http: HttpClient,
-    // private storedProcedureAPISrv: StoredProcedureService
+    private storedProcedureAPISrv: StoredProcedureService
   ) {
     const request: any = {
       body: {
@@ -61,13 +61,13 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
       },
     };
 
-    // storedProcedureAPISrv
-    //   .exectuteProcedureUsingPOST(request, 'events', true, {
-    //     httpHeaderAccept: 'application/json',
-    //   })
-    //   .subscribe((data) => {
-    //     console.log(data);
-    //   });
+    storedProcedureAPISrv
+      .exectuteProcedureUsingPOST(request, 'events', true, {
+        httpHeaderAccept: 'application/json',
+      })
+      .subscribe((data) => {
+        console.log(data);
+      });
 
     const httpOptions = {
       headers: new HttpHeaders({

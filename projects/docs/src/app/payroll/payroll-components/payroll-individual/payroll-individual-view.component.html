@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="m-0 d-flex main-container main-form" *ngIf="themeSrv.themeState$ | async as state">
+<div class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state">
 
   <!-- ============================================================== -->
   <!-- Topbar - style you can find in header.scss -->
@@ -19,18 +19,20 @@
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center">
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina')">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual')" *ngIf="!(state.XSmall || state.Small)">
+        <strong>
+          Individuales
+        </strong>
+      </a>
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        >
+      </ng-container>
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
         <strong>
           Luis F. Urbina
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
-        >
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
-          <strong>
-            Individual
-          </strong>
-        </a>
         >
         <a class="navbar-brand">
           Nueva

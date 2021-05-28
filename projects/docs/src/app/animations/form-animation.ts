@@ -17,7 +17,7 @@ export const animationsForm1 = [
 ];
 
 export const animationsForm = [
-  trigger('grow', [
+  trigger('heightGrow', [
     transition('void <=> *', []),
     transition('* <=> *', [
       style({height: '{{startHeight}}px', opacity: 0}),
@@ -27,7 +27,7 @@ export const animationsForm = [
 ];
 
 export const animationsForm2 = [
-  trigger('grow', [
+  trigger('heightGrow', [
     transition('void <=> *', []),
     transition('* <=> *', [style({ height: '{{startHeight}}px', opacity: 0 }), animate('.5s ease')], {
       params: { startHeight: 0 }
@@ -36,7 +36,7 @@ export const animationsForm2 = [
 ];
 
 export const animationsForm3 = [
-  trigger('openCloseAnimation', [
+  trigger('heightGrow', [
     state('open', style({ maxHeight: '100px', overflow: 'auto' })),
     state('closed', style({ maxHeight: '60px' })),
     transition('* => closed', animate('0.2s')),

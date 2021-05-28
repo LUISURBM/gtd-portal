@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Nómina</mat-card-title>
-    <mat-card-subtitle><code>&lt;Nómina&gt;</code>listado de nóminas gestionadas en el corte. <code class=""><a  (click)="openDialog()">Crear nueva</a></code></mat-card-subtitle>
+    <mat-card-subtitle>Listado de <code>&lt;Nóminas&gt;</code> gestionadas. <code class=""><a  (click)="openDialog()">Crear nueva</a></code></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
@@ -54,7 +54,7 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="periodo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>periodo</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Corte</th>
           <td mat-cell *matCellDef="let element">{{ element.periodo?.fechaLiquidacion | date:'short' }}</td>
         </ng-container>
 
