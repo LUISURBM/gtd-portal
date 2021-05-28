@@ -11,8 +11,7 @@ import { BehaviorSubject, EMPTY } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NgGtdDS } from '../../../types/common-types';
-import { displayedColumns } from '../auxilio/auxilio-data';
-import { Payroll, nominas } from '../payroll-general/payroll-data';
+import { Individual, nominas, displayedColumns } from './individual-data';
 import { PayrollIndividualFormComponent } from './payroll-individual-form.component';
 
 @Component({
@@ -28,7 +27,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
   };
   dataSource$: BehaviorSubject<NgGtdDS>;
 
-  selection = new SelectionModel<Payroll>(false, []);
+  selection = new SelectionModel<Individual>(false, []);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -69,7 +68,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
       }),
     });
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
-      datasource: new MatTableDataSource<Payroll>(nominas),
+      datasource: new MatTableDataSource<Individual>(nominas),
       displayedColumns: displayedColumns,
     });
   }
@@ -86,7 +85,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  add(name: Payroll): void {
+  add(name: Individual): void {
     if (!name) {
       return;
     }
@@ -101,7 +100,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  delete(libranza: Payroll): void {
+  delete(libranza: Individual): void {
     let datasource = this.dataSource$.value.datasource;
     datasource.data = datasource.data.filter((h: any) => h.id !== libranza.id);
     this.dataSource$.next({
@@ -111,7 +110,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 2000 });
   }
 
-  edit(libranza: Payroll): void {
+  edit(libranza: Individual): void {
     let datasource = this.dataSource$.value.datasource;
     const editedData = datasource.data.map((h: any) =>
       h.id !== libranza.id ? h : libranza

@@ -21,10 +21,6 @@
       "dom"
     ],
     "paths": {
-      "@gtd-srv/*" : ["app/srv/*"],
-      "@gtd-types/*" : ["app/types/*"],
-      "@gtd-tyles/*" : ["assets/styles/*"],
-
 
     },
     "esModuleInterop": true,

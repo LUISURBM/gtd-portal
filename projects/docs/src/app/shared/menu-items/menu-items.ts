@@ -14,7 +14,7 @@ export interface Menu {
   menuItems?: Menu[];
 }
 
-const MENUITEMS:Menu[] = [
+export const MENUITEMS:Menu[] = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'dashboard' },
   { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'face' },
   { state: 'nómina', name: 'Nómina', type: 'link', icon: 'people' },

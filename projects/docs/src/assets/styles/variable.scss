@@ -1,91 +1,48 @@
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
 
 @import './theme/fpi';
 
 
-// .default-theme {
-//   @import './theme/default';
-//   --primary: #{$primary};
-//   --background: #{mat-color($background)};
-//   --themecolor-alt: #{$themecolor-alt};
-//   --secondary: #{$secondary};
-//   --secondary-light: #{$secondary-light};
-// }
+@import './theme/default';
 
 
-// .unicorn-theme {
-//   @import './theme/unicorn';
-//   --danger: #{$danger};
-//   --success: #{$success};
-//   --warning: #{$warning};
-//   --primary: #{$primary};
-//   --info: #{$info};
-//   --inverse: #{$inverse};
-//   --muted: #{$muted};
-//   --dark: #{$dark};
-//   --light: #{$light};
-//   --secondary: #{$secondary};
-//   --secondary-light: #{$secondary-light};
-//   --background: #{mat-color($background)};
-//   --themecolor-alt: #{$themecolor-alt};
-//   --toolbar: #{$topbar};
-
-// }
+@import './theme/unicorn';
 
 
-
-// .unicorn-dark-theme {
-//   @import './theme/unicorn-black';
-
-//   --background: #{mat-color($background)};
-//   --themecolor-alt: #{$themecolor-alt};
-//   --secondary: #{$secondary};
-//   --secondary-light: #{$secondary-light};
-//   --toolbar: #{$topbar};
-// }
-
-// .theme-alternate {
-//   @import './theme/alt-theme';
-//   --themecolor-alt: #{$themecolor-alt};
-//   --secondary: #{$secondary};
-//   --secondary-light: #{$secondary-light};
-// }
-
-// .gtd-blue {
-//   @import './theme/gtd-blue';
-// }
+@import './theme/unicorn-black';
 
 
-// .deeppurple-amber {
-//   @import '@angular/material/prebuilt-themes/deeppurple-amber';
-//   --themecolor-alt: #b38c0a;
-//   --secondary: #69F0AE;
-//   --secondary-light: #b9f6ca;
-// }
+@import './theme/alt-theme';
 
-// .indigo-pink {
-//   @import '@angular/material/prebuilt-themes/indigo-pink';
-//   --themecolor-alt: #b30a6d;
-//   --secondary: #00bcd4;
-//   --secondary-light: #26c6da;
-// }
-// .pink-bluegrey {
-//   @import '@angular/material/prebuilt-themes/pink-bluegrey';
-//   --themecolor-alt: #3082d4;
-//   --secondary: #00bcd4;
-//   --secondary-light: #26c6da;
-// }
-// .purple-green {
-//   @import '@angular/material/prebuilt-themes/purple-green';
-//   --themecolor-alt: #69F0AE;
-//   --secondary: #00e676;
-//   --secondary-light: #69f0ae;
-// }
+
+@import './theme/gtd-blue';
+
+
+// init angular css themes
+.deeppurple-amber {
+  @import '@angular/material/prebuilt-themes/deeppurple-amber';
+  --themecolor-alt: #b38c0a;
+  --secondary: #69F0AE;
+  --secondary-light: #b9f6ca;
+}
+.indigo-pink {
+  @import '@angular/material/prebuilt-themes/indigo-pink';
+  --themecolor-alt: #b30a6d;
+  --secondary: #00bcd4;
+  --secondary-light: #26c6da;
+}
+.pink-bluegrey {
+  @import '@angular/material/prebuilt-themes/pink-bluegrey';
+  --themecolor-alt: #3082d4;
+  --secondary: #00bcd4;
+  --secondary-light: #26c6da;
+}
+.purple-green {
+  @import '@angular/material/prebuilt-themes/purple-green';
+  --themecolor-alt: #69F0AE;
+  --secondary: #00e676;
+  --secondary-light: #69f0ae;
+}
 
 

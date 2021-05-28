@@ -18,7 +18,7 @@ import { PayrollGeneralFormComponent } from '../payroll-general.component';
 @Component({
   selector: 'app-payroll-table',
   templateUrl: './payroll-table.component.html',
-  styleUrls: ['./payroll-table.component.css'],
+  styleUrls: ['./payroll-table.component.css']
 })
 export class PayrollTableComponent implements OnInit, AfterViewInit {
   form: FormGroup;
@@ -46,6 +46,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
   get selected() {
     return this.selection?.selected[0] ?? EMPTY;
   }
+
 
   constructor(
     public formBuilder: FormBuilder,

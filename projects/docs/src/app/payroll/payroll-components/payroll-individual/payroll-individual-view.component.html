@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="m-0 d-flex main-container main-form" *ngIf="themeSrv.themeState$ | async as state">
+<div class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state">
 
   <!-- ============================================================== -->
   <!-- Topbar - style you can find in header.scss -->
@@ -19,37 +19,59 @@
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center">
-      <a class="navbar-brand" href="nómina" *ngIf="state.XSmall || state.Small">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual')" *ngIf="!(state.XSmall || state.Small)">
         <strong>
-          Nómina
+          Individuales
         </strong>
       </a>
-      >
-      <a class="navbar-brand" href="nómina/devengos">
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        >
+      </ng-container>
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
         <strong>
-          Individual
+          Luis F. Urbina
         </strong>
       </a>
-      >
-      <a class="navbar-brand">
-        Nueva
-      </a>
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        >
+        <a class="navbar-brand">
+          Nueva
+        </a>
+      </ng-container>
     </div>
 
     <span fxFlex></span>
 
-    <button mat-button (click)="save()" tabindex="2">
-      <mat-icon>save</mat-icon>Guardar
+
+    <button mat-button (click)="navSrv.navigate('/nómina/deducciones/view/form')"
+      *ngIf="!(state.XSmall || state.Small)">
+      <mat-icon>add_circle</mat-icon>Deducción
+    </button>
+    <button mat-button (click)="navSrv.navigate('/nómina/devengos/view/form')" *ngIf="!(state.XSmall || state.Small)">
+      <mat-icon>add_circle</mat-icon>Devengo
+    </button>
+    <button mat-button (click)="save()">
+      <mat-icon>save</mat-icon><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
     </button>
     <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="primary" color="accent">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
-      <button mat-menu-item (click)="toggleFullScreen()">
-        <ng-container *ngIf="!state.fullScreen"><mat-icon>open_in_full</mat-icon> Pantalla completa</ng-container>
-        <ng-container *ngIf="state.fullScreen"><mat-icon>close_fullscreen</mat-icon> Pantalla normal</ng-container>
+      <button mat-menu-item (click)="save()" *ngIf="(state.XSmall || state.Small)">
+        <mat-icon>add_circle</mat-icon>Deducción
       </button>
-      <button mat-menu-item (click)="onNoClick()" tabindex="1">
+      <button mat-menu-item (click)="save()" *ngIf="(state.XSmall || state.Small)">
+        <mat-icon>add_circle</mat-icon>Devengo
+      </button>
+      <button mat-menu-item (click)="toggleFullScreen()">
+        <ng-container *ngIf="!state.fullScreen">
+          <mat-icon>open_in_full</mat-icon> Pantalla completa
+        </ng-container>
+        <ng-container *ngIf="state.fullScreen">
+          <mat-icon>close_fullscreen</mat-icon> Pantalla normal
+        </ng-container>
+      </button>
+      <button mat-menu-item (click)="onNoClick()">
         <mat-icon>cancel</mat-icon>Cancelar
       </button>
     </mat-menu>
@@ -65,7 +87,8 @@
     <!-- ============================================================== -->
     <!-- Sidebar - style you can find in sidebar.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" fixedTopGap="0" opened="true" [mode]="(state.XSmall || state.Small) ? 'over' : 'side'" fixedTopGap="0" [opened]="!(state.XSmall || state.Small)"
+    <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" fixedTopGap="0" opened="true"
+      [mode]="(state.XSmall || state.Small) ? 'over' : 'side'" fixedTopGap="0" [opened]="!(state.XSmall || state.Small)"
       style="direction: rtl;">
 
       <mat-nav-list appAccordion style="direction: ltr ">
@@ -78,7 +101,8 @@
         </form>
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
           group="{{menuitem.state}}">
-          <a class="" appAccordionToggle (click)="formMenu.toggle(); navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ind.formView)"
+            *ngIf="menuitem.type === 'link'">
             <mat-icon>{{ menuitem.icon }}</mat-icon>
             <span>{{ menuitem.name }}</span>
             <span fxFlex></span>
@@ -96,7 +120,10 @@
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
-      <router-outlet ></router-outlet>
+      <app-payroll-individual-form-dialog #ind></app-payroll-individual-form-dialog>
+      <app-devengados-form></app-devengados-form>
+      <app-deducciones-form></app-deducciones-form>
+      <app-totales-card-form></app-totales-card-form>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

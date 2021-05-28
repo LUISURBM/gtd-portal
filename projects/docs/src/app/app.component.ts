@@ -7,7 +7,7 @@ import {
   Router,
   RouterEvent,
 } from '@angular/router';
-import { ThemeService } from './srv/theme.service';
+import { AppStateService } from './srv/local-app.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent {
   title = 'docs';
   loading: boolean;
 
-  constructor(public themeSrv: ThemeService, private router: Router) {
+  constructor(public stateSrv: AppStateService, private router: Router) {
     this.loading = true;
     this.router.events.subscribe((e: any) => {
       this.navigationInterceptor(e);
@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   get themeState$() {
-    return this.themeSrv.themeState$;
+    return this.stateSrv.themeState$;
   }
 
   navigationInterceptor(event: RouterEvent): void {

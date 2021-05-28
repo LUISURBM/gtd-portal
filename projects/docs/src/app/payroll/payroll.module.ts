@@ -70,6 +70,8 @@ import { SaludPensionSindicatoFormComponent } from './payroll-components/salud-p
 import { SaludPensionSindicatosComponent } from './payroll-components/salud-pension-sindicato/salud-pension-sindicato.component';
 import { SancionFormComponent } from './payroll-components/sancion/sancion-form.component';
 import { SancionComponent } from './payroll-components/sancion/sancion.component';
+import { TotalesFormComponent } from './payroll-components/totales/totales-form.component';
+import { TotalesComponent } from './payroll-components/totales/totales.component';
 import { TransporteFormComponent } from './payroll-components/transporte/transporte-form.component';
 import { TransportesComponent } from './payroll-components/transporte/transporte.component';
 import { VacacionFormComponent } from './payroll-components/vacaciones-comunes/vacacion-form.component';
@@ -146,6 +148,8 @@ import { PayrollRoutes } from './payroll.routing';
     PayrollindividualViewComponent,
     PayrollIndividualFormComponent,
     PayrollIndividualTableComponent,
+    TotalesComponent,
+    TotalesFormComponent
   ],
   imports: [
     CommonModule,

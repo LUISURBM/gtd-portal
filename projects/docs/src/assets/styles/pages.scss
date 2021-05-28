@@ -10,6 +10,13 @@ File: scss
 /*******************
  Main container
 *******************/
+.blur-overlay{
+  backdrop-filter: blur(1em);
+}
+.cdk-global-overlay-wrapper {
+  overflow:auto;
+  pointer-events: all;
+}
 
 .main-container {
   display: flex;

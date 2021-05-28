@@ -1,5 +1,9 @@
-<mat-icon [matMenuTriggerFor]="messagesMenu" matBadge="15" class=" m-r-20 hidden-sm-up" mat-raised-button color="accent" matBadgeColor="warn">messages</mat-icon>
-<mat-icon [matMenuTriggerFor]="notificationsMenu" matBadge="15" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn" matBadgeColor="warn">notifications</mat-icon>
+<button mat-icon-button>
+  <mat-icon color="accent" aria-label="Messages with icon" [matMenuTriggerFor]="messagesMenu" matBadge="15" matBadgeColor="warn">messages</mat-icon>
+</button>
+<button mat-icon-button class="mr-2">
+  <mat-icon color="accent" aria-label="Notificactions with icon" [matMenuTriggerFor]="notificationsMenu" matBadge="7" matBadgeColor="primary">notifications</mat-icon>
+</button>
 <mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
   <button mat-menu-item *ngFor="let option of messages" (click)="$event.stopPropagation();">
     <mat-icon>{{option.ico}}</mat-icon> {{option.label}}
@@ -13,7 +17,7 @@
 <button [matMenuTriggerFor]="options" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png"
     alt="user" class="profile-pic"> </button>
 <mat-menu #options="matMenu" class="mymegamenu">
-  <button mat-menu-item [routerLink]="['profile']" >
+  <button mat-menu-item [routerLink]="['profile']">
     <mat-icon>account_box</mat-icon> Perfil
   </button>
   <button mat-menu-item *ngIf="!loginDisplay" (click)="openDialog()">
@@ -52,7 +56,8 @@
   </button>
 </mat-menu>
 <mat-menu #palette="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
-  <button mat-menu-item *ngFor="let option of themeSrv.themes" (click)="changeTheme(option.catalog);$event.stopPropagation();">
+  <button mat-menu-item *ngFor="let option of stateSrv.themes"
+    (click)="changeTheme(option.catalog);$event.stopPropagation();">
     <mat-icon role="img" svgicon="theme-example" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%"
         viewBox="0 0 80 80" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">

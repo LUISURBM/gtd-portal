@@ -17,18 +17,19 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG,
+  MSAL_INTERCEPTOR_CONFIG
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
   InteractionType,
   IPublicClientApplication,
-  PublicClientApplication,
+  PublicClientApplication
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { LogLevel } from 'msal';
+
 import { pairwise } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { apiConfig, b2cPolicies } from './b2c-config';
@@ -41,8 +42,10 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
+import { ApiModule } from './srv/payroll/api/api.module';
+import { Configuration, ConfigurationParameters } from './srv/payroll/api/configuration';
 import { StyleManagerService } from './srv/style-manager.service';
-import { ThemeService } from './srv/theme.service';
+import { AppStateService } from './srv/local-app.service';
 import { NgGtdThemes } from './types/common-types';
 
 const isIE =
@@ -94,6 +97,15 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     },
   };
 }
+export function apiConfigFactory (): Configuration {
+  const params: ConfigurationParameters = {
+    'apiKeys': {
+      'content-Type': 'application/json',
+      Authorization: `82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68`},
+      basePath: environment.API_GATEWAY,
+  };
+  return new Configuration(params);
+}
 
 @NgModule({
   declarations: [
@@ -118,6 +130,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     MsalModule,
     MatToolbarModule,
     GoogleChartsModule,
+    ApiModule.forRoot(apiConfigFactory),
+
   ],
   providers: [
     {
@@ -146,15 +160,15 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     MsalBroadcastService,
     InMemService,
     InMemDataService,
-    ThemeService,
+    AppStateService,
     StyleManagerService,
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(overlayContainer: OverlayContainer, themeSrv: ThemeService) {
+  constructor(overlayContainer: OverlayContainer, stateSrv: AppStateService) {
     overlayContainer.getContainerElement().classList.add(NgGtdThemes.FpiSkin);
-    themeSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
+    stateSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
       console.log(p, q);
       if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
       if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);

@@ -74,7 +74,7 @@ $dark-primary: mat-palette($mat-deep-orange);
 $dark-accent: mat-palette($mat-blue-grey, A200, A100, A400);
 $dark-warn: mat-palette($mat-amber);
 $dark-theme: mat-dark-theme($dark-primary,$dark-accent,$dark-warn);
-$background: map-get($dark-theme, background);
+
 $bodyfont: "Poppins", sans-serif;
 $headingfont: "Poppins", sans-serif;
 $custom-typography: mat-typography-config(
@@ -82,5 +82,6 @@ $custom-typography: mat-typography-config(
 );
 
 
-
-@include angular-material-theme($dark-theme);
+.unicorn-dark-theme {
+  @include angular-material-theme($dark-theme);
+}

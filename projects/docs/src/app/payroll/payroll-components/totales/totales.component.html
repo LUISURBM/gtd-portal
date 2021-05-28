@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-content>
+	<mat-card-title>Totale</mat-card-title>
+  <mat-card-subtitle>Angular Material table for <code>Totales</code> elements. </mat-card-subtitle>
+    <h4>
+      <mat-form-field class="example-full-width">
+        <mat-label>Buscar</mat-label>
+        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+      </mat-form-field>
+    </h4>
+
+    <div class="mat-elevation-z8">
+      <table mat-table class="table-responsive" [dataSource]="dataSource" matSort style="width:100%">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="deduccion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total deducciones</th>
+          <td mat-cell *matCellDef="let element">{{ element.deduccion }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="devengo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total devengos</th>
+          <td mat-cell *matCellDef="let element">{{ element.devengo }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="totalAPagar">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total a pagar</th>
+          <td mat-cell *matCellDef="let element">{{ element.totalAPagar }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="delete(element)" color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

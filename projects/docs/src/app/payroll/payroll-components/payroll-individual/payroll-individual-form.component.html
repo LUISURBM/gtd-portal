@@ -1,11 +1,12 @@
-<form [formGroup]="form" class="d-flex main-container main-form">
+<form #formView [formGroup]="form" class="d-flex main-container main-form">
   <div class="mat-card">
-    <div class="mat-card-header card-header-primary">
+    <div class="mat-card-header card-header-primary" (click)="changeState()">
       <h4 class="card-title">{{ f.id.value ? 'Editar Nómina individual {{f.id.value}}' : 'Agregar Nómina individual' }}
       </h4>
       <p class="card-category">Información de Nómina individual</p>
+
     </div>
-    <div class="card-body">
+    <div class="card-body" [@heightGrow]="state">
       <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
         <span>Tipo</span>
         <mat-form-field>
@@ -46,14 +47,6 @@
         <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
         <mat-datepicker touchUi #pickerFin></mat-datepicker>
       </mat-form-field>
-
-      <button mat-button (click)="onNoClick()" tabindex="-1">
-        Cancelar
-      </button>
-      <button mat-button (click)="save()" tabindex="4">Guardar</button>
-      <button mat-button (click)="nav('/nómina/individual/devengos')" tabindex="4">Ver devengos</button>
-      <button mat-button (click)="nav('/nómina/individual/deducciones')" tabindex="4">Ver deducciones</button>
-
     </div>
   </div>
 

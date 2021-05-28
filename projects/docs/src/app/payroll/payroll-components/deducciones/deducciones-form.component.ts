@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NavigationService } from '../../../srv/navigation.service';
 @Component({
   selector: 'app-deducciones-form',
   styleUrls: ['./deducciones.component.scss'],
@@ -10,7 +11,7 @@ export class DeduccionesFormComponent {
   position = 'below';
 
   form: FormGroup;
-  constructor(public builder: FormBuilder, private route: ActivatedRoute) {
+  constructor(public builder: FormBuilder, private route: ActivatedRoute, public navSrv: NavigationService) {
     this.form = this.builder.group({
       id: builder.control(0),
       pensionVoluntaria: builder.control(0),
