@@ -27,4 +27,13 @@ export const VALUES_WORKER: Trabajador[] = [
     primerApellido: 'Ocampo',
     segundoApellido: 'Fonnegra',
   },
+  {
+    id: 4,
+    numeroDocumento: 1227,
+    codigoTrabajador: 4469,
+    primerNombre: 'Ever',
+    otrosNombres: 'Yesid',
+    primerApellido: 'Acevedo',
+    segundoApellido: 'Taborda',
+  },
 ];
