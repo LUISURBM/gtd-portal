@@ -3,21 +3,16 @@
 <!-- ============================================================== -->
 <form [formGroup]="form" class="m-0 d-flex main-container main-form">
 
-  <div class="mat-card">
-    <div class="mat-card-header card-header-primary">
-      <h4 class="card-title">Agregar nuevo Devengado</h4>
+  <div class="mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">paid</i>
+      </div>
+      <h1 class="card-title">Agregar nuevo Devengado</h1>
       <p class="card-category">Información de Devengos</p>
     </div>
     <div class="row card-body">
 
-        <div class="col-12 type-tooltip-ne" formGroupName="trabajador">
-          <span>Empleado</span>
-          <mat-form-field>
-            <mat-select class="example-select" tabindex="1" formControlName="primerNombre" id="primerNombre">
-              <mat-option value="1"> Luis F. Urbina Moreno</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
         <div class="col-12 type-tooltip-ne" formGroupName="basico">
           <span>Básico</span>
           <div class="type-tooltip-ne">

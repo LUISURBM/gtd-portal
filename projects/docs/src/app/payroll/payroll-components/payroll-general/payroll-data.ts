@@ -180,5 +180,5 @@ export const MENU_ITEMS = [
   { state: '/nómina/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
   { state: '/nómina/devengos', name: 'Devengos', type: 'link', icon: 'paid' },
   { state: '/nómina/deducciones', name: 'Deducciones', type: 'link', icon: 'local_atm' },
-  { state: '/nómina/totales', name: 'Totales', type: 'link', icon: 'local_atm' },
+  { state: '/nómina/totales', name: 'Totales', type: 'link', icon: 'attach_money' },
 ];

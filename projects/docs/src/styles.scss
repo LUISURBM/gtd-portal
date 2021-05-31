@@ -4836,6 +4836,7 @@ tbody.collapse.show {
 }
 
 .card-header {
+
 }
 
 .card-header:first-child {
@@ -17362,7 +17363,6 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
   margin-top: 30px;
   border-radius: 6px;
   color: #333333;
-  width: 100%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -17512,7 +17512,24 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card.bg-primary,
 .card.card-rotate.bg-primary .front,
 .card.card-rotate.bg-primary .back {
-  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  flex-direction: column;
+    // padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    // border-radius: 3px;
+    margin-top: -20px;
+    padding: 15px;
+    position: relative;
+    background: linear-gradient(
+      60deg,
+      var(--secondary),
+      var(--secondary-light)
+    );
+    border-radius: 4px;
+    top: -13px;
+    color: var(--text-accent-color) !important;
+    width: 86px;
+    height: 86px;
+    box-shadow: 0 4px 20px 0px var(--secondary), 0 7px 10px -5px var(--secondary-light);
 }
 
 .card .card-header-info .card-icon,
@@ -17732,14 +17749,6 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
   display: table;
 }
 
-.card .card-header.card-header-icon i,
-.card .card-header.card-header-text i {
-  width: 33px;
-  height: 33px;
-  text-align: center;
-  line-height: 33px;
-}
-
 .card .card-header.card-header-icon .card-title,
 .card .card-header.card-header-text .card-title {
   margin-top: 15px;
@@ -17844,7 +17853,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card [class*="card-header-"] .card-title+.card-category {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-color);
 }
 
 .card [class*="card-header-"] .card-title+.card-category a {
@@ -17853,8 +17862,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
   border-radius: 3px;
-  margin-top: -20px;
-  padding: 15px;
+  width: 100%
 }
 
 .card [class*="card-header-"] .card-icon,
@@ -18051,6 +18059,8 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
   margin-top: 20px;
 }
 
+.card .card-header.card-header-icon i,
+.card .card-header.card-header-text i ,
 .card-stats .card-header.card-header-icon i {
   font-size: 36px;
   line-height: 56px;

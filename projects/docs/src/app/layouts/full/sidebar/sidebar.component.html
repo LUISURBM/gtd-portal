@@ -1,12 +1,5 @@
-<!-- ============================================================== -->
-<!-- Sidebar - style you can find in sidebar.scss -->
-<!-- ============================================================== -->
-<mat-drawer-container class="page-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0"
-  *ngIf="themeState$ | async as state" (backdropClick)="close('backdrop')">
+<ng-container  *ngIf="themeState$ | async as state" >
 
-  <mat-drawer #snav id="snav" [(opened)]="state.visibleMenu" class="dark-sidebar pl-xs"
-    mode="over" [opened]="mobileQuery.matches"
-    [disableClose]="mobileQuery.matches" style="direction: rtl " (keydown.escape)="close('escape')">
 
     <!-- ============================================================== -->
     <!-- sidebar -->
@@ -37,9 +30,8 @@
           <mat-icon>exit_to_app</mat-icon> Sign Out
         </button>
       </mat-menu>
-    </div>
 
-    <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
+
       <form [formGroup]="form">
         <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
           <mat-label>Buscar...</mat-label>
@@ -47,9 +39,14 @@
           <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
         </mat-form-field>
       </form>
+    </div>
+
+
+    <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
         group="{{menuitem.state}}">
-        <a class="" appAccordionToggle (click)="snav.toggle(); navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
+        <a class="" appAccordionToggle (click)=" navSrv.navigate(menuitem.state)"
+          *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name }}</span>
           <span fxFlex></span>
@@ -58,38 +55,11 @@
       </mat-list-item>
     </mat-nav-list>
 
-  </mat-drawer>
+<!--
 
   <app-helper-overview-grap>
     <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="color: var(--light-accent-text)">
       <mat-icon>menu</mat-icon>
     </button>
-  </app-helper-overview-grap>
-
-
-  <!-- ============================================================== -->
-  <!-- End Topbar - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Sidebar - style you can find in sidebar.scss -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Page container - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-  <mat-drawer-content >
-    <!-- ============================================================== -->
-    <!-- Topbar - style you can find in header.scss -->
-    <!-- ============================================================== -->
-    <ng-content></ng-content>
-
-  </mat-drawer-content>
-  <!-- ============================================================== -->
-  <!-- Page container - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Page container - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-</mat-drawer-container>
+  </app-helper-overview-grap> -->
+</ng-container>

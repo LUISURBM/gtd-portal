@@ -9,11 +9,16 @@ const routes: Routes = [
     path: "",
     component: FullComponent,
     children: [
-      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       {
-        path: "",
+        path: "home",
         loadChildren: () =>
           import("./home/home.module").then((m) => m.HomeComponentsModule),
+      },
+      {
+        path: "dashboard",
+        loadChildren: () =>
+          import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
       {
         // Needed for hash routing
@@ -37,11 +42,6 @@ const routes: Routes = [
         path: "profile",
         loadChildren: () =>
           import("./profile/profile.module").then((m) => m.ProfileModule),
-      },
-      {
-        path: "dashboard",
-        loadChildren: () =>
-          import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
       {
         path: "trabajador",

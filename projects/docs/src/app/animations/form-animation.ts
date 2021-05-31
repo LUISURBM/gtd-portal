@@ -1,7 +1,7 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, state, style, transition, trigger } from '@angular/animations';
 
 
-export const animationsForm1 = [
+export const animationsForm = [
   trigger('heightGrow', [
       state('closed', style({
           height: 0,
@@ -12,11 +12,11 @@ export const animationsForm1 = [
           height: 'auto',
           padding: '1.25rem'
       })),
-      transition('void => *', animate(150))
+      transition('void => *', animate('.5s ease'))
   ]),
 ];
 
-export const animationsForm = [
+export const animationsForm2 = [
   trigger('heightGrow', [
     transition('void <=> *', []),
     transition('* <=> *', [
@@ -26,7 +26,7 @@ export const animationsForm = [
   ])
 ];
 
-export const animationsForm2 = [
+export const animationsForm1 = [
   trigger('heightGrow', [
     transition('void <=> *', []),
     transition('* <=> *', [style({ height: '{{startHeight}}px', opacity: 0 }), animate('.5s ease')], {
@@ -39,7 +39,40 @@ export const animationsForm3 = [
   trigger('heightGrow', [
     state('open', style({ maxHeight: '100px', overflow: 'auto' })),
     state('closed', style({ maxHeight: '60px' })),
-    transition('* => closed', animate('0.2s')),
-    transition('* => open', animate('0.5s')),
+    transition('* => closed', animate('0.2s ease')),
+    transition('* => open', animate('0.5s ease')),
+  ])
+];
+
+
+export const animationsForm4 =  [
+  trigger('flyInOut', [
+    state('open', style({
+      width: 120,
+      transform: 'translateX(0)', opacity: 1
+    })),
+    transition('void => *', [
+      style({ width: 10, transform: 'translateX(50px)', opacity: 0 }),
+      group([
+        animate('0.3s 0.1s ease', style({
+          transform: 'translateX(0)',
+          width: 120
+        })),
+        animate('0.3s ease', style({
+          opacity: 1
+        }))
+      ])
+    ]),
+    transition('* => void', [
+      group([
+        animate('0.3s ease', style({
+          transform: 'translateX(50px)',
+          width: 10
+        })),
+        animate('0.3s 0.2s ease', style({
+          opacity: 0
+        }))
+      ])
+    ])
   ])
 ];

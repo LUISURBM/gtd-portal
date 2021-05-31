@@ -12,7 +12,7 @@
     <!-- ============================================================== -->
 
     <button mat-icon-button (click)="formMenu.toggle()" value="sidebarclosed">
-      <mat-icon>menu</mat-icon>
+      <mat-icon>list</mat-icon>
     </button>
 
     <!-- ============================================================== -->
@@ -33,12 +33,12 @@
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
+        >
         <a class="navbar-brand" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
           <strong>
             Deducciones
           </strong>
         </a>
-        >
       </ng-container>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
         >
@@ -50,8 +50,8 @@
 
     <span fxFlex></span>
 
-    <button mat-button (click)="save()" tabindex="2">
-      <mat-icon>save</mat-icon>Guardar
+    <button mat-button (click)="navSrv.navigate('/nómina/view')" *ngIf="!(state.XSmall || state.Small)">
+      <mat-icon>back</mat-icon>
     </button>
     <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="primary" color="accent">
       <mat-icon>more_vert</mat-icon>
@@ -77,7 +77,7 @@
   <!-- ============================================================== -->
   <!-- End Topbar - style you can find in pages.scss -->
   <!-- ============================================================== -->
-  <mat-sidenav-container class="page-container" style.marginTop.px="0" style="height: calc(100vh - 128px);">
+  <mat-sidenav-container class="page-container" style.marginTop.px="0" >
     <!-- ============================================================== -->
     <!-- Sidebar - style you can find in sidebar.scss -->
     <!-- ============================================================== -->

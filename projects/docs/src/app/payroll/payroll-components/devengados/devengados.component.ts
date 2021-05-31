@@ -71,7 +71,6 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         'content-Type': 'application/json',
         Authorization: '82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68',
       }),

@@ -5,17 +5,33 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { AppStateService } from '../../../srv/local-app.service';
+import { animationsForm4 } from '../../../animations/form-animation';
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
   styles: [''],
+  animations: animationsForm4
 })
 export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   form: FormGroup;
   private _mobileQueryListener: () => void;
   @ViewChild('snav') sidenav!: MatSidenav;
+  tiles: Tile[] = [
+    {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 3, rows: 1, color: '#DDBDF1'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    // {text: 'Four', cols: 4, rows: 4, color: 'lightgreen'},
+  ];
+  state = "open";
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -55,5 +71,9 @@ export class AppSidebarComponent implements OnDestroy {
 
   close(reason: string) {
     this.sidenav.close();
+  }
+
+  changeState(): void {
+    (this.state == "closed") ? this.state = "open" : this.state = "closed";
   }
 }

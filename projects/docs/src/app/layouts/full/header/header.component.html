@@ -6,12 +6,12 @@
 </button>
 <mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
   <button mat-menu-item *ngFor="let option of messages" (click)="$event.stopPropagation();">
-    <mat-icon>{{option.ico}}</mat-icon> {{option.label}}
+    <mat-icon>{{option.ico}}</mat-icon> {{option.option}}
   </button>
 </mat-menu>
 <mat-menu #notificationsMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
   <button mat-menu-item *ngFor="let option of notifications" (click)="$event.stopPropagation();">
-    <mat-icon>{{option.ico}}</mat-icon> {{option.label}}
+    <mat-icon>{{option.ico}}</mat-icon> {{option.option}}
   </button>
 </mat-menu>
 <button [matMenuTriggerFor]="options" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png"

@@ -39,6 +39,9 @@ export class PayrollIndividualFormComponent {
       catalog: catalogs[0],
       nombre: '',
       estado: '',
+      trabajador: builder.group({
+        primerNombre: builder.control(''),
+      }),
     });
     this.route.queryParams.subscribe((params) => {
       const data1 = params['data'];

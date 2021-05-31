@@ -747,7 +747,7 @@ Mat card
 .mat-card {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05) !important;
   -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05) !important;
-  margin: 35px 15px;
+  margin: 55px 15px;
   padding: 0px !important;
   border-radius: var(--radius);
   background-color: var(--bg-card) !important;
@@ -762,22 +762,7 @@ Mat card
     margin: 0 0px 0px 0px;
   }
   .mat-card-header {
-    flex-direction: column;
-    // padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    // border-radius: 3px;
-    margin-top: -20px;
-    margin: 0 15px;
-    padding: 15px;
-    position: relative;
-    background: linear-gradient(
-      60deg,
-      var(--secondary),
-      var(--secondary-light)
-    );
-    border-radius: 4px;
-    top: -13px;
-    color: var(--text-accent-color) !important;
+
     .mat-card-title {
       margin-bottom: 2px;
       font-size: 20px;

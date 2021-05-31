@@ -3,48 +3,29 @@
 * https://materialtheme.arcsine.dev
 */
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // INCLUDE THE COMMON STYLES FOR ANGULAR MATERIAL. WE INCLUDE THIS HERE SO THAT YOU ONLY
 // HAVE TO LOAD A SINGLE CSS FILE FOR ANGULAR MATERIAL IN YOUR APP.
 
 // FONTS
-@import 'https://fonts.googleapis.com/css?family=Material+Icons';
-@import url('https://fonts.googleapis.com/css?family=Sintony:300,400,500');
+@import "https://fonts.googleapis.com/css?family=Material+Icons";
+@import url("https://fonts.googleapis.com/css?family=Sintony:300,400,500");
 
-
-$fontConfig: mat-typography-config(
-  $font-family: 'Sintony, sans-serif',
-  $display-4: mat-typography-level(112px, 112px, 300, 'Sintony, sans-serif', -0.0134em),
-  $display-3: mat-typography-level(56px, 56px, 400, 'Sintony, sans-serif', -0.0089em),
-  $display-2: mat-typography-level(45px, 48px, 400, 'Sintony, sans-serif', 0.0000em),
-  $display-1: mat-typography-level(34px, 40px, 400, 'Sintony, sans-serif', 0.0074em),
-  $headline: mat-typography-level(24px, 32px, 400, 'Sintony, sans-serif', 0.0000em),
-  $title: mat-typography-level(20px, 32px, 500, 'Sintony, sans-serif', 0.0075em),
-  $subheading-2: mat-typography-level(16px, 28px, 400, 'Sintony, sans-serif', 0.0094em),
-  $subheading-1: mat-typography-level(15px, 24px, 800, 'Sintony, sans-serif', 0.0067em),
-  $body-2: mat-typography-level(14px, 24px, 500, 'Sintony, sans-serif', 0.0179em),
-  $body-1: mat-typography-level(14px, 20px, 400, 'Sintony, sans-serif', 0.0179em),
-  $button: mat-typography-level(14px, 14px, 500, 'Sintony, sans-serif', 0.0893em),
-  $caption: mat-typography-level(12px, 20px, 400, 'Sintony, sans-serif', 0.0333em),
-  $input: mat-typography-level(inherit, 1.125, 400, 'Sintony, sans-serif', 1.5px)
-);
-
-// Compute font config
-@include mat-core($fontConfig);
+@include mat-core();
 
 //// F O R E G R O U N D   E L E M E N T S
-
+$topbar-vh: 5.7vh;
 
 // LIGHT THEME TEXT
-$light-text: #FFFFFF;
+$light-text: #ffffff;
 $dark-text: #181818;
 
 // LIGHT BG
-$light-background:  #ffffff;
-$app-bar-dark:      #181818;
+$light-background: #ffffff;
+$app-bar-dark: #181818;
 // DARK BG
-$dark-background:   #FFF59D;
-$app-bar-alt:       #83c5be;
+$dark-background: #fff59d;
+$app-bar-alt: #83c5be;
 
 $headingtext: #455a64;
 
@@ -77,7 +58,6 @@ $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #727b84;
 $secondary-light: #b9f6ca;
-
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -115,7 +95,7 @@ $card-brd: #d7dfe3;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
-body{
+body {
   --radius: #{$radius};
   --white: #{$white};
   --black: #{$black};
@@ -143,124 +123,122 @@ $dark-disabled-text: rgba($dark-primary-text, 0.5);
 $dark-dividers: rgba($dark-primary-text, 0.12);
 $dark-focused: rgba($dark-primary-text, 0.12);
 
+$light-bg-darker-5: darken($light-background, 5%);
+$light-bg-darker-10: darken($light-background, 10%);
+$light-bg-darker-20: darken($light-background, 20%);
+$light-bg-darker-30: darken($light-background, 30%);
+$light-bg-lighter-5: lighten($light-background, 5%);
+$light-app-bar-5: lighten($app-bar-alt, 5%);
+$dark-app-bar-5: lighten($app-bar-dark, 5%);
+$dark-bg-tooltip: lighten(#2c2c2c, 20%);
+$dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
+$dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
 
-$light-bg-darker-5:   darken($light-background, 5%);
-$light-bg-darker-10:  darken($light-background, 10%);
-$light-bg-darker-20:  darken($light-background, 20%);
-$light-bg-darker-30:  darken($light-background, 30%);
-$light-bg-lighter-5:  lighten($light-background, 5%);
-$light-app-bar-5:     lighten($app-bar-alt, 5%);
-$dark-app-bar-5:     lighten($app-bar-dark, 5%);
-$dark-bg-tooltip:     lighten(#2c2c2c, 20%);
-$dark-bg-alpha-4:     rgba(#2c2c2c, 0.04);
-$dark-bg-alpha-12:    rgba(#2c2c2c, 0.12);
-
-$dark-bg-lighter-5:   darken($dark-background, 5%);
-$dark-bg-lighter-10:  lighten($dark-background, 10%);
-$dark-bg-lighter-20:  lighten($dark-background, 20%);
-$dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#fafafa, 0.04);
-$light-bg-alpha-12:   rgba(#fafafa, 0.12);
+$dark-bg-lighter-5: darken($dark-background, 5%);
+$dark-bg-lighter-10: lighten($dark-background, 10%);
+$dark-bg-lighter-20: lighten($dark-background, 20%);
+$dark-bg-lighter-30: lighten($dark-background, 30%);
+$light-bg-alpha-4: rgba(#fafafa, 0.04);
+$light-bg-alpha-12: rgba(#fafafa, 0.12);
 
 $mat-light-theme-foreground: (
-  base:              $light-primary-text,
-  divider:           $dark-dividers,
-  dividers:          $dark-dividers,
-  disabled:          $light-disabled-text,
-  disabled-button:   rgba($light-text, 0.26),
-  disabled-text:     $light-disabled-text,
-  elevation:         white,
-  secondary-text:    $light-text,
-  hint-text:         $light-disabled-text,
-  accent-text:       $dark-accent-text,
-  icon:              $light-accent-text,
-  icons:             $light-accent-text,
-  text:              $light-text,
-  slider-min:        $light-primary-text,
-  slider-off:        rgba($light-text, 0.26),
+  base: $light-primary-text,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba($light-text, 0.26),
+  disabled-text: $light-disabled-text,
+  elevation: white,
+  secondary-text: $dark-text,
+  hint-text: $light-disabled-text,
+  accent-text: $dark-accent-text,
+  icon: $light-accent-text,
+  icons: $light-accent-text,
+  text: $light-text,
+  slider-min: $light-primary-text,
+  slider-off: rgba($light-text, 0.26),
   slider-off-active: $light-disabled-text,
 );
 
 $mat-dark-theme-foreground: (
-  base:              $dark-text,
-  divider:           $dark-dividers,
-  dividers:          $dark-dividers,
-  disabled:          $dark-disabled-text,
-  disabled-button:   rgba($dark-text, 0.3),
-  disabled-text:     $dark-disabled-text,
-  elevation:         black,
-  hint-text:         $dark-disabled-text,
-  secondary-text:    $dark-accent-text,
-  accent-text:       $dark-accent-text,
-  icon:              $dark-accent-text,
-  icons:             $dark-accent-text,
-  text:              $dark-text,
-  slider-min:        $dark-text,
-  slider-off:        rgba($dark-text, 0.3),
+  base: $dark-text,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.3),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-accent-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-accent-text,
+  icons: $dark-accent-text,
+  text: $dark-text,
+  slider-min: $dark-text,
+  slider-off: rgba($dark-text, 0.3),
   slider-off-active: rgba($dark-text, 0.3),
 );
 
 // BACKGROUND CONFIG
 // fpi-skin-black
 $mat-light-theme-background: (
-  background:               $light-bg-darker-20,
-  status-bar:               $dark-bg-lighter-20,
-  app-bar:                  $app-bar-dark,
-  hover:                    $light-bg-alpha-4,
-  card:                     $dark-app-bar-5,
-  dialog:                   $dark-app-bar-5,
-  tooltip:                  $dark-bg-lighter-5,
-  disabled-button:          $light-bg-alpha-12,
-  raised-button:            $dark-bg-lighter-30,
-  focused-button:           $dark-focused,
-  selected-button:          $dark-bg-lighter-20,
+  background: $light-bg-darker-20,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $app-bar-dark,
+  hover: $light-bg-alpha-4,
+  card: $dark-app-bar-5,
+  dialog: $dark-app-bar-5,
+  tooltip: $dark-bg-lighter-5,
+  disabled-button: $light-bg-alpha-12,
+  raised-button: $dark-bg-lighter-30,
+  focused-button: $dark-focused,
+  selected-button: $dark-bg-lighter-20,
   selected-disabled-button: $dark-bg-lighter-30,
-  disabled-button-toggle:   $dark-bg-lighter-10,
-  unselected-chip:          $dark-bg-lighter-20,
-  disabled-list-option:     $dark-bg-lighter-10,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
 );
 
 // fpi-skin-alt
 $mat-dark-theme-background: (
-  background:               $light-bg-darker-30,
-  status-bar:               $light-bg-darker-20,
-  app-bar:                  $app-bar-alt,
-  hover:                    $dark-bg-alpha-4,
-  card:                     $light-app-bar-5,
-  dialog:                   $app-bar-alt,
-  tooltip:                  $dark-bg-tooltip,
-  disabled-button:          $dark-bg-alpha-12,
-  raised-button:            $light-bg-lighter-5,
-  focused-button:           $light-focused,
-  selected-button:          $light-bg-darker-20,
+  background: $light-bg-darker-30,
+  status-bar: $light-bg-darker-20,
+  app-bar: $app-bar-alt,
+  hover: $dark-bg-alpha-4,
+  card: $light-app-bar-5,
+  dialog: $app-bar-alt,
+  tooltip: $dark-bg-tooltip,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $light-bg-lighter-5,
+  focused-button: $light-focused,
+  selected-button: $light-bg-darker-20,
   selected-disabled-button: $light-bg-darker-30,
-  disabled-button-toggle:   $light-bg-darker-10,
-  unselected-chip:          $light-bg-darker-10,
-  disabled-list-option:     $light-bg-darker-10,
+  disabled-button-toggle: $light-bg-darker-10,
+  unselected-chip: $light-bg-darker-10,
+  disabled-list-option: $light-bg-darker-10,
 );
-
 
 // THEME CONFIG
 
 $mat-primary-black: (
-  main: #DCE5AA,
+  main: #dce5aa,
   lighter: #777575,
   darker: #000000,
-  200: #86b30a, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
-  )
+  200: #86b30a,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $light-primary-text,
+      darker: $dark-primary-text,
+    ),
 );
 
-
 $themecolor-alt-black: #86b30a;
-$theme-alt-blacker-5:   lighten($themecolor-alt-black, 5%);
-$theme-alt-blacker-10:  lighten($themecolor-alt-black, 10%);
-$theme-alt-blacker-20:  lighten($themecolor-alt-black, 20%);
-$theme-alt-blacker-30:  lighten($themecolor-alt-black, 30%);
-
+$theme-alt-blacker-5: lighten($themecolor-alt-black, 5%);
+$theme-alt-blacker-10: lighten($themecolor-alt-black, 10%);
+$theme-alt-blacker-20: lighten($themecolor-alt-black, 20%);
+$theme-alt-blacker-30: lighten($themecolor-alt-black, 30%);
 
 $theme-primary-black: mat-palette($mat-primary-black, main, darker, lighter);
 
@@ -268,44 +246,79 @@ $mat-accent-black: (
   main: #797979,
   lighter: #d7d7d7,
   darker: #5c5c5c,
-  200: #797979, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #797979,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $theme-accent-black: mat-palette($mat-accent-black, main, lighter, darker);
-
 
 $mat-warn: (
   main: #ff0000,
   lighter: #ffb3b3,
   darker: #ff0000,
-  200: #ff0000, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
-  )
+  200: #ff0000,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $light-primary-text,
+      darker: $dark-primary-text,
+    ),
 );
 $theme-warn-black: mat-palette($mat-warn, main, lighter, darker);
 
-
-$bodyfont: 'Poppins', sans-serif;
+$bodyfont: "Poppins", sans-serif;
 $headingfont: "Poppins", sans-serif;
 $custom-typography: mat-typography-config(
   $font-family: "Poppins, sans-serif",
 );
-$theme-black: mat-light-theme($theme-primary-black, $theme-accent-black, $theme-warn-black);
+$theme-black: mat-light-theme(
+  $theme-primary-black,
+  $theme-accent-black,
+  $theme-warn-black
+);
 
 .fpi-skin-black {
+  $fontConfig: mat-typography-config(
+    $font-family: "Sintony, sans-serif",
+    $display-4:
+      mat-typography-level(112px, 112px, 300, "Sintony, sans-serif", -0.0134em),
+    $display-3:
+      mat-typography-level(56px, 56px, 400, "Sintony, sans-serif", -0.0089em),
+    $display-2:
+      mat-typography-level(45px, 48px, 400, "Sintony, sans-serif", 0em),
+    $display-1:
+      mat-typography-level(34px, 40px, 400, "Sintony, sans-serif", 0.0074em),
+    $headline: mat-typography-level(24px, 32px, 400, "Sintony, sans-serif", 0em),
+    $title:
+      mat-typography-level(20px, 32px, 500, "Sintony, sans-serif", 0.0075em),
+    $subheading-2:
+      mat-typography-level(16px, 28px, 400, "Sintony, sans-serif", 0.0094em),
+    $subheading-1:
+      mat-typography-level(15px, 24px, 800, "Sintony, sans-serif", 0.0067em),
+    $body-2:
+      mat-typography-level(14px, 24px, 500, "Sintony, sans-serif", 0.0179em),
+    $body-1:
+      mat-typography-level(14px, 20px, 400, "Sintony, sans-serif", 0.0179em),
+    $button:
+      mat-typography-level(14px, 14px, 500, "Sintony, sans-serif", 0.0893em),
+    $caption:
+      mat-typography-level(12px, 20px, 400, "Sintony, sans-serif", 0.0333em),
+    $input:
+      mat-typography-level(inherit, 1.125, 400, "Sintony, sans-serif", 1.5px),
+  );
+  @include mat-core($fontConfig);
   @include angular-material-theme($theme-black);
   --themecolor-alt: #{$themecolor-alt-black};
   --secondary: #{$theme-alt-blacker-5};
-  --secondary-light: #{$theme-alt-blacker-10};
-  --bg-toolbar: mat-color($mat-primary-black,main);
-  --inverse: #F78E59;
+  --secondary-light: #{$theme-alt-blacker-5};
+  --bg-toolbar: mat-color($mat-primary-black, main);
+  --inverse: #f78e59;
   --bg-dialog: #{$dark-app-bar-5};
   --bg-card: #{$light-background};
   --bg-body: #{$light-bg-darker-30};
@@ -345,57 +358,58 @@ $theme-black: mat-light-theme($theme-primary-black, $theme-accent-black, $theme-
   --text-warn-darker-color: #{$dark-primary-text};
 }
 
-
 // THEME CONFIG
 
 $sidebar-icons: #9d7c62;
 
-
 $themecolor-alt: #93656c;
-$theme-alt-lighter-5:   lighten($themecolor-alt, 5%);
-$theme-alt-lighter-10:  lighten($themecolor-alt, 10%);
-$theme-alt-lighter-20:  lighten($themecolor-alt, 20%);
-$theme-alt-lighter-30:  lighten($themecolor-alt, 30%);
-
+$theme-alt-lighter-5: lighten($themecolor-alt, 5%);
+$theme-alt-lighter-10: lighten($themecolor-alt, 10%);
+$theme-alt-lighter-20: lighten($themecolor-alt, 20%);
+$theme-alt-lighter-30: lighten($themecolor-alt, 30%);
 
 $mat-primary: (
-  main: #A37C82,
+  main: #a37c82,
   lighter: #15bb0d,
   darker: #777575,
-  200: #db543c, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
-  )
+  200: #db543c,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $light-primary-text,
+      darker: $dark-primary-text,
+    ),
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
-
 
 $mat-accent: (
   main: #797979,
   lighter: #d7d7d7,
   darker: #5c5c5c,
-  200: #797979, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
-  )
+  200: #797979,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $light-primary-text,
+      darker: $dark-primary-text,
+    ),
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
-
 
 $mat-warn: (
   main: #ff0000,
   lighter: #ffb3b3,
   darker: #ff0000,
-  200: #ff0000, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $dark-primary-text,
-    lighter: $light-primary-text,
-    darker: $dark-primary-text,
-  )
+  200: #ff0000,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $dark-primary-text,
+      lighter: $light-primary-text,
+      darker: $dark-primary-text,
+    ),
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
@@ -403,12 +417,41 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 // THEME INIT
 .fpi-skin-alt {
+  $fontConfig: mat-typography-config(
+    $font-family: "Sintony, sans-serif",
+    $display-4:
+      mat-typography-level(112px, 112px, 300, "Sintony, sans-serif", -0.0134em),
+    $display-3:
+      mat-typography-level(56px, 56px, 400, "Sintony, sans-serif", -0.0089em),
+    $display-2:
+      mat-typography-level(45px, 48px, 400, "Sintony, sans-serif", 0em),
+    $display-1:
+      mat-typography-level(34px, 40px, 400, "Sintony, sans-serif", 0.0074em),
+    $headline: mat-typography-level(24px, 32px, 400, "Sintony, sans-serif", 0em),
+    $title:
+      mat-typography-level(20px, 32px, 500, "Sintony, sans-serif", 0.0075em),
+    $subheading-2:
+      mat-typography-level(16px, 28px, 400, "Sintony, sans-serif", 0.0094em),
+    $subheading-1:
+      mat-typography-level(15px, 24px, 800, "Sintony, sans-serif", 0.0067em),
+    $body-2:
+      mat-typography-level(14px, 24px, 500, "Sintony, sans-serif", 0.0179em),
+    $body-1:
+      mat-typography-level(14px, 20px, 400, "Sintony, sans-serif", 0.0179em),
+    $button:
+      mat-typography-level(14px, 14px, 500, "Sintony, sans-serif", 0.0893em),
+    $caption:
+      mat-typography-level(12px, 20px, 400, "Sintony, sans-serif", 0.0333em),
+    $input:
+      mat-typography-level(inherit, 1.125, 400, "Sintony, sans-serif", 1.5px),
+  );
+  @include mat-core($fontConfig);
   @include angular-material-color($altTheme);
   --secondary: #{$theme-alt-lighter-5};
   --secondary-light: #{$theme-alt-lighter-10};
   --themecolor-alt: #{$themecolor-alt};
-  --bg-toolbar: mat-color($mat-primary,main);
-  --inverse: mat-color($mat-accent,main);
+  --bg-toolbar: mat-color($mat-primary, main);
+  --inverse: mat-color($mat-accent, main);
   --bg-dialog: #{$light-app-bar-5};
   --bg-card: #{$dark-background};
   --bg-body: #{$dark-bg-lighter-30};
@@ -434,28 +477,27 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --text-warn-darker-color: #{$dark-primary-text};
 }
 
-
-
 // SPECIFIC COMPONENT OVERRIDES, PIECES THAT ARE NOT IN LINE WITH THE GENERAL THEMING
 
 // HANDLE BUTTONS APPROPRIATELY, WITH RESPECT TO LINE-HEIGHT
-.mat-raised-button, .mat-stroked-button, .mat-flat-button {
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
   padding: 0 1.15em;
-  margin: 0 .65em;
+  margin: 0 0.65em;
   min-width: 3em;
-  line-height: 36.4px
+  line-height: 36.4px;
 }
 
 .mat-standard-chip {
-  padding: .5em .85em;
+  padding: 0.5em 0.85em;
   min-height: 2.5em;
 }
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';
+  font-family: "Material Icons", "Material Icons";
   .mat-badge-content {
-    font-family: 'Roboto';
+    font-family: "Sintony, sans-serif";
   }
 }
-

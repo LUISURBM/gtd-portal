@@ -31,13 +31,14 @@ File: scss
 
 .mat-drawer-container {
   background: $bodycolor;
-  height: 100vh;
+  height: 100%;
 }
 
 html .page-wrapper {
-  height: calc(100vh - 128px);
+  min-height: 100vh;
   .page-content {
-    padding: 15px;
+    // padding: 15px;
+    height: 100vh;
   }
 }
 

@@ -4,30 +4,10 @@
 */
 
 @import "~@angular/material/theming";
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-
-// Fonts
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-$bodyfont: 'Poppins', sans-serif;
-
-$fontConfig: (
-  display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
-  display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
-  display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
-  display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
-  headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
-  title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
-  subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
-  subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
-  body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
-  body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
-  button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
-  caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
-  input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
-);
+$bodyfont: "Poppins", sans-serif;
 
 // Foreground Elements
 
@@ -142,9 +122,6 @@ $mat-dark-theme-background: (
   unselected-chip: $dark-bg-lighter-20,
   disabled-list-option: $dark-bg-lighter-10,
 );
-
-// Compute font config
-@include mat-core($fontConfig);
 
 // Theme Config
 
@@ -276,17 +253,56 @@ $mat-warn-dark: (
 $theme-warn-dark: mat-palette($mat-warn-dark, main, lighter, darker);
 
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn-dark);
+$altTheme: mat-dark-theme(
+  $theme-primary-dark,
+  $theme-accent-dark,
+  $theme-warn-dark
+);
 
 .gtd-blue {
+  // Compute font config
+  $fontConfig: mat-typography-config(
+    $font-family: "Roboto, 'Helvetica Neue'",
+    $display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
+    $display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
+    $display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
+    $display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+    $headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
+    $title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
+    $subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
+    $subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
+    $body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
+    $body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
+    $button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
+    $caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
+    $input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
+  );
+  @include mat-core($fontConfig);
   @include angular-material-theme($theme);
 }
 
 // Theme Init
 .gtd-blue-black {
+  // Compute font config
+  $fontConfig: mat-typography-config(
+    $font-family: "Roboto, 'Helvetica Neue'",
+    $display-4: mat-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
+    $display-3: mat-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
+    $display-2: mat-typography-level(45px, 48px, 400, "Roboto", 0em),
+    $display-1: mat-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+    $headline: mat-typography-level(24px, 32px, 400, "Roboto", 0em),
+    $title: mat-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
+    $subheading-2: mat-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
+    $subheading-1: mat-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
+    $body-2: mat-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
+    $body-1: mat-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
+    $button: mat-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
+    $caption: mat-typography-level(12px, 20px, 400, "Roboto", 0.0333em),
+    $input: mat-typography-level(inherit, 1.125, 400, "Roboto", 1.5px),
+  );
+  @include mat-core($fontConfig);
   @include angular-material-color($altTheme);
 }
-
 
 // Specific component overrides, pieces that are not in line with the general theming
 

@@ -1,6 +1,14 @@
-<mat-card *ngIf="dataSource$ | async as dataSource">
-  <mat-card-header>
-    <mat-card-title>Individuales</mat-card-title>
+<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
+  <mat-card-header class="card-header card-header-primary card-header-icon">
+    <mat-card-title>
+      <div class="card-icon">
+        <i class="material-icons">people</i>
+      </div>
+      <h1 class="card-title">Nóminas
+        <strong>Individuales</strong>
+      </h1>
+      <p class="card-category">Total cargados</p>
+    </mat-card-title>
     <mat-card-subtitle><code class=""><a >{{dataSource.datasource.data.length}}</a></code> <code (click)="navSrv.navigate('/nómina')">&lt;Nóminas individuales&gt;</code> del corte. </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

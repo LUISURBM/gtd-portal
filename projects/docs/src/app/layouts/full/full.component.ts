@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { Menu, MenuItems } from '../../shared/menu-items/menu-items';
 import { AppStateService } from '../../srv/local-app.service';
+import { NavigationService } from '../../srv/navigation.service';
 
 /** @title Responsive sidenav */
 @Component({
@@ -30,7 +31,8 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     public menuItems: MenuItems,
     public stateSrv: AppStateService,
-    public router: Router
+    public router: Router,
+    public navSrv: NavigationService
   ) {}
 
   ngOnInit() {

@@ -6,6 +6,7 @@ mat-toolbar{
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.5);
     &.topbar{
         padding: 0px 15px;
+        height: $topbar-vh;
     }
     .navbar-header {
         text-align: center;
