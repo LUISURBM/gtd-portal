@@ -5,7 +5,7 @@
 
 // Unicorn light theme
 
-$topbar: #1e2625;
+$topbar: #171e13;
 $sidebar: white;
 $sidebar-white: #e5edef;
 $sidebar-alt: #f2f6f8;
@@ -18,7 +18,7 @@ $font-16: 16px;
 
 $light-text: white;
 $themecolor: #1e88e5;
-$themecolor-alt: #dc6d02;
+$themecolor-alt: #c43d16;
 $themecolor-dark: #028ee1;
 
 /*bootstrap Color*/
@@ -32,8 +32,8 @@ $muted: #99abb4;
 $dark: #263238;
 $light: #f2f4f8;
 $extra-light: #ebf3f5;
-$secondary: #dc6d02;
-$secondary-light: #b9681c;
+$secondary: #c43d16;
+$secondary-light: #fd9a7e;
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -53,7 +53,7 @@ $red-dark: #d61f1f;
 $inverse-dark: #232a37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
 $text-accent-lighter-color: white;
-$bg-dialog: #1e2625;
+$bg-dialog: #171e13;
 /*Normal Color*/
 $white: #ffffff;
 $red: #fb3a3a;
@@ -75,27 +75,50 @@ $form-brd: #d9d9d9;
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
+$mat-light-theme-foreground: (
+  base:              $light-primary-text,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba($light-text, 0.26),
+  disabled-text:     $light-disabled-text,
+  elevation:         white,
+  secondary-text:    $light-text,
+  hint-text:         $light-disabled-text,
+  accent-text:       $dark-accent-text,
+  icon:              $light-accent-text,
+  icons:             $light-accent-text,
+  text:              $light-text,
+  slider-min:        $light-primary-text,
+  slider-off:        rgba($light-text, 0.26),
+  slider-off-active: $light-disabled-text,
+);
+
 // BACKGROUND CONFIG
-// fpi-skin-black
+// default-light
 $mat-light-theme-background: (
   background: $bodycolor,
   status-bar: #1e2625,
   app-bar: $topbar,
   hover: #80808077,
-  card: #1e2625,
-  dialog: #1e2625,
-  tooltip: #1e2625,
+  card: #171e13,
+  dialog: #171e13,
+  tooltip: #171e13,
   disabled-button: $light-text,
-  raised-button: #1e2625,
-  focused-button: #1e2625,
-  selected-button: #1e2625,
-  selected-disabled-button: #1e2625,
-  disabled-button-toggle: #1e2625,
-  unselected-chip: #1e2625,
-  disabled-list-option: #1e2625,
+  raised-button: #171e13,
+  focused-button: #171e13,
+  selected-button: #171e13,
+  selected-disabled-button: #171e13,
+  disabled-button-toggle: #171e13,
+  unselected-chip: #171e13,
+  disabled-list-option: #171e13,
 );
+
+
+
+
 $mat-primary: (
-  main: #dc6d02,
+  main: #c43d16,
   lighter: #15bb0d,
   darker: #777575,
   200: #db543c,
