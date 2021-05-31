@@ -1,65 +1,38 @@
-<h1 mat-dialog-title>Formulario Libranza {{ data.id }}</h1>
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title">Agregar libranza nuevo</h4>
-                <p class="card-category">Información de libranza</p>
-              </div>
-              <div class="card-body">
-                <form [formGroup]="form">
-                  <mat-form-field>
-                    <input
-                      matInput
-                      tabindex="1"
-                      formControlName="deduccion"
-                      placeholder="Valor de la deduccion"
-                      id="deduccion"
-                      type="text"
-                      class="form-control"
-                    />
-                    <div
-                      *ngIf="f.deduccion.touched && f.deduccion.invalid"
-                      class="alert alert-danger"
-                    >
-                      <div *ngIf="f.deduccion.errors?.required">
-                        deducción is required.
-                      </div>
-                    </div>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input
-                      matInput
-                      tabindex="1"
-                      formControlName="descripcion"
-                      placeholder="Descripcion de la deducción"
-                      id="descripcion"
-                      type="text"
-                      class="form-control"
-                    />
-                    <div
-                      *ngIf="f.descripcion.touched && f.descripcion.invalid"
-                      class="alert alert-danger"
-                    >
-                      <div *ngIf="f.descripcion.errors?.required">
-                        descripcion is required.
-                      </div>
-                    </div>
-                  </mat-form-field>
+<form class="m-0 d-flex main-container main-form" style="overflow: visible" [formGroup]="form">
+  <div class="m-0 mat-card">
+    <div class="mat-card-header card-header-primary">
+      <h1 mat-dialog-title>Formulario Libranza {{ data.id }}</h1>
+      <h4 class="card-title">Agregar libranza nuevo</h4>
+      <p class="card-category">Información de libranza</p>
+    </div>
+    <div class="card-body">
 
-
-                  <div mat-dialog-actions>
-                    <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                    <button mat-button (click)="onNoClick()" tabindex="-1">
-                      Cancelar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="deduccion" placeholder="Valor de la deduccion" id="deduccion"
+          type="text" class="form-control" />
+        <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
+          <div *ngIf="f.deduccion.errors?.required">
+            deducción is required.
           </div>
         </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="descripcion" placeholder="Descripcion de la deducción"
+          id="descripcion" type="text" class="form-control" />
+        <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
+          <div *ngIf="f.descripcion.errors?.required">
+            descripcion is required.
+          </div>
+        </div>
+      </mat-form-field>
+
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
       </div>
     </div>
+  </div>
+</form>

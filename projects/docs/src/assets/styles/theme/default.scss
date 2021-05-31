@@ -1,30 +1,24 @@
-
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
-
 
 /*Default light Theme Colors*/
 
-
-
-
-
 // Unicorn light theme
 
-$topbar: #02140a;
-$sidebar: rgb(2, 14, 2);
+$topbar: #171e13;
+$sidebar: white;
 $sidebar-white: #e5edef;
 $sidebar-alt: #f2f6f8;
-$bodycolor: #eef5f9;
+$bodycolor: #f2f1ef;
 $headingtext: #455a64;
 $bodytext: #67757c;
-$sidebar-icons: #99abb4;
+$sidebar-icons: #ffffff;
 
 $font-16: 16px;
 
-$light-text: #a6b7bf;
+$light-text: white;
 $themecolor: #1e88e5;
-$themecolor-alt: #773152;
+$themecolor-alt: #c43d16;
 $themecolor-dark: #028ee1;
 
 /*bootstrap Color*/
@@ -38,9 +32,8 @@ $muted: #99abb4;
 $dark: #263238;
 $light: #f2f4f8;
 $extra-light: #ebf3f5;
-$secondary: #727b84;
-$secondary-light: #b9f6ca;
-
+$secondary: #c43d16;
+$secondary-light: #fd9a7e;
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -59,7 +52,8 @@ $info-dark: #028ee1;
 $red-dark: #d61f1f;
 $inverse-dark: #232a37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
-
+$text-accent-lighter-color: white;
+$bg-dialog: #171e13;
 /*Normal Color*/
 $white: #ffffff;
 $red: #fb3a3a;
@@ -73,33 +67,68 @@ $rgt: right;
 $lft: left;
 $border: rgba(120, 130, 140, 0.13);
 $table-border: #f3f1f1;
-$card-brd: #d7dfe3;
-$dark-text: #848a96;
+$card-brd: #1e2625;
+$dark-text: #000000;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
-body{
-  --primary: #{$primary};
-  --background: #{mat-color(map-get($theme-black, background))};
-  --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-}
+$mat-light-theme-foreground: (
+  base:              $light-primary-text,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba($light-text, 0.26),
+  disabled-text:     $light-disabled-text,
+  elevation:         white,
+  secondary-text:    $light-text,
+  hint-text:         $light-disabled-text,
+  accent-text:       $dark-accent-text,
+  icon:              $light-accent-text,
+  icons:             $light-accent-text,
+  text:              $light-text,
+  slider-min:        $light-primary-text,
+  slider-off:        rgba($light-text, 0.26),
+  slider-off-active: $light-disabled-text,
+);
+
+// BACKGROUND CONFIG
+// default-light
+$mat-light-theme-background: (
+  background: $bodycolor,
+  status-bar: #1e2625,
+  app-bar: $topbar,
+  hover: #80808077,
+  card: #171e13,
+  dialog: #171e13,
+  tooltip: #171e13,
+  disabled-button: $light-text,
+  raised-button: #171e13,
+  focused-button: #171e13,
+  selected-button: #171e13,
+  selected-disabled-button: #171e13,
+  disabled-button-toggle: #171e13,
+  unselected-chip: #171e13,
+  disabled-list-option: #171e13,
+);
+
+
 
 
 $mat-primary: (
-  main: #e7e4e4,
+  main: #c43d16,
   lighter: #15bb0d,
   darker: #777575,
-  200: #db543c, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #db543c,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
@@ -107,12 +136,14 @@ $mat-accent: (
   main: #797979,
   lighter: #d7d7d7,
   darker: #5c5c5c,
-  200: #797979, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #797979,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
@@ -120,17 +151,16 @@ $mat-warn: (
   main: #ff0000,
   lighter: #ffb3b3,
   darker: #ff0000,
-  200: #ff0000, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #ff0000,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
-
-
-
 
 // $primary-theme: mat-palette($mat-blue-grey);
 // $accent-theme: mat-palette($mat-amber, A200, A100, A400);
@@ -140,8 +170,8 @@ $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
 // $theme: mat-light-theme($primary-theme, $accent-theme, $warn-theme);
 /*Material Theme Colors*/
-$bodyfont: 'Poppins', sans-serif;
-$headingfont: 'Poppins', sans-serif;
+$bodyfont: "Poppins", sans-serif;
+$headingfont: "Poppins", sans-serif;
 // $theme: mat-light-theme((
 //   color: (
 //     primary: $primary,
@@ -152,42 +182,47 @@ $headingfont: 'Poppins', sans-serif;
 // $background: map-get($theme, background);
 // $foreground: map-get($theme, foreground);
 $custom-typography: mat-typography-config(
-  $font-family: 'Poppins, sans-serif'
+  $font-family: "Poppins, sans-serif",
 );
-
 
 $mat-primary-black: (
   main: #e7e4e4,
   lighter: #15bb0d,
   darker: #777575,
-  200: #db543c, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #db543c,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $mat-accent-black: (
   main: #797979,
   lighter: #d7d7d7,
   darker: #5c5c5c,
-  200: #797979, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #797979,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 $mat-warn-black: (
   main: #ff0000,
   lighter: #ffb3b3,
   darker: #ff0000,
-  200: #ff0000, // FOR SLIDE TOGGLE,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
-  )
+  200: #ff0000,
+  // FOR SLIDE TOGGLE,
+  contrast:
+    (
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
+    ),
 );
 
 $primary-theme-black: mat-palette($mat-primary-black);
@@ -200,13 +235,24 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 // $background: map-get($theme, background);
 // $foreground: map-get($theme, foreground);
 
-
 .default-theme {
   @include angular-material-theme($theme);
+  --primary: #{$primary};
+  --background: #{mat-color(map-get($theme-black, background))};
+  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --text-primary-color: #{$dark-text};
+  --sidebar-icons: #{$sidebar-icons};
+  --text-accent-lighter-color: #{$text-accent-lighter-color};
+  --bg-dialog: #{$bg-dialog};
 }
 
-$theme-black: mat-dark-theme($primary-theme-black, $accent-theme-black, $warn-theme-black);
+$theme-black: mat-dark-theme(
+  $primary-theme-black,
+  $accent-theme-black,
+  $warn-theme-black
+);
 .default-theme-black {
   @include angular-material-color($theme-black);
 }
-
