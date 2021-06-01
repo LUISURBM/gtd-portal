@@ -42,6 +42,9 @@ export class PayrollIndividualFormComponent {
       trabajador: builder.group({
         primerNombre: builder.control(''),
       }),
+      deduccion: 0,
+      devengos: 0,
+      totalAPagar: 0
     });
     this.route.queryParams.subscribe((params) => {
       const data1 = params['data'];

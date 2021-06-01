@@ -22,10 +22,10 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   selectedPane: any;
 
   get activeRoute() {
-    const items = this.menuItems?.menuState$?.value?.menuItems?.filter((item: Menu) => {
-      return (item.name === this.router.url.split('/')[0] || item.name === (this.router.url.split('/')[1] ?? undefined));
+    const items = this.menuItems?.menuState$?.value?.menuItems?.filter(item => item.name === this.router.url.split('/')[0]).map((item: Menu) => {
+      return `${item.name} ${item.menuItems?.filter(item => item.name === this.router.url.split('/')[1])?.map( item => item.name )?.[0]}`;
     });
-    return `${items[0]?.name ?? 'Nómina'} ${items[1]?.name ?? ''}`;
+    return `${items[0] ?? 'Nómina'}`;
   }
 
   constructor(
