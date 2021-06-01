@@ -5,7 +5,7 @@
         <i class="material-icons">drive_folder_upload</i>
       </div>
       <h1 class="card-title">Nómina
-        <small>NI</small>
+        <small>General</small>
       </h1>
       <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
@@ -21,7 +21,7 @@
             <mat-label>Fecha corte</mat-label>
             <input matInput formControlName="fechaLiquidacion" placeholder="Ej. Mia" [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" touchUi [startAt]="startDate"></mat-datepicker>
+            <mat-datepicker #picker startView="year" touchUi [startAt]="startDate" (monthSelected)="closeDatePicker($event, picker)"></mat-datepicker>
           </mat-form-field>
         </ng-container>
         <mat-form-field class="example-full-width">
@@ -73,13 +73,13 @@
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="sdprofile">
+            <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/individual')" tabindex="4">
+              <mat-icon>pageview</mat-icon> Individuales
+            </button>
             <button mat-icon-button color="primary" color="accent">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #sdprofile="matMenu" class="mymegamenu">
-              <button mat-menu-item *ngIf="element.id" (click)="navSrv.navigate('/nómina/individual')" tabindex="4">
-                <mat-icon>eye</mat-icon> Ver
-              </button>
               <button mat-menu-item color="primary" (click)="openDialog(element.id)">
                 <mat-icon>edit</mat-icon> Editar
               </button>

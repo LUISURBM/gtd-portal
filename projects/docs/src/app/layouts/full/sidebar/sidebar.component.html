@@ -45,7 +45,7 @@
     <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
         group="{{menuitem.state}}">
-        <a class="" appAccordionToggle (click)=" navSrv.navigate(menuitem.state)"
+        <a class="" appAccordionToggle (click)="stateSrv.toggleMenu(); navSrv.navigate(menuitem.state)"
           *ngIf="menuitem.type === 'link'">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name }}</span>

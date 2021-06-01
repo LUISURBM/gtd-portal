@@ -19,7 +19,7 @@
             <mat-label>Fecha corte</mat-label>
             <input matInput formControlName="fechaLiquidacion"  placeholder="Ej. Mia" [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" touchUi [startAt]="startDate"></mat-datepicker>
+            <mat-datepicker #picker startView="year" touchUi [startAt]="startDate" (monthSelected)="picker.close()"></mat-datepicker>
           </mat-form-field>
         </ng-container>
         <mat-form-field class="example-full-width">

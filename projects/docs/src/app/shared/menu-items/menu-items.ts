@@ -21,7 +21,11 @@ export const MENUITEMS: Menu[] = [
     type: 'link',
     icon: 'dashboard',
   },
-  { state: 'nómina', name: 'Nómina', type: 'link', icon: 'drive_folder_upload' },
+  { state: 'nómina', name: 'Nómina', type: 'link', icon: 'drive_folder_upload'
+  ,menuItems: [
+    { state: '/nómina/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
+  ]
+  },
   {
     state: 'subscription',
     type: 'link',

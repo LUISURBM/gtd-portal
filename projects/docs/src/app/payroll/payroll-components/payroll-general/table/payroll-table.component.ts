@@ -14,11 +14,28 @@ import { NgGtdDS } from '../../../../types/common-types';
 import { BehaviorSubject } from 'rxjs';
 import { displayedColumns, EMPTY, nominas, Payroll } from '../payroll-data';
 import { PayrollGeneralFormComponent } from '../payroll-general.component';
+import { StoredProcedureService } from '../../../../srv/payroll/api/storedProcedure.service';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'MM/YYYY',
+  },
+  display: {
+    dateInput: 'MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-payroll-table',
   templateUrl: './payroll-table.component.html',
-  styleUrls: ['./payroll-table.component.css']
+  styleUrls: ['./payroll-table.component.css'],
+  providers: [
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
 export class PayrollTableComponent implements OnInit, AfterViewInit {
   form: FormGroup;
@@ -27,7 +44,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
   };
-  dataSource$: BehaviorSubject<NgGtdDS>;
+  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
+    datasource: new MatTableDataSource<Payroll>(nominas),
+    displayedColumns: displayedColumns,
+  });;
 
   selection = new SelectionModel<Payroll>(false, []);
 
@@ -56,6 +76,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     public navSrv: NavigationService
+    ,private storedProcedureAPISrv: StoredProcedureService
   ) {
     this.form = this.formBuilder.group({
       filtro: '',
@@ -70,10 +91,47 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
         tiempoLaborado: new Date(),
       }),
     });
-    this.dataSource$ = new BehaviorSubject<NgGtdDS>({
-      datasource: new MatTableDataSource<Payroll>(nominas),
-      displayedColumns: displayedColumns,
-    });
+    const request: any = {
+      body: {
+        params: {
+          businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
+        },
+      },
+      header: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+        esquema: 'payroll',
+        procedimientoAlmacenado: 'ConsultarListNominasIndividualesTest',
+      },
+    };
+
+    storedProcedureAPISrv
+      .exectuteProcedureUsingPOST(request, 'events', true, {
+        httpHeaderAccept: 'application/json',
+      })
+      .subscribe({
+        next: (data:any) => {console.log(data);
+        let newarray = data?.body?.body?.map((element: any) => {
+          var key,
+            keys = Object.keys(element);
+          var n = keys.length;
+          var newobj: any = {};
+          while (n--) {
+            key = keys[n];
+            newobj[key.toLowerCase()] = element[key];
+          }
+          return newobj;
+        });
+
+
+        // this.dataSource$.next({
+        //   datasource: new MatTableDataSource<Payroll>(newarray),
+        //   displayedColumns: displayedColumns,
+        // });
+      },
+        error: (err: any) => {
+          console.log(err);
+        }
+      });
   }
 
   ngOnInit(): void {}
@@ -153,5 +211,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
       if (result?.id) this.edit(result);
       else this.add(result);
     });
+  }
+
+  closeDatePicker(eventData: any, dp?:any) {
+    // get month and year from eventData and close datepicker, thus not allowing user to select date
+    dp.close();
   }
 }

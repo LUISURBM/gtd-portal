@@ -25,7 +25,7 @@ interface UIState {
 export class AppStateService {
   themes: ValueOption[] = THEMES_OPTIONS;
   public themeState$: BehaviorSubject<UIState> = new BehaviorSubject<UIState>({
-    uiPalette: NgGtdThemes.NeGtd,
+    uiPalette: NgGtdThemes.FpiSkin,
     visibleMenu: false,
     fullScreen: false,
   });
