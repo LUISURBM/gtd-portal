@@ -3,37 +3,41 @@
 
 /*Default light Theme Colors*/
 
-// Unicorn light theme
+// Default light theme
+$font-16: 16px;
+$light-text: white;
+$themecolor: #1e88e5;
+$themecolor-alt: #c43d16;
+$themecolor-dark: #683628;
+$primary: #6a1b1b;
+$secondary:#fcb500;
+$secondary-light:#edc596;
+$third: #fd9a7e;
+$four:#dc6d02;
 
-$topbar: #171e13;
+$topbar: #461412;
 $sidebar: white;
-$sidebar-white: #e5edef;
+$sidebar-white: white;
 $sidebar-alt: #f2f6f8;
 $bodycolor: #f2f1ef;
 $headingtext: #455a64;
 $bodytext: #67757c;
-$sidebar-icons: #ffffff;
+$sidebar-icons-light:black;
 
-$font-16: 16px;
 
-$light-text: white;
-$themecolor: #1e88e5;
-$themecolor-alt: #c43d16;
-$themecolor-dark: #028ee1;
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
 $success: #26c6da;
 $warning: #ffb22b;
-$primary: #b6780c;
+
 $info: #1e88e5;
 $inverse: #2f3d4a;
 $muted: #99abb4;
 $dark: #263238;
 $light: #f2f4f8;
 $extra-light: #ebf3f5;
-$secondary: #c43d16;
-$secondary-light: #fd9a7e;
+
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -43,6 +47,7 @@ $light-primary: #f1effd;
 $light-info: #e3f3fd;
 $light-inverse: #f6f6f6;
 $light-megna: #e0f2f4;
+$bg-ligth-card:#ffff;
 
 $danger-dark: #e6294b;
 $success-dark: #1eacbe;
@@ -52,8 +57,6 @@ $info-dark: #028ee1;
 $red-dark: #d61f1f;
 $inverse-dark: #232a37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
-$text-accent-lighter-color: white;
-$bg-dialog: #171e13;
 /*Normal Color*/
 $white: #ffffff;
 $red: #fb3a3a;
@@ -68,11 +71,11 @@ $lft: left;
 $border: rgba(120, 130, 140, 0.13);
 $table-border: #f3f1f1;
 $card-brd: #1e2625;
-$dark-text: #3C4858;
+$dark-text: #000000;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
-$light-primary-text: #d7dfe3;
+$light-primary-text:#ffff;
 $dark-primary-text: #0a2634;
 
 // BACKGROUND CONFIG
@@ -82,8 +85,8 @@ $mat-light-theme-background: (
   status-bar: #1e2625,
   app-bar: $topbar,
   hover: #80808077,
-  card: #171e13,
-  dialog: #171e13,
+  card: $sidebar-white,
+  dialog: $sidebar-white,
   tooltip: #171e13,
   disabled-button: $light-text,
   raised-button: #171e13,
@@ -98,7 +101,7 @@ $mat-light-theme-background: (
 
 );
 $mat-primary: (
-  main: #c43d16,
+  main:$primary,
   lighter: #15bb0d,
   darker: #777575,
   200: #db543c,
@@ -223,11 +226,15 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   --secondary: #{$secondary};
   --secondary-light: #{$secondary-light};
   --text-primary-color: #{$dark-text};
-  --sidebar-icons: #{$sidebar-icons};
-  --text-accent-lighter-color: #{$text-accent-lighter-color};
-  --bg-dialog: #{$bg-dialog};
+  --sidebar-icons: #{$sidebar-icons-light};
+  --bg-dialog: #{$sidebar-white};
   --text-accent-color: #{$dark-text};
-  --text-accent-new-color:#{$light}
+  --text-accent-new-color:#{$light};
+  --text-accent-icon-color:#{$light};
+  --bg-dialog-scroll:#{$white};
+  --color-scroll:#{$dark-text};
+  --bg-card:#{$bg-ligth-card};
+  --bg-header-row-dialog:#{$secondary};
 }
 
 $theme-black: mat-dark-theme(
