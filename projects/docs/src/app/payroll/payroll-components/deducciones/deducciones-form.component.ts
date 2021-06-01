@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../../srv/navigation.service';
@@ -8,6 +8,7 @@ import { NavigationService } from '../../../srv/navigation.service';
   templateUrl: './deducciones-form.component.html',
 })
 export class DeduccionesFormComponent {
+  @ViewChild("formView") formView:any;
   position = 'below';
 
   form: FormGroup;

@@ -782,7 +782,7 @@ h6,
   font-family: inherit;
   font-weight: 400;
   line-height: 1.2;
-  color: inherit;
+  color: var(--text-accent-darker-color);
 }
 
 h1,
@@ -17857,7 +17857,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card [class*="card-header-"] .card-title+.card-category a {
-  color: #fff;
+  color: #3C4858;
 }
 
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {

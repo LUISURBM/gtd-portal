@@ -68,34 +68,15 @@ $lft: left;
 $border: rgba(120, 130, 140, 0.13);
 $table-border: #f3f1f1;
 $card-brd: #1e2625;
-$dark-text: #000000;
+$dark-text: #3C4858;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
-$mat-light-theme-foreground: (
-  base:              $light-primary-text,
-  divider:           $dark-dividers,
-  dividers:          $dark-dividers,
-  disabled:          $light-disabled-text,
-  disabled-button:   rgba($light-text, 0.26),
-  disabled-text:     $light-disabled-text,
-  elevation:         white,
-  secondary-text:    $light-text,
-  hint-text:         $light-disabled-text,
-  accent-text:       $dark-accent-text,
-  icon:              $light-accent-text,
-  icons:             $light-accent-text,
-  text:              $light-text,
-  slider-min:        $light-primary-text,
-  slider-off:        rgba($light-text, 0.26),
-  slider-off-active: $light-disabled-text,
-);
-
 // BACKGROUND CONFIG
-// default-light
+// fpi-skin-black
 $mat-light-theme-background: (
   background: $bodycolor,
   status-bar: #1e2625,
@@ -111,12 +92,11 @@ $mat-light-theme-background: (
   selected-disabled-button: #171e13,
   disabled-button-toggle: #171e13,
   unselected-chip: #171e13,
+  icon: white,
+  icons:white,
   disabled-list-option: #171e13,
+
 );
-
-
-
-
 $mat-primary: (
   main: #c43d16,
   lighter: #15bb0d,
@@ -246,6 +226,8 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   --sidebar-icons: #{$sidebar-icons};
   --text-accent-lighter-color: #{$text-accent-lighter-color};
   --bg-dialog: #{$bg-dialog};
+  --text-accent-color: #{$dark-text};
+  --text-accent-new-color:#{$light}
 }
 
 $theme-black: mat-dark-theme(

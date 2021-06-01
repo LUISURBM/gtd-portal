@@ -53,10 +53,10 @@ mat-sidenav {
         &.selected > .mat-list-item-content > a{
             background: var(--themecolor-alt);
             border-radius: $radius;
-            color:var(--text-accent-color);
+            color:var(--text-accent-new-color);
 
             mat-icon{
-                color:var(--text-accent-color);
+                color:var(--text-accent-new-color);
             }
             .dd-icon{
                 -webkit-transform: rotate(-180deg);

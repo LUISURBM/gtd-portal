@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
@@ -11,6 +11,8 @@ import { NavigationService } from '../../../srv/navigation.service';
   templateUrl: './devengados-form.component.html',
 })
 export class DevengadosFormComponent {
+  @ViewChild("formView") formView:any;
+
   position = 'below';
 
   form: FormGroup;
@@ -42,7 +44,6 @@ export class DevengadosFormComponent {
       const data1 = params['data'];
       this.form.patchValue(data1);
     });
-
 
     const request: any = {
       body: {
