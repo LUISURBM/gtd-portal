@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject } from 'rxjs';
+import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NgGtdDS } from '../../../types/common-types';
 import { Auxilio, auxilios, displayedColumns, EMPTY } from './auxilio-data';
@@ -26,7 +27,8 @@ export class AuxiliosComponent implements OnInit, AfterViewInit {
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public menuItemsSrv: MenuItems
   ) {
     this.dataSource$ = new BehaviorSubject<NgGtdDS>({
       datasource: new MatTableDataSource<Auxilio>(auxilios),

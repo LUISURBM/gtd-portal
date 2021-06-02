@@ -1,12 +1,24 @@
-<mat-card>
-  <mat-card-content *ngIf="dataSource$ | async as dataSource" >
-    <mat-card-title>Vacaciones</mat-card-title>
+<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="card-icon">
+        <em class="material-icons">{{'1F305'|gtdEmoji}}</em>
+      </div>
+      <h1 class="card-title">
+        <strong>Vacaciones</strong>
+      </h1>
+      <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
     <mat-card-subtitle>Angular Material table for <code>vacaciones</code> elements. </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <button mat-icon-button (click)="openDialog()" matSuffix color="primary">
+          <span>➕</span>
+        </button>
       </mat-form-field>
     </h4>
 

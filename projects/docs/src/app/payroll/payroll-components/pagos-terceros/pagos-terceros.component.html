@@ -1,14 +1,24 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Pagos Terceros</mat-card-title>
-    <mat-card-subtitle>Angular Material table for <code>Pagos Terceros</code> elements. </mat-card-subtitle>
-  </mat-card-header>
+<mat-card class="card">
+  <mat-card-header class="card-header card-header-primary card-header-icon">
+    <mat-card-title>
+      <div class="card-icon">
+        <em class="material-icons">{{'1F4B5'|gtdEmoji}}</em>
+      </div>
+      <h1 class="card-title">
+        <strong>Pagos Terceros</strong>
+      </h1>
+    </mat-card-title>
+      <p class="card-category">Total creados <a>{{dataSource.data.length}}</a></p>
+    </mat-card-header>
   <mat-card-content>
+    <mat-card-subtitle>Angular Material table for <code>Pagos Terceros</code> elements. </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Nota1" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <button mat-icon-button (click)="openDialog()" matSuffix color="primary">
+          <span>➕</span>
+        </button>
       </mat-form-field>
     </h4>
 

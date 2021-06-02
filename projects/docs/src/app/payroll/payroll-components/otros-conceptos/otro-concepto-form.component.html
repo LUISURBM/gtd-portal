@@ -1,69 +1,64 @@
-<h1 mat-dialog-title>Formulario Otro concepto {{ data.id }}</h1>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Otro concepto nuevo</h4>
-            <p class="card-category">Información de Otro concepto</p>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="form">
-              <ng-container *ngFor="let row of f | keyvalue; let i = index;">
-                <div [ngSwitch]="typeof(row.value)" class="type-tooltip-ne" matTooltip="Tooltip!">
-                  <span>{{row.key}}</span>
-                  <mat-form-field *ngSwitchCase="'string'">
-                    <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
-                      [id]="parse(row.key)" type="text" class="form-control" />
-                    <div *ngIf="f[parse(row.key)].touched && f[parse(row.key)].invalid" class="alert alert-danger">
-                      <div *ngIf="f[parse(row.key)].errors?.required">
-                        {{row.key}} is required.
-                      </div>
-                    </div>
-                  </mat-form-field>
-
-
-                  <ng-container *ngSwitchCase="'number'">
-                    <mat-form-field *ngIf="parse(row.key) !== 'id'">
-                      <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
-                        [id]="parse(row.key)" type="text" class="form-control" />
-                      <div *ngIf="parse(row.key) !== 'id' && f[parse(row.key)].touched && f[parse(row.key)].invalid"
-                        class="alert alert-danger">
-                        <div *ngIf="f[parse(row.key)].errors?.required">
-                          {{row.key}} is required.
-                        </div>
-                      </div>
-                    </mat-form-field>
-                  </ng-container>
-
-                  <mat-form-field *ngSwitchCase="'object'">
-                    <mat-select class="example-select" #business [tabindex]="i+1" [formControlName]="parse(row.key)"
-                      [placeholder]="parse(row.key)" [id]="parse(row.key)" type="text" class="form-control">
-                      <mat-option *ngFor="let bus of catalogs" [value]="bus">
-                        {{bus.name}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-
-                  <mat-form-field *ngSwitchCase="'date'" class="example-full-width" appearance="fill">
-                    <mat-label>Date</mat-label>
-                    <input [tabindex]="i" matInput [matDatepicker]="picker" [formControlName]="parse(row.key)" />
-                    <mat-datepicker-toggle matSuffix [tabindex]="-1" [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #picker></mat-datepicker>
-                  </mat-form-field>
+<div class="m-0 d-flex main-container main-form" style="overflow:visible">
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-icon"><em class="material-icons">{{'1F949'|gtdEmoji}}</em></div>
+      <h1 mat-dialog-title>Formulario Otro concepto {{ data.id }}</h1>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Agregar Otro concepto nuevo</h4>
+      <p class="card-category">Información de Otro concepto</p>
+      <form [formGroup]="form">
+        <ng-container *ngFor="let row of f | keyvalue; let i = index;">
+          <div [ngSwitch]="typeof(row.value)" class="type-tooltip-ne" matTooltip="Tooltip!">
+            <span>{{row.key}}</span>
+            <mat-form-field *ngSwitchCase="'string'">
+              <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
+                [id]="parse(row.key)" type="text" class="form-control" />
+              <div *ngIf="f[parse(row.key)].touched && f[parse(row.key)].invalid" class="alert alert-danger">
+                <div *ngIf="f[parse(row.key)].errors?.required">
+                  {{row.key}} is required.
                 </div>
-              </ng-container>
-              <div mat-dialog-actions>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                  Cancelar
-                </button>
-                <button mat-button (click)="save()" tabindex="9999">Guardar</button>
               </div>
-            </form>
+            </mat-form-field>
+
+
+            <ng-container *ngSwitchCase="'number'">
+              <mat-form-field *ngIf="parse(row.key) !== 'id'">
+                <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
+                  [id]="parse(row.key)" type="text" class="form-control" />
+                <div *ngIf="parse(row.key) !== 'id' && f[parse(row.key)].touched && f[parse(row.key)].invalid"
+                  class="alert alert-danger">
+                  <div *ngIf="f[parse(row.key)].errors?.required">
+                    {{row.key}} is required.
+                  </div>
+                </div>
+              </mat-form-field>
+            </ng-container>
+
+            <mat-form-field *ngSwitchCase="'object'">
+              <mat-select class="example-select" #business [tabindex]="i+1" [formControlName]="parse(row.key)"
+                [placeholder]="parse(row.key)" [id]="parse(row.key)" type="text" class="form-control">
+                <mat-option *ngFor="let bus of catalogs" [value]="bus">
+                  {{bus.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'date'" class="example-full-width" appearance="fill">
+              <mat-label>Date</mat-label>
+              <input [tabindex]="i" matInput [matDatepicker]="picker" [formControlName]="parse(row.key)" />
+              <mat-datepicker-toggle matSuffix [tabindex]="-1" [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
           </div>
+        </ng-container>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()" tabindex="-1">
+            Cancelar
+          </button>
+          <button mat-button (click)="save()" tabindex="9999">Guardar</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

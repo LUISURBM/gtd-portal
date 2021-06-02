@@ -12600,7 +12600,7 @@ fieldset[disabled][disabled] .has-white .form-control,
   font-size: .875rem;
   line-height: 1;
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--text-accent-darker-color);
   border-radius: .2rem;
 }
 
@@ -14302,7 +14302,7 @@ fieldset[disabled] .form-group .form-control {
 
 .page-header .category,
 .page-header .description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .page-header.page-header-small {
@@ -15425,7 +15425,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-background-color="black"] .nav .nav-item i {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .sidebar[data-background-color="black"] .nav .nav-item.active [data-toggle="collapse"],
@@ -15435,7 +15435,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .sidebar[data-background-color="black"] .nav .nav-item.active [data-toggle="collapse"] i,
 .sidebar[data-background-color="black"] .nav .nav-item:hover [data-toggle="collapse"] i {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .sidebar[data-background-color="black"] .user a {
@@ -15505,7 +15505,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-background-color="red"] .nav .nav-item i {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .sidebar[data-background-color="red"] .nav .nav-item.active [data-toggle="collapse"],
@@ -15515,7 +15515,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .sidebar[data-background-color="red"] .nav .nav-item.active [data-toggle="collapse"] i,
 .sidebar[data-background-color="red"] .nav .nav-item:hover [data-toggle="collapse"] i {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .sidebar[data-background-color="red"] .user a {
@@ -17639,7 +17639,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card[class*="bg-"] .stats,
 .card[class*="bg-"] .card-category,
 .card[class*="bg-"] .card-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .card [class*="card-header-"] .author a:hover,
@@ -17692,7 +17692,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card[class*="bg-"] .card-body h1 small,
 .card[class*="bg-"] .card-body h2 small,
 .card[class*="bg-"] .card-body h3 small {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-accent-darker-color);
 }
 
 .card .card-stats {
@@ -17906,7 +17906,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 .card [class*="card-header-"] .ct-chart .ct-series-a .ct-line,
 .card [class*="card-header-"] .ct-chart .ct-series-a .ct-bar,
 .card [class*="card-header-"] .ct-chart .ct-series-a .ct-slice-donut {
-  stroke: rgba(255, 255, 255, 0.8);
+  stroke: var(--text-accent-darker-color);
 }
 
 .card [class*="card-header-"] .ct-chart .ct-series-a .ct-slice-pie,

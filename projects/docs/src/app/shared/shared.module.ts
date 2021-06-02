@@ -9,6 +9,7 @@ import {
   AccordionDirective,
   AccordionLinkDirective,
 } from './accordion';
+import { DecodeEmojiPipe } from './unicode-emoji.pipe';
 import { MenuItems } from './menu-items/menu-items';
 
 @NgModule({
@@ -16,11 +17,13 @@ import { MenuItems } from './menu-items/menu-items';
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
+    DecodeEmojiPipe
   ],
   exports: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
+    DecodeEmojiPipe
   ],
   providers: [
     MenuItems,

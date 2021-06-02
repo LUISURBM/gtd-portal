@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MenuItems } from '../../../shared/menu-items/menu-items';
 @Component({
   selector: 'app-auxilio-form-dialog',
   templateUrl: './auxilio-form.component.html',
@@ -13,7 +14,8 @@ export class AuxilioFormComponent {
   constructor(
     public dialogRef: MatDialogRef<AuxilioFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public builder: FormBuilder
+    public builder: FormBuilder,
+    public menuItemsSrv: MenuItems
   ) {
     this.form = this.builder.group(data);
     this.form.patchValue(data);

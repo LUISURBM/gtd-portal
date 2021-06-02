@@ -1,16 +1,28 @@
-<mat-card>
-  <mat-card-content>
-    <mat-card-title>Auxilios</mat-card-title>
+<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
+  <mat-card-header class="card-header card-header-primary card-header-icon">
+    <mat-card-title>
+      <div class="card-icon">
+        <em class="material-icons">{{menuItemsSrv.codePoint('1F4C3')}}</em>
+      </div>Auxilios
+      <h1 class="card-title">Nómina
+        <small>General</small>
+      </h1>
+      <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
+    </mat-card-title>
     <mat-card-subtitle>Angular Material table for <code>auxilios</code> elements. </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <button mat-icon-button (click)="openDialog()" matSuffix color="primary" >
+          <span>➕</span>
+        </button>
       </mat-form-field>
     </h4>
 
-    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+    <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Position Column -->
