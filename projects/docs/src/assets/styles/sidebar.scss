@@ -42,25 +42,29 @@ mat-sidenav {
             mat-icon:not(.dd-icon){
                 margin-right: 8px;
             }
-            .dd-icon{
+            span{
                 font-size: 16px;
-                width: 16px;
+                width: 30px;
                 transition: 0.2s ease-in;
                 margin: 5px 0 5px 5px;
                 height: 16px;
+            }
+            span .dd-icon{
+              font-size: 19px;
             }
         }
         &.selected > .mat-list-item-content > a{
             background: var(--themecolor-alt);
             border-radius: $radius;
-            color:var(--text-accent-new-color);
+            color:var(--text-accent-color);
 
             mat-icon{
-                color:var(--text-accent-new-color);
+                color:var(--text-accent-color);
             }
             .dd-icon{
                 -webkit-transform: rotate(-180deg);
                 transform: rotate(-180deg);
+                font-size: 25px;
             }
 
         }

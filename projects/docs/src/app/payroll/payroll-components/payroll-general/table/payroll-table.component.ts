@@ -16,6 +16,7 @@ import { displayedColumns, EMPTY, nominas, Payroll } from '../payroll-data';
 import { PayrollGeneralFormComponent } from '../payroll-general.component';
 import { StoredProcedureService } from '../../../../srv/payroll/api/storedProcedure.service';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MenuItems } from '../../../../shared/menu-items/menu-items';
 
 export const MY_FORMATS = {
   parse: {
@@ -69,15 +70,16 @@ export class PayrollTableComponent implements OnInit, AfterViewInit {
 
 
   constructor(
-    public formBuilder: FormBuilder,
-    public memSrv: InMemService,
-    public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
-    private route: ActivatedRoute,
-    private router: Router,
-    public navSrv: NavigationService
+    public formBuilder: FormBuilder
+    ,public memSrv: InMemService
+    ,public dialog: MatDialog
+    ,private _snackBar: MatSnackBar
+    ,private route: ActivatedRoute
+    ,private router: Router
+    ,public navSrv: NavigationService
     ,private storedProcedureAPISrv: StoredProcedureService
-  ) {
+    ,public menuItemsSrv: MenuItems
+    ) {
     this.form = this.formBuilder.group({
       filtro: '',
       periodo: this.formBuilder.group({

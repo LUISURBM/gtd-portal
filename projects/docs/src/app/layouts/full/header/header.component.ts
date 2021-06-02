@@ -193,7 +193,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(SignInComponent, {
-      width: '250px',
+      width: '450px',
       data: { name: this.name, email: this.email },
     });
 

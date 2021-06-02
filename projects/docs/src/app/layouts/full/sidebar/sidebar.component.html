@@ -47,7 +47,8 @@
         group="{{menuitem.state}}">
         <a class="" appAccordionToggle (click)="stateSrv.toggleMenu(); navSrv.navigate(menuitem.state)"
           *ngIf="menuitem.type === 'link'">
-          <mat-icon>{{ menuitem.icon }}</mat-icon>
+          <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
+          <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
           <span>{{ menuitem.name }}</span>
           <span fxFlex></span>
           <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>

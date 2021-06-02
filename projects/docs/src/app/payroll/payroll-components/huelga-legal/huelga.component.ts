@@ -39,7 +39,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
       displayedColumns: displayedColumns,
     });
 
-    
+
   }
 
   ngOnInit(): void {}
@@ -52,7 +52,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
   }
 
   add(name: Huelga): void {
-    
+
     if (!name) {
       return;
     }
@@ -96,7 +96,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
     const editing = datasource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(HuelgaFormComponent, {
-      width: '250px',
+      width: '450px',
       data: editing ? editing : { id: undefined, name: '' },
     });
 

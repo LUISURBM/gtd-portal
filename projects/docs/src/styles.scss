@@ -227,8 +227,7 @@ button {
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto var(--secondary-light);
+  box-shadow: 0 0 3pt 3pt var(--secondary-light);
 }
 
 input,
@@ -648,8 +647,7 @@ button {
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto var(--secondary-light);
+  box-shadow: 0 0 3pt 3pt var(--secondary-light);
 }
 
 input,
@@ -4351,11 +4349,12 @@ tbody.collapse.show {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
-  margin: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  span{
+    margin: 0 2vh -1px 2.5vh;
+  }
 }
 
 .navbar-brand:hover,
@@ -17857,7 +17856,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 }
 
 .card [class*="card-header-"] .card-title+.card-category a {
-  color: #3C4858;
+  color: var(--text-primary-color);
 }
 
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
@@ -18059,14 +18058,16 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
   margin-top: 20px;
 }
 
-.card .card-header.card-header-icon i,
-.card .card-header.card-header-text i ,
-.card-stats .card-header.card-header-icon i {
+.card .card-header.card-header-icon em,
+.card .card-header.card-header-text em,
+.card-stats .card-header.card-header-icon em {
   font-size: 36px;
   line-height: 56px;
   width: 56px;
   height: 56px;
   text-align: center;
+  top: 11px;
+  position: absolute;
 }
 
 .card-stats .card-body {

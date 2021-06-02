@@ -1,7 +1,7 @@
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Menu } from '../../../shared/menu-items/menu-items';
+import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
 import { EMPTY, MENU_ITEMS } from './devengados-data';
 import { DOCUMENT } from '@angular/common';
 import { AppStateService } from '../../../srv/local-app.service';
@@ -78,7 +78,8 @@ export class DevengadosViewComponent {
     public stateSrv: AppStateService,
     private elRef:ElementRef
     , public navSrv: NavigationService
-  ) {
+    ,public menuItemsSrv: MenuItems
+    ) {
     this.menuItems = MENU_ITEMS;
 
     this.form = this.builder.group({

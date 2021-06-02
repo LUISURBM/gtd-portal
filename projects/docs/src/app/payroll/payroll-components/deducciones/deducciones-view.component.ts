@@ -2,7 +2,7 @@ import { animate, animateChild, group, query, style, transition, trigger } from 
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Menu } from '../../../shared/menu-items/menu-items';
+import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { AppStateService } from '../../../srv/local-app.service';
 import { MENU_ITEMS } from './deducciones-data';
@@ -22,8 +22,9 @@ export class DeduccionesViewComponent {
     private route: ActivatedRoute,
     public stateSrv: AppStateService,
     private elRef:ElementRef
-    , public navSrv: NavigationService
-  ) {
+    ,public navSrv: NavigationService
+    ,public menuItemsSrv: MenuItems
+    ) {
     this.menuItems = MENU_ITEMS;
 
     this.form = this.builder.group({

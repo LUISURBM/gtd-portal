@@ -22,14 +22,21 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   selectedPane: any;
 
   get activeRoute() {
-    const items = this.menuItems?.menuState$?.value?.menuItems?.filter(item => item.name === this.router.url.split('/')[0]).map((item: Menu) => {
-      return `${item.name} ${item.menuItems?.filter(item => item.name === this.router.url.split('/')[1])?.map( item => item.name )?.[0]}`;
-    });
-    return `${items[0] ?? 'Nómina'}`;
+    const items = decodeURIComponent(this.router.url)?.split('/');
+    const item = this.menuItemsSrv?.menuState$?.value?.menuItems?.filter(item => {
+      return item.state === `${items[1]}`;
+    }).map( item => {
+      const items2 = items[2]?.split(';')?.[0] ?? items[2]!;
+      if(item.state === `${items[1]}`){
+        return item.menuItems?.filter(item => item.state === `/${items[1]}/${items2}`)?.[0]?.name;
+      }
+      return item.state;
+    } )?.[0];
+    return `${item ?? 'Nómina'}`;
   }
 
   constructor(
-    public menuItems: MenuItems,
+    public menuItemsSrv: MenuItems,
     public stateSrv: AppStateService,
     public router: Router,
     public navSrv: NavigationService
@@ -47,5 +54,9 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
 
   get themeState$() {
     return this.stateSrv.themeState$;
+  }
+
+  codePoint(emojiCodePoint:number) {
+    return String.fromCodePoint(emojiCodePoint);
   }
 }

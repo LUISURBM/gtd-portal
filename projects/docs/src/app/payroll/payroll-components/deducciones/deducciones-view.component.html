@@ -19,29 +19,27 @@
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center">
-      <ng-container *ngIf="(state.Large)">
+      <ng-container>
         <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+          <span>📆</span>
           <strong>
-            Individual
+            2020 - 05
           </strong>
         </a>
-        >
+        <mat-icon>
+          arrow_right
+          </mat-icon>
       </ng-container>
       <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+        <span>👨‍💼</span>
         <strong>
           Luis F. Urbina
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
-        >
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
-          <strong>
-            Deducciones
-          </strong>
-        </a>
-      </ng-container>
-      <ng-container *ngIf="!(state.XSmall || state.Small)">
-        >
+        <mat-icon>
+          arrow_right
+          </mat-icon>
         <a class="navbar-brand">
           Nuevo
         </a>
@@ -95,8 +93,9 @@
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
           group="{{menuitem.state}}">
           <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state)" *ngIf="menuitem.type === 'link'">
-            <mat-icon>{{ menuitem.icon }}</mat-icon>
-            <span>{{ menuitem.name }}</span>
+            <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
+          <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
+          <span>{{ menuitem.name }}</span>
             <span fxFlex></span>
             <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
           </a>

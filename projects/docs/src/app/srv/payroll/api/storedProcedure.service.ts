@@ -30,7 +30,7 @@ import { BASE_PATH } from './variables';
   providedIn: 'root',
 })
 export class StoredProcedureService implements StoredProcedureServiceInterface {
-  protected basePath = 'http://localhost:8092';
+  protected basePath = 'https://devapi.fpicolombia.com';
   public defaultHeaders = new HttpHeaders();
   public configuration = new Configuration();
   public encoder: HttpParameterCodec;

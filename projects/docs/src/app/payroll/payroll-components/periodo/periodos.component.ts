@@ -77,7 +77,7 @@ export class PeriodosComponent implements OnInit, AfterViewInit {
     const editing = this.dataSource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(PeriodoFormComponent, {
-      width: '250px',
+      width: '450px',
       data: editing ? editing : EMPTY,
     });
 

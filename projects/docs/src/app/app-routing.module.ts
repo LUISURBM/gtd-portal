@@ -9,7 +9,7 @@ const routes: Routes = [
     path: "",
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: '/nómina', pathMatch: 'full' },
       {
         path: "home",
         loadChildren: () =>

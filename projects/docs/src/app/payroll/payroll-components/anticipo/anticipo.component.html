@@ -8,7 +8,9 @@
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <button mat-icon-button (click)="openDialog()" matSuffix color="primary">
+          <span>➕</span>
+        </button>
       </mat-form-field>
     </h4>
 

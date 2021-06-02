@@ -12,7 +12,6 @@ export interface Deducciones {
   educacion: number;
   reintegro: number;
   deuda: number;
-
 }
 
 export const deducciones: Deducciones[] = [
@@ -287,11 +286,11 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: '/nómina/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work' },
-  { state: '/nómina/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid' },
-  { state: '/nómina/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm' },
-  { state: '/nómina/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money' },
-  { state: '/nómina/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm' },
-  { state: '/nómina/deducciones/view/sanciones', name: 'Sanciones', type: 'link', icon: 'savings' },
-  { state: '/nómina/deducciones/view/salud-pension-sindicato', name: 'salud-pension-sindicato', type: 'link', icon: 'savings' },
+  { state: '/nómina/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/sanciones', name: 'Sanciones', type: 'link', icon: 'savings', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/salud-pension-sindicato', name: 'salud-pension-sindicato', type: 'link', icon: 'savings', emoji: '1F305'  },
 ];

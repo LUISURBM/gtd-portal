@@ -18,22 +18,28 @@
     <!-- ============================================================== -->
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <div class="navbar-header d-flex align-items-center">
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual')" *ngIf="!(state.XSmall || state.Small)">
+    <div class="navbar-header d-flex align-items-center ml-2">
+      <a matRipple class="navbar-brand" (click)="navSrv.navigate('/nómina/individual')" *ngIf="!(state.XSmall || state.Small)">
+        <span>📆</span>
         <strong>
-          Individuales
+          2021 - 05
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
-        >
+        <mat-icon class="material-icons-outlined">
+          arrow_right
+          </mat-icon>
       </ng-container>
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+      <a matRipple class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+        <span>👨‍💼</span>
         <strong>
           Luis F. Urbina
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
-        >
+        <mat-icon class="material-icons-outlined">
+          arrow_right
+          </mat-icon>
         <a class="navbar-brand">
           Nueva
         </a>
@@ -43,25 +49,22 @@
     <span fxFlex></span>
 
 
-    <button mat-button (click)="navSrv.navigate('/nómina/deducciones/view/form')"
-      *ngIf="!(state.XSmall || state.Small)">
-      <mat-icon>add_circle</mat-icon>Deducción
-    </button>
-    <button mat-button (click)="navSrv.navigate('/nómina/devengos/view/form')" *ngIf="!(state.XSmall || state.Small)">
-      <mat-icon>add_circle</mat-icon>Devengo
-    </button>
-    <button mat-button (click)="save()">
-      <mat-icon>save</mat-icon><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
-    </button>
+    <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
+      <mat-chip color="accent" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕ Deducción</span></mat-chip>
+      <mat-chip color="accent" selected="true" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕ Devengo</span></mat-chip>
+      <mat-chip class="btn btn-outline-primary" class="primary" selected="true" (click)="save()" >
+        <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
+      </mat-chip>
+    </mat-chip-list>
     <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="primary" color="accent">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
-      <button mat-menu-item (click)="save()" *ngIf="(state.XSmall || state.Small)">
-        <mat-icon>add_circle</mat-icon>Deducción
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
+        ➕ Deducción
       </button>
-      <button mat-menu-item (click)="save()" *ngIf="(state.XSmall || state.Small)">
-        <mat-icon>add_circle</mat-icon>Devengo
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/devengos/view/form')" >
+        ➕ Devengo
       </button>
       <button mat-menu-item (click)="toggleFullScreen()">
         <ng-container *ngIf="!state.fullScreen">
@@ -101,21 +104,21 @@
         </form>
         <mat-list-item appAccordionLink routerLinkActive="selected">
           <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ind.formView)">
-            <mat-icon>work</mat-icon>
+            <span>📜</span>
             <span>Nómina Individual</span>
             <span fxFlex></span>
           </a>
         </mat-list-item>
         <mat-list-item appAccordionLink routerLinkActive="selected">
           <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(dev.formView)">
-            <mat-icon>paid</mat-icon>
+            <span>💵</span>
             <span>Devengos</span>
             <span fxFlex></span>
           </a>
         </mat-list-item>
         <mat-list-item appAccordionLink routerLinkActive="selected">
           <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ded.formView)">
-            <mat-icon>local_atm</mat-icon>
+            <span>🧾</span>
             <span>Deducciones</span>
             <span fxFlex></span>
           </a>
