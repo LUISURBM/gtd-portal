@@ -39,7 +39,7 @@ export class DialogComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
-      width: '250px',
+      width: '450px',
       data: { name: this.name, animal: this.animal }
     });
 

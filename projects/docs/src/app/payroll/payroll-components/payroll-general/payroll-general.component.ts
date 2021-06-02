@@ -1,8 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
+import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { catalogs } from './payroll-data';
 @Component({
@@ -17,21 +19,22 @@ export class PayrollGeneralFormComponent {
   private payrollDataUrl = environment.API_GATEWAY;
 
 
-  constructor(public builder: FormBuilder, private route: ActivatedRoute
+  constructor(
+    public dialogRef: MatDialogRef<PayrollGeneralFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ,public builder: FormBuilder, private route: ActivatedRoute
     ,private router: Router
     ,public navSrv: NavigationService
-    ,public http: HttpClient,
+    ,public http: HttpClient
+    ,public menuItemsSrv: MenuItems
 
     ) {
     this.form = this.builder.group({
       id: 0,
-      fechaInicio: new Date(),
-      fechaFin: new Date(),
-      cantidad: 0,
-      pago: 0,
-      catalog: catalogs[0],
+      fechaCorte: new Date(),
+      estado: catalogs[0].name,
       nombre: '',
-      estado: '',
+      descripcion: ''
     });
     this.route.queryParams.subscribe(params => {
       const data1 = params['data'];
@@ -51,7 +54,7 @@ export class PayrollGeneralFormComponent {
   }
 
   onNoClick(): void {
-    this.navSrv.navigate('nómina');
+    this.dialogRef.close();
   }
 
   save() {

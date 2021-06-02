@@ -170,7 +170,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
     const editing = datasource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(DevengadosFormComponent, {
-      width: '250px',
+      width: '450px',
       data: editing ? editing : EMPTY,
     });
 

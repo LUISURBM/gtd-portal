@@ -10,6 +10,7 @@ export interface Menu {
   name: string;
   type: string;
   icon: string;
+  emoji?: string;
   badge?: [{ type: string; value: string }];
   menuItems?: Menu[];
 }
@@ -20,36 +21,68 @@ export const MENUITEMS: Menu[] = [
     name: 'inicio',
     type: 'link',
     icon: 'dashboard',
+    emoji: '1F4CA',
   },
-  { state: 'nómina', name: 'Nómina', type: 'link', icon: 'drive_folder_upload'
-  ,menuItems: [
-    { state: '/nómina/form', name: 'Nómina Individual', type: 'link', icon: 'work' },
-  ]
+  {
+    state: 'trabajador',
+    name: 'Empleados',
+    type: 'link',
+    icon: 'face',
+    emoji: '1F939',
+  },
+  {
+    state: 'nómina',
+    name: 'Nómina',
+    type: 'link',
+    icon: 'drive_folder_upload',
+    emoji: '1F4C3',
+    menuItems: [
+      {
+        state: '/nómina/individual',
+        name: 'Nóminas Individuales',
+        type: 'link',
+        icon: 'work',
+      },
+      {
+        state: '/nómina/view',
+        name: 'Nómina Individual',
+        type: 'link',
+        icon: 'work',
+      },
+      {
+        state: '/nómina/devengos',
+        name: 'Nómina Individual / Devengos',
+        type: 'link',
+        icon: 'work',
+      },
+      {
+        state: '/nómina/deducciones',
+        name: 'Nómina Individual / Deducciones',
+        type: 'link',
+        icon: 'work',
+      },
+    ],
   },
   {
     state: 'subscription',
     type: 'link',
     name: 'Subscription',
     icon: 'subscriptions',
-  },
-  { state: 'trabajador', name: 'Trabajador', type: 'link', icon: 'face' },
-  {
-    state: 'administración',
-    type: 'link',
-    name: 'Administration',
-    icon: 'settings_applications',
+    emoji: '1F4B3',
   },
   {
     state: 'parámetros',
     type: 'link',
     name: 'Parámetros',
     icon: 'settings_applications',
+    emoji: '2699',
   },
   {
     state: 'docs',
     name: 'docs',
     type: 'link',
     icon: 'dashboard',
+    emoji: '1F4BC',
     menuItems: [
       {
         state: '/components/button',
@@ -171,5 +204,9 @@ export class MenuItems {
     } else {
       this.menuState$.next({ menuItems: MENUITEMS });
     }
+  }
+
+  codePoint(emojiCodePoint:any) {
+    return String.fromCodePoint(...emojiCodePoint.split('-').map((i:any) => parseInt(i,16)));
   }
 }

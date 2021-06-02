@@ -1002,6 +1002,23 @@ tabs
   height: calc(100vh - 64px);
 }
 
+.mat-datepicker-content-container
+,.mat-calendar-content
+{
+  background: var(--bg-card)!important;
+  color: var(--text-accent-color)!important;
+}
+
+.mat-datepicker-content-touch .mat-calendar
+{
+  background: var(--app-bar)!important;
+  color: var(--text-accent-lighter-color)!important;
+}
+
+.mat-calendar-body-cell-content{
+  color: var(--text-accent-color)!important;
+}
+
 ::-webkit-scrollbar {
   width: 16px;
   background-color: transparent;

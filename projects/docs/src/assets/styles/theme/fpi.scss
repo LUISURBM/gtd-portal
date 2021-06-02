@@ -38,12 +38,15 @@ $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c;
 $sidebar-icons: #a8ae99;
+$sidebar-icons-alt: #9d7c62;
 
 $font-16: 16px;
 
-$themecolor: #1e88e5;
-$themecolor-alt: #26c6da;
+$themecolor: #86b30a;
+$themecolor-alt: #93656c;
 $themecolor-dark: #028ee1;
+
+
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
@@ -95,6 +98,16 @@ $card-brd: #d7dfe3;
 $radius: 4px;
 $form-brd: #d9d9d9;
 
+$theme-color-blacker-5: lighten($themecolor, 5%);
+$theme-color-blacker-10: lighten($themecolor, 10%);
+$theme-color-blacker-20: lighten($themecolor, 20%);
+$theme-color-blacker-30: lighten($themecolor, 30%);
+
+$theme-alt-lighter-5: lighten($themecolor-alt, 5%);
+$theme-alt-lighter-10: lighten($themecolor-alt, 10%);
+$theme-alt-lighter-20: lighten($themecolor-alt, 20%);
+$theme-alt-lighter-30: lighten($themecolor-alt, 30%);
+
 body {
   --radius: #{$radius};
   --white: #{$white};
@@ -141,8 +154,9 @@ $dark-bg-lighter-30: lighten($dark-background, 30%);
 $light-bg-alpha-4: rgba(#fafafa, 0.04);
 $light-bg-alpha-12: rgba(#fafafa, 0.12);
 
+
 $mat-light-theme-foreground: (
-  base: $light-primary-text,
+  base: $theme-color-blacker-5,
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $light-disabled-text,
@@ -161,7 +175,7 @@ $mat-light-theme-foreground: (
 );
 
 $mat-dark-theme-foreground: (
-  base: $dark-text,
+  base: $theme-alt-lighter-5,
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $dark-disabled-text,
@@ -233,12 +247,6 @@ $mat-primary-black: (
       darker: $dark-primary-text,
     ),
 );
-
-$themecolor-alt-black: #86b30a;
-$theme-alt-blacker-5: lighten($themecolor-alt-black, 5%);
-$theme-alt-blacker-10: lighten($themecolor-alt-black, 10%);
-$theme-alt-blacker-20: lighten($themecolor-alt-black, 20%);
-$theme-alt-blacker-30: lighten($themecolor-alt-black, 30%);
 
 $theme-primary-black: mat-palette($mat-primary-black, main, darker, lighter);
 
@@ -314,9 +322,10 @@ $theme-black: mat-light-theme(
   );
   @include mat-core($fontConfig);
   @include angular-material-theme($theme-black);
-  --themecolor-alt: #{$themecolor-alt-black};
-  --secondary: #{$theme-alt-blacker-5};
-  --secondary-light: #{$theme-alt-blacker-5};
+  --themecolor-alt: #{$theme-color-blacker-5};
+  --secondary: #{$theme-color-blacker-5};
+  --secondary-light: #{$theme-color-blacker-5};
+  --app-bar: #{$app-bar-dark};
   --bg-toolbar: mat-color($mat-primary-black, main);
   --inverse: #f78e59;
   --bg-dialog: #{$dark-app-bar-5};
@@ -360,13 +369,6 @@ $theme-black: mat-light-theme(
 
 // THEME CONFIG
 
-$sidebar-icons: #9d7c62;
-
-$themecolor-alt: #93656c;
-$theme-alt-lighter-5: lighten($themecolor-alt, 5%);
-$theme-alt-lighter-10: lighten($themecolor-alt, 10%);
-$theme-alt-lighter-20: lighten($themecolor-alt, 20%);
-$theme-alt-lighter-30: lighten($themecolor-alt, 30%);
 
 $mat-primary: (
   main: #a37c82,
@@ -455,7 +457,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --bg-dialog: #{$light-app-bar-5};
   --bg-card: #{$dark-background};
   --bg-body: #{$dark-bg-lighter-30};
-  --sidebar-icons: #{$sidebar-icons};
+  --sidebar-icons: #{$sidebar-icons-alt};
 
   --primary-color: #813405;
   --primary-lighter-color: #f0c2ef;

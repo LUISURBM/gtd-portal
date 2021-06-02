@@ -226,8 +226,7 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   --sidebar-icons: #{$sidebar-icons};
   --text-accent-lighter-color: #{$text-accent-lighter-color};
   --bg-dialog: #{$bg-dialog};
-  --text-accent-color: #{$dark-text};
-  --text-accent-new-color:#{$light}
+  --text-accent-color: #{$light-text};
 }
 
 $theme-black: mat-dark-theme(

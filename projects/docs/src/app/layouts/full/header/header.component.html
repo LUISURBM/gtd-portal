@@ -1,8 +1,8 @@
 <button mat-icon-button>
-  <mat-icon color="accent" aria-label="Messages with icon" [matMenuTriggerFor]="messagesMenu" matBadge="15" matBadgeColor="warn">messages</mat-icon>
+  <span color="accent" aria-label="Messages with icon" [matMenuTriggerFor]="messagesMenu" matBadge="15" matBadgeColor="warn">💬</span>
 </button>
 <button mat-icon-button class="mr-2">
-  <mat-icon color="accent" aria-label="Notificactions with icon" [matMenuTriggerFor]="notificationsMenu" matBadge="7" matBadgeColor="primary">notifications</mat-icon>
+  <span color="accent" aria-label="Notificactions with icon" [matMenuTriggerFor]="notificationsMenu" matBadge="7" matBadgeColor="primary">🔔</span>
 </button>
 <mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
   <button mat-menu-item *ngFor="let option of messages" (click)="$event.stopPropagation();">
