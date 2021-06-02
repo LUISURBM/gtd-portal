@@ -109,7 +109,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
       })
       .subscribe({
         next: (data:any) => {console.log(data);
-        let newarray = data?.body?.body?.map((element: any) => {
+        let newarray = data?.body?.body?.map?.((element: any) => {
           var key,
             keys = Object.keys(element);
           var n = keys.length;
@@ -119,7 +119,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
             newobj[key.toLowerCase()] = element[key];
           }
           return newobj;
-        });
+        })??nominas;
 
 
         this.dataSource$.next({

@@ -3,12 +3,13 @@
 
 /*Default light Theme Colors*/
 
-// Unicorn light theme
 
 $topbar: #171e13;
 $sidebar: white;
 $sidebar-white: #e5edef;
 $sidebar-alt: #f2f6f8;
+$app-bar-alt: #8C593B;
+
 $bodycolor: #f2f1ef;
 $headingtext: #455a64;
 $bodytext: #67757c;
@@ -20,6 +21,8 @@ $light-text: white;
 $themecolor: #1e88e5;
 $themecolor-alt: #c43d16;
 $themecolor-dark: #028ee1;
+
+$dark-background: #BF9C88;
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
@@ -34,6 +37,8 @@ $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #c43d16;
 $secondary-light: #fd9a7e;
+$secondary-dark: #E09224;
+$secondary-dark-light: #BACDD9;
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -54,6 +59,8 @@ $inverse-dark: #232a37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
 $text-accent-lighter-color: white;
 $bg-dialog: #171e13;
+
+
 /*Normal Color*/
 $white: #ffffff;
 $red: #fb3a3a;
@@ -75,6 +82,49 @@ $form-brd: #d9d9d9;
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
+$light-app-bar-5: #BF9169;
+
+
+$mat-light-theme-foreground: (
+  base:              $light-primary-text,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba($light-text, 0.26),
+  disabled-text:     $light-disabled-text,
+  elevation:         white,
+  secondary-text:    $light-text,
+  hint-text:         $light-disabled-text,
+  accent-text:       $dark-accent-text,
+  icon:              $light-accent-text,
+  icons:             $light-accent-text,
+  text:              $light-text,
+  slider-min:        $light-primary-text,
+  slider-off:        rgba($light-text, 0.26),
+  slider-off-active: $light-disabled-text,
+);
+
+
+$mat-dark-theme-foreground: (
+  base: $dark-text,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.3),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-accent-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-accent-text,
+  icons: $dark-accent-text,
+  text: $dark-text,
+  slider-min: $dark-text,
+  slider-off: rgba($dark-text, 0.3),
+  slider-off-active: rgba($dark-text, 0.3),
+);
+
+
 // BACKGROUND CONFIG
 // fpi-skin-black
 $mat-light-theme-background: (
@@ -95,8 +145,28 @@ $mat-light-theme-background: (
   icon: white,
   icons:white,
   disabled-list-option: #171e13,
-
 );
+
+
+$mat-dark-theme-background: (
+  background: $light-bg-darker-30,
+  status-bar: $light-bg-darker-20,
+  app-bar: $app-bar-alt,
+  hover: $dark-bg-alpha-4,
+  card: $light-app-bar-5,
+  dialog: $app-bar-alt,
+  tooltip: $dark-bg-tooltip,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $light-bg-lighter-5,
+  focused-button: $light-focused,
+  selected-button: $light-bg-darker-20,
+  selected-disabled-button: $light-bg-darker-30,
+  disabled-button-toggle: $light-bg-darker-10,
+  unselected-chip: $light-bg-darker-10,
+  disabled-list-option: $light-bg-darker-10,
+);
+
+
 $mat-primary: (
   main: #c43d16,
   lighter: #15bb0d,
@@ -142,13 +212,7 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
-// $primary-theme: mat-palette($mat-blue-grey);
-// $accent-theme: mat-palette($mat-amber, A200, A100, A400);
-// $warn-theme: mat-palette($mat-pink);
-// $accent: mat-palette($mat-blue, 500);
-// $warn: mat-palette($mat-pink, 500);
 
-// $theme: mat-light-theme($primary-theme, $accent-theme, $warn-theme);
 /*Material Theme Colors*/
 $bodyfont: "Poppins", sans-serif;
 $headingfont: "Poppins", sans-serif;
@@ -164,6 +228,11 @@ $headingfont: "Poppins", sans-serif;
 $custom-typography: mat-typography-config(
   $font-family: "Poppins, sans-serif",
 );
+
+//FIN TEMA PRINCIPAL
+
+
+
 
 $mat-primary-black: (
   main: #e7e4e4,
@@ -210,11 +279,11 @@ $accent-theme-black: mat-palette($mat-accent-black);
 $warn-theme-black: mat-palette($mat-warn-black);
 // $accent: mat-palette($mat-blue, 500);
 // $warn: mat-palette($mat-pink, 500);
+
+
+
+//Export
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-
-// $background: map-get($theme, background);
-// $foreground: map-get($theme, foreground);
-
 .default-theme {
   @include angular-material-theme($theme);
   --primary: #{$primary};
@@ -236,4 +305,10 @@ $theme-black: mat-dark-theme(
 );
 .default-theme-black {
   @include angular-material-color($theme-black);
+  --primary: #{$primary-dark};
+  --secondary: #{$secondary-dark};
+  --secondary-light: #{$secondary-dark-light};
+  --bg-card: #{$light-app-bar-5};
+  
+
 }
