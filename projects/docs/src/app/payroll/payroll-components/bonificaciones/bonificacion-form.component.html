@@ -1,51 +1,44 @@
-<h1 mat-dialog-title>Formulario Bonificacion {{ data.id }}</h1>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Bonificacion nuevo</h4>
-            <p class="card-category">Información de Bonificacion</p>
+<form [formGroup]="form">
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-icon"><em class="material-icons">{{'1F4C3'|gtdEmoji}}</em></div>
+      <h1 >Formulario Bonificacion {{ data.id }}</h1>
+      <h4 mat-dialog-title class="card-title">Agregar Bonificacion nuevo</h4>
+      <p class="card-category">Información de Bonificacion</p>
+    </div>
+    <div class="card-body">
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Bonificacion NS</span>
+        <mat-form-field>
+          <input matInput tabindex="1" formControlName="bonificacionNS" placeholder="bonificacionNS" id="bonificacionNS"
+            type="text" class="form-control" />
+          <div *ngIf="f.bonificacionNS.touched && f.bonificacionNS.invalid" class="alert alert-danger">
+            <div *ngIf="f.bonificacionNS.errors?.required">
+              bonificacionNS is required.
+            </div>
           </div>
-          <div class="card-body">
-            <form [formGroup]="form">
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>Bonificacion NS</span>
-                <mat-form-field>
-                  <input matInput tabindex="1" formControlName="bonificacionNS" placeholder="bonificacionNS"
-                    id="bonificacionNS" type="text" class="form-control" />
-                  <div *ngIf="f.bonificacionNS.touched && f.bonificacionNS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.bonificacionNS.errors?.required">
-                      bonificacionNS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-              </div>
+        </mat-form-field>
+      </div>
 
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>bonificacion S</span>
-                <mat-form-field>
-                  <input matInput tabindex="2" formControlName="bonificacionS" placeholder="bonificacionS"
-                    id="bonificacionS" type="text" class="form-control" />
-                  <div *ngIf="f.bonificacionS.touched && f.bonificacionS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.bonificacionS.errors?.required">
-                      bonificacionS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-
-              </div>
-              <div mat-dialog-actions>
-                <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                  Cancelar
-                </button>
-              </div>
-            </form>
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>bonificacion S</span>
+        <mat-form-field>
+          <input matInput tabindex="2" formControlName="bonificacionS" placeholder="bonificacionS" id="bonificacionS"
+            type="text" class="form-control" />
+          <div *ngIf="f.bonificacionS.touched && f.bonificacionS.invalid" class="alert alert-danger">
+            <div *ngIf="f.bonificacionS.errors?.required">
+              bonificacionS is required.
+            </div>
           </div>
-        </div>
+        </mat-form-field>
+
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>
     </div>
   </div>
-</div>
+</form>

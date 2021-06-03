@@ -1,75 +1,27 @@
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
 <div class="main-container" *ngIf="themeState$ | async as state">
-  <!-- ============================================================== -->
-  <!-- Sidebar - style you can find in sidebar.scss -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Sidebar - style you can find in sidebar.scss -->
-  <!-- ============================================================== -->
 
 
   <mat-drawer-container class="page-container" [style.marginTop.px]="state.Medium ? 0 : 0"
     (backdropClick)="stateSrv.toggleMenu()">
-
-
-    <mat-drawer #snav id="snav" class="dark-sidebar pl-xs" mode="over"
-      [opened]="state.visibleMenu" disableClose="false" style="direction: rtl ">
+    <mat-drawer #snav id="snav" class="dark-sidebar pl-xs" mode="over" [opened]="state.visibleMenu" disableClose="false"
+      style="direction: rtl ">
       <app-sidebar></app-sidebar>
     </mat-drawer>
-    <!-- ============================================================== -->
-    <!-- End Topbar - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-
-    <!-- ============================================================== -->
-    <!-- Sidebar - style you can find in sidebar.scss -->
-    <!-- ============================================================== -->
-
-    <!-- ============================================================== -->
-    <!-- Page container - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <mat-drawer-content class="page-wrapper">
-
-      <div class="page-content">
-
-      <!-- ============================================================== -->
-      <!-- Topbar - style you can find in header.scss -->
-      <!-- ============================================================== -->
-
-      <mat-toolbar class="topbar telative">
-        <!-- ============================================================== -->
-        <!-- Logo - style you can find in header.scss -->
-        <!-- ============================================================== -->
+      <mat-toolbar class="topbar telative" [@slideInOut]>
         <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed"
           style="color: var(--secondary-light)!important">
           <mat-icon>apps</mat-icon>
         </button>
-        <div class="navbar-header d-flex align-items-center">
+        <div class="navbar-header d-flex align-items-center mr-2">
           <a class="navbar-brand" (click)="navSrv.navigate('/nómina')">
-            <h3 class="">{{menuItemsSrv.codePoint('1F4C3')}}{{activeRoute}}</h3>
+            <h3 class="mr-2">{{menuItemsSrv.codePoint('1F4C3')}}{{activeRoute}}</h3>
           </a>
         </div>
         <span fxFlex></span>
-        <!-- ============================================================== -->
-        <!-- app header component - style you can find in header.scss / header.component.ts-->
-        <!-- ============================================================== -->
         <app-header></app-header>
       </mat-toolbar>
-
-
-
-      <router-outlet>
-      </router-outlet>
-      </div>
+      <router-outlet><app-spinner></app-spinner></router-outlet>
     </mat-drawer-content>
-    <!-- ============================================================== -->
-    <!-- Page container - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-
-    <!-- ============================================================== -->
-    <!-- Page container - style you can find in pages.scss -->
-    <!-- ============================================================== -->
   </mat-drawer-container>
-
 </div>

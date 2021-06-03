@@ -1,79 +1,72 @@
-<h1 mat-dialog-title>Formulario Bono {{ data.id }}</h1>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Bono nuevo</h4>
-            <p class="card-category">Información de Bono</p>
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible">
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-icon"><em class="material-icons">{{'1F4C3'|gtdEmoji}}</em></div>
+      <h1 class="card-category">Formulario Bono {{ data.id }}</h1>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Agregar Bono nuevo</h4>
+      <p class="card-subtitle">Información de Bono</p>
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Pago alimentación NS</span>
+        <mat-form-field>
+          <input matInput tabindex="1" formControlName="pagoAlimentacionNS" placeholder="pagoAlimentacionNS"
+            id="pagoAlimentacionNS" type="text" class="form-control" />
+          <div *ngIf="f.pagoAlimentacionNS.touched && f.pagoAlimentacionNS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoAlimentacionNS.errors?.required">
+              pagoAlimentacionNS is required.
+            </div>
           </div>
-          <div class="card-body">
-            <form [formGroup]="form">
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>Pago alimentación NS</span>
-                <mat-form-field>
-                  <input matInput tabindex="1" formControlName="pagoAlimentacionNS" placeholder="pagoAlimentacionNS"
-                    id="pagoAlimentacionNS" type="text" class="form-control" />
-                  <div *ngIf="f.pagoAlimentacionNS.touched && f.pagoAlimentacionNS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.pagoAlimentacionNS.errors?.required">
-                      pagoAlimentacionNS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-              </div>
+        </mat-form-field>
+      </div>
 
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>Pago alimentación S</span>
-                <mat-form-field>
-                  <input matInput tabindex="2" formControlName="pagoAlimentacionS" placeholder="pagoAlimentacionS"
-                    id="pagoAlimentacionS" type="text" class="form-control" />
-                  <div *ngIf="f.pagoAlimentacionS.touched && f.pagoAlimentacionS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.pagoAlimentacionS.errors?.required">
-                      pagoAlimentacionS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-
-              </div>
-
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>Pago NS</span>
-                <mat-form-field>
-                  <input matInput tabindex="2" formControlName="pagoNS" placeholder="pagoNS"
-                    id="pagoNS" type="text" class="form-control" />
-                  <div *ngIf="f.pagoNS.touched && f.pagoNS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.pagoNS.errors?.required">
-                      pagoNS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-
-              </div>
-
-              <div class="type-tooltip-ne" matTooltip="Tooltip!">
-                <span>Pago S</span>
-                <mat-form-field>
-                  <input matInput tabindex="2" formControlName="pagoS" placeholder="pagoS"
-                    id="pagoS" type="text" class="form-control" />
-                  <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
-                    <div *ngIf="f.pagoS.errors?.required">
-                      pagoS is required.
-                    </div>
-                  </div>
-                </mat-form-field>
-
-              </div>
-              <div mat-dialog-actions>
-                <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                  Cancelar
-                </button>
-              </div>
-            </form>
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Pago alimentación S</span>
+        <mat-form-field>
+          <input matInput tabindex="2" formControlName="pagoAlimentacionS" placeholder="pagoAlimentacionS"
+            id="pagoAlimentacionS" type="text" class="form-control" />
+          <div *ngIf="f.pagoAlimentacionS.touched && f.pagoAlimentacionS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoAlimentacionS.errors?.required">
+              pagoAlimentacionS is required.
+            </div>
           </div>
-        </div>
+        </mat-form-field>
+
+      </div>
+
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Pago NS</span>
+        <mat-form-field>
+          <input matInput tabindex="2" formControlName="pagoNS" placeholder="pagoNS" id="pagoNS" type="text"
+            class="form-control" />
+          <div *ngIf="f.pagoNS.touched && f.pagoNS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoNS.errors?.required">
+              pagoNS is required.
+            </div>
+          </div>
+        </mat-form-field>
+
+      </div>
+
+      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+        <span>Pago S</span>
+        <mat-form-field>
+          <input matInput tabindex="2" formControlName="pagoS" placeholder="pagoS" id="pagoS" type="text"
+            class="form-control" />
+          <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoS.errors?.required">
+              pagoS is required.
+            </div>
+          </div>
+        </mat-form-field>
+
+      </div>
+      <div mat-dialog-actions>
+        <a mat-button (click)="onNoClick()" tabindex="-1" color="accent">
+          Cancelar
+        </a>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>
     </div>
   </div>
-</div>
+</form>

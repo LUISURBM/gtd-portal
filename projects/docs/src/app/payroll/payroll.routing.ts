@@ -13,6 +13,8 @@ import { DevengadosFormComponent } from './payroll-components/devengados/devenga
 import { DevengadosViewComponent } from './payroll-components/devengados/devengados-view.component';
 import { DevengadosComponent } from './payroll-components/devengados/devengados.component';
 import { HorariosAdicionalesComponent } from './payroll-components/horarios-adicionales/horarios-adicionales.component';
+import { HuelgasComponent } from './payroll-components/huelga-legal/huelga.component';
+import { IncapacidadesComponent } from './payroll-components/incapacidades/incapacidades.component';
 import { LibranzaComponent } from './payroll-components/libranza/libranza.component';
 import { LicenciaComponent } from './payroll-components/licencias/licencias.component';
 import { OtrasDeduccionesComponent } from './payroll-components/otras-deducciones/otras-deducciones.component';
@@ -66,6 +68,10 @@ export const PayrollRoutes: Routes = [
             component: LicenciaComponent,
           },
           {
+            path: 'incapacidades',
+            component: IncapacidadesComponent,
+          },
+          {
             path: 'auxilios',
             component: AuxiliosComponent,
           },
@@ -112,6 +118,10 @@ export const PayrollRoutes: Routes = [
           {
             path: 'horariosAdicionales',
             component: HorariosAdicionalesComponent,
+          },
+          {
+            path: 'huelgas-legales',
+            component: HuelgasComponent,
           },
         ],
       },
