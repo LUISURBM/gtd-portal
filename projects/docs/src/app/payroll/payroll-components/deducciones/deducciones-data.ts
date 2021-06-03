@@ -287,7 +287,7 @@ export const EMPTY = {
 
 export const MENU_ITEMS = [
   { state: '/nómina/deducciones/view/form', name: 'General deducciónes', type: 'link', icon: 'work', emoji: '1F305'  },
-  { state: '/nómina/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F305'  },
+  { state: '/nómina/deducciones/view/anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F4B0'  },
   { state: '/nómina/deducciones/view/libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm', emoji: '1F305'  },
   { state: '/nómina/deducciones/view/otras-deducciones', name: 'Otras Deducciones', type: 'link', icon: 'money', emoji: '1F305'  },
   { state: '/nómina/deducciones/view/pago-terceros', name: 'Pago a Terceros', type: 'link', icon: 'local_atm', emoji: '1F305'  },

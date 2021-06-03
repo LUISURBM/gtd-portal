@@ -1,105 +1,168 @@
 @import "~@angular/material/theming";
 @include mat-core();
 
-/*Default light Theme Colors*/
-
-// Default light theme
-$font-16: 16px;
-$light-text: white;
-$themecolor: #1e88e5;
-$themecolor-alt: #c43d16;
-$themecolor-dark: #683628;
-$primary: #6a1b1b;
-$secondary:#fcb500;
-$secondary-light:#edc596;
-$third: #fd9a7e;
-$four:#dc6d02;
-
-$topbar: #461412;
-$sidebar: white;
-$sidebar-white: white;
-$sidebar-alt: #f2f6f8;
-$bodycolor: #f2f1ef;
-$headingtext: #455a64;
-$bodytext: #67757c;
-$sidebar-icons-light:black;
-
+$app-bar-dark: #8C593B;
+$secondary-dark: #E09224;
+$secondary-dark-light: #cc3a00;
+$themecolor: #1E88E5;
+$dark-text: #181818;
+$themecolor-dark: #028EE1;
+$dark-background: #BF9C88;
 
 
 /*bootstrap Color*/
-$danger: #fc4b6c;
-$success: #26c6da;
-$warning: #ffb22b;
-
-$info: #1e88e5;
-$inverse: #2f3d4a;
-$muted: #99abb4;
+$danger: #FC4B6C;
+$success: #26C6DA;
+$warning: #FFB22B;
+$primary: #6a1b1b;
+$info: #1E88E5;
+$inverse: #2F3D4A;
+$muted: #99ABB4;
 $dark: #263238;
-$light: #f2f4f8;
-$extra-light: #ebf3f5;
-
+$light: #F2F4F8;
+$extra-light: #EBF3F5;
 
 /*Light colors*/
-$light-danger: #f9e7eb;
-$light-success: #e8fdf8;
-$light-warning: #ffa726;
-$light-primary: #f1effd;
-$light-info: #e3f3fd;
-$light-inverse: #f6f6f6;
-$light-megna: #e0f2f4;
-$bg-ligth-card:#ffff;
-
-$danger-dark: #e6294b;
-$success-dark: #1eacbe;
-$warning-dark: #fb8c00;
-$primary-dark: #6352ce;
-$info-dark: #028ee1;
-$red-dark: #d61f1f;
-$inverse-dark: #232a37;
+$light-danger: #F9E7EB;
+$light-success: #E8FDF8;
+$light-warning: #FFA726;
+$light-primary: #F1EFFD;
+$light-info: #E3F3FD;
+$light-inverse: #F6F6F6;
+$light-megna: #E0F2F4;
+$danger-dark: #E6294B;
+$success-dark: #1EACBE;
+$warning-dark: #FB8C00;
+$primary-dark: #6352CE;
+$info-dark: #028EE1;
+$red-dark: #D61F1F;
+$inverse-dark: #232A37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
-/*Normal Color*/
-$white: #ffffff;
-$red: #fb3a3a;
-$yellow: #a0aec4;
-$purple: #7460ee;
-$blue: #02bec9;
-$megna: #00897b;
 
+
+/*Normal Color*/
+$white: #FFFFFF;
+$red: #FB3A3A;
+$yellow: #A0AEC4;
+$purple: #7460EE;
+$blue: #02BEC9;
+$megna: #00897B;
 /*Extra Variable*/
 $rgt: right;
 $lft: left;
 $border: rgba(120, 130, 140, 0.13);
-$table-border: #f3f1f1;
-$card-brd: #1e2625;
-$dark-text: #000000;
+$table-border: #F3F1F1;
+$card-brd: #1E2625;
+$dark-text: #3C4858;
 $radius: 4px;
-$form-brd: #d9d9d9;
+$form-brd: #D9D9D9;
+$light-primary-text: #D7DFE3;
+$dark-primary-text: #0A2634;
 
-$light-primary-text:#ffff;
-$dark-primary-text: #0a2634;
 
-// BACKGROUND CONFIG
-// fpi-skin-black
-$mat-light-theme-background: (
-  background: $bodycolor,
-  status-bar: #1e2625,
-  app-bar: $topbar,
-  hover: #80808077,
-  card: $sidebar-white,
-  dialog: $sidebar-white,
-  tooltip: #171e13,
-  disabled-button: $light-text,
-  raised-button: #171e13,
-  focused-button: #171e13,
-  selected-button: #171e13,
-  selected-disabled-button: #171e13,
-  disabled-button-toggle: #171e13,
-  unselected-chip: #171e13,
-  icon: white,
-  icons:white,
-  disabled-list-option: #171e13,
+//-----------------------------------------------------------INICIO DE LOS COLORES DEL TEMA LIGTH--------------------------------
+//Color principales
+$themecolor-alt: #C43D16;//Este es el color que se ve en el hover y focus de los botones del menú
+$secondary-light-principal: #C43D16;
+$secondary-light: #FD9A7E;
 
+// LIGHT THEME TEXT
+$light-text: #080808;
+$text-accent-lighter-color: rgb(0, 0, 0);
+
+// LIGHT BG
+$light-background: #ffff;
+$app-bar-light: #461412;
+$sidebar-icons-light: #080808;
+$bg-dialog: #e8e3e3;
+
+//Color de los iconos del menú donde están los temas y los ajustes
+$light-accent-text: #080808;
+
+//Background de las cards en Light
+$bg-card-light:#ffff;
+
+//Colores mas suaves del Light
+$light-bg-lighter-20: #f9f4f4;
+$light-app-bar-5: lighten($app-bar-light, 5%);
+
+
+
+
+$mat-light-theme-foreground: (
+  base: $theme-color-blacker-5,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba($light-text, 0.26),
+  disabled-text: $light-disabled-text,
+  elevation: white,
+  secondary-text: $dark-text,
+  hint-text: $light-disabled-text,
+  accent-text: $dark-accent-text,
+  icon: $light-accent-text,
+  icons: $light-accent-text,
+  text: $light-text,
+  slider-min: $light-primary-text,
+  slider-off: rgba($light-text, 0.26),
+  slider-off-active: $light-disabled-text,
 );
+$mat-dark-theme-foreground: (
+  base: $theme-alt-lighter-5,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.3),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-accent-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-accent-text,
+  icons: $dark-accent-text,
+  text: $dark-text,
+  slider-min: $dark-text,
+  slider-off: rgba($dark-text, 0.3),
+  slider-off-active: rgba($dark-text, 0.3),
+);
+
+$mat-light-theme-background: (
+  background: $light-bg-lighter-20,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $app-bar-light,
+  hover: $light-bg-alpha-4,
+  card: #dadada,
+  dialog: $light-background,
+  tooltip: $dark-bg-lighter-5,
+  disabled-button: $light-bg-alpha-12,
+  raised-button: $dark-bg-lighter-30,
+  focused-button: $dark-focused,
+  selected-button: $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
+);
+
+// fpi-skin-alt
+$mat-dark-theme-background: (
+  background: $light-bg-darker-30,
+  status-bar: $light-bg-darker-20,
+  app-bar: $app-bar-dark,
+  hover: $dark-bg-alpha-4,
+  card: $bg-card-light,
+  dialog: $app-bar-alt,
+  tooltip: $dark-bg-tooltip,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $light-bg-lighter-5,
+  focused-button: $light-focused,
+  selected-button: $light-bg-darker-20,
+  selected-disabled-button: $light-bg-darker-30,
+  disabled-button-toggle: $light-bg-darker-10,
+  unselected-chip: $light-bg-darker-10,
+  disabled-list-option: $light-bg-darker-10,
+);
+
 $mat-primary: (
   main:$primary,
   lighter: #15bb0d,
@@ -145,13 +208,7 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
-// $primary-theme: mat-palette($mat-blue-grey);
-// $accent-theme: mat-palette($mat-amber, A200, A100, A400);
-// $warn-theme: mat-palette($mat-pink);
-// $accent: mat-palette($mat-blue, 500);
-// $warn: mat-palette($mat-pink, 500);
 
-// $theme: mat-light-theme($primary-theme, $accent-theme, $warn-theme);
 /*Material Theme Colors*/
 $bodyfont: "Poppins", sans-serif;
 $headingfont: "Poppins", sans-serif;
@@ -167,12 +224,12 @@ $headingfont: "Poppins", sans-serif;
 $custom-typography: mat-typography-config(
   $font-family: "Poppins, sans-serif",
 );
-
+//FIN TEMA PRINCIPAL
 $mat-primary-black: (
-  main: #e7e4e4,
-  lighter: #15bb0d,
+  main: #E7E4E4,
+  lighter: #15BB0D,
   darker: #777575,
-  200: #db543c,
+  200: #DB543C,
   // FOR SLIDE TOGGLE,
   contrast:
     (
@@ -183,8 +240,8 @@ $mat-primary-black: (
 );
 $mat-accent-black: (
   main: #797979,
-  lighter: #d7d7d7,
-  darker: #5c5c5c,
+  lighter: #D7D7D7,
+  darker: #5C5C5C,
   200: #797979,
   // FOR SLIDE TOGGLE,
   contrast:
@@ -195,10 +252,10 @@ $mat-accent-black: (
     ),
 );
 $mat-warn-black: (
-  main: #ff0000,
-  lighter: #ffb3b3,
-  darker: #ff0000,
-  200: #ff0000,
+  main: #FF0000,
+  lighter: #FFB3B3,
+  darker: #FF0000,
+  200: #FF0000,
   // FOR SLIDE TOGGLE,
   contrast:
     (
@@ -207,36 +264,28 @@ $mat-warn-black: (
       darker: $light-primary-text,
     ),
 );
-
 $primary-theme-black: mat-palette($mat-primary-black);
 $accent-theme-black: mat-palette($mat-accent-black);
 $warn-theme-black: mat-palette($mat-warn-black);
 // $accent: mat-palette($mat-blue, 500);
 // $warn: mat-palette($mat-pink, 500);
+//Export
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-
-// $background: map-get($theme, background);
-// $foreground: map-get($theme, foreground);
-
 .default-theme {
   @include angular-material-theme($theme);
   --primary: #{$primary};
-  --background: #{mat-color(map-get($theme-black, background))};
+  --background:$light-bg-lighter-20;
   --themecolor-alt: #{$themecolor-alt};
-  --secondary: #{$secondary};
+  --secondary: #{$secondary-light-principal};
   --secondary-light: #{$secondary-light};
   --text-primary-color: #{$dark-text};
   --sidebar-icons: #{$sidebar-icons-light};
-  --bg-dialog: #{$sidebar-white};
-  --text-accent-color: #{$dark-text};
-  --text-accent-new-color:#{$light};
-  --text-accent-icon-color:#{$light};
-  --bg-dialog-scroll:#{$white};
-  --color-scroll:#{$dark-text};
-  --bg-card:#{$bg-ligth-card};
-  --bg-header-row-dialog:#{$secondary};
+  --text-accent-lighter-color: #{$text-accent-lighter-color};
+  --bg-dialog: #{$bg-dialog};
+  --bg-card: #{$bg-card-light};
+  --text-accent-color: #{$light-text};
+  --app-bar:#{$app-bar-light};
 }
-
 $theme-black: mat-dark-theme(
   $primary-theme-black,
   $accent-theme-black,
@@ -244,4 +293,8 @@ $theme-black: mat-dark-theme(
 );
 .default-theme-black {
   @include angular-material-color($theme-black);
+  --primary: #{$primary-dark};
+  --secondary: #{$secondary-dark};
+  --secondary-light: #{$secondary-dark-light};
+  --bg-card: #{$light-app-bar-5};
 }

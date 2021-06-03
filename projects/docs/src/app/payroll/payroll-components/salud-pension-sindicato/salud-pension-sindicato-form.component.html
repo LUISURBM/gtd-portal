@@ -1,5 +1,5 @@
 <form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow: visible">
-  <div class="m-0 mat-card">
+  <div class="m-0 mat-card" style="width: 150%; align-self: center;">
     <div class="mat-card-header card-header-primary">
       <h1 mat-dialog-title>Formulario {{ data.catalog }} {{ data.id }}</h1>
       <h4 class="card-title">Agregar {{ data.catalog }} nuevo</h4>
@@ -44,7 +44,7 @@
         </mat-form-field>
       </div>
 
-      <div mat-dialog-actions>
+      <div mat-dialog-actions class="d-flex justify-content-center">
         <button mat-button (click)="save()" tabindex="3">Guardar</button>
         <button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
       </div>
