@@ -1,7 +1,7 @@
-<button mat-icon-button>
+<button mat-icon-button class="m-4">
   <span color="accent" aria-label="Messages with icon" [matMenuTriggerFor]="messagesMenu" matBadge="15" matBadgeColor="warn">💬</span>
 </button>
-<button mat-icon-button class="mr-2">
+<button mat-icon-button class="mr-4">
   <span color="accent" aria-label="Notificactions with icon" [matMenuTriggerFor]="notificationsMenu" matBadge="7" matBadgeColor="primary">🔔</span>
 </button>
 <mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
@@ -14,7 +14,7 @@
     <mat-icon>{{option.ico}}</mat-icon> {{option.option}}
   </button>
 </mat-menu>
-<button [matMenuTriggerFor]="options" mat-icon-button class="m-r-5"> <img src="assets/images/logo__globaltek.png"
+<button [matMenuTriggerFor]="options" mat-icon-button class="m-4"> <img src="assets/images/logo__globaltek.png"
     alt="user" class="profile-pic"> </button>
 <mat-menu #options="matMenu" class="mymegamenu">
   <button mat-menu-item [routerLink]="['profile']">

@@ -18,7 +18,7 @@
           <mat-form-field class="example-full-width">
             <mat-label>Fecha corte</mat-label>
             <input matInput formControlName="fechaLiquidacion"  placeholder="Ej. Mia" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker" class="gtd-icon-button">
               <span matDatepickerToggleIcon>📅</span>
             </mat-datepicker-toggle>
             <mat-datepicker #picker startView="year" touchUi [startAt]="startDate" (monthSelected)="picker.close()"></mat-datepicker>
@@ -28,7 +28,7 @@
           <mat-label>Buscar</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
             formControlName="filtro">
-          <button mat-icon-button (click)="navSrv.navigate('/nómina/view')" matSuffix color="primary">
+          <button class="gtd-icon-button" mat-icon-button (click)="navSrv.navigate('/nómina/view')" matSuffix color="primary">
             <span>➕</span>
           </button>
         </mat-form-field>

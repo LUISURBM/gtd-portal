@@ -20,7 +20,7 @@
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center ml-2">
       <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual')" *ngIf="!(state.XSmall || state.Small)">
-        <span>📆</span>
+        <span>{{'1F4C5'|gtdEmoji}}</span>
         <strong>
           2021 - 05
         </strong>
@@ -30,7 +30,7 @@
           arrow_right
           </mat-icon>
       </ng-container>
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+      <a class="ml-2 navbar-brand" (click)="navSrv.navigate('/nómina/view')">
         <span>👨‍💼</span>
         <strong>
           Luis F. Urbina
@@ -50,9 +50,9 @@
 
 
     <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-      <mat-chip color="primary" selected="false" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕ Deducción</span></mat-chip>
-      <mat-chip color="primary" selected="false" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕ Devengo</span></mat-chip>
-      <mat-chip class="btn btn-outline-primary" class="primary" selected="false" (click)="save()" >
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕ Deducción</span></mat-chip>
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕ Devengo</span></mat-chip>
+      <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()" >
         <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
       </mat-chip>
     </mat-chip-list>

@@ -41,6 +41,7 @@ $sidebar-icons: #a8ae99;
 $sidebar-icons-alt: #9d7c62;
 
 $font-16: 16px;
+$icon-button-size: 25px;
 
 $themecolor: #86b30a;
 $themecolor-alt: #93656c;
@@ -164,7 +165,7 @@ $mat-light-theme-foreground: (
   disabled-text: $light-disabled-text,
   elevation: white,
   secondary-text: $dark-text,
-  hint-text: $light-disabled-text,
+  hint-text: $dark-disabled-text,
   accent-text: $dark-accent-text,
   icon: $light-accent-text,
   icons: $light-accent-text,
@@ -314,7 +315,7 @@ $theme-black: mat-light-theme(
     $body-1:
       mat-typography-level(14px, 20px, 400, "Sintony, sans-serif", 0.0179em),
     $button:
-      mat-typography-level(14px, 14px, 500, "Sintony, sans-serif", 0.0893em),
+      mat-typography-level($icon-button-size, 14px, 500, "Sintony, sans-serif", 0.0893em),
     $caption:
       mat-typography-level(12px, 20px, 400, "Sintony, sans-serif", 0.0333em),
     $input:
@@ -365,6 +366,7 @@ $theme-black: mat-light-theme(
   --text-warn-color: #{$dark-primary-text};
   --text-warn-lighter-color: #{$light-primary-text};
   --text-warn-darker-color: #{$dark-primary-text};
+  --icon-button-size: #{$icon-button-size};
 }
 
 // THEME CONFIG
@@ -479,27 +481,3 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --text-warn-darker-color: #{$dark-primary-text};
 }
 
-// SPECIFIC COMPONENT OVERRIDES, PIECES THAT ARE NOT IN LINE WITH THE GENERAL THEMING
-
-// HANDLE BUTTONS APPROPRIATELY, WITH RESPECT TO LINE-HEIGHT
-.mat-raised-button,
-.mat-stroked-button,
-.mat-flat-button {
-  padding: 0 1.15em;
-  margin: 0 0.65em;
-  min-width: 3em;
-  line-height: 36.4px;
-}
-
-.mat-standard-chip {
-  padding: 0.5em 0.85em;
-  min-height: 2.5em;
-}
-
-.material-icons {
-  font-size: 24px;
-  font-family: "Material Icons", "Material Icons";
-  .mat-badge-content {
-    font-family: "Sintony, sans-serif";
-  }
-}

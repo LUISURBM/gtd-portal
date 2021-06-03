@@ -4352,8 +4352,9 @@ tbody.collapse.show {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  cursor: alias;
   span{
-    margin: 0 2vh -1px 2.5vh;
+    margin: 0 0.7vh -1px 0.7vh;
   }
 }
 

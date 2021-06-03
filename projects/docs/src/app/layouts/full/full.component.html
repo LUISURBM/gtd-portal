@@ -13,9 +13,9 @@
           style="color: var(--secondary-light)!important">
           <mat-icon>apps</mat-icon>
         </button>
-        <div class="navbar-header d-flex align-items-center mr-2">
+        <div class="navbar-header d-flex align-items-center mr-2 ml-2">
           <a class="navbar-brand" (click)="navSrv.navigate('/nómina')">
-            <h3 class="mr-2">{{menuItemsSrv.codePoint('1F4C3')}}{{activeRoute}}</h3>
+            <span class="mr-2">{{menuItemsSrv.codePoint('1F4C3')}}</span><h3>{{activeRoute}}</h3>
           </a>
         </div>
         <span fxFlex></span>
