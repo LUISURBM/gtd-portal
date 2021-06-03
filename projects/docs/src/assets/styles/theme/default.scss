@@ -3,12 +3,12 @@
 
 /*Default light Theme Colors*/
 
-
-$topbar: #171e13;
+$app-bar-dark: #402F1F;
+$app-bar-alt: #9C4919;
 $sidebar: white;
 $sidebar-white: #e5edef;
 $sidebar-alt: #f2f6f8;
-$app-bar-alt: #8C593B;
+
 
 $bodycolor: #f2f1ef;
 $headingtext: #455a64;
@@ -23,6 +23,7 @@ $themecolor-alt: #c43d16;
 $themecolor-dark: #028ee1;
 
 $dark-background: #BF9C88;
+$light-bg-darker-30: #9C4919;
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
@@ -37,7 +38,7 @@ $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #c43d16;
 $secondary-light: #fd9a7e;
-$secondary-dark: #E09224;
+$secondary-dark: #8C593B;
 $secondary-dark-light: #BACDD9;
 
 /*Light colors*/
@@ -58,6 +59,7 @@ $red-dark: #d61f1f;
 $inverse-dark: #232a37;
 $dark-transparent: rgba(0, 0, 0, 0.05);
 $text-accent-lighter-color: white;
+$text-accent-darker-color: #732D27;
 $bg-dialog: #171e13;
 
 
@@ -86,27 +88,26 @@ $light-app-bar-5: #BF9169;
 
 
 $mat-light-theme-foreground: (
-  base:              $light-primary-text,
-  divider:           $dark-dividers,
-  dividers:          $dark-dividers,
-  disabled:          $light-disabled-text,
-  disabled-button:   rgba($light-text, 0.26),
-  disabled-text:     $light-disabled-text,
-  elevation:         white,
-  secondary-text:    $light-text,
-  hint-text:         $light-disabled-text,
-  accent-text:       $dark-accent-text,
-  icon:              $light-accent-text,
-  icons:             $light-accent-text,
-  text:              $light-text,
-  slider-min:        $light-primary-text,
-  slider-off:        rgba($light-text, 0.26),
+  base: $theme-color-blacker-5,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba($light-text, 0.26),
+  disabled-text: $light-disabled-text,
+  elevation: white,
+  secondary-text: $dark-text,
+  hint-text: $light-disabled-text,
+  accent-text: $dark-accent-text,
+  icon: $light-accent-text,
+  icons: $light-accent-text,
+  text: $light-text,
+  slider-min: $light-primary-text,
+  slider-off: rgba($light-text, 0.26),
   slider-off-active: $light-disabled-text,
 );
 
-
 $mat-dark-theme-foreground: (
-  base: $dark-text,
+  base: $theme-alt-lighter-5,
   divider: $dark-dividers,
   dividers: $dark-dividers,
   disabled: $dark-disabled-text,
@@ -114,40 +115,37 @@ $mat-dark-theme-foreground: (
   disabled-text: $dark-disabled-text,
   elevation: black,
   hint-text: $dark-disabled-text,
-  secondary-text: $dark-accent-text,
+  secondary-text: $dark-text,
   accent-text: $dark-accent-text,
   icon: $dark-accent-text,
   icons: $dark-accent-text,
-  text: $dark-text,
+  text: $bodycolor,
   slider-min: $dark-text,
   slider-off: rgba($dark-text, 0.3),
   slider-off-active: rgba($dark-text, 0.3),
 );
 
-
 // BACKGROUND CONFIG
 // fpi-skin-black
 $mat-light-theme-background: (
-  background: $bodycolor,
-  status-bar: #1e2625,
-  app-bar: $topbar,
-  hover: #80808077,
-  card: #171e13,
-  dialog: #171e13,
-  tooltip: #171e13,
-  disabled-button: $light-text,
-  raised-button: #171e13,
-  focused-button: #171e13,
-  selected-button: #171e13,
-  selected-disabled-button: #171e13,
-  disabled-button-toggle: #171e13,
-  unselected-chip: #171e13,
-  icon: white,
-  icons:white,
-  disabled-list-option: #171e13,
+  background: $light-bg-darker-20,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $app-bar-alt,
+  hover: $light-bg-alpha-4,
+  card: $dark-app-bar-5,
+  dialog: $dark-app-bar-5,
+  tooltip: $dark-bg-lighter-5,
+  disabled-button: $light-bg-alpha-12,
+  raised-button: $dark-bg-lighter-30,
+  focused-button: $dark-focused,
+  selected-button: $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
 );
 
-
+// fpi-skin-alt
 $mat-dark-theme-background: (
   background: $light-bg-darker-30,
   status-bar: $light-bg-darker-20,
@@ -307,8 +305,12 @@ $theme-black: mat-dark-theme(
   @include angular-material-color($theme-black);
   --primary: #{$primary-dark};
   --secondary: #{$secondary-dark};
-  --secondary-light: #{$secondary-dark-light};
   --bg-card: #{$light-app-bar-5};
-  
-
+  --secondary-light: #{$secondary-dark};
+  --light-bg-darker-30: #{$light-bg-darker-30};
+  --text-accent-lighter-color: #{$bodycolor};
+  --text-primary-color: #{$bodycolor};
+  --accent-color: #{$dark-text};
+  --app-bar: #{$app-bar-dark};
+  --text-accent-color: #{$bodycolor};
 }
