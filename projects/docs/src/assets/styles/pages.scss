@@ -35,7 +35,7 @@ File: scss
 }
 
 html .page-wrapper {
-  min-height: calc(100vh - 11.4vh);
+  height: calc(100vh);
   .page-content {
     // padding: 15px;
     height: 100vh;

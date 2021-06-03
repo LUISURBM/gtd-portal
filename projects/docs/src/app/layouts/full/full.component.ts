@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { animationsForm5 } from '../../animations/form-animation';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { Menu, MenuItems } from '../../shared/menu-items/menu-items';
 import { AppStateService } from '../../srv/local-app.service';
@@ -16,6 +17,7 @@ import { NavigationService } from '../../srv/navigation.service';
   selector: 'app-full-layout',
   templateUrl: 'full.component.html',
   styleUrls: ['full.component.scss'],
+  animations: animationsForm5
 })
 export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(ToolbarComponent)
