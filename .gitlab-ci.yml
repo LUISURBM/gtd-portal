@@ -6,6 +6,9 @@ build:
       - export CHROME_BIN=/usr/bin/google-chrome
       - node -v
       
+    tags:
+      - docker
+      
     script: 
       - if [ -f /.dockerenv ]; then echo "docker-executor"; fi
       - npm install
