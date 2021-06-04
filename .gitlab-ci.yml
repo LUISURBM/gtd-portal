@@ -1,10 +1,15 @@
-image: node:14.16.0
+variables:
+  CHROME_BIN: "/usr/bin/google-chrome"
 
+image: node:14.16.0
 chrome: 
     stage: build 
     image: weltn24/up-docker-node-chrome-headless
+    script:
+      - echo "$CHROME_BIN"
+
+build: 
     before_script: 
-      - export CHROME_BIN=/usr/bin/google-chrome
       - node -v
       - npm install
       
