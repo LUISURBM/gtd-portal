@@ -4,6 +4,7 @@ build:
     image: weltn24/up-docker-node-chrome-headless
     before_script: 
       - export CHROME_BIN=/usr/bin/google-chrome 
+      - npm i npm@latest -g
       - npm install
  
     script: 
