@@ -1,7 +1,11 @@
 image: node:14.16.0
+tags:
+  - docker
 build: 
     stage: build 
     image: weltn24/up-docker-node-chrome-headless
+    tags:
+      - docker
     before_script: 
       - export CHROME_BIN=/usr/bin/google-chrome
       - node -v
