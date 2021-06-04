@@ -1,6 +1,6 @@
 build: 
     stage: build 
-    image: svaseghi/node-chrome:v1 
+    image: weltn24/up-docker-node-chrome-headless
     before_script: 
       - export CHROME_BIN=/usr/bin/google-chrome 
       - npm ci 
