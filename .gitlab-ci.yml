@@ -1,6 +1,6 @@
+image: node:12.14
 tags:
   - docker
-image: node:12.14
 build: 
     stage: build 
     image: weltn24/up-docker-node-chrome-headless
