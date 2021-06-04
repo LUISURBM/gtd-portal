@@ -1,10 +1,23 @@
-build: 
+image: node:14.16.0
+
+chrome: 
     stage: build 
     image: weltn24/up-docker-node-chrome-headless
     before_script: 
-      - export CHROME_BIN=/usr/bin/google-chrome 
+      - export CHROME_BIN=/usr/bin/google-chrome
+    
+    script:
+      - node -v
+
+build: 
+    before_script: 
+      - node -v
       - npm install
- 
+      
+    tags:
+      - docker
+      
     script: 
+      - if [ -f /.dockerenv ]; then echo "docker-executor"; fi
       - npm run build 
-      - npm run test:ci 
+      - npm run test:ci
