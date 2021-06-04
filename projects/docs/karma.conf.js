@@ -45,6 +45,16 @@ module.exports = function (config) {
       }
     },
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    coverageIstanbulReporter: {
+      dir: path.join(__dirname, './artifacts/coverage'),
+      reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
+      fixWebpackSourcePaths: true,
+      'report-config': {
+        'text-summary': {
+          file: 'text-summary.txt'
+        }
+      },
+    },
   });
 };
