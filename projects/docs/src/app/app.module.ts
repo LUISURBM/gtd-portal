@@ -1,5 +1,9 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  CommonModule,
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,17 +21,17 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG
+  MSAL_INTERCEPTOR_CONFIG,
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
+  ILoggerCallback,
   InteractionType,
   IPublicClientApplication,
-  PublicClientApplication
+  LogLevel,
+  PublicClientApplication,
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { LogLevel } from 'msal';
-
 import { pairwise } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -42,19 +46,26 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import { ApiModule } from './srv/payroll/api/api.module';
-import { Configuration, ConfigurationParameters } from './srv/payroll/api/configuration';
-import { StyleManagerService } from './srv/style-manager.service';
 import { AppStateService } from './srv/local-app.service';
+import { ApiModule } from './srv/payroll/api/api.module';
+import {
+  Configuration,
+  ConfigurationParameters,
+} from './srv/payroll/api/configuration';
+import { StyleManagerService } from './srv/style-manager.service';
 import { NgGtdThemes } from './types/common-types';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
   window.navigator.userAgent.indexOf('Trident/') > -1;
 
-export function loggerCallback(logLevel: LogLevel, message: string) {
+export const loggerCallback: ILoggerCallback = (
+  level: LogLevel,
+  message: string,
+  containsPii: boolean
+) => {
   console.log(message);
-}
+};
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -97,12 +108,13 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     },
   };
 }
-export function apiConfigFactory (): Configuration {
+export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
-    'apiKeys': {
+    apiKeys: {
       'content-Type': 'application/json',
-      Authorization: `82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68`},
-      basePath: environment.API_GATEWAY,
+      Authorization: `82e2f0e5-30b2-4e6b-a7ce-99fa407d3b68`,
+    },
+    basePath: environment.API_GATEWAY,
   };
   return new Configuration(params);
 }
@@ -131,7 +143,6 @@ export function apiConfigFactory (): Configuration {
     MatToolbarModule,
     GoogleChartsModule,
     ApiModule.forRoot(apiConfigFactory),
-
   ],
   providers: [
     {
@@ -170,9 +181,9 @@ export class AppModule {
     overlayContainer.getContainerElement().classList.add(NgGtdThemes.FpiSkin);
     stateSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
       console.log(p, q);
-      if (q) overlayContainer.getContainerElement().classList.remove(p.uiPalette);
+      if (q)
+        overlayContainer.getContainerElement().classList.remove(p.uiPalette);
       if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);
     });
-
   }
 }
