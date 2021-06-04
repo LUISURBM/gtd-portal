@@ -8,5 +8,6 @@ build:
       
     script: 
       - if [ -f /.dockerenv ]; then echo "docker-executor"; fi
+      - npm install
       - npm run build 
       - npm run test:ci
