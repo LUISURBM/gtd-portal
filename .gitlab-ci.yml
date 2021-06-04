@@ -10,6 +10,7 @@ chrome:
 
 build: 
     before_script: 
+      - echo "$CHROME_BIN"
       - node -v
       - npm install
       
