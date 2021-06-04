@@ -1,0 +1,91 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ng serve",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "npm: start",
+      "url": "http://localhost:4300/#",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/projects/docs/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/projects/docs/src/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
+    },
+    {
+      "name": "ng test",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/projects/docs/*",
+        "/./*": "${webRoot}/projects/docs/*",
+        "/src/*": "${webRoot}/projects/docs/src/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
+    },
+    {
+      "name": "ng e2e",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
+      "protocol": "inspector",
+      "args": ["${workspaceFolder}/e2e/protractor.conf.js"]
+    },
+    {
+      "name": "Launch in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "runtimeExecutable": "C:\\Users\\GTD-157\\tools\\chrome-win\\chrome.exe",
+      "runtimeArgs": [
+        "--disable-extensions"
+      ],
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+          "webpack:/*": "${webRoot}/projects/docs/*",
+          "webpack:///./src/*": "${webRoot}/projects/docs/src/*",
+          "/*": "*",
+          "/./~/*": "${webRoot}/node_modules/*",
+      },
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest All",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Current File",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "${fileBasenameNoExtension}",
+        "--config",
+        "jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
+    }
+  ]
+}

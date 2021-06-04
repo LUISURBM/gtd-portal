@@ -88,8 +88,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "docs:build:production",
-            },
+              "browserTarget": "docs:build:production"
+            }
           }
         },
         "extract-i18n": {
@@ -107,8 +107,7 @@
             "karmaConfig": "projects/docs/karma.conf.js",
             "assets": [
               "projects/docs/src/favicon.ico",
-              "projects/docs/src/assets",
-              "web.config"
+              "projects/docs/src/assets"
             ],
             "styles": [
               "projects/docs/src/styles.scss"

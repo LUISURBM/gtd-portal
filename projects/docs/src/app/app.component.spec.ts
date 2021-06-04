@@ -1,16 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { InMemDataService } from './srv/in-mem-data-service';
+import { InMemService } from './srv/in-mem-service';
+import { AppStateService } from './srv/local-app.service';
+import { StyleManagerService } from './srv/style-manager.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      providers: [
+        InMemService,
+        InMemDataService,
+        AppStateService,
+        StyleManagerService,],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -30,6 +35,9 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('docs app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain(
+      'docs app is running!'
+    );
   });
+
 });

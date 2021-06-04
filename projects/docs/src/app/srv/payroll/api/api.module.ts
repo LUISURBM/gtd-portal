@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { BasicoService } from '../../../service/mgmt/basicos/basicos';
 import { Configuration } from './configuration';
 import { StoredProcedureService } from './storedProcedure.service';
 
@@ -8,7 +9,7 @@ import { StoredProcedureService } from './storedProcedure.service';
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [StoredProcedureService]
+  providers: [BasicoService, StoredProcedureService]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<any> {
