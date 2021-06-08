@@ -3,14 +3,12 @@
 
 /*Default light Theme Colors*/
 
-$app-bar-dark: #402F1F;
-$app-bar-alt: #9C4919;
 $sidebar: white;
 $sidebar-white: #e5edef;
 $sidebar-alt: #f2f6f8;
 
 
-$bodycolor: #f2f1ef;
+$bodycolor: #4b72a7;
 $headingtext: #455a64;
 $bodytext: #67757c;
 $sidebar-icons: #ffffff;
@@ -23,7 +21,7 @@ $themecolor-alt: #c43d16;
 $themecolor-dark: #028ee1;
 
 $dark-background: #BF9C88;
-$light-bg-darker-30: #9C4919;
+
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
@@ -38,7 +36,7 @@ $light: #f2f4f8;
 $extra-light: #ebf3f5;
 $secondary: #c43d16;
 $secondary-light: #fd9a7e;
-$secondary-dark: #8C593B;
+$secondary-dark: #9C4919;
 $secondary-dark-light: #BACDD9;
 
 /*Light colors*/
@@ -84,8 +82,12 @@ $form-brd: #d9d9d9;
 $light-primary-text: #d7dfe3;
 $dark-primary-text: #0a2634;
 
-$light-app-bar-5: #BF9169;
-
+$light-app-bar-5: #402921;
+$light-bg-darker-30: lighten($light-app-bar-5, 15%);
+$app-bar-dark: lighten($light-app-bar-5, 25%);
+$primary-color: #FC4B6C;
+$drawer-container-background-color: $app-bar-dark;
+$app-bar-alt: darken($light-app-bar-5, 5%);
 
 $mat-light-theme-foreground: (
   base: $theme-color-blacker-5,
@@ -308,9 +310,10 @@ $theme-black: mat-dark-theme(
   --bg-card: #{$light-app-bar-5};
   --secondary-light: #{$secondary-dark};
   --light-bg-darker-30: #{$light-bg-darker-30};
-  --text-accent-lighter-color: #{$bodycolor};
+  --text-accent-lighter-color: #{$primary-color};
   --text-primary-color: #{$bodycolor};
-  --accent-color: #{$dark-text};
+  --accent-color: #{$primary-color};
   --app-bar: #{$app-bar-dark};
   --text-accent-color: #{$bodycolor};
+  --primary-color: #{$primary-color};
 }
