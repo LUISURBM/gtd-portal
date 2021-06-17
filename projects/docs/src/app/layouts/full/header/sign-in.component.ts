@@ -16,7 +16,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
             type="text"
             class="form-control">
         <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
-            <div *ngIf="f.email.errors?.required">email is required.</div>
+            <div *ngIf="f.email.errors?.required">email es obligatorio.</div>
             <div *ngIf="f.email.errors?.email">Please, enter valid email address.</div>
         </div>
       </mat-form-field>

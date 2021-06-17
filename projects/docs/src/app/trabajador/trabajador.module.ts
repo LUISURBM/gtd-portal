@@ -6,20 +6,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
+import { SharedModule } from '../shared/shared.module';
 import { FilterValueComponent } from './filter.componet';
+import { TrabajadorFormComponent } from './trabajador-form.component';
+import { TrabajadorViewComponent } from './trabajador-view.component';
 import { TrabajadorComponent } from './trabajador.component';
-import { TrabajadorRoutes } from './trabajador.routing';
+import { trabajadorRoutes } from './trabajador.routing';
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
     FlexLayoutModule,
     ChartistModule,
-    RouterModule.forChild(TrabajadorRoutes),
+    RouterModule.forChild(trabajadorRoutes),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
   ],
-  declarations: [TrabajadorComponent, FilterValueComponent],
+  declarations: [
+    TrabajadorComponent,
+    TrabajadorFormComponent,
+    TrabajadorViewComponent,
+    FilterValueComponent,
+  ],
 })
 export class DashboardModule {}

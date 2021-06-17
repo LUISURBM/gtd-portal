@@ -54,7 +54,7 @@ export class SancionComponent implements OnInit, AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter(
       (h) => h.id !== sancion.id
     );
-    this._snackBar.open(`${sancion.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${sancion.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(sancion: Sancion): void {

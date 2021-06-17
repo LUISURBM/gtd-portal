@@ -22,10 +22,12 @@ $dark-text: #181818;
 
 // LIGHT BG
 $light-background: #ffffff;
-$app-bar-dark: #181818;
+$top-bar-dark: #181818;
+$app-bar-dark: #dce5aa;
 // DARK BG
 $dark-background: #fff59d;
-$app-bar-alt: #83c5be;
+$top-bar-alt: #55c4d7;
+$app-bar-alt: #f0df99;
 
 $headingtext: #455a64;
 
@@ -38,16 +40,27 @@ $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c;
 $sidebar-icons: #a8ae99;
-$sidebar-icons-alt: #9d7c62;
+$sidebar-icons-alt: $dark-text;
 
 $font-16: 16px;
-$icon-button-size: 25px;
+$icon-button-size: 1.25em;
 
 $themecolor: #86b30a;
-$themecolor-alt: #93656c;
+$themecolor-alt: #d38e31;
 $themecolor-dark: #028ee1;
 
+$accent-black:#357a38;
+$accent-black-darker-5: darken($accent-black, 5%);
+$accent-black-darker-10: darken($accent-black, 10%);
+$accent-black-darker-20: darken($accent-black, 20%);
+$accent-black-darker-30: darken($accent-black, 30%);
 
+$accent-light: darken(#992915, 5%);
+$accent-light-darker-5: darken($accent-light, 5%);
+$accent-light-darker-10: darken($accent-light, 10%);
+$accent-light-darker-20: darken($accent-light, 20%);
+$accent-light-darker-30: darken($accent-light, 30%);
+  // FOR SLIDE TOGGL
 
 /*bootstrap Color*/
 $danger: #fc4b6c;
@@ -63,7 +76,7 @@ $extra-light: #ebf3f5;
 $secondary: #727b84;
 $secondary-light: #b9f6ca;
 
-/*Light colors*/
+/* main colors */
 $light-danger: #f9e7eb;
 $light-success: #e8fdf8;
 $light-warning: #ffa726;
@@ -71,6 +84,11 @@ $light-primary: #f1effd;
 $light-info: #e3f3fd;
 $light-inverse: #f6f6f6;
 $light-megna: #e0f2f4;
+
+/* alt color*/
+$dark-danger: #992915;
+$dark-sucess: #a37c82;
+$dark-primary: #d38e31;
 
 $danger-dark: #e6294b;
 $success-dark: #1eacbe;
@@ -100,29 +118,14 @@ $radius: 4px;
 $form-brd: #d9d9d9;
 
 $theme-color-blacker-5: lighten($themecolor, 5%);
-$theme-color-blacker-10: lighten($themecolor, 10%);
-$theme-color-blacker-20: lighten($themecolor, 20%);
-$theme-color-blacker-30: lighten($themecolor, 30%);
+$theme-color-blacker-10: lighten($theme-color-blacker-5, 10%);
+$theme-color-blacker-20: lighten($theme-color-blacker-5, 20%);
+$theme-color-blacker-30: lighten($theme-color-blacker-5, 30%);
 
 $theme-alt-lighter-5: lighten($themecolor-alt, 5%);
 $theme-alt-lighter-10: lighten($themecolor-alt, 10%);
 $theme-alt-lighter-20: lighten($themecolor-alt, 20%);
 $theme-alt-lighter-30: lighten($themecolor-alt, 30%);
-
-body {
-  --radius: #{$radius};
-  --white: #{$white};
-  --black: #{$black};
-  --danger: #{$danger};
-  --muted: #{$muted};
-  --warning: #{$warning};
-  --success: #{$success};
-  --info: #{$info};
-  --blue: #{$blue};
-  --primary: #{$primary};
-  --megna: #{$megna};
-  --purple: #{$purple};
-}
 
 $light-primary-text: rgba($light-text, 0.87);
 $light-accent-text: rgba($light-primary-text, 0.84);
@@ -132,7 +135,7 @@ $light-focused: rgba($light-primary-text, 0.12);
 
 // DARK THEME TEXT
 $dark-primary-text: $dark-text;
-$dark-accent-text: rgba($dark-primary-text, 0.7);
+$dark-accent-text: rgba($dark-primary-text, 0.9);
 $dark-disabled-text: rgba($dark-primary-text, 0.5);
 $dark-dividers: rgba($dark-primary-text, 0.12);
 $dark-focused: rgba($dark-primary-text, 0.12);
@@ -142,8 +145,8 @@ $light-bg-darker-10: darken($light-background, 10%);
 $light-bg-darker-20: darken($light-background, 20%);
 $light-bg-darker-30: darken($light-background, 30%);
 $light-bg-lighter-5: lighten($light-background, 5%);
-$light-app-bar-5: lighten($app-bar-alt, 5%);
-$dark-app-bar-5: lighten($app-bar-dark, 5%);
+$light-app-bar-5: lighten($top-bar-alt, 5%);
+$dark-app-bar-5: lighten($top-bar-dark, 5%);
 $dark-bg-tooltip: lighten(#2c2c2c, 20%);
 $dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
 $dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
@@ -169,7 +172,7 @@ $mat-light-theme-foreground: (
   accent-text: $dark-accent-text,
   icon: $light-accent-text,
   icons: $light-accent-text,
-  text: $light-text,
+  text: $dark-text,
   slider-min: $light-primary-text,
   slider-off: rgba($light-text, 0.26),
   slider-off-active: $light-disabled-text,
@@ -199,7 +202,7 @@ $mat-dark-theme-foreground: (
 $mat-light-theme-background: (
   background: $light-bg-darker-20,
   status-bar: $dark-bg-lighter-20,
-  app-bar: $app-bar-dark,
+  app-bar: $top-bar-dark,
   hover: $light-bg-alpha-4,
   card: $dark-app-bar-5,
   dialog: $dark-app-bar-5,
@@ -218,10 +221,10 @@ $mat-light-theme-background: (
 $mat-dark-theme-background: (
   background: $light-bg-darker-30,
   status-bar: $light-bg-darker-20,
-  app-bar: $app-bar-alt,
+  app-bar: $top-bar-alt,
   hover: $dark-bg-alpha-4,
   card: $light-app-bar-5,
-  dialog: $app-bar-alt,
+  dialog: $top-bar-alt,
   tooltip: $dark-bg-tooltip,
   disabled-button: $dark-bg-alpha-12,
   raised-button: $light-bg-lighter-5,
@@ -236,10 +239,11 @@ $mat-dark-theme-background: (
 // THEME CONFIG
 
 $mat-primary-black: (
-  main: #dce5aa,
+  main: $themecolor,
   lighter: #777575,
   darker: #000000,
   200: #86b30a,
+  text: #000000,
   // FOR SLIDE TOGGLE,
   contrast:
     (
@@ -252,10 +256,10 @@ $mat-primary-black: (
 $theme-primary-black: mat-palette($mat-primary-black, main, darker, lighter);
 
 $mat-accent-black: (
-  main: #797979,
-  lighter: #d7d7d7,
-  darker: #5c5c5c,
-  200: #797979,
+  main: $accent-black,
+  lighter: $accent-black-darker-10,
+  darker: $accent-black-darker-30,
+  200: $accent-black-darker-20,
   // FOR SLIDE TOGGLE,
   contrast:
     (
@@ -303,7 +307,7 @@ $theme-black: mat-light-theme(
       mat-typography-level(45px, 48px, 400, "Sintony, sans-serif", 0em),
     $display-1:
       mat-typography-level(34px, 40px, 400, "Sintony, sans-serif", 0.0074em),
-    $headline: mat-typography-level(24px, 32px, 400, "Sintony, sans-serif", 0em),
+    $headline: mat-typography-level(24px, 32px, 550, "Sintony, sans-serif", 0em),
     $title:
       mat-typography-level(20px, 32px, 500, "Sintony, sans-serif", 0.0075em),
     $subheading-2:
@@ -323,19 +327,21 @@ $theme-black: mat-light-theme(
   );
   @include mat-core($fontConfig);
   @include angular-material-theme($theme-black);
-  --themecolor-alt: #{$theme-color-blacker-5};
-  --secondary: #{$theme-color-blacker-5};
-  --secondary-light: #{$theme-color-blacker-5};
+  --top-bar: #{$top-bar-dark};
   --app-bar: #{$app-bar-dark};
   --bg-toolbar: mat-color($mat-primary-black, main);
   --inverse: #f78e59;
-  --bg-dialog: #{$dark-app-bar-5};
   --bg-card: #{$light-background};
-  --bg-body: #{$light-bg-darker-30};
+  --bg-body: #{$light-bg-darker-20};
   --bodyfont: #{$bodyfont};
   --bodytext: #{$bodytext};
   --headingtext: #{$headingtext};
-  --themecolor: #{$themecolor};
+  --themecolor: #b1f6f2;
+  --secondary: #{$theme-color-blacker-5};
+  --secondary-light: #{$theme-color-blacker-10};
+  --secondary-light-20: #{$theme-color-blacker-20};
+  --secondary-light-30: #{$theme-color-blacker-30};
+  --bg-dialog: #{$dark-app-bar-5};
   --light-danger: #{$light-danger};
   --headingfont: #{$headingfont};
   --sidebar-icons: #{$sidebar-icons};
@@ -348,17 +354,17 @@ $theme-black: mat-light-theme(
   --light-inverse: #{$light-inverse};
   --font-16: #{$font-16};
   --light: #{$light};
-  --primary-color: #86b30a;
+  --primary-color: #dce5aa;
   --primary-lighter-color: #f0c2ef;
   --primary-darker-color: #b920b7;
   --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$dark-primary-text};
-  --accent-color: #797979;
+  --accent-color: #{$accent-black};
   --accent-lighter-color: #d7d7d7;
   --accent-darker-color: #5c5c5c;
   --text-accent-color: #{$dark-primary-text};
-  --text-accent-lighter-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$light-accent-text};
   --text-accent-darker-color: #{$dark-primary-text};
   --warn-color: #ff0000;
   --warn-lighter-color: #ffb3b3;
@@ -366,14 +372,13 @@ $theme-black: mat-light-theme(
   --text-warn-color: #{$dark-primary-text};
   --text-warn-lighter-color: #{$light-primary-text};
   --text-warn-darker-color: #{$dark-primary-text};
-  --icon-button-size: #{$icon-button-size};
 }
 
 // THEME CONFIG
 
 
 $mat-primary: (
-  main: #a37c82,
+  main: $themecolor-alt,
   lighter: #15bb0d,
   darker: #777575,
   200: #db543c,
@@ -422,43 +427,47 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 // THEME INIT
 .fpi-skin-alt {
   $fontConfig: mat-typography-config(
-    $font-family: "Sintony, sans-serif",
+    $font-family: "Assistant, sans-serif",
     $display-4:
-      mat-typography-level(112px, 112px, 300, "Sintony, sans-serif", -0.0134em),
+      mat-typography-level(112px, 112px, 300, "Assistant, sans-serif", -0.0134em),
     $display-3:
-      mat-typography-level(56px, 56px, 400, "Sintony, sans-serif", -0.0089em),
+      mat-typography-level(56px, 56px, 400, "Assistant, sans-serif", -0.0089em),
     $display-2:
-      mat-typography-level(45px, 48px, 400, "Sintony, sans-serif", 0em),
+      mat-typography-level(45px, 48px, 400, "Assistant, sans-serif", 0em),
     $display-1:
-      mat-typography-level(34px, 40px, 400, "Sintony, sans-serif", 0.0074em),
-    $headline: mat-typography-level(24px, 32px, 400, "Sintony, sans-serif", 0em),
+      mat-typography-level(34px, 40px, 400, "Assistant, sans-serif", 0.0074em),
+    $headline: mat-typography-level(24px, 32px, 550, "Assistant, sans-serif", 0em),
     $title:
-      mat-typography-level(20px, 32px, 500, "Sintony, sans-serif", 0.0075em),
+      mat-typography-level(20px, 32px, 500, "Assistant, sans-serif", 0.0075em),
     $subheading-2:
-      mat-typography-level(16px, 28px, 400, "Sintony, sans-serif", 0.0094em),
+      mat-typography-level(16px, 28px, 400, "Assistant, sans-serif", 0.0094em),
     $subheading-1:
-      mat-typography-level(15px, 24px, 800, "Sintony, sans-serif", 0.0067em),
+      mat-typography-level(15px, 24px, 800, "Assistant, sans-serif", 0.0067em),
     $body-2:
-      mat-typography-level(14px, 24px, 500, "Sintony, sans-serif", 0.0179em),
+      mat-typography-level(14px, 24px, 500, "Assistant, sans-serif", 0.0179em),
     $body-1:
-      mat-typography-level(14px, 20px, 400, "Sintony, sans-serif", 0.0179em),
+      mat-typography-level(14px, 20px, 400, "Assistant, sans-serif", 0.0179em),
     $button:
-      mat-typography-level(14px, 14px, 500, "Sintony, sans-serif", 0.0893em),
+      mat-typography-level($icon-button-size, 14px, 500, "Assistant, sans-serif", 0.0893em),
     $caption:
-      mat-typography-level(12px, 20px, 400, "Sintony, sans-serif", 0.0333em),
+      mat-typography-level(12px, 20px, 400, "Assistant, sans-serif", 0.0333em),
     $input:
-      mat-typography-level(inherit, 1.125, 400, "Sintony, sans-serif", 1.5px),
+      mat-typography-level(inherit, 1.125, 400, "Assistant, sans-serif", 1.5px),
   );
   @include mat-core($fontConfig);
   @include angular-material-color($altTheme);
   --secondary: #{$theme-alt-lighter-5};
   --secondary-light: #{$theme-alt-lighter-10};
+  --secondary-light-20: #{$theme-alt-lighter-20};
+  --secondary-light-30: #{$theme-alt-lighter-30};
   --themecolor-alt: #{$themecolor-alt};
   --bg-toolbar: mat-color($mat-primary, main);
   --inverse: mat-color($mat-accent, main);
   --bg-dialog: #{$light-app-bar-5};
   --bg-card: #{$dark-background};
   --bg-body: #{$dark-bg-lighter-30};
+  --top-bar: #{$top-bar-alt};
+  --app-bar: #{$app-bar-alt};
   --sidebar-icons: #{$sidebar-icons-alt};
 
   --primary-color: #813405;
@@ -467,11 +476,11 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$light-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
-  --accent-color: #797979;
+  --accent-color: #{$accent-light};
   --accent-lighter-color: #d7d7d7;
   --accent-darker-color: #5c5c5c;
   --text-accent-color: #{$dark-primary-text};
-  --text-accent-lighter-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-accent-text};
   --text-accent-darker-color: #{$dark-primary-text};
   --warn-color: #ff0000;
   --warn-lighter-color: #ffb3b3;
@@ -481,3 +490,18 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --text-warn-darker-color: #{$dark-primary-text};
 }
 
+body {
+  --radius: #{$radius};
+  --white: #{$white};
+  --black: #{$black};
+  --danger: #{$danger};
+  --muted: #{$muted};
+  --warning: #{$warning};
+  --success: #{$success};
+  --info: #{$info};
+  --blue: #{$blue};
+  --primary: #{$primary};
+  --megna: #{$megna};
+  --purple: #{$purple};
+  --icon-button-size: #{$icon-button-size};
+}

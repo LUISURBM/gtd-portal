@@ -42,6 +42,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
+    this.openDialog(0);
   }
 
 
@@ -57,7 +58,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit {
 
   delete(anticipo: Anticipo): void {
     this.dataSource.data = this.dataSource.data.filter((h) => h.id !== anticipo.id);
-    this._snackBar.open(`${anticipo.id}`, "deleted!", { duration: 2000 });
+    this._snackBar.open(`${anticipo.id}`, "deleted!", { duration: 5000 });
   }
 
   edit(anticipo: Anticipo): void {
@@ -80,7 +81,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit {
     const editing = this.dataSource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(AnticipoFormComponent, {
-      width: "250px",
+      width: "350px",
       data: editing ? editing : { id: undefined, name: "" },
     });
 

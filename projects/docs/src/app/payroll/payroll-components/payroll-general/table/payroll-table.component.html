@@ -2,7 +2,7 @@
   <mat-card-header class="card-header card-header-primary card-header-icon">
     <mat-card-title>
       <div class="card-icon">
-        <em class="material-icons">{{menuItemsSrv.codePoint('1F4C3')}}</em>
+        <em class="material-icons">{{'1F4C3' | gtdEmoji}}</em>
       </div>
       <h1 class="card-title">Nómina
         <small>General</small>
@@ -16,84 +16,79 @@
   <mat-card-content>
     <form [formGroup]="form">
       <div class="display: flex">
-        <ng-container formGroupName="periodo">
-          <mat-form-field class="example-full-width">
-            <mat-label>Fecha corte</mat-label>
-            <input matInput formControlName="fechaLiquidacion" placeholder="Ej. Mia" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker" class="gtd-icon-button">
-              <span matDatepickerToggleIcon>📅</span>
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" touchUi [startAt]="startDate" (monthSelected)="closeDatePicker($event, picker)"></mat-datepicker>
-          </mat-form-field>
-        </ng-container>
-        <mat-form-field >
+        <mat-form-field class="example-full-width">
+          <mat-label>Fecha corte </mat-label>
+          <input matInput formControlName="fechaCorte" placeholder="07-2021"
+            [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker" class="gtd-icon-button">
+            <span matDatepickerToggleIcon>📅</span>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" touchUi [startAt]="startDate"
+            (monthSelected)="closeDatePicker($event, picker)"></mat-datepicker>
+        </mat-form-field>
+        <input formControlName="fechaCorte" hidden>
+        <mat-form-field>
           <mat-label>Buscar</mat-label>
-          <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
+          <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="07-2021" #input
             formControlName="filtro">
-          <button class="gtd-icon-button" mat-icon-button (click)="openDialog()" matSuffix color="primary" >
+          <button class="gtd-icon-button" mat-icon-button (click)="openDialog()" matSuffix color="primary">
             <span>➕</span>
           </button>
         </mat-form-field>
       </div>
     </form>
-
+    <mat-card *ngIf="dataSource?.loading != 100" class="m-0" style="display: flex; justify-content: center; align-items: center">
+      <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
+    </mat-card>
     <div class="mat-elevation-z8" >
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
-
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="id" sticky>
-          <th mat-header-cell *matHeaderCellDef mat-sort-header># </th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="estado">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>estado</th>
-          <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="descripcion">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>descripcion</th>
-          <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
-        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="fechaCorte">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Corte</th>
-          <td mat-cell *matCellDef="let element">{{ element.fechaCorte | date:'short' }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fechaCorte | date : 'MM/yyyy' }}</td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header >Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-icon-button *ngIf="element.id" color="primary" (click)="navSrv.navigate('/nómina/individual')" tabindex="4">
-              <span>🔍</span>
+          <td mat-cell *matCellDef="let element" >
+            <ng-container *ngIf="!element.loading" >
+            <button mat-icon-button *ngIf="element.id" color="primary" (click)="navSrv.navigate('/nómina/individual', JSON.stringify({ nominaGeneralId: element.id, fechaCorte: element.fechaCorte}))"
+              tabindex="-2">
+              <span>{{'1F50D'|gtdEmoji}}</span>
             </button>
             <button mat-icon-button color="accent" [matMenuTriggerFor]="sdprofile">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #sdprofile="matMenu" class="mymegamenu">
-              <button mat-menu-item color="primary" (click)="openDialog(element.id)">
-                <mat-icon>edit</mat-icon> Editar
+              <button mat-menu-item color="primary" (click)="element.loading = 10; openDialog(element)">
+                <mat-icon>{{'270F'|gtdEmoji}}</mat-icon> Editar
               </button>
-              <button mat-menu-item color="accent" (click)="delete(element)">
-                <mat-icon>delete</mat-icon> Eliminar
+              <button mat-menu-item color="accent" (click)="element.loading = 10; delete(element);">
+                <mat-icon>{{'1F5D1'|gtdEmoji}}</mat-icon> Eliminar
               </button>
             </mat-menu>
+          </ng-container>
+          <ng-container *ngIf="element.loading" >
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+          </ng-container>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;" (click)="selection.toggle(row)"></tr>
+        <tr class="mat-row" *matNoDataRow >
+          <td class="mat-cell" colspan="4">
+            <em>Sin datos</em>
+          </td>
+        </tr>
       </table>
 
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

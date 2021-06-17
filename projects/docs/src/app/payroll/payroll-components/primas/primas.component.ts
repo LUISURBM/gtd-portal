@@ -52,7 +52,7 @@ export class PrimasComponent implements OnInit, AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter(
       (h) => h.id !== prima.id
     );
-    this._snackBar.open(`${prima.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${prima.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(prima: Prima): void {

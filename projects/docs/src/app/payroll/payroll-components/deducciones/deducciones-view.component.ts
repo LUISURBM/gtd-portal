@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
-import { AppStateService } from '../../../srv/local-app.service';
+import { AppStateService } from '../../../srv/app-state.service';
 import { MENU_ITEMS } from './deducciones-data';
 
 @Component({
@@ -31,7 +31,7 @@ export class DeduccionesViewComponent {
       menuItem: builder.control(''),
     });
 
-    this.route.queryParams.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       const data1 = params['data'];
       this.form.patchValue(data1);
     });

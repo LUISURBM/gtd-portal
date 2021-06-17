@@ -6,8 +6,9 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatTableDataSource } from "@angular/material/table";
 import { ValuesCatalog } from "../srv/in-mem-data-service";
 import { InMemService } from '../srv/in-mem-service';
+import { NavigationService } from '../srv/navigation.service';
 import { FilterValueComponent } from "./filter.componet";
-import { VALUES_WORKER } from './trabajador-data';
+import { VALUES_WORKER, displayedColumns } from './trabajador-data';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class TrabajadorComponent implements AfterViewInit {
 
   dataSource: MatTableDataSource<ValuesCatalog>;
 
-  displayedColumns: string[] = ["id", "numeroDocumento", "codigoTrabajador", "primerNombre", "otrosNombres", "primerApellido", "segundoApellido", "action"];
+  displayedColumns = displayedColumns;
   panelOpenState = false;
   step = 0;
 
@@ -44,6 +45,7 @@ export class TrabajadorComponent implements AfterViewInit {
     private memSrv: InMemService,
     public http: HttpClient,
     private _snackBar: MatSnackBar
+    ,public navSrv: NavigationService
     ){
       this.dataSource = new MatTableDataSource<ValuesCatalog>(VALUES_WORKER);
     this.form = new FormGroup({
@@ -77,7 +79,7 @@ export class TrabajadorComponent implements AfterViewInit {
     const editing = this.dataSource.data.filter((v) => v.id == id)?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(FilterValueComponent, {
-      width: "250px",
+      width: "500px",
       data: editing ? editing : { id: undefined, name: "" },
     });
 
@@ -107,7 +109,7 @@ export class TrabajadorComponent implements AfterViewInit {
 
   delete(hero: string): void {
     this.dataSource.data = this.dataSource.data.filter((h) => h.name !== hero);
-    this._snackBar.open(`${hero}`, "deleted!", { duration: 2000 });
+    this._snackBar.open(`${hero}`, "deleted!", { duration: 5000 });
   }
 
   save(){

@@ -59,7 +59,7 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter(
       (h) => h.id !== libranza.id
     );
-    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(libranza: OtraDeduccion): void {

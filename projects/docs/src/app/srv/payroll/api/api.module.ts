@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { PayrollsService } from './rest/payrolls.service';
 import { BasicoService } from '../../../service/mgmt/basicos/basicos';
 import { Configuration } from './configuration';
-import { StoredProcedureService } from './storedProcedure.service';
+import { StoredProcedureService } from './procedure/storedProcedure.service';
 
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [BasicoService, StoredProcedureService]
+  providers: [BasicoService, StoredProcedureService, PayrollsService]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<any> {

@@ -285,7 +285,7 @@ $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   --bg-dialog: #{$bg-dialog};
   --bg-card: #{$bg-card-light};
   --text-accent-color: #{$light-text};
-  --app-bar:#{$app-bar-light};
+  --top-bar:#{$app-bar-light};
 }
 $theme-black: mat-dark-theme(
   $primary-theme-black,
@@ -302,6 +302,6 @@ $theme-black: mat-dark-theme(
   --text-accent-lighter-color: #{$bodycolor};
   --text-primary-color: #{$bodycolor};
   --accent-color: #{$dark-text};
-  --app-bar: #{$app-bar-dark};
+  --top-bar: #{$app-bar-dark};
   --text-accent-color: #{$bodycolor};
 }

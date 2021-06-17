@@ -17,7 +17,7 @@ import {
   EMPTY,
 } from './devengados-data';
 import { DevengadosFormComponent } from './devengados-form.component';
-import { StoredProcedureService } from '../../../srv/payroll/api/storedProcedure.service';
+import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
 
 @Component({
   selector: 'app-payroll-devengados',
@@ -136,7 +136,7 @@ export class DevengadosComponent implements OnInit, AfterViewInit {
       ...this.dataSource$.value,
       datasource: datasource,
     });
-    this._snackBar.open(`${devengados.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${devengados.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(devengados: Devengados): void {

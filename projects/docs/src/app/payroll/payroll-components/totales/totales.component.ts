@@ -54,7 +54,7 @@ export class TotalesComponent implements OnInit, AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter(
       (h) => h.id !== totales.id
     );
-    this._snackBar.open(`${totales.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${totales.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(totales: Totales): void {

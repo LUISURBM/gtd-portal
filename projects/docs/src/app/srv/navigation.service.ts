@@ -21,10 +21,10 @@ export class NavigationService {
     });
   }
 
-  navigate(route: string, data?: any): void {
+  navigate(route: string, data?: any, localRoute?: ActivatedRoute ): void {
     this.router.navigate([route, { data: data }], {
       skipLocationChange: true,
-      relativeTo: this.route,
+      relativeTo: localRoute ?? this.route,
     });
   }
 }

@@ -1,0 +1,60 @@
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible">
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-icon"><em class="material-icons">{{'1F39F'|gtdEmoji}}</em></div>
+      <h1 mat-dialog-title>Formulario Fondo Seguridad Pensional {{ data.id }}</h1>
+    </div>
+    <div class="card-body">
+
+      <h4 class="card-title">Agregar Fondo Seguridad Pensional nuevo</h4>
+      <p class="card-category">Información de Fondo Seguridad Pensional</p>
+
+
+
+      <mat-form-field>
+        <input matInput tabindex="2" formControlName="deduccion" placeholder="Valor de la deduccion" id="deduccion" type="text"
+          class="form-control" />
+        <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
+          <div *ngIf="f.deduccion.errors?.required">
+            deduccion es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="3" formControlName="deduccionSub" placeholder="deduccionSub" id="deduccionSub" type="text"
+          class="form-control" />
+        <div *ngIf="f.deduccionSub.touched && f.deduccionSub.invalid" class="alert alert-danger">
+          <div *ngIf="f.deduccionSub.errors?.required">
+            deduccionSub es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="3" formControlName="porcentaje" placeholder="porcentaje" id="porcentaje" type="text"
+          class="form-control" />
+        <div *ngIf="f.porcentaje.touched && f.porcentaje.invalid" class="alert alert-danger">
+          <div *ngIf="f.porcentaje.errors?.required">
+            porcentaje es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="3" formControlName="porcentajeSub" placeholder="porcentajeSub" id="porcentajeSub" type="text"
+          class="form-control" />
+        <div *ngIf="f.porcentajeSub.touched && f.porcentajeSub.invalid" class="alert alert-danger">
+          <div *ngIf="f.porcentajeSub.errors?.required">
+            porcentajeSub es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+        <button mat-button (click)="save()" tabindex="4">Guardar</button>
+      </div>
+    </div>
+  </div>
+</form>

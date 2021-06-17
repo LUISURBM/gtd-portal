@@ -75,7 +75,7 @@ export class DeduccionesComponent implements OnInit, AfterViewInit {
       ...this.dataSource$.value,
       datasource: datasource,
     });
-    this._snackBar.open(`${deduccion.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${deduccion.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(deduccion: Deducciones): void {

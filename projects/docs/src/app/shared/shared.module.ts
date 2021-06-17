@@ -1,39 +1,39 @@
-import {
-  FullscreenOverlayContainer,
-  OverlayContainer,
-} from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   AccordionAnchorDirective,
   AccordionDirective,
-  AccordionLinkDirective,
+  AccordionLinkDirective
 } from './accordion';
-import { DecodeEmojiPipe } from './unicode-emoji.pipe';
+import { ConfirmDialogComponent } from './dialog/confirm/confirm-dialog.component';
 import { MenuItems } from './menu-items/menu-items';
+import { DecodeEmojiPipe } from './unicode-emoji.pipe';
 
 @NgModule({
   declarations: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
-    DecodeEmojiPipe
+    DecodeEmojiPipe,
+    ConfirmDialogComponent,
   ],
   exports: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
-    DecodeEmojiPipe
+    DecodeEmojiPipe,
+    ConfirmDialogComponent,
   ],
   providers: [
     MenuItems,
     {
       provide: MatDialogRef,
       useValue: {},
-    },{
+    },
+    {
       provide: MAT_DIALOG_DATA,
-      useValue: {} // Add any data you wish to test if it is passed/used correctly
-    }
+      useValue: {}, // Add any data you wish to test if it is passed/used correctly
+    },
     // { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
   ],
 })

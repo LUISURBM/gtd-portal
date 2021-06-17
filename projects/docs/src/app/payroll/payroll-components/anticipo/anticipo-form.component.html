@@ -1,34 +1,42 @@
 <form class="m-0 d-flex main-container main-form" style="overflow: visible" [formGroup]="form">
-    <div class="m-0 mat-card">
-        <div class="mat-card-header card-header-primary">
-            <h1 mat-dialog-title>Formulario Anticipo {{ data.id }}</h1>
-            <h4 class="card-title">Agregar anticipo nuevo</h4>
-            <p class="card-category">Información de anticipo</p>
-        </div>
-        <div class="card-body">
-
-            <mat-form-field>
-                <input matInput tabindex="1" formControlName="anticipo" placeholder="Valor del anticipo" id="anticipo"
-                    type="text" class="form-control" />
-                <div *ngIf="f.anticipo.touched && f.anticipo.invalid" class="alert alert-danger">
-                    <div *ngIf="f.anticipo.errors?.required">
-                        anticipo is required.
-                    </div>
-                </div>
-            </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Fecha</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="fecha" />
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #picker></mat-datepicker>
-            </mat-form-field>
-
-            <div mat-dialog-actions>
-                <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                    Cancelar
-                </button>
-            </div>
-        </div>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">{{'1F949'|gtdEmoji}}</em></div>
+        <h1>Formulario Anticipo {{ data.id }}</h1>
+      </div>
     </div>
+    <div class="card-body">
+      <h4 class="card-category">Agregar anticipo nuevo</h4>
+      <p>Información de anticipo</p>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="anticipo" placeholder="Valor del anticipo" id="anticipo"
+          type="text" class="form-control" />
+        <div *ngIf="f.anticipo.touched && f.anticipo.invalid" class="alert alert-danger">
+          <div *ngIf="f.anticipo.errors?.required">
+            Valor del Anticipo es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" min="6/17/2021" max="6/29/2021"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+        <div *ngIf="f.fecha.touched && f.fecha.invalid" class="alert alert-danger">
+          <div *ngIf="f.fecha.errors?.required">
+            Fecha del Anticipo es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <div >
+        <button class="col-md-12" mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+        <button class="col-md-12" mat-button (click)="save()" tabindex="3">Guardar</button>
+      </div>
+    </div>
+  </div>
 </form>

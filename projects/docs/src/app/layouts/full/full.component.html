@@ -1,6 +1,4 @@
 <div class="main-container" *ngIf="themeState$ | async as state">
-
-
   <mat-drawer-container class="page-container" [style.marginTop.px]="state.Medium ? 0 : 0"
     (backdropClick)="stateSrv.toggleMenu()">
     <mat-drawer #snav id="snav" class="dark-sidebar pl-xs" mode="over" [opened]="state.visibleMenu" disableClose="false"
@@ -8,20 +6,23 @@
       <app-sidebar></app-sidebar>
     </mat-drawer>
     <mat-drawer-content class="page-wrapper">
-      <mat-toolbar class="topbar telative" [@slideInOut]>
+      <mat-toolbar class="topbar telative" [@routeAnimations]="prepareRoute(outlet)">
         <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed"
           style="color: var(--secondary-light)!important">
           <mat-icon>apps</mat-icon>
         </button>
         <div class="navbar-header d-flex align-items-center mr-2 ml-2">
           <a class="navbar-brand" (click)="navSrv.navigate('/nómina')">
-            <span class="mr-2">{{menuItemsSrv.codePoint('1F4C3')}}</span><h3>{{activeRoute}}</h3>
+            <span class="mr-2">{{'1F4C3'|gtdEmoji}}</span>
+            <h3>{{activeRoute}}</h3>
           </a>
         </div>
         <span fxFlex></span>
         <app-header></app-header>
       </mat-toolbar>
-      <router-outlet><app-spinner></app-spinner></router-outlet>
+      <router-outlet #outlet="outlet">
+        <app-spinner></app-spinner>
+      </router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>

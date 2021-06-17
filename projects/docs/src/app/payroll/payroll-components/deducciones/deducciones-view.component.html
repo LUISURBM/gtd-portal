@@ -6,7 +6,7 @@
   <!-- ============================================================== -->
   <!-- Topbar - style you can find in header.scss -->
   <!-- ============================================================== -->
-  <mat-toolbar color="primary" class="topbar telative" *ngIf="stateSrv.themeState$ | async as state">
+  <mat-toolbar class="primary topbar telative" *ngIf="stateSrv.themeState$ | async as state">
     <!-- ============================================================== -->
     <!-- sidebar toggle -->
     <!-- ============================================================== -->
@@ -31,7 +31,6 @@
           </mat-icon>
       </ng-container>
       <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
-        <span>👨‍💼</span>
         <strong>
           Luis F. Urbina
         </strong>
@@ -83,7 +82,7 @@
       style="direction: rtl;">
 
       <mat-nav-list appAccordion style="direction: ltr ">
-        <form [formGroup]="form" class="m-0 d-flex main-container main-form">
+        <form [formGroup]="form" class="mt-2 d-flex main-container main-form">
           <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
             <mat-label>Buscar...</mat-label>
             <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>

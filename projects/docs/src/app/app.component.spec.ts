@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import { AppStateService } from './srv/local-app.service';
+import { AppStateService } from './srv/app-state.service';
 import { StyleManagerService } from './srv/style-manager.service';
 
 describe('AppComponent', () => {
@@ -31,12 +31,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('docs');
   });
 
-  it('should render title', () => {
+  it('should use theme', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'docs app is running!'
+    expect(compiled.querySelector('div').getAttribute('class')).toContain(
+      'fpi-skin-black'
     );
   });
 

@@ -10,7 +10,7 @@
         <input matInput tabindex="1" formControlName="sancionPriv" placeholder="Valor de la sanción privida"
           id="sancionPriv" type="text" class="form-control" />
         <div *ngIf="f.sancionPriv.touched && f.sancionPriv.invalid" class="alert alert-danger">
-          <div *ngIf="f.sancionPriv.errors?.required">sancion is required.</div>
+          <div *ngIf="f.sancionPriv.errors?.required">sancion es obligatorio.</div>
         </div>
       </mat-form-field>
       <mat-form-field>
@@ -18,7 +18,7 @@
           id="sancionPublic" type="text" class="form-control" />
         <div *ngIf="f.sancionPublic.touched && f.sancionPublic.invalid" class="alert alert-danger">
           <div *ngIf="f.sancionPublic.errors?.required">
-            sancion is required.
+            sancion es obligatorio.
           </div>
         </div>
       </mat-form-field>

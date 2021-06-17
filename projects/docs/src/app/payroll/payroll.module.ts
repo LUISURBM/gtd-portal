@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
+import { QRCodeSVGModule } from 'ngx-qrcode-svg';
 import { DemoMaterialModule } from '../demo-material-module';
 import { SharedModule } from '../shared/shared.module';
 import { AnticipoFormComponent } from './payroll-components/anticipo/anticipo-form.component';
@@ -33,6 +34,8 @@ import { EmpleadorFormComponent } from './payroll-components/empleador/empleador
 import { EmpleadoresComponent } from './payroll-components/empleador/empleadores.component';
 import { FechaPagoFormComponent } from './payroll-components/fechas-pago/fecha-pago-form.component';
 import { FechasPagoComponent } from './payroll-components/fechas-pago/fechas-pago.component';
+import { FondoSPFormComponent } from './payroll-components/fondo-sp/fondo-sp-form.component';
+import { FondoSPComponent } from './payroll-components/fondo-sp/fondo-sp.component';
 import { HorarioAdicionalFormComponent } from './payroll-components/horarios-adicionales/horario-adicional-form.component';
 import { HorariosAdicionalesComponent } from './payroll-components/horarios-adicionales/horarios-adicionales.component';
 import { HuelgaFormComponent } from './payroll-components/huelga-legal/huelga-form.component';
@@ -55,7 +58,7 @@ import { PagoFormComponent } from './payroll-components/pago/pago-form.component
 import { PagosComponent } from './payroll-components/pago/pagos.component';
 import { PagoTerceroFormComponent } from './payroll-components/pagos-terceros/pago-tercero-form.component';
 import { PagosTercerosComponent } from './payroll-components/pagos-terceros/pagos-terceros.component';
-import { PayrollGeneralFormComponent } from './payroll-components/payroll-general/payroll-general.component';
+import { PayrollGeneralFormComponent } from './payroll-components/payroll-general/form/payroll-general-form.component';
 import { PayrollTableComponent } from './payroll-components/payroll-general/table/payroll-table.component';
 import { PayrollIndividualFormComponent } from './payroll-components/payroll-individual/payroll-individual-form.component';
 import { PayrollIndividualTableComponent } from './payroll-components/payroll-individual/payroll-individual-table.component';
@@ -149,7 +152,9 @@ import { PayrollRoutes } from './payroll.routing';
     PayrollIndividualFormComponent,
     PayrollIndividualTableComponent,
     TotalesComponent,
-    TotalesFormComponent
+    TotalesFormComponent,
+    FondoSPComponent,
+    FondoSPFormComponent,
   ],
   imports: [
     CommonModule,
@@ -161,6 +166,7 @@ import { PayrollRoutes } from './payroll.routing';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    QRCodeSVGModule
   ],
 })
 export class PayrollModule {}

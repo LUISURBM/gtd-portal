@@ -1,54 +1,60 @@
 <form #formView [formGroup]="form" class="d-flex main-container main-form">
   <div class="mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon" (click)="changeState()">
-      <div class="card-icon">
-        <em class="material-icons">📜</em>
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">📜</em></div>
+        <h1>
+          {{ f.id.value ? 'Editar Nómina individual {{f.id.value}}' : 'Agregar Nómina individual' }}
+        </h1>
       </div>
-      <h1 class="card-title">
-        {{ f.id.value ? 'Editar Nómina individual {{f.id.value}}' : 'Agregar Nómina individual' }}
-      </h1>
     </div>
     <div class="card-body row" [@heightGrow]="state">
-      <div class="col-6" >
-
-        <div class="type-tooltip-ne" formGroupName="trabajador">
-          <mat-form-field class="example-full-width">
-            <mat-label>Empleado</mat-label>
-            <input matInput aria-label="State" [matAutocomplete]="auto" formControlName="primerNombre">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option value="Luis Urbina">
-                <img class="example-option-img" aria-hidden
-                  src="data:image/png;base64,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"
-                  height="25">
-                <span>Luis Urbina</span> |
-                <small>9'999.9999</small>
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </div>
-        <div class="type-tooltip-ne" matTooltip="Tooltip!">
-          <span>Salario</span>
-          <mat-form-field>
-            <mat-select class="example-select" #business tabindex="1" formControlName="catalog" id="business">
-              <mat-option *ngFor="let catalog of catalogs" [value]="catalog.code"> {{catalog.name}} </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+      <div class="col-6">
+        <ng-container formGroupName="trabajador">
+          <div class="type-tooltip-ne">
+            <mat-form-field class="example-full-width">
+              <mat-label>Empleado</mat-label>
+              <input matInput aria-label="State" [matAutocomplete]="auto" formControlName="primerNombre">
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event.option.value)">
+                <mat-option *ngFor="let trabajador of trabajadores" [value]="trabajador">
+                  <img class="example-option-img" aria-hidden
+                    src="data:image/png;base64,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"
+                    height="25">
+                  | <span>{{trabajador.primerNombre}} {{trabajador.primerApellido}}</span> |
+                  <small>{{trabajador.sueldo | currency}}</small>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <div class="type-tooltip-ne" matTooltip="Tooltip!">
+            <mat-form-field>
+              <span>Salario</span>
+              <input matInput tabindex="1" formControlName="sueldo" placeholder="Sueldo" id="sueldo" type="text"
+                class="form-control" />
+              <div *ngIf="f.trabajador.get('sueldo')?.touched && f.trabajador.get('sueldo')?.invalid"
+                class="alert alert-danger">
+                <div *ngIf="f.trabajador.get('sueldo')?.errors?.required">
+                  sueldo es obligatorio.
+                </div>
+              </div>
+            </mat-form-field>
+          </div>
+        </ng-container>
         <mat-form-field>
           <input matInput tabindex="1" formControlName="deduccion" placeholder="Total deducciones" id="deduccion"
             type="text" class="form-control" />
           <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
             <div *ngIf="f.deduccion.errors?.required">
-              deducción is required.
+              deducción es obligatorio.
             </div>
           </div>
         </mat-form-field>
         <mat-form-field>
-          <input matInput tabindex="1" formControlName="devengos" placeholder="Total devengos" id="devengos"
-            type="text" class="form-control" />
+          <input matInput tabindex="1" formControlName="devengos" placeholder="Total devengos" id="devengos" type="text"
+            class="form-control" />
           <div *ngIf="f.devengos.touched && f.devengos.invalid" class="alert alert-danger">
             <div *ngIf="f.devengos.errors?.required">
-              devengos is required.
+              devengos es obligatorio.
             </div>
           </div>
         </mat-form-field>
@@ -57,7 +63,7 @@
             type="text" class="form-control" />
           <div *ngIf="f.totalAPagar.touched && f.totalAPagar.invalid" class="alert alert-danger">
             <div *ngIf="f.totalAPagar.errors?.required">
-              total a pagar is required.
+              total a pagar es obligatorio.
             </div>
           </div>
         </mat-form-field>
@@ -65,9 +71,14 @@
       </div>
 
       <div class="col-6" style="text-align-last: center">
-          <img class="example-option-img" style="height: 25vh;" aria-hidden
-            src="data:image/png;base64,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"
-            height="25" alt="código qr datos trabajador">
+        <img class="example-option-img" style="height: 25vh;" aria-hidden hidden
+          src="data:image/png;base64,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"
+          height="25" alt="código qr datos trabajador">
+          <qrcode-svg
+            [value]="this.form.value | json"
+            color="#0000ff"
+            backgroundColor="#ff000080"
+          ></qrcode-svg>
       </div>
     </div>
   </div>

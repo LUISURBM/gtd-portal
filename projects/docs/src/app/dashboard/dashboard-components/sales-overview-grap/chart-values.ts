@@ -4,10 +4,10 @@ import { Chart } from "./sales-overview-grap.component";
 export const BAR_CHART_1 = {
   type: 'Bar' as ChartType,
   data: {
-    "labels": ["Jan", "Feb", "Mar", "Apr"],
-    "series": [[800000, 1200000, 1400000, 1300000],
-    [200000, 400000, 500000, 300000],
-    [100000, 200000, 400000, 600000]]
+    "labels": ["HHRR (12)', 'ID (1)','Infrastructura (7)','Comercial (5)','Soporte (3)','Otros (8)"],
+    "series": [[800000, 1200000, 1400000, 1300000, 90000],
+    [200000, 400000, 500000, 300000, 90000],
+    [100000, 200000, 400000, 600000, 90000]]
   },
   options: {
     seriesBarDistance: 15,

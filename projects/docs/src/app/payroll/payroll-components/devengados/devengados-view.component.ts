@@ -1,98 +1,109 @@
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import {
+  animate,
+  animateChild,
+  group,
+  query,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
-import { EMPTY, MENU_ITEMS } from './devengados-data';
-import { DOCUMENT } from '@angular/common';
-import { AppStateService } from '../../../srv/local-app.service';
-import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
+import { AppStateService } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
-export const slideInAnimation =
-  trigger('routeAnimations', [
-    transition('HomePage <=> AboutPage', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({ left: '-100%' })
-      ]),
-      query(':leave', animateChild()),
-      group([
-        query(':leave', [
-          animate('300ms ease-out', style({ left: '100%' }))
-        ]),
-        query(':enter', [
-          animate('300ms ease-out', style({ left: '0%' }))
-        ])
-      ]),
-      query(':enter', animateChild()),
+import { DevengadosService } from '../../../srv/payroll/api/rest/devengados.service';
+import { MENU_ITEMS } from './devengados-data';
+export const slideInAnimation = trigger('routeAnimations', [
+  transition('HomePage <=> AboutPage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+      }),
     ]),
-    transition('* <=> FilterPage', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({ left: '-100%' })
-      ]),
-      query(':leave', animateChild()),
-      group([
-        query(':leave', [
-          animate('200ms ease-out', style({ left: '100%' }))
-        ]),
-        query(':enter', [
-          animate('300ms ease-out', style({ left: '0%' }))
-        ])
-      ]),
-      query(':enter', animateChild()),
-    ])
-  ]);
+    query(':enter', [style({ left: '-100%' })]),
+    query(':leave', animateChild()),
+    group([
+      query(':leave', [animate('300ms ease-out', style({ left: '100%' }))]),
+      query(':enter', [animate('300ms ease-out', style({ left: '0%' }))]),
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('* <=> FilterPage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+      }),
+    ]),
+    query(':enter', [style({ left: '-100%' })]),
+    query(':leave', animateChild()),
+    group([
+      query(':leave', [animate('200ms ease-out', style({ left: '100%' }))]),
+      query(':enter', [animate('300ms ease-out', style({ left: '0%' }))]),
+    ]),
+    query(':enter', animateChild()),
+  ]),
+]);
 @Component({
   selector: 'app-devengados-view',
   styleUrls: ['./devengados.component.scss'],
   templateUrl: './devengados-view.component.html',
   animations: [
-    slideInAnimation
+    slideInAnimation,
     // animation triggers go here
-  ]
+  ],
 })
 export class DevengadosViewComponent {
   position = 'below';
   public menuItems: Menu[];
 
   form: FormGroup;
+
+  subscriptions: Subscription[] = [];
   constructor(
     public builder: FormBuilder,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public stateSrv: AppStateService,
-    private elRef:ElementRef
-    , public navSrv: NavigationService
-    ,public menuItemsSrv: MenuItems
-    ) {
+    private elRef: ElementRef,
+    public navSrv: NavigationService,
+    public menuItemsSrv: MenuItems,
+    public devengosAPISrv: DevengadosService
+  ) {
     this.menuItems = MENU_ITEMS;
 
     this.form = this.builder.group({
       menuItem: builder.control(''),
+      nominaGeneralId: builder.control(''),
+      nominaIndividualId: undefined,
+      devengadosId: undefined,
+      fechaCorte: new Date(),
+      trabajador: builder.group({
+        id: builder.control(''),
+        primerNombre: builder.control(''),
+        sueldo: builder.control(0),
+      }),
     });
 
-    this.route.queryParams.subscribe((params) => {
-      const data1 = params['data'];
-      this.form.patchValue(data1);
-    });
-    this.form.valueChanges.subscribe((filter) => {
-      this.filter(filter?.menuItem);
-    });
+    this.subscriptions.push(
+      this.route.params.subscribe((params) => {
+        const data1 = JSON.parse(params['data']);
+        console.log(data1);
+        this.form.patchValue(data1);
+      }),
+      this.form.valueChanges.subscribe((filter) => {
+        this.filter(filter?.menuItem);
+      })
+    );
   }
 
   onNoClick(): void {}
@@ -114,9 +125,19 @@ export class DevengadosViewComponent {
     }
   }
 
-  toggleFullScreen = () =>  this.stateSrv.toggleFullScreen(this.elRef.nativeElement);
+  toggleFullScreen = () =>
+    this.stateSrv.toggleFullScreen(this.elRef.nativeElement);
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+    return (
+      outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
+    );
   }
+
+  devengosData = () => {
+    return JSON.stringify({
+      nominaIndividualId: this.form.value.nominaIndividualId,
+      devengadosId: this.form.value.devengadosId,
+    });
+  };
 }

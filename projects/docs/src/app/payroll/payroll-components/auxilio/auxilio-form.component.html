@@ -4,7 +4,7 @@
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-title">
         <div class="card-icon">
-          <em class="material-icons">{{menuItemsSrv.codePoint('1F4B8')}}</em>
+          <em class="material-icons">{{'1F4C3'|gtdEmoji}}</em>
         </div>
         <h1 mat-dialog-title>Formulario Auxilio {{ data.id }}</h1>
         <h4>Agregar Auxilio nuevo</h4>
@@ -19,7 +19,7 @@
             class="form-control" />
           <div *ngIf="f.auxilioNS.touched && f.auxilioNS.invalid" class="alert alert-danger">
             <div *ngIf="f.auxilioNS.errors?.required">
-              auxilioNS is required.
+              auxilioNS es obligatorio.
             </div>
           </div>
         </mat-form-field>
@@ -32,7 +32,7 @@
             class="form-control" />
           <div *ngIf="f.auxilioS.touched && f.auxilioS.invalid" class="alert alert-danger">
             <div *ngIf="f.auxilioS.errors?.required">
-              auxilioS is required.
+              auxilioS es obligatorio.
             </div>
           </div>
         </mat-form-field>

@@ -37,3 +37,21 @@ export const VALUES_WORKER: Trabajador[] = [
     segundoApellido: 'Taborda',
   },
 ];
+
+export const MENU_ITEMS = [
+  {
+    state: '/trabajador/form',
+    name: 'General trabajador',
+    type: 'link',
+    icon: 'work',
+    emoji: '1F468',
+  },
+];
+
+export const displayedColumns: string[] = [
+  'id',
+  'numeroDocumento',
+  'codigoTrabajador',
+  'nombre',
+  'action',
+];

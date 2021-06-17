@@ -1,20 +1,28 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, EMPTY } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, EMPTY, of, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
+import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
 import { NgGtdDS } from '../../../types/common-types';
-import { Individual, nominas, displayedColumns } from './individual-data';
+import { displayedColumns, Individual, nominas } from './individual-data';
 import { PayrollIndividualFormComponent } from './payroll-individual-form.component';
-import { StoredProcedureService } from '../../../srv/payroll/api/storedProcedure.service';
-import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 export const MY_FORMATS = {
   parse: {
@@ -31,12 +39,12 @@ export const MY_FORMATS = {
 @Component({
   selector: 'app-payroll-individual-table',
   templateUrl: './payroll-individual-table.component.html',
-  providers: [
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-  ],
+  providers: [{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
 })
-export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
-  form: FormGroup;
+export class PayrollIndividualTableComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
+  form: FormGroup = new FormGroup({});
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDate();
     // Prevent Saturday and Sunday from being selected.
@@ -45,7 +53,7 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
     datasource: new MatTableDataSource<Individual>(nominas),
     displayedColumns: displayedColumns,
-  })
+  });
 
   selection = new SelectionModel<Individual>(false, []);
 
@@ -65,72 +73,98 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     return this.selection?.selected[0] ?? EMPTY;
   }
 
+  subscriptions: Subscription[] = [];
+
+  JSON = JSON;
+
+  listado = (data: any) =>
+    this.nominaIndividualAPISrv.listFindAllUsingGET53(
+      '5B067D71-9EC0-4910-8D53-018850FDED4E',
+      data.nominaGeneralId,
+      'events',
+      true,
+      {
+        httpHeaderAccept: 'application/json',
+      }
+    );
+
+  readList = (data: any, message?: string) => {
+    console.log(data);
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
+      var key,
+        keys = Object.keys(element);
+      var n = keys.length;
+      var newobj: any = {};
+      while (n--) {
+        key = keys[n];
+        if (key.toLowerCase().split('fecha').length > 1) {
+          element[key] = new Date(element[key]);
+        }
+        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
+          element[key];
+      }
+      return newobj;
+    });
+    console.log(newarray);
+    let datasource = new MatTableDataSource<Individual>(newarray);
+    if (this.paginator) {
+      this.paginator._intl.itemsPerPageLabel = 'Ver';
+      this.paginator._intl.getRangeLabel = (
+        page: number,
+        pageSize: number,
+        length: number
+      ) => {
+        const pagesize = pageSize > length ? length : pageSize;
+        return `Página ${page + 1}`;
+      };
+    }
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      datasource: datasource,
+      displayedColumns: displayedColumns,
+      loading: 100,
+    });
+  };
+
   constructor(
     public formBuilder: FormBuilder,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    private router: Router,
-    public navSrv: NavigationService
-    ,private storedProcedureAPISrv: StoredProcedureService
-    ) {
+    public navSrv: NavigationService,
+    private nominaIndividualAPISrv: NominasIndividualesService
+  ) {
     this.form = this.formBuilder.group({
       filtro: '',
-      periodo: this.formBuilder.group({
-        id: 1,
-        fechaGen: new Date(),
-        fechaIngreso: new Date(),
-        fechaLiquidacion: new Date(),
-        fechaLiquidacionInicio: new Date(),
-        fechaLiquidacionFin: new Date(),
-        fechaRetiro: new Date(),
-        tiempoLaborado: new Date(),
-      }),
+      fechaCorte: new Date(),
+      nominaGeneralId: '',
     });
 
-    const request: any = {
-      body: {
-        params: {
-          businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
-          nominaGeneralId: '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
-        },
-      },
-      header: {
-        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
-        esquema: 'payroll',
-        procedimientoAlmacenado: 'ConsultarListNominasIndividualesTest',
-      },
-    };
-
-    storedProcedureAPISrv
-      .exectuteProcedureUsingPOST(request, 'events', true, {
-        httpHeaderAccept: 'application/json',
+    this.subscriptions.push(
+      this.form.valueChanges
+        .pipe(
+          switchMap((data: any) => {
+            return this.listado(data);
+          })
+        )
+        .subscribe({
+          next: (data: any) => {
+            this.readList(data);
+          },
+          error: (err: any) => {
+            console.log(err);
+          },
+        }),
+      this.route.params.subscribe((params) => {
+        const data = JSON.parse(params['data']);
+        this.form.patchValue(data);
       })
-      .subscribe({
-        next: (data:any) => {console.log(data);
-        let newarray = data?.body?.body?.map?.((element: any) => {
-          var key,
-            keys = Object.keys(element);
-          var n = keys.length;
-          var newobj: any = {};
-          while (n--) {
-            key = keys[n];
-            newobj[key.toLowerCase()] = element[key];
-          }
-          return newobj;
-        })??nominas;
-
-
-        this.dataSource$.next({
-          datasource: new MatTableDataSource<Individual>(newarray),
-          displayedColumns: displayedColumns,
-        });
-      },
-        error: (err: any) => {
-          console.log(err);
-        }
-      });
+    );
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   ngOnInit(): void {}
@@ -145,35 +179,83 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  add(name: Individual): void {
-    if (!name) {
+  add(payroll: Individual): void {
+    if (!payroll) {
       return;
     }
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = [
-      ...datasource.data,
-      { ...name, id: this.memSrv.genId(datasource.data, 'nominas') },
-    ];
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
+
+    const request = {
+      entidad: {
+        nombre: payroll.nombre,
+        descripcion: payroll.descripcion,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toDateString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+        cuneNov: '',
+        novedad: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+
+    this.nominaIndividualAPISrv
+      .saveUsingPOST58(request, 'events', true, {
+        httpHeaderAccept: 'application/json',
+      })
+      .pipe(switchMap((response:any) => {
+        if(!(response.type === 4)) return of()
+        if(response.type === 4 && response.status == 200)
+          this._snackBar.open(`${payroll.nombre}`, 'creada!', {
+            duration: 500000,
+          });
+        return this.listado(response)
+      }))
+        .subscribe({
+          next: this.readList,
+          complete: this.loading,
+          error: console.log,
+        });
   }
 
-  delete(libranza: Individual): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = datasource.data.filter((h: any) => h.id !== libranza.id);
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 2000 });
+  delete(payroll: Individual): void {
+    this.subscriptions.push(
+      this.confirm(`¿Eliminar nómina individual de ${payroll.trabajador}!?`)
+        .pipe(
+          switchMap((confirmacion) =>
+            confirmacion
+              ? this.nominaIndividualAPISrv.deleteUsingDELETE58(
+                  payroll.id,
+                  'events',
+                  true,
+                  {
+                    httpHeaderAccept: 'application/json',
+                  }
+                )
+              : of()
+          ),
+          switchMap((data: any) =>
+            data.type === 4 && data.status === 200
+              ? this.listado(this.form.value)
+              : of()
+          )
+        )
+        .subscribe({
+          next: (data: any) => this.readList(data, 'eliminada!'),
+          error: (err: any) => {
+            console.log(err);
+          },
+        })
+    );
   }
 
-  edit(libranza: Individual): void {
+  edit(individual: Individual): void {
     let datasource = this.dataSource$.value.datasource;
     const editedData = datasource.data.map((h: any) =>
-      h.id !== libranza.id ? h : libranza
+      h.id !== individual.id ? h : individual
     );
     datasource.data = editedData;
     this.dataSource$.next({
@@ -196,19 +278,43 @@ export class PayrollIndividualTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openDialog(id?: number): void {
+  openDialog(individual: Individual): void {
     let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v: any) => v.id == id)?.[0];
+    const editing = datasource.data.filter(
+      (v: any) => v.id == individual.id
+    )?.[0];
     console.log(editing);
     const dialogRef = this.dialog.open(PayrollIndividualFormComponent, {
       width: '500px',
       data: editing ? editing : EMPTY,
     });
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (individual) individual.loading = undefined;
+        if (result?.id) this.edit(result);
+        else if (result) this.add(result);
+      })
+    );
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
+  closeDatePicker(eventData: any, dp?: any) {
+    this.form.patchValue({ ...this.form.value, fechaCorte: eventData });
+    dp.close();
+  }
+
+  loading = (loading = 100) =>
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
+
+  confirm(pregunta: string, titulo?: string) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '350px',
+      data: {
+        titulo: titulo,
+        pregunta: pregunta,
+      },
     });
+
+    return dialogRef.afterClosed();
   }
 }

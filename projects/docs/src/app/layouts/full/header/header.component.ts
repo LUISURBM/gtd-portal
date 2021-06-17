@@ -21,7 +21,7 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { b2cPolicies } from '../../../b2c-config';
 import { InMemService } from '../../../srv/in-mem-service';
-import { AppStateService } from '../../../srv/local-app.service';
+import { AppStateService } from '../../../srv/app-state.service';
 import {
   NgGtdThemes
 } from '../../../types/common-types';

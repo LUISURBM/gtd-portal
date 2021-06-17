@@ -1,0 +1,120 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state">
+
+  <!-- ============================================================== -->
+  <!-- Topbar - style you can find in header.scss -->
+  <!-- ============================================================== -->
+  <mat-toolbar color="primary" class="topbar telative">
+    <!-- ============================================================== -->
+    <!-- sidebar toggle -->
+    <!-- ============================================================== -->
+
+    <button mat-icon-button (click)="formMenu.toggle()" value="sidebarclosed">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- ============================================================== -->
+    <!-- Logo - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <div class="navbar-header d-flex align-items-center ml-2">
+      <a class="ml-2 navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+        <span>{{'1F468'|gtdEmoji}}</span>
+        <strong>
+          Luis F. Urbina
+        </strong>
+      </a>
+      <ng-container *ngIf="!(state.XSmall || state.Small)">
+        <mat-icon class="material-icons-outlined">
+          arrow_right
+          </mat-icon>
+        <a class="ml-2 navbar-brand">
+          Nueva
+        </a>
+      </ng-container>
+    </div>
+
+    <span fxFlex></span>
+
+
+    <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕ Deducción</span></mat-chip>
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕ Devengo</span></mat-chip>
+      <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()" >
+        <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
+      </mat-chip>
+    </mat-chip-list>
+    <button [matMenuTriggerFor]="sdprofile" mat-icon-button  color="accent">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #sdprofile="matMenu" class="mymegamenu">
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
+        ➕ Deducción
+      </button>
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/devengos/view/form')" >
+        ➕ Devengo
+      </button>
+      <button mat-menu-item (click)="toggleFullScreen()">
+        <ng-container *ngIf="!state.fullScreen">
+          <mat-icon>open_in_full</mat-icon> Pantalla completa
+        </ng-container>
+        <ng-container *ngIf="state.fullScreen">
+          <mat-icon>close_fullscreen</mat-icon> Pantalla normal
+        </ng-container>
+      </button>
+      <button mat-menu-item (click)="onNoClick()">
+        <mat-icon>cancel</mat-icon>Cancelar
+      </button>
+    </mat-menu>
+    <!-- ============================================================== -->
+    <!-- app header component - style you can find in header.scss / header.component.ts-->
+    <!-- ============================================================== -->
+
+  </mat-toolbar>
+  <!-- ============================================================== -->
+  <!-- End Topbar - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <mat-sidenav-container class="page-container" style.marginTop.px="0" >
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" fixedTopGap="0" opened="true"
+      [mode]="(state.XSmall || state.Small) ? 'over' : 'side'" fixedTopGap="0" [opened]="!(state.XSmall || state.Small)"
+      style="direction: rtl;">
+
+      <mat-nav-list appAccordion style="direction: ltr ">
+        <form [formGroup]="form" class="m-0 d-flex main-container main-form">
+          <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
+            <mat-label>Buscar...</mat-label>
+            <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
+            <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
+          </mat-form-field>
+        </form>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(formView.formView)">
+            <span>📜</span>
+            <span>General</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-content class="page-wrapper">
+      <app-trabajador-form #formView></app-trabajador-form>
+    </mat-sidenav-content>
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+  </mat-sidenav-container>
+
+
+</div>

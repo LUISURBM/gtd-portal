@@ -42,7 +42,7 @@
 					</mat-step>
 				</mat-horizontal-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -94,7 +94,7 @@
 				  </mat-step>
 				</mat-vertical-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -143,7 +143,7 @@
 				    </mat-step>
 				</mat-horizontal-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -196,7 +196,7 @@
 				  </mat-step>
 				</mat-horizontal-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -248,7 +248,7 @@
 				  </mat-step>
 				</mat-horizontal-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -322,7 +322,7 @@
 					</ng-template>
 				</mat-horizontal-stepper>
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 
@@ -336,9 +336,9 @@
 			<mat-card-content>
 				<mat-card-title>Error State <span class="bg-success text-white rounded font-12 pl-5 pr-5">New</span></mat-card-title>
 				<mat-card-subtitle>The stepper can now show error states by simply providing the <code>showError</code> option to the <code>STEPPER_GLOBAL_OPTIONS</code> in your application's root module as mentioned above.</mat-card-subtitle>
-				
+
 				<mat-horizontal-stepper linear #steppererror>
-					 <mat-step [stepControl]="errorfirstFormGroup" errorMessage="Name is required.">
+					 <mat-step [stepControl]="errorfirstFormGroup" errorMessage="Name es obligatorio.">
 					    <form [formGroup]="errorfirstFormGroup">
 					      <ng-template matStepLabel>Fill out your name</ng-template>
 					      <mat-form-field>
@@ -349,7 +349,7 @@
 					      </div>
 					    </form>
 					</mat-step>
-					<mat-step [stepControl]="errorsecondFormGroup" errorMessage="Address is required.">
+					<mat-step [stepControl]="errorsecondFormGroup" errorMessage="Address es obligatorio.">
 					    <form [formGroup]="errorsecondFormGroup">
 					      <ng-template matStepLabel>Fill out your address</ng-template>
 					      <mat-form-field>
@@ -370,9 +370,9 @@
 					    </div>
 					</mat-step>
 				</mat-horizontal-stepper>
-				
+
 			</mat-card-content>
-		</mat-card>    
+		</mat-card>
 	</div>
 </div>
 

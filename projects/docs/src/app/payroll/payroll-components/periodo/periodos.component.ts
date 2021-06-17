@@ -54,7 +54,7 @@ export class PeriodosComponent implements OnInit, AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter(
       (h) => h.id !== periodo.id
     );
-    this._snackBar.open(`${periodo.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${periodo.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(periodo: Periodo): void {

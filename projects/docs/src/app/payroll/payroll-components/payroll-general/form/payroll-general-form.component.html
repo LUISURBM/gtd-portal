@@ -1,57 +1,55 @@
-<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible">
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
   <div class="m-0 mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
-      <div class="card-icon"><em class="material-icons">{{menuItemsSrv.codePoint('1F4C3')}}</em></div>
-      <h4 class="card-title">{{ f.id.value ? 'Editar Nómina general {{f.id.value}}' : 'Agregar Nómina general' }}
-      </h4>
-    </div>
-    <div class="card-body row">
-      <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
-        <span>Estado</span>
-        <mat-form-field>
-          <mat-select class="example-select" #business tabindex="1" formControlName="estado" id="estado">
-            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.code"> {{catalog.name}} </mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">{{menuItemsSrv.codePoint('1F4C3')}}</em></div>
+        <h1>{{ f.id.value ? 'Editar '+f.nombre.value : 'Agregar Nómina general' }}</h1>
       </div>
+    </div>
+    <div class="card-body">
+      <h4 class="card-category">Formularion nómina general</h4>
+
       <div class="col-12">
         <mat-form-field>
           <input matInput tabindex="2" formControlName="nombre" placeholder="Nombre" id="nombre" type="text"
             class="form-control" />
           <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger">
             <div *ngIf="f.nombre.errors?.required">
-              nombre is required.
+              nombre es obligatorio.
             </div>
           </div>
         </mat-form-field>
-        </div>
+      </div>
       <div class="col-12">
         <mat-form-field appearance="fill">
           <mat-label>Fecha Corte</mat-label>
-          <input matInput [matDatepicker]="pickerFechaCorte" formControlName="fechaCorte" />
-          <mat-datepicker-toggle matSuffix [for]="pickerFechaCorte"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #pickerFechaCorte></mat-datepicker>
+          <input matInput formControlName="fechaCorte" [matDatepicker]="pickerFechaCorte" tabindex="3" />
+          <mat-datepicker-toggle matSuffix [for]="pickerFechaCorte">
+            <span matDatepickerToggleIcon>📅</span>
+          </mat-datepicker-toggle>
+          <mat-datepicker touchUi #pickerFechaCorte startView="year"
+            (monthSelected)="closeDatePicker($event, pickerFechaCorte)"></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="col-12">
-        <mat-form-field >
-          <textarea matInput tabindex="2" formControlName="descripcion" placeholder="Observaciones" id="descripcion" type="text"
-            class="form-control"></textarea>
+        <mat-form-field>
+          <textarea matInput tabindex="4" formControlName="descripcion" placeholder="Observaciones" id="descripcion"
+            type="text" class="form-control"></textarea>
           <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
             <div *ngIf="f.descripcion.errors?.required">
-              descripcion is required.
+              descripcion es obligatorio.
             </div>
           </div>
         </mat-form-field>
       </div>
-
-      <a mat-button (click)="onNoClick()" tabindex="-1" color="accent">
-        Cancelar
-      </a>
-      <button mat-button (click)="save()" tabindex="4">Guardar</button>
-      <a mat-button (click)="onNoClick(); navSrv.navigate('/nómina/individual', form.value)" color="accent" tabindex="4">Ir a individuales</a>
-
+      <div class="flex-row">
+        <a mat-button (click)="onNoClick()" tabindex="-1" class="col-md-12 mb-2">
+          Cancelar
+        </a>
+        <button mat-button tabindex="5" class="col-md-12 mb-2" [mat-dialog-close]="form.value" cdkFocusInitial>Guardar</button>
+        <a *ngIf="f.id.value" class="col-md-12" mat-button (click)="onNoClick(); navSrv.navigate('/nómina/individual', form.value)"
+          tabindex="6">Ver individuales</a>
+      </div>
     </div>
   </div>
-
 </form>

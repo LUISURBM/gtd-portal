@@ -41,7 +41,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.name.touched && f.name.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.name.errors?.required">name is required.</div>
+            <div *ngIf="f.name.errors?.required">name es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field>
@@ -57,7 +57,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.code.touched && f.code.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.code.errors?.required">code is required.</div>
+            <div *ngIf="f.code.errors?.required">code es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field>
@@ -73,7 +73,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.catalog.touched && f.catalog.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.catalog.errors?.required">catalog is required.</div>
+            <div *ngIf="f.catalog.errors?.required">catalog es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">

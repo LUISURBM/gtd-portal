@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
-import { AppStateService } from '../../../srv/local-app.service';
+import { AppStateService } from '../../../srv/app-state.service';
 import { animationsForm4 } from '../../../animations/form-animation';
 export interface Tile {
   color: string;
@@ -16,7 +16,7 @@ export interface Tile {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  styleUrls: ['./sidebar.component.scss'],
   styles: [''],
   animations: animationsForm4
 })

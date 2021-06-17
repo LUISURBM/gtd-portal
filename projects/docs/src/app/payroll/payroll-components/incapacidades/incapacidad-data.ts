@@ -1,7 +1,7 @@
 import { formatToDate } from "../../../values-catalog";
 
 export interface Incapacidad {
-  id: number;
+  id: string;
   cantidad?: number;
   pago?: number;
   tipo?: number;
@@ -11,7 +11,7 @@ export interface Incapacidad {
 
 export const incapacidads: Incapacidad[] = [
   {
-    id: 1,
+    id: '1',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -19,7 +19,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 2,
+    id: '2',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -27,7 +27,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 3,
+    id: '3',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -35,7 +35,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 4,
+    id: '4',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -43,7 +43,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 5,
+    id: '5',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -51,7 +51,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 6,
+    id: '6',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -59,7 +59,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 7,
+    id: '7',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -67,7 +67,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 8,
+    id: '8',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -75,7 +75,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 9,
+    id: '9',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -83,7 +83,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 10,
+    id: '10',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -91,7 +91,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 11,
+    id: '11',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -99,7 +99,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 12,
+    id: '12',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -107,7 +107,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 13,
+    id: '13',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -115,7 +115,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 14,
+    id: '14',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -123,7 +123,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 15,
+    id: '15',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -131,7 +131,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 16,
+    id: '16',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -139,7 +139,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 17,
+    id: '17',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -147,7 +147,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 18,
+    id: '18',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -155,7 +155,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 19,
+    id: '19',
     cantidad: 12,
     pago: 34,
     tipo: 34,
@@ -163,7 +163,7 @@ export const incapacidads: Incapacidad[] = [
     fechaFin: formatToDate('5/17/2021'),
   },
   {
-    id: 20,
+    id: '20',
     cantidad: 12,
     pago: 34,
     tipo: 34,

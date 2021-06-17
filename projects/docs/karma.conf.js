@@ -37,24 +37,19 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessCI'],
+    browsers: ['Chrome'],
     customLaunchers: {
-      ChromeHeadlessCI: {
+      Headless: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox'
+        ]
       }
     },
     singleRun: false,
     restartOnFileChange: true,
-    coverageIstanbulReporter: {
-      dir: path.join(__dirname, './artifacts/coverage'),
-      reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
-      fixWebpackSourcePaths: true,
-      'report-config': {
-        'text-summary': {
-          file: 'text-summary.txt'
-        }
-      },
-    },
+    mime: { 'text/x-typescript': ['ts','tsx'] }
+
   });
 };

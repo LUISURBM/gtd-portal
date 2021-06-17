@@ -2,26 +2,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from '../../../../environments/environment';
-import { StoredProcedureService } from '../../../srv/payroll/api/storedProcedure.service';
 import { NavigationService } from '../../../srv/navigation.service';
+import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
 @Component({
   selector: 'app-devengados-form',
   styleUrls: ['./devengados.component.scss'],
   templateUrl: './devengados-form.component.html',
 })
 export class DevengadosFormComponent {
-  @ViewChild("formView") formView:any;
+  @ViewChild('formView') formView: any;
 
   position = 'below';
 
   form: FormGroup;
 
-  private payrollDataUrl = environment.API_GATEWAY;
-
-  constructor(public builder: FormBuilder, private route: ActivatedRoute, public navSrv: NavigationService
-    ,public http: HttpClient
-    ,private storedProcedureAPISrv: StoredProcedureService
+  constructor(
+    public builder: FormBuilder,
+    private route: ActivatedRoute,
+    public navSrv: NavigationService,
+    public http: HttpClient,
+    private storedProcedureAPISrv: StoredProcedureService
   ) {
     this.form = this.builder.group({
       id: builder.control(0),
@@ -40,7 +40,7 @@ export class DevengadosFormComponent {
       }),
     });
 
-    this.route.queryParams.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       const data1 = params['data'];
       this.form.patchValue(data1);
     });
@@ -63,21 +63,25 @@ export class DevengadosFormComponent {
       .exectuteProcedureUsingPOST(request, 'events', true, {
         // httpHeaderAccept: 'application/json',
       })
-      .subscribe((data:any) => {
-        console.dir(data);
-        let newarray = data?.body.map((element: any) => {
-          var key,
-            keys = Object.keys(element);
-          var n = keys.length;
-          var newobj: any = {};
-          while (n--) {
-            key = keys[n];
-            newobj[key.toLowerCase()] = element[key];
-          }
-          return newobj;
-        });
+      .subscribe({
+        next: (data: any) => {
+          console.dir(data);
+          if (!data?.body?.body) return;
+          let newarray = data?.body?.body?.map((element: any) => {
+            var key,
+              keys = Object.keys(element);
+            var n = keys.length;
+            var newobj: any = {};
+            while (n--) {
+              key = keys[n];
+              newobj[key.toLowerCase()] = element[key];
+            }
+            return newobj;
+          });
 
-        this.form.patchValue(data);
+          this.form.patchValue(newarray[0]);
+        },
+        error: (error) => console.log(error),
       });
 
     const httpOptions = {

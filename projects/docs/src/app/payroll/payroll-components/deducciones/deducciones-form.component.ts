@@ -27,7 +27,7 @@ export class DeduccionesFormComponent {
       anticipos: builder.array([])
     });
 
-    this.route.queryParams.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       const data1 = params['data'];
       this.form.patchValue(data1);
     });

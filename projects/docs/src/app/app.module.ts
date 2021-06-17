@@ -3,9 +3,10 @@ import {
   CommonModule,
   LocationStrategy,
   PathLocationStrategy,
+  registerLocaleData,
 } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -46,7 +47,7 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import { AppStateService } from './srv/local-app.service';
+import { AppStateService } from './srv/app-state.service';
 import { ApiModule } from './srv/payroll/api/api.module';
 import {
   Configuration,
@@ -54,6 +55,10 @@ import {
 } from './srv/payroll/api/configuration';
 import { StyleManagerService } from './srv/style-manager.service';
 import { NgGtdThemes } from './types/common-types';
+
+import localeCo from '@angular/common/locales/es-CO';
+
+registerLocaleData(localeCo, 'es-Co');
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -145,6 +150,7 @@ export function apiConfigFactory(): Configuration {
     ApiModule.forRoot(apiConfigFactory),
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'es-Co' },
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,

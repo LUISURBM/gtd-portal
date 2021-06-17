@@ -61,7 +61,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: "subscription",
+        path: "subscripciones",
         loadChildren: () =>
           import("./subscription/subscription.module").then(
             (m) => m.SubscriptionComponentsModule

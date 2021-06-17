@@ -33,34 +33,34 @@
 
 
       <form [formGroup]="form">
-        <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
+        <mat-form-field class=" mt-4 find-menu-item" style="direction: ltr; padding: 0px 15px ">
           <mat-label>Buscar...</mat-label>
           <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
-          <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
+          <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter(''); $event.stopPropagation();" matSuffix mat-fab>clear</mat-icon>
         </mat-form-field>
       </form>
     </div>
 
 
     <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
-      <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems" routerLinkActive="selected"
+      <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems; let i = index;" routerLinkActive="selected"
         group="{{menuitem.state}}">
         <a class="" appAccordionToggle (click)="stateSrv.toggleMenu(); navSrv.navigate(menuitem.state)"
           *ngIf="menuitem.type === 'link'">
           <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
           <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
-          <span>{{ menuitem.name }}</span>
-          <span fxFlex></span>
-          <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+          <span >{{ menuitem.name }}</span>
+          <span fxFlex><p [matBadge]="i" matBadgeColor="primary"></p></span>
+          <!-- <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span> -->
         </a>
       </mat-list-item>
     </mat-nav-list>
 
-<!--
+
 
   <app-helper-overview-grap>
-    <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed" style="color: var(--light-accent-text)">
+    <button mat-icon-button (click)="stateSrv.toggleMenu()" value="sidebarclosed" style="color: var(--light-accent-text)">
       <mat-icon>menu</mat-icon>
     </button>
-  </app-helper-overview-grap> -->
+  </app-helper-overview-grap>
 </ng-container>

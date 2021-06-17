@@ -68,7 +68,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit {
     let datasource = this.dataSource$.value.datasource;
     datasource.data = datasource.data.filter((h) => h.id !== libranza.id);
     this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
-    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 2000 });
+    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 5000 });
   }
 
   edit(libranza: Huelga): void {

@@ -1,176 +1,180 @@
 import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { Trabajador, VALUES_WORKER } from '../../../trabajador/trabajador-data';
+import { TableItem } from '../../../types/common-types';
 import { Periodo, periodos } from '../periodo/periodo-data';
 
-export interface Individual {
-  id: number;
+export interface Individual extends TableItem {
+  id: string;
   periodo: Periodo;
   nombre: string;
-  estado: string;
+  novedad: boolean;
   descripcion: string;
   trabajador: Trabajador;
+  devengadosTotal?: number;
+  deduccionesTotal?: number;
+  comprobanteTotal?: number;
 }
 
 export const nominas: Individual[] = [
   {
-    id: 1,
+    id: '1',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 2,
+    id: '2',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 3,
+    id: '3',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 4,
+    id: '4',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 5,
+    id: '5',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 6,
+    id: '6',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 7,
+    id: '7',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 8,
+    id: '8',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 9,
+    id: '9',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 10,
+    id: '10',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMP',
+    novedad: false,
     descripcion: 'COMP',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 11,
+    id: '11',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 12,
+    id: '12',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 13,
+    id: '13',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 14,
+    id: '14',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 15,
+    id: '15',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 16,
+    id: '16',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 17,
+    id: '17',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 18,
+    id: '18',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 19,
+    id: '19',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
   {
-    id: 20,
+    id: '20',
     periodo: periodos[0],
     nombre: '',
-    estado: 'COMU',
+    novedad: true,
     descripcion: 'COMU',
-    trabajador: VALUES_WORKER[0]
+    trabajador: VALUES_WORKER[0],
   },
 ];
 
@@ -180,8 +184,7 @@ export const catalogs: ValuesCatalog[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
-  'estado',
-  'nombre',
-  'action'
+  'trabajador',
+  'novedad',
+  'action',
 ];

@@ -12,6 +12,7 @@ import { DeduccionesComponent } from './payroll-components/deducciones/deduccion
 import { DevengadosFormComponent } from './payroll-components/devengados/devengados-form.component';
 import { DevengadosViewComponent } from './payroll-components/devengados/devengados-view.component';
 import { DevengadosComponent } from './payroll-components/devengados/devengados.component';
+import { FondoSPComponent } from './payroll-components/fondo-sp/fondo-sp.component';
 import { HorariosAdicionalesComponent } from './payroll-components/horarios-adicionales/horarios-adicionales.component';
 import { HuelgasComponent } from './payroll-components/huelga-legal/huelga.component';
 import { IncapacidadesComponent } from './payroll-components/incapacidades/incapacidades.component';
@@ -60,8 +61,9 @@ export const PayrollRoutes: Routes = [
         component: DevengadosViewComponent,
         children: [
           {
-            path: 'form',
+            path: '',
             component: DevengadosFormComponent,
+            pathMatch: 'full',
           },
           {
             path: 'licencias',
@@ -140,12 +142,17 @@ export const PayrollRoutes: Routes = [
         component: DeduccionesViewComponent,
         children: [
           {
-            path: 'form',
+            path: '',
             component: DeduccionesFormComponent,
+            pathMatch: 'full',
           },
           {
             path: 'anticipos',
             component: AnticipoComponent,
+          },
+          {
+            path: 'fondo-sp',
+            component: FondoSPComponent,
           },
           {
             path: 'libranzas',

@@ -25,7 +25,7 @@ mat-sidenav {
             &:hover{
                 background: none;
                 > a{
-                  color:var(--themecolor-alt);
+                  color:var(--primary-color);
                 }
             }
         }
@@ -54,7 +54,7 @@ mat-sidenav {
             }
         }
         &.selected > .mat-list-item-content > a{
-            background: var(--themecolor-alt);
+            background: var(--primary-color);
             border-radius: $radius;
             color:var(--text-accent-color);
 

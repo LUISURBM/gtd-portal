@@ -1,3 +1,4 @@
+import { animate, animateChild, group, query, style, transition, trigger } from '@angular/animations';
 import {
   AfterViewInit,
   Component,
@@ -5,19 +6,69 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { animationsForm5 } from '../../animations/form-animation';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { Menu, MenuItems } from '../../shared/menu-items/menu-items';
-import { AppStateService } from '../../srv/local-app.service';
+import { AppStateService } from '../../srv/app-state.service';
 import { NavigationService } from '../../srv/navigation.service';
-
+export const slideInAnimation =
+  trigger('routeAnimations', [
+    transition('HomePage <=> AboutPage', [
+      style({ position: 'relative' }),
+      query(':enter, :leave', [
+        style({
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%'
+        })
+      ]),
+      query(':enter', [
+        style({ left: '-100%' })
+      ]),
+      query(':leave', animateChild()),
+      group([
+        query(':leave', [
+          animate('300ms ease-out', style({ left: '100%' }))
+        ]),
+        query(':enter', [
+          animate('300ms ease-out', style({ left: '0%' }))
+        ])
+      ]),
+      query(':enter', animateChild()),
+    ]),
+    transition('* <=> FilterPage', [
+      style({ position: 'relative' }),
+      query(':enter, :leave', [
+        style({
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%'
+        })
+      ]),
+      query(':enter', [
+        style({ left: '-100%' })
+      ]),
+      query(':leave', animateChild()),
+      group([
+        query(':leave', [
+          animate('200ms ease-out', style({ left: '100%' }))
+        ]),
+        query(':enter', [
+          animate('300ms ease-out', style({ left: '0%' }))
+        ])
+      ]),
+      query(':enter', animateChild()),
+    ])
+  ]);
 /** @title Responsive sidenav */
 @Component({
   selector: 'app-full-layout',
   templateUrl: 'full.component.html',
   styleUrls: ['full.component.scss'],
-  animations: animationsForm5
+  animations: [slideInAnimation]
 })
 export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(ToolbarComponent)
@@ -60,5 +111,9 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
 
   codePoint(emojiCodePoint:number) {
     return String.fromCodePoint(emojiCodePoint);
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

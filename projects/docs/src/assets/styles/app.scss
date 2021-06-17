@@ -23,8 +23,6 @@ File: scss
 }
 
 body {
-  font-family: var(--bodyfont);
-  // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   margin: 0;
   overflow-x: hidden;
   color: var(--bodytext);
@@ -60,7 +58,7 @@ a.link {
   text-decoration: none;
   &:hover,
   &:focus {
-    color: var(--themecolor);
+    color: var(--secondary);
   }
 }
 .img-responsive {
@@ -579,7 +577,7 @@ html body {
     color: var(--bodytext);
   }
   .text-themecolor {
-    color: var(--themecolor);
+    color: var(--secondary);
   }
   .text-center {
     text-align: center;
@@ -715,14 +713,14 @@ froms
 .mat-form-field-underline {
   background-color: rgba(0, 0, 0, 0.25);
 }
-.mat-form-field {
+.mat-form-field.mat-focused .mat-form-field-label,.mat-form-field {
   width: 100%;
   color: var(--accent-color) !important;
-  span,
-  mat-label,
-  .mat-form-field-label {
-    color: var(--accent-color) !important;
-  }
+  // span,
+  // mat-label,
+  // .mat-form-field-label {
+  //   color: var(--accent-color) !important;
+  // }
 }
 .mat-input-element {
   color: var(--black) !important;
@@ -736,10 +734,12 @@ froms
   input,
   .mat-form-field span,
   .mat-form-field mat-label,
-  .mat-form-field .mat-form-field-label {
-    color: var(--white) !important;
+  .mat-form-field .mat-form-field-label,
+  mat-label {
+    color: var(--sidebar-icons) !important;
   }
 }
+
 .gtd-icon-button{
   font-size: var(--icon-button-size)!important;
 }
@@ -791,11 +791,11 @@ Mat card
   }
   .mat-card-header {
 
-    .mat-card-title {
-      margin-bottom: 2px;
-      font-size: 20px;
-      color: var(--text-accent-color) !important;
-    }
+    // .mat-card-title {
+    //   margin-bottom: 2px;
+    //   font-size: 20px;
+    //   color: var(--text-accent-color) !important;
+    // }
     .mat-card-subtitle,
     .mat-card-subtitle:not(:first-child) {
       margin-bottom: 0px;
@@ -853,30 +853,25 @@ Mat card
     mat-paginator {
       color: var(--text-accent-lighter-color) !important;
       .mat-select-arrow,
-      .mat-paginator,
-      .mat-form-field,
-      .mat-form-field span,
-      .mat-tooltip-trigger {
+      .mat-select-value {
         color: var(--text-accent-lighter-color) !important;
         .disabled{
           color: var(--text-accent-darker-color) !important;
         }
       }
+
     }
   }
 }
 
-.mat-select-value {
-  color: var(--accent-color) !important;
-}
-.mat-tooltip-trigger {
-  color: var(--accent-color) !important;
+.fpi-skin-black .mat-option {
+  color: var(--text-accent-lighter-color) !important;
 }
 .mat-calendar-body-selected {
   background-color: var(--secondary-light) !important;
 }
 .primary {
-  color: var(--white) !important;
+  color: var(--text-primary-color) !important;
   background: var(--primary-color) !important;
 }
 /*******************
@@ -1026,7 +1021,7 @@ tabs
 }
 
 .mat-drawer-inner-container {
-  overflow-y: auto !important;
+  overflow: visible !important;
   height: calc(100vh - 64px);
 }
 
@@ -1039,7 +1034,7 @@ tabs
 
 .mat-datepicker-content-touch .mat-calendar
 {
-  background: var(--app-bar)!important;
+  background: var(--top-bar)!important;
   color: var(--text-accent-lighter-color)!important;
 }
 
@@ -1049,12 +1044,12 @@ tabs
 
 ::-webkit-scrollbar {
   width: 16px;
-  background-color: transparent;
+  background-color: var(--bg-dialog);
 }
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px var(--secondary);
+  -webkit-box-shadow: inset 0 0 6px var(--secondary-light);
   box-shadow: inset 0 0 4px #707070;
-  background-color: var(--bg-dialog);
+  background-color: var(--background);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
@@ -1063,11 +1058,11 @@ tabs
     linear,
     left bottom,
     left top,
-    color-stop(0.44, var(--secondary-light)),
-    color-stop(0.72, var(--secondary-light)),
-    color-stop(0.86, var(--secondary-light))
+    color-stop(0.44, var(--secondary)),
+    color-stop(0.72, var(--secondary)),
+    color-stop(0.86, var(--secondary))
   );
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+  background: var(--secondary-light);
 }

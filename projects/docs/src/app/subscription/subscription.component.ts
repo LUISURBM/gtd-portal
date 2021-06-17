@@ -70,7 +70,7 @@ export class SubscriptionComponent implements OnInit, AfterViewInit {
 
   delete(hero: string): void {
     this.dataSource.data = this.dataSource.data.filter((h) => h.name !== hero);
-    this._snackBar.open(`${hero}`, "deleted!", { duration: 2000 });
+    this._snackBar.open(`${hero}`, "deleted!", { duration: 5000 });
   }
 
   edit(hero: ValuesCatalog): void {

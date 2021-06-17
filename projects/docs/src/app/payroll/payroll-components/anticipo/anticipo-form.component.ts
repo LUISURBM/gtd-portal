@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -17,9 +17,14 @@ export class AnticipoFormComponent {
     public builder: FormBuilder
   ) {
     this.form = this.builder.group({
-      id: 0,
-      anticipo: 0,
-      fecha: new Date(),
+      id: this.builder.control(0),
+      anticipo: this.builder.control(0, [
+        Validators.required,
+        Validators.maxLength(4),
+      ]),
+      fecha: this.builder.control(new Date(),[
+        Validators.required
+      ])
     });
     this.form.patchValue(data);
   }

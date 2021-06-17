@@ -1,5 +1,5 @@
-<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
-  <mat-card-header>
+<mat-card *ngIf="dataSource$ | async as dataSource" class="card">
+  <mat-card-header class="card-header card-header-primary card-header-icon">
     <mat-card-title>
       <div class="card-icon">
         <em class="material-icons">{{'1F305'|gtdEmoji}}</em>

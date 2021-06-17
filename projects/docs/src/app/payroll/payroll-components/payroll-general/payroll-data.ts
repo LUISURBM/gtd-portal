@@ -3,149 +3,150 @@ import { formatToDate } from '../../../values-catalog';
 import { Periodo } from '../periodo/periodo-data';
 
 export interface Payroll {
-  id: number;
+  id: string;
   fechaCorte: Date;
   nombre: string;
   estado: string;
   descripcion: string;
+  loading?: number;
 }
 
 export const nominas: Payroll[] = [
   {
-    id: 1,
+    id: '1',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 2,
+    id: '2',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 3,
+    id: '3',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 4,
+    id: '4',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 5,
+    id: '5',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 6,
+    id: '6',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 7,
+    id: '7',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 8,
+    id: '8',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 9,
+    id: '9',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 10,
+    id: '10',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMP',
     descripcion: 'COMP',
   },
   {
-    id: 11,
+    id: '11',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 12,
+    id: '12',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 13,
+    id: '13',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 14,
+    id: '14',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 15,
+    id: '15',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 16,
+    id: '16',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 17,
+    id: '17',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 18,
+    id: '18',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 19,
+    id: '19',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
     descripcion: 'COMU',
   },
   {
-    id: 20,
+    id: '20',
     fechaCorte: formatToDate('5/17/2021'),
     nombre: '',
     estado: 'COMU',
@@ -154,19 +155,16 @@ export const nominas: Payroll[] = [
 ];
 
 export const catalogs: ValuesCatalog[] = [
-  { id: 1, code: 'BORR', name: 'Borrador' },
-  { id: 2, code: 'COMU', name: 'Comun' },
-  { id: 2, code: 'PREA', name: 'Preaprobada' },
-  { id: 2, code: 'ENVI', name: 'Enviada' },
-  { id: 2, code: 'ACEP', name: 'Aceptada DIAN' },
+  { id: 1, code: '487C190C-F0F3-4E4E-9B60-A959C2124CCE', name: 'Borrador' },
+  { id: 2, code: '487C190C-F0F3-4E4E-9B60-A959C2124CCE', name: 'Comun' },
+  { id: 2, code: '487C190C-F0F3-4E4E-9B60-A959C2124CCE', name: 'Preaprobada' },
+  { id: 2, code: '487C190C-F0F3-4E4E-9B60-A959C2124CCE', name: 'Enviada' },
+  { id: 2, code: '487C190C-F0F3-4E4E-9B60-A959C2124CCE', name: 'Aceptada DIAN' },
 ];
 
 export const displayedColumns: string[] = [
-  'id',
-  'estado',
-  'nombre',
-  'descripcion',
   'fechaCorte',
+  'nombre',
   'action',
 ];
 
