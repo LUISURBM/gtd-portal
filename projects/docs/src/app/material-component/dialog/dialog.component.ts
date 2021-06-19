@@ -11,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="data.animal" tabindex="2">Ok</button>
+  <button mat-button [mat-dialog-close]="data.animal" tabindex="2">Aceptar</button>
   <button mat-button (click)="onNoClick()" tabindex="-1">No Thanks</button>
 </div>`
 })

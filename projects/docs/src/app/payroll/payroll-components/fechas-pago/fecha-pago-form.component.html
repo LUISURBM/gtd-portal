@@ -1,36 +1,31 @@
-<h1 mat-dialog-title>Formulario fecha pago {{ data.id }}</h1>
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title">Agregar fecha pago nuevo</h4>
-                <p class="card-category">Información de fecha pago</p>
-              </div>
-              <div class="card-body">
-                <form [formGroup]="form">
-                  <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Fecha pago</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="fechaPago" />
-                    <mat-datepicker-toggle
-                      matSuffix
-                      [for]="picker"
-                    ></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #picker></mat-datepicker>
-                  </mat-form-field>
-
-
-                  <div mat-dialog-actions>
-                    <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                    <button mat-button (click)="onNoClick()" tabindex="-1">
-                      Cancelar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">📜</em></div>
+        <h1>
+          {{ f.id.value ? 'Editar Formulario fecha pago {{f.id.value}}' : 'Agregar Formulario fecha pago ' }}
+        </h1>
       </div>
     </div>
+    <div class="card-body">
+      <h4 class="card-title">Agregar fecha pago nuevo</h4>
+      <p class="card-category">Información de fecha pago</p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fecha pago</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaPago" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <div>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

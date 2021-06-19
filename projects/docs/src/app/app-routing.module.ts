@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MsalGuard } from '@azure/msal-angular';
 import { FullComponent } from './layouts/full/full.component';
+import { LogInFormComponent } from './security/login-form.component';
 import { SelectivePreloadingStrategyService } from './srv/selective-preloading-strategy.service';
 
 const routes: Routes = [
@@ -9,14 +10,15 @@ const routes: Routes = [
     path: "",
     component: FullComponent,
     children: [
-      { path: '', redirectTo: '/nómina', pathMatch: 'full' },
+      // { path: '', redirectTo: '/nómina', pathMatch: 'full' },
+      { path: 'login', component: LogInFormComponent, },
       {
         path: "home",
         loadChildren: () =>
           import("./home/home.module").then((m) => m.HomeComponentsModule),
       },
       {
-        path: "dashboard",
+        path: "",
         loadChildren: () =>
           import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
@@ -46,7 +48,7 @@ const routes: Routes = [
       {
         path: "trabajador",
         loadChildren: () =>
-          import("./trabajador/trabajador.module").then((m) => m.DashboardModule),
+          import("./trabajador/trabajador.module").then((m) => m.TrabajadorModule),
       },
       {
         path: "nómina",

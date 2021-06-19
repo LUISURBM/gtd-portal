@@ -59,7 +59,7 @@ export class IncapacidadesComponent
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.body?.map?.((element: any) => {
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
       var key,
         keys = Object.keys(element);
       var n = keys.length;
@@ -162,6 +162,7 @@ export class IncapacidadesComponent
         id: undefined,
         pago: incapacidad.pago,
         tipo: incapacidad.tipo,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -237,6 +238,7 @@ export class IncapacidadesComponent
         id: incapacidad.id,
         pago: incapacidad.pago,
         tipo: incapacidad.tipo,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

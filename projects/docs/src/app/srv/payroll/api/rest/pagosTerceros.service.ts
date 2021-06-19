@@ -235,7 +235,7 @@ export class PagosTercerosService implements PagosTercerosServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListPagoTercerosDto>(`${this.configuration.basePath}/nomina-general/pagosTerceros/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListPagoTercerosDto>(`${this.configuration.basePath}/nomina-general/pagosTerceros/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

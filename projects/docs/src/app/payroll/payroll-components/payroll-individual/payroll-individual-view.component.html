@@ -30,7 +30,7 @@
           arrow_right
         </mat-icon>
       </ng-container>
-      <a class="ml-2 navbar-brand" >
+      <a class="ml-2 navbar-brand">
         <strong>
           {{form.value.trabajador.primerNombre}} {{form.value.trabajador.primerApellido}}
         </strong>
@@ -49,9 +49,11 @@
 
 
     <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view', this.individualData())"><span>➕
+      <mat-chip color="primary" selected="true"
+        (click)="navSrv.navigate('/nómina/deducciones', this.individualData())"><span>➕
           Deducción</span></mat-chip>
-      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/devengos/view', this.individualData())"><span>➕
+      <mat-chip color="primary" selected="true"
+        (click)="navSrv.navigate('/nómina/devengos', this.individualData())"><span>➕
           Devengo</span></mat-chip>
       <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()">
         <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
@@ -62,15 +64,15 @@
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
       <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
-        (click)="navSrv.navigate('/nómina/deducciones/view/form', this.individualData())">
+        (click)="navSrv.navigate('/nómina/deducciones', this.individualData())">
         ➕ Deducción
       </button>
       <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
-        (click)="navSrv.navigate('/nómina/devengos/view/form', this.individualData())">
+        (click)="navSrv.navigate('/nómina/devengos', this.individualData())">
         ➕ Devengo
       </button>
       <button mat-menu-item (click)="delete()">
-        {{'1F5D1'|gtdEmoji}} Eliminar
+        <mat-icon>delete</mat-icon> Eliminar
       </button>
       <button mat-menu-item (click)="toggleFullScreen()">
         <ng-container *ngIf="!state.fullScreen">
@@ -88,6 +90,9 @@
     <!-- app header component - style you can find in header.scss / header.component.ts-->
     <!-- ============================================================== -->
 
+    <mat-card *ngIf="state?.loading" class="m-0" style="display: flex; justify-content: center; align-items: center">
+      <mat-progress-bar  mode="indeterminate" ></mat-progress-bar>
+    </mat-card>
   </mat-toolbar>
   <!-- ============================================================== -->
   <!-- End Topbar - style you can find in pages.scss -->
@@ -129,6 +134,34 @@
             <span fxFlex></span>
           </a>
         </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(notas.formView)">
+            <span>{{'1F4D1'|gtdEmoji}}</span>
+            <span>Notas</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(period.formView)">
+            <span>{{'1F5D3'|gtdEmoji}}</span>
+            <span>Periodo</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(fecP.formView)">
+            <span>{{'1F4C6'|gtdEmoji}}</span>
+            <span>Fechas Pagos</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(proveedorXML.formView)">
+            <span>{{'1F5A8'|gtdEmoji}}</span>
+            <span>Proveedor XML</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
       </mat-nav-list>
 
     </mat-sidenav>
@@ -140,9 +173,13 @@
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
-      <app-payroll-individual-form-dialog #ind [form]="form"></app-payroll-individual-form-dialog>
-      <app-devengados-form #dev></app-devengados-form>
+      <app-payroll-individual-form-dialog [form]="form" #ind></app-payroll-individual-form-dialog>
+      <app-devengados-form #dev ></app-devengados-form>
       <app-deducciones-form #ded></app-deducciones-form>
+      <app-payroll-notas #notas> </app-payroll-notas>
+      <app-payroll-periodos #period></app-payroll-periodos>
+      <app-payroll-fechas-pago #fecP></app-payroll-fechas-pago>
+      <app-payroll-proveedores-xml #proveedorXML></app-payroll-proveedores-xml>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

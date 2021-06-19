@@ -23,7 +23,7 @@
         <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
           <span>{{'1F4C5'|gtdEmoji}}</span>
           <strong>
-          {{form.value.fechaCorte | date : 'MM/yyyy'}}
+            {{form.value.fechaCorte | date : 'MM/yyyy'}}
           </strong>
         </a>
         <mat-icon>
@@ -33,7 +33,6 @@
       <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
         <strong>
           {{form.value.trabajador?.primerNombre}}
-
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">

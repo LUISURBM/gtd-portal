@@ -23,7 +23,7 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Cantidad</span>
         <mat-form-field>
-          <input matInput tabindex="1" formControlName="cantidad" placeholder="cantidad" id="cantidad" type="text"
+          <input matInput tabindex="1" formControlName="cantidad" placeholder="cantidad" id="cantidad" type="number"
             class="form-control" />
           <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
             <div *ngIf="f.cantidad.errors?.required">
@@ -36,7 +36,7 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Pago</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pago" placeholder="pago" id="pago" type="text"
+          <input matInput tabindex="2" formControlName="pago" placeholder="pago" id="pago" type="number"
             class="form-control" />
           <div *ngIf="f.pago.touched && f.pago.invalid" class="alert alert-danger">
             <div *ngIf="f.pago.errors?.required">
@@ -50,7 +50,7 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Porcentaje</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje" type="text"
+          <input matInput tabindex="2" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje" type="number"
             class="form-control" />
           <div *ngIf="f.porcentaje.touched && f.porcentaje.invalid" class="alert alert-danger">
             <div *ngIf="f.porcentaje.errors?.required">
@@ -64,10 +64,13 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Hora inicio</span>
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Hora inicio</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="horaInicio" />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #picker></mat-datepicker>
+          <input matInput tabindex="2" formControlName="horaInicio" placeholder="Porcentaje" id="horaInicio" type="time"
+            class="form-control" />
+          <div *ngIf="f.horaInicio.touched && f.horaInicio.invalid" class="alert alert-danger">
+            <div *ngIf="f.horaInicio.errors?.required">
+              horaInicio es obligatorio.
+            </div>
+          </div>
         </mat-form-field>
 
       </div>
@@ -75,10 +78,13 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Hora fin</span>
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Hora fin</mat-label>
-          <input matInput [matDatepicker]="pickerFin" formControlName="horaFin" />
-          <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
-          <mat-datepicker touchUi #pickerFin></mat-datepicker>
+          <input matInput tabindex="2" formControlName="horaFin" placeholder="Porcentaje" id="horaFin" type="time"
+            class="form-control" />
+          <div *ngIf="f.horaFin.touched && f.horaFin.invalid" class="alert alert-danger">
+            <div *ngIf="f.horaFin.errors?.required">
+              horaFin es obligatorio.
+            </div>
+          </div>
         </mat-form-field>
       </div>
 

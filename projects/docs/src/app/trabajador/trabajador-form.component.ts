@@ -19,7 +19,7 @@ export class TrabajadorFormComponent {
     id: new FormControl(undefined),
 
     tipoDocumento: new FormControl(''),
-    numeroDocumento: new FormControl(Number),
+    numeroDocumento: new FormControl(''),
     primerNombre: new FormControl(''),
     otrosNombres: new FormControl(''),
     primerApellido: new FormControl(''),
@@ -27,16 +27,19 @@ export class TrabajadorFormComponent {
 
     lugarTrabajoDepartamentoEstado: new FormControl(),
     lugarTrabajoDireccion: new FormControl(''),
-    lugarTrabajoMunicipioCiudad: new FormControl(Number),
+    lugarTrabajoMunicipioCiudad: new FormControl(''),
     lugarTrabajoPais: new FormControl(''),
 
-    altoRiesgoPension: new FormControl(Boolean),
-    codigoTrabajador: new FormControl(Number),
-    salarioIntegral: new FormControl(Boolean),
-    subTipoTrabajador: new FormControl(),
-    sueldo: new FormControl(Number),
-    tipoContrato: new FormControl(),
-    tipoTrabajador: new FormControl(),
+    altoRiesgoPension: new FormControl(false),
+    codigoTrabajador: new FormControl(''),
+    salarioIntegral: new FormControl(false),
+    subTipoTrabajador: new FormControl(''),
+    sueldo: new FormControl(0),
+    tipoContrato: new FormControl(''),
+    tipoTrabajador: new FormControl(''),
+    fechaIngreso: new FormControl(new Date()),
+    fechaRetiro: new FormControl(new Date()),
+    direccion: new FormControl(''),
   });
 
   step = 0;

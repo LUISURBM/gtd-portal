@@ -51,7 +51,7 @@ export class PayrollIndividualTableComponent
     return day !== 0 && day !== 6;
   };
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<Individual>(nominas),
+    datasource: new MatTableDataSource<Individual>([]),
     displayedColumns: displayedColumns,
   });
 
@@ -89,6 +89,7 @@ export class PayrollIndividualTableComponent
     );
 
   readList = (data: any, message?: string) => {
+    this.loading((data?.type ?? 1) * 25);
     console.log(data);
     let newarray = data?.body?.bodyDto?.map?.((element: any) => {
       var key,
@@ -139,6 +140,8 @@ export class PayrollIndividualTableComponent
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
+      estado: '',
+      nombre: '',
       nominaGeneralId: '',
     });
 
@@ -169,15 +172,7 @@ export class PayrollIndividualTableComponent
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(payroll: Individual): void {
     if (!payroll) {

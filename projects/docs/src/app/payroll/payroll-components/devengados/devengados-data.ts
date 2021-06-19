@@ -330,7 +330,7 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: '/', name: 'General devengos', type: 'link', icon: 'work', emoji: '1F4B5' },
+  { state: 'devengos', name: 'General devengos', type: 'link', icon: 'work', emoji: '1F4B5' },
   { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F9FE' },
   { state: 'auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm', emoji: '1F4B8' },
   { state: 'bonificaciones', name: 'Bonificación', type: 'link', icon: 'money', emoji: '1F4B6' },

@@ -235,7 +235,7 @@ export class OtrosConceptosService implements OtrosConceptosServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListOtroConceptoDto>(`${this.configuration.basePath}/nomina-general/otrosConceptos/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListOtroConceptoDto>(`${this.configuration.basePath}/nomina-general/otrosConceptos/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

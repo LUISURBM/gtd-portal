@@ -1,0 +1,47 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header login-page header-filter" filter-color="black"
+    style="background-image: url('../../assets/img/login.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <form [formGroup]="form" class="d-flex main-container main-form">
+          <div class="card mat-card">
+            <div class="mat-card-header card-header-primary">
+              <h4 class="card-title">¡Bienvenido a Nómina Electrónica!
+              </h4>
+              <p class="card-category">Datos inicio de sesión</p>
+            </div>
+            <div class="card-body">
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="nombreUsuario" placeholder="Nombre de usuario"
+                  id="nombreUsuario" type="text" class="form-control" />
+                <div *ngIf="f.nombreUsuario.touched && f.nombreUsuario.invalid" class="alert alert-danger">
+                  <div *ngIf="f.nombreUsuario.errors?.required">
+                    numero de documento es obligatorio.
+                  </div>
+                </div>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput tabindex="1" formControlName="contrasena" placeholder="Clave"
+                  id="contrasena" type="password" class="form-control" />
+                <div *ngIf="f.contrasena.touched && f.contrasena.invalid" class="alert alert-danger">
+                  <div *ngIf="f.contrasena.errors?.required">
+                    nombre es obligatorio.
+                  </div>
+                </div>
+              </mat-form-field>
+
+            </div>
+            <div>
+              <button mat-button (click)="onNoClick()" tabindex="-1">
+                Limpiar
+              </button>
+              <button mat-button (click)="save()" tabindex="3">Aceptar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

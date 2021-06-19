@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,7 +11,6 @@ import { AppStateService } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
-import { Individual } from './individual-data';
 
 @Component({
   selector: 'app-payroll-individual-view',
@@ -25,7 +23,47 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   subscriptions: Subscription[] = [];
+  get request() {
+    return {
+      entidad: {
+        id: this.form.value.id,
+        trabajador: this.form.value.trabajador,
+        nominaGeneralId: this.form.value.nominaGeneralId,
+        devengadosTotal: this.form.value.devengadosTotal,
+        deduccionesTotal: this.form.value.deduccionesTotal,
+        comprobanteTotal: this.form.value.comprobanteTotal,
+        novedad: false,
+        cuneNov: '',
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+  }
 
+  get isEditing() {
+    return this.form.value.id;
+  }
+
+  get saveOrUpdate() {
+    return this.isEditing
+      ? this.nominaIndividualAPISrv.saveUsingPOST58(
+          this.request,
+          'events',
+          true,
+          {
+            httpHeaderAccept: 'application/json',
+          }
+        )
+      : this.nominaIndividualAPISrv.updateUsingPUT58(
+          this.request,
+          'events',
+          true,
+          {
+            httpHeaderAccept: 'application/json',
+          }
+        );
+  }
   constructor(
     public builder: FormBuilder,
     public dialog: MatDialog,
@@ -33,10 +71,10 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     public stateSrv: AppStateService,
     private elRef: ElementRef,
     public navSrv: NavigationService,
-    public http: HttpClient,
     private nominaIndividualAPISrv: NominasIndividualesService,
     private _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private appState: AppStateService
   ) {
     this.menuItems = MENU_ITEMS;
 
@@ -66,6 +104,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       this.route.params
         .pipe(
           switchMap((params) => {
+            this.loading;
             const data = JSON.parse(params['data']);
             this.form.patchValue(data);
             if (data['nominaIndividualId'] === undefined) return of(form.value);
@@ -81,13 +120,13 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
         )
         .subscribe({
           next: (data: any) => {
-            console.log(data);
             if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
               this.form.patchValue({
                 ...data?.body?.bodyDto,
                 nominaGeneralId: this.form.value.nominaGeneralId,
                 fechaCorte: this.form.value.fechaCorte,
               });
+            this.loading;
           },
           error: (err: any) => {
             console.log(err);
@@ -111,7 +150,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       nominaGeneralId: this.form.value.nominaGeneralId.id,
       fechaCorte: this.form.value.fechaCorte,
     });
-  }
+  };
 
   individualData = () => {
     return JSON.stringify({
@@ -122,7 +161,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       devengadosId: this.form.value.devengados.id,
       deduccionesId: this.form.value.deducciones.id,
     });
-  }
+  };
 
   onNoClick(): void {}
 
@@ -131,49 +170,29 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const request = {
-      entidad: {
-        id: this.form.value.id,
-        trabajador: this.form.value.trabajador,
-        nominaGeneralId: this.form.value.nominaGeneralId,
-        devengadosTotal: this.form.value.devengadosTotal,
-        deduccionesTotal: this.form.value.deduccionesTotal,
-        comprobanteTotal: this.form.value.comprobanteTotal,
-        novedad: false,
-        cuneNov: '',
+    this.saveOrUpdate.subscribe({
+      next: (data: any) => {
+        console.log(data);
+        if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto) {
+          this._snackBar.open(
+            `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
+            this.isEditing ? 'Actualizada' : 'creada!',
+            { duration: 5000 }
+          );
+          this.form.patchValue(data?.body?.bodyDto);
+        } else if (data?.type === 4) {
+          this._snackBar.open(
+            `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
+            'no creada!',
+            { duration: 5000 }
+          );
+        }
       },
-      headerRequest: {
-        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      error: (err: any) => {
+        console.log(err);
+        this._snackBar.open(`${err}`, '!no creado!', { duration: 5000 });
       },
-    };
-
-    this.nominaIndividualAPISrv
-      .saveUsingPOST58(request, 'events', true, {
-        httpHeaderAccept: 'application/json',
-      })
-      .subscribe({
-        next: (data: any) => {
-          console.log(data);
-          if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto) {
-            this._snackBar.open(
-              `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
-              'creada!',
-              { duration: 5000 }
-            );
-            this.form.patchValue(data?.body?.bodyDto);
-          } else if (data?.type === 4) {
-            this._snackBar.open(
-              `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
-              'no creada!',
-              { duration: 5000 }
-            );
-          }
-        },
-        error: (err: any) => {
-          console.log(err);
-          this._snackBar.open(`${err}`, '!no eliminado!', { duration: 5000 });
-        },
-      });
+    });
   }
 
   get f() {
@@ -200,22 +219,41 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     el.nativeElement.scrollIntoView();
   }
 
-  eliminar = (payroll: Individual) =>
+  eliminar = (payrollId: string) =>
     this.nominaIndividualAPISrv
-      .deleteUsingDELETE58(payroll.id, 'events', true, {
+      .deleteUsingDELETE58(payrollId, 'events', true, {
         httpHeaderAccept: 'application/json',
       })
       .pipe(
-        switchMap((general) => {
-          this._snackBar.open(`${payroll.nombre}`, 'eliminado!', {
-            duration: 500000,
-          });
-          return of(
-            this.navSrv.navigate(
-              '/nómina/individual',
-              this.form.value.nominaGeneralId
-            )
+        switchMap((response: any) => {
+          if (response?.type !== 4) return of();
+          if (
+            response?.type === 4 &&
+            response?.status === 200 &&
+            response?.body?.bodyDto?.[0]
+          ) {
+            this._snackBar.open(
+              `${this.form.value.trabajador.primerNombre}`,
+              'eliminado!',
+              {
+                duration: 500000,
+              }
+            );
+            return of(
+              this.navSrv.navigate(
+                '/nómina/individual',
+                this.form.value.nominaGeneralId
+              )
+            );
+          }
+          this._snackBar.open(
+            `${this.form.value.trabajador.primerNombre}`,
+            'no eliminado!',
+            {
+              duration: 500000,
+            }
           );
+          return of();
         })
       );
 
@@ -226,7 +264,9 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       )
         .pipe(
           switchMap((confirmacion) =>
-            confirmacion ? this.eliminar(this.form.value.id) : of()
+            confirmacion
+              ? this.eliminar(this.form.value.nominaIndividualId)
+              : of()
           )
         )
         .subscribe({
@@ -266,4 +306,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
 
     return dialogRef.afterClosed();
   }
+
+  loading = () =>
+    this.appState.toggleLoading;
 }

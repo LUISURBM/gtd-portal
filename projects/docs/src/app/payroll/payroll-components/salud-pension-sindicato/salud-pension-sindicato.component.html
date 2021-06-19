@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
   <mat-card-header>
     <mat-card-title>Salud Pension Sindicato</mat-card-title>
     <mat-card-subtitle>Angular Material table for <code>Salud Pension Sindicato</code> elements. </mat-card-subtitle>
@@ -12,7 +12,12 @@
       </mat-form-field>
     </h4>
 
-    <div class="mat-elevation-z8" *ngIf="dataSource$ | async as dataSource">
+    <mat-card *ngIf="dataSource?.loading != 100" class="m-0"
+      style="display: flex; justify-content: center; align-items: center">
+      <mat-progress-bar mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
+    </mat-card>
+
+    <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Position Column -->
@@ -44,7 +49,7 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+            <button mat-icon-button color="primary" (click)="openDialog(element)">
               <mat-icon>edit</mat-icon>
             </button>
 
@@ -56,6 +61,11 @@
 
         <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            <em>Sin datos</em>
+          </td>
+        </tr>
       </table>
 
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

@@ -1,137 +1,346 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from "@angular/material/dialog";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { MatTableDataSource } from "@angular/material/table";
-import { ValuesCatalog } from "../srv/in-mem-data-service";
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { ValuesCatalog } from '../srv/in-mem-data-service';
 import { InMemService } from '../srv/in-mem-service';
 import { NavigationService } from '../srv/navigation.service';
-import { FilterValueComponent } from "./filter.componet";
-import { VALUES_WORKER, displayedColumns } from './trabajador-data';
-
+import { TrabajadoresService } from '../srv/payroll/api/rest/trabajadores.service';
+import { confirm, NgGtdDS } from '../types/common-types';
+import { FilterValueComponent } from './filter.componet';
+import { VALUES_WORKER, displayedColumns, Trabajador } from './trabajador-data';
+import { TrabajadorFormComponent } from './trabajador-form.component';
 
 @Component({
-	selector: 'app-trabajador',
-	templateUrl: './trabajador.component.html',
-	styleUrls: ['./trabajador.component.scss']
+  selector: 'app-trabajador',
+  templateUrl: './trabajador.component.html',
+  styleUrls: ['./trabajador.component.scss'],
 })
-export class TrabajadorComponent implements AfterViewInit {
-
-  dataSource: MatTableDataSource<ValuesCatalog>;
-
-  displayedColumns = displayedColumns;
-  panelOpenState = false;
-  step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
+export class TrabajadorComponent implements AfterViewInit, OnDestroy {
   form: FormGroup;
+  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
+    datasource: new MatTableDataSource<Trabajador>([]),
+    displayedColumns: displayedColumns,
+  });
 
+  @ViewChild(MatPaginator, { static: true })
+  paginator!: MatPaginator;
 
-  constructor(public formBuilder: FormBuilder,
+  @ViewChild(MatSort) sort!: MatSort;
+  readResponseError = (err: any) => {
+    console.log(err);
+  };
+
+  subscriptions: Subscription[] = [];
+
+  listado = (data: any) =>
+    this.trabajadoresAPISrv.listtrabajadorUsingGET1('events', true, {});
+  readResponseTList = (data: any, message?: string) => {
+    this.loading((data?.type ?? 1) * 25);
+    if (!data.body) return;
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
+      var key,
+        keys = Object.keys(element);
+      var n = keys.length;
+      var newobj: any = {};
+      while (n--) {
+        key = keys[n];
+        if (key.toLowerCase().split('fecha').length > 1) {
+          element[key] =
+            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
+              element[key]
+            );
+        }
+        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
+          element[key];
+      }
+      return newobj;
+    });
+    console.log(newarray);
+    let datasource = new MatTableDataSource<Trabajador>(newarray);
+    if (this.paginator) {
+      this.paginator._intl.itemsPerPageLabel = 'Ver';
+      this.paginator._intl.getRangeLabel = (
+        page: number,
+        pageSize: number,
+        length: number
+      ) => {
+        const pagesize = pageSize > length ? length : pageSize;
+        return `Página ${page + 1}`;
+      };
+    }
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      datasource: datasource,
+      displayedColumns: displayedColumns,
+      loading: 100,
+    });
+  };
+  constructor(
+    public memSrv: InMemService,
+    public navSrv: NavigationService,
     public dialog: MatDialog,
-    public inMemSrv: InMemService,
-    private memSrv: InMemService,
-    public http: HttpClient,
-    private _snackBar: MatSnackBar
-    ,public navSrv: NavigationService
-    ){
-      this.dataSource = new MatTableDataSource<ValuesCatalog>(VALUES_WORKER);
-    this.form = new FormGroup({
-
+    private _snackBar: MatSnackBar,
+    public formBuilder: FormBuilder,
+    public route: ActivatedRoute,
+    private trabajadoresAPISrv: TrabajadoresService
+  ) {
+    this.form = this.formBuilder.group({
+      filtro: '',
+      fechaCorte: new Date(),
+      nominaGeneralId: undefined,
+      devengadosId: undefined,
       id: new FormControl(),
 
       tipoDocumento: new FormControl(''),
-      numeroDocumento:  new FormControl(Number),
-      primerNombre:  new FormControl(''),
-      otrosNombres:  new FormControl(''),
+      numeroDocumento: new FormControl(Number),
+      primerNombre: new FormControl(''),
+      otrosNombres: new FormControl(''),
       primerApellido: new FormControl(''),
-      segundoApellido:  new FormControl(''),
+      segundoApellido: new FormControl(''),
 
-      lugarTrabajoDepartamentoEstado:  new FormControl(),
+      lugarTrabajoDepartamentoEstado: new FormControl(),
       lugarTrabajoDireccion: new FormControl(''),
       lugarTrabajoMunicipioCiudad: new FormControl(),
-      lugarTrabajoPais:  new FormControl(),
+      lugarTrabajoPais: new FormControl(),
 
       altoRiesgoPension: new FormControl(Boolean),
       codigoTrabajador: new FormControl(Number),
-      salarioIntegral:  new FormControl(),
-      subTipoTrabajador:  new FormControl(),
-      sueldo:  new FormControl(),
-      tipoContrato:  new FormControl(),
-      tipoTrabajador:  new FormControl()
+      salarioIntegral: new FormControl(),
+      subTipoTrabajador: new FormControl(),
+      sueldo: new FormControl(),
+      tipoContrato: new FormControl(),
+      tipoTrabajador: new FormControl(),
     });
-  }
-	ngAfterViewInit() { }
+    this.subscriptions = [
+      this.form.valueChanges
+        .pipe(
+          switchMap((data) => {
+            return this.listado(data);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        }),
 
-  openDialog(id?: number): void {
-    const editing = this.dataSource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
-    const dialogRef = this.dialog.open(FilterValueComponent, {
-      width: "500px",
-      data: editing ? editing : { id: undefined, name: "" },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    });
-  }
-
-  add(name: ValuesCatalog): void {
-    if (!name) {
-      return;
-    }
-    this.dataSource.data = [
-      ...this.dataSource.data,
-      { ...name, id: this.memSrv.genId(this.dataSource.data, "valuesCatalog") },
+      this.route.params.subscribe((params) => {
+        if (!params['data'] || params['data'] === 'undefined')
+          this.form.reset();
+        else {
+          const data = JSON.parse(params['data']);
+          console.log(data);
+          this.form.patchValue(data);
+        }
+      }),
     ];
   }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
 
-  edit(hero: ValuesCatalog): void {
-    const editedData = this.dataSource.data.map((h) =>
-      h.id !== hero.id ? h : hero
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    let datasource = this.dataSource$.value.datasource;
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
+  }
+
+  add(trabajador: Trabajador): void {
+    if (!trabajador) {
+      return;
+    }
+
+    const request = {
+      entidad: {
+        activo: trabajador.activo!,
+        altoRiesgoPension: trabajador.altoRiesgoPension!,
+        codigoTrabajador: trabajador.codigoTrabajador!,
+        lugarTrabajoDepartamentoEstado:
+          trabajador.lugarTrabajoDepartamentoEstado!,
+        lugarTrabajoDireccion: trabajador.lugarTrabajoDireccion!,
+        lugarTrabajoMunicipioCiudad: trabajador.lugarTrabajoMunicipioCiudad!,
+        lugarTrabajoPais: trabajador.lugarTrabajoPais!,
+        numeroDocumento: trabajador.numeroDocumento!,
+        otrosNombres: trabajador.otrosNombres!,
+        primerApellido: trabajador.primerApellido!,
+        primerNombre: trabajador.primerNombre!,
+        salarioIntegral: trabajador.salarioIntegral!,
+        segundoApellido: trabajador.segundoApellido!,
+        subTipoTrabajador: trabajador.subTipoTrabajador!,
+        sueldo: trabajador.sueldo!,
+        tipoContrato: trabajador.tipoContrato!,
+        tipoDocumento: trabajador.tipoDocumento!,
+        tipoTrabajador: trabajador.tipoTrabajador!,
+        id: undefined,
+        devengadosId: this.form.value.devengadosId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toDateString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+        cuneNov: '',
+        novedad: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+    this.subscriptions.push(
+      this.trabajadoresAPISrv
+        .saveUsingPOST70(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .pipe(
+          switchMap((response: any) => {
+            if (!(response.type === 4)) return of();
+            if (response.type === 4 && response.status == 200)
+              this._snackBar.open(`${trabajador.primerNombre}`, 'creado!', {
+                duration: 500000,
+              });
+
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          error: this.readResponseError,
+        })
     );
-    this.dataSource.data = editedData;
   }
 
-  delete(hero: string): void {
-    this.dataSource.data = this.dataSource.data.filter((h) => h.name !== hero);
-    this._snackBar.open(`${hero}`, "deleted!", { duration: 5000 });
-  }
-
-  save(){
-    this.http.get('/api/valuesCatalogList',{}).subscribe(
-      p => {
-        console.log(p);
-      }
+  delete(trabajador: Trabajador): void {
+    this.subscriptions.push(
+      confirm(this.dialog, `¿Eliminar trabajador ${trabajador.primerNombre}!?`)
+        .pipe(
+          switchMap((confirmacion) =>
+            confirmacion
+              ? this.trabajadoresAPISrv.deleteUsingDELETE70(
+                  trabajador.id,
+                  'events',
+                  true,
+                  {
+                    httpHeaderAccept: 'application/json',
+                  }
+                )
+              : of()
+          ),
+          switchMap((data: any) =>
+            data.type === 4 && data.status === 200
+              ? this.listado(this.form.value)
+              : of()
+          )
+        )
+        .subscribe({
+          next: (data: any) => this.readResponseTList(data, 'eliminada!'),
+          error: (err: any) => {
+            console.log(err);
+          },
+        })
     );
   }
-  onNoClick(){}
 
-  get f () {
-    return this.form.controls;
+  edit(trabajador: Trabajador): void {
+    const request = {
+      entidad: {
+        activo: trabajador.activo!,
+        altoRiesgoPension: trabajador.altoRiesgoPension!,
+        codigoTrabajador: trabajador.codigoTrabajador!,
+        lugarTrabajoDepartamentoEstado:
+          trabajador.lugarTrabajoDepartamentoEstado!,
+        lugarTrabajoDireccion: trabajador.lugarTrabajoDireccion!,
+        lugarTrabajoMunicipioCiudad: trabajador.lugarTrabajoMunicipioCiudad!,
+        lugarTrabajoPais: trabajador.lugarTrabajoPais!,
+        numeroDocumento: trabajador.numeroDocumento!,
+        otrosNombres: trabajador.otrosNombres!,
+        primerApellido: trabajador.primerApellido!,
+        primerNombre: trabajador.primerNombre!,
+        salarioIntegral: trabajador.salarioIntegral!,
+        segundoApellido: trabajador.segundoApellido!,
+        subTipoTrabajador: trabajador.subTipoTrabajador!,
+        sueldo: trabajador.sueldo!,
+        tipoContrato: trabajador.tipoContrato!,
+        tipoDocumento: trabajador.tipoDocumento!,
+        tipoTrabajador: trabajador.tipoTrabajador!,
+        id: trabajador.id,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toISOString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+
+    this.subscriptions.push(
+      this.trabajadoresAPISrv
+        .updateUsingPUT70(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .pipe(
+          switchMap((response: any) => {
+            this._snackBar.open(`${trabajador.primerNombre}`, 'actualizado!', {
+              duration: 500000,
+            });
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        })
+    );
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    let datasource = this.dataSource$.value.datasource;
+    datasource.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (datasource.paginator) {
+      datasource.paginator.firstPage();
     }
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
+  openDialog(trabajador?: Trabajador): void {
+    console.log(trabajador);
+    const dialogRef = this.dialog.open(TrabajadorFormComponent, {
+      width: '450px',
+      data: trabajador ?? { id: undefined, name: '' },
+    });
+
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
+  }
+
+  loading = (loading = 100) =>
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 }

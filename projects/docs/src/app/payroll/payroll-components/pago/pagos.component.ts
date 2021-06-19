@@ -16,6 +16,7 @@ import { PagoFormComponent } from './pago-form.component';
   styleUrls: ['./pago.component.css'],
 })
 export class PagosComponent implements OnInit, AfterViewInit {
+  @ViewChild('formView') formView: any;
   dataSource$: BehaviorSubject<NgGtdDS>;
 
   @ViewChild(MatPaginator)

@@ -1,19 +1,33 @@
-<mat-card>
-<mat-card-header>
-	<mat-card-title>Libranza</mat-card-title>
-  <mat-card-subtitle>Angular Material table for <code>libranzas</code> elements. </mat-card-subtitle>
-</mat-card-header>  
+<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
+  <mat-card-header class="card-header card-header-primary card-header-icon">
+    <mat-card-title>
+      <div class="card-icon">
+        <em class="material-icons">{{'1F39F'|gtdEmoji}}</em>
+      </div>
+      <h1 class="card-title">
+        <strong>Libranza</strong>
+      </h1>
+      <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
+    </mat-card-title>
+  </mat-card-header>
   <mat-card-content>
-  <h4>
+    <mat-card-subtitle>Angular Material table for <code>libranzas</code> elements. </mat-card-subtitle>
+    <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">
+          <span>➕</span>
+        </mat-icon>
       </mat-form-field>
     </h4>
 
+    <mat-card *ngIf="dataSource?.loading != 100" class="m-0" style="display: flex; justify-content: center; align-items: center">
+      <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
+    </mat-card>
+
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource" matSort style="width:100%">
+      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">
@@ -47,8 +61,13 @@
           </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow >
+          <td class="mat-cell" colspan="4">
+            <em>Sin datos</em>
+          </td>
+        </tr>
       </table>
 
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

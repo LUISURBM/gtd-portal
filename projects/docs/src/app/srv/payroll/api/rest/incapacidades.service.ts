@@ -235,7 +235,7 @@ export class IncapacidadesService implements IncapacidadesServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListIncapacidadDto>(`${this.configuration.basePath}/nomina-general/incapacidades/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListIncapacidadDto>(`${this.configuration.basePath}/nomina-general/incapacidades/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

@@ -1,4 +1,6 @@
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ConfirmDialogComponent } from '../shared/dialog/confirm/confirm-dialog.component';
 
 export enum NgGtdThemes {
   FpiSkin = 'fpi-skin-black',
@@ -81,3 +83,18 @@ export const gtdArrayToLowerCase = (bodyDto: []) =>
     }
     return newobj;
   });
+
+export const confirm = (
+  dialog: MatDialog,
+  pregunta: string,
+  titulo?: string
+) => {
+  const dialogRef = dialog.open(ConfirmDialogComponent, {
+    width: '350px',
+    data: {
+      titulo: titulo,
+      pregunta: pregunta,
+    },
+  });
+  return dialogRef.afterClosed();
+};

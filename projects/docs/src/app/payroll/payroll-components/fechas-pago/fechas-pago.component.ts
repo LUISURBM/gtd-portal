@@ -15,6 +15,7 @@ import { FechaPago, fechaPagos } from './fechas-pago-data';
   styleUrls: ['./fechas-pago.component.css']
 })
 export class FechasPagoComponent implements OnInit, AfterViewInit {
+  @ViewChild('formView') formView: any;
   libranzasData: FechaPago[];
 
   displayedColumns: string[] = ['id', 'fechaPago', 'action'];

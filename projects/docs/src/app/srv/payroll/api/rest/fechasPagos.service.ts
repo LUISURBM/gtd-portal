@@ -235,7 +235,7 @@ export class FechasPagosService implements FechasPagosServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListFechasPagoDto>(`${this.configuration.basePath}/nomina-general/fechaPagos/list${encodeURIComponent(String(payrollId))}`,
+        return this.httpClient.get<ResponseTListFechasPagoDto>(`${this.configuration.basePath}/nomina-general/fechaPagos/list/${encodeURIComponent(String(payrollId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

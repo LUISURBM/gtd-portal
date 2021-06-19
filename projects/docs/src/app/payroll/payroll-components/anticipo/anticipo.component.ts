@@ -1,14 +1,19 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { InMemService } from '../../../srv/in-mem-service';
+import { AnticiposService } from '../../../srv/payroll/api/rest/anticipos.service';
 import { FilterValueComponent } from '../../../subscription/filter-value.component';
-import { Anticipo, anticipos } from './anticipo-data';
+import { confirm, NgGtdDS } from '../../../types/common-types';
+import { Anticipo, anticipos, displayedColumns } from './anticipo-data';
 import { AnticipoFormComponent } from './anticipo-form.component';
 
 @Component({
@@ -16,81 +21,264 @@ import { AnticipoFormComponent } from './anticipo-form.component';
   templateUrl: './anticipo.component.html',
   styleUrls: ['./anticipo.component.css']
 })
-export class AnticipoComponent implements OnInit, AfterViewInit {
+export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
+  form: FormGroup;
+  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
+    datasource: new MatTableDataSource<Anticipo>([]),
+    displayedColumns: displayedColumns,
+  });
 
-  anticipoData: Anticipo[];
-  displayedColumns: string[] = ["id", "valor", "fecha", "action"];
-  dataSource: MatTableDataSource<Anticipo>;
 
   @ViewChild(MatPaginator, { static: true })
   paginator!: MatPaginator;
 
   @ViewChild(MatSort) sort!: MatSort;
+  readResponseError = (err: any) => {
+    console.log(err);
+  };
 
+  subscriptions: Subscription[] = [];
 
-  constructor(public memSrv: InMemService
-    ,public dialog: MatDialog
-    ,private _snackBar: MatSnackBar) {
-    this.anticipoData = anticipos;
-    this.dataSource = new MatTableDataSource<Anticipo>(anticipos);
+  listado = (data: any) =>
+    this.anticiposAPISrv.getListUsingGET1('events', true, {});
+  readResponseTList = (data: any, message?: string) => {
+    this.loading((data?.type ?? 1) * 25);
+    if (!data.body) return;
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
+      var key,
+        keys = Object.keys(element);
+      var n = keys.length;
+      var newobj: any = {};
+      while (n--) {
+        key = keys[n];
+        if (key.toLowerCase().split('fecha').length > 1) {
+          element[key] =
+            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
+              element[key]
+            );
+        }
+        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
+          element[key];
+      }
+      return newobj;
+    });
+    console.log(newarray);
+    let datasource = new MatTableDataSource<Anticipo>(newarray);
+    if (this.paginator) {
+      this.paginator._intl.itemsPerPageLabel = 'Ver';
+      this.paginator._intl.getRangeLabel = (
+        page: number,
+        pageSize: number,
+        length: number
+      ) => {
+        const pagesize = pageSize > length ? length : pageSize;
+        return `Página ${page + 1}`;
+      };
+    }
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      datasource: datasource,
+      displayedColumns: displayedColumns,
+      loading: 100,
+    });
+  };
+  constructor(
+    public memSrv: InMemService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    public formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private anticiposAPISrv: AnticiposService
+  ) {
+    this.form = this.formBuilder.group({
+      filtro: '',
+      fechaCorte: new Date(),
+      nominaGeneralId: undefined,
+      devengadosId: undefined,
+    });
+    this.subscriptions = [
+      this.form.valueChanges
+        .pipe(
+          switchMap((data) => {
+            return this.listado(data);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        }),
+
+      this.route.params.subscribe((params) => {
+        const data = JSON.parse(params['data']);
+        console.log(data);
+        this.form.patchValue(data);
+      }),
+    ];
   }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    let datasource = this.dataSource$.value.datasource;
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
-
-  ngOnInit(): void {
-    this.openDialog(0);
-  }
-
-
-  add(name: Anticipo): void {
-    if (!name) {
+  add(anticipo: Anticipo): void {
+    if (!anticipo) {
       return;
     }
-    this.dataSource.data = [
-      ...this.dataSource.data,
-      { ...name, id: this.memSrv.genId(this.dataSource.data, "anticipos") },
-    ];
+
+    const request = {
+      entidad: {
+        id: undefined,
+        anticipo: anticipo.anticipo,
+        devengadosId: this.form.value.devengadosId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toDateString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+        cuneNov: '',
+        novedad: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+    this.subscriptions.push(
+      this.anticiposAPISrv
+        .saveUsingPOST37(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .pipe(
+          switchMap((response: any) => {
+            if (!(response.type === 4)) return of();
+            if (response.type === 4 && response.status == 200)
+              this._snackBar.open(`${anticipo.anticipo}`, 'creado!', {
+                duration: 500000,
+              });
+
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          error: this.readResponseError,
+        })
+    );
   }
 
   delete(anticipo: Anticipo): void {
-    this.dataSource.data = this.dataSource.data.filter((h) => h.id !== anticipo.id);
-    this._snackBar.open(`${anticipo.id}`, "deleted!", { duration: 5000 });
+    this.subscriptions.push(
+      confirm(this.dialog, `¿Eliminar anticipo!?`)
+        .pipe(
+          switchMap((confirmacion) =>
+            confirmacion
+              ? this.anticiposAPISrv.deleteUsingDELETE37(
+                  anticipo.id,
+                  'events',
+                  true,
+                  {
+                    httpHeaderAccept: 'application/json',
+                  }
+                )
+              : of()
+          ),
+          switchMap((data: any) =>
+            data.type === 4 && data.status === 200
+              ? this.listado(this.form.value)
+              : of()
+          )
+        )
+        .subscribe({
+          next: (data: any) => this.readResponseTList(data, 'eliminada!'),
+          error: (err: any) => {
+            console.log(err);
+          },
+        })
+    );
   }
 
   edit(anticipo: Anticipo): void {
-    const editedData = this.dataSource.data.map((h) =>
-      h.id !== anticipo.id ? h : anticipo
+    const request = {
+      entidad: {
+        id: anticipo.id,
+        anticipo: anticipo.anticipo,
+        deduccionesId: this.form.value.deduccionesId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toISOString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+
+    this.subscriptions.push(
+      this.anticiposAPISrv
+        .updateUsingPUT37(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .pipe(
+          switchMap((response: any) => {
+            this._snackBar.open(`${anticipo.anticipo}`, 'actualizado!', {
+              duration: 500000,
+            });
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        })
     );
-    this.dataSource.data = editedData;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    let datasource = this.dataSource$.value.datasource;
+    datasource.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (datasource.paginator) {
+      datasource.paginator.firstPage();
     }
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
-  openDialog(id?: number): void {
-    const editing = this.dataSource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(anticipo?: Anticipo): void {
+    console.log(anticipo);
     const dialogRef = this.dialog.open(AnticipoFormComponent, {
-      width: "350px",
-      data: editing ? editing : { id: undefined, name: "" },
+      width: '450px',
+      data: anticipo ?? { id: undefined, name: '' },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
       if (result?.id) this.edit(result);
       else this.add(result);
-    });
+    }));
   }
+
+  loading = (loading = 100) =>
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 
 
 }

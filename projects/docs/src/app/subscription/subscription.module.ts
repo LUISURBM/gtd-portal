@@ -10,6 +10,7 @@ import { SubscriptionComponent } from "./subscription.component";
 import { SubscriptionRoutingModule } from "./subscription.routing.module";
 import {MatSortModule} from '@angular/material/sort';
 import { DemoMaterialModule } from "../demo-material-module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { DemoMaterialModule } from "../demo-material-module";
     MatTableModule,
     MatSortModule,
     SubscriptionRoutingModule,
+    SharedModule
   ],
   providers: [],
   entryComponents: [FilterValueComponent],

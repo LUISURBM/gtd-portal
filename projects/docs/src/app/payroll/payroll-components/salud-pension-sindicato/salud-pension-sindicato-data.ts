@@ -1,129 +1,129 @@
 import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 
 export interface SaludPensionSindicato {
-  id: number;
+  id: string;
   deduccion?: number;
   porcentaje?: number;
-  catalog?: string;
+  catalog: string | undefined;
 }
 
 export const saludPensionSindicatos: SaludPensionSindicato[] = [
   {
-    id: 1,
+    id: '1',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 2,
+    id: '2',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 3,
+    id: '3',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 4,
+    id: '4',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 5,
+    id: '5',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 6,
+    id: '6',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 7,
+    id: '7',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 8,
+    id: '8',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 9,
+    id: '9',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 10,
+    id: '10',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 11,
+    id: '11',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 12,
+    id: '12',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 13,
+    id: '13',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 14,
+    id: '14',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 15,
+    id: '15',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 16,
+    id: '16',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 17,
+    id: '17',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 18,
+    id: '18',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 19,
+    id: '19',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
   },
   {
-    id: 20,
+    id: '20',
     deduccion: 12,
     porcentaje: 34,
     catalog: 'SindicatoNI',
@@ -139,7 +139,7 @@ export const displayedColumns: string[] = [
 ];
 
 export const EMPTY = {
-  id: 0,
+  id: '',
   deduccion: 0,
   porcentaje: 0,
   catalog: 'SindicatoNI',

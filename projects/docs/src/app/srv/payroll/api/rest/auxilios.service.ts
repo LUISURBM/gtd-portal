@@ -235,7 +235,7 @@ export class AuxiliosService implements AuxiliosServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListAuxilioDto>(`${this.configuration.basePath}/nomina-general/auxilios/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListAuxilioDto>(`${this.configuration.basePath}/nomina-general/auxilios/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

@@ -52,12 +52,11 @@ export const PayrollRoutes: Routes = [
     path: 'devengos',
     children: [
       {
-        path: '',
+        path: 'listado',
         component: DevengadosComponent,
-        pathMatch: 'full',
       },
       {
-        path: 'view',
+        path: '',
         component: DevengadosViewComponent,
         children: [
           {
@@ -133,12 +132,11 @@ export const PayrollRoutes: Routes = [
     path: 'deducciones',
     children: [
       {
-        path: '',
+        path: 'listado',
         component: DeduccionesComponent,
-        pathMatch: 'full',
       },
       {
-        path: 'view',
+        path: '',
         component: DeduccionesViewComponent,
         children: [
           {

@@ -235,7 +235,7 @@ export class HorariosAdicionalesService implements HorariosAdicionalesServiceInt
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListHorariosAdicionalesDto>(`${this.configuration.basePath}/nomina-general/horariosAdicionales/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListHorariosAdicionalesDto>(`${this.configuration.basePath}/nomina-general/horariosAdicionales/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

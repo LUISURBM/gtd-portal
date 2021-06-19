@@ -1,118 +1,116 @@
-<h1 mat-dialog-title>Formulario Proveedor XML {{ data.id }}</h1>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Proveedor XML nuevo</h4>
-            <p class="card-category">Información de Proveedor XML</p>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="form">
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">📜</em></div>
+        <h1>
+          {{ f.id.value ? 'Editar Formulario Proveedor XML {{f.id.value}}' : 'Agregar Formulario Proveedor XML ' }}
+        </h1>
+      </div>
+    </div>
+    <div class="card-body">
+      <h1 mat-dialog-title>{{ data.id }}</h1>
+      <h4 class="card-title">Agregar Proveedor XML nuevo</h4>
 
+      <p class="card-category">Información de Proveedor XML</p>
 
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="nit" placeholder="nit"
-                  id="nit" type="text" class="form-control" />
-                <div *ngIf="f.nit.touched && f.nit.invalid" class="alert alert-danger">
-                  <div *ngIf="f.nit.errors?.required">
-                    nit es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="primerApellido" placeholder="primerApellido"
-                  id="primerApellido" type="text" class="form-control" />
-                <div *ngIf="f.primerApellido.touched && f.primerApellido.invalid" class="alert alert-danger">
-                  <div *ngIf="f.primerApellido.errors?.required">
-                    primerApellido es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="primerNombre" placeholder="primerNombre"
-                  id="primerNombre" type="text" class="form-control" />
-                <div *ngIf="f.primerNombre.touched && f.primerNombre.invalid" class="alert alert-danger">
-                  <div *ngIf="f.primerNombre.errors?.required">
-                    primerNombre es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="razonSocial" placeholder="razonSocial"
-                  id="razonSocial" type="text" class="form-control" />
-                <div *ngIf="f.razonSocial.touched && f.razonSocial.invalid" class="alert alert-danger">
-                  <div *ngIf="f.razonSocial.errors?.required">
-                    razonSocial es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="segundoApellido" placeholder="segundoApellido"
-                  id="segundoApellido" type="text" class="form-control" />
-                <div *ngIf="f.segundoApellido.touched && f.segundoApellido.invalid" class="alert alert-danger">
-                  <div *ngIf="f.segundoApellido.errors?.required">
-                    segundoApellido es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="softwareId" placeholder="softwareId"
-                  id="softwareId" type="text" class="form-control" />
-                <div *ngIf="f.softwareId.touched && f.softwareId.invalid" class="alert alert-danger">
-                  <div *ngIf="f.softwareId.errors?.required">
-                    softwareId es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="softwareSC" placeholder="softwareSC"
-                  id="softwareSC" type="text" class="form-control" />
-                <div *ngIf="f.softwareSC.touched && f.softwareSC.invalid" class="alert alert-danger">
-                  <div *ngIf="f.softwareSC.errors?.required">
-                    softwareSC es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="dv" placeholder="dv"
-                  id="dv" type="text" class="form-control" />
-                <div *ngIf="f.dv.touched && f.dv.invalid" class="alert alert-danger">
-                  <div *ngIf="f.dv.errors?.required">
-                    dv es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="otrosNombres" placeholder="otrosNombres"
-                  id="otrosNombres" type="text" class="form-control" />
-                <div *ngIf="f.otrosNombres.touched && f.otrosNombres.invalid" class="alert alert-danger">
-                  <div *ngIf="f.otrosNombres.errors?.required">
-                    otrosNombres es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-
-
-              <div mat-dialog-actions>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                  Cancelar
-                </button>
-                <button mat-button (click)="save()" tabindex="9999">Guardar</button>
-              </div>
-            </form>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="nit" placeholder="nit" id="nit" type="text"
+          class="form-control" />
+        <div *ngIf="f.nit.touched && f.nit.invalid" class="alert alert-danger">
+          <div *ngIf="f.nit.errors?.required">
+            nit es obligatorio.
           </div>
         </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="primerApellido" placeholder="primerApellido" id="primerApellido"
+          type="text" class="form-control" />
+        <div *ngIf="f.primerApellido.touched && f.primerApellido.invalid" class="alert alert-danger">
+          <div *ngIf="f.primerApellido.errors?.required">
+            primerApellido es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="primerNombre" placeholder="primerNombre" id="primerNombre"
+          type="text" class="form-control" />
+        <div *ngIf="f.primerNombre.touched && f.primerNombre.invalid" class="alert alert-danger">
+          <div *ngIf="f.primerNombre.errors?.required">
+            primerNombre es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="razonSocial" placeholder="razonSocial" id="razonSocial"
+          type="text" class="form-control" />
+        <div *ngIf="f.razonSocial.touched && f.razonSocial.invalid" class="alert alert-danger">
+          <div *ngIf="f.razonSocial.errors?.required">
+            razonSocial es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="segundoApellido" placeholder="segundoApellido"
+          id="segundoApellido" type="text" class="form-control" />
+        <div *ngIf="f.segundoApellido.touched && f.segundoApellido.invalid" class="alert alert-danger">
+          <div *ngIf="f.segundoApellido.errors?.required">
+            segundoApellido es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="softwareId" placeholder="softwareId" id="softwareId" type="text"
+          class="form-control" />
+        <div *ngIf="f.softwareId.touched && f.softwareId.invalid" class="alert alert-danger">
+          <div *ngIf="f.softwareId.errors?.required">
+            softwareId es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="softwareSC" placeholder="softwareSC" id="softwareSC" type="text"
+          class="form-control" />
+        <div *ngIf="f.softwareSC.touched && f.softwareSC.invalid" class="alert alert-danger">
+          <div *ngIf="f.softwareSC.errors?.required">
+            softwareSC es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="dv" placeholder="dv" id="dv" type="text" class="form-control" />
+        <div *ngIf="f.dv.touched && f.dv.invalid" class="alert alert-danger">
+          <div *ngIf="f.dv.errors?.required">
+            dv es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="otrosNombres" placeholder="otrosNombres" id="otrosNombres"
+          type="text" class="form-control" />
+        <div *ngIf="f.otrosNombres.touched && f.otrosNombres.invalid" class="alert alert-danger">
+          <div *ngIf="f.otrosNombres.errors?.required">
+            otrosNombres es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+
+      <div>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+        <button mat-button (click)="save()" tabindex="9999">Guardar</button>
       </div>
     </div>
   </div>
-</div>
+</form>

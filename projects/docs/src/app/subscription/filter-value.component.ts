@@ -94,7 +94,7 @@ import { InMemService } from "../srv/in-mem-service";
           hidden
           class="form-control"
         />
-          <button mat-button (click)="save()" tabindex="3">Ok</button>
+          <button mat-button (click)="save()" tabindex="3">Aceptar</button>
           <button mat-button (click)="onNoClick()" tabindex="-1">
             No Thanks
           </button>

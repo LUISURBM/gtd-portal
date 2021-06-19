@@ -9,23 +9,12 @@
       </h1>
       <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
-    <mat-card-subtitle>Listado de <code>&lt;Nóminas&gt;</code> gestionadas. <code
-        class=""><a  (click)="openDialog()">Crear nueva</a></code>
+    <mat-card-subtitle>Listado de Nóminas; Corte <code>&lt;{{this.form.value.fechaCorte | date : 'MM/YYYY'}}&gt;</code>.
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
       <div class="display: flex">
-        <mat-form-field class="example-full-width">
-          <mat-label>Fecha corte </mat-label>
-          <input matInput formControlName="fechaCorte" placeholder="07-2021"
-            [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker" class="gtd-icon-button">
-            <span matDatepickerToggleIcon>📅</span>
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker startView="year" touchUi [startAt]="startDate"
-            (monthSelected)="closeDatePicker($event, picker)"></mat-datepicker>
-        </mat-form-field>
         <input formControlName="fechaCorte" hidden>
         <mat-form-field>
           <mat-label>Buscar</mat-label>

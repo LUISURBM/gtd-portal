@@ -30,7 +30,7 @@ import { AuxilioFormComponent } from './auxilio-form.component';
 export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<Auxilio>(auxilios),
+    datasource: new MatTableDataSource<Auxilio>([]),
     displayedColumns: displayedColumns,
   });
 

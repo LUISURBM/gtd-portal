@@ -235,7 +235,7 @@ export class ComisionesService implements ComisionesServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListComisionDto>(`${this.configuration.basePath}/nomina-general/comisiones/list${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListComisionDto>(`${this.configuration.basePath}/nomina-general/comisiones/list/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

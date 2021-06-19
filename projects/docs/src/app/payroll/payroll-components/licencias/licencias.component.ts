@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,9 +16,8 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { IncapacidadesService } from '../../../srv/payroll/api/rest/incapacidades.service';
 import { LicenciasService } from '../../../srv/payroll/api/rest/licencias.service';
-import { NgGtdDS } from '../../../types/common-types';
+import { confirm, NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, Licencia, licencias } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';
 
@@ -49,7 +48,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.body?.map?.((element: any) => {
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
       var key,
         keys = Object.keys(element);
       var n = keys.length;
@@ -151,6 +150,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         id: undefined,
         pago: licencia.pago,
         valueCatalogTipo: licencia.catalog,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -189,7 +189,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(licencia: Licencia): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar licencia ${licencia.catalog}!?`)
+      confirm(this.dialog, `¿Eliminar licencia ${licencia.catalog}!?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -224,9 +224,10 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         cantidad: licencia.cantidad,
         fechaFin: licencia.fechaFin.toISOString(),
         fechaInicio: licencia.fechaInicio.toISOString(),
-        id: licencia.id,
         pago: licencia.pago,
         valueCatalogTipo: licencia.catalog,
+        id: licencia.id,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -274,34 +275,21 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(licencia?: Licencia): void {
+    console.log(licencia);
     const dialogRef = this.dialog.open(LicenciaFormComponent, {
       width: '450px',
-      data: editing ? editing : { id: undefined, name: '' },
+      data: licencia ?? { id: undefined, name: '' },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
       if (result?.id) this.edit(result);
       else this.add(result);
-    });
+    }));
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 
-  confirm(pregunta: string, titulo?: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '350px',
-      data: {
-        titulo: titulo,
-        pregunta: pregunta,
-      },
-    });
-
-    return dialogRef.afterClosed();
-  }
 }

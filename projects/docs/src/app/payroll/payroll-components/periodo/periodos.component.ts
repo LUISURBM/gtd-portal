@@ -14,6 +14,7 @@ import { PeriodoFormComponent } from './periodo-form.component';
   styleUrls: ['./periodo.component.css'],
 })
 export class PeriodosComponent implements OnInit, AfterViewInit {
+  @ViewChild('formView') formView: any;
   periodosData: Periodo[];
 
   displayedColumns = displayedColumns;

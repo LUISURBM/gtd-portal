@@ -21,6 +21,7 @@ import { ProveedorXMLFormComponent } from './proveedor-xml-form.component';
   styleUrls: ['./proveedor-xml.component.css'],
 })
 export class ProveedoresXMLComponent implements OnInit, AfterViewInit {
+  @ViewChild('formView') formView: any;
   dataSource$: BehaviorSubject<NgGtdDS>;
 
   @ViewChild(MatPaginator)

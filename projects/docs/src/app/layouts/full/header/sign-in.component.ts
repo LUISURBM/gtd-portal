@@ -22,7 +22,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button [mat-dialog-close]="data.email" tabindex="2">Ok</button>
+      <button mat-button [mat-dialog-close]="data.email" tabindex="2">Aceptar</button>
       <button mat-button (click)="onNoClick()" tabindex="-1">No Thanks</button>
     </div>
   </form>

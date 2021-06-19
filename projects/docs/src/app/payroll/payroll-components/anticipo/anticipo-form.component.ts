@@ -21,9 +21,6 @@ export class AnticipoFormComponent {
       anticipo: this.builder.control(0, [
         Validators.required,
         Validators.maxLength(4),
-      ]),
-      fecha: this.builder.control(new Date(),[
-        Validators.required
       ])
     });
     this.form.patchValue(data);

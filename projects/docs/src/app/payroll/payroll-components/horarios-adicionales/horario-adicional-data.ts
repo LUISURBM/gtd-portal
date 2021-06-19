@@ -2,7 +2,7 @@ import { ValuesCatalog } from "../../../srv/in-mem-data-service";
 import { formatToDate } from "../../../values-catalog";
 
 export interface HorarioAdicional {
-  id: number;
+  id: string;
   cantidad?: number;
   pago?: number;
   porcentaje?: number;
@@ -13,7 +13,7 @@ export interface HorarioAdicional {
 
 export const HorariosAdicionales: HorarioAdicional[] = [
   {
-    id: 1,
+    id: '1',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -22,7 +22,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 2,
+    id: '2',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -31,7 +31,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 3,
+    id: '3',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -40,7 +40,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 4,
+    id: '4',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -49,7 +49,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 5,
+    id: '5',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -58,7 +58,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 6,
+    id: '6',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -67,7 +67,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 7,
+    id: '7',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -76,7 +76,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 8,
+    id: '8',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -85,7 +85,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 9,
+    id: '9',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -94,7 +94,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 10,
+    id: '10',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -103,7 +103,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 11,
+    id: '11',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -112,7 +112,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 12,
+    id: '12',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -121,7 +121,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 13,
+    id: '13',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -130,7 +130,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 14,
+    id: '14',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -139,7 +139,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 15,
+    id: '15',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -148,7 +148,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 16,
+    id: '16',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -157,7 +157,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 17,
+    id: '17',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -166,7 +166,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 18,
+    id: '18',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -175,7 +175,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 19,
+    id: '19',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -184,7 +184,7 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     catalog: 'HEDS'
   },
   {
-    id: 20,
+    id: '20',
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
@@ -211,7 +211,7 @@ export const catalogs: ValuesCatalog[] = [
 ];
 
 export const EMPTY = {
-  id: 0,
+  id: '',
   cantidad: 0,
   pago: 0,
   porcentaje: 0,

@@ -235,7 +235,7 @@ export class LibranzasService implements LibranzasServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListLibranzasDto>(`${this.configuration.basePath}/nomina-general/libranzas/list${encodeURIComponent(String(deduccionesId))}`,
+        return this.httpClient.get<ResponseTListLibranzasDto>(`${this.configuration.basePath}/nomina-general/libranzas/list/${encodeURIComponent(String(deduccionesId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

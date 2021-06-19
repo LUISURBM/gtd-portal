@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
+import { PayrollModule } from '../payroll/payroll.module';
 import { SharedModule } from '../shared/shared.module';
 import { FilterValueComponent } from './filter.componet';
 import { TrabajadorFormComponent } from './trabajador-form.component';
@@ -23,6 +24,7 @@ import { trabajadorRoutes } from './trabajador.routing';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    PayrollModule
   ],
   declarations: [
     TrabajadorComponent,
@@ -31,4 +33,4 @@ import { trabajadorRoutes } from './trabajador.routing';
     FilterValueComponent,
   ],
 })
-export class DashboardModule {}
+export class TrabajadorModule {}

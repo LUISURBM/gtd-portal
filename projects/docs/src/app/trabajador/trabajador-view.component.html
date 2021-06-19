@@ -98,6 +98,20 @@
             <span fxFlex></span>
           </a>
         </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(pagos.formView)">
+            <span>{{'1F4B5'|gtdEmoji}}</span>
+            <span>Pagos</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
+        <mat-list-item appAccordionLink routerLinkActive="selected">
+          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(vacaciones.formView)">
+            <span>{{'1F305'|gtdEmoji}}</span>
+            <span>Vacaciones</span>
+            <span fxFlex></span>
+          </a>
+        </mat-list-item>
       </mat-nav-list>
 
     </mat-sidenav>
@@ -110,6 +124,8 @@
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
       <app-trabajador-form #formView></app-trabajador-form>
+      <app-payroll-pagos #pagos></app-payroll-pagos>
+      <app-payroll-vacaciones #vacaciones></app-payroll-vacaciones>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

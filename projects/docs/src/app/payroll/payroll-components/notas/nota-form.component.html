@@ -1,46 +1,34 @@
-<h1 mat-dialog-title>Formulario Nota {{ data.id }}</h1>
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-header card-header-primary">
-                <h4 class="card-title">Agregar nota nueva</h4>
-                <p class="card-category">Información de la nota</p>
-              </div>
-              <div class="card-body">
-                <form [formGroup]="form">
-                  <mat-form-field>
-                    <input
-                      matInput
-                      tabindex="1"
-                      formControlName="nota"
-                      placeholder="Valor de la nota"
-                      id="nota"
-                      type="text"
-                      class="form-control"
-                    />
-                    <div
-                      *ngIf="f.nota.touched && f.nota.invalid"
-                      class="alert alert-danger"
-                    >
-                      <div *ngIf="f.nota.errors?.required">
-                        nota es obligatorio.
-                      </div>
-                    </div>
-                  </mat-form-field>
-
-
-                  <div mat-dialog-actions>
-                    <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                    <button mat-button (click)="onNoClick()" tabindex="-1">
-                      Cancelar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">📜</em></div>
+        <h1>
+          {{ f.id.value ? 'Editar Formulario Nota {{f.id.value}}' : 'Agregar Formulario Nota ' }}
+        </h1>
       </div>
     </div>
+    <div class="card-body">
+      <h4 class="card-title">Agregar nota nueva</h4>
+      <p class="card-category">Información de la nota</p>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="nota" placeholder="Valor de la nota" id="nota" type="text"
+          class="form-control" />
+        <div *ngIf="f.nota.touched && f.nota.invalid" class="alert alert-danger">
+          <div *ngIf="f.nota.errors?.required">
+            nota es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

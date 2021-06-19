@@ -1,30 +1,27 @@
 import { formatToDate } from '../../../values-catalog';
 
 export interface Anticipo {
-  id: number;
+  id: string;
   anticipo: number;
-  fecha?: Date;
 }
 
 export const anticipos: Anticipo[] = [
   {
-    id: 1,
+    id: '1',
     anticipo: 123.45,
-    fecha: formatToDate('5/17/2021'),
   },
   {
-    id: 2,
+    id: '2',
     anticipo: 123.45,
-    fecha: formatToDate('5/17/2021'),
   },
   {
-    id: 3,
+    id: '3',
     anticipo: 123.45,
-    fecha: formatToDate('5/17/2021'),
   },
   {
-    id: 4,
+    id: '4',
     anticipo: 123.45,
-    fecha: formatToDate('5/17/2021'),
   },
 ];
+
+export const displayedColumns: string[] = ["id", "valor", "action"];

@@ -9,21 +9,13 @@
       </h1>
       <p class="card-category">Total cargados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
-    <mat-card-subtitle>Nóminas individuales del <code (click)="navSrv.navigate('/nómina')">corte</code>.
+    <mat-card-subtitle>Nóminas individuales del corte <code
+        (click)="navSrv.navigate('/nómina')">{{this.form.value.fechaCorte|date: 'MM/YYYY'}}</code> {{this.form.value.nombre}} {{this.form.value.estado}}.
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
       <div class="display: flex">
-        <mat-form-field class="example-full-width">
-          <mat-label>Fecha corte</mat-label>
-          <input matInput formControlName="fechaCorte" placeholder="Ej. 07/2021" [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker" class="gtd-icon-button">
-            <span matDatepickerToggleIcon>📅</span>
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker startView="year" touchUi [startAt]="startDate"
-            (monthSelected)="closeDatePicker($event, picker)"></mat-datepicker>
-        </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Buscar</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
@@ -52,7 +44,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="novedad">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Novedad</th>
-          <td mat-cell *matCellDef="let element">{{ element.novedad }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.novedad === true ? 'Sí' : 'No' }}</td>
         </ng-container>
 
         <!-- Symbol Column -->

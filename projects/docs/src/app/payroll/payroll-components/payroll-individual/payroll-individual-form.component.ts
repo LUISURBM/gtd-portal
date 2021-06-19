@@ -2,15 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { animationsForm } from '../../../animations/form-animation';
 import { NavigationService } from '../../../srv/navigation.service';
+import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
 import { TrabajadoresService } from '../../../srv/payroll/api/rest/trabajadores.service';
 import { gtdArrayToLowerCase } from '../../../types/common-types';
 import { catalogs } from '../payroll-general/payroll-data';
 @Component({
   selector: 'app-payroll-individual-form-dialog',
   templateUrl: './payroll-individual-form.component.html',
+  styles:[`
+  .qr-code {
+      color: black;
+      background: white;
+      max-width: 227px;
+    }
+  `],
   animations: animationsForm,
 })
 export class PayrollIndividualFormComponent implements OnInit {
@@ -27,8 +36,9 @@ export class PayrollIndividualFormComponent implements OnInit {
     private route: ActivatedRoute,
     public navSrv: NavigationService,
     public http: HttpClient,
-    trabajadorAPISrv: TrabajadoresService
-  ) {
+    trabajadorAPISrv: TrabajadoresService,
+    private nominaIndividualAPISrv: NominasIndividualesService,
+    ) {
     this.form = this.builder.group({
       id: 0,
       fechaInicio: new Date(),
@@ -47,14 +57,40 @@ export class PayrollIndividualFormComponent implements OnInit {
       devengos: 0,
       totalAPagar: 0,
       loading: undefined,
-      nominaGeneralId: builder.control('')
-    });
-    this.route.params.subscribe((params) => {
-      const data1 = params['data'];
-      this.form.patchValue(data1);
+      nominaGeneralId: builder.control(''),
     });
 
     this.subscriptions.push(
+      this.route.params
+      .pipe(
+        switchMap((params) => {
+          const data = JSON.parse(params['data']);
+          this.form.patchValue(data);
+          if (data['nominaIndividualId'] === undefined) return of(this.form.value);
+          return nominaIndividualAPISrv.findByIdUsingGET58(
+            data['nominaIndividualId'],
+            'events',
+            true,
+            {
+              httpHeaderAccept: 'application/json',
+            }
+          );
+        })
+      )
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
+            this.form.patchValue({
+              ...data?.body?.bodyDto,
+              nominaGeneralId: this.form.value.nominaGeneralId,
+              fechaCorte: this.form.value.fechaCorte,
+            });
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      }),
       trabajadorAPISrv
         .listtrabajadorUsingGET1('events', true, {
           httpHeaderAccept: 'application/json',
@@ -127,6 +163,6 @@ export class PayrollIndividualFormComponent implements OnInit {
 
   optionSelected(value: any) {
     console.log(value);
-    this.form.patchValue({ ...this.form.value, trabajador: value})
+    this.form.patchValue({ ...this.form.value, trabajador: value });
   }
 }

@@ -19,17 +19,6 @@
           </div>
         </div>
       </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Fecha</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fecha" min="6/17/2021" max="6/29/2021"/>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker></mat-datepicker>
-        <div *ngIf="f.fecha.touched && f.fecha.invalid" class="alert alert-danger">
-          <div *ngIf="f.fecha.errors?.required">
-            Fecha del Anticipo es obligatorio.
-          </div>
-        </div>
-      </mat-form-field>
 
       <div >
         <button class="col-md-12" mat-button (click)="onNoClick()" tabindex="-1">

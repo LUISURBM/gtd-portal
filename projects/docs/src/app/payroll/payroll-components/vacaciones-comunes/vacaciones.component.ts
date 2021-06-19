@@ -1,16 +1,28 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
+import { VacacionesCompensadasService } from '../../../srv/payroll/api/rest/vacacionesCompensadas.service';
+import { VacacionesComunesService } from '../../../srv/payroll/api/rest/vacacionesComunes.service';
+import { confirm, NgGtdDS } from '../../../types/common-types';
 import {
+  catalogs,
   displayedColumns,
   Vacacion,
   vacaciones,
-  VacacionesDS,
 } from './vacacion-data';
 import { VacacionFormComponent } from './vacacion-form.component';
 
@@ -19,23 +31,118 @@ import { VacacionFormComponent } from './vacacion-form.component';
   templateUrl: './vacaciones.component.html',
   styleUrls: ['./vacaciones.component.css'],
 })
-export class VacacionesComponent implements OnInit, AfterViewInit {
-  dataSource$: BehaviorSubject<VacacionesDS>;
+export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('formView') formView: any;
+  form: FormGroup;
+  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
+    datasource: new MatTableDataSource<Vacacion>([]),
+    displayedColumns: displayedColumns,
+  });
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
   @ViewChild(MatSort) sort!: MatSort;
+  readResponseError = (err: any) => {
+    console.log(err);
+  };
 
+  subscriptions: Subscription[] = [];
+
+  listado = (data: any) => {
+    if (data.catalog === catalogs[0].code)
+      return this.vacacionesCompensadasAPISrv.listFindAllUsingGET66(
+        'events',
+        true,
+        {}
+      );
+    else if (data.catalog === catalogs[1].code)
+      return this.vacacionesComunesAPISrv.listFindAllUsingGET67(
+        'events',
+        true,
+        {}
+      );
+    else return of();
+  };
+  readResponseTList = (data: any, message?: string) => {
+    this.loading((data?.type ?? 1) * 25);
+    if (!data.body) return;
+    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
+      var key,
+        keys = Object.keys(element);
+      var n = keys.length;
+      var newobj: any = {};
+      while (n--) {
+        key = keys[n];
+        if (key.toLowerCase().split('fecha').length > 1) {
+          element[key] =
+            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
+              element[key]
+            );
+        }
+        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
+          element[key];
+      }
+      return newobj;
+    });
+    console.log(newarray);
+    let datasource = new MatTableDataSource<Vacacion>(newarray);
+    if (this.paginator) {
+      this.paginator._intl.itemsPerPageLabel = 'Ver';
+      this.paginator._intl.getRangeLabel = (
+        page: number,
+        pageSize: number,
+        length: number
+      ) => {
+        const pagesize = pageSize > length ? length : pageSize;
+        return `Página ${page + 1}`;
+      };
+    }
+    datasource.paginator = this.paginator;
+    datasource.sort = this.sort;
+    this.dataSource$.next({
+      datasource: datasource,
+      displayedColumns: displayedColumns,
+      loading: 100,
+    });
+  };
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private vacacionesCompensadasAPISrv: VacacionesCompensadasService,
+    private vacacionesComunesAPISrv: VacacionesComunesService
   ) {
-    this.dataSource$ = new BehaviorSubject<VacacionesDS>({
-      datasource: new MatTableDataSource<Vacacion>(vacaciones),
-      displayedColumns: displayedColumns,
+    this.form = this.formBuilder.group({
+      filtro: '',
+      fechaCorte: new Date(),
+      nominaGeneralId: undefined,
+      devengadosId: undefined,
     });
+    this.subscriptions = [
+      this.form.valueChanges
+        .pipe(
+          switchMap((data) => {
+            return this.listado(data);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        }),
+
+      this.route.params.subscribe((params) => {
+        const data = JSON.parse(params['data']);
+        console.log(data);
+        this.form.patchValue(data);
+      }),
+    ];
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   ngOnInit(): void {}
@@ -44,35 +151,119 @@ export class VacacionesComponent implements OnInit, AfterViewInit {
     let datasource = this.dataSource$.value.datasource;
     datasource.paginator = this.paginator;
     datasource.sort = this.sort;
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
-  add(name: Vacacion): void {
-    if (!name) {
+  add(vacacion: Vacacion): void {
+    if (!vacacion) {
       return;
     }
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = [
-      ...datasource.data,
-      { ...name, id: this.memSrv.genId(datasource.data, 'vacaciones') },
-    ];
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
-  }
 
-  delete(libranza: Vacacion): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.data = datasource.data.filter((h) => h.id !== libranza.id);
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
-    this._snackBar.open(`${libranza.id}`, 'deleted!', { duration: 5000 });
-  }
+    const request = {
+      entidad: {
+        id: undefined,
+        cantidad: vacacion.cantidad,
+        fechaFin: vacacion.fechaFin.toISOString(),
+        fechaInicio: vacacion.fechaInicio.toISOString(),
+        pago: vacacion.pago,
+        valueCatalogTipo: vacacion.catalog,
+        devengadosId: this.form.value.devengadosId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toDateString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+        cuneNov: '',
+        novedad: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+    this.subscriptions.push(
+      this.save(request)
+        .pipe(
+          switchMap((response: any) => {
+            if (!(response.type === 4)) return of();
+            if (response.type === 4 && response.status == 200)
+              this._snackBar.open(`${vacacion.catalog}`, 'creada!', {
+                duration: 500000,
+              });
 
-  edit(libranza: Vacacion): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editedData = datasource.data.map((h) =>
-      h.id !== libranza.id ? h : libranza
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          error: this.readResponseError,
+        })
     );
-    datasource.data = editedData;
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
+  }
+
+  delete(vacacion: Vacacion): void {
+    this.subscriptions.push(
+      confirm(this.dialog, `¿Eliminar vacación ${vacacion.catalog}!?`)
+        .pipe(
+          switchMap((confirmacion) =>
+            confirmacion ? this.remove(vacacion) : of()
+          ),
+          switchMap((data: any) =>
+            data.type === 4 && data.status === 200
+              ? this.listado(this.form.value)
+              : of()
+          )
+        )
+        .subscribe({
+          next: (data: any) => this.readResponseTList(data, 'eliminada!'),
+          error: (err: any) => {
+            console.log(err);
+          },
+        })
+    );
+  }
+
+  edit(vacacion: Vacacion): void {
+    const request = {
+      entidad: {
+        cantidad: vacacion.cantidad,
+        fechaFin: vacacion.fechaFin.toISOString(),
+        fechaInicio: vacacion.fechaInicio.toISOString(),
+        pago: vacacion.pago,
+        valueCatalogTipo: vacacion.catalog,
+        id: vacacion.id,
+        devengadosId: this.form.value.devengadosId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toISOString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+
+    this.subscriptions.push(
+      this.update(request)
+        .pipe(
+          switchMap((response: any) => {
+            this._snackBar.open(`${vacacion.catalog}`, 'actualizado!', {
+              duration: 500000,
+            });
+            return this.listado(response);
+          })
+        )
+        .subscribe({
+          next: this.readResponseTList,
+          complete: this.loading,
+          error: this.readResponseError,
+        })
+    );
   }
 
   applyFilter(event: Event) {
@@ -83,7 +274,10 @@ export class VacacionesComponent implements OnInit, AfterViewInit {
     if (datasource.paginator) {
       datasource.paginator.firstPage();
     }
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
   openDialog(id?: number): void {
@@ -101,4 +295,72 @@ export class VacacionesComponent implements OnInit, AfterViewInit {
       else this.add(result);
     });
   }
+
+  save = (request: any) => {
+    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+      return this.vacacionesCompensadasAPISrv.saveUsingPOST72(
+        request,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+      return this.vacacionesComunesAPISrv.saveUsingPOST73(
+        request,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else return of();
+  };
+
+  remove = (request: any) => {
+    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+      return this.vacacionesCompensadasAPISrv.deleteUsingDELETE72(
+        request.id,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+      return this.vacacionesComunesAPISrv.deleteUsingDELETE73(
+        request.id,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else return of();
+  };
+  update = (request: any) => {
+    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+      return this.vacacionesCompensadasAPISrv.updateUsingPUT72(
+        request,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+      return this.vacacionesComunesAPISrv.updateUsingPUT73(
+        request,
+        'events',
+        true,
+        {
+          httpHeaderAccept: 'application/json',
+        }
+      );
+    else return of();
+  };
+
+  loading = (loading = 100) =>
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 }

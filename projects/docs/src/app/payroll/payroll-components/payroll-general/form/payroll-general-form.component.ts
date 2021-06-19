@@ -34,6 +34,7 @@ export class PayrollGeneralFormComponent {
       fechaCorte: new Date(),
       nombre: this.builder.control('', [Validators.required]),
       descripcion: '',
+      estado: 'TEST',
     });
     if (data) this.form.patchValue(data);
   }
@@ -53,5 +54,9 @@ export class PayrollGeneralFormComponent {
   closeDatePicker(eventData: any, dp?: any) {
     this.form.patchValue({ ...this.form.value, fechaCorte: eventData });
     dp.close();
+  }
+
+  get formValueJson(){
+    return JSON.stringify(this.form.value);
   }
 }

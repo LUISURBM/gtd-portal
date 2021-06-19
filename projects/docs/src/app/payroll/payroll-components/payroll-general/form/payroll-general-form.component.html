@@ -1,4 +1,5 @@
-<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
   <div class="m-0 mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-title">
@@ -7,7 +8,7 @@
       </div>
     </div>
     <div class="card-body">
-      <h4 class="card-category">Formularion nómina general</h4>
+      <h4 class="card-category">Formulario nómina general</h4>
 
       <div class="col-12">
         <mat-form-field>
@@ -25,7 +26,7 @@
           <mat-label>Fecha Corte</mat-label>
           <input matInput formControlName="fechaCorte" [matDatepicker]="pickerFechaCorte" tabindex="3" />
           <mat-datepicker-toggle matSuffix [for]="pickerFechaCorte">
-            <span matDatepickerToggleIcon>📅</span>
+            <span matDatepickerToggleIcon>{{'1F4C6'|gtdEmoji}}</span>
           </mat-datepicker-toggle>
           <mat-datepicker touchUi #pickerFechaCorte startView="year"
             (monthSelected)="closeDatePicker($event, pickerFechaCorte)"></mat-datepicker>
@@ -46,9 +47,11 @@
         <a mat-button (click)="onNoClick()" tabindex="-1" class="col-md-12 mb-2">
           Cancelar
         </a>
-        <button mat-button tabindex="5" class="col-md-12 mb-2" [mat-dialog-close]="form.value" cdkFocusInitial>Guardar</button>
-        <a *ngIf="f.id.value" class="col-md-12" mat-button (click)="onNoClick(); navSrv.navigate('/nómina/individual', form.value)"
-          tabindex="6">Ver individuales</a>
+        <button mat-button tabindex="5" class="col-md-12 mb-2" [mat-dialog-close]="form.value"
+          cdkFocusInitial>Guardar</button>
+        <a *ngIf="f.id.value" class="col-md-12" mat-button
+          (click)="onNoClick(); navSrv.navigate('/nómina/individual', formValueJson)" tabindex="6">Ver
+          individuales</a>
       </div>
     </div>
   </div>

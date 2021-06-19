@@ -14,6 +14,7 @@ import { Nota, notas } from './notas-data';
   styleUrls: ['./notas.component.css'],
 })
 export class NotasComponent implements OnInit, AfterViewInit {
+  @ViewChild('formView') formView: any;
   libranzasData: Nota[];
 
   displayedColumns: string[] = ['id', 'nota', 'action'];

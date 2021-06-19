@@ -102,22 +102,17 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     private nominaGeneralAPISrv: NominasGeneralesService,
     public menuItemsSrv: MenuItems
   ) {
-    this.loading(30);
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
     });
 
     this.subscriptions = [
-      this.storedProcedureAPISrv
-        .exectuteProcedureUsingPOST(this.request, 'events', true, {
-          httpHeaderAccept: 'application/json',
-        })
-        .subscribe({
-          next: this.readResponseTList,
-          complete: this.loading,
-          error: this.readResponseError,
-        }),
+      this.listado.subscribe({
+        next: this.readResponseTList,
+        complete: this.loading,
+        error: this.readResponseError,
+      }),
     ];
   }
   ngOnDestroy(): void {
@@ -136,18 +131,28 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         httpHeaderAccept: 'application/json',
       })
       .pipe(
-        switchMap((general) => {
-          this._snackBar.open(`${payroll.nombre}`, 'eliminado!', {
+        switchMap((response:any) => {
+          if(response?.type !== 4) return of();
+          if (
+            response?.type === 4 &&
+            response?.status === 200 &&
+            response?.body?.bodyDto?.[0]
+          ) {
+            this._snackBar.open(`${payroll.nombre}`, 'eliminado!', {
+              duration: 500000,
+            });
+            return this.listado;
+          }
+          this._snackBar.open(`${payroll.nombre}`, 'no eliminado!', {
             duration: 500000,
           });
-          return this.listado;
+          return of();
         })
       );
   listado = this.storedProcedureAPISrv.exectuteProcedureUsingPOST(
     this.request,
     'events',
-    true,
-    { httpHeaderAccept: 'application/json' }
+    true
   );
   readResponseError = (err: any) => {
     console.log(err);
@@ -201,22 +206,28 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   add(payroll: Payroll): void {
     const validations = this.dataSource$.value.datasource.data
-      .filter(
-        (p: Payroll) =>
-          p.fechaCorte === payroll.fechaCorte || p.nombre === payroll.nombre
-      )
+      .filter((p: Payroll) => {
+        const mismoCorte =
+          p.fechaCorte.getMonth() === payroll.fechaCorte.getMonth() &&
+          p.fechaCorte.getUTCFullYear() === payroll.fechaCorte.getUTCFullYear();
+        mismoCorte || p.nombre === payroll.nombre;
+      })
       .map((p: Payroll) => {
         const mismoCorte =
           p.fechaCorte.getMonth() === payroll.fechaCorte.getMonth() &&
           p.fechaCorte.getUTCFullYear() === payroll.fechaCorte.getUTCFullYear();
         return mismoCorte
-          ? `!Fecha corte ${formatDate(p.fechaCorte, 'MM/yyyy', 'es-CO')} asociada a ${p.nombre}!`
+          ? `!Fecha corte ${formatDate(
+              p.fechaCorte,
+              'MM/yyyy',
+              'es-CO'
+            )} asociada a ${p.nombre}!`
           : p.nombre === payroll.nombre
           ? `!'${p.nombre}' ya existe!`
           : undefined;
       });
     if (payroll.nombre.length < 1) {
-      this._snackBar.open('Nombre inválido', 'cerrar', { duration: 500000 })
+      this._snackBar.open('Nombre inválido', 'cerrar', { duration: 500000 });
       return;
     }
     if (validations.length > 0) {
@@ -251,14 +262,16 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         .saveUsingPOST57(request, 'events', true, {
           httpHeaderAccept: 'application/json',
         })
-        .pipe(switchMap((response:any) => {
-          if(!(response.type === 4)) return of()
-          if(response.type === 4 && response.status == 200)
-            this._snackBar.open(`${payroll.nombre}`, 'creada!', {
-              duration: 500000,
-            });
-          return this.listado;
-        }))
+        .pipe(
+          switchMap((response: any) => {
+            if (!(response.type === 4)) return of();
+            if (response.type === 4 && response.status == 200)
+              this._snackBar.open(`${payroll.nombre}`, 'creada!', {
+                duration: 500000,
+              });
+            return this.listado;
+          })
+        )
         .subscribe({
           next: this.readResponseTList,
           complete: this.loading,
@@ -269,7 +282,11 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(payroll: Payroll): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar ${payroll.nombre}!?`)
+      this.confirm(
+        `¿Eliminar ${formatDate(payroll.fechaCorte, 'MM/YYY', 'es-Co')} ${
+          payroll.nombre
+        }!?`
+      )
         .pipe(
           switchMap((confirmacion) =>
             confirmacion ? this.eliminar(payroll) : of()
