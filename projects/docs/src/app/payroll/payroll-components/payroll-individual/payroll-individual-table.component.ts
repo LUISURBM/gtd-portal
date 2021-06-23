@@ -1,6 +1,8 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   OnDestroy,
   OnInit,
@@ -15,12 +17,17 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, EMPTY, of, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
+import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
 import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
-import { NgGtdDS } from '../../../types/common-types';
+import {
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { displayedColumns, Individual, nominas } from './individual-data';
 import { PayrollIndividualFormComponent } from './payroll-individual-form.component';
 
@@ -40,6 +47,7 @@ export const MY_FORMATS = {
   selector: 'app-payroll-individual-table',
   templateUrl: './payroll-individual-table.component.html',
   providers: [{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PayrollIndividualTableComponent
   implements OnInit, AfterViewInit, OnDestroy
@@ -53,6 +61,7 @@ export class PayrollIndividualTableComponent
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
     datasource: new MatTableDataSource<Individual>([]),
     displayedColumns: displayedColumns,
+    loading: 0,
   });
 
   selection = new SelectionModel<Individual>(false, []);
@@ -77,55 +86,47 @@ export class PayrollIndividualTableComponent
 
   JSON = JSON;
 
+  get request():any {
+    return {
+    body: {
+      params: {
+        businessSubscriptionId:
+          '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
+        nominaGeneralId: this.form.value.nominaGeneralId as Object,
+      },
+    },
+    header: {
+      cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      esquema: 'payroll',
+      procedimientoAlmacenado: 'ConsultarListNominasIndividualesTest',
+    },
+  }};
+
   listado = (data: any) =>
-    this.nominaIndividualAPISrv.listFindAllUsingGET53(
-      '5B067D71-9EC0-4910-8D53-018850FDED4E',
-      data.nominaGeneralId,
-      'events',
-      true,
-      {
-        httpHeaderAccept: 'application/json',
-      }
-    );
+    this.procedureAPISrv
+      .exectuteProcedureUsingPOST(
+        this.request,
+        'events',
+        true
+      )
+      .pipe(
+        tap({
+          next: (x) => this.avance((x?.type ?? 1) * 25),
+          error: (err) => {
+            console.error(err);
+          },
+        })
+      );
 
   readList = (data: any, message?: string) => {
-    this.loading((data?.type ?? 1) * 25);
-    console.log(data);
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] = new Date(element[key]);
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Individual>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    if (!data.body) return;
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.body),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -135,7 +136,8 @@ export class PayrollIndividualTableComponent
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
     public navSrv: NavigationService,
-    private nominaIndividualAPISrv: NominasIndividualesService
+    private nominaIndividualAPISrv: NominasIndividualesService,
+    public procedureAPISrv: StoredProcedureService
   ) {
     this.form = this.formBuilder.group({
       filtro: '',
@@ -146,24 +148,14 @@ export class PayrollIndividualTableComponent
     });
 
     this.subscriptions.push(
-      this.form.valueChanges
-        .pipe(
-          switchMap((data: any) => {
-            return this.listado(data);
-          })
-        )
-        .subscribe({
-          next: (data: any) => {
-            this.readList(data);
-          },
-          error: (err: any) => {
-            console.log(err);
-          },
-        }),
-      this.route.params.subscribe((params) => {
-        const data = JSON.parse(params['data']);
-        this.form.patchValue(data);
-      })
+      this.form.valueChanges.pipe(switchMap(this.listado)).subscribe({
+        next: this.readList,
+        complete: this.avance,
+        error: console.log,
+      }),
+      this.route.params.subscribe((params) =>
+        this.form.patchValue(JSON.parse(params['data']))
+      )
     );
   }
   ngOnDestroy(): void {
@@ -201,19 +193,21 @@ export class PayrollIndividualTableComponent
       .saveUsingPOST58(request, 'events', true, {
         httpHeaderAccept: 'application/json',
       })
-      .pipe(switchMap((response:any) => {
-        if(!(response.type === 4)) return of()
-        if(response.type === 4 && response.status == 200)
-          this._snackBar.open(`${payroll.nombre}`, 'creada!', {
-            duration: 500000,
-          });
-        return this.listado(response)
-      }))
-        .subscribe({
-          next: this.readList,
-          complete: this.loading,
-          error: console.log,
-        });
+      .pipe(
+        switchMap((response: any) => {
+          if (!(response.type === 4)) return of();
+          if (response.type === 4 && response.status == 200)
+            this._snackBar.open(`${payroll.nombre}`, 'creada!', {
+              duration: 50000,
+            });
+          return this.listado(this.form.value);
+        })
+      )
+      .subscribe({
+        next: this.readList,
+        complete: this.avance,
+        error: console.log,
+      });
   }
 
   delete(payroll: Individual): void {
@@ -233,7 +227,7 @@ export class PayrollIndividualTableComponent
               : of()
           ),
           switchMap((data: any) =>
-            data.type === 4 && data.status === 200
+            data?.type === 4 && data?.status === 200
               ? this.listado(this.form.value)
               : of()
           )
@@ -298,8 +292,9 @@ export class PayrollIndividualTableComponent
     dp.close();
   }
 
-  loading = (loading = 100) =>
+  avance = (loading?: any) => {
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
+  };
 
   confirm(pregunta: string, titulo?: string) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTPagoDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTPagoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTPagoDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTPagoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface PagosServiceInterface {
 
     /**
      * delete Pago in the system.
-     *
+     * 
      * @param id Id Pago
      */
     deleteUsingDELETE63(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Pago in the system.
-     *
+     * 
      * @param id Id Pago
      */
     findByIdUsingGET63(id: string, extraHttpRequestParams?: any): Observable<ResponseTPagoDto>;
 
     /**
      * List all Pago in the system.
-     *
+     * 
      * @param payrollId PayrollId
      */
-    listFindAllUsingGET58(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET40(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Pago in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST63(dto: RequestTPagoDto, extraHttpRequestParams?: any): Observable<ResponseTPagoDto>;
 
     /**
      * update Pago in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT63(dto: RequestTPagoDto, extraHttpRequestParams?: any): Observable<ResponseTPagoDto>;

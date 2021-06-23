@@ -58,6 +58,7 @@ import { NgGtdThemes } from './types/common-types';
 
 import localeCo from '@angular/common/locales/es-CO';
 import { LogInFormComponent } from './security/login-form.component';
+import { AppSideMenuComponent } from './layouts/full/sidebar/sidemenu.component';
 
 registerLocaleData(localeCo, 'es-Co');
 
@@ -131,6 +132,7 @@ export function apiConfigFactory(): Configuration {
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
+    AppSideMenuComponent,
     HelperComponent,
     SpinnerComponent,
     LogInFormComponent,

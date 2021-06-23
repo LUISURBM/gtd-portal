@@ -1,25 +1,34 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { AnticiposService } from '../../../srv/payroll/api/rest/anticipos.service';
-import { FilterValueComponent } from '../../../subscription/filter-value.component';
-import { confirm, NgGtdDS } from '../../../types/common-types';
-import { Anticipo, anticipos, displayedColumns } from './anticipo-data';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
+import { Anticipo, displayedColumns } from './anticipo-data';
 import { AnticipoFormComponent } from './anticipo-form.component';
 
 @Component({
   selector: 'app-payroll-anticipo',
   templateUrl: './anticipo.component.html',
-  styleUrls: ['./anticipo.component.css']
+  styleUrls: ['./anticipo.component.css'],
 })
 export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
@@ -27,7 +36,6 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
     datasource: new MatTableDataSource<Anticipo>([]),
     displayedColumns: displayedColumns,
   });
-
 
   @ViewChild(MatPaginator, { static: true })
   paginator!: MatPaginator;
@@ -40,48 +48,32 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.anticiposAPISrv.getListUsingGET1('events', true, {});
+    data?.deduccionesId &&
+    data?.deduccionesId != null &&
+    data?.deduccionesId != undefined &&
+    data?.deduccionesId != 'undefined'
+      ? this.anticiposAPISrv.listFindAllDeduccionesUsingGET4(
+          data?.deduccionesId,
+          'events',
+          true,
+          {}
+        )
+      : this.anticiposAPISrv.listFindAllDevengadosUsingGET14(
+          data?.deduccionesId,
+          'events',
+          true,
+          {}
+        );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Anticipo>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
   constructor(
     public memSrv: InMemService,
@@ -96,12 +88,13 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
       devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -123,15 +116,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(anticipo: Anticipo): void {
     if (!anticipo) {
@@ -142,7 +127,20 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: undefined,
         anticipo: anticipo.anticipo,
-        devengadosId: this.form.value.devengadosId,
+        devengadosId:
+          this.form.value.devengadosId &&
+          this.form.value.devengadosId != null &&
+          this.form.value.devengadosId != undefined &&
+          this.form.value.devengadosId != 'undefined'
+            ? this.form.value.devengadosId
+            : undefined,
+        deduccionesId:
+          this.form.value.deduccionesId &&
+          this.form.value.deduccionesId != null &&
+          this.form.value.deduccionesId != undefined &&
+          this.form.value.deduccionesId != 'undefined'
+            ? this.form.value.deduccionesId
+            : undefined,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -166,10 +164,10 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${anticipo.anticipo}`, 'creado!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -236,9 +234,9 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`${anticipo.anticipo}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -270,15 +268,15 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
       data: anticipo ?? { id: undefined, name: '' },
     });
 
-    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    }));
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
-
 }

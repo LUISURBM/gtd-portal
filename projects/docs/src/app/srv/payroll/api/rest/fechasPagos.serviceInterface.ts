@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTFechasPagoDto } from './dto/models';
-import { ResponseTFechasPagoDto } from './dto/models';
-import { ResponseTListFechasPagoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTFechasPagoDto } from '../model/models';
+import { ResponseTFechasPagoDto } from '../model/models';
+import { ResponseTListFechasPagoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface FechasPagosServiceInterface {
 
     /**
      * delete Fecha Pago in the system.
-     *
+     * 
      * @param id Id Fecha Pago
      */
     deleteUsingDELETE48(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Fecha Pago in the system.
-     *
+     * 
      * @param id Id Fecha Pago
      */
     findByIdUsingGET48(id: string, extraHttpRequestParams?: any): Observable<ResponseTFechasPagoDto>;
 
     /**
      * List all Fecha Pago in the system.
-     *
+     * 
      * @param payrollId PayrollId
      */
-    listFindAllUsingGET43(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListFechasPagoDto>;
+    listFindAllNominaIndividualIdUsingGET1(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListFechasPagoDto>;
 
     /**
      * save a Fecha Pago in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST48(dto: RequestTFechasPagoDto, extraHttpRequestParams?: any): Observable<ResponseTFechasPagoDto>;
 
     /**
      * update Fecha Pago in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT48(dto: RequestTFechasPagoDto, extraHttpRequestParams?: any): Observable<ResponseTFechasPagoDto>;

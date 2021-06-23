@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTTransporteDto } from './dto/models';
-import { ResponseTListTransporteDto } from './dto/models';
-import { ResponseTTransporteDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTTransporteDto } from '../model/models';
+import { ResponseTListTransporteDto } from '../model/models';
+import { ResponseTTransporteDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface TransportesServiceInterface {
 
     /**
      * delete Transporte in the system.
-     *
+     * 
      * @param id Id Transporte
      */
     deleteUsingDELETE71(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Transporte in the system.
-     *
+     * 
      * @param id Id Transporte
      */
     findByIdUsingGET71(id: string, extraHttpRequestParams?: any): Observable<ResponseTTransporteDto>;
 
     /**
      * List all Transporte in the system.
-     *
+     * 
      * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET65(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListTransporteDto>;
+    listFindAllDevengadosUsingGET25(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListTransporteDto>;
 
     /**
      * save a Transporte in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST71(dto: RequestTTransporteDto, extraHttpRequestParams?: any): Observable<ResponseTTransporteDto>;
 
     /**
      * update Transporte in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT71(dto: RequestTTransporteDto, extraHttpRequestParams?: any): Observable<ResponseTTransporteDto>;

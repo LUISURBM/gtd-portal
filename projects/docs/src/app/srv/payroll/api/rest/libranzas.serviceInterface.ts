@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTLibranzasDto } from './dto/models';
-import { ResponseTLibranzasDto } from './dto/models';
-import { ResponseTListLibranzasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTLibranzasDto } from '../model/models';
+import { ResponseTLibranzasDto } from '../model/models';
+import { ResponseTListLibranzasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface LibranzasServiceInterface {
 
     /**
      * delete Libranza in the system.
-     *
+     * 
      * @param id Id Libranza
      */
     deleteUsingDELETE54(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Libranza in the system.
-     *
+     * 
      * @param id Id Libranza
      */
     findByIdUsingGET54(id: string, extraHttpRequestParams?: any): Observable<ResponseTLibranzasDto>;
 
     /**
      * List all Libranza in the system.
-     *
+     * 
      * @param deduccionesId DeduccionesId
      */
-    listFindAllUsingGET49(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListLibranzasDto>;
+    listFindAllDeduccionesIdUsingGET1(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListLibranzasDto>;
 
     /**
      * save a Libranza in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST54(dto: RequestTLibranzasDto, extraHttpRequestParams?: any): Observable<ResponseTLibranzasDto>;
 
     /**
      * update Libranza in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT54(dto: RequestTLibranzasDto, extraHttpRequestParams?: any): Observable<ResponseTLibranzasDto>;

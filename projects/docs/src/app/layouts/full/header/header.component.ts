@@ -45,8 +45,6 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   private readonly _destroying$ = new Subject<void>();
   email: string | undefined;
   name: 'compañer@' | undefined;
-  messages: any[]= [{option:'Envíados 20', ico: 'send'}];
-  notifications: any[] = [{option:'Recibidos 20', ico: 'send'}];
 
   constructor(
     @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,

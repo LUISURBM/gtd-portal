@@ -1,11 +1,12 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state">
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state; else loading">
 
-  <!-- ============================================================== -->
-  <!-- Topbar - style you can find in header.scss -->
-  <!-- ============================================================== -->
+  <mat-card *ngIf="state?.loading" class="m-0" style="display: flex; justify-content: center; align-items: center">
+    <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+  </mat-card>
+
   <mat-toolbar class="primary topbar telative">
     <!-- ============================================================== -->
     <!-- sidebar toggle -->
@@ -19,7 +20,7 @@
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center ml-2">
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.generalData())">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.generalData())" tabindex="1">
         <span>{{'1F4C5'|gtdEmoji}}</span>
         <strong>
           {{form.value.fechaCorte | date : 'MM/yyyy' }}
@@ -30,13 +31,13 @@
           arrow_right
         </mat-icon>
       </ng-container>
-      <a class="ml-2 navbar-brand">
+      <a class="ml-2" tabindex="2">
         <strong>
-          {{form.value.trabajador.primerNombre}} {{form.value.trabajador.primerApellido}}
+          {{form.value.primerNombre}}
         </strong>
       </a>
       <ng-container *ngIf="!(state.XSmall || state.Small)">
-        <mat-icon class="material-icons-outlined" *ngIf="form.value.trabajador.id">
+        <mat-icon class="material-icons-outlined" *ngIf="form.value.trabajadorId">
           arrow_right
         </mat-icon>
         <a class="ml-2 navbar-brand">
@@ -49,29 +50,29 @@
 
 
     <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-      <mat-chip color="primary" selected="true"
+      <mat-chip color="primary" selected="true" *ngIf="this.form.value.deduccionesId"
         (click)="navSrv.navigate('/nómina/deducciones', this.individualData())"><span>➕
           Deducción</span></mat-chip>
-      <mat-chip color="primary" selected="true"
+      <mat-chip color="primary" selected="true" *ngIf="this.form.value.devengadosId"
         (click)="navSrv.navigate('/nómina/devengos', this.individualData())"><span>➕
           Devengo</span></mat-chip>
       <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()">
-        <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
+        <span>{{'1F4D1'|gtdEmoji}}</span><span *ngIf="!(state.XSmall || state.Small)">Generar</span>
       </mat-chip>
     </mat-chip-list>
     <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="accent">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
-      <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small) && this.form.value.deduccionesId"
         (click)="navSrv.navigate('/nómina/deducciones', this.individualData())">
         ➕ Deducción
       </button>
-      <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small) && this.form.value.deduccionesId"
         (click)="navSrv.navigate('/nómina/devengos', this.individualData())">
         ➕ Devengo
       </button>
-      <button mat-menu-item (click)="delete()">
+      <button mat-menu-item (click)="delete()" *ngIf="this.form.value.nominaIndividualId">
         <mat-icon>delete</mat-icon> Eliminar
       </button>
       <button mat-menu-item (click)="toggleFullScreen()">
@@ -86,33 +87,22 @@
         <mat-icon>cancel</mat-icon>Cancelar
       </button>
     </mat-menu>
-    <!-- ============================================================== -->
-    <!-- app header component - style you can find in header.scss / header.component.ts-->
-    <!-- ============================================================== -->
-
-    <mat-card *ngIf="state?.loading" class="m-0" style="display: flex; justify-content: center; align-items: center">
-      <mat-progress-bar  mode="indeterminate" ></mat-progress-bar>
-    </mat-card>
   </mat-toolbar>
-  <!-- ============================================================== -->
-  <!-- End Topbar - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-  <mat-sidenav-container class="page-container" style.marginTop.px="0">
-    <!-- ============================================================== -->
-    <!-- Sidebar - style you can find in sidebar.scss -->
-    <!-- ============================================================== -->
+  <mat-sidenav-container class="page-container" style.marginTop.px="0"  >
+
+
     <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" fixedTopGap="0" opened="true"
       [mode]="(state.XSmall || state.Small) ? 'over' : 'side'" fixedTopGap="0" [opened]="!(state.XSmall || state.Small)"
       style="direction: rtl;">
 
       <mat-nav-list appAccordion style="direction: ltr ">
-        <form [formGroup]="form" class="m-0 d-flex main-container main-form">
+        <div class="m-0 d-flex main-container main-form">
           <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
             <mat-label>Buscar...</mat-label>
             <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
             <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
           </mat-form-field>
-        </form>
+        </div>
         <mat-list-item appAccordionLink routerLinkActive="selected">
           <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ind.formView)">
             <span>📜</span>
@@ -172,10 +162,10 @@
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-content class="page-wrapper">
+    <mat-sidenav-content class="page-view" >
       <app-payroll-individual-form-dialog [form]="form" #ind></app-payroll-individual-form-dialog>
-      <app-devengados-form #dev ></app-devengados-form>
-      <app-deducciones-form #ded></app-deducciones-form>
+      <app-payroll-devengados [form]="form" #ded></app-payroll-devengados>
+      <app-payroll-deducciones [form]="form" #dev ></app-payroll-deducciones>
       <app-payroll-notas #notas> </app-payroll-notas>
       <app-payroll-periodos #period></app-payroll-periodos>
       <app-payroll-fechas-pago #fecP></app-payroll-fechas-pago>
@@ -187,4 +177,8 @@
   </mat-sidenav-container>
 
 
-</div>
+</form>
+
+<ng-template #loading>
+  Loading User...
+</ng-template>

@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,13 +15,12 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { SaludPensionSindicatosService } from '../../../srv/payroll/api/rest/saludPensionSindicatos.service';
+import { SaludPensionSindicatosService } from '../../../srv/payroll/api/rest/api';
 import { confirm, NgGtdDS } from '../../../types/common-types';
 import {
   displayedColumns,
   EMPTY,
   SaludPensionSindicato,
-  saludPensionSindicatos,
 } from './salud-pension-sindicato-data';
 import { SaludPensionSindicatoFormComponent } from './salud-pension-sindicato-form.component';
 
@@ -50,7 +49,7 @@ export class SaludPensionSindicatosComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.saludPensionSindicatosAPISrv.listFindAllUsingGET63(
+    this.saludPensionSindicatosAPISrv.listFindAllDeduccionesUsingGET7(
       data.deduccionesId,
       'events',
       true,
@@ -111,13 +110,13 @@ export class SaludPensionSindicatosComponent
       filtro: '',
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
-      devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -140,15 +139,7 @@ export class SaludPensionSindicatosComponent
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(saludPensionSindicato: SaludPensionSindicato): void {
     if (!saludPensionSindicato) {
@@ -161,7 +152,7 @@ export class SaludPensionSindicatosComponent
         deduccion: this.form.value.deduccion,
         porcentaje: this.form.value.porcentaje,
         valueCatalogType: saludPensionSindicato.catalog!,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -188,11 +179,11 @@ export class SaludPensionSindicatosComponent
                 `${saludPensionSindicato.catalog}`,
                 'creada!',
                 {
-                  duration: 500000,
+                  duration: 50000,
                 }
               );
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -243,7 +234,7 @@ export class SaludPensionSindicatosComponent
         deduccion: this.form.value.deduccion,
         porcentaje: this.form.value.porcentaje,
         valueCatalogType: saludPensionSindicato.catalog!,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -267,10 +258,10 @@ export class SaludPensionSindicatosComponent
               `${saludPensionSindicato.catalog}`,
               'actualizado!',
               {
-                duration: 500000,
+                duration: 50000,
               }
             );
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

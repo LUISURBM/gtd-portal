@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTLugarGeneracionXmlDto } from './dto/models';
-import { ResponseTListLugarGeneracionXmlDto } from './dto/models';
-import { ResponseTLugarGeneracionXmlDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTLugarGeneracionXmlDto } from '../model/models';
+import { ResponseTListLugarGeneracionXmlDto } from '../model/models';
+import { ResponseTLugarGeneracionXmlDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -199,10 +199,10 @@ export class LugaresGeneracionXMLService implements LugaresGeneracionXMLServiceI
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET51(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLugarGeneracionXmlDto>;
-    public listFindAllUsingGET51(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLugarGeneracionXmlDto>>;
-    public listFindAllUsingGET51(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLugarGeneracionXmlDto>>;
-    public listFindAllUsingGET51(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET34(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLugarGeneracionXmlDto>;
+    public listFindAllUsingGET34(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLugarGeneracionXmlDto>>;
+    public listFindAllUsingGET34(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLugarGeneracionXmlDto>>;
+    public listFindAllUsingGET34(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 

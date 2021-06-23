@@ -1,5 +1,11 @@
 import { Basico } from './../basicos/basico-data';
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -7,16 +13,16 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
-import { NgGtdDS } from '../../../types/common-types';
 import {
-  displayedColumns,
-  Huelga,
-  huelgas,
-} from './huelga-data';
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
+import { displayedColumns, Huelga, huelgas } from './huelga-data';
 import { HuelgaFormComponent } from './huelga-form.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { HuelgasLegalesService } from '../../../srv/payroll/api/rest/huelgasLegales.service';
+import { HuelgasLegalesService } from '../../../srv/payroll/api/rest/api';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 
@@ -36,7 +42,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
   paginator!: MatPaginator;
 
   @ViewChild(MatSort) sort!: MatSort;
-  
+
   readResponseError = (err: any) => {
     console.log(err);
   };
@@ -44,48 +50,22 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.huelgasAPISrv.listFindAllUsingGET46(data.devengadosId, 'events', true, {});
+    this.huelgasAPISrv.listFindAllDevengadosUsingGET20(
+      data?.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Huelga>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -106,7 +86,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -117,7 +97,6 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.route.params.subscribe((params) => {
         const data = JSON.parse(params['data']);
-        console.log(data);
         this.form.patchValue(data);
       }),
     ];
@@ -126,15 +105,9 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
-
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
-  }
+  ngAfterViewInit(): void {}
 
   add(huelga: Huelga): void {
     if (!huelga) {
@@ -146,6 +119,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
         cantidad: huelga.cantidad,
         fechaFin: huelga.fechaFin.toISOString(),
         fechaInicio: huelga.fechaInicio.toISOString(),
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -168,11 +142,15 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`Huelga ${huelga.fechaInicio.toISOString()}`, 'creada!', {
-                duration: 500000,
-              });
+              this._snackBar.open(
+                `Huelga ${huelga.fechaInicio.toISOString()}`,
+                'creada!',
+                {
+                  duration: 50000,
+                }
+              );
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -220,6 +198,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
         fechaFin: huelga.fechaFin.toISOString(),
         fechaInicio: huelga.fechaInicio.toISOString(),
         id: huelga.id,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -239,10 +218,14 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`Huelga ${huelga.fechaInicio.toISOString()}`, 'actualizado!', {
-              duration: 500000,
-            });
-            return this.listado(response);
+            this._snackBar.open(
+              `Huelga ${huelga.fechaInicio.toISOString()}`,
+              'actualizado!',
+              {
+                duration: 50000,
+              }
+            );
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -261,16 +244,16 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
     if (datasource.paginator) {
       datasource.paginator.firstPage();
     }
-    this.dataSource$.next({ ...this.dataSource$.value, datasource: datasource });
+    this.dataSource$.next({
+      ...this.dataSource$.value,
+      datasource: datasource,
+    });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(huelga?: Huelga): void {
     const dialogRef = this.dialog.open(HuelgaFormComponent, {
       width: '450px',
-      data: editing ? editing : { id: undefined, name: '' },
+      data: huelga ?? { id: undefined, name: '' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -279,7 +262,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
       else this.add(result);
     });
   }
-  
+
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 

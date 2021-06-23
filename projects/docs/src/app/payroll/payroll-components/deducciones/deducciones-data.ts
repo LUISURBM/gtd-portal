@@ -258,17 +258,8 @@ export const deducciones: Deducciones[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
-  'pensionVoluntaria',
-  'retencionFuente',
-  'afc',
-  'cooperativa',
-  'embargoFiscal',
-  'planComplementarios',
-  'educacion',
-  'reintegro',
-  'deuda',
-  'action',
+  'deduccion',
+  'valor'
 ];
 
 export const EMPTY = {
@@ -286,7 +277,7 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: 'deducciones', name: 'General deducciónes', type: 'link', icon: 'work', emoji: '1F9FE'  },
+  { state: 'form', name: 'General deducciónes', type: 'link', icon: 'work', emoji: '1F9FE'  },
   { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F9FE'  },
   { state: 'fondo-sp', name: 'Fondo SP', type: 'link', icon: 'local_atm', emoji: '1F4B3'  },
   { state: 'libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm', emoji: '1F4B3'  },

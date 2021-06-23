@@ -133,7 +133,6 @@ export const huelgas: Huelga[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'cantidad',
   'fechaInicio',
   'fechaFin',

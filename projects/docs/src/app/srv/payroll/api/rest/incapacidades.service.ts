@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTIncapacidadDto } from './dto/models';
-import { ResponseTIncapacidadDto } from './dto/models';
-import { ResponseTListIncapacidadDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTIncapacidadDto } from '../model/models';
+import { ResponseTIncapacidadDto } from '../model/models';
+import { ResponseTListIncapacidadDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -200,12 +200,12 @@ export class IncapacidadesService implements IncapacidadesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET47(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListIncapacidadDto>;
-    public listFindAllUsingGET47(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListIncapacidadDto>>;
-    public listFindAllUsingGET47(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListIncapacidadDto>>;
-    public listFindAllUsingGET47(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllDevengadosUsingGET21(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListIncapacidadDto>;
+    public listFindAllDevengadosUsingGET21(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListIncapacidadDto>>;
+    public listFindAllDevengadosUsingGET21(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListIncapacidadDto>>;
+    public listFindAllDevengadosUsingGET21(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (devengadosId === null || devengadosId === undefined) {
-            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllUsingGET47.');
+            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllDevengadosUsingGET21.');
         }
 
         let headers = this.defaultHeaders;

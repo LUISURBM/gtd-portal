@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTLicenciasDto } from './dto/models';
-import { ResponseTLicenciasDto } from './dto/models';
-import { ResponseTListLicenciasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTLicenciasDto } from '../model/models';
+import { ResponseTLicenciasDto } from '../model/models';
+import { ResponseTListLicenciasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -195,14 +195,66 @@ export class LicenciasService implements LicenciasServiceInterface {
     }
 
     /**
+     * List all Licencia in the system by DevengadosId.
+     * @param devengadosId DevengadosId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listFindAllDevengadosUsingGET22(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLicenciasDto>;
+    public listFindAllDevengadosUsingGET22(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLicenciasDto>>;
+    public listFindAllDevengadosUsingGET22(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLicenciasDto>>;
+    public listFindAllDevengadosUsingGET22(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (devengadosId === null || devengadosId === undefined) {
+            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllDevengadosUsingGET22.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        let credential: string | undefined;
+        // authentication (apiKey) required
+        credential = this.configuration.lookupCredential('apiKey');
+        if (credential) {
+            headers = headers.set('Authorization', credential);
+        }
+
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        let responseType_: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType_ = 'text';
+        }
+
+        return this.httpClient.get<ResponseTListLicenciasDto>(`${this.configuration.basePath}/nomina-general/licencias/list/${encodeURIComponent(String(devengadosId))}`,
+            {
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * List all Licencia in the system.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET50(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLicenciasDto>;
-    public listFindAllUsingGET50(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLicenciasDto>>;
-    public listFindAllUsingGET50(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLicenciasDto>>;
-    public listFindAllUsingGET50(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET33(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLicenciasDto>;
+    public listFindAllUsingGET33(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLicenciasDto>>;
+    public listFindAllUsingGET33(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLicenciasDto>>;
+    public listFindAllUsingGET33(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 

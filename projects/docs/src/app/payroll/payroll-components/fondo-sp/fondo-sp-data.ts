@@ -151,7 +151,6 @@ export const fondoSPs: FondoSP[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'porcentaje',
   'porcentajeSub',
   'deduccionSub',

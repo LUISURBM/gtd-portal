@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTVacacionesComunesDto } from './dto/models';
-import { ResponseTListVacacionesComunesDto } from './dto/models';
-import { ResponseTVacacionesComunesDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTVacacionesComunesDto } from '../model/models';
+import { ResponseTListVacacionesComunesDto } from '../model/models';
+import { ResponseTVacacionesComunesDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface VacacionesComunesServiceInterface {
 
     /**
      * delete Vacaciones Comun in the system.
-     *
+     * 
      * @param id Id Vacaciones Comun
      */
     deleteUsingDELETE73(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Vacaciones Comun in the system.
-     *
+     * 
      * @param id Id Vacaciones Comun
      */
     findByIdUsingGET73(id: string, extraHttpRequestParams?: any): Observable<ResponseTVacacionesComunesDto>;
 
     /**
-     * List all Vacaciones Comun in the system.
-     *
+     * List all Vacaciones Comun in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET67(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesComunesDto>;
+    listFindAllDevengadosUsingGET27(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListVacacionesComunesDto>;
+
+    /**
+     * List all Vacaciones Comun in the system.
+     * 
+     */
+    listFindAllUsingGET47(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesComunesDto>;
 
     /**
      * save a Vacaciones Comun in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST73(dto: RequestTVacacionesComunesDto, extraHttpRequestParams?: any): Observable<ResponseTVacacionesComunesDto>;
 
     /**
      * update Vacaciones Comun in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT73(dto: RequestTVacacionesComunesDto, extraHttpRequestParams?: any): Observable<ResponseTVacacionesComunesDto>;

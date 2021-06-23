@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTPeriodoDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTPeriodoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTPeriodoDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTPeriodoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface PeriodosServiceInterface {
 
     /**
      * delete Periodo in the system.
-     *
+     * 
      * @param id Id Periodo
      */
     deleteUsingDELETE65(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Periodo in the system.
-     *
+     * 
      * @param id Id Periodo
      */
     findByIdUsingGET65(id: string, extraHttpRequestParams?: any): Observable<ResponseTPeriodoDto>;
 
     /**
      * List all Periodo in the system.
-     *
+     * 
      * @param param param
      */
-    listFindAllUsingGET60(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET41(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Periodo in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST65(dto: RequestTPeriodoDto, extraHttpRequestParams?: any): Observable<ResponseTPeriodoDto>;
 
     /**
      * update Periodo in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT65(dto: RequestTPeriodoDto, extraHttpRequestParams?: any): Observable<ResponseTPeriodoDto>;

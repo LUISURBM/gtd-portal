@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTSancionDto } from './dto/models';
-import { ResponseTListSancionDto } from './dto/models';
-import { ResponseTSancionDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTSancionDto } from '../model/models';
+import { ResponseTListSancionDto } from '../model/models';
+import { ResponseTSancionDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface SancionesServiceInterface {
 
     /**
      * delete Sancion in the system.
-     *
+     * 
      * @param id Id Sancion
      */
     deleteUsingDELETE69(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Sancion in the system.
-     *
+     * 
      * @param id Id Sancion
      */
     findByIdUsingGET69(id: string, extraHttpRequestParams?: any): Observable<ResponseTSancionDto>;
 
     /**
      * List all Sancion in the system.
-     *
+     * 
      * @param deduccionesId DeduccionesId
      */
-    listFindAllUsingGET64(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListSancionDto>;
+    listFindAllUsingGET45(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListSancionDto>;
 
     /**
      * save a Sancion in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST69(dto: RequestTSancionDto, extraHttpRequestParams?: any): Observable<ResponseTSancionDto>;
 
     /**
      * update Sancion in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT69(dto: RequestTSancionDto, extraHttpRequestParams?: any): Observable<ResponseTSancionDto>;

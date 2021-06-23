@@ -7,9 +7,8 @@
       <h1 class="card-title">Nómina
         <small>General</small>
       </h1>
-      <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
-    <mat-card-subtitle>Listado de Nóminas; Corte <code>&lt;{{this.form.value.fechaCorte | date : 'MM/YYYY'}}&gt;</code>.
+    <mat-card-subtitle>Total creados <strong>{{dataSource.datasource.data.length}}</strong>.
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -18,7 +17,7 @@
         <input formControlName="fechaCorte" hidden>
         <mat-form-field>
           <mat-label>Buscar</mat-label>
-          <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="07-2021" #input
+          <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Busque por nombre o corte Ej: 07-2021 ó diciembre" #input
             formControlName="filtro">
           <button class="gtd-icon-button" mat-icon-button (click)="openDialog()" matSuffix color="primary">
             <span>➕</span>
@@ -26,8 +25,8 @@
         </mat-form-field>
       </div>
     </form>
-    <mat-card *ngIf="dataSource?.loading != 100" class="m-0" style="display: flex; justify-content: center; align-items: center">
-      <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
+    <mat-card class="m-0" style="display: flex; justify-content: center; align-items: center" *ngIf="loading">
+      <mat-progress-bar  mode="determinate" [value]="loading" ></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8" >
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">

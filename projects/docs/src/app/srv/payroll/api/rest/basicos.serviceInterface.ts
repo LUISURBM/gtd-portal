@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTBasicoDto } from './dto/models';
-import { ResponseTBasicoDto } from './dto/models';
-import { ResponseTListBasicoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTBasicoDto } from '../model/models';
+import { ResponseTBasicoDto } from '../model/models';
+import { ResponseTListBasicoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,34 @@ export interface BasicosServiceInterface {
 
     /**
      * delete Básico in the system.
-     *
+     * 
      * @param id Id Básico
      */
     deleteUsingDELETE39(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Básico in the system.
-     *
+     * 
      * @param id Id Básico
      */
     findByIdUsingGET39(id: string, extraHttpRequestParams?: any): Observable<ResponseTBasicoDto>;
 
     /**
      * List all Básico in the system.
-     *
+     * 
      */
     listBasicoUsingGET1(extraHttpRequestParams?: any): Observable<ResponseTListBasicoDto>;
 
     /**
      * save a Básico in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST39(dto: RequestTBasicoDto, extraHttpRequestParams?: any): Observable<ResponseTBasicoDto>;
 
     /**
      * update Básico in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT39(dto: RequestTBasicoDto, extraHttpRequestParams?: any): Observable<ResponseTBasicoDto>;

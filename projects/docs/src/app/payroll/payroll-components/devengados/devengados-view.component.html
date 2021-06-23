@@ -20,7 +20,7 @@
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center ml-2">
       <ng-container >
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.individualData())" tabindex="1">
           <span>{{'1F4C5'|gtdEmoji}}</span>
           <strong>
             {{form.value.fechaCorte | date : 'MM/yyyy'}}
@@ -30,19 +30,11 @@
           arrow_right
           </mat-icon>
       </ng-container>
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view', this.individualData())" tabindex="2">
         <strong>
-          {{form.value.trabajador?.primerNombre}}
+          {{primerNombreTrabajador()}}
         </strong>
       </a>
-      <ng-container *ngIf="!(state.XSmall || state.Small)">
-        <mat-icon>
-          arrow_right
-          </mat-icon>
-        <a class="ml-2 navbar-brand">
-          Nuevo
-        </a>
-      </ng-container>
     </div>
 
     <span fxFlex></span>
@@ -92,7 +84,7 @@
         </form>
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
           group="{{menuitem.state}}">
-          <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state, this.devengosData(), this.route)" *ngIf="menuitem.type === 'link'">
+          <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state, this.devengadosData(), menuitem.completo ? undefined : this.route)" *ngIf="menuitem.type === 'link'">
             <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
           <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
           <span>{{ menuitem.name }}</span>
@@ -110,7 +102,7 @@
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-content class="page-wrapper" [@routeAnimations]="prepareRoute(outlet)">
+    <mat-sidenav-content class="page-view" [@routeAnimations]="prepareRoute(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </mat-sidenav-content>
     <!-- ============================================================== -->

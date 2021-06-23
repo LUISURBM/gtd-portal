@@ -1,13 +1,16 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { NgGtdDS } from '../../../types/common-types';
+import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
+import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import {
   Deducciones,
   deducciones,
@@ -22,36 +25,109 @@ import { DeduccionesFormComponent } from './deducciones-form.component';
   styleUrls: ['./deducciones.component.scss'],
 })
 export class DeduccionesComponent implements OnInit, AfterViewInit {
-  dataSource$: BehaviorSubject<NgGtdDS>;
-
+  @ViewChild('formView') formView: any;
+  dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
+    datasource: new MatTableDataSource<ValuesCatalog>([]),
+    displayedColumns: displayedColumns,
+  });
+  @Input() form?:FormGroup;
+  @Input() trabajadorId = '';
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
   @ViewChild(MatSort) sort!: MatSort;
+  subscriptions: Subscription[];
 
   constructor(
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    public navSrv: NavigationService
+    public navSrv: NavigationService,
+    storedProcedureAPISrv: StoredProcedureService
   ) {
-    this.dataSource$ = new BehaviorSubject<NgGtdDS>({
-      datasource: new MatTableDataSource<Deducciones>(deducciones),
-      displayedColumns: displayedColumns,
-    });
+    const request: any = {
+      body: {
+        params: {
+          nominaIndividualId: 'FE841F95-5FDC-4879-A6BD-EE8C93A82941' as Object,
+          trabajadorId: this.trabajadorId as Object,
+        },
+      },
+      header: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+        esquema: 'payroll',
+        procedimientoAlmacenado: 'ConsultarDeduccionesView',
+      },
+    };
+
+    this.subscriptions = [
+      storedProcedureAPISrv
+        .exectuteProcedureUsingPOST(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .subscribe((response: any) => {
+          console.log(response);
+          let valores: ValuesCatalog[] = [];
+          response.body?.body?.forEach((b: any) => {
+            var key = Object.keys(b)?.[0];
+            const data = JSON.parse(b[key])?.[0];
+            console.log(data);
+            var keys = Object.keys(data);
+            var n = keys.length;
+            var newobj: any = {};
+
+            while (n--) {
+              key = keys[n];
+              var valor = data[key];
+              if (typeof valor === 'object') {
+                var keys1 = Object.keys(valor?.[0]);
+                var y = keys1.length;
+                while (y--) {
+                  if (keys1[y].toLocaleLowerCase().split('id').length > 1)
+                    continue;
+                  valores.push({
+                    id: y + 1,
+                    code: valor?.[0]?.[keys1[y]],
+                    name: `${keys1[y].charAt(0).toLowerCase()}${keys1[y].substr(
+                      1,
+                      keys1[y].length
+                    )}`,
+                  });
+                }
+              } else {
+                if (key.toLocaleLowerCase().split('id').length > 1) continue;
+                if (key.toLowerCase().split('fecha').length > 1) {
+                  valor = new Date(valor);
+                }
+                newobj[
+                  `${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`
+                ] = valor;
+                valores.push({
+                  id: n + 1,
+                  code: valor,
+                  name: `${key.charAt(0).toLowerCase()}${key.substr(
+                    1,
+                    key.length
+                  )}`,
+                });
+              }
+            }
+            console.log(data);
+            console.log(valores);
+            initTable(
+              this.dataSource$,
+              this.paginator,
+              this.sort,
+              gtdArrayToLowerCase(valores),
+              displayedColumns
+            );
+          });
+        }),
+    ];
   }
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void { }
 
   add(name: Deducciones): void {
     if (!name) {

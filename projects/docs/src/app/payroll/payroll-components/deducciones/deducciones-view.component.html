@@ -20,7 +20,7 @@
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center">
       <ng-container>
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.individualData())" tabindex="1">
           <span>{{'1F4C5'|gtdEmoji}}</span>
           <strong>
             {{form.value.fechaCorte | date : 'MM/yyyy'}}
@@ -30,7 +30,7 @@
           arrow_right
           </mat-icon>
       </ng-container>
-      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view')">
+      <a class="navbar-brand" (click)="navSrv.navigate('/nómina/view', this.individualData())" tabindex="2">
         <strong>
           {{primerNombreTrabajador()}}
         </strong>
@@ -109,8 +109,8 @@
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-content class="page-wrapper" [@routeAnimations]="prepareRoute(outlet)">
-      <router-outlet #outlet="outlet"></router-outlet>
+    <mat-sidenav-content class="page-view" >
+      <router-outlet ></router-outlet>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

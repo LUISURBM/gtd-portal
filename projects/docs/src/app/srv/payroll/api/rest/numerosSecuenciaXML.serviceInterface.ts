@@ -9,56 +9,65 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { HttpHeaders }                                       from '@angular/common/http';
-
-import { Observable }                                        from 'rxjs';
-
-import { RequestTNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTListNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
-
-
-import { Configuration }                                     from '../configuration';
-
-
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Configuration } from '../configuration';
+import {
+  RequestTNumeroSecuenciaXmlDto,
+  ResponseTListNumeroSecuenciaXmlDto,
+  ResponseTNumeroSecuenciaXmlDto,
+  ResponseTstring,
+} from '../model/models';
 
 export interface NumerosSecuenciaXMLServiceInterface {
-    defaultHeaders: HttpHeaders;
-    configuration: Configuration;
+  defaultHeaders: HttpHeaders;
+  configuration: Configuration;
 
-    /**
-     * delete NumeroSecuenciaXml in the system.
-     *
-     * @param id Id NumeroSecuenciaXml
-     */
-    deleteUsingDELETE60(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
+  /**
+   * delete NumeroSecuenciaXml in the system.
+   *
+   * @param id Id NumeroSecuenciaXml
+   */
+  deleteUsingDELETE60(
+    id: string,
+    extraHttpRequestParams?: any
+  ): Observable<ResponseTstring>;
 
-    /**
-     * find by id NumeroSecuenciaXml in the system.
-     *
-     * @param id Id NumeroSecuenciaXml
-     */
-    findByIdUsingGET60(id: string, extraHttpRequestParams?: any): Observable<ResponseTNumeroSecuenciaXmlDto>;
+  /**
+   * find by id NumeroSecuenciaXml in the system.
+   *
+   * @param id Id NumeroSecuenciaXml
+   */
+  findByIdUsingGET60(
+    id: string,
+    extraHttpRequestParams?: any
+  ): Observable<ResponseTNumeroSecuenciaXmlDto>;
 
-    /**
-     * List all NumeroSecuenciaXml in the system.
-     *
-     */
-    listFindAllUsingGET55(extraHttpRequestParams?: any): Observable<ResponseTListNumeroSecuenciaXmlDto>;
+  /**
+   * List all NumeroSecuenciaXml in the system.
+   *
+   */
+  listFindAllUsingGET38(
+    extraHttpRequestParams?: any
+  ): Observable<ResponseTListNumeroSecuenciaXmlDto>;
 
-    /**
-     * save a NumeroSecuenciaXml in the system.
-     *
-     * @param dto dto
-     */
-    saveUsingPOST60(dto: RequestTNumeroSecuenciaXmlDto, extraHttpRequestParams?: any): Observable<ResponseTNumeroSecuenciaXmlDto>;
+  /**
+   * save a NumeroSecuenciaXml in the system.
+   *
+   * @param dto dto
+   */
+  saveUsingPOST60(
+    dto: RequestTNumeroSecuenciaXmlDto,
+    extraHttpRequestParams?: any
+  ): Observable<ResponseTNumeroSecuenciaXmlDto>;
 
-    /**
-     * update NumeroSecuenciaXml in the system.
-     *
-     * @param dto dto
-     */
-    updateUsingPUT60(dto: RequestTNumeroSecuenciaXmlDto, extraHttpRequestParams?: any): Observable<ResponseTNumeroSecuenciaXmlDto>;
-
+  /**
+   * update NumeroSecuenciaXml in the system.
+   *
+   * @param dto dto
+   */
+  updateUsingPUT60(
+    dto: RequestTNumeroSecuenciaXmlDto,
+    extraHttpRequestParams?: any
+  ): Observable<ResponseTNumeroSecuenciaXmlDto>;
 }

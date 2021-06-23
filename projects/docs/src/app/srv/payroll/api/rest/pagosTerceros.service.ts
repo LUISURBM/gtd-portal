@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTPagoTercerosDto } from './dto/models';
-import { ResponseTListPagoTercerosDto } from './dto/models';
-import { ResponseTPagoTercerosDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTPagoTercerosDto } from '../model/models';
+import { ResponseTListPagoTercerosDto } from '../model/models';
+import { ResponseTPagoTercerosDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -195,17 +195,69 @@ export class PagosTercerosService implements PagosTercerosServiceInterface {
     }
 
     /**
+     * List all Pago Terceros in the system by DeduccionesId.
+     * @param deduccionesId DeduccionesId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listFindAllDeduccionesUsingGET6(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListPagoTercerosDto>;
+    public listFindAllDeduccionesUsingGET6(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListPagoTercerosDto>>;
+    public listFindAllDeduccionesUsingGET6(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListPagoTercerosDto>>;
+    public listFindAllDeduccionesUsingGET6(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (deduccionesId === null || deduccionesId === undefined) {
+            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllDeduccionesUsingGET6.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        let credential: string | undefined;
+        // authentication (apiKey) required
+        credential = this.configuration.lookupCredential('apiKey');
+        if (credential) {
+            headers = headers.set('Authorization', credential);
+        }
+
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        let responseType_: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType_ = 'text';
+        }
+
+        return this.httpClient.get<ResponseTListPagoTercerosDto>(`${this.configuration.basePath}/nomina-general/pagosTerceros/list/${encodeURIComponent(String(deduccionesId))}`,
+            {
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * List all Pago Terceros in the system.
      * @param devengadosId DevengadosId
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET59(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListPagoTercerosDto>;
-    public listFindAllUsingGET59(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListPagoTercerosDto>>;
-    public listFindAllUsingGET59(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListPagoTercerosDto>>;
-    public listFindAllUsingGET59(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllDevengadosUsingGET24(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListPagoTercerosDto>;
+    public listFindAllDevengadosUsingGET24(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListPagoTercerosDto>>;
+    public listFindAllDevengadosUsingGET24(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListPagoTercerosDto>>;
+    public listFindAllDevengadosUsingGET24(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (devengadosId === null || devengadosId === undefined) {
-            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllUsingGET59.');
+            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllDevengadosUsingGET24.');
         }
 
         let headers = this.defaultHeaders;

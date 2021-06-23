@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTCesantiasDto } from './dto/models';
-import { ResponseTCesantiasDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTCesantiasDto } from '../model/models';
+import { ResponseTCesantiasDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface CesantiasServiceInterface {
 
     /**
      * delete Cesantias in the system.
-     *
+     * 
      * @param id Id Cesantias
      */
     deleteUsingDELETE42(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Cesantias in the system.
-     *
+     * 
      * @param id Id Cesantias
      */
     findByIdUsingGET42(id: string, extraHttpRequestParams?: any): Observable<ResponseTCesantiasDto>;
 
     /**
      * List all Cesantias in the system.
-     *
+     * 
      * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET37(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET26(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Cesantias in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST42(dto: RequestTCesantiasDto, extraHttpRequestParams?: any): Observable<ResponseTCesantiasDto>;
 
     /**
      * update Cesantias in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT42(dto: RequestTCesantiasDto, extraHttpRequestParams?: any): Observable<ResponseTCesantiasDto>;

@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTLicenciasDto } from './dto/models';
-import { ResponseTLicenciasDto } from './dto/models';
-import { ResponseTListLicenciasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTLicenciasDto } from '../model/models';
+import { ResponseTLicenciasDto } from '../model/models';
+import { ResponseTListLicenciasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface LicenciasServiceInterface {
 
     /**
      * delete Licencia in the system.
-     *
+     * 
      * @param id Id Licencia
      */
     deleteUsingDELETE55(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Licencia in the system.
-     *
+     * 
      * @param id Id Licencia
      */
     findByIdUsingGET55(id: string, extraHttpRequestParams?: any): Observable<ResponseTLicenciasDto>;
 
     /**
-     * List all Licencia in the system.
-     *
+     * List all Licencia in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET50(extraHttpRequestParams?: any): Observable<ResponseTListLicenciasDto>;
+    listFindAllDevengadosUsingGET22(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListLicenciasDto>;
+
+    /**
+     * List all Licencia in the system.
+     * 
+     */
+    listFindAllUsingGET33(extraHttpRequestParams?: any): Observable<ResponseTListLicenciasDto>;
 
     /**
      * save a Licencia in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST55(dto: RequestTLicenciasDto, extraHttpRequestParams?: any): Observable<ResponseTLicenciasDto>;
 
     /**
      * update Licencia in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT55(dto: RequestTLicenciasDto, extraHttpRequestParams?: any): Observable<ResponseTLicenciasDto>;

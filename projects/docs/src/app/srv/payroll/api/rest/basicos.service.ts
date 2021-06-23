@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTBasicoDto } from './dto/models';
-import { ResponseTBasicoDto } from './dto/models';
-import { ResponseTListBasicoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTBasicoDto } from '../model/models';
+import { ResponseTBasicoDto } from '../model/models';
+import { ResponseTListBasicoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';

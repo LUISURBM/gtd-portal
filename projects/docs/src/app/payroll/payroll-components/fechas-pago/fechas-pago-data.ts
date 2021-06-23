@@ -1,28 +1,32 @@
 import { formatToDate } from "../../../values-catalog";
 export interface FechaPago {
-  id: number;
+  id: string;
   fechaPago: Date;
+  loading?: boolean;
 }
 
 export const fechaPagos: FechaPago[] = [
     {
-        id: 1,
+        id: '1',
         fechaPago: formatToDate('5/17/2021')
     },
     {
-        id: 2,
+        id: '2',
         fechaPago: formatToDate('5/17/2021')
     },
     {
-        id: 3,
+        id: '3',
         fechaPago: formatToDate('5/17/2021')
     },
     {
-        id: 4,
+        id: '4',
         fechaPago: formatToDate('5/17/2021')
     },
     {
-        id: 5,
+        id: '5',
         fechaPago: formatToDate('5/17/2021')
     },
 ]
+
+
+export const displayedColumns: string[] = ['id', 'fechaPago', 'action'];

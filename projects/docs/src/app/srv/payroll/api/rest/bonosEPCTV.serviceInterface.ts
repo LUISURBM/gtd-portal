@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTBonoEpctvDto } from './dto/models';
-import { ResponseTBonoEpctvDto } from './dto/models';
-import { ResponseTListBonoEpctvDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTBonoEpctvDto } from '../model/models';
+import { ResponseTBonoEpctvDto } from '../model/models';
+import { ResponseTListBonoEpctvDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface BonosEPCTVServiceInterface {
 
     /**
      * delete BonoEpctv in the system.
-     *
+     * 
      * @param id Id BonoEpctv
      */
     deleteUsingDELETE41(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id BonoEpctv in the system.
-     *
+     * 
      * @param id Id BonoEpctv
      */
     findByIdUsingGET41(id: string, extraHttpRequestParams?: any): Observable<ResponseTBonoEpctvDto>;
 
     /**
-     * List all BonoEpctv in the system.
-     *
+     * List all BonoEpctv in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET36(extraHttpRequestParams?: any): Observable<ResponseTListBonoEpctvDto>;
+    listFindAllDevengadosUsingGET16(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListBonoEpctvDto>;
+
+    /**
+     * List all BonoEpctv in the system.
+     * 
+     */
+    listFindAllUsingGET25(extraHttpRequestParams?: any): Observable<ResponseTListBonoEpctvDto>;
 
     /**
      * save a BonoEpctv in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST41(dto: RequestTBonoEpctvDto, extraHttpRequestParams?: any): Observable<ResponseTBonoEpctvDto>;
 
     /**
      * update BonoEpctv in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT41(dto: RequestTBonoEpctvDto, extraHttpRequestParams?: any): Observable<ResponseTBonoEpctvDto>;

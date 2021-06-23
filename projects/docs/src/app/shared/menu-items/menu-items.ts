@@ -13,6 +13,7 @@ export interface Menu {
   emoji?: string;
   badge?: [{ type: string; value: string }];
   menuItems?: Menu[];
+  completo?: boolean;
 }
 
 export const MENUITEMS: Menu[] = [
@@ -32,7 +33,7 @@ export const MENUITEMS: Menu[] = [
   },
   {
     state: 'nómina',
-    name: 'Nómina',
+    name: 'Nómina Electrónica',
     type: 'link',
     icon: 'drive_folder_upload',
     emoji: '1F4C3',
@@ -83,108 +84,100 @@ export const MENUITEMS: Menu[] = [
     name: 'Parámetros',
     icon: 'settings_applications',
     emoji: '2699',
+    menuItems: [
+      {
+        state: 'button',
+        type: 'link',
+        name: 'Buttons',
+        icon: 'crop_7_5',
+      },
+      {
+        state: 'grid',
+        type: 'link',
+        name: 'Grid List',
+        icon: 'view_comfy',
+      },
+      {
+        state: 'lists',
+        type: 'link',
+        name: 'Lists',
+        icon: 'view_list',
+      },
+      {
+        state: 'menu',
+        type: 'link',
+        name: 'Menu',
+        icon: 'view_headline',
+      },
+      { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },
+      {
+        state: 'stepper',
+        type: 'link',
+        name: 'Stepper',
+        icon: 'web',
+      },
+      {
+        state: 'expansion',
+        type: 'link',
+        name: 'Expansion Panel',
+        icon: 'vertical_align_center',
+      },
+      {
+        state: 'chips',
+        type: 'link',
+        name: 'Chips',
+        icon: 'vignette',
+      },
+      {
+        state: 'toolbar',
+        type: 'link',
+        name: 'Toolbar',
+        icon: 'voicemail',
+      },
+      {
+        state: 'progress-snipper',
+        type: 'link',
+        name: 'Progress snipper',
+        icon: 'border_horizontal',
+      },
+      {
+        state: 'progress',
+        type: 'link',
+        name: 'Progress Bar',
+        icon: 'blur_circular',
+      },
+      {
+        state: 'dialog',
+        type: 'link',
+        name: 'Dialog',
+        icon: 'assignment_turned_in',
+      },
+      {
+        state: 'tooltip',
+        type: 'link',
+        name: 'Tooltip',
+        icon: 'assistant',
+      },
+      {
+        state: 'snackbar',
+        type: 'link',
+        name: 'Snackbar',
+        icon: 'adb',
+      },
+      {
+        state: 'slider',
+        type: 'link',
+        name: 'Slider',
+        icon: 'developer_mode',
+      },
+      {
+        state: 'slide-toggle',
+        type: 'link',
+        name: 'Slide Toggle',
+        icon: 'all_inclusive',
+      },
+    ],
   },
-  // {
-  //   state: 'components',
-  //   name: 'docs',
-  //   type: 'link',
-  //   icon: 'dashboard',
-  //   emoji: '1F4BC',
-  //   badge: [{type:'warn',value:'1'}],
-  //   menuItems: [
-  //     {
-  //       state: 'button',
-  //       type: 'link',
-  //       name: 'Buttons',
-  //       icon: 'crop_7_5',
-  //     },
-  //     {
-  //       state: 'grid',
-  //       type: 'link',
-  //       name: 'Grid List',
-  //       icon: 'view_comfy',
-  //     },
-  //     {
-  //       state: 'lists',
-  //       type: 'link',
-  //       name: 'Lists',
-  //       icon: 'view_list',
-  //     },
-  //     {
-  //       state: 'menu',
-  //       type: 'link',
-  //       name: 'Menu',
-  //       icon: 'view_headline',
-  //     },
-  //     { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },
-  //     {
-  //       state: 'stepper',
-  //       type: 'link',
-  //       name: 'Stepper',
-  //       icon: 'web',
-  //     },
-  //     {
-  //       state: 'expansion',
-  //       type: 'link',
-  //       name: 'Expansion Panel',
-  //       icon: 'vertical_align_center',
-  //     },
-  //     {
-  //       state: 'chips',
-  //       type: 'link',
-  //       name: 'Chips',
-  //       icon: 'vignette',
-  //     },
-  //     {
-  //       state: 'toolbar',
-  //       type: 'link',
-  //       name: 'Toolbar',
-  //       icon: 'voicemail',
-  //     },
-  //     {
-  //       state: 'progress-snipper',
-  //       type: 'link',
-  //       name: 'Progress snipper',
-  //       icon: 'border_horizontal',
-  //     },
-  //     {
-  //       state: 'progress',
-  //       type: 'link',
-  //       name: 'Progress Bar',
-  //       icon: 'blur_circular',
-  //     },
-  //     {
-  //       state: 'dialog',
-  //       type: 'link',
-  //       name: 'Dialog',
-  //       icon: 'assignment_turned_in',
-  //     },
-  //     {
-  //       state: 'tooltip',
-  //       type: 'link',
-  //       name: 'Tooltip',
-  //       icon: 'assistant',
-  //     },
-  //     {
-  //       state: 'snackbar',
-  //       type: 'link',
-  //       name: 'Snackbar',
-  //       icon: 'adb',
-  //     },
-  //     {
-  //       state: 'slider',
-  //       type: 'link',
-  //       name: 'Slider',
-  //       icon: 'developer_mode',
-  //     },
-  //     {
-  //       state: 'slide-toggle',
-  //       type: 'link',
-  //       name: 'Slide Toggle',
-  //       icon: 'all_inclusive',
-  //     },
-  //   ],
-  // },
 ];
 
 @Injectable()
@@ -214,7 +207,9 @@ export class MenuItems {
     }
   }
 
-  codePoint(emojiCodePoint:any) {
-    return String.fromCodePoint(...emojiCodePoint.split('-').map((i:any) => parseInt(i,16)));
+  codePoint(emojiCodePoint: any) {
+    return String.fromCodePoint(
+      ...emojiCodePoint.split('-').map((i: any) => parseInt(i, 16))
+    );
   }
 }

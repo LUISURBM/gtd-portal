@@ -16,8 +16,8 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { IncapacidadesService } from '../../../srv/payroll/api/rest/incapacidades.service';
-import { NgGtdDS } from '../../../types/common-types';
+import { IncapacidadesService } from '../../../srv/payroll/api/rest/api';
+import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import {
   displayedColumns,
   Incapacidad,
@@ -50,7 +50,7 @@ export class IncapacidadesComponent
   };
 
   listado = (data: any) =>
-    this.incapacidadesAPISrv.listFindAllUsingGET47(
+    this.incapacidadesAPISrv.listFindAllDevengadosUsingGET21(
       data.devengadosId,
       'events',
       true,
@@ -59,44 +59,7 @@ export class IncapacidadesComponent
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Incapacidad>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
   };
   subscriptions: Subscription[];
   constructor(
@@ -117,7 +80,7 @@ export class IncapacidadesComponent
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -128,7 +91,6 @@ export class IncapacidadesComponent
 
       this.route.params.subscribe((params) => {
         const data = JSON.parse(params['data']);
-        console.log(data);
         this.form.patchValue(data);
       }),
     ];
@@ -136,15 +98,7 @@ export class IncapacidadesComponent
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
@@ -186,10 +140,10 @@ export class IncapacidadesComponent
           if (!(response.type === 4)) return of();
           if (response.type === 4 && response.status == 200)
             this._snackBar.open(`${incapacidad.tipo}`, 'creada!', {
-              duration: 500000,
+              duration: 50000,
             });
 
-          return this.listado(response);
+          return this.listado(this.form.value);
         })
       )
       .subscribe({
@@ -258,10 +212,10 @@ export class IncapacidadesComponent
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${incapacidad.tipo}`, 'actualizado!', {
-              duration: 500000,
+            this._snackBar.open(`${incapacidad.tipo}`, 'actualizada!', {
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -286,13 +240,10 @@ export class IncapacidadesComponent
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(incapacidad?: Incapacidad): void {
     const dialogRef = this.dialog.open(IncapacidadFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: incapacidad ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

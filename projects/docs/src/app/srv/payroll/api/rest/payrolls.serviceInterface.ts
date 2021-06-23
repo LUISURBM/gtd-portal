@@ -12,29 +12,25 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Configuration } from '../configuration';
-import { ListNominaIndividualRequest } from './dto/models';
-
-
-
-
-
-
+import { ListNominaIndividualRequest } from '../model/models';
 
 export interface PayrollsServiceInterface {
-    defaultHeaders: HttpHeaders;
-    configuration: Configuration;
+  defaultHeaders: HttpHeaders;
+  configuration: Configuration;
 
-    /**
-     * Find a Payroll by docNumber in the system.
-     *
-     */
-    payrollListUsingGET1(extraHttpRequestParams?: any): Observable<string>;
+  /**
+   * Find a Payroll by docNumber in the system.
+   *
+   */
+  payrollListUsingGET1(extraHttpRequestParams?: any): Observable<string>;
 
-    /**
-     * Send a Payroll to prepare and send the document to DIAN.
-     *
-     * @param list list
-     */
-    sendListUsingPOST5(list: ListNominaIndividualRequest, extraHttpRequestParams?: any): Observable<Array<any>>;
-
+  /**
+   * Send a Payroll to prepare and send the document to DIAN.
+   *
+   * @param list list
+   */
+  sendListUsingPOST5(
+    list: ListNominaIndividualRequest,
+    extraHttpRequestParams?: any
+  ): Observable<Array<any>>;
 }

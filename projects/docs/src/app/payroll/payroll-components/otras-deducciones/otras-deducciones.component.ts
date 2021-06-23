@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,8 +15,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { OtrasDeduccionesService } from '../../../srv/payroll/api/rest/otrasDeducciones.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
+import { OtrasDeduccionesService } from '../../../srv/payroll/api/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { Deducciones } from '../deducciones/deducciones-data';
 import {
   displayedColumns,
@@ -25,7 +36,9 @@ import { OtraDeduccionFormComponent } from './otra-deduccion-form.component';
   templateUrl: './otras-deducciones.component.html',
   styleUrls: ['./otra-deduccion.component.css'],
 })
-export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestroy {
+export class OtrasDeduccionesComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
     datasource: new MatTableDataSource<Deducciones>([]),
@@ -43,48 +56,22 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.otrasDeduccionesAPISrv.listFindAllUsingGET56('events', true, {});
+    this.otrasDeduccionesAPISrv.listFindAllDeduccionesUsingGET5(
+      data?.deduccionesId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<OtraDeduccion>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -99,13 +86,13 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
       filtro: '',
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
-      devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -127,15 +114,7 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(otraDeducion: OtraDeduccion): void {
     if (!otraDeducion) {
@@ -170,10 +149,10 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${otraDeducion.otraDeduccion}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -185,7 +164,10 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
 
   delete(otraDeduccion: OtraDeduccion): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar Deducción ${otraDeduccion.otraDeduccion}!?`)
+      confirm(
+        this.dialog,
+        `¿Eliminar Deducción ${otraDeduccion.otraDeduccion}!?`
+      )
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -219,7 +201,7 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
       entidad: {
         otraDeduccion: otraDeduccion.otraDeduccion,
         id: otraDeduccion.id,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -239,10 +221,14 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${otraDeduccion.otraDeduccion}`, 'actualizada!', {
-              duration: 500000,
-            });
-            return this.listado(response);
+            this._snackBar.open(
+              `${otraDeduccion.otraDeduccion}`,
+              'actualizada!',
+              {
+                duration: 50000,
+              }
+            );
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -273,14 +259,15 @@ export class OtrasDeduccionesComponent implements OnInit, AfterViewInit, OnDestr
       data: otraDeduccion ? otraDeduccion : EMPTY,
     });
 
-    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    }));
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
 }

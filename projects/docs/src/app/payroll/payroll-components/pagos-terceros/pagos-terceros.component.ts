@@ -15,9 +15,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { PagosTercerosService } from '../../../srv/payroll/api/rest/pagosTerceros.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
-import { Licencia } from '../licencias/licencia-data';
+import { PagosTercerosService } from '../../../srv/payroll/api/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { displayedColumns, EMPTY, PagoTercero } from './pago-tercero-data';
 import { PagoTerceroFormComponent } from './pago-tercero-form.component';
 
@@ -46,48 +50,22 @@ export class PagosTercerosComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.pagosTercerosAPISrv.listFindAllUsingGET59(data.devengadosId, 'events', true, {});
+    this.pagosTercerosAPISrv.listFindAllDeduccionesUsingGET6(
+      data.deduccionesId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Licencia>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -102,13 +80,13 @@ export class PagosTercerosComponent
       filtro: '',
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
-      devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -141,7 +119,7 @@ export class PagosTercerosComponent
       entidad: {
         id: undefined,
         pagoTercero: pagoTercero.pagoTercero,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018859FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -168,7 +146,7 @@ export class PagosTercerosComponent
                 duration: 590000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -217,7 +195,7 @@ export class PagosTercerosComponent
       entidad: {
         pagoTercero: pagoTercero.pagoTercero,
         id: pagoTercero.id,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018859FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -240,7 +218,7 @@ export class PagosTercerosComponent
             this._snackBar.open(`${pagoTercero.pagoTercero}`, 'actualizado!', {
               duration: 590000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

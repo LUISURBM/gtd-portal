@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTEmpleadorDto } from './dto/models';
-import { ResponseTEmpleadorDto } from './dto/models';
-import { ResponseTListEmpleadorDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTEmpleadorDto } from '../model/models';
+import { ResponseTEmpleadorDto } from '../model/models';
+import { ResponseTListEmpleadorDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -199,10 +199,10 @@ export class EmpleadoresService implements EmpleadoresServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET42(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListEmpleadorDto>;
-    public listFindAllUsingGET42(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListEmpleadorDto>>;
-    public listFindAllUsingGET42(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListEmpleadorDto>>;
-    public listFindAllUsingGET42(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET30(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListEmpleadorDto>;
+    public listFindAllUsingGET30(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListEmpleadorDto>>;
+    public listFindAllUsingGET30(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListEmpleadorDto>>;
+    public listFindAllUsingGET30(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 

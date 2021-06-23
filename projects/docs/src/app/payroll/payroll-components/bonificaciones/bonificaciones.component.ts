@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   OnDestroy,
   OnInit,
@@ -18,20 +19,15 @@ import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-d
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
 import { BonificacionesService } from '../../../srv/payroll/api/rest/bonificaciones.service';
-import { LicenciasService } from '../../../srv/payroll/api/rest/licencias.service';
 import { NgGtdDS } from '../../../types/common-types';
-import {
-  Bonificacion,
-  bonificaciones,
-  displayedColumns,
-  EMPTY,
-} from './bonificacion-data';
+import { Bonificacion, displayedColumns, EMPTY } from './bonificacion-data';
 import { BonificacionFormComponent } from './bonificacion-form.component';
 
 @Component({
   selector: 'app-payroll-bonificaciones',
   templateUrl: './bonificaciones.component.html',
   styleUrls: ['./bonificacion.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BonificacionesComponent
   implements OnInit, AfterViewInit, OnDestroy
@@ -53,7 +49,7 @@ export class BonificacionesComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.bonificacionesAPISrv.listFindAllUsingGET35('events', true, {});
+    this.bonificacionesAPISrv.listFindAllDevengadosUsingGET15( data?.devengadosId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -116,7 +112,7 @@ export class BonificacionesComponent
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -180,10 +176,10 @@ export class BonificacionesComponent
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`Bonificación`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -202,10 +198,7 @@ export class BonificacionesComponent
               ? this.bonificacionesAPISrv.deleteUsingDELETE40(
                   bonificacion.id,
                   'events',
-                  true,
-                  {
-                    httpHeaderAccept: 'application/json',
-                  }
+                  true
                 )
               : of()
           ),
@@ -250,9 +243,9 @@ export class BonificacionesComponent
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`Bonificación`, 'actualizada!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -277,13 +270,10 @@ export class BonificacionesComponent
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(bonificacion?: Bonificacion): void {
     const dialogRef = this.dialog.open(BonificacionFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: bonificacion ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -292,6 +282,7 @@ export class BonificacionesComponent
       else this.add(result);
     });
   }
+
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 

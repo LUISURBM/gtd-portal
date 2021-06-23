@@ -15,8 +15,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { OtrosConceptosService } from '../../../srv/payroll/api/rest/otrosConceptos.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
+import { OtrosConceptosService } from '../../../srv/payroll/api/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { OtroConceptoFormComponent } from './otro-concepto-form.component';
 import {
   displayedColumns,
@@ -50,7 +55,7 @@ export class OtrosConceptosComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.otrosConceptosAPISrv.listFindAllUsingGET57(
+    this.otrosConceptosAPISrv.listFindAllDevengadosUsingGET23(
       data.devengadosId,
       'events',
       true,
@@ -59,44 +64,13 @@ export class OtrosConceptosComponent
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<OtroConcepto>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -117,7 +91,7 @@ export class OtrosConceptosComponent
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -128,7 +102,6 @@ export class OtrosConceptosComponent
 
       this.route.params.subscribe((params) => {
         const data = JSON.parse(params['data']);
-        console.log(data);
         this.form.patchValue(data);
       }),
     ];
@@ -139,15 +112,7 @@ export class OtrosConceptosComponent
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(otroConcepto: OtroConcepto): void {
     if (!otroConcepto) {
@@ -160,6 +125,7 @@ export class OtrosConceptosComponent
         conceptoNs: otroConcepto.conceptoNs,
         conceptoS: otroConcepto.conceptoS,
         descripcionConcepto: otroConcepto.descripcionConcepto,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018857FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -186,7 +152,7 @@ export class OtrosConceptosComponent
                 duration: 570000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -234,6 +200,7 @@ export class OtrosConceptosComponent
         conceptoNs: otroConcepto.conceptoNs,
         conceptoS: otroConcepto.conceptoS,
         descripcionConcepto: otroConcepto.descripcionConcepto,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018857FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -256,7 +223,7 @@ export class OtrosConceptosComponent
             this._snackBar.open(`Concepto`, 'actualizado!', {
               duration: 570000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -281,13 +248,10 @@ export class OtrosConceptosComponent
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(otroConcepto?: OtroConcepto): void {
     const dialogRef = this.dialog.open(OtroConceptoFormComponent, {
       width: '457px',
-      data: editing ? editing : EMPTY,
+      data: otroConcepto ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

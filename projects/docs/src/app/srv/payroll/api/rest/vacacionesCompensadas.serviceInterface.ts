@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTVacacionesCompensadasDto } from './dto/models';
-import { ResponseTListVacacionesCompensadasDto } from './dto/models';
-import { ResponseTVacacionesCompensadasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTVacacionesCompensadasDto } from '../model/models';
+import { ResponseTListVacacionesCompensadasDto } from '../model/models';
+import { ResponseTVacacionesCompensadasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface VacacionesCompensadasServiceInterface {
 
     /**
      * delete Vacaciones Compensada in the system.
-     *
+     * 
      * @param id Id Vacaciones Compensada
      */
     deleteUsingDELETE72(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Vacaciones Compensada in the system.
-     *
+     * 
      * @param id Id Vacaciones Compensada
      */
     findByIdUsingGET72(id: string, extraHttpRequestParams?: any): Observable<ResponseTVacacionesCompensadasDto>;
 
     /**
-     * List all Vacaciones Compensada in the system.
-     *
+     * List all Vacaciones Compensada in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET66(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesCompensadasDto>;
+    listFindAllDevengadosUsingGET26(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListVacacionesCompensadasDto>;
+
+    /**
+     * List all Vacaciones Compensada in the system.
+     * 
+     */
+    listFindAllUsingGET46(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesCompensadasDto>;
 
     /**
      * save a Vacaciones Compensada in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST72(dto: RequestTVacacionesCompensadasDto, extraHttpRequestParams?: any): Observable<ResponseTVacacionesCompensadasDto>;
 
     /**
      * update Vacaciones Compensada in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT72(dto: RequestTVacacionesCompensadasDto, extraHttpRequestParams?: any): Observable<ResponseTVacacionesCompensadasDto>;

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,13 +10,11 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { HorariosAdicionalesService } from '../../../srv/payroll/api/rest/horariosAdicionales.service';
-import { LicenciasService } from '../../../srv/payroll/api/rest/licencias.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
+import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import {
   displayedColumns,
   EMPTY,
-  HorarioAdicional,
-  HorariosAdicionales,
+  HorarioAdicional
 } from './horario-adicional-data';
 import { HorarioAdicionalFormComponent } from './horario-adicional-form.component';
 
@@ -43,48 +41,11 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.horariosAdicionalesAPISrv.listFindAllUsingGET45(data.devengadosId, 'events', true, {});
+    this.horariosAdicionalesAPISrv.findAllDevengadoIdUsingGET3(data?.devengadosId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.body?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<HorarioAdicional>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
   };
 
   constructor(
@@ -105,7 +66,7 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -127,15 +88,7 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(horarioAdicional: HorarioAdicional): void {
     if (!horarioAdicional) {
@@ -175,10 +128,10 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${horarioAdicional.catalog}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -250,9 +203,9 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`${horarioAdicional.catalog}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

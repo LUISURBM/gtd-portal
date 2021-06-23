@@ -13,131 +13,21 @@
     </div>
     <div class="row card-body">
 
-        <div class="col-12 type-tooltip-ne" formGroupName="basico">
-          <span>Básico</span>
-          <div class="type-tooltip-ne">
-            <span>Días trabajados</span>
-            <mat-form-field>
-              <input matInput tabindex="2" formControlName="diasTrabajados" placeholder="dias trabajados"
-                id="diasTrabajados" type="text" class="form-control" />
-            </mat-form-field>
-          </div>
+      <div class="col-12 type-tooltip-ne" *ngFor="let valor of valores; let i = index;">
+        <span>{{valor.name!}} | {{valor.catalog!}}</span>
+        <mat-form-field [ngSwitch]="valor.catalog!" appearance="fill">
+          <input *ngSwitchCase="'number'" matInput tabindex="2" [formControlName]="valor.code!"
+            [placeholder]="valor.name!" [id]="valor.code!" type="text" class="form-control" />
 
-          <div class="type-tooltip-ne">
-            <span>Sueldo trabajado</span>
-            <mat-form-field>
-              <input matInput tabindex="2" formControlName="sueldoTrabajado" placeholder="sueldo trabajado"
-                id="sueldoTrabajado" type="text" class="form-control" />
-            </mat-form-field>
-          </div>
-        </div>
+          <ng-container *ngSwitchCase="'date'">
+            <mat-label>{{valor.name!}}</mat-label>
+            <input matInput [matDatepicker]="picker" [formControlName]="valor.code!" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+          </ng-container>
+        </mat-form-field>
+      </div>
 
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>Ver basicos</span>
-          <mat-form-field>
-            <mat-select class="example-select" #catalog tabindex="1" formControlName="basicoId" id="basicoId">
-              <mat-option value="1"> Basico 1</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>Ver primas</span>
-          <mat-form-field>
-            <mat-select class="example-select" #catalog tabindex="1" formControlName="primasId" id="primasId">
-              <mat-option value="1"> Prima 1</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>Ver basicos</span>
-          <mat-form-field>
-            <mat-select class="example-select" #catalog tabindex="1" formControlName="cesantiasId" id="cesantiasId">
-              <mat-option value="1"> Cesantía 1</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>Dotación</span>
-          <mat-form-field>
-            <input matInput tabindex="1" formControlName="dotacion" placeholder="Dotación" id="dotacion" type="text"
-              class="form-control" />
-            <div *ngIf="f.dotacion.touched && f.dotacion.invalid" class="alert alert-danger">
-              <div *ngIf="f.dotacion.errors?.required">
-                dotacion es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>apoyoSost</span>
-          <mat-form-field>
-            <input matInput tabindex="2" formControlName="apoyoSost" placeholder="apoyoSost" id="apoyoSost" type="text"
-              class="form-control" />
-            <div *ngIf="f.apoyoSost.touched && f.apoyoSost.invalid" class="alert alert-danger">
-              <div *ngIf="f.apoyoSost.errors?.required">
-                apoyoSost es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>teletrabajo</span>
-          <mat-form-field>
-            <input matInput tabindex="2" formControlName="teletrabajo" placeholder="teletrabajo" id="teletrabajo"
-              type="text" class="form-control" />
-            <div *ngIf="f.teletrabajo.touched && f.teletrabajo.invalid" class="alert alert-danger">
-              <div *ngIf="f.teletrabajo.errors?.required">
-                teletrabajo es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
-
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>bonifRetiro</span>
-          <mat-form-field>
-            <input matInput tabindex="2" formControlName="bonifRetiro" placeholder="bonifRetiro" id="bonifRetiro"
-              type="text" class="form-control" />
-            <div *ngIf="f.bonifRetiro.touched && f.bonifRetiro.invalid" class="alert alert-danger">
-              <div *ngIf="f.bonifRetiro.errors?.required">
-                bonifRetiro es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>indemnizacion</span>
-          <mat-form-field>
-            <input matInput tabindex="2" formControlName="indemnizacion" placeholder="indemnizacion" id="indemnizacion"
-              type="text" class="form-control" />
-            <div *ngIf="f.indemnizacion.touched && f.indemnizacion.invalid" class="alert alert-danger">
-              <div *ngIf="f.indemnizacion.errors?.required">
-                indemnizacion es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 type-tooltip-ne" matTooltip="Tooltip!">
-          <span>reintegro</span>
-          <mat-form-field>
-            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro" type="text"
-              class="form-control" />
-            <div *ngIf="f.reintegro.touched && f.reintegro.invalid" class="alert alert-danger">
-              <div *ngIf="f.reintegro.errors?.required">
-                reintegro es obligatorio.
-              </div>
-            </div>
-          </mat-form-field>
-        </div>
 
     </div>
   </div>

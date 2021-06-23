@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of, Subscription } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { Menu } from '../../../shared/menu-items/menu-items';
-import { AppStateService } from '../../../srv/app-state.service';
+import { AppStateService, UIState } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
+import { TrabajadoresService } from '../../../srv/payroll/api/rest/trabajadores.service';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
 
 @Component({
@@ -27,7 +28,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     return {
       entidad: {
         id: this.form.value.id,
-        trabajador: this.form.value.trabajador,
+        trabajadorId: this.form.value.trabajadorId,
         nominaGeneralId: this.form.value.nominaGeneralId,
         devengadosTotal: this.form.value.devengadosTotal,
         deduccionesTotal: this.form.value.deduccionesTotal,
@@ -42,11 +43,16 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
   }
 
   get isEditing() {
-    return this.form.value.id;
+    return (
+      this.form.value.id &&
+      this.form.value.id != null &&
+      this.form.value.id != undefined &&
+      this.form.value.id != 'undefined'
+    );
   }
 
   get saveOrUpdate() {
-    return this.isEditing
+    return !this.isEditing
       ? this.nominaIndividualAPISrv.saveUsingPOST58(
           this.request,
           'events',
@@ -64,6 +70,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
           }
         );
   }
+
   constructor(
     public builder: FormBuilder,
     public dialog: MatDialog,
@@ -72,6 +79,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     private elRef: ElementRef,
     public navSrv: NavigationService,
     private nominaIndividualAPISrv: NominasIndividualesService,
+    private trabajadoresAPISrv: TrabajadoresService,
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private appState: AppStateService
@@ -81,41 +89,42 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     const form = this.builder.group({
       menuItem: builder.control(''),
       id: undefined,
-      trabajador: builder.group({
-        id: builder.control(''),
-        primerNombre: builder.control(''),
-        sueldo: builder.control(0),
-      }),
-      deducciones: builder.group({
-        id: builder.control(''),
-      }),
-      devengados: builder.group({
-        id: builder.control(''),
-      }),
+      trabajadorId: builder.control(''),
+      sueldo: builder.control(0),
+      primerNombre: builder.control(''),
+      deduccionesId: builder.control(''),
+      devengadosId: builder.control(''),
       deduccion: 0,
       devengos: 0,
       totalAPagar: 0,
       nominaGeneralId: builder.control(''),
       nominaIndividualId: undefined,
       fechaCorte: new Date(),
+      loading: builder.control(undefined),
     });
+    this.loading();
     this.form = form;
-    this.subscriptions.push(
+    this.subscriptions = [
       this.route.params
         .pipe(
           switchMap((params) => {
-            this.loading;
             const data = JSON.parse(params['data']);
             this.form.patchValue(data);
             if (data['nominaIndividualId'] === undefined) return of(form.value);
-            return nominaIndividualAPISrv.findByIdUsingGET58(
-              data['nominaIndividualId'],
-              'events',
-              true,
-              {
+            return nominaIndividualAPISrv
+              .findByIdUsingGET58(data['nominaIndividualId'], 'events', true, {
                 httpHeaderAccept: 'application/json',
-              }
-            );
+              })
+              .pipe(
+                switchMap((individual:any) => {
+                  if (!individual?.body?.bodyDto?.trabajadorId) return of();
+                  return this.trabajadoresAPISrv.findByIdUsingGET70(
+                    individual?.body?.bodyDto?.trabajadorId,
+                    'events',
+                    true
+                  );
+                })
+              );
           })
         )
         .subscribe({
@@ -124,9 +133,12 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
               this.form.patchValue({
                 ...data?.body?.bodyDto,
                 nominaGeneralId: this.form.value.nominaGeneralId,
+                nominaIndividualId: this.form.value.id,
                 fechaCorte: this.form.value.fechaCorte,
               });
-            this.loading;
+          },
+          complete: () => {
+            this.loading();
           },
           error: (err: any) => {
             console.log(err);
@@ -135,7 +147,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       this.form.valueChanges.subscribe((filter) => {
         this.filter(filter?.menuItem);
       })
-    );
+    ];
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
@@ -147,7 +159,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
 
   generalData = () => {
     return JSON.stringify({
-      nominaGeneralId: this.form.value.nominaGeneralId.id,
+      nominaGeneralId: this.form.value.nominaGeneralId,
       fechaCorte: this.form.value.fechaCorte,
     });
   };
@@ -158,12 +170,17 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       nominaGeneralId: this.form.value.nominaGeneralId,
       fechaCorte: this.form.value.fechaCorte,
       trabajador: this.form.value.trabajador,
-      devengadosId: this.form.value.devengados.id,
-      deduccionesId: this.form.value.deducciones.id,
+      devengadosId: this.form.value.devengadosId,
+      deduccionesId: this.form.value.deduccionesId,
     });
   };
 
-  onNoClick(): void {}
+  onNoClick(): void {
+    this.navSrv.navigate('/nómina/individual', {
+      nominaGeneralId: this.form.value.nominaIndividualId,
+      fechaCorte: this.form.value.fechaCorte,
+    });
+  }
 
   save() {
     if (this.form.errors) {
@@ -175,14 +192,14 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
         console.log(data);
         if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto) {
           this._snackBar.open(
-            `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
+            `Nómina Individual para ${this.form.value?.primerNombre}`,
             this.isEditing ? 'Actualizada' : 'creada!',
             { duration: 5000 }
           );
           this.form.patchValue(data?.body?.bodyDto);
         } else if (data?.type === 4) {
           this._snackBar.open(
-            `Nómina Individual para ${data?.body?.bodyDto?.trabajador?.primerNombre}`,
+            `Nómina Individual para ${this.form.value?.primerNombre}`,
             'no creada!',
             { duration: 5000 }
           );
@@ -236,7 +253,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
               `${this.form.value.trabajador.primerNombre}`,
               'eliminado!',
               {
-                duration: 500000,
+                duration: 50000,
               }
             );
             return of(
@@ -250,7 +267,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
             `${this.form.value.trabajador.primerNombre}`,
             'no eliminado!',
             {
-              duration: 500000,
+              duration: 50000,
             }
           );
           return of();
@@ -276,7 +293,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
                 `Nómina individual para ${this.form.value.trabajador.nombre}`,
                 'creada!',
                 {
-                  duration: 500000,
+                  duration: 50000,
                 }
               );
             } else if (data.type === 4) {
@@ -284,7 +301,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
                 `Nómina individual para ${this.form.value.trabajador.nombre}`,
                 'creada!',
                 {
-                  duration: 500000,
+                  duration: 50000,
                 }
               );
             }
@@ -307,6 +324,5 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     return dialogRef.afterClosed();
   }
 
-  loading = () =>
-    this.appState.toggleLoading;
+  loading = () =>this.appState.toggleLoading();
 }

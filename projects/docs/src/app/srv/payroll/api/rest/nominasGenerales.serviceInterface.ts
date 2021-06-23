@@ -13,9 +13,9 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTNominaGeneralDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTNominaGeneralDto } from './dto/models';
+import { RequestTNominaGeneralDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTNominaGeneralDto } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -28,35 +28,35 @@ export interface NominasGeneralesServiceInterface {
 
     /**
      * delete Nomina General in the system.
-     *
+     * 
      * @param id Id Nomina General
      */
     deleteUsingDELETE57(id: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * find by id Nomina General in the system.
-     *
+     * 
      * @param id Id Nomina General
      */
     findByIdUsingGET57(id: string, extraHttpRequestParams?: any): Observable<ResponseTNominaGeneralDto>;
 
     /**
      * List all Nomina General in the system.
-     *
+     * 
      * @param businessSubscriptionId businessSubscriptionId
      */
-    listFindAllUsingGET52(businessSubscriptionId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET35(businessSubscriptionId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Nomina General in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST57(dto: RequestTNominaGeneralDto, extraHttpRequestParams?: any): Observable<ResponseTNominaGeneralDto>;
 
     /**
      * update Nomina General in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT57(dto: RequestTNominaGeneralDto, extraHttpRequestParams?: any): Observable<ResponseTNominaGeneralDto>;

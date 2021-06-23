@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTListNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTNumeroSecuenciaXmlDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTNumeroSecuenciaXmlDto } from '../model/models';
+import { ResponseTListNumeroSecuenciaXmlDto } from '../model/models';
+import { ResponseTNumeroSecuenciaXmlDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -199,10 +199,10 @@ export class NumerosSecuenciaXMLService implements NumerosSecuenciaXMLServiceInt
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET55(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListNumeroSecuenciaXmlDto>;
-    public listFindAllUsingGET55(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListNumeroSecuenciaXmlDto>>;
-    public listFindAllUsingGET55(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListNumeroSecuenciaXmlDto>>;
-    public listFindAllUsingGET55(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET38(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListNumeroSecuenciaXmlDto>;
+    public listFindAllUsingGET38(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListNumeroSecuenciaXmlDto>>;
+    public listFindAllUsingGET38(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListNumeroSecuenciaXmlDto>>;
+    public listFindAllUsingGET38(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 

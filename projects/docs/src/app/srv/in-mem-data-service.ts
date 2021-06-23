@@ -10,6 +10,7 @@ export interface ValuesCatalog {
   catalog?: string;
   fecha?: Date;
   business?: ValuesCatalog;
+  value?: any
 };
 
 @Injectable({

@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTTrabajadorDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTTrabajadorDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTTrabajadorDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTTrabajadorDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,34 @@ export interface TrabajadoresServiceInterface {
 
     /**
      * delete Trabajador in the system.
-     *
+     * 
      * @param id Id Trabajador
      */
     deleteUsingDELETE70(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Trabajador in the system.
-     *
+     * 
      * @param id Id Trabajador
      */
     findByIdUsingGET70(id: string, extraHttpRequestParams?: any): Observable<ResponseTTrabajadorDto>;
 
     /**
      * List all Trabajador in the system.
-     *
+     * 
      */
     listtrabajadorUsingGET1(extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Trabajador in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST70(dto: RequestTTrabajadorDto, extraHttpRequestParams?: any): Observable<ResponseTTrabajadorDto>;
 
     /**
      * update Trabajador in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT70(dto: RequestTTrabajadorDto, extraHttpRequestParams?: any): Observable<ResponseTTrabajadorDto>;

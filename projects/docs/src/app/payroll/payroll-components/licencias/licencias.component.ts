@@ -16,8 +16,8 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { LicenciasService } from '../../../srv/payroll/api/rest/licencias.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
+import { LicenciasService } from '../../../srv/payroll/api/rest/api';
+import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, Licencia, licencias } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';
 
@@ -29,7 +29,7 @@ import { LicenciaFormComponent } from './licencia-form.component';
 export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<Licencia>(licencias),
+    datasource: new MatTableDataSource<Licencia>([]),
     displayedColumns: displayedColumns,
   });
 
@@ -44,48 +44,11 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.licenciasAPISrv.listFindAllUsingGET50('events', true, {});
+    this.licenciasAPISrv.listFindAllDevengadosUsingGET22(data?.devengadosId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Licencia>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
   };
   constructor(
     public memSrv: InMemService,
@@ -105,7 +68,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -116,7 +79,6 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
 
       this.route.params.subscribe((params) => {
         const data = JSON.parse(params['data']);
-        console.log(data);
         this.form.patchValue(data);
       }),
     ];
@@ -128,13 +90,6 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
   }
 
   add(licencia: Licencia): void {
@@ -174,10 +129,10 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${licencia.catalog}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -248,9 +203,9 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`${licencia.catalog}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

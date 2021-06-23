@@ -97,11 +97,11 @@
         <div class="col-12 type-tooltip-ne">
           <span>educacion</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="planComplementarios" placeholder="planComplementarios"
-              id="planComplementarios" type="text" class="form-control" />
-            <div *ngIf="f.planComplementarios.touched && f.planComplementarios.invalid" class="alert alert-danger">
-              <div *ngIf="f.planComplementarios.errors?.required">
-                planComplementarios es obligatorio.
+            <input matInput tabindex="2" formControlName="educacion" placeholder="educacion"
+              id="educacion" type="text" class="form-control" />
+            <div *ngIf="f.educacion.touched && f.educacion.invalid" class="alert alert-danger">
+              <div *ngIf="f.educacion.errors?.required">
+                educacion es obligatorio.
               </div>
             </div>
           </mat-form-field>
@@ -109,7 +109,7 @@
         <div class="type-tooltip-ne">
           <span>reintegro</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro" type="text"
+            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro" type="number"
               class="form-control" />
           </mat-form-field>
         </div>
@@ -117,7 +117,7 @@
         <div class="type-tooltip-ne">
           <span>deuda</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="deuda" placeholder="deuda" id="deuda" type="text"
+            <input matInput tabindex="2" formControlName="deuda" placeholder="deuda" id="deuda" type="number"
               class="form-control" />
           </mat-form-field>
         </div>

@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTEmpleadorDto } from './dto/models';
-import { ResponseTEmpleadorDto } from './dto/models';
-import { ResponseTListEmpleadorDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTEmpleadorDto } from '../model/models';
+import { ResponseTEmpleadorDto } from '../model/models';
+import { ResponseTListEmpleadorDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,34 @@ export interface EmpleadoresServiceInterface {
 
     /**
      * delete Empleador in the system.
-     *
+     * 
      * @param id Id Empleador
      */
     deleteUsingDELETE47(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Empleador in the system.
-     *
+     * 
      * @param id Id Empleador
      */
     findByIdUsingGET47(id: string, extraHttpRequestParams?: any): Observable<ResponseTEmpleadorDto>;
 
     /**
      * List all Empleador in the system.
-     *
+     * 
      */
-    listFindAllUsingGET42(extraHttpRequestParams?: any): Observable<ResponseTListEmpleadorDto>;
+    listFindAllUsingGET30(extraHttpRequestParams?: any): Observable<ResponseTListEmpleadorDto>;
 
     /**
      * save a Empleador in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST47(dto: RequestTEmpleadorDto, extraHttpRequestParams?: any): Observable<ResponseTEmpleadorDto>;
 
     /**
      * update Empleador in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT47(dto: RequestTEmpleadorDto, extraHttpRequestParams?: any): Observable<ResponseTEmpleadorDto>;

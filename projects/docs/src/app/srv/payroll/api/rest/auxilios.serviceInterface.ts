@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTAuxilioDto } from './dto/models';
-import { ResponseTAuxilioDto } from './dto/models';
-import { ResponseTListAuxilioDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTAuxilioDto } from '../model/models';
+import { ResponseTAuxilioDto } from '../model/models';
+import { ResponseTListAuxilioDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface AuxiliosServiceInterface {
 
     /**
      * delete Auxilio in the system.
-     *
+     * 
      * @param id Id Auxilio
      */
     deleteUsingDELETE38(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
+     * List all Auxilio in the system.
+     * 
+     * @param devengadosId DevengadosId
+     */
+    findAllDevengadoIdUsingGET2(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListAuxilioDto>;
+
+    /**
      * find by id Auxilio in the system.
-     *
+     * 
      * @param id Id Auxilio
      */
     findByIdUsingGET38(id: string, extraHttpRequestParams?: any): Observable<ResponseTAuxilioDto>;
 
     /**
-     * List all Auxilio in the system.
-     *
-     * @param devengadosId DevengadosId
-     */
-    listFindAllUsingGET34(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListAuxilioDto>;
-
-    /**
      * save a Auxilio in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST38(dto: RequestTAuxilioDto, extraHttpRequestParams?: any): Observable<ResponseTAuxilioDto>;
 
     /**
      * update Auxilio in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT38(dto: RequestTAuxilioDto, extraHttpRequestParams?: any): Observable<ResponseTAuxilioDto>;

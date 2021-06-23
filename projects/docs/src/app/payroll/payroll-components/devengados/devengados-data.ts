@@ -300,17 +300,8 @@ export const devengados: Devengados[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
-  'basicoId',
-  'primasId',
-  'cesantiasId',
-  'dotacion',
-  'apoyoSost',
-  'teletrabajo',
-  'bonifRetiro',
-  'indemnizacion',
-  'reintegro',
-  'action',
+  'devengado',
+  'valor'
 ];
 
 export const EMPTY = {
@@ -330,7 +321,7 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: 'devengos', name: 'General devengos', type: 'link', icon: 'work', emoji: '1F4B5' },
+  { state: '/nómina/devengos', name: 'General devengos', type: 'link', icon: 'work', emoji: '1F4B5', completo: true },
   { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F9FE' },
   { state: 'auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm', emoji: '1F4B8' },
   { state: 'bonificaciones', name: 'Bonificación', type: 'link', icon: 'money', emoji: '1F4B6' },
@@ -344,6 +335,7 @@ export const MENU_ITEMS = [
   { state: 'licencias', name: 'Licencias', type: 'link', icon: 'receipt', emoji: '1F39F' },
   { state: 'otrosConceptos', name: 'Otros Conceptos', type: 'link', icon: 'receipt', emoji: '1F4B5' },
   { state: 'pagosTerceros', name: 'Pagos de Tercero', type: 'link', icon: 'payments', emoji: '1F4B0' },
+  { state: 'primas', name: 'Primas', type: 'link', icon: 'payments', emoji: '1F4B0' },
   { state: 'transportes', name: 'Transporte', type: 'link', icon: 'transfer_within_a_station', emoji: '1F695' },
   { state: 'vacaciones', name: 'Vacaciones', type: 'link', icon: 'flight_takeoff', emoji: '1F305' },
 ];

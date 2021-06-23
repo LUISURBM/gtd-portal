@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTComisionDto } from './dto/models';
-import { ResponseTComisionDto } from './dto/models';
-import { ResponseTListComisionDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTComisionDto } from '../model/models';
+import { ResponseTComisionDto } from '../model/models';
+import { ResponseTListComisionDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -200,12 +200,12 @@ export class ComisionesService implements ComisionesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET38(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListComisionDto>;
-    public listFindAllUsingGET38(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListComisionDto>>;
-    public listFindAllUsingGET38(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListComisionDto>>;
-    public listFindAllUsingGET38(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllDevengadosUsingGET17(devengadosId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListComisionDto>;
+    public listFindAllDevengadosUsingGET17(devengadosId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListComisionDto>>;
+    public listFindAllDevengadosUsingGET17(devengadosId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListComisionDto>>;
+    public listFindAllDevengadosUsingGET17(devengadosId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (devengadosId === null || devengadosId === undefined) {
-            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllUsingGET38.');
+            throw new Error('Required parameter devengadosId was null or undefined when calling listFindAllDevengadosUsingGET17.');
         }
 
         let headers = this.defaultHeaders;

@@ -36,6 +36,16 @@ File: scss
 
 html .page-wrapper {
   height: calc(100vh);
+  overflow-y: auto;
+  .page-content {
+    // padding: 15px;
+    height: 100vh;
+  }
+}
+
+html .page-view {
+  height: auto;
+  overflow-y: auto;
   .page-content {
     // padding: 15px;
     height: 100vh;

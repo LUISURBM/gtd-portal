@@ -7,9 +7,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
 import { NavigationService } from '../../../srv/navigation.service';
 import { AppStateService } from '../../../srv/app-state.service';
@@ -59,7 +59,7 @@ export const slideInAnimation = trigger('routeAnimations', [
   templateUrl: './deducciones-view.component.html',
   animations: [slideInAnimation]
 })
-export class DeduccionesViewComponent {
+export class DeduccionesViewComponent implements OnInit{
   position = 'below';
   public menuItems: Menu[];
 
@@ -67,6 +67,7 @@ export class DeduccionesViewComponent {
   subscriptions: Subscription[] = [];
   constructor(
     public builder: FormBuilder,
+    public router: Router,
     public route: ActivatedRoute,
     public stateSrv: AppStateService,
     private elRef: ElementRef,
@@ -83,10 +84,11 @@ export class DeduccionesViewComponent {
       trabajador: builder.group({
         id: builder.control(''),
         primerNombre: builder.control(''),
+        primerApellido: builder.control(''),
         sueldo: builder.control(0),
       }),
     });
-    this.subscriptions.push(
+    this.subscriptions = [
       this.route.params.subscribe((params) => {
         const data1 = JSON.parse(params['data']);
         this.form.patchValue(data1);
@@ -94,10 +96,13 @@ export class DeduccionesViewComponent {
       this.form.valueChanges.subscribe((filter) => {
         this.filter(filter?.menuItem);
       })
-    );
+    ];
   }
+  ngOnInit(): void { }
 
-  onNoClick(): void {}
+  onNoClick(): void {
+    this.navSrv.navigate('/nónima/view', JSON.stringify({ nominaIndividualId: this.form.value.nominaIndividualId.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}));
+  }
 
   save() {}
 
@@ -125,14 +130,30 @@ export class DeduccionesViewComponent {
     );
   }
 
+  generalData = () => {
+    return JSON.stringify({
+      nominaGeneralId: this.form.value.nominaGeneralId,
+      deduccionesId: this.form.value.deduccionesId,
+      fechaCorte: this.form.value.fechaCorte,
+    });
+  };
+
   deduccionesData = () => {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
       deduccionesId: this.form.value.deduccionesId,
+      fechaCorte: this.form.value.fechaCorte,
+    });
+  };
+
+  individualData = () => {
+    return JSON.stringify({
+      nominaIndividualId: this.form.value.nominaIndividualId,
+      fechaCorte: this.form.value.fechaCorte,
     });
   };
 
   primerNombreTrabajador(){
-    return `${this.form.value.trabajador.primerNombre.substr(1)}. ${this.form.value.trabajador.primerApellido}`;
+    return `${this.form.value.trabajador.primerNombre?.substring(0,1)}. ${this.form.value.trabajador.primerApellido ?? ''}`;
   }
 }

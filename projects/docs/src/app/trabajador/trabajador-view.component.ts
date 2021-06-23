@@ -59,6 +59,31 @@ export class TrabajadorViewComponent implements OnInit{
 
     this.form = this.builder.group({
       menuItem: builder.control(''),
+      filtro: '',
+      fechaCorte: new Date(),
+      nominaGeneralId: undefined,
+      devengadosId: undefined,
+      id: builder.control(''),
+
+      tipoDocumento: builder.control(''),
+      numeroDocumento: builder.control(Number),
+      primerNombre: builder.control(''),
+      otrosNombres: builder.control(''),
+      primerApellido: builder.control(''),
+      segundoApellido: builder.control(''),
+
+      lugarTrabajoDepartamentoEstado: builder.control(''),
+      lugarTrabajoDireccion: builder.control(''),
+      lugarTrabajoMunicipioCiudad: builder.control(''),
+      lugarTrabajoPais: builder.control(''),
+
+      altoRiesgoPension: builder.control(Boolean),
+      codigoTrabajador: builder.control(Number),
+      salarioIntegral: builder.control(''),
+      subTipoTrabajador: builder.control(''),
+      sueldo: builder.control(''),
+      tipoContrato: builder.control(''),
+      tipoTrabajador: builder.control(''),
     });
 
     this.route.params.subscribe((params) => {

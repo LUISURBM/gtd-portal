@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTBonificacionDto } from './dto/models';
-import { ResponseTBonificacionDto } from './dto/models';
-import { ResponseTListBonificacionDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTBonificacionDto } from '../model/models';
+import { ResponseTBonificacionDto } from '../model/models';
+import { ResponseTListBonificacionDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface BonificacionesServiceInterface {
 
     /**
      * delete Bonificacion in the system.
-     *
+     * 
      * @param id Id Bonificacion
      */
     deleteUsingDELETE40(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Bonificacion in the system.
-     *
+     * 
      * @param id Id Bonificacion
      */
     findByIdUsingGET40(id: string, extraHttpRequestParams?: any): Observable<ResponseTBonificacionDto>;
 
     /**
-     * List all Bonificacion in the system.
-     *
+     * List all Bonificacion in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET35(extraHttpRequestParams?: any): Observable<ResponseTListBonificacionDto>;
+    listFindAllDevengadosUsingGET15(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListBonificacionDto>;
+
+    /**
+     * List all Bonificacion in the system.
+     * 
+     */
+    listFindAllUsingGET24(extraHttpRequestParams?: any): Observable<ResponseTListBonificacionDto>;
 
     /**
      * save a Bonificacion in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST40(dto: RequestTBonificacionDto, extraHttpRequestParams?: any): Observable<ResponseTBonificacionDto>;
 
     /**
      * update Bonificacion in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT40(dto: RequestTBonificacionDto, extraHttpRequestParams?: any): Observable<ResponseTBonificacionDto>;

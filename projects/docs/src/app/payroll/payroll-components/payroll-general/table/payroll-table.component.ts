@@ -22,7 +22,7 @@ import { InMemService } from '../../../../srv/in-mem-service';
 import { NavigationService } from '../../../../srv/navigation.service';
 import { NominasGeneralesService } from '../../../../srv/payroll/api/rest/nominasGenerales.service';
 import { StoredProcedureService } from '../../../../srv/payroll/api/procedure/storedProcedure.service';
-import { NgGtdDS } from '../../../../types/common-types';
+import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS, OpenDialog } from '../../../../types/common-types';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
 import { PayrollGeneralFormComponent } from '../form/payroll-general-form.component';
 import { displayedColumns, EMPTY, Payroll } from '../payroll-data';
@@ -92,6 +92,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subscriptions: Subscription[];
   JSON = JSON;
+
   constructor(
     public formBuilder: FormBuilder,
     public memSrv: InMemService,
@@ -102,18 +103,20 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     private nominaGeneralAPISrv: NominasGeneralesService,
     public menuItemsSrv: MenuItems
   ) {
+    this.avance(0);
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
     });
-
+    this.avance(10);
     this.subscriptions = [
-      this.listado.subscribe({
-        next: this.readResponseTList,
-        complete: this.loading,
+      this.listado().subscribe({
+        next: this.leerListado,
+        complete: this.avance,
         error: this.readResponseError,
       }),
     ];
+
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
@@ -139,65 +142,32 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
             response?.body?.bodyDto?.[0]
           ) {
             this._snackBar.open(`${payroll.nombre}`, 'eliminado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado;
+            return this.listado();
           }
           this._snackBar.open(`${payroll.nombre}`, 'no eliminado!', {
-            duration: 500000,
+            duration: 50000,
           });
           return of();
         })
       );
-  listado = this.storedProcedureAPISrv.exectuteProcedureUsingPOST(
+  listado = () => {
+    this.avance(20);
+    return this.storedProcedureAPISrv.exectuteProcedureUsingPOST(
     this.request,
     'events',
     true
-  );
+  );}
   readResponseError = (err: any) => {
     console.log(err);
   };
-  readResponseTList = (data: any) => {
-    this.loading((data?.type ?? 1) * 25);
+  leerListado = (data?: any) => {
+    this.avance((data?.type ?? 1) * 15);
     if (!data.body) return;
-    let newarray = data?.body?.body?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Payroll>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    this.avance(75);
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.body), displayedColumns);
+    this.avance(100);
   };
 
   ngOnInit(): void {}
@@ -210,7 +180,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         const mismoCorte =
           p.fechaCorte.getMonth() === payroll.fechaCorte.getMonth() &&
           p.fechaCorte.getUTCFullYear() === payroll.fechaCorte.getUTCFullYear();
-        mismoCorte || p.nombre === payroll.nombre;
+        return mismoCorte || p.nombre === payroll.nombre;
       })
       .map((p: Payroll) => {
         const mismoCorte =
@@ -227,12 +197,12 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
           : undefined;
       });
     if (payroll.nombre.length < 1) {
-      this._snackBar.open('Nombre inválido', 'cerrar', { duration: 500000 });
+      this._snackBar.open('Nombre inválido', 'cerrar', { duration: 50000 });
       return;
     }
     if (validations.length > 0) {
       validations.forEach((m) =>
-        this._snackBar.open(`${m}`, 'cerrar', { duration: 500000 })
+        this._snackBar.open(`${m}`, 'cerrar', { duration: 50000 })
       );
       return;
     }
@@ -267,14 +237,14 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${payroll.nombre}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
-            return this.listado;
+            return this.listado();
           })
         )
         .subscribe({
-          next: this.readResponseTList,
-          complete: this.loading,
+          next: this.leerListado,
+          complete : () => this.avance(92),
           error: this.readResponseError,
         })
     );
@@ -282,7 +252,8 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(payroll: Payroll): void {
     this.subscriptions.push(
-      this.confirm(
+      confirm(
+        this.dialog,
         `¿Eliminar ${formatDate(payroll.fechaCorte, 'MM/YYY', 'es-Co')} ${
           payroll.nombre
         }!?`
@@ -293,10 +264,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
           )
         )
         .subscribe({
-          next: this.readResponseTList,
+          next: this.leerListado,
           complete: () => {
             payroll.loading = undefined;
-            this.loading;
+            this.avance;
           },
           error: this.readResponseError,
         })
@@ -331,14 +302,14 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((general) => {
             this._snackBar.open(`${payroll.nombre}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado;
+            return this.listado();
           })
         )
         .subscribe({
-          next: this.readResponseTList,
-          complete: this.loading,
+          next: this.leerListado,
+          complete: this.avance,
           error: this.readResponseError,
         })
     );
@@ -364,13 +335,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       (v: any) => v.id == payroll?.id
     )?.[0];
     console.log(editing);
-    const dialogRef = this.dialog.open(PayrollGeneralFormComponent, {
-      width: '500px',
-      data: editing ? editing : EMPTY,
-    });
+    const dialogRef = OpenDialog(this.dialog, PayrollGeneralFormComponent, editing ? editing : EMPTY);
 
     this.subscriptions.push(
-      dialogRef.afterClosed().subscribe((result) => {
+      dialogRef.subscribe((result) => {
         console.log(result);
         if (payroll) payroll.loading = undefined;
         if (result?.id) this.edit(result);
@@ -384,18 +352,6 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     dp.close();
   }
 
-  loading = (loading = 100) =>
-    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
-  confirm(pregunta: string, titulo?: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '350px',
-      data: {
-        titulo: titulo,
-        pregunta: pregunta,
-      },
-    });
-
-    return dialogRef.afterClosed();
-  }
+  loading: number | undefined = 0;
+  avance = (loading?:number) =>{ this.loading = loading; }
 }

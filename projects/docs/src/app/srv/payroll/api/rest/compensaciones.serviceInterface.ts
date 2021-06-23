@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTCompensacionDto } from './dto/models';
-import { ResponseTCompensacionDto } from './dto/models';
-import { ResponseTListCompensacionDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTCompensacionDto } from '../model/models';
+import { ResponseTCompensacionDto } from '../model/models';
+import { ResponseTListCompensacionDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface CompensacionesServiceInterface {
 
     /**
      * delete Compensacion in the system.
-     *
+     * 
      * @param id Id Compensacion
      */
     deleteUsingDELETE44(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Compensacion in the system.
-     *
+     * 
      * @param id Id Compensacion
      */
     findByIdUsingGET44(id: string, extraHttpRequestParams?: any): Observable<ResponseTCompensacionDto>;
 
     /**
-     * List all Compensacion in the system.
-     *
+     * List all Compensacion in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET39(extraHttpRequestParams?: any): Observable<ResponseTListCompensacionDto>;
+    listFindAllDevengadosUsingGET18(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListCompensacionDto>;
+
+    /**
+     * List all Compensacion in the system.
+     * 
+     */
+    listFindAllUsingGET27(extraHttpRequestParams?: any): Observable<ResponseTListCompensacionDto>;
 
     /**
      * save a Compensacion in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST44(dto: RequestTCompensacionDto, extraHttpRequestParams?: any): Observable<ResponseTCompensacionDto>;
 
     /**
      * update Compensacion in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT44(dto: RequestTCompensacionDto, extraHttpRequestParams?: any): Observable<ResponseTCompensacionDto>;

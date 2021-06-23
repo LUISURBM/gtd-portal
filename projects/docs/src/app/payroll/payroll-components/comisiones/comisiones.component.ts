@@ -10,7 +10,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { ComisionesService } from '../../../srv/payroll/api/rest/comisiones.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';;
+import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';;
 import { ComisionFormComponent } from './comision-form.component';
 import { Comision, displayedColumns } from './comisiones-data';
 
@@ -37,48 +37,11 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.comisionesAPISrv.listFindAllUsingGET38(data.devengadosId, 'events', true, {});
+    this.comisionesAPISrv.listFindAllDevengadosUsingGET17(data.devengadosId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.body?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Comision>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
   };
 
   constructor(
@@ -99,7 +62,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -156,10 +119,10 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${comision.comision}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -226,9 +189,9 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`${comision.comision}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

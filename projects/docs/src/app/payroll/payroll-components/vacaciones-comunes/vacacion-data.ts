@@ -180,7 +180,6 @@ export const catalogs: ValuesCatalog[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'catalog',
   'pago',
   'cantidad',

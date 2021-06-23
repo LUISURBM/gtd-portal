@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTHuelgaLegalDto } from './dto/models';
-import { ResponseTHuelgaLegalDto } from './dto/models';
-import { ResponseTListHuelgaLegalDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTHuelgaLegalDto } from '../model/models';
+import { ResponseTHuelgaLegalDto } from '../model/models';
+import { ResponseTListHuelgaLegalDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface HuelgasLegalesServiceInterface {
 
     /**
      * delete Huelga Legal in the system.
-     *
+     * 
      * @param id Id Huelga Legal
      */
     deleteUsingDELETE51(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Huelga Legal in the system.
-     *
+     * 
      * @param id Id Huelga Legal
      */
     findByIdUsingGET51(id: string, extraHttpRequestParams?: any): Observable<ResponseTHuelgaLegalDto>;
 
     /**
      * List all Huelga Legal in the system.
-     *
+     * 
      * @param devengadoId DevengadoId
      */
-    listFindAllUsingGET46(devengadoId: string, extraHttpRequestParams?: any): Observable<ResponseTListHuelgaLegalDto>;
+    listFindAllDevengadosUsingGET20(devengadoId: string, extraHttpRequestParams?: any): Observable<ResponseTListHuelgaLegalDto>;
 
     /**
      * save a Huelga Legal in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST51(dto: RequestTHuelgaLegalDto, extraHttpRequestParams?: any): Observable<ResponseTHuelgaLegalDto>;
 
     /**
      * update Huelga Legal in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT51(dto: RequestTHuelgaLegalDto, extraHttpRequestParams?: any): Observable<ResponseTHuelgaLegalDto>;

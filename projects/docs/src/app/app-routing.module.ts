@@ -6,66 +6,69 @@ import { LogInFormComponent } from './security/login-form.component';
 import { SelectivePreloadingStrategyService } from './srv/selective-preloading-strategy.service';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+
+  { path: 'login', component: LogInFormComponent },
   {
-    path: "",
+    path: '',
     component: FullComponent,
     children: [
-      // { path: '', redirectTo: '/nómina', pathMatch: 'full' },
-      { path: 'login', component: LogInFormComponent, },
       {
-        path: "home",
-        loadChildren: () =>
-          import("./home/home.module").then((m) => m.HomeComponentsModule),
-      },
+      path: 'dashboard',
+      loadChildren: () =>
+        import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    },
       {
-        path: "",
+        path: 'home',
         loadChildren: () =>
-          import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
-      },
-      {
-        // Needed for hash routing
-        path: "error",
-        loadChildren: () =>
-          import("./home/home.module").then((m) => m.HomeComponentsModule),
+          import('./home/home.module').then((m) => m.HomeComponentsModule),
       },
       {
         // Needed for hash routing
-        path: "state",
+        path: 'error',
         loadChildren: () =>
-          import("./home/home.module").then((m) => m.HomeComponentsModule),
+          import('./home/home.module').then((m) => m.HomeComponentsModule),
       },
       {
         // Needed for hash routing
-        path: "code",
+        path: 'state',
         loadChildren: () =>
-          import("./home/home.module").then((m) => m.HomeComponentsModule),
+          import('./home/home.module').then((m) => m.HomeComponentsModule),
       },
       {
-        path: "profile",
+        // Needed for hash routing
+        path: 'code',
         loadChildren: () =>
-          import("./profile/profile.module").then((m) => m.ProfileModule),
+          import('./home/home.module').then((m) => m.HomeComponentsModule),
       },
       {
-        path: "trabajador",
+        path: 'profile',
         loadChildren: () =>
-          import("./trabajador/trabajador.module").then((m) => m.TrabajadorModule),
+          import('./profile/profile.module').then((m) => m.ProfileModule),
       },
       {
-        path: "nómina",
+        path: 'trabajador',
         loadChildren: () =>
-          import("./payroll/payroll.module").then((m) => m.PayrollModule),
+          import('./trabajador/trabajador.module').then(
+            (m) => m.TrabajadorModule
+          ),
       },
       {
-        path: "components",
+        path: 'nómina',
         loadChildren: () =>
-          import("./material-component/material.module").then(
+          import('./payroll/payroll.module').then((m) => m.PayrollModule),
+      },
+      {
+        path: 'parámetros',
+        loadChildren: () =>
+          import('./material-component/material.module').then(
             (m) => m.MaterialComponentsModule
           ),
       },
       {
-        path: "subscripciones",
+        path: 'subscripciones',
         loadChildren: () =>
-          import("./subscription/subscription.module").then(
+          import('./subscription/subscription.module').then(
             (m) => m.SubscriptionComponentsModule
           ),
       },
@@ -76,12 +79,13 @@ const routes: Routes = [
 const isIframe = window !== window.parent && !window.opener;
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    {
+  imports: [
+    RouterModule.forRoot(routes, {
       preloadingStrategy: SelectivePreloadingStrategyService,
-      initialNavigation: !isIframe ? "enabled" : "disabled",
-      useHash: true
-    })],
-  exports: [RouterModule]
+      initialNavigation: !isIframe ? 'enabled' : 'disabled',
+      useHash: true,
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

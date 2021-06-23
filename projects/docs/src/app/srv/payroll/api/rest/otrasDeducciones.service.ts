@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTOtrasDeduccionesDto } from './dto/models';
-import { ResponseTListOtrasDeduccionesDto } from './dto/models';
-import { ResponseTOtrasDeduccionesDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTOtrasDeduccionesDto } from '../model/models';
+import { ResponseTListOtrasDeduccionesDto } from '../model/models';
+import { ResponseTOtrasDeduccionesDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -195,14 +195,66 @@ export class OtrasDeduccionesService implements OtrasDeduccionesServiceInterface
     }
 
     /**
+     * List all Otra Deduccion in the system by DeduccionesId.
+     * @param deduccionesId DeduccionesId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public listFindAllDeduccionesUsingGET5(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListOtrasDeduccionesDto>;
+    public listFindAllDeduccionesUsingGET5(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListOtrasDeduccionesDto>>;
+    public listFindAllDeduccionesUsingGET5(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListOtrasDeduccionesDto>>;
+    public listFindAllDeduccionesUsingGET5(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (deduccionesId === null || deduccionesId === undefined) {
+            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllDeduccionesUsingGET5.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        let credential: string | undefined;
+        // authentication (apiKey) required
+        credential = this.configuration.lookupCredential('apiKey');
+        if (credential) {
+            headers = headers.set('Authorization', credential);
+        }
+
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        let responseType_: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType_ = 'text';
+        }
+
+        return this.httpClient.get<ResponseTListOtrasDeduccionesDto>(`${this.configuration.basePath}/nomina-general/otrasDeducciones/list/${encodeURIComponent(String(deduccionesId))}`,
+            {
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * List all Otra Deduccion in the system.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET56(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListOtrasDeduccionesDto>;
-    public listFindAllUsingGET56(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListOtrasDeduccionesDto>>;
-    public listFindAllUsingGET56(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListOtrasDeduccionesDto>>;
-    public listFindAllUsingGET56(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET39(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListOtrasDeduccionesDto>;
+    public listFindAllUsingGET39(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListOtrasDeduccionesDto>>;
+    public listFindAllUsingGET39(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListOtrasDeduccionesDto>>;
+    public listFindAllUsingGET39(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 

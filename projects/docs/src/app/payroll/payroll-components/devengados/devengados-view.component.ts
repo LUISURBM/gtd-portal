@@ -94,7 +94,7 @@ export class DevengadosViewComponent {
       }),
     });
 
-    this.subscriptions.push(
+    this.subscriptions = [
       this.route.params.subscribe((params) => {
         const data1 = JSON.parse(params['data']);
         console.log(data1);
@@ -102,11 +102,11 @@ export class DevengadosViewComponent {
       }),
       this.form.valueChanges.subscribe((filter) => {
         this.filter(filter?.menuItem);
-      })
-    );
+      }),
+    ];
   }
 
-  onNoClick(): void {}
+  onNoClick(): void { }
 
   save() {}
 
@@ -134,10 +134,23 @@ export class DevengadosViewComponent {
     );
   }
 
-  devengosData = () => {
+  devengadosData = () => {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
       devengadosId: this.form.value.devengadosId,
+      fechaCorte: this.form.value.fechaCorte,
     });
   };
+  individualData = () => {
+    return JSON.stringify({
+      nominaIndividualId: this.form.value.nominaIndividualId,
+      fechaCorte: this.form.value.fechaCorte,
+    });
+  };
+
+  primerNombreTrabajador() {
+    return `${this.form.value.trabajador.primerNombre?.substring(0, 1)}. ${
+      this.form.value.trabajador.primerApellido ?? ''
+    }`;
+  }
 }

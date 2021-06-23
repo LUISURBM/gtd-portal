@@ -36,7 +36,7 @@ export class PaymentOverviewGrapComponent implements OnInit {
     hAxis: {
       title: 'Year',
     },
-    width: 350,
+    width: '100%',
     height: 350,
     backgroundColor: { fill:'transparent' }
 

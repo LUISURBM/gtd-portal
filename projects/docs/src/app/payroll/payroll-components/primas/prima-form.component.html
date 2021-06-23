@@ -1,54 +1,56 @@
-<h1 mat-dialog-title>Formulario Prima {{ data.id }}</h1>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Prima nuevo</h4>
-            <p class="card-category">Información de Prima</p>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="form">
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="cantidad" placeholder="Valor de cantidad" id="cantidad"
-                  type="text" class="form-control" />
-                <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
-                  <div *ngIf="f.cantidad.errors?.required">
-                    cantidad es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="pagoNS" placeholder="Valor de PagoNS"
-                  id="pagoNS" type="text" class="form-control" />
-                <div *ngIf="f.pagoNS.touched && f.pagoNS.invalid" class="alert alert-danger">
-                  <div *ngIf="f.pagoNS.errors?.required">
-                    Pago NS es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput tabindex="1" formControlName="pagoS" placeholder="Valor de PagoS" id="pagoS" type="text"
-                  class="form-control" />
-                <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
-                  <div *ngIf="f.pagoS.errors?.required">
-                    pagoS es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
+<form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow: visible">
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <h4 class="card-title">Agregar Prima nuevo</h4>
+      <p class="card-category">Información de Prima</p>
+    </div>
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon">
+          <em class="material-icons">{{'1F4C3'|gtdEmoji}}</em>
+        </div>
+        <h1 mat-dialog-title>Formulario Prima {{ data.id }}</h1>
+        <h4>Agregar Prima nuevo</h4>
+        <p class="card-category">Información de prima</p>
+      </div>
+    </div>
 
-
-              <div mat-dialog-actions>
-                <button mat-button (click)="save()" tabindex="3">Guardar</button>
-                <button mat-button (click)="onNoClick()" tabindex="-1">
-                  Cancelar
-                </button>
-              </div>
-            </form>
+    <div class="card-body">
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="cantidad" placeholder="Valor de cantidad" id="cantidad"
+          type="text" class="form-control" />
+        <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          <div *ngIf="f.cantidad.errors?.required">
+            cantidad es obligatorio.
           </div>
         </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="pagoNS" placeholder="Valor de PagoNS" id="pagoNS" type="text"
+          class="form-control" />
+        <div *ngIf="f.pagoNS.touched && f.pagoNS.invalid" class="alert alert-danger">
+          <div *ngIf="f.pagoNS.errors?.required">
+            Pago NS es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="pagoS" placeholder="Valor de PagoS" id="pagoS" type="text"
+          class="form-control" />
+        <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
+          <div *ngIf="f.pagoS.errors?.required">
+            pagoS es obligatorio.
+          </div>
+        </div>
+      </mat-form-field>
+
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
       </div>
     </div>
   </div>
-</div>
+</form>

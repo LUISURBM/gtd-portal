@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTFechasPagoDto } from './dto/models';
-import { ResponseTFechasPagoDto } from './dto/models';
-import { ResponseTListFechasPagoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTFechasPagoDto } from '../model/models';
+import { ResponseTFechasPagoDto } from '../model/models';
+import { ResponseTListFechasPagoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -200,12 +200,12 @@ export class FechasPagosService implements FechasPagosServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET43(payrollId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListFechasPagoDto>;
-    public listFindAllUsingGET43(payrollId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListFechasPagoDto>>;
-    public listFindAllUsingGET43(payrollId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListFechasPagoDto>>;
-    public listFindAllUsingGET43(payrollId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllNominaIndividualIdUsingGET1(payrollId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListFechasPagoDto>;
+    public listFindAllNominaIndividualIdUsingGET1(payrollId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListFechasPagoDto>>;
+    public listFindAllNominaIndividualIdUsingGET1(payrollId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListFechasPagoDto>>;
+    public listFindAllNominaIndividualIdUsingGET1(payrollId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (payrollId === null || payrollId === undefined) {
-            throw new Error('Required parameter payrollId was null or undefined when calling listFindAllUsingGET43.');
+            throw new Error('Required parameter payrollId was null or undefined when calling listFindAllNominaIndividualIdUsingGET1.');
         }
 
         let headers = this.defaultHeaders;

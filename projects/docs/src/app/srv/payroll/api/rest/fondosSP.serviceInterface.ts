@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTFondoSpDto } from './dto/models';
-import { ResponseTFondoSpDto } from './dto/models';
-import { ResponseTListFondoSpDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTFondoSpDto } from '../model/models';
+import { ResponseTFondoSpDto } from '../model/models';
+import { ResponseTListFondoSpDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,34 @@ export interface FondosSPServiceInterface {
 
     /**
      * delete FondoSp in the system.
-     *
+     * 
      * @param id Id FondoSp
      */
     deleteUsingDELETE49(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id FondoSp in the system.
-     *
+     * 
      * @param id Id FondoSp
      */
     findByIdUsingGET49(id: string, extraHttpRequestParams?: any): Observable<ResponseTFondoSpDto>;
 
     /**
      * List all FondoSp in the system.
-     *
+     * 
      */
-    listFindAllUsingGET44(extraHttpRequestParams?: any): Observable<ResponseTListFondoSpDto>;
+    listFindAllUsingGET31(extraHttpRequestParams?: any): Observable<ResponseTListFondoSpDto>;
 
     /**
      * save a FondoSp in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST49(dto: RequestTFondoSpDto, extraHttpRequestParams?: any): Observable<ResponseTFondoSpDto>;
 
     /**
      * update FondoSp in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT49(dto: RequestTFondoSpDto, extraHttpRequestParams?: any): Observable<ResponseTFondoSpDto>;

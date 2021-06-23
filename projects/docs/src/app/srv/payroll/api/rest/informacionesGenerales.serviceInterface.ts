@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTInformacionGeneralDto } from './dto/models';
-import { ResponseTInformacionGeneralDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTInformacionGeneralDto } from '../model/models';
+import { ResponseTInformacionGeneralDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface InformacionesGeneralesServiceInterface {
 
     /**
      * delete Informacion General in the system.
-     *
+     * 
      * @param id Id Informacion General
      */
     deleteUsingDELETE53(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Informacion General in the system.
-     *
+     * 
      * @param id Id Informacion General
      */
     findByIdUsingGET53(id: string, extraHttpRequestParams?: any): Observable<ResponseTInformacionGeneralDto>;
 
     /**
      * List all Informacion General in the system.
-     *
+     * 
      * @param deducionesId deducionesId
      */
-    listFindAllUsingGET48(deducionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET32(deducionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Informacion General in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST53(dto: RequestTInformacionGeneralDto, extraHttpRequestParams?: any): Observable<ResponseTInformacionGeneralDto>;
 
     /**
      * update Informacion General in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT53(dto: RequestTInformacionGeneralDto, extraHttpRequestParams?: any): Observable<ResponseTInformacionGeneralDto>;

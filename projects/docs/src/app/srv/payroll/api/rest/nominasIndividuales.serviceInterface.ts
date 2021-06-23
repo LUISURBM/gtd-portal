@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTNominaIndividualDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTNominaIndividualDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTNominaIndividualDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTNominaIndividualDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,36 @@ export interface NominasIndividualesServiceInterface {
 
     /**
      * delete Nomina Individual in the system.
-     *
+     * 
      * @param id Id Nomina Individual
      */
     deleteUsingDELETE58(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Nomina Individual in the system.
-     *
+     * 
      * @param id Id Nomina Individual
      */
     findByIdUsingGET58(id: string, extraHttpRequestParams?: any): Observable<ResponseTNominaIndividualDto>;
 
     /**
      * List all Nomina Individual in the system.
-     *
+     * 
+     * @param businessSubscriptionId businessSubscriptionId
      * @param nominaGeneralId nominaGeneralId
      */
-    listFindAllUsingGET53(nominaGeneralId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Nomina Individual in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST58(dto: RequestTNominaIndividualDto, extraHttpRequestParams?: any): Observable<ResponseTNominaIndividualDto>;
 
     /**
      * update Nomina Individual in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT58(dto: RequestTNominaIndividualDto, extraHttpRequestParams?: any): Observable<ResponseTNominaIndividualDto>;

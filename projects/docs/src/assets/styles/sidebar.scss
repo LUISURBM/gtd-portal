@@ -54,7 +54,7 @@ mat-sidenav {
             }
         }
         &.selected > .mat-list-item-content > a{
-            background: var(--primary-color);
+            background: var(--secondary-light);
             border-radius: $radius;
             color:var(--text-accent-color);
 

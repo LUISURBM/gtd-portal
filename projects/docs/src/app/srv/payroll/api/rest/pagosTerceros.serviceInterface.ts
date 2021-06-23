@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTPagoTercerosDto } from './dto/models';
-import { ResponseTListPagoTercerosDto } from './dto/models';
-import { ResponseTPagoTercerosDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTPagoTercerosDto } from '../model/models';
+import { ResponseTListPagoTercerosDto } from '../model/models';
+import { ResponseTPagoTercerosDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,42 @@ export interface PagosTercerosServiceInterface {
 
     /**
      * delete Pago Terceros in the system.
-     *
+     * 
      * @param id Id Pago Terceros
      */
     deleteUsingDELETE64(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Pago Terceros in the system.
-     *
+     * 
      * @param id Id Pago Terceros
      */
     findByIdUsingGET64(id: string, extraHttpRequestParams?: any): Observable<ResponseTPagoTercerosDto>;
 
     /**
+     * List all Pago Terceros in the system by DeduccionesId.
+     * 
+     * @param deduccionesId DeduccionesId
+     */
+    listFindAllDeduccionesUsingGET6(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListPagoTercerosDto>;
+
+    /**
      * List all Pago Terceros in the system.
-     *
+     * 
      * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET59(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListPagoTercerosDto>;
+    listFindAllDevengadosUsingGET24(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListPagoTercerosDto>;
 
     /**
      * save a Pago Terceros in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST64(dto: RequestTPagoTercerosDto, extraHttpRequestParams?: any): Observable<ResponseTPagoTercerosDto>;
 
     /**
      * update Pago Terceros in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT64(dto: RequestTPagoTercerosDto, extraHttpRequestParams?: any): Observable<ResponseTPagoTercerosDto>;

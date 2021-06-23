@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTOtrasDeduccionesDto } from './dto/models';
-import { ResponseTListOtrasDeduccionesDto } from './dto/models';
-import { ResponseTOtrasDeduccionesDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTOtrasDeduccionesDto } from '../model/models';
+import { ResponseTListOtrasDeduccionesDto } from '../model/models';
+import { ResponseTOtrasDeduccionesDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface OtrasDeduccionesServiceInterface {
 
     /**
      * delete Otra Deduccion in the system.
-     *
+     * 
      * @param id Id Otra Deduccion
      */
     deleteUsingDELETE61(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Otra Deduccion in the system.
-     *
+     * 
      * @param id Id Otra Deduccion
      */
     findByIdUsingGET61(id: string, extraHttpRequestParams?: any): Observable<ResponseTOtrasDeduccionesDto>;
 
     /**
-     * List all Otra Deduccion in the system.
-     *
+     * List all Otra Deduccion in the system by DeduccionesId.
+     * 
+     * @param deduccionesId DeduccionesId
      */
-    listFindAllUsingGET56(extraHttpRequestParams?: any): Observable<ResponseTListOtrasDeduccionesDto>;
+    listFindAllDeduccionesUsingGET5(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListOtrasDeduccionesDto>;
+
+    /**
+     * List all Otra Deduccion in the system.
+     * 
+     */
+    listFindAllUsingGET39(extraHttpRequestParams?: any): Observable<ResponseTListOtrasDeduccionesDto>;
 
     /**
      * save a Otra Deduccion in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST61(dto: RequestTOtrasDeduccionesDto, extraHttpRequestParams?: any): Observable<ResponseTOtrasDeduccionesDto>;
 
     /**
      * update Otra Deduccion in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT61(dto: RequestTOtrasDeduccionesDto, extraHttpRequestParams?: any): Observable<ResponseTOtrasDeduccionesDto>;

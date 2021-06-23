@@ -66,8 +66,31 @@ export interface NgGtdDS {
 export interface TableItem {
   loading?: boolean;
 }
-
-export const gtdArrayToLowerCase = (bodyDto: []) =>
+export const initTable = (
+  dataSource$: any,
+  paginator: any,
+  sort: any,
+  newarray: any,
+  displayedColumns: any
+) => {
+  let datasource = new MatTableDataSource<any>(newarray);
+  if (paginator) {
+    paginator._intl.itemsPerPageLabel = 'Ver';
+    paginator._intl.getRangeLabel = (
+      page: number,
+      pageSize: number,
+      length: number
+    ) => `Página ${page + 1}`;
+  }
+  datasource.paginator = paginator;
+  datasource.sort = sort;
+  dataSource$.next({
+    datasource: datasource,
+    displayedColumns: displayedColumns,
+    loading: 100,
+  });
+};
+export const gtdArrayToLowerCase = (bodyDto: any[]) =>
   bodyDto?.map?.((element: any) => {
     var key,
       keys = Object.keys(element);
@@ -98,3 +121,27 @@ export const confirm = (
   });
   return dialogRef.afterClosed();
 };
+
+export const OpenDialog = (dialog: MatDialog, cmp: any, data: any) =>
+  dialog
+    .open(cmp, {
+      hasBackdrop: false,
+      width: '500px',
+      data: data,
+    })
+    .afterClosed();
+
+export const requestProcedure = (nominaIndividualId:string, trabajadorId:string) => {
+  return {
+  body: {
+    params: {
+      nominaIndividualId: nominaIndividualId as Object,
+      trabajadorId: trabajadorId as Object,
+    },
+  },
+  header: {
+    cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+    esquema: 'payroll',
+    procedimientoAlmacenado: 'ConsultarDevengadosTest',
+  },
+}};

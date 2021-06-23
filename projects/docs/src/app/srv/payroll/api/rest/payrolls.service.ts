@@ -17,8 +17,8 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { ListNominaIndividualRequest } from './dto/models';
-import { PayrollSent } from './dto/models';
+import { ListNominaIndividualRequest } from '../model/models';
+import { PayrollSent } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';

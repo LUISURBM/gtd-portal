@@ -6,23 +6,22 @@
       <app-sidebar></app-sidebar>
     </mat-drawer>
     <mat-drawer-content class="page-wrapper">
-      <mat-toolbar class="topbar telative" [@routeAnimations]="prepareRoute(outlet)">
+      <mat-toolbar class="topbar telative" *ngIf="!state.fullScreen">
         <button mat-icon-button (click)="toggleMenu()" value="sidebarclosed"
           style="color: var(--secondary-light)!important">
           <mat-icon>apps</mat-icon>
         </button>
-        <div class="navbar-header d-flex align-items-center mr-2 ml-2">
+        <div class="navbar-header d-flex align-items-center">
           <a class="navbar-brand" (click)="navSrv.navigate('/nómina')">
-            <span class="mr-2">{{'1F4C3'|gtdEmoji}}</span>
             <h3>{{activeRoute}}</h3>
           </a>
         </div>
         <span fxFlex></span>
         <app-header></app-header>
       </mat-toolbar>
-      <router-outlet #outlet="outlet">
-        <app-spinner></app-spinner>
-      </router-outlet>
+        <router-outlet>
+          <app-spinner></app-spinner>
+        </router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>

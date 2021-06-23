@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTLibranzasDto } from './dto/models';
-import { ResponseTLibranzasDto } from './dto/models';
-import { ResponseTListLibranzasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTLibranzasDto } from '../model/models';
+import { ResponseTLibranzasDto } from '../model/models';
+import { ResponseTListLibranzasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -200,12 +200,12 @@ export class LibranzasService implements LibranzasServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET49(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLibranzasDto>;
-    public listFindAllUsingGET49(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLibranzasDto>>;
-    public listFindAllUsingGET49(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLibranzasDto>>;
-    public listFindAllUsingGET49(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllDeduccionesIdUsingGET1(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListLibranzasDto>;
+    public listFindAllDeduccionesIdUsingGET1(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListLibranzasDto>>;
+    public listFindAllDeduccionesIdUsingGET1(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListLibranzasDto>>;
+    public listFindAllDeduccionesIdUsingGET1(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (deduccionesId === null || deduccionesId === undefined) {
-            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllUsingGET49.');
+            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllDeduccionesIdUsingGET1.');
         }
 
         let headers = this.defaultHeaders;

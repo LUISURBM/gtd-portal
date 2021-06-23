@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTDeduccionesDto } from './dto/models';
-import { ResponseTDeduccionesDto } from './dto/models';
-import { ResponseTListDeduccionesDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTDeduccionesDto } from '../model/models';
+import { ResponseTDeduccionesDto } from '../model/models';
+import { ResponseTListDeduccionesDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface DeduccionesServiceInterface {
 
     /**
      * delete Deducciones in the system.
-     *
+     * 
      * @param id Id Deducciones
      */
     deleteUsingDELETE45(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
+     * Find Deducciones complete in the system by DevengadosId.
+     * 
+     * @param deduccionId DeduccionId
+     */
+    findAllDevengadosUsingGET1(deduccionId: string, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;
+
+    /**
      * find by id Deducciones in the system.
-     *
+     * 
      * @param id Id Deducciones
      */
     findByIdUsingGET45(id: string, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;
 
     /**
      * List all Deducciones in the system.
-     *
+     * 
      */
-    listFindAllUsingGET40(extraHttpRequestParams?: any): Observable<ResponseTListDeduccionesDto>;
+    listFindAllUsingGET28(extraHttpRequestParams?: any): Observable<ResponseTListDeduccionesDto>;
 
     /**
      * save a Deducciones in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST45(dto: RequestTDeduccionesDto, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;
 
     /**
      * update Deducciones in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT45(dto: RequestTDeduccionesDto, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;

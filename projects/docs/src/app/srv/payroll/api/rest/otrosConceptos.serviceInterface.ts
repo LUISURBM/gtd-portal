@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTOtroConceptoDto } from './dto/models';
-import { ResponseTListOtroConceptoDto } from './dto/models';
-import { ResponseTOtroConceptoDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTOtroConceptoDto } from '../model/models';
+import { ResponseTListOtroConceptoDto } from '../model/models';
+import { ResponseTOtroConceptoDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface OtrosConceptosServiceInterface {
 
     /**
      * delete Otro Concepto in the system.
-     *
+     * 
      * @param id Id Otro Concepto
      */
     deleteUsingDELETE62(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Otro Concepto in the system.
-     *
+     * 
      * @param id Id Otro Concepto
      */
     findByIdUsingGET62(id: string, extraHttpRequestParams?: any): Observable<ResponseTOtroConceptoDto>;
 
     /**
      * List all Otro Concepto in the system.
-     *
+     * 
      * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET57(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListOtroConceptoDto>;
+    listFindAllDevengadosUsingGET23(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListOtroConceptoDto>;
 
     /**
      * save a Otro Concepto in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST62(dto: RequestTOtroConceptoDto, extraHttpRequestParams?: any): Observable<ResponseTOtroConceptoDto>;
 
     /**
      * update Otro Concepto in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT62(dto: RequestTOtroConceptoDto, extraHttpRequestParams?: any): Observable<ResponseTOtroConceptoDto>;

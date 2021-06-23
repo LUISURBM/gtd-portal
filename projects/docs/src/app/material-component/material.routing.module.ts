@@ -92,7 +92,7 @@ const MaterialRoutes: Routes = [
           },
           {
             path: '',
-            redirectTo: '/button',
+            redirectTo: 'button',
             pathMatch: 'full',
           },
         ],

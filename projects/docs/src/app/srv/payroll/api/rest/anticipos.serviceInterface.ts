@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTAnticiposDto } from './dto/models';
-import { ResponseTAnticiposDto } from './dto/models';
-import { ResponseTListAnticiposDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTAnticiposDto } from '../model/models';
+import { ResponseTAnticiposDto } from '../model/models';
+import { ResponseTListAnticiposDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,48 @@ export interface AnticiposServiceInterface {
 
     /**
      * delete Anticipo in the system.
-     *
+     * 
      * @param id Id Anticipo
      */
     deleteUsingDELETE37(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Anticipo in the system.
-     *
+     * 
      * @param id Id Anticipo
      */
     findByIdUsingGET37(id: string, extraHttpRequestParams?: any): Observable<ResponseTAnticiposDto>;
 
     /**
      * List all Anticipo in the system.
-     *
+     * 
      */
     getListUsingGET1(extraHttpRequestParams?: any): Observable<ResponseTListAnticiposDto>;
 
     /**
+     * List all Anticipo in the system by DeduccionesId.
+     * 
+     * @param deduccionesId DeduccionesId
+     */
+    listFindAllDeduccionesUsingGET4(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListAnticiposDto>;
+
+    /**
+     * List all Anticipo in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
+     */
+    listFindAllDevengadosUsingGET14(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListAnticiposDto>;
+
+    /**
      * save a Anticipo in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST37(dto: RequestTAnticiposDto, extraHttpRequestParams?: any): Observable<ResponseTAnticiposDto>;
 
     /**
      * update Anticipo in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT37(dto: RequestTAnticiposDto, extraHttpRequestParams?: any): Observable<ResponseTAnticiposDto>;

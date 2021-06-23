@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { LibranzasService } from '../../../srv/payroll/api/rest/libranzas.service';
-import { confirm, NgGtdDS } from '../../../types/common-types';
+import { LibranzasService } from '../../../srv/payroll/api/rest/api';
+import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { Licencia } from '../licencias/licencia-data';
 import { displayedColumns, Libranza, libranzas } from './libranza-data';
 import { LibranzaFormComponent } from './libranza-form.component';
@@ -39,48 +39,12 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.libranzasAPISrv.listFindAllUsingGET49(data.deduccionId, 'events', true, {});
+    this.libranzasAPISrv.listFindAllDeduccionesIdUsingGET1(data?.deduccionId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Licencia>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+
   };
   constructor(
     public memSrv: InMemService,
@@ -94,13 +58,13 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
       filtro: '',
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
-      devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
         .pipe(
           switchMap((data) => {
-            return this.listado(data);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -122,15 +86,7 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(libranza: Libranza): void {
     if (!libranza) {
@@ -140,7 +96,7 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: undefined,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -164,10 +120,10 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${libranza.descripcion}`, 'creada!', {
-                duration: 500000,
+                duration: 50000,
               });
 
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({
@@ -214,7 +170,7 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
         deduccion: libranza.deduccion,
         descripcion: libranza.descripcion,
         id: libranza.id,
-        devengadosId: this.form.value.devengadosId,
+        deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -235,9 +191,9 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(`${libranza.descripcion}`, 'actualizado!', {
-              duration: 500000,
+              duration: 50000,
             });
-            return this.listado(response);
+            return this.listado(this.form.value);
           })
         )
         .subscribe({

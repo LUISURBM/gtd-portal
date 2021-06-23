@@ -17,7 +17,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Find</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <button mat-icon-button (click)="navSrv.navigate('/trabajador/view/form', undefined)" matSuffix color="primary">
+        <button mat-icon-button (click)="navSrv.navigate('/trabajador/view/form')" matSuffix color="primary">
           <span>➕</span>
         </button>
       </mat-form-field>

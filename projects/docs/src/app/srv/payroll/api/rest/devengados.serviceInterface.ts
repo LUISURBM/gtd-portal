@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTDevengadosDto } from './dto/models';
-import { ResponseTDevengadosDto } from './dto/models';
-import { ResponseTListDevengadosDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTDevengadosDto } from '../model/models';
+import { ResponseTDevengadosDto } from '../model/models';
+import { ResponseTListDevengadosDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,41 @@ export interface DevengadosServiceInterface {
 
     /**
      * delete Devengados in the system.
-     *
+     * 
      * @param id Id Devengados
      */
     deleteUsingDELETE46(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Devengados in the system.
-     *
+     * 
      * @param id Id Devengados
      */
     findByIdUsingGET46(id: string, extraHttpRequestParams?: any): Observable<ResponseTDevengadosDto>;
 
     /**
-     * List all Devengados in the system.
-     *
+     * Find Devengados complete in the system by DevengadosId.
+     * 
+     * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET41(extraHttpRequestParams?: any): Observable<ResponseTListDevengadosDto>;
+    listFindAllDevengadosUsingGET19(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTDevengadosDto>;
+
+    /**
+     * List all Devengados in the system.
+     * 
+     */
+    listFindAllUsingGET29(extraHttpRequestParams?: any): Observable<ResponseTListDevengadosDto>;
 
     /**
      * save a Devengados in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST46(dto: RequestTDevengadosDto, extraHttpRequestParams?: any): Observable<ResponseTDevengadosDto>;
 
     /**
      * update Devengados in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT46(dto: RequestTDevengadosDto, extraHttpRequestParams?: any): Observable<ResponseTDevengadosDto>;

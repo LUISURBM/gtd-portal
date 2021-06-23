@@ -1,14 +1,12 @@
-import {
-  BreakpointObserver,
-  Breakpoints
-} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { NgGtdThemes, ValueOption } from '../types/common-types';
 import { THEMES_OPTIONS } from '../values-catalog';
+import { ValuesCatalog } from './in-mem-data-service';
 import { StyleManagerService } from './style-manager.service';
 
-interface UIState {
+export interface UIState {
   uiPalette: NgGtdThemes;
   darkPalette?: boolean;
   visibleMenu: boolean;
@@ -18,6 +16,8 @@ interface UIState {
   Small?: boolean;
   Medium?: boolean;
   Large?: boolean;
+  messages?: ValuesCatalog[];
+  notifications?: ValuesCatalog[];
 }
 
 @Injectable({
@@ -95,39 +95,40 @@ export class AppStateService {
 
   openFullscreen(documentElement: any) {
     this.themeState$.next({ ...this.themeState$.value, fullScreen: true });
-    if (documentElement.requestFullscreen) {
-      documentElement.requestFullscreen();
-    } else if (documentElement.mozRequestFullScreen) {
-      /* Firefox */
-      documentElement.mozRequestFullScreen();
-    } else if (documentElement.webkitRequestFullscreen) {
-      /* Chrome, Safari and Opera */
-      documentElement.webkitRequestFullscreen();
-    } else if (documentElement.msRequestFullscreen) {
-      /* IE/Edge */
-      documentElement.msRequestFullscreen();
-    } else {
-      this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
-    }
   }
 
   closeFullscreen(document: any) {
     this.themeState$.next({ ...this.themeState$.value, fullScreen: false });
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      /* Firefox */
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      /* Chrome, Safari and Opera */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      /* IE/Edge */
-      document.msExitFullscreen();
-    } else {
-      (document as any).exitFullscreen();
-    }
   }
 
-  toggleLoading = () => this.themeState$.next({ ...this.themeState$.value, loading: !this.themeState$.value.loading });
+  toggleLoading = () =>
+    this.themeState$.next({
+      ...this.themeState$.value,
+      loading: !this.themeState$.value.loading,
+    });
+
+  message = (message: string, ico: string) =>
+    this.themeState$.next({
+      ...this.themeState$.value,
+      messages: [
+        {
+          id: this.themeState$.value.messages?.length! + 1,
+          code: ico,
+          name: message,
+        },
+        ...this.themeState$.value.messages!,
+      ],
+    });
+  notificate = (message: string, ico: string) =>
+    this.themeState$.next({
+      ...this.themeState$.value,
+      notifications: [
+        {
+          id: this.themeState$.value.notifications?.length! + 1,
+          code: ico,
+          name: message,
+        },
+        ...this.themeState$.value.notifications!,
+      ],
+    });
 }

@@ -50,8 +50,8 @@ html {
 
 a:hover,
 a:focus,
-a {
-  text-decoration: none;
+a:not(span) {
+  text-decoration: underline;
 }
 a.link {
   color: var(--headingtext);

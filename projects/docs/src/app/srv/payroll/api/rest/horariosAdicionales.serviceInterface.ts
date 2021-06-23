@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTHorariosAdicionalesDto } from './dto/models';
-import { ResponseTHorariosAdicionalesDto } from './dto/models';
-import { ResponseTListHorariosAdicionalesDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTHorariosAdicionalesDto } from '../model/models';
+import { ResponseTHorariosAdicionalesDto } from '../model/models';
+import { ResponseTListHorariosAdicionalesDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface HorariosAdicionalesServiceInterface {
 
     /**
      * delete Horarios adicional in the system.
-     *
+     * 
      * @param id Id Horarios adiccional
      */
     deleteUsingDELETE50(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
+     * List all Horarios adicional in the system.
+     * 
+     * @param devengadosId DevengadosId
+     */
+    findAllDevengadoIdUsingGET3(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHorariosAdicionalesDto>;
+
+    /**
      * find by id Horarios adicional in the system.
-     *
+     * 
      * @param id Id Horarios adiccional
      */
     findByIdUsingGET50(id: string, extraHttpRequestParams?: any): Observable<ResponseTHorariosAdicionalesDto>;
 
     /**
-     * List all Horarios adicional in the system.
-     *
-     * @param devengadosId DevengadosId
-     */
-    listFindAllUsingGET45(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHorariosAdicionalesDto>;
-
-    /**
      * save a Horarios adicional in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST50(dto: RequestTHorariosAdicionalesDto, extraHttpRequestParams?: any): Observable<ResponseTHorariosAdicionalesDto>;
 
     /**
      * update Horarios adicional in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT50(dto: RequestTHorariosAdicionalesDto, extraHttpRequestParams?: any): Observable<ResponseTHorariosAdicionalesDto>;

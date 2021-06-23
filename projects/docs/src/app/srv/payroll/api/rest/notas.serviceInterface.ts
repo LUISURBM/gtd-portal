@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTNotasDto } from './dto/models';
-import { ResponseTListNotasDto } from './dto/models';
-import { ResponseTNotasDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTNotasDto } from '../model/models';
+import { ResponseTListNotasDto } from '../model/models';
+import { ResponseTNotasDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,34 +29,34 @@ export interface NotasServiceInterface {
 
     /**
      * delete Nota in the system.
-     *
+     * 
      * @param id Id Nota
      */
     deleteUsingDELETE59(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Nota in the system.
-     *
+     * 
      * @param id Id Nota
      */
     findByIdUsingGET59(id: string, extraHttpRequestParams?: any): Observable<ResponseTNotasDto>;
 
     /**
      * List all Nota in the system.
-     *
+     * 
      */
-    listFindAllUsingGET54(extraHttpRequestParams?: any): Observable<ResponseTListNotasDto>;
+    listFindAllUsingGET37(extraHttpRequestParams?: any): Observable<ResponseTListNotasDto>;
 
     /**
      * save a Nota in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST59(dto: RequestTNotasDto, extraHttpRequestParams?: any): Observable<ResponseTNotasDto>;
 
     /**
      * update Nota in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT59(dto: RequestTNotasDto, extraHttpRequestParams?: any): Observable<ResponseTNotasDto>;

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -48,11 +48,9 @@ export class PayrollIndividualFormComponent implements OnInit {
       catalog: catalogs[0],
       nombre: '',
       estado: '',
-      trabajador: builder.group({
-        id: builder.control(''),
-        primerNombre: builder.control(''),
-        sueldo: builder.control(0),
-      }),
+      primerNombre: builder.control(''),
+      trabajadorId: builder.control(''),
+      sueldo: builder.control(0),
       deduccion: 0,
       devengos: 0,
       totalAPagar: 0,
@@ -163,6 +161,9 @@ export class PayrollIndividualFormComponent implements OnInit {
 
   optionSelected(value: any) {
     console.log(value);
-    this.form.patchValue({ ...this.form.value, trabajador: value });
+    this.form.patchValue({ ...this.form.value, trabajadorId: value.id, primerNombre: value.primerNombre, sueldo: value.sueldo });
+  }
+  cierraTrabajador(){
+    return this.form.value.primerNombre;
   }
 }

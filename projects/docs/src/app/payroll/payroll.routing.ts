@@ -25,6 +25,7 @@ import { PayrollTableComponent } from './payroll-components/payroll-general/tabl
 import { PayrollIndividualFormComponent } from './payroll-components/payroll-individual/payroll-individual-form.component';
 import { PayrollIndividualTableComponent } from './payroll-components/payroll-individual/payroll-individual-table.component';
 import { PayrollindividualViewComponent } from './payroll-components/payroll-individual/payroll-individual-view.component';
+import { PrimasComponent } from './payroll-components/primas/primas.component';
 import { SaludPensionSindicatosComponent } from './payroll-components/salud-pension-sindicato/salud-pension-sindicato.component';
 import { SancionComponent } from './payroll-components/sancion/sancion.component';
 import { TransportesComponent } from './payroll-components/transporte/transporte.component';
@@ -38,11 +39,11 @@ export const PayrollRoutes: Routes = [
   },
   {
     path: 'individual',
-    component: PayrollIndividualTableComponent,
+    component: PayrollIndividualTableComponent, data: {animation: 'HomePage'}
   },
   {
     path: 'view',
-    component: PayrollindividualViewComponent,
+    component: PayrollindividualViewComponent, data: {animation: 'AboutPage'}
   },
   {
     path: 'form',
@@ -50,6 +51,7 @@ export const PayrollRoutes: Routes = [
   },
   {
     path: 'devengos',
+    component: DevengadosViewComponent,
     children: [
       {
         path: 'listado',
@@ -57,79 +59,78 @@ export const PayrollRoutes: Routes = [
       },
       {
         path: '',
-        component: DevengadosViewComponent,
-        children: [
-          {
-            path: '',
-            component: DevengadosFormComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'licencias',
-            component: LicenciaComponent,
-          },
-          {
-            path: 'incapacidades',
-            component: IncapacidadesComponent,
-          },
-          {
-            path: 'auxilios',
-            component: AuxiliosComponent,
-          },
-          {
-            path: 'vacaciones',
-            component: VacacionesComponent,
-          },
-          {
-            path: 'bonificaciones',
-            component: BonificacionesComponent,
-          },
-          {
-            path: 'anticipos',
-            component: AnticipoComponent,
-          },
-          {
-            path: 'pagosTerceros',
-            component: PagosTercerosComponent,
-          },
-          {
-            path: 'bonos',
-            component: BonosEPCTVComponent,
-          },
-          {
-            path: 'compensaciones',
-            component: CompensacionesComponent,
-          },
-          {
-            path: 'cesantías',
-            component: CesantiasComponent,
-          },
-          {
-            path: 'transportes',
-            component: TransportesComponent,
-          },
-          {
-            path: 'otrosConceptos',
-            component: OtrosConceptosComponent,
-          },
-          {
-            path: 'comisiones',
-            component: ComisionesComponent,
-          },
-          {
-            path: 'horariosAdicionales',
-            component: HorariosAdicionalesComponent,
-          },
-          {
-            path: 'huelgas-legales',
-            component: HuelgasComponent,
-          },
-        ],
+        component: DevengadosFormComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'licencias',
+        component: LicenciaComponent,
+      },
+      {
+        path: 'incapacidades',
+        component: IncapacidadesComponent,
+      },
+      {
+        path: 'auxilios',
+        component: AuxiliosComponent,
+      },
+      {
+        path: 'vacaciones',
+        component: VacacionesComponent,
+      },
+      {
+        path: 'bonificaciones',
+        component: BonificacionesComponent,
+      },
+      {
+        path: 'anticipos',
+        component: AnticipoComponent,
+      },
+      {
+        path: 'pagosTerceros',
+        component: PagosTercerosComponent,
+      },
+      {
+        path: 'primas',
+        component: PrimasComponent,
+      },
+      {
+        path: 'bonos',
+        component: BonosEPCTVComponent,
+      },
+      {
+        path: 'compensaciones',
+        component: CompensacionesComponent,
+      },
+      {
+        path: 'cesantías',
+        component: CesantiasComponent,
+      },
+      {
+        path: 'transportes',
+        component: TransportesComponent,
+      },
+      {
+        path: 'otrosConceptos',
+        component: OtrosConceptosComponent,
+      },
+      {
+        path: 'comisiones',
+        component: ComisionesComponent,
+      },
+      {
+        path: 'horariosAdicionales',
+        component: HorariosAdicionalesComponent,
+      },
+      {
+        path: 'huelgas-legales',
+        component: HuelgasComponent,
       },
     ],
   },
   {
     path: 'deducciones',
+    component: DeduccionesViewComponent,
     children: [
       {
         path: 'listado',
@@ -137,42 +138,36 @@ export const PayrollRoutes: Routes = [
       },
       {
         path: '',
-        component: DeduccionesViewComponent,
-        children: [
-          {
-            path: '',
-            component: DeduccionesFormComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'anticipos',
-            component: AnticipoComponent,
-          },
-          {
-            path: 'fondo-sp',
-            component: FondoSPComponent,
-          },
-          {
-            path: 'libranzas',
-            component: LibranzaComponent,
-          },
-          {
-            path: 'otras-deducciones',
-            component: OtrasDeduccionesComponent,
-          },
-          {
-            path: 'pago-terceros',
-            component: PagosTercerosComponent,
-          },
-          {
-            path: 'sanciones',
-            component: SancionComponent,
-          },
-          {
-            path: 'salud-pension-sindicato',
-            component: SaludPensionSindicatosComponent,
-          },
-        ],
+        component: DeduccionesFormComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'anticipos',
+        component: AnticipoComponent,
+      },
+      {
+        path: 'fondo-sp',
+        component: FondoSPComponent,
+      },
+      {
+        path: 'libranzas',
+        component: LibranzaComponent,
+      },
+      {
+        path: 'otras-deducciones',
+        component: OtrasDeduccionesComponent,
+      },
+      {
+        path: 'pago-terceros',
+        component: PagosTercerosComponent,
+      },
+      {
+        path: 'sanciones',
+        component: SancionComponent,
+      },
+      {
+        path: 'salud-pension-sindicato',
+        component: SaludPensionSindicatosComponent,
       },
     ],
   },

@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTHuelgaLegalDto } from './dto/models';
-import { ResponseTHuelgaLegalDto } from './dto/models';
-import { ResponseTListHuelgaLegalDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTHuelgaLegalDto } from '../model/models';
+import { ResponseTHuelgaLegalDto } from '../model/models';
+import { ResponseTListHuelgaLegalDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -200,12 +200,12 @@ export class HuelgasLegalesService implements HuelgasLegalesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET46(devengadoId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHuelgaLegalDto>;
-    public listFindAllUsingGET46(devengadoId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHuelgaLegalDto>>;
-    public listFindAllUsingGET46(devengadoId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHuelgaLegalDto>>;
-    public listFindAllUsingGET46(devengadoId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllDevengadosUsingGET20(devengadoId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHuelgaLegalDto>;
+    public listFindAllDevengadosUsingGET20(devengadoId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHuelgaLegalDto>>;
+    public listFindAllDevengadosUsingGET20(devengadoId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHuelgaLegalDto>>;
+    public listFindAllDevengadosUsingGET20(devengadoId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (devengadoId === null || devengadoId === undefined) {
-            throw new Error('Required parameter devengadoId was null or undefined when calling listFindAllUsingGET46.');
+            throw new Error('Required parameter devengadoId was null or undefined when calling listFindAllDevengadosUsingGET20.');
         }
 
         let headers = this.defaultHeaders;

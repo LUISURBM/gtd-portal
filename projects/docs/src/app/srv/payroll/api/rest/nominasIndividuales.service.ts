@@ -17,10 +17,10 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestTNominaIndividualDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTNominaIndividualDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTNominaIndividualDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTNominaIndividualDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -196,16 +196,20 @@ export class NominasIndividualesService implements NominasIndividualesServiceInt
 
     /**
      * List all Nomina Individual in the system.
+     * @param businessSubscriptionId businessSubscriptionId
      * @param nominaGeneralId nominaGeneralId
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET53(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
-    public listFindAllUsingGET53(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET53(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET53(businessSubscriptionId: string, nominaGeneralId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
+    public listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (businessSubscriptionId === null || businessSubscriptionId === undefined) {
+            throw new Error('Required parameter businessSubscriptionId was null or undefined when calling listFindAllUsingGET36.');
+        }
         if (nominaGeneralId === null || nominaGeneralId === undefined) {
-            throw new Error('Required parameter nominaGeneralId was null or undefined when calling listFindAllUsingGET53.');
+            throw new Error('Required parameter nominaGeneralId was null or undefined when calling listFindAllUsingGET36.');
         }
 
         let headers = this.defaultHeaders;

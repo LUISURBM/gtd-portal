@@ -13,10 +13,10 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { RequestTProveedorXmlDto } from './dto/models';
-import { ResponseTListHashMapstringobject } from './dto/models';
-import { ResponseTProveedorXmlDto } from './dto/models';
-import { ResponseTstring } from './dto/models';
+import { RequestTProveedorXmlDto } from '../model/models';
+import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTProveedorXmlDto } from '../model/models';
+import { ResponseTstring } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
@@ -29,35 +29,35 @@ export interface ProveedoresXMLServiceInterface {
 
     /**
      * delete Proveedor Xml in the system.
-     *
+     * 
      * @param id Id Proveedor Xml
      */
     deleteUsingDELETE67(id: string, extraHttpRequestParams?: any): Observable<ResponseTstring>;
 
     /**
      * find by id Proveedor Xml in the system.
-     *
+     * 
      * @param id Id Proveedor Xml
      */
     findByIdUsingGET67(id: string, extraHttpRequestParams?: any): Observable<ResponseTProveedorXmlDto>;
 
     /**
      * List all Proveedor Xml in the system.
-     *
+     * 
      * @param param param
      */
-    listFindAllUsingGET62(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET43(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Proveedor Xml in the system.
-     *
+     * 
      * @param dto dto
      */
     saveUsingPOST67(dto: RequestTProveedorXmlDto, extraHttpRequestParams?: any): Observable<ResponseTProveedorXmlDto>;
 
     /**
      * update Proveedor Xml in the system.
-     *
+     * 
      * @param dto dto
      */
     updateUsingPUT67(dto: RequestTProveedorXmlDto, extraHttpRequestParams?: any): Observable<ResponseTProveedorXmlDto>;
