@@ -50,7 +50,10 @@ html {
 
 a:hover,
 a:focus,
-a:not(span) {
+a {
+  &.span {
+    text-decoration: none;
+  }
   text-decoration: underline;
 }
 a.link {
@@ -713,7 +716,8 @@ froms
 .mat-form-field-underline {
   background-color: rgba(0, 0, 0, 0.25);
 }
-.mat-form-field.mat-focused .mat-form-field-label,.mat-form-field {
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-form-field {
   width: 100%;
   color: var(--accent-color) !important;
   // span,
@@ -740,8 +744,8 @@ froms
   }
 }
 
-.gtd-icon-button{
-  font-size: var(--icon-button-size)!important;
+.gtd-icon-button {
+  font-size: var(--icon-button-size) !important;
 }
 
 .mat-raised-button,
@@ -757,7 +761,10 @@ froms
   padding: 0.5em 0.85em;
   min-height: 2.5em;
 }
-
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+  font-size: var(--icon-button-size);
+}
 .material-icons {
   font-size: var(--icon-button-size);
   font-family: "Material Icons", "Material Icons";
@@ -765,8 +772,8 @@ froms
     font-family: "Roboto";
   }
 }
-.mat-badge-medium.mat-badge-above .mat-badge-content{
-  top: -3px!important;
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: -3px !important;
 }
 
 /*******************
@@ -790,7 +797,6 @@ Mat card
     margin: 0 0px 0px 0px;
   }
   .mat-card-header {
-
     // .mat-card-title {
     //   margin-bottom: 2px;
     //   font-size: 20px;
@@ -855,11 +861,10 @@ Mat card
       .mat-select-arrow,
       .mat-select-value {
         color: var(--text-accent-lighter-color) !important;
-        .disabled{
+        .disabled {
           color: var(--text-accent-darker-color) !important;
         }
       }
-
     }
   }
 }
@@ -923,9 +928,9 @@ list inline
 /*******************
 tabs
 *******************/
-.mat-tab-label, .mat-tab-link{
-  color: var(--text-accent-darker-color)!important;
-
+.mat-tab-label,
+.mat-tab-link {
+  color: var(--text-accent-darker-color) !important;
 }
 
 /*******************/
@@ -1013,7 +1018,10 @@ tabs
     }
   }
 }
-
+.gtd-overlay-backdrop {
+  opacity: 0.9;
+  backdrop-filter: blur(2px);
+}
 .add-contact {
   position: absolute !important;
   right: 17px;
@@ -1025,21 +1033,19 @@ tabs
   height: calc(100vh - 64px);
 }
 
-.mat-datepicker-content-container
-,.mat-calendar-content
-{
-  background: var(--bg-card)!important;
-  color: var(--text-accent-color)!important;
+.mat-datepicker-content-container,
+.mat-calendar-content {
+  background: var(--bg-card) !important;
+  color: var(--text-accent-color) !important;
 }
 
-.mat-datepicker-content-touch .mat-calendar
-{
-  background: var(--top-bar)!important;
-  color: var(--text-accent-lighter-color)!important;
+.mat-datepicker-content-touch .mat-calendar {
+  background: var(--top-bar) !important;
+  color: var(--text-accent-lighter-color) !important;
 }
 
-.mat-calendar-body-cell-content{
-  color: var(--text-accent-color)!important;
+.mat-calendar-body-cell-content {
+  color: var(--text-accent-color) !important;
 }
 
 ::-webkit-scrollbar {

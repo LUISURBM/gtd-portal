@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { DirtyCheckGuard } from '../guards/dirty-check.guard';
 import { AnticipoComponent } from './payroll-components/anticipo/anticipo.component';
 import { AuxiliosComponent } from './payroll-components/auxilio/auxilios.component';
 import { BonificacionesComponent } from './payroll-components/bonificaciones/bonificaciones.component';
@@ -39,15 +40,19 @@ export const PayrollRoutes: Routes = [
   },
   {
     path: 'individual',
-    component: PayrollIndividualTableComponent, data: {animation: 'HomePage'}
+    component: PayrollIndividualTableComponent,
+    data: { animation: 'HomePage' },
   },
   {
     path: 'view',
-    component: PayrollindividualViewComponent, data: {animation: 'AboutPage'}
+    component: PayrollindividualViewComponent,
+    data: { animation: 'AboutPage' },
   },
   {
     path: 'form',
     component: PayrollIndividualFormComponent,
+    canActivate: [DirtyCheckGuard],
+    canDeactivate: [DirtyCheckGuard],
   },
   {
     path: 'devengos',

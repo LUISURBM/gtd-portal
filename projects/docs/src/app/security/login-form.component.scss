@@ -7,3 +7,16 @@
     right: 17px;
     top: 57px;
 }
+.mat-card {
+  opacity: .9;
+  backdrop-filter: blur(2px);
+  top: 23vh;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .mat-card {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5)!important;
+  }
+}

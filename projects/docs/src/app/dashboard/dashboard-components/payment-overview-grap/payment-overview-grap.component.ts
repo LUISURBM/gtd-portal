@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType as GChartType } from 'angular-google-charts';
 import * as Chartist from 'chartist';
 import { ChartEvent, ChartType } from 'ng-chartist';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
+import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 
 declare var require: any;
 const data = require('./data.json');
@@ -32,6 +32,7 @@ export class PaymentOverviewGrapComponent implements OnInit {
   ];
   columnNames = ['Corte', 'Devengados', 'Deducciones', 'Total nómina', 'Total vacaciones' ];
   options = {
+    legend: { position: 'bottom', alignment: 'start' },
     isStacked: true,
     hAxis: {
       title: 'Year',
@@ -62,7 +63,7 @@ export class PaymentOverviewGrapComponent implements OnInit {
     };
 
     storedProcedureAPISrv
-      .exectuteProcedureUsingPOST(request, 'events', true, {
+      .exectuteProcedureUsingPOST1(request, 'events', true, {
         httpHeaderAccept: 'application/json',
       })
       .subscribe({

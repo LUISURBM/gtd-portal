@@ -1,11 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { InMemService } from '../srv/in-mem-service';
 import { NavigationService } from '../srv/navigation.service';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss'],
 })
 export class LogInFormComponent {
   @ViewChild('formView') formView: any;

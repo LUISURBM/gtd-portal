@@ -10,11 +10,11 @@
       <p class="card-category">Información de Licencia</p>
 
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne">
         <span>Tipo</span>
         <mat-form-field>
           <mat-select class="example-select" #business tabindex="1" formControlName="catalog" id="business">
-            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.code"> {{catalog.name}} </mat-option>
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description"> {{catalog.name}} </mat-option>
           </mat-select>
         </mat-form-field>
       </div>

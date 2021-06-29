@@ -1,14 +1,13 @@
 <div class="wrapper wrapper-full-page">
   <div class="page-header login-page header-filter" filter-color="black"
-    style="background-image: url('../../assets/img/login.jpg'); background-size: cover; background-position: top center;">
+    style="background-image: url('../../assets/images/login.jpg'); background-size: cover; background-position: top center;">
     <div class="container">
-      <div class="row">
-        <form [formGroup]="form" class="d-flex main-container main-form">
-          <div class="card mat-card">
+      <div class="row justify-content-center">
+        <form [formGroup]="form" >
+          <div class="card mat-card" >
             <div class="mat-card-header card-header-primary">
-              <h4 class="card-title">¡Bienvenido a Nómina Electrónica!
-              </h4>
-              <p class="card-category">Datos inicio de sesión</p>
+              <h1 class="text-center card-title">¡Bienvenido a Nómina Electrónica!
+              </h1>
             </div>
             <div class="card-body">
 
@@ -23,8 +22,8 @@
               </mat-form-field>
 
               <mat-form-field>
-                <input matInput tabindex="1" formControlName="contrasena" placeholder="Clave"
-                  id="contrasena" type="password" class="form-control" />
+                <input matInput tabindex="1" formControlName="contrasena" placeholder="Clave" id="contrasena"
+                  type="password" class="form-control" />
                 <div *ngIf="f.contrasena.touched && f.contrasena.invalid" class="alert alert-danger">
                   <div *ngIf="f.contrasena.errors?.required">
                     nombre es obligatorio.
@@ -32,9 +31,7 @@
                 </div>
               </mat-form-field>
 
-            </div>
-            <div>
-              <button mat-button (click)="onNoClick()" tabindex="-1">
+              <button mat-button (click)="onNoClick()" tabindex="-1" color="accent">
                 Limpiar
               </button>
               <button mat-button (click)="save()" tabindex="3">Aceptar</button>

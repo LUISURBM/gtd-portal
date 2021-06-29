@@ -1,11 +1,14 @@
 <form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow: visible">
-  <div class="m-0 mat-card">
-    <div class="mat-card-header card-header-primary">
-      <h1 mat-dialog-title>Formulario Sanción {{ data.id }}</h1>
-      <h4 class="card-title">Agregar sanción nuevo</h4>
-      <p class="card-category">Información de sanción</p>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">{{'1F468'|gtdEmoji}}</em></div>
+        <h1>Formulario Sanción {{ data.id }}</h1>
+      </div>
     </div>
     <div class="card-body">
+      <h4 class="card-title">Agregar sanción nuevo</h4>
+      <p class="card-category">Información de sanción</p>
       <mat-form-field>
         <input matInput tabindex="1" formControlName="sancionPriv" placeholder="Valor de la sanción privida"
           id="sancionPriv" type="text" class="form-control" />

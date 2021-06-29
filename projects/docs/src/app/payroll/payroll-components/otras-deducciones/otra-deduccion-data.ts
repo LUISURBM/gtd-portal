@@ -26,7 +26,7 @@ export const otrasDeducciones: OtraDeduccion[] = [
   },
 ];
 
-export const displayedColumns: string[] = ['id', 'otraDeduccion', 'action'];
+export const displayedColumns: string[] = ['otraDeduccion', 'action'];
 
 export const EMPTY = {
   id: '',

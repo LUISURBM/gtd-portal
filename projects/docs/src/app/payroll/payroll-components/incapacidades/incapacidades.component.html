@@ -11,14 +11,14 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-card-subtitle>Angular Material table for <code>Incapacidades</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle><code>Incapacidades</code> </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <button mat-icon-button (click)="openDialog()" matSuffix color="primary">
-          <span>➕</span>
-        </button>
+        <span mat-icon-button (click)="openDialog()" matSuffix color="primary">
+          ➕
+        </span>
       </mat-form-field>
     </h4>
     <mat-card *ngIf="dataSource?.loading != 100" class="m-0"
@@ -56,20 +56,20 @@
         <!-- Name Column -->
         <ng-container matColumnDef="fechaInicio">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha inicio</th>
-          <td mat-cell *matCellDef="let element">{{ element.fechaInicio }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fechaInicio | date: 'MM/YYYY' }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="fechaFin">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha fin</th>
-          <td mat-cell *matCellDef="let element">{{ element.fechaFin }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fechaFin | date: 'MM/YYYY' }}</td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" (click)="openDialog(element.id)">
+            <button mat-icon-button color="primary" (click)="openDialog(element)">
               <mat-icon>edit</mat-icon>
             </button>
 
@@ -81,6 +81,11 @@
 
         <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            <em>Sin datos</em>
+          </td>
+        </tr>
       </table>
 
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { LibranzasService } from '../../../srv/payroll/api/rest/api';
+import { LibranzasService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { Licencia } from '../licencias/licencia-data';
 import { displayedColumns, Libranza, libranzas } from './libranza-data';
@@ -39,7 +39,7 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.libranzasAPISrv.listFindAllDeduccionesIdUsingGET1(data?.deduccionId, 'events', true, {});
+    this.libranzasAPISrv.listFindAllDeduccionesIdUsingGET1(data?.deduccionesId, 'events', true, {});
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -96,6 +96,8 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: undefined,
+        deduccion: libranza.deduccion,
+        descripcion: libranza.descripcion,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,

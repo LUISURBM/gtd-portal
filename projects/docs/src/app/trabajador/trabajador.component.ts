@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,15 +6,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ValuesCatalog } from '../srv/in-mem-data-service';
 import { InMemService } from '../srv/in-mem-service';
 import { NavigationService } from '../srv/navigation.service';
-import { TrabajadoresService } from '../srv/payroll/api/rest/trabajadores.service';
-import { confirm, NgGtdDS } from '../types/common-types';
-import { FilterValueComponent } from './filter.componet';
-import { VALUES_WORKER, displayedColumns, Trabajador } from './trabajador-data';
+import { TrabajadoresService } from '../srv/payroll/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../types/common-types';
+import { displayedColumns, Trabajador } from './trabajador-data';
 import { TrabajadorFormComponent } from './trabajador-form.component';
 
 @Component({
@@ -43,46 +45,17 @@ export class TrabajadorComponent implements AfterViewInit, OnDestroy {
   listado = (data: any) =>
     this.trabajadoresAPISrv.listtrabajadorUsingGET1('events', true, {});
   readResponseTList = (data: any, message?: string) => {
-    this.loading((data?.type ?? 1) * 25);
+    this.loading((data?.type ?? 1) * 15);
     if (!data.body) return;
-    let newarray = data?.body?.bodyDto?.map?.((element: any) => {
-      var key,
-        keys = Object.keys(element);
-      var n = keys.length;
-      var newobj: any = {};
-      while (n--) {
-        key = keys[n];
-        if (key.toLowerCase().split('fecha').length > 1) {
-          element[key] =
-            /* formatDate(element[key], 'full', 'es-Co') */ new Date(
-              element[key]
-            );
-        }
-        newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
-          element[key];
-      }
-      return newobj;
-    });
-    console.log(newarray);
-    let datasource = new MatTableDataSource<Trabajador>(newarray);
-    if (this.paginator) {
-      this.paginator._intl.itemsPerPageLabel = 'Ver';
-      this.paginator._intl.getRangeLabel = (
-        page: number,
-        pageSize: number,
-        length: number
-      ) => {
-        const pagesize = pageSize > length ? length : pageSize;
-        return `Página ${page + 1}`;
-      };
-    }
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      datasource: datasource,
-      displayedColumns: displayedColumns,
-      loading: 100,
-    });
+    this.loading(75);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
+    this.loading(100);
   };
   constructor(
     public memSrv: InMemService,
@@ -119,6 +92,11 @@ export class TrabajadorComponent implements AfterViewInit, OnDestroy {
       sueldo: new FormControl(),
       tipoContrato: new FormControl(),
       tipoTrabajador: new FormControl(),
+
+      pais: new FormControl(''),
+      departamento: new FormControl(''),
+      ciudad: new FormControl(''),
+      numeroCuenta: new FormControl(),
     });
     this.subscriptions = [
       this.form.valueChanges
@@ -132,7 +110,6 @@ export class TrabajadorComponent implements AfterViewInit, OnDestroy {
           complete: this.loading,
           error: this.readResponseError,
         }),
-
       this.route.params.subscribe((params) => {
         if (!params['data'] || params['data'] === 'undefined')
           this.form.reset();
@@ -144,21 +121,18 @@ export class TrabajadorComponent implements AfterViewInit, OnDestroy {
       }),
     ];
   }
+
+  trabajadorData(element: Trabajador) {
+    return JSON.stringify(element);
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    let datasource = this.dataSource$.value.datasource;
-    datasource.paginator = this.paginator;
-    datasource.sort = this.sort;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
-  }
+  ngAfterViewInit(): void {}
 
   add(trabajador: Trabajador): void {
     if (!trabajador) {

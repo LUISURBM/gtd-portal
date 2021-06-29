@@ -18,7 +18,7 @@ import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
-import { BonificacionesService } from '../../../srv/payroll/api/rest/bonificaciones.service';
+import { BonificacionesService } from '../../../srv/payroll/rest/api';
 import { NgGtdDS } from '../../../types/common-types';
 import { Bonificacion, displayedColumns, EMPTY } from './bonificacion-data';
 import { BonificacionFormComponent } from './bonificacion-form.component';

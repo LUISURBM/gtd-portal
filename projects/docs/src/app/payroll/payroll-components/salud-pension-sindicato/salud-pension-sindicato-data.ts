@@ -131,7 +131,6 @@ export const saludPensionSindicatos: SaludPensionSindicato[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'deduccion',
   'porcentaje',
   'catalog',

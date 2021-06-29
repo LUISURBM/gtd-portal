@@ -6,14 +6,13 @@
       </div>
       <h1 class="card-title">Devengados
       </h1></mat-card-title>
-    <mat-card-subtitle>Total <code>{{dataSource.datasource.data?.length}}</code> </mat-card-subtitle>
+    <mat-card-subtitle>Total creados <code>{{dataSource.datasource.data?.length}}</code> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon mat-icon-button (click)="navSrv.navigate('/nómina/individual/devengos/view/form', data)" matSuffix mat-fab color="primary">add</mat-icon>
       </mat-form-field>
     </h4>
 

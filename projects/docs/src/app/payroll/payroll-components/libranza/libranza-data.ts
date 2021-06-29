@@ -32,4 +32,4 @@ export const libranzas: Libranza[] = [
     },
 ]
 
-export const displayedColumns: string[] = ['id', 'deduccion', 'descripcion', 'action'];
+export const displayedColumns: string[] = ['deduccion', 'descripcion', 'action'];

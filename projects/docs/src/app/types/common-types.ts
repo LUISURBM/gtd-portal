@@ -1,6 +1,12 @@
+import { formatNumber } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { fromEvent } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../shared/dialog/confirm/confirm-dialog.component';
+import { ValuesCatalog } from '../srv/in-mem-data-service';
+import { TrabajadorDto } from '../srv/payroll/model/trabajadorDto';
 
 export enum NgGtdThemes {
   FpiSkin = 'fpi-skin-black',
@@ -23,6 +29,10 @@ export enum NgGtdThemes {
 
 export interface EnumObject {
   [enumValue: number]: string;
+}
+
+export interface EnumString {
+  [enumValue: string]: ValuesCatalog;
 }
 
 export function getEnumValues(e: EnumObject): string[] {
@@ -68,7 +78,7 @@ export interface TableItem {
 }
 export const initTable = (
   dataSource$: any,
-  paginator: any,
+  paginator: MatPaginator,
   sort: any,
   newarray: any,
   displayedColumns: any
@@ -76,6 +86,10 @@ export const initTable = (
   let datasource = new MatTableDataSource<any>(newarray);
   if (paginator) {
     paginator._intl.itemsPerPageLabel = 'Ver';
+    paginator._intl.previousPageLabel = 'Anterior';
+    paginator._intl.firstPageLabel = 'Primero';
+    paginator._intl.lastPageLabel = 'Último';
+    paginator._intl.nextPageLabel = 'Siguiente';
     paginator._intl.getRangeLabel = (
       page: number,
       pageSize: number,
@@ -126,22 +140,120 @@ export const OpenDialog = (dialog: MatDialog, cmp: any, data: any) =>
   dialog
     .open(cmp, {
       hasBackdrop: false,
+      backdropClass: 'gtd-overlay-backdrop',
+      closeOnNavigation: true,
+      disableClose: true,
       width: '500px',
       data: data,
     })
     .afterClosed();
 
-export const requestProcedure = (nominaIndividualId:string, trabajadorId:string) => {
+export const requestProcedure = (
+  nominaIndividualId: string,
+  trabajadorId: string
+) => {
   return {
-  body: {
-    params: {
-      nominaIndividualId: nominaIndividualId as Object,
-      trabajadorId: trabajadorId as Object,
+    body: {
+      params: {
+        nominaIndividualId: nominaIndividualId as Object,
+        trabajadorId: trabajadorId as Object,
+      },
     },
-  },
-  header: {
-    cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
-    esquema: 'payroll',
-    procedimientoAlmacenado: 'ConsultarDevengadosTest',
-  },
-}};
+    header: {
+      cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      esquema: 'payroll',
+      procedimientoAlmacenado: 'ConsultarDevengadosTest',
+    },
+  };
+};
+
+export const gtdIsNull = (data: any) =>
+  data === undefined ||
+  data === null ||
+  data === 'null' ||
+  data === 'undefined';
+
+export const gtdNombreCompleto = (trabajador: TrabajadorDto) =>
+  `${trabajador?.primerNombre ?? ''} ${trabajador?.otrosNombres ?? ''} ${
+    trabajador?.primerApellido ?? ''
+  } ${trabajador?.segundoApellido ?? ''}`;
+
+export const gtdSueldoTrabajador = (sueldo: string) =>
+  formatNumber(Number(sueldo), 'es-CO', '1.2-2');
+
+export const gtdBeforeUnload = () => fromEvent(window, 'beforeunload');
+export const numberWithCommas = (value: any) =>
+  formatNumber(value, 'es-Co', '1.2-2');
+export const gtdScrollEvent = () => fromEvent(window, 'scroll');
+
+export const gtdExtractDataProcedure = (body: any) =>
+  body.map((b: any) => {
+    let valores: ValuesCatalog[] = [];
+    var key = Object.keys(b)?.[0];
+    const data = JSON.parse(b[key])?.[0];
+    console.log(data);
+    var keys = Object.keys(data);
+    var n = keys.length;
+    var newobj: any = {};
+
+    while (n--) {
+      var gtdMember = keys[n];
+      var valor = data[gtdMember];
+      if (typeof valor === 'object') {
+        var keys1 = Object.keys(valor?.[0]);
+        var y = keys1.length;
+        while (y--) {
+          if (keys1[y].toLocaleLowerCase().split('id').length > 1) continue;
+          valores.push({
+            id: y + 1,
+            value: valor?.[0]?.[keys1[y]],
+            code: `${key}${gtdMember}${keys1[y].charAt(0).toLowerCase()}${keys1[
+              y
+            ].substr(1, keys1[y].length)}`,
+            name: `${gtdMember}: ${keys1[y].charAt(0).toLowerCase()}${keys1[
+              y
+            ].substr(1, keys1[y].length)}`,
+            catalog: typeof valor?.[0]?.[keys1[y]],
+          });
+        }
+      } else {
+        if (gtdMember.toLocaleLowerCase().split('id').length > 1) continue;
+        if (gtdMember.toLowerCase().split('fecha').length > 1) {
+          valor = new Date(valor);
+        }
+        newobj[
+          `${gtdMember.charAt(0).toLowerCase()}${gtdMember.substr(
+            1,
+            gtdMember.length
+          )}`
+        ] = valor;
+        valores.push({
+          id: n + 1,
+          value: valor,
+          code: `${key}${gtdMember.charAt(0).toLowerCase()}${gtdMember.substr(
+            1,
+            gtdMember.length
+          )}`,
+          name: `${gtdMember.charAt(0).toLowerCase()}${gtdMember.substr(
+            1,
+            gtdMember.length
+          )}`,
+          catalog: typeof valor,
+        });
+      }
+    }
+    return valores;
+  })?.[0];
+
+export const valoresCatalogos = (params: any) => {
+  return {
+    body: {
+      params: params,
+    },
+    header: {
+      cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      esquema: 'payroll',
+      procedimientoAlmacenado: 'ConsultarValoresCatalogosPorCodigoCatalogo',
+    },
+  };
+};

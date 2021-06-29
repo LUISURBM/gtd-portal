@@ -13,6 +13,7 @@ export interface Individual extends TableItem {
   devengadosTotal?: number;
   deduccionesTotal?: number;
   comprobanteTotal?: number;
+  loading?: boolean;
 }
 
 export const nominas: Individual[] = [

@@ -14,7 +14,7 @@
 @include mat-core();
 
 //// F O R E G R O U N D   E L E M E N T S
-$topbar-vh: 5.7vh;
+$topbar-vh: 7vh;
 
 // LIGHT THEME TEXT
 $light-text: #ffffff;
@@ -46,7 +46,7 @@ $font-16: 16px;
 $icon-button-size: 1em;
 
 $themecolor: #86b30a;
-$themecolor-alt: #d38e31;
+$themecolor-alt: #813405;
 $themecolor-dark: #028ee1;
 
 $accent-black:#357a38;
@@ -88,7 +88,7 @@ $light-megna: #e0f2f4;
 /* alt color*/
 $dark-danger: #992915;
 $dark-sucess: #a37c82;
-$dark-primary: #d38e31;
+$dark-primary: #9e9547;
 
 $danger-dark: #e6294b;
 $success-dark: #1eacbe;
@@ -151,7 +151,7 @@ $dark-bg-tooltip: lighten(#2c2c2c, 20%);
 $dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
 $dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
 
-$dark-bg-lighter-5: darken($dark-background, 5%);
+$dark-bg-lighter-15: darken($dark-background, 15%);
 $dark-bg-lighter-10: lighten($dark-background, 10%);
 $dark-bg-lighter-20: lighten($dark-background, 20%);
 $dark-bg-lighter-30: lighten($dark-background, 30%);
@@ -206,7 +206,7 @@ $mat-light-theme-background: (
   hover: $light-bg-alpha-4,
   card: $dark-app-bar-5,
   dialog: $dark-app-bar-5,
-  tooltip: $dark-bg-lighter-5,
+  tooltip: $theme-color-blacker-5,
   disabled-button: $light-bg-alpha-12,
   raised-button: $dark-bg-lighter-30,
   focused-button: $dark-focused,
@@ -225,7 +225,7 @@ $mat-dark-theme-background: (
   hover: $dark-bg-alpha-4,
   card: $light-app-bar-5,
   dialog: $top-bar-alt,
-  tooltip: $dark-bg-tooltip,
+  tooltip: $theme-alt-lighter-5,
   disabled-button: $dark-bg-alpha-12,
   raised-button: $light-bg-lighter-5,
   focused-button: $light-focused,
@@ -332,7 +332,7 @@ $theme-black: mat-light-theme(
   --bg-toolbar: mat-color($mat-primary-black, main);
   --inverse: #f78e59;
   --bg-card: #{$light-background};
-  --bg-body: #{$light-bg-darker-20};
+  --bg-body: #{$light-bg-darker-30};
   --bodyfont: #{$bodyfont};
   --bodytext: #{$bodytext};
   --headingtext: #{$headingtext};
@@ -470,7 +470,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   --app-bar: #{$app-bar-alt};
   --sidebar-icons: #{$sidebar-icons-alt};
 
-  --primary-color: #813405;
+  --primary-color: #d38e31;
   --primary-lighter-color: #f0c2ef;
   --primary-darker-color: #b920b7;
   --text-primary-color: #{$dark-primary-text};

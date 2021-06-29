@@ -6,18 +6,18 @@ import { LogInFormComponent } from './security/login-form.component';
 import { SelectivePreloadingStrategyService } from './srv/selective-preloading-strategy.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
   { path: 'login', component: LogInFormComponent },
   {
     path: '',
     component: FullComponent,
     children: [
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       {
-      path: 'dashboard',
-      loadChildren: () =>
-        import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-    },
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
       {
         path: 'home',
         loadChildren: () =>

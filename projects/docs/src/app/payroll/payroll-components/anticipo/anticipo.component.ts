@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { AnticiposService } from '../../../srv/payroll/api/rest/anticipos.service';
+import { AnticiposService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
@@ -59,7 +59,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
           {}
         )
       : this.anticiposAPISrv.listFindAllDevengadosUsingGET14(
-          data?.deduccionesId,
+          data?.devengadosId,
           'events',
           true,
           {}

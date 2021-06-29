@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,12 +15,12 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { SaludPensionSindicatosService } from '../../../srv/payroll/api/rest/api';
+import { SaludPensionSindicatosService } from '../../../srv/payroll/rest/api';
 import { confirm, NgGtdDS } from '../../../types/common-types';
 import {
   displayedColumns,
   EMPTY,
-  SaludPensionSindicato,
+  SaludPensionSindicato
 } from './salud-pension-sindicato-data';
 import { SaludPensionSindicatoFormComponent } from './salud-pension-sindicato-form.component';
 
@@ -149,8 +149,8 @@ export class SaludPensionSindicatosComponent
     const request = {
       entidad: {
         id: undefined,
-        deduccion: this.form.value.deduccion,
-        porcentaje: this.form.value.porcentaje,
+        deduccion: saludPensionSindicato.deduccion!,
+        porcentaje: saludPensionSindicato.porcentaje!,
         valueCatalogType: saludPensionSindicato.catalog!,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -231,8 +231,8 @@ export class SaludPensionSindicatosComponent
     const request = {
       entidad: {
         id: saludPensionSindicato.id,
-        deduccion: this.form.value.deduccion,
-        porcentaje: this.form.value.porcentaje,
+        deduccion: saludPensionSindicato.deduccion!,
+        porcentaje: saludPensionSindicato.porcentaje,
         valueCatalogType: saludPensionSindicato.catalog!,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',

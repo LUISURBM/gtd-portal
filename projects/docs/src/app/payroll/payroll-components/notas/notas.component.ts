@@ -19,8 +19,8 @@ import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-d
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
-import { NotasService } from '../../../srv/payroll/api/rest/notas.service';
+import { StoredProcedureService } from '../../../srv/payroll/rest/api';
+import { NotasService } from '../../../srv/payroll/rest/api';
 import {
   NgGtdDS,
   initTable,

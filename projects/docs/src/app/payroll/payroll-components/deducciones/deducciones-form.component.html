@@ -5,16 +5,18 @@
 
   <div class="mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
-      <div class="card-icon">
-        <em class="material-icons">🧾</em>
+      <div class="card-title">
+        <div class="card-icon">
+          <em class="material-icons">🧾</em>
+        </div>
+        <h1>Agregar nueva Deducción</h1>
       </div>
-      <h4 class="card-title">Agregar nueva Deducción</h4>
-      <p class="card-category">Información de Deducción</p>
     </div>
     <div class="row card-body">
+      <p class="card-category">Información de Deducción</p>
 
-      <div class="col-6 flex-column" matTooltip="Tooltip!">
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="col-6 flex-column">
+        <div class="col-12 type-tooltip-ne">
           <span>Pensión Voluntaria</span>
           <mat-form-field>
             <input matInput tabindex="1" formControlName="pensionVoluntaria" placeholder="Dotación"
@@ -27,7 +29,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne">
           <span>Retención Fuente</span>
           <mat-form-field>
             <input matInput tabindex="2" formControlName="retencionFuente" placeholder="retencionFuente"
@@ -40,7 +42,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne">
           <span>afc</span>
           <mat-form-field>
             <input matInput tabindex="2" formControlName="afc" placeholder="afc" id="afc" type="text"
@@ -53,7 +55,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne">
           <span>cooperativa</span>
           <mat-form-field>
             <input matInput tabindex="2" formControlName="cooperativa" placeholder="cooperativa" id="cooperativa"
@@ -66,7 +68,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne">
           <span>embargoFiscal</span>
           <mat-form-field>
             <input matInput tabindex="2" formControlName="embargoFiscal" placeholder="embargoFiscal" id="embargoFiscal"
@@ -79,7 +81,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 type-tooltip-ne" matTooltip="Tooltip!">
+        <div class="col-12 type-tooltip-ne">
           <span>planComplementarios</span>
           <mat-form-field>
             <input matInput tabindex="2" formControlName="planComplementarios" placeholder="planComplementarios"
@@ -97,8 +99,8 @@
         <div class="col-12 type-tooltip-ne">
           <span>educacion</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="educacion" placeholder="educacion"
-              id="educacion" type="text" class="form-control" />
+            <input matInput tabindex="2" formControlName="educacion" placeholder="educacion" id="educacion" type="text"
+              class="form-control" />
             <div *ngIf="f.educacion.touched && f.educacion.invalid" class="alert alert-danger">
               <div *ngIf="f.educacion.errors?.required">
                 educacion es obligatorio.
@@ -109,8 +111,8 @@
         <div class="type-tooltip-ne">
           <span>reintegro</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro" type="number"
-              class="form-control" />
+            <input matInput tabindex="2" formControlName="reintegro" placeholder="reintegro" id="reintegro"
+              type="number" class="form-control" />
           </mat-form-field>
         </div>
 

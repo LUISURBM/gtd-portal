@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { OtrosConceptosService } from '../../../srv/payroll/api/rest/api';
+import { OtrosConceptosService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
@@ -40,7 +40,7 @@ export class OtrosConceptosComponent
 {
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<OtroConcepto>(otrosConceptos),
+    datasource: new MatTableDataSource<OtroConcepto>([]),
     displayedColumns: displayedColumns,
   });
 

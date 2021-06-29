@@ -12,7 +12,7 @@ export const animationsForm = [
           height: 'auto',
           padding: '1.25rem'
       })),
-      transition('void => *', animate('.5s ease'))
+      transition('void => *', animate('5s ease'))
   ]),
 ];
 

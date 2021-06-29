@@ -3,8 +3,8 @@ import * as Chartist from 'chartist';
 import { ChartType, ChartEvent, ChartInterfaces } from 'ng-chartist';
 import { BAR_CHART_1 } from './chart-values';
 import { ChartType as GChartType } from 'angular-google-charts';
-import { PayrollsService } from '../../../srv/payroll/api/rest/payrolls.service';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
+import { PayrollsService } from '../../../srv/payroll/rest/api';
+import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 import { newArray } from '@angular/compiler/src/util';
 
 declare var require: any;
@@ -36,6 +36,7 @@ export class PayrollOverviewGrapComponent implements OnInit {
   ];
   columnNames = ['Browser', 'Percentage'];
   options = {
+    legend: { position: 'bottom', alignment: 'start' },
     width: '100%',
     height: '300px',
     backgroundColor: { fill:'transparent' }
@@ -63,7 +64,7 @@ export class PayrollOverviewGrapComponent implements OnInit {
     };
 
     storedProcedureAPISrv
-      .exectuteProcedureUsingPOST(request, 'events', true, {
+      .exectuteProcedureUsingPOST1(request, 'events', true, {
         httpHeaderAccept: 'application/json',
       })
       .subscribe({

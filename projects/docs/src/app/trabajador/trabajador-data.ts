@@ -18,6 +18,9 @@ export interface Trabajador {
   tipoContrato?: string;
   tipoDocumento?: string;
   tipoTrabajador?: string;
+  pais?: string;
+  departamento?: string;
+  ciudad?: string;
 }
 
 export const VALUES_WORKER: Trabajador[] = [
@@ -61,7 +64,6 @@ export const MENU_ITEMS = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'numeroDocumento',
   'codigoTrabajador',
   'nombre',

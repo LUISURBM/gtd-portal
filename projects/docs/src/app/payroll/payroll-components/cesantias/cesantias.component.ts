@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { CesantiasService } from '../../../srv/payroll/api/rest/cesantias.service';
+import { CesantiasService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { Cesantia, displayedColumns, cesantias, EMPTY } from './cesantia-data';
 import { CesantiaFormComponent } from './cesantia-form.component';

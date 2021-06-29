@@ -1,7 +1,7 @@
 <mat-card class="card" *ngIf="dataSource$ | async as dataSource">
   <mat-card-header>
     <mat-card-title>Salud Pension Sindicato</mat-card-title>
-    <mat-card-subtitle>Angular Material table for <code>Salud Pension Sindicato</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle><code>Salud Pension Sindicato</code> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h4>
@@ -19,12 +19,6 @@
 
     <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="deduccion">

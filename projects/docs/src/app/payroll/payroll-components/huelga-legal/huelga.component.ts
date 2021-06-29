@@ -22,7 +22,7 @@ import { displayedColumns, Huelga, huelgas } from './huelga-data';
 import { HuelgaFormComponent } from './huelga-form.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { HuelgasLegalesService } from '../../../srv/payroll/api/rest/api';
+import { HuelgasLegalesService } from '../../../srv/payroll/rest/api';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 

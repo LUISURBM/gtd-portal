@@ -6,6 +6,7 @@ import { delay } from "rxjs/operators";
 export interface ValuesCatalog {
   id: number;
   name?: string;
+  description?: string;
   code?: string;
   catalog?: string;
   fecha?: Date;

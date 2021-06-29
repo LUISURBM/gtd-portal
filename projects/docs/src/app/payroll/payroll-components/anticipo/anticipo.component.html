@@ -10,7 +10,7 @@
       </h1>
       <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
-    <mat-card-subtitle>Angular Material table for <code>anticipos</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle><code>anticipos</code> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h4>
@@ -23,7 +23,7 @@
       </mat-form-field>
     </h4>
 
-    <mat-card *ngIf="dataSource?.loading != 100" class="m-0" style="display: flex; justify-content: center; align-items: center">
+    <mat-card *ngIf="dataSource?.loading" class="m-0" style="display: flex; justify-content: center; align-items: center">
       <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
     </mat-card>
 

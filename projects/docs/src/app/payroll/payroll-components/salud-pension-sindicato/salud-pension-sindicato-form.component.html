@@ -1,18 +1,21 @@
 <form [formGroup]="form" class="m-0 d-flex main-container main-form" style="overflow: visible">
-  <div class="m-0 mat-card" style="width: 150%; align-self: center;">
-    <div class="mat-card-header card-header-primary">
-      <h1 mat-dialog-title>Formulario {{ data.catalog }} {{ data.id }}</h1>
-      <h4 class="card-title">Agregar {{ data.catalog }} nuevo</h4>
-      <p class="card-category">Información de {{ data.catalog }}</p>
+  <div class="m-0 mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">{{'1F468'|gtdEmoji}}</em></div>
+        <h1>Formulario {{ data.catalog }} {{ data.id }}</h1>
+      </div>
     </div>
 
     <div class="card-body">
+      <p class="card-category">Información de {{ data.catalog }}</p>
+      <h4 class="card-title">Agregar {{ data.catalog ?? '' }} nuevo</h4>
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Ver tipo</span>
         <mat-form-field>
           <mat-select class="example-select" #catalog tabindex="1" formControlName="catalog" id="catalog">
-            <mat-option *ngFor="let bus of catalogs" [value]="bus">
-              {{ bus.name }}
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
+              {{ catalog.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -44,9 +47,9 @@
         </mat-form-field>
       </div>
 
-      <div mat-dialog-actions class="d-flex justify-content-center">
-        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+      <div class="d-flex justify-content-center">
         <button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>
     </div>
   </div>

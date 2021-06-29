@@ -79,14 +79,10 @@ export class DeduccionesViewComponent implements OnInit{
     this.form = this.builder.group({
       menuItem: builder.control(''),
       nominaIndividualId: undefined,
+      nominaGeneralId: undefined,
       deduccionesId: builder.control(''),
       fechaCorte: new Date(),
-      trabajador: builder.group({
-        id: builder.control(''),
-        primerNombre: builder.control(''),
-        primerApellido: builder.control(''),
-        sueldo: builder.control(0),
-      }),
+      primerNombre: builder.control(''),
     });
     this.subscriptions = [
       this.route.params.subscribe((params) => {
@@ -133,7 +129,6 @@ export class DeduccionesViewComponent implements OnInit{
   generalData = () => {
     return JSON.stringify({
       nominaGeneralId: this.form.value.nominaGeneralId,
-      deduccionesId: this.form.value.deduccionesId,
       fechaCorte: this.form.value.fechaCorte,
     });
   };
@@ -154,6 +149,6 @@ export class DeduccionesViewComponent implements OnInit{
   };
 
   primerNombreTrabajador(){
-    return `${this.form.value.trabajador.primerNombre?.substring(0,1)}. ${this.form.value.trabajador.primerApellido ?? ''}`;
+    return `${this.form.value.primerNombre ?? ''}`;
   }
 }

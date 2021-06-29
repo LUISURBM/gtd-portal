@@ -16,7 +16,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { IncapacidadesService } from '../../../srv/payroll/api/rest/api';
+import { IncapacidadesService } from '../../../srv/payroll/rest/api';
 import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import {
   displayedColumns,

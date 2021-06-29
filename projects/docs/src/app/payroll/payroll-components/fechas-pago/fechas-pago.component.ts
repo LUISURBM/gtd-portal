@@ -9,7 +9,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { FechasPagosService } from '../../../srv/payroll/api/rest/api';
+import { FechasPagosService } from '../../../srv/payroll/rest/api';
 import { NgGtdDS, initTable, gtdArrayToLowerCase } from '../../../types/common-types';
 import { NotaFormComponent } from '../notas/nota-form.component';
 import { FechaPagoFormComponent } from './fecha-pago-form.component';

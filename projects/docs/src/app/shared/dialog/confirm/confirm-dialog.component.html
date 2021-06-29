@@ -1,13 +1,11 @@
 <form class="m-0 d-flex main-container main-form" style="overflow:visible" mat-dialog-title cdkDrag
   cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
-  <h1>{{titulo}}</h1>
   <div class="m-0 mat-card card">
-    <div class="card-header">
-      <h2 class="card-title text-center">{{ pregunta }}
-      </h2>
+    <div class="card-header" *ngIf="titulo">
+      <h1>{{titulo}}</h1>
     </div>
-    <div *ngIf="titulo" class="card-body flex-row" mat-dialog-content>
-      {{titulo}}
+    <div class="card-body flex-row" mat-dialog-content>
+      <h2 class="card-title text-center">{{ pregunta }}</h2>
     </div>
     <div class="flex-row m-2" mat-dialog-actions>
       <button mat-button (click)="onNoClick()" type="button" tabindex="-1" class="mat-button col-4 ">

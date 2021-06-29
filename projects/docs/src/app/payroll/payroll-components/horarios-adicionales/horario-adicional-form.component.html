@@ -9,18 +9,18 @@
       <h4 class="card-title">Agregar Horario Adicional nuevo</h4>
       <p class="card-category">Información de Horario Adicional</p>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Ver tipos</span>
         <mat-form-field>
           <mat-select class="example-select" #catalog tabindex="1" formControlName="catalog" id="catalog">
-            <mat-option *ngFor="let bus of catalogs" [value]="bus">
-              {{bus.name}}
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
+              {{catalog.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Cantidad</span>
         <mat-form-field>
           <input matInput tabindex="1" formControlName="cantidad" placeholder="cantidad" id="cantidad" type="number"
@@ -33,7 +33,7 @@
         </mat-form-field>
       </div>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Pago</span>
         <mat-form-field>
           <input matInput tabindex="2" formControlName="pago" placeholder="pago" id="pago" type="number"
@@ -47,7 +47,7 @@
 
       </div>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Porcentaje</span>
         <mat-form-field>
           <input matInput tabindex="2" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje" type="number"
@@ -61,7 +61,7 @@
 
       </div>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Hora inicio</span>
         <mat-form-field class="example-full-width" appearance="fill">
           <input matInput tabindex="2" formControlName="horaInicio" placeholder="Porcentaje" id="horaInicio" type="time"
@@ -75,7 +75,7 @@
 
       </div>
 
-      <div class="type-tooltip-ne" matTooltip="Tooltip!">
+      <div class="type-tooltip-ne" >
         <span>Hora fin</span>
         <mat-form-field class="example-full-width" appearance="fill">
           <input matInput tabindex="2" formControlName="horaFin" placeholder="Porcentaje" id="horaFin" type="time"

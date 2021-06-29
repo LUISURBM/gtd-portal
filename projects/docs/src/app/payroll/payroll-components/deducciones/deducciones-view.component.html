@@ -20,7 +20,7 @@
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center">
       <ng-container>
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.individualData())" tabindex="1">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.generalData())" tabindex="1">
           <span>{{'1F4C5'|gtdEmoji}}</span>
           <strong>
             {{form.value.fechaCorte | date : 'MM/yyyy'}}
@@ -91,7 +91,7 @@
         </form>
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" routerLinkActive="selected"
           group="{{menuitem.state}}">
-          <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state, this.deduccionesData(), this.route)" *ngIf="menuitem.type === 'link'">
+          <a class="" appAccordionToggle (click)="navSrv.navigate(menuitem.state, this.deduccionesData(), menuitem.completo ? undefined : this.route)" *ngIf="menuitem.type === 'link'">
             <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
           <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
           <span>{{ menuitem.name }}</span>

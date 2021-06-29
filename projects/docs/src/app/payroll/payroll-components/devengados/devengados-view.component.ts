@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
 import { AppStateService } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { DevengadosService } from '../../../srv/payroll/api/rest/devengados.service';
+import { DevengadosService } from '../../../srv/payroll/rest/api';
 import { MENU_ITEMS } from './devengados-data';
 export const slideInAnimation = trigger('routeAnimations', [
   transition('HomePage <=> AboutPage', [
@@ -87,11 +87,7 @@ export class DevengadosViewComponent {
       nominaIndividualId: undefined,
       devengadosId: undefined,
       fechaCorte: new Date(),
-      trabajador: builder.group({
-        id: builder.control(''),
-        primerNombre: builder.control(''),
-        sueldo: builder.control(0),
-      }),
+      primerNombre: builder.control(''),
     });
 
     this.subscriptions = [
@@ -106,7 +102,7 @@ export class DevengadosViewComponent {
     ];
   }
 
-  onNoClick(): void { }
+  onNoClick(): void {}
 
   save() {}
 
@@ -141,6 +137,13 @@ export class DevengadosViewComponent {
       fechaCorte: this.form.value.fechaCorte,
     });
   };
+  generalData = () => {
+    return JSON.stringify({
+      nominaGeneralId: this.form.value.nominaGeneralId,
+      nominaIndividualId: this.form.value.nominaIndividualId,
+      fechaCorte: this.form.value.fechaCorte,
+    });
+  };
   individualData = () => {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
@@ -149,8 +152,6 @@ export class DevengadosViewComponent {
   };
 
   primerNombreTrabajador() {
-    return `${this.form.value.trabajador.primerNombre?.substring(0, 1)}. ${
-      this.form.value.trabajador.primerApellido ?? ''
-    }`;
+    return `${this.form.value.primerNombre ?? ''}`;
   }
 }

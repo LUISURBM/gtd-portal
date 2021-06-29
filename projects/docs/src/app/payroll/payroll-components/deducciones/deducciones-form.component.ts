@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { NavigationService } from '../../../srv/navigation.service';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
+import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 @Component({
   selector: 'app-deducciones-form',
   styleUrls: ['./deducciones.component.scss'],
@@ -53,7 +53,7 @@ export class DeduccionesFormComponent {
               procedimientoAlmacenado: 'ConsultarDeduccionesTest',
             },
           };
-          return storedProcedureAPISrv.exectuteProcedureUsingPOST(
+          return storedProcedureAPISrv.exectuteProcedureUsingPOST1(
             request,
             'events',
             true

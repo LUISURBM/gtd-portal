@@ -277,7 +277,7 @@ export const EMPTY = {
 
 
 export const MENU_ITEMS = [
-  { state: 'form', name: 'General deducciónes', type: 'link', icon: 'work', emoji: '1F9FE'  },
+  { state: '/nómina/deducciones', name: 'General', type: 'link', icon: 'work', emoji: '1F9FE', completo: true  },
   { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F9FE'  },
   { state: 'fondo-sp', name: 'Fondo SP', type: 'link', icon: 'local_atm', emoji: '1F4B3'  },
   { state: 'libranzas', name: 'Libranzas', type: 'link', icon: 'local_atm', emoji: '1F4B3'  },

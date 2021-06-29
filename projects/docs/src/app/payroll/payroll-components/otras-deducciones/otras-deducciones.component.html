@@ -11,7 +11,7 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-card-subtitle>Angular Material table for <code>Otra Deducciones</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle><code>Otra Deducciones</code> </mat-card-subtitle>
 
     <h4>
       <mat-form-field class="example-full-width">
@@ -30,11 +30,6 @@
     <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Otra deducción #</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="otraDeduccion">

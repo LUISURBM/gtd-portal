@@ -29,6 +29,7 @@ export class AppStateService {
     uiPalette: NgGtdThemes.FpiSkin,
     visibleMenu: false,
     fullScreen: false,
+    loading: false,
   });
 
   constructor(

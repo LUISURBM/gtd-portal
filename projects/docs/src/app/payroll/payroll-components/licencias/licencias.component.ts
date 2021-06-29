@@ -16,7 +16,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
-import { LicenciasService } from '../../../srv/payroll/api/rest/api';
+import { LicenciasService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, Licencia, licencias } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';

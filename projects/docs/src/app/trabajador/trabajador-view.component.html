@@ -28,7 +28,7 @@
       <ng-container *ngIf="!(state.XSmall || state.Small)">
         <mat-icon class="material-icons-outlined">
           arrow_right
-          </mat-icon>
+        </mat-icon>
         <a class="ml-2 navbar-brand">
           Nueva
         </a>
@@ -39,20 +39,24 @@
 
 
     <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕ Deducción</span></mat-chip>
-      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕ Devengo</span></mat-chip>
-      <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()" >
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/deducciones/view/form')"><span>➕
+          Deducción</span></mat-chip>
+      <mat-chip color="primary" selected="true" (click)="navSrv.navigate('/nómina/devengos/view/form')"><span>➕
+          Devengo</span></mat-chip>
+      <mat-chip class="btn btn-outline-primary" class="primary" (click)="save()">
         <span>💾</span><span *ngIf="!(state.XSmall || state.Small)">Guardar</span>
       </mat-chip>
     </mat-chip-list>
-    <button [matMenuTriggerFor]="sdprofile" mat-icon-button  color="accent">
+    <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="accent">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #sdprofile="matMenu" class="mymegamenu">
-      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/deducciones/view/form')">
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
+        (click)="navSrv.navigate('/nómina/deducciones/view/form')">
         ➕ Deducción
       </button>
-      <button mat-menu-item *ngIf="(state.XSmall || state.Small)" (click)="navSrv.navigate('/nómina/devengos/view/form')" >
+      <button mat-menu-item *ngIf="(state.XSmall || state.Small)"
+        (click)="navSrv.navigate('/nómina/devengos/view/form')">
         ➕ Devengo
       </button>
       <button mat-menu-item (click)="toggleFullScreen()">
@@ -75,7 +79,7 @@
   <!-- ============================================================== -->
   <!-- End Topbar - style you can find in pages.scss -->
   <!-- ============================================================== -->
-  <mat-sidenav-container class="page-container" style.marginTop.px="0" >
+  <mat-sidenav-container class="page-container" style.marginTop.px="0">
     <!-- ============================================================== -->
     <!-- Sidebar - style you can find in sidebar.scss -->
     <!-- ============================================================== -->
@@ -98,20 +102,6 @@
             <span fxFlex></span>
           </a>
         </mat-list-item>
-        <mat-list-item appAccordionLink routerLinkActive="selected">
-          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(pagos.formView)">
-            <span>{{'1F4B5'|gtdEmoji}}</span>
-            <span>Pagos</span>
-            <span fxFlex></span>
-          </a>
-        </mat-list-item>
-        <mat-list-item appAccordionLink routerLinkActive="selected">
-          <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(vacaciones.formView)">
-            <span>{{'1F305'|gtdEmoji}}</span>
-            <span>Vacaciones</span>
-            <span fxFlex></span>
-          </a>
-        </mat-list-item>
       </mat-nav-list>
 
     </mat-sidenav>
@@ -124,8 +114,6 @@
     <!-- ============================================================== -->
     <mat-sidenav-content class="page-wrapper">
       <app-trabajador-form #formView></app-trabajador-form>
-      <app-payroll-pagos #pagos></app-payroll-pagos>
-      <app-payroll-vacaciones #vacaciones></app-payroll-vacaciones>
     </mat-sidenav-content>
     <!-- ============================================================== -->
     <!-- Page container - style you can find in pages.scss -->

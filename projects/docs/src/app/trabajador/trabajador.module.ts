@@ -8,7 +8,6 @@ import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
 import { PayrollModule } from '../payroll/payroll.module';
 import { SharedModule } from '../shared/shared.module';
-import { FilterValueComponent } from './filter.componet';
 import { TrabajadorFormComponent } from './trabajador-form.component';
 import { TrabajadorViewComponent } from './trabajador-view.component';
 import { TrabajadorComponent } from './trabajador.component';
@@ -24,13 +23,11 @@ import { trabajadorRoutes } from './trabajador.routing';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    PayrollModule
   ],
   declarations: [
     TrabajadorComponent,
     TrabajadorFormComponent,
     TrabajadorViewComponent,
-    FilterValueComponent,
   ],
 })
 export class TrabajadorModule {}

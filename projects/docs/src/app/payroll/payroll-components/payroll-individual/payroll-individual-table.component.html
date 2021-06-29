@@ -10,7 +10,8 @@
       <p class="card-category">Total cargados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
     <mat-card-subtitle>Corte <code
-        (click)="navSrv.navigate('/nómina')">{{this.form.value.fechaCorte|date: 'MM/YYYY'}}</code> {{this.form.value.nombre}} {{this.form.value.estado}}.
+        (click)="navSrv.navigate('/nómina')">{{this.form.value.fechaCorte|date: 'MM/YYYY'}}</code>
+      {{this.form.value.nombre}} {{this.form.value.estado}}.
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -20,16 +21,16 @@
           <mat-label>Buscar</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input
             formControlName="filtro">
-          <button class="gtd-icon-button" mat-icon-button
+          <span mat-ripple
             (click)="navSrv.navigate('/nómina/view', JSON.stringify({nominaGeneralId:this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))"
             matSuffix color="primary">
-            <span>➕</span>
-          </button>
+            ➕
+          </span>
         </mat-form-field>
       </div>
     </form>
-    <mat-card  class="m-0"
-      style="display: flex; justify-content: center; align-items: center" *ngIf="dataSource.loading">
+    <mat-card class="m-0" style="display: flex; justify-content: center; align-items: center"
+      *ngIf="dataSource.loading">
       <mat-progress-bar mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8">
@@ -38,7 +39,9 @@
         <!-- Name Column -->
         <ng-container matColumnDef="trabajador">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Trabajador</th>
-          <td mat-cell *matCellDef="let element">{{ element.trabajador }}</td>
+          <td mat-cell *matCellDef="let element"><a
+              (click)="element.loading = 10; navSrv.navigate('/nómina/view', JSON.stringify({ nominaIndividualId: element.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))">{{
+              element.trabajador }}</a></td>
         </ng-container>
 
         <!-- Name Column -->
@@ -51,13 +54,19 @@
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary"
-              (click)="element.loading = 10; navSrv.navigate('/nómina/view', JSON.stringify({ nominaIndividualId: element.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))">
-              <mat-icon>{{'270F'|gtdEmoji}}</mat-icon>
-            </button>
-            <button mat-icon-button color="accent" (click)="element.loading = 10; delete(element);">
-              <mat-icon>{{'1F5D1'|gtdEmoji}}</mat-icon>
-            </button>
+            <ng-container *ngIf="!element.loading">
+              <button mat-icon-button color="primary" matTooltip="Ver nómina individual"
+                (click)="element.loading = 10; navSrv.navigate('/nómina/view', JSON.stringify({ nominaIndividualId: element.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))">
+                <span>{{'1F4D1'|gtdEmoji}}</span>
+              </button>
+              <button mat-icon-button color="accent" matTooltip="Eliminar nómina individual"
+                (click)="element.loading = 10; element.loading = 10; delete(element);">
+                <span>{{'1F9FA'|gtdEmoji}}</span>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="element.loading">
+              <mat-progress-bar mode="buffer"></mat-progress-bar>
+            </ng-container>
           </td>
         </ng-container>
 

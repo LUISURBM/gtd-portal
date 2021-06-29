@@ -1,28 +1,41 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { of, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, iif, of, Subscription } from 'rxjs';
+import { filter, switchMap } from 'rxjs/operators';
 import { animationsForm } from '../../../animations/form-animation';
+import { DirtyComponent } from '../../../guards/dirty-check.guard';
 import { NavigationService } from '../../../srv/navigation.service';
-import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
-import { TrabajadoresService } from '../../../srv/payroll/api/rest/trabajadores.service';
-import { gtdArrayToLowerCase } from '../../../types/common-types';
+import {
+  NominasIndividualesService,
+  TrabajadoresService,
+} from '../../../srv/payroll/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  gtdBeforeUnload,
+  gtdIsNull,
+  gtdNombreCompleto,
+  gtdScrollEvent,
+} from '../../../types/common-types';
 import { catalogs } from '../payroll-general/payroll-data';
 @Component({
   selector: 'app-payroll-individual-form-dialog',
   templateUrl: './payroll-individual-form.component.html',
-  styles:[`
-  .qr-code {
-      color: black;
-      background: white;
-      max-width: 227px;
-    }
-  `],
+  styles: [
+    `
+      .qr-code {
+        color: black;
+        background: white;
+        max-width: 227px;
+      }
+    `,
+  ],
   animations: animationsForm,
 })
-export class PayrollIndividualFormComponent implements OnInit {
+export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
   position = 'below';
   @ViewChild('formView') formView: any;
   @Input() form: FormGroup;
@@ -30,6 +43,7 @@ export class PayrollIndividualFormComponent implements OnInit {
   trabajadores: any[] = [];
   state = 'open';
   subscriptions: Subscription[] = [];
+  isDirty$: BehaviorSubject<boolean>;
 
   constructor(
     public builder: FormBuilder,
@@ -37,8 +51,9 @@ export class PayrollIndividualFormComponent implements OnInit {
     public navSrv: NavigationService,
     public http: HttpClient,
     trabajadorAPISrv: TrabajadoresService,
-    private nominaIndividualAPISrv: NominasIndividualesService,
-    ) {
+    nominaIndividualAPISrv: NominasIndividualesService,
+    public dialog: MatDialog
+  ) {
     this.form = this.builder.group({
       id: 0,
       fechaInicio: new Date(),
@@ -48,54 +63,77 @@ export class PayrollIndividualFormComponent implements OnInit {
       catalog: catalogs[0],
       nombre: '',
       estado: '',
-      primerNombre: builder.control(''),
-      trabajadorId: builder.control(''),
-      sueldo: builder.control(0),
+      trabajador: builder.group({
+        id: builder.control(''),
+        primerNombre: builder.control(''),
+        sueldo: builder.control(''),
+      }),
       deduccion: 0,
       devengos: 0,
       totalAPagar: 0,
-      loading: undefined,
+      loading: builder.control(undefined),
       nominaGeneralId: builder.control(''),
     });
-
+    this.isDirty$ = new BehaviorSubject<boolean>(false);
     this.subscriptions.push(
-      this.route.params
-      .pipe(
-        switchMap((params) => {
-          const data = JSON.parse(params['data']);
-          this.form.patchValue(data);
-          if (data['nominaIndividualId'] === undefined) return of(this.form.value);
-          return nominaIndividualAPISrv.findByIdUsingGET58(
-            data['nominaIndividualId'],
-            'events',
-            true,
-            {
-              httpHeaderAccept: 'application/json',
-            }
-          );
-        })
-      )
-      .subscribe({
-        next: (data: any) => {
-          console.log(data);
-          if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
-            this.form.patchValue({
-              ...data?.body?.bodyDto,
-              nominaGeneralId: this.form.value.nominaGeneralId,
-              fechaCorte: this.form.value.fechaCorte,
-            });
-        },
-        error: (err: any) => {
-          console.log(err);
-        },
+      this.isDirty$.subscribe({
+        next: (d) => console.log(`💤 ${d} dirty form `),
       }),
+      this.form.valueChanges.subscribe({
+        complete: () => this.isDirty$.next(this.form.dirty),
+        next: (value) =>
+          this.form.patchValue({
+            ...value,
+            trabajador: {
+              ...value?.trabajador,
+              sueldo: value?.trabajador?.sueldo ?? '0',
+            },
+          }),
+      }),
+      this.route.params
+        .pipe(
+          switchMap((params) => {
+            const data = JSON.parse(params['data']);
+            this.form.patchValue(data, { emitEvent: false });
+            if (data['nominaIndividualId'] === undefined)
+              return of(this.form.value);
+            return nominaIndividualAPISrv.findByIdUsingGET58(
+              data['nominaIndividualId'],
+              'events',
+              true,
+              {
+                httpHeaderAccept: 'application/json',
+              }
+            );
+          })
+        )
+        .subscribe({
+          next: (data: any) => {
+            console.log(data);
+            if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
+              this.form.patchValue({
+                ...data?.body?.bodyDto,
+                trabajador: {
+                  id: data?.body?.bodyDto?.trabajador?.id,
+                  primerNombre: gtdNombreCompleto(
+                    data?.body?.bodyDto?.trabajador
+                  ),
+                  sueldo: data?.body?.bodyDto?.trabajador?.sueldo ?? '0',
+                },
+                nominaGeneralId: this.form.value.nominaGeneralId,
+                fechaCorte: this.form.value.fechaCorte,
+              });
+          },
+          error: (err: any) => {
+            console.log(err);
+          },
+        }),
       trabajadorAPISrv
         .listtrabajadorUsingGET1('events', true, {
           httpHeaderAccept: 'application/json',
         })
         .subscribe({
           next: (data: any) => {
-            this.loading((data?.type ?? 1) * 25);
             if (!data.body?.bodyDto) return;
             console.log(data.body?.bodyDto);
             this.trabajadores = gtdArrayToLowerCase(data.body?.bodyDto);
@@ -138,6 +176,20 @@ export class PayrollIndividualFormComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.form.value);
+    this.subscriptions.push(
+      gtdBeforeUnload()
+        .pipe(
+          filter(()=>this.form.dirty)
+        )
+        .subscribe((e) => {
+          const message = 'You may lose your data if you refresh now';
+          const event = e || window.event as any;
+          event.returnValue = !!message;
+          return message;
+        }),
+
+      gtdScrollEvent().subscribe({ next: console.log })
+    );
   }
 
   onNoClick(): void {
@@ -151,19 +203,35 @@ export class PayrollIndividualFormComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
+  get trabajador() {
+    return this.form.controls['trabajador'];
+  }
 
   changeState(): void {
     this.state == 'closed' ? (this.state = 'open') : (this.state = 'closed');
   }
 
-  loading = (loading = 100) =>
+  loading = (loading?: boolean) =>
     this.form.patchValue({ ...this.form.value, loading: loading });
 
   optionSelected(value: any) {
     console.log(value);
-    this.form.patchValue({ ...this.form.value, trabajadorId: value.id, primerNombre: value.primerNombre, sueldo: value.sueldo });
+    this.form.patchValue({
+      ...this.form.value,
+      trabajador: {
+        id: value.id,
+        primerNombre: gtdNombreCompleto(value),
+        sueldo: value.sueldo,
+      },
+    });
   }
-  cierraTrabajador(){
-    return this.form.value.primerNombre;
+  cierraTrabajador() {
+    return gtdIsNull(this.form.value.id)
+      ? ''
+      : this.form.value.trabajador.primerNombre;
+  }
+
+  sueldoTrabajador() {
+    return this.trabajador.value.sueldo;
   }
 }

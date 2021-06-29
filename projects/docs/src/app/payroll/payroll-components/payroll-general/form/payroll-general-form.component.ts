@@ -56,7 +56,10 @@ export class PayrollGeneralFormComponent {
     dp.close();
   }
 
-  get formValueJson(){
-    return JSON.stringify(this.form.value);
+  get formValueJson() {
+    return JSON.stringify({
+      nominaGeneralId: this.form.value.id,
+      fechaCorte: this.form.value.fechaCorte,
+    });
   }
 }

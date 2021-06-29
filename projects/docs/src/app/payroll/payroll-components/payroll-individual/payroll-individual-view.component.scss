@@ -1,3 +1,48 @@
-.qr-doce{
+.gtd-button {
+  transform-style: preserve-3d;  // pass down the 3D perspective from the parent
+  border: none;
+  color: var(--secondary-light);
+  background: linear-gradient(to bottom, var(--secondary-light) 40%, var(--secondary) 90%); // create the top and bottom "walls" on the button
+  border-radius: 1em;
+  padding: 0;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  box-shadow:
+    0px -3px 10px 0 rgba(var(--secondary-light), 0.4), // top tight glow
+    10px -15px 60px 0 rgba(var(--secondary-light), 0.3), // top large glow
+    -0 3px 3px 0 rgba(var(--secondary), 0.3), // bottom tight shadow
+    -0 15px 60px 0 rgba(var(--secondary), 0.3); // bottom large shadow
+  position: relative;
 
+  &__text {
+    background: var(--secondary);
+    border-radius: 1em;
+    padding: 0.4em 1.3em 0.6em;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.1, 0.67, 0.31, 1);
+    transform: translate3d(0,0,6px); // 3. Move the outer layer of the button in the z axis
+    text-shadow: 0 0px 7px rgba(var(--secondary-light), 0.8); // add some text-glow
+  }
+
+  // Interactivity
+  cursor: pointer;
+  transition: box-shadow 0.4s cubic-bezier(0.1, 0.67, 0.31, 1);
+  &:hover {
+    box-shadow:
+      0px -1px 1px 0 rgba(var(--secondary), 0.1),
+      10px -15px 60px 0 rgba(var(--secondary), 0.1),
+      0px 1px 1px 0 rgba(var(--secondary-light), 0.1),
+      10px 15px 60px 0 rgba(var(--secondary-light), 0.1);
+    .button__text {
+      transform: translate3d(0,0,1px); // animate the button in z-axis
+    }
+  }
+  &:focus, &:active {
+    outline: none;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+    .button__text {
+      transform: translate3d(0,0,0);
+    }
+  }
 }

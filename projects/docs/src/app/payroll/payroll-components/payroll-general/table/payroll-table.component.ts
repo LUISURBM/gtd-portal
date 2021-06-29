@@ -16,13 +16,24 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ConfirmDialogComponent } from '../../../../shared/dialog/confirm/confirm-dialog.component';
 import { MenuItems } from '../../../../shared/menu-items/menu-items';
+import { AppStateService } from '../../../../srv/app-state.service';
+import { ValuesCatalog } from '../../../../srv/in-mem-data-service';
 import { InMemService } from '../../../../srv/in-mem-service';
 import { NavigationService } from '../../../../srv/navigation.service';
-import { NominasGeneralesService } from '../../../../srv/payroll/api/rest/nominasGenerales.service';
-import { StoredProcedureService } from '../../../../srv/payroll/api/procedure/storedProcedure.service';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS, OpenDialog } from '../../../../types/common-types';
+import {
+  NominasGeneralesService,
+  StoredProcedureService,
+} from '../../../../srv/payroll/rest/api';
+import {
+  confirm,
+  EnumString,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+  OpenDialog,
+  valoresCatalogos,
+} from '../../../../types/common-types';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
 import { PayrollGeneralFormComponent } from '../form/payroll-general-form.component';
 import { displayedColumns, EMPTY, Payroll } from '../payroll-data';
@@ -77,21 +88,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       procedimientoAlmacenado: 'obtenerListaNominaGeneral',
     },
   };
-  requestCatalogos: any = {
-    body: {
-      params: {
-        codigoCatalogo: '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
-      },
-    },
-    header: {
-      cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
-      esquema: 'payroll',
-      procedimientoAlmacenado: 'ConsultarValoresCatalogosPorCodigoCatalogo',
-    },
-  };
 
   subscriptions: Subscription[];
   JSON = JSON;
+  textos?: EnumString;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -101,7 +101,8 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     public navSrv: NavigationService,
     private storedProcedureAPISrv: StoredProcedureService,
     private nominaGeneralAPISrv: NominasGeneralesService,
-    public menuItemsSrv: MenuItems
+    public menuItemsSrv: MenuItems,
+    public stateSrv: AppStateService
   ) {
     this.avance(0);
     this.form = this.formBuilder.group({
@@ -115,27 +116,28 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         complete: this.avance,
         error: this.readResponseError,
       }),
+      this.exectuteProcedureUsingPOST1(
+        valoresCatalogos({
+          codigoCatalogo: 'TextosNE',
+        })
+      ).subscribe({
+        next: this.leerTextos,
+        error: (err: any) => console.log(err),
+      }),
     ];
-
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
-  catalogos = this.storedProcedureAPISrv.exectuteProcedureUsingPOST(
-    this.request,
-    'events',
-    true,
-    { httpHeaderAccept: 'application/json' }
-  );
   eliminar = (payroll: Payroll) =>
     this.nominaGeneralAPISrv
       .deleteUsingDELETE57(payroll.id, 'events', true, {
         httpHeaderAccept: 'application/json',
       })
       .pipe(
-        switchMap((response:any) => {
-          if(response?.type !== 4) return of();
+        switchMap((response: any) => {
+          if (response?.type !== 4) return of();
           if (
             response?.type === 4 &&
             response?.status === 200 &&
@@ -154,11 +156,12 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       );
   listado = () => {
     this.avance(20);
-    return this.storedProcedureAPISrv.exectuteProcedureUsingPOST(
-    this.request,
-    'events',
-    true
-  );}
+    return this.storedProcedureAPISrv.exectuteProcedureUsingPOST1(
+      this.request,
+      'events',
+      true
+    );
+  };
   readResponseError = (err: any) => {
     console.log(err);
   };
@@ -166,8 +169,29 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     this.avance((data?.type ?? 1) * 15);
     if (!data.body) return;
     this.avance(75);
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.body), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.body),
+      displayedColumns
+    );
     this.avance(100);
+  };
+  exectuteProcedureUsingPOST1 = (params: any) =>
+    this.storedProcedureAPISrv.exectuteProcedureUsingPOST1(
+      params,
+      'events',
+      true,
+      { httpHeaderAccept: 'application/json' }
+    );
+  leerTextos = (data?: any) => {
+    if (!data.body?.body) return;
+    this.textos = data.body?.body?.reduce((y: any, t: any) => {
+      y[y['code']] = { name: y['name'], description: y['description'] };
+      y[t['code']] = { name: t['name'], description: t['description'] };
+      return y;
+    });
   };
 
   ngOnInit(): void {}
@@ -191,7 +215,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
               p.fechaCorte,
               'MM/yyyy',
               'es-CO'
-            )} asociada a ${p.nombre}!`
+            )} asociada a '${p.nombre}'!`
           : p.nombre === payroll.nombre
           ? `!'${p.nombre}' ya existe!`
           : undefined;
@@ -202,7 +226,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     if (validations.length > 0) {
       validations.forEach((m) =>
-        this._snackBar.open(`${m}`, 'cerrar', { duration: 50000 })
+        this._snackBar.open(`${m}`, 'No guardado', { duration: 50000 })
       );
       return;
     }
@@ -244,7 +268,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         )
         .subscribe({
           next: this.leerListado,
-          complete : () => this.avance(92),
+          complete: () => this.avance(92),
           error: this.readResponseError,
         })
     );
@@ -254,9 +278,9 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar ${formatDate(payroll.fechaCorte, 'MM/YYY', 'es-Co')} ${
+        `¿Eliminar ${formatDate(payroll.fechaCorte, 'MM/YYY', 'es-Co')} '${
           payroll.nombre
-        }!?`
+        }'?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -330,15 +354,12 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(payroll?: Payroll): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter(
-      (v: any) => v.id == payroll?.id
-    )?.[0];
-    console.log(editing);
-    const dialogRef = OpenDialog(this.dialog, PayrollGeneralFormComponent, editing ? editing : EMPTY);
-
     this.subscriptions.push(
-      dialogRef.subscribe((result) => {
+      OpenDialog(
+        this.dialog,
+        PayrollGeneralFormComponent,
+        payroll ?? EMPTY
+      ).subscribe((result) => {
         console.log(result);
         if (payroll) payroll.loading = undefined;
         if (result?.id) this.edit(result);
@@ -353,5 +374,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loading: number | undefined = 0;
-  avance = (loading?:number) =>{ this.loading = loading; }
+  avance = (loading?: number) => {
+    this.loading = loading;
+  };
 }

@@ -1,34 +1,43 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of, Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { Menu } from '../../../shared/menu-items/menu-items';
-import { AppStateService, UIState } from '../../../srv/app-state.service';
+import { AppStateService } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
-import { TrabajadoresService } from '../../../srv/payroll/api/rest/trabajadores.service';
+import { NominasIndividualesService } from '../../../srv/payroll/rest/api';
+import {
+  gtdIsNull,
+  gtdNombreCompleto,
+  confirm,
+  gtdScrollEvent,
+} from '../../../types/common-types';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
+import { MENU_ITEMS as ITEMS_DEDUCCIONES } from '../deducciones/deducciones-data';
+import { MENU_ITEMS as ITEMS_DEVENGADOS } from '../devengados/devengados-data';
 
 @Component({
   selector: 'app-payroll-individual-view',
   templateUrl: './payroll-individual-view.component.html',
+  styleUrls: ['./payroll-individual-view.component.scss'],
 })
-export class PayrollindividualViewComponent implements OnInit, OnDestroy {
+export class PayrollindividualViewComponent implements OnDestroy {
   position = 'below';
   public menuItems: Menu[];
 
   form: FormGroup;
 
+  isDirty$: any;
   subscriptions: Subscription[] = [];
   get request() {
     return {
       entidad: {
         id: this.form.value.id,
-        trabajadorId: this.form.value.trabajadorId,
+        trabajadorId: this.form.value.trabajador.id,
         nominaGeneralId: this.form.value.nominaGeneralId,
         devengadosTotal: this.form.value.devengadosTotal,
         deduccionesTotal: this.form.value.deduccionesTotal,
@@ -70,7 +79,8 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
           }
         );
   }
-
+  deduccionesItems = ITEMS_DEDUCCIONES;
+  devengadosItems = ITEMS_DEVENGADOS;
   constructor(
     public builder: FormBuilder,
     public dialog: MatDialog,
@@ -79,82 +89,81 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     private elRef: ElementRef,
     public navSrv: NavigationService,
     private nominaIndividualAPISrv: NominasIndividualesService,
-    private trabajadoresAPISrv: TrabajadoresService,
     private _snackBar: MatSnackBar,
-    private route: ActivatedRoute,
-    private appState: AppStateService
+    private route: ActivatedRoute
   ) {
     this.menuItems = MENU_ITEMS;
 
     const form = this.builder.group({
       menuItem: builder.control(''),
       id: undefined,
-      trabajadorId: builder.control(''),
       sueldo: builder.control(0),
-      primerNombre: builder.control(''),
+      trabajador: builder.group({
+        id: builder.control(''),
+        primerNombre: builder.control(''),
+        sueldo: builder.control(''),
+      }),
       deduccionesId: builder.control(''),
       devengadosId: builder.control(''),
-      deduccion: 0,
-      devengos: 0,
-      totalAPagar: 0,
+      deduccion: 99999999,
+      devengos: 99999999,
+      totalAPagar: 99999999,
       nominaGeneralId: builder.control(''),
       nominaIndividualId: undefined,
       fechaCorte: new Date(),
-      loading: builder.control(undefined),
+      loading: builder.control(true),
     });
-    this.loading();
     this.form = form;
+
     this.subscriptions = [
+      this.form.valueChanges.subscribe({
+        next: (data) => this.filter(data?.menuItem),
+      }),
       this.route.params
         .pipe(
           switchMap((params) => {
-            const data = JSON.parse(params['data']);
+            const data = params['data']? JSON.parse(params['data']) : params;
+            if (gtdIsNull(data['nominaIndividualId'])) return of(form.value);
             this.form.patchValue(data);
-            if (data['nominaIndividualId'] === undefined) return of(form.value);
-            return nominaIndividualAPISrv
-              .findByIdUsingGET58(data['nominaIndividualId'], 'events', true, {
+            return nominaIndividualAPISrv.findByIdUsingGET58(
+              data['nominaIndividualId'],
+              'events',
+              true,
+              {
                 httpHeaderAccept: 'application/json',
-              })
-              .pipe(
-                switchMap((individual:any) => {
-                  if (!individual?.body?.bodyDto?.trabajadorId) return of();
-                  return this.trabajadoresAPISrv.findByIdUsingGET70(
-                    individual?.body?.bodyDto?.trabajadorId,
-                    'events',
-                    true
-                  );
-                })
-              );
+              }
+            );
           })
         )
         .subscribe({
           next: (data: any) => {
+            if (data.loading) this.loading();
             if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
               this.form.patchValue({
                 ...data?.body?.bodyDto,
+                loading: false,
+                trabajador: {
+                  id: data?.body?.bodyDto?.trabajador?.id,
+                  primerNombre: gtdNombreCompleto(
+                    data?.body?.bodyDto?.trabajador
+                  ),
+                },
                 nominaGeneralId: this.form.value.nominaGeneralId,
-                nominaIndividualId: this.form.value.id,
+                nominaIndividualId: this.form.value.nominaIndividualId,
                 fechaCorte: this.form.value.fechaCorte,
               });
           },
           complete: () => {
-            this.loading();
+            console.log('💨 individual-view');
           },
           error: (err: any) => {
             console.log(err);
           },
         }),
-      this.form.valueChanges.subscribe((filter) => {
-        this.filter(filter?.menuItem);
-      })
     ];
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
-  }
-
-  ngOnInit() {
-    console.log('configured routes: ', this.router.config);
   }
 
   generalData = () => {
@@ -169,7 +178,7 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
       nominaIndividualId: this.form.value.nominaIndividualId,
       nominaGeneralId: this.form.value.nominaGeneralId,
       fechaCorte: this.form.value.fechaCorte,
-      trabajador: this.form.value.trabajador,
+      primerNombre: this.form.value.trabajador.primerNombre,
       devengadosId: this.form.value.devengadosId,
       deduccionesId: this.form.value.deduccionesId,
     });
@@ -192,14 +201,14 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
         console.log(data);
         if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto) {
           this._snackBar.open(
-            `Nómina Individual para ${this.form.value?.primerNombre}`,
+            `Nómina Individual para ${this.form.value?.trabajador.primerNombre}`,
             this.isEditing ? 'Actualizada' : 'creada!',
             { duration: 5000 }
           );
           this.form.patchValue(data?.body?.bodyDto);
         } else if (data?.type === 4) {
           this._snackBar.open(
-            `Nómina Individual para ${this.form.value?.primerNombre}`,
+            `Nómina Individual para ${this.form.value?.trabajador.primerNombre}`,
             'no creada!',
             { duration: 5000 }
           );
@@ -276,7 +285,8 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
 
   delete(): void {
     this.subscriptions.push(
-      this.confirm(
+      confirm(
+        this.dialog,
         `¿Eliminar nómina ${this.form.value.trabajador.primerNombre}!?`
       )
         .pipe(
@@ -312,17 +322,9 @@ export class PayrollindividualViewComponent implements OnInit, OnDestroy {
     );
   }
 
-  confirm(pregunta: string, titulo?: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '350px',
-      data: {
-        titulo: titulo,
-        pregunta: pregunta,
-      },
+  loading = () =>
+    this.form.patchValue({
+      ...this.form.value,
+      loading: !this.form.value.loading,
     });
-
-    return dialogRef.afterClosed();
-  }
-
-  loading = () =>this.appState.toggleLoading();
 }

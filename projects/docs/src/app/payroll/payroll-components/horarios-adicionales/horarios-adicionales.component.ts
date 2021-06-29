@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,12 +15,17 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { HorariosAdicionalesService } from '../../../srv/payroll/api/rest/horariosAdicionales.service';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
+import { HorariosAdicionalesService } from '../../../srv/payroll/rest/api';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import {
   displayedColumns,
   EMPTY,
-  HorarioAdicional
+  HorarioAdicional,
 } from './horario-adicional-data';
 import { HorarioAdicionalFormComponent } from './horario-adicional-form.component';
 
@@ -23,7 +34,9 @@ import { HorarioAdicionalFormComponent } from './horario-adicional-form.componen
   templateUrl: './horarios-adicionales.component.html',
   styleUrls: ['./horario-adicional.component.css'],
 })
-export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HorariosAdicionalesComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
     datasource: new MatTableDataSource<HorarioAdicional>([]),
@@ -41,11 +54,23 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.horariosAdicionalesAPISrv.findAllDevengadoIdUsingGET3(data?.devengadosId, 'events', true, {});
+    this.horariosAdicionalesAPISrv.findAllDevengadoIdUsingGET3(
+      data?.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
-    this.loading((data?.type ?? 1) * 25);
+    this.loading((data?.type ?? 1) * 15);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    this.loading(85);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -90,7 +115,7 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
 
   ngAfterViewInit(): void {}
 
-  add(horarioAdicional: HorarioAdicional): void {
+  add(horarioAdicional: HorarioAdicional) {
     if (!horarioAdicional) {
       return;
     }
@@ -101,10 +126,10 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
         cantidad: horarioAdicional.cantidad!,
         pago: horarioAdicional.pago!,
         porcentaje: horarioAdicional.porcentaje!,
-        horaInicio: horarioAdicional.horaInicio?.toISOString(),
-        horaFin: horarioAdicional.horaFin?.toISOString(),
+        horaInicio: horarioAdicional.horaInicio!,
+        horaFin: horarioAdicional.horaFin!,
+        typeValueCatalogId: horarioAdicional.catalog!,
         devengadosId: this.form.value.devengadosId,
-        typeValueCatalogId: '33F6DC05-A91F-4E81-B449-CB6A2C29FB5A',
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -143,7 +168,10 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
 
   delete(horarioAdicional: HorarioAdicional): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar horarioAdicional ${horarioAdicional.catalog}!?`)
+      confirm(
+        this.dialog,
+        `¿Eliminar horarioAdicional ${horarioAdicional.catalog}!?`
+      )
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -179,10 +207,10 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
         cantidad: horarioAdicional.cantidad,
         pago: horarioAdicional.pago,
         porcentaje: horarioAdicional.porcentaje,
-        horaInicio: horarioAdicional.horaInicio?.toISOString(),
-        horaFin: horarioAdicional.horaFin?.toISOString(),
+        horaInicio: horarioAdicional.horaInicio!,
+        horaFin: horarioAdicional.horaFin!,
+        typeValueCatalogId: horarioAdicional.catalog!,
         devengadosId: this.form.value.devengadosId,
-        typeValueCatalogId: '33F6DC05-A91F-4E81-B449-CB6A2C29FB5A',
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -230,24 +258,20 @@ export class HorariosAdicionalesComponent implements OnInit, AfterViewInit, OnDe
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(horarioAdicional?: HorarioAdicional): void {
     const dialogRef = this.dialog.open(HorarioAdicionalFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: horarioAdicional ?? EMPTY,
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    });
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
-
 }

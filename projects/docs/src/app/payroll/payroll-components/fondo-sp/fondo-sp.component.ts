@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { FondosSPService } from '../../../srv/payroll/api/rest/api';
+import { FondosSPService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, FondoSP, fondoSPs } from './fondo-sp-data';
 import { FondoSPFormComponent } from './fondo-sp-form.component';

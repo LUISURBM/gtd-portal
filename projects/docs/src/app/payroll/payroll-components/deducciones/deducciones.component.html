@@ -1,15 +1,13 @@
-<div class="mat-card" *ngIf="dataSource$ | async as dataSource">
+<div #formView class="mat-card" *ngIf="dataSource$ | async as dataSource">
   <mat-card-header>
     <mat-card-title>Deducciones</mat-card-title>
-    <mat-card-subtitle>Angular Material table for <code>deducciones</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle>Total creados <code>{{dataSource.datasource.data?.length}}</code> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon mat-icon-button (click)="navSrv.navigate('/nómina/individual/deducciones/view/form')" matSuffix
-          mat-fab color="primary">add</mat-icon>
       </mat-form-field>
     </h4>
 
@@ -25,7 +23,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="valor">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>valor</th>
-          <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.value }}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>

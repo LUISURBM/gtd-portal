@@ -6,8 +6,8 @@ export interface HorarioAdicional {
   cantidad?: number;
   pago?: number;
   porcentaje?: number;
-  horaInicio?: Date;
-  horaFin?: Date;
+  horaInicio?: string;
+  horaFin?: string;
   catalog?: string;
 }
 
@@ -17,8 +17,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -26,8 +26,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -35,8 +35,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -44,8 +44,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -53,8 +53,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -62,8 +62,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -71,8 +71,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -80,8 +80,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -89,8 +89,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -98,8 +98,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -107,8 +107,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -116,8 +116,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -125,8 +125,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -134,8 +134,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -143,8 +143,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -152,8 +152,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -161,8 +161,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -170,8 +170,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -179,8 +179,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
   {
@@ -188,8 +188,8 @@ export const HorariosAdicionales: HorarioAdicional[] = [
     cantidad: 12,
     pago: 34,
     porcentaje: 34,
-    horaInicio: formatToDate('5/17/2021'),
-    horaFin: formatToDate('5/17/2021'),
+    horaInicio: ('00:00'),
+    horaFin: ('01:00'),
     catalog: 'HEDS'
   },
 ];
@@ -215,7 +215,7 @@ export const EMPTY = {
   cantidad: 0,
   pago: 0,
   porcentaje: 0,
-  horaInicio: formatToDate('5/17/2021'),
-  horaFin: formatToDate('5/17/2021'),
+  horaInicio: ('00:00'),
+  horaFin: ('01:00'),
   catalog: 'HEDS'
 };

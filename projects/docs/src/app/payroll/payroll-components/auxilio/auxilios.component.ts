@@ -17,7 +17,7 @@ import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
-import { AuxiliosService } from '../../../srv/payroll/api/rest/auxilios.service';
+import { AuxiliosService } from '../../../srv/payroll/rest/api';
 import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { Auxilio, auxilios, displayedColumns, EMPTY } from './auxilio-data';
 import { AuxilioFormComponent } from './auxilio-form.component';

@@ -2,7 +2,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   OnDestroy,
   OnInit,
@@ -21,15 +20,17 @@ import { switchMap, tap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
-import { NominasIndividualesService } from '../../../srv/payroll/api/rest/nominasIndividuales.service';
 import {
+  StoredProcedureService,
+  NominasIndividualesService,
+} from '../../../srv/payroll/rest/api';
+import {
+  confirm,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
 } from '../../../types/common-types';
-import { displayedColumns, Individual, nominas } from './individual-data';
-import { PayrollIndividualFormComponent } from './payroll-individual-form.component';
+import { displayedColumns, Individual } from './individual-data';
 
 export const MY_FORMATS = {
   parse: {
@@ -86,32 +87,30 @@ export class PayrollIndividualTableComponent
 
   JSON = JSON;
 
-  get request():any {
+  get request(): any {
     return {
-    body: {
-      params: {
-        businessSubscriptionId:
-          '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
-        nominaGeneralId: this.form.value.nominaGeneralId as Object,
+      body: {
+        params: {
+          businessSubscriptionId:
+            '5B067D71-9EC0-4910-8D53-018850FDED4E' as Object,
+          nominaGeneralId: this.form.value.nominaGeneralId as Object,
+        },
       },
-    },
-    header: {
-      cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
-      esquema: 'payroll',
-      procedimientoAlmacenado: 'ConsultarListNominasIndividualesTest',
-    },
-  }};
+      header: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+        esquema: 'payroll',
+        procedimientoAlmacenado: 'ConsultarListNominasIndividualesTest',
+      },
+    };
+  }
 
   listado = (data: any) =>
     this.procedureAPISrv
-      .exectuteProcedureUsingPOST(
-        this.request,
-        'events',
-        true
-      )
+      .exectuteProcedureUsingPOST1(this.request, 'events', true)
       .pipe(
         tap({
           next: (x) => this.avance((x?.type ?? 1) * 25),
+          complete: () => this.avance(),
           error: (err) => {
             console.error(err);
           },
@@ -166,7 +165,7 @@ export class PayrollIndividualTableComponent
 
   ngAfterViewInit(): void {}
 
-  add(payroll: Individual): void {
+  async add(payroll: Individual): Promise<void> {
     if (!payroll) {
       return;
     }
@@ -212,7 +211,10 @@ export class PayrollIndividualTableComponent
 
   delete(payroll: Individual): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar nómina individual de ${payroll.trabajador}!?`)
+      confirm(
+        this.dialog,
+        `¿Eliminar nómina individual de ${payroll.trabajador}!?`
+      )
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -226,31 +228,25 @@ export class PayrollIndividualTableComponent
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data?.type === 4 && data?.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((data: any) => {
+            payroll.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              return this.listado(this.form.value);
+            }
+            return of();
+          })
         )
         .subscribe({
           next: (data: any) => this.readList(data, 'eliminada!'),
+          complete: () => {
+            payroll.loading = undefined;
+            this.avance;
+          },
           error: (err: any) => {
             console.log(err);
           },
         })
     );
-  }
-
-  edit(individual: Individual): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editedData = datasource.data.map((h: any) =>
-      h.id !== individual.id ? h : individual
-    );
-    datasource.data = editedData;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
   }
 
   applyFilter(event: Event) {
@@ -267,26 +263,6 @@ export class PayrollIndividualTableComponent
     });
   }
 
-  openDialog(individual: Individual): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter(
-      (v: any) => v.id == individual.id
-    )?.[0];
-    console.log(editing);
-    const dialogRef = this.dialog.open(PayrollIndividualFormComponent, {
-      width: '500px',
-      data: editing ? editing : EMPTY,
-    });
-    this.subscriptions.push(
-      dialogRef.afterClosed().subscribe((result) => {
-        console.log(result);
-        if (individual) individual.loading = undefined;
-        if (result?.id) this.edit(result);
-        else if (result) this.add(result);
-      })
-    );
-  }
-
   closeDatePicker(eventData: any, dp?: any) {
     this.form.patchValue({ ...this.form.value, fechaCorte: eventData });
     dp.close();
@@ -295,16 +271,4 @@ export class PayrollIndividualTableComponent
   avance = (loading?: any) => {
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
   };
-
-  confirm(pregunta: string, titulo?: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '350px',
-      data: {
-        titulo: titulo,
-        pregunta: pregunta,
-      },
-    });
-
-    return dialogRef.afterClosed();
-  }
 }

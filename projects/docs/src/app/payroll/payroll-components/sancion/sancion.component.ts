@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { SancionesService } from '../../../srv/payroll/api/rest/sanciones.service';
+import { SancionesService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, Sancion, sanciones } from './sancion-data';
 import { SancionFormComponent } from './sancion-form.component';

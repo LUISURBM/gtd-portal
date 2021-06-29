@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { StoredProcedureService } from '../../../srv/payroll/api/procedure/storedProcedure.service';
+import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 import { initTable, gtdArrayToLowerCase } from '../../../types/common-types';
 import { displayedColumns } from './devengados-data';
 @Component({
@@ -54,7 +54,7 @@ export class DevengadosFormComponent {
               },
             };
 
-            return storedProcedureAPISrv.exectuteProcedureUsingPOST(
+            return storedProcedureAPISrv.exectuteProcedureUsingPOST1(
               request,
               'events',
               true

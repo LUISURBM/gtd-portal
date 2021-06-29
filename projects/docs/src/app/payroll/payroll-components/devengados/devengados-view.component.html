@@ -20,7 +20,7 @@
     <!-- ============================================================== -->
     <div class="navbar-header d-flex align-items-center ml-2">
       <ng-container >
-        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.individualData())" tabindex="1">
+        <a class="navbar-brand" (click)="navSrv.navigate('/nómina/individual', this.generalData())" tabindex="1">
           <span>{{'1F4C5'|gtdEmoji}}</span>
           <strong>
             {{form.value.fechaCorte | date : 'MM/yyyy'}}

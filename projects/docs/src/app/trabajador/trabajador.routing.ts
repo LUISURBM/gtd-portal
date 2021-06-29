@@ -6,19 +6,16 @@ import { TrabajadorComponent } from './trabajador.component';
 
 export const trabajadorRoutes: Routes = [
   {
-    path: 'lista',
+    path: '',
     component: TrabajadorComponent,
     pathMatch: 'full',
   },
   {
     path: 'view',
     component: TrabajadorViewComponent,
-    children: [
-      {
-        path: 'form',
-        component: TrabajadorFormComponent,
-        pathMatch: 'full',
-      },
-    ],
+  },
+  {
+    path: 'form',
+    component: TrabajadorFormComponent,
   },
 ];

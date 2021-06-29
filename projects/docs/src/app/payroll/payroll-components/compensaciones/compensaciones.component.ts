@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { CompensacionesService } from '../../../srv/payroll/api/rest/api';
+import { CompensacionesService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
 import { Compensacion, displayedColumns, EMPTY } from './compensacion-data';
 import { CompensacionFormComponent } from './compensacion-form.component';

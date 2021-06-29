@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DirtyCheckGuard } from '../guards/dirty-check.guard';
+import { GtdInputFormatterDirective } from '../guards/gtd-input.formatter';
 import {
   AccordionAnchorDirective,
   AccordionDirective,
@@ -16,6 +18,7 @@ import { DecodeEmojiPipe } from './unicode-emoji.pipe';
     AccordionDirective,
     DecodeEmojiPipe,
     ConfirmDialogComponent,
+    GtdInputFormatterDirective
   ],
   exports: [
     AccordionAnchorDirective,
@@ -23,8 +26,10 @@ import { DecodeEmojiPipe } from './unicode-emoji.pipe';
     AccordionDirective,
     DecodeEmojiPipe,
     ConfirmDialogComponent,
+    GtdInputFormatterDirective
   ],
   providers: [
+    DirtyCheckGuard,
     MenuItems,
     {
       provide: MatDialogRef,

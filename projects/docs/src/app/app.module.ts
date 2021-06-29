@@ -1,12 +1,16 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import {
   CommonModule,
+  CurrencyPipe,
+  getLocaleNumberSymbol,
   LocationStrategy,
+  NumberSymbol,
   PathLocationStrategy,
-  registerLocaleData,
+  registerLocaleData
 } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import localeCo from '@angular/common/locales/es-CO';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,7 +26,7 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG,
+  MSAL_INTERCEPTOR_CONFIG
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
@@ -30,7 +34,7 @@ import {
   InteractionType,
   IPublicClientApplication,
   LogLevel,
-  PublicClientApplication,
+  PublicClientApplication
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { pairwise } from 'rxjs/operators';
@@ -39,28 +43,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { apiConfig, b2cPolicies } from './b2c-config';
 import { DemoMaterialModule } from './demo-material-module';
+import { GtdHttpInterceptor } from './guards/http-interceptor.guard';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { HelperComponent } from './layouts/full/helper/helper.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
+import { AppSideMenuComponent } from './layouts/full/sidebar/sidemenu.component';
+import { LogInFormComponent } from './security/login-form.component';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
+import { AppStateService } from './srv/app-state.service';
 import { InMemDataService } from './srv/in-mem-data-service';
 import { InMemService } from './srv/in-mem-service';
-import { AppStateService } from './srv/app-state.service';
-import { ApiModule } from './srv/payroll/api/api.module';
+import { ApiModule } from './srv/payroll/api.module';
 import {
   Configuration,
-  ConfigurationParameters,
-} from './srv/payroll/api/configuration';
+  ConfigurationParameters
+} from './srv/payroll/configuration';
 import { StyleManagerService } from './srv/style-manager.service';
 import { NgGtdThemes } from './types/common-types';
 
-import localeCo from '@angular/common/locales/es-CO';
-import { LogInFormComponent } from './security/login-form.component';
-import { AppSideMenuComponent } from './layouts/full/sidebar/sidemenu.component';
 
 registerLocaleData(localeCo, 'es-Co');
+getLocaleNumberSymbol('es-CO', NumberSymbol.CurrencyGroup)
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -154,6 +159,8 @@ export function apiConfigFactory(): Configuration {
     ApiModule.forRoot(apiConfigFactory),
   ],
   providers: [
+    CurrencyPipe,
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'COP' },
     { provide: LOCALE_ID, useValue: 'es-Co' },
     {
       provide: LocationStrategy,
@@ -162,6 +169,11 @@ export function apiConfigFactory(): Configuration {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GtdHttpInterceptor,
       multi: true,
     },
     {

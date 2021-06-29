@@ -11,7 +11,7 @@
       <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-header>
   <mat-card-content>
-    <mat-card-subtitle>Angular Material table for <code>Pagos Terceros</code> elements. </mat-card-subtitle>
+    <mat-card-subtitle><code>Pagos Terceros</code> </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
@@ -21,7 +21,7 @@
         </button>
       </mat-form-field>
     </h4>
-    <mat-card *ngIf="dataSource?.loading != 100" class="m-0" style="display: flex; justify-content: center; align-items: center">
+    <mat-card *ngIf="dataSource?.loading" class="m-0" style="display: flex; justify-content: center; align-items: center">
       <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8">

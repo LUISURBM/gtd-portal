@@ -38,8 +38,11 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Tipo</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="tipo" placeholder="tipo" id="tipo" type="text"
-            class="form-control" />
+          <mat-select class="" #catalog tabindex="1" formControlName="tipo" id="tipo">
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
+              {{catalog.name}}
+            </mat-option>
+          </mat-select>
           <div *ngIf="f.tipo.touched && f.tipo.invalid" class="alert alert-danger">
             <div *ngIf="f.tipo.errors?.required">
               tipo es obligatorio.

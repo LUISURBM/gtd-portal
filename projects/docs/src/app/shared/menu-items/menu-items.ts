@@ -33,7 +33,7 @@ export const MENUITEMS: Menu[] = [
   },
   {
     state: 'nómina',
-    name: 'Nómina Electrónica',
+    name: 'Nómina',
     type: 'link',
     icon: 'drive_folder_upload',
     emoji: '1F4C3',
@@ -65,7 +65,7 @@ export const MENUITEMS: Menu[] = [
     ],
   },
   {
-    state: 'trabajador/lista',
+    state: 'trabajador',
     name: 'Trabajadores',
     type: 'link',
     icon: 'face',

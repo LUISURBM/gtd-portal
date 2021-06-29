@@ -12,31 +12,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { forkJoin } from 'rxjs';
-import {
-  BehaviorSubject,
-  merge,
-  Observable,
-  of,
-  scheduled,
-  Subscription,
-} from 'rxjs';
-import { mergeAll, mergeMap, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, forkJoin, of, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { VacacionesCompensadasService } from '../../../srv/payroll/api/rest/vacacionesCompensadas.service';
-import { VacacionesComunesService } from '../../../srv/payroll/api/rest/vacacionesComunes.service';
+import { VacacionesCompensadasService } from '../../../srv/payroll/rest/api';
+import { VacacionesComunesService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
 } from '../../../types/common-types';
-import {
-  catalogs,
-  displayedColumns,
-  Vacacion,
-  vacaciones,
-} from './vacacion-data';
+import { catalogs, displayedColumns, Vacacion } from './vacacion-data';
 import { VacacionFormComponent } from './vacacion-form.component';
 
 @Component({
@@ -76,12 +63,13 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       ),
     ]);
   readResponseTList = (data: any, message?: string) => {
-    this.loading((data?.type ?? 1) * 25);
-    if (!data.body) return;
+    this.loading(75);
+    if (!(data?.[0]?.body?.bodyDto || data?.[1]?.body?.bodyDto)) return;
     const dataarray = [
       ...data?.[0]?.body?.bodyDto,
       ...data?.[1]?.body?.bodyDto,
     ];
+    this.loading(85);
     initTable(
       this.dataSource$,
       this.paginator,
@@ -89,6 +77,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       gtdArrayToLowerCase(dataarray),
       displayedColumns
     );
+    this.loading(100);
   };
   constructor(
     public memSrv: InMemService,

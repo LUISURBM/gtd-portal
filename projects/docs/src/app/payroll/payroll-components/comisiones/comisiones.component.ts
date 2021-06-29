@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { ComisionesService } from '../../../srv/payroll/api/rest/comisiones.service';
+import { ComisionesService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';;
 import { ComisionFormComponent } from './comision-form.component';
 import { Comision, displayedColumns } from './comisiones-data';
