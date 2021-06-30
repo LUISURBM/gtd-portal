@@ -14,7 +14,7 @@
 export interface BonificacionDto { 
     bonificacionNs?: number;
     bonificacionS?: number;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
 }
 

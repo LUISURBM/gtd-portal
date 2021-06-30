@@ -4,15 +4,11 @@
       <div class="card-icon">
         <em class="material-icons">{{'1F39F'|gtdEmoji}}</em>
       </div>
-      <h1 class="card-title">
-        <strong>Sanción</strong>
-      </h1>
       <p class="card-category">Total creados <a>{{dataSource.datasource.data.length}}</a></p>
     </mat-card-title>
     <mat-card-subtitle><code>sanciones</code> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <mat-card-subtitle><code>Sanción</code> </mat-card-subtitle>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
@@ -29,12 +25,6 @@
 
     <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sanción #</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="sancionPriv">

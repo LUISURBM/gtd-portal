@@ -14,8 +14,8 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { RequestTDevengadosDto } from '../model/models';
+import { ResponseTDevengadosCompleteDto } from '../model/models';
 import { ResponseTDevengadosDto } from '../model/models';
-import { ResponseTListDevengadosDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 
@@ -46,13 +46,7 @@ export interface DevengadosServiceInterface {
      * 
      * @param devengadosId DevengadosId
      */
-    listFindAllDevengadosUsingGET19(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTDevengadosDto>;
-
-    /**
-     * List all Devengados in the system.
-     * 
-     */
-    listFindAllUsingGET29(extraHttpRequestParams?: any): Observable<ResponseTListDevengadosDto>;
+    listFindAllDevengadosUsingGET19(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTDevengadosCompleteDto>;
 
     /**
      * save a Devengados in the system.

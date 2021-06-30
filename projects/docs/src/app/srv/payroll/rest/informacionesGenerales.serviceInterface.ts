@@ -46,7 +46,7 @@ export interface InformacionesGeneralesServiceInterface {
      * 
      * @param deducionesId deducionesId
      */
-    listFindAllUsingGET32(deducionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET11(deducionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Informacion General in the system.

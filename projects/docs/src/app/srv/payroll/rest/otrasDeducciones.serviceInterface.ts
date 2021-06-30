@@ -49,12 +49,6 @@ export interface OtrasDeduccionesServiceInterface {
     listFindAllDeduccionesUsingGET5(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListOtrasDeduccionesDto>;
 
     /**
-     * List all Otra Deduccion in the system.
-     * 
-     */
-    listFindAllUsingGET39(extraHttpRequestParams?: any): Observable<ResponseTListOtrasDeduccionesDto>;
-
-    /**
      * save a Otra Deduccion in the system.
      * 
      * @param dto dto

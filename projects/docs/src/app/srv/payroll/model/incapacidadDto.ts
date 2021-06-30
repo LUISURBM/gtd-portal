@@ -13,7 +13,7 @@
 
 export interface IncapacidadDto { 
     cantidad?: number;
-    devengadosId?: string;
+    devengadosId: string;
     fechaFin?: string;
     fechaInicio?: string;
     id?: string;

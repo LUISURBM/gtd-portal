@@ -13,7 +13,7 @@
 
 export interface LibranzasDto { 
     deduccion?: number;
-    deduccionesId?: string;
+    deduccionesId: string;
     descripcion?: string;
     id?: string;
 }

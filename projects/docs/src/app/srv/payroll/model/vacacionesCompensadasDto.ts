@@ -13,7 +13,7 @@
 
 export interface VacacionesCompensadasDto { 
     cantidad?: number;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
     pago?: number;
 }

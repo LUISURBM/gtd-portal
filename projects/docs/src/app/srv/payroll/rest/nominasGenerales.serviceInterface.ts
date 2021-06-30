@@ -45,7 +45,7 @@ export interface NominasGeneralesServiceInterface {
      * 
      * @param businessSubscriptionId businessSubscriptionId
      */
-    listFindAllUsingGET35(businessSubscriptionId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET12(businessSubscriptionId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Nomina General in the system.

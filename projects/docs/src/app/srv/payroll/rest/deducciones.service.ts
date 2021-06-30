@@ -18,8 +18,8 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { RequestTDeduccionesDto } from '../model/models';
+import { ResponseTDeduccionesCompleteDto } from '../model/models';
 import { ResponseTDeduccionesDto } from '../model/models';
-import { ResponseTListDeduccionesDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -148,12 +148,12 @@ export class DeduccionesService implements DeduccionesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public findAllDevengadosUsingGET1(deduccionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTDeduccionesDto>;
-    public findAllDevengadosUsingGET1(deduccionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTDeduccionesDto>>;
-    public findAllDevengadosUsingGET1(deduccionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTDeduccionesDto>>;
-    public findAllDevengadosUsingGET1(deduccionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public findAllDeduccionUsingGET1(deduccionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTDeduccionesCompleteDto>;
+    public findAllDeduccionUsingGET1(deduccionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTDeduccionesCompleteDto>>;
+    public findAllDeduccionUsingGET1(deduccionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTDeduccionesCompleteDto>>;
+    public findAllDeduccionUsingGET1(deduccionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (deduccionId === null || deduccionId === undefined) {
-            throw new Error('Required parameter deduccionId was null or undefined when calling findAllDevengadosUsingGET1.');
+            throw new Error('Required parameter deduccionId was null or undefined when calling findAllDeduccionUsingGET1.');
         }
 
         let headers = this.defaultHeaders;
@@ -183,7 +183,7 @@ export class DeduccionesService implements DeduccionesServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTDeduccionesDto>(`${this.configuration.basePath}/nomina-general/deducciones/list/${encodeURIComponent(String(deduccionId))}`,
+        return this.httpClient.get<ResponseTDeduccionesCompleteDto>(`${this.configuration.basePath}/nomina-general/deducciones/list/${encodeURIComponent(String(deduccionId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -236,54 +236,6 @@ export class DeduccionesService implements DeduccionesServiceInterface {
         }
 
         return this.httpClient.get<ResponseTDeduccionesDto>(`${this.configuration.basePath}/nomina-general/deducciones/${encodeURIComponent(String(id))}`,
-            {
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * List all Deducciones in the system.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public listFindAllUsingGET28(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListDeduccionesDto>;
-    public listFindAllUsingGET28(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListDeduccionesDto>>;
-    public listFindAllUsingGET28(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListDeduccionesDto>>;
-    public listFindAllUsingGET28(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let credential: string | undefined;
-        // authentication (apiKey) required
-        credential = this.configuration.lookupCredential('apiKey');
-        if (credential) {
-            headers = headers.set('Authorization', credential);
-        }
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.get<ResponseTListDeduccionesDto>(`${this.configuration.basePath}/nomina-general/deducciones/list`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

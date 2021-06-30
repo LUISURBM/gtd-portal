@@ -81,14 +81,6 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
       }),
       this.form.valueChanges.subscribe({
         complete: () => this.isDirty$.next(this.form.dirty),
-        next: (value) =>
-          this.form.patchValue({
-            ...value,
-            trabajador: {
-              ...value?.trabajador,
-              sueldo: value?.trabajador?.sueldo ?? '0',
-            },
-          }),
       }),
       this.route.params
         .pipe(
@@ -138,7 +130,7 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
             console.log(data.body?.bodyDto);
             this.trabajadores = gtdArrayToLowerCase(data.body?.bodyDto);
           },
-          error: (error) => console.log(error),
+          error: (error: any) => console.log(error),
         })
     );
   }
@@ -178,12 +170,10 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
     console.log(this.form.value);
     this.subscriptions.push(
       gtdBeforeUnload()
-        .pipe(
-          filter(()=>this.form.dirty)
-        )
+        .pipe(filter(() => this.form.dirty))
         .subscribe((e) => {
           const message = 'You may lose your data if you refresh now';
-          const event = e || window.event as any;
+          const event = e || (window.event as any);
           event.returnValue = !!message;
           return message;
         }),

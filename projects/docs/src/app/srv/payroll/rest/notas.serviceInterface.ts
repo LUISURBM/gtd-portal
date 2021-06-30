@@ -14,7 +14,6 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { RequestTNotasDto } from '../model/models';
-import { ResponseTListNotasDto } from '../model/models';
 import { ResponseTNotasDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
@@ -40,12 +39,6 @@ export interface NotasServiceInterface {
      * @param id Id Nota
      */
     findByIdUsingGET59(id: string, extraHttpRequestParams?: any): Observable<ResponseTNotasDto>;
-
-    /**
-     * List all Nota in the system.
-     * 
-     */
-    listFindAllUsingGET37(extraHttpRequestParams?: any): Observable<ResponseTListNotasDto>;
 
     /**
      * save a Nota in the system.

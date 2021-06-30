@@ -49,12 +49,6 @@ export interface LicenciasServiceInterface {
     listFindAllDevengadosUsingGET22(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListLicenciasDto>;
 
     /**
-     * List all Licencia in the system.
-     * 
-     */
-    listFindAllUsingGET33(extraHttpRequestParams?: any): Observable<ResponseTListLicenciasDto>;
-
-    /**
      * save a Licencia in the system.
      * 
      * @param dto dto

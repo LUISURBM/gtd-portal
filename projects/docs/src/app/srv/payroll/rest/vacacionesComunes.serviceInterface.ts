@@ -49,12 +49,6 @@ export interface VacacionesComunesServiceInterface {
     listFindAllDevengadosUsingGET27(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListVacacionesComunesDto>;
 
     /**
-     * List all Vacaciones Comun in the system.
-     * 
-     */
-    listFindAllUsingGET47(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesComunesDto>;
-
-    /**
      * save a Vacaciones Comun in the system.
      * 
      * @param dto dto

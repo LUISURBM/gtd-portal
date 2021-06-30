@@ -45,13 +45,13 @@
       </div>
       <div class="flex-row">
         <a mat-button (click)="onNoClick()" tabindex="-1" class="col-md-12 mb-2">
-          Cancelar
+          {{stateSrv?.textos?.CancelarNominasGNE?.name ?? 'Cancelar'}}
         </a>
         <button mat-button tabindex="5" class="col-md-12 mb-2" [mat-dialog-close]="form.value"
-          cdkFocusInitial>Guardar</button>
+          cdkFocusInitial>{{stateSrv?.textos?.GuardarNominasGNE?.name ?? 'Guardar'}}</button>
         <a *ngIf="f.id.value" class="col-md-12" mat-button
-          (click)="onNoClick(); navSrv.navigate('/nómina/individual', formValueJson)" tabindex="6">Ver
-          individuales</a>
+          (click)="onNoClick(); navSrv.navigate('/nómina/individual', formValueJson)"
+          tabindex="6">{{stateSrv?.textos?.VerNominasINE?.name}}</a>
       </div>
     </div>
   </div>

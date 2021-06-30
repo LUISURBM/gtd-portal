@@ -42,12 +42,6 @@ export interface AnticiposServiceInterface {
     findByIdUsingGET37(id: string, extraHttpRequestParams?: any): Observable<ResponseTAnticiposDto>;
 
     /**
-     * List all Anticipo in the system.
-     * 
-     */
-    getListUsingGET1(extraHttpRequestParams?: any): Observable<ResponseTListAnticiposDto>;
-
-    /**
      * List all Anticipo in the system by DeduccionesId.
      * 
      * @param deduccionesId DeduccionesId

@@ -49,12 +49,6 @@ export interface BonosEPCTVServiceInterface {
     listFindAllDevengadosUsingGET16(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListBonoEpctvDto>;
 
     /**
-     * List all BonoEpctv in the system.
-     * 
-     */
-    listFindAllUsingGET25(extraHttpRequestParams?: any): Observable<ResponseTListBonoEpctvDto>;
-
-    /**
      * save a BonoEpctv in the system.
      * 
      * @param dto dto

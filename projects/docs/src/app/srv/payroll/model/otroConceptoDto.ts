@@ -15,7 +15,7 @@ export interface OtroConceptoDto {
     conceptoNs?: number;
     conceptoS?: number;
     descripcionConcepto?: string;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
 }
 

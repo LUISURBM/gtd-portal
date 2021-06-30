@@ -49,12 +49,6 @@ export interface CompensacionesServiceInterface {
     listFindAllDevengadosUsingGET18(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListCompensacionDto>;
 
     /**
-     * List all Compensacion in the system.
-     * 
-     */
-    listFindAllUsingGET27(extraHttpRequestParams?: any): Observable<ResponseTListCompensacionDto>;
-
-    /**
      * save a Compensacion in the system.
      * 
      * @param dto dto

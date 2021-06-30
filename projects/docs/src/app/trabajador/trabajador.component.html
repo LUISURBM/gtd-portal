@@ -11,8 +11,6 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-
-    <p class="card-category">Lista trabajdores</p>
     <h4>
       <mat-form-field class="example-full-width">
         <mat-label>Encontrar</mat-label>
@@ -29,7 +27,7 @@
     </mat-card>
 
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
+      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort >
 
 
         <ng-container matColumnDef="codigoTrabajador">

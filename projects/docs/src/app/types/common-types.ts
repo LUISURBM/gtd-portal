@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { fromEvent } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../shared/dialog/confirm/confirm-dialog.component';
 import { ValuesCatalog } from '../srv/in-mem-data-service';
 import { TrabajadorDto } from '../srv/payroll/model/trabajadorDto';
@@ -139,11 +138,12 @@ export const confirm = (
 export const OpenDialog = (dialog: MatDialog, cmp: any, data: any) =>
   dialog
     .open(cmp, {
-      hasBackdrop: false,
+      hasBackdrop: true,
       backdropClass: 'gtd-overlay-backdrop',
       closeOnNavigation: true,
       disableClose: true,
       width: '500px',
+
       data: data,
     })
     .afterClosed();
@@ -256,4 +256,8 @@ export const valoresCatalogos = (params: any) => {
       procedimientoAlmacenado: 'ConsultarValoresCatalogosPorCodigoCatalogo',
     },
   };
+};
+
+export const txtEliminar = (texto: string, objeto: string) => {
+  return `${texto.replace('P_1', objeto)}`;
 };

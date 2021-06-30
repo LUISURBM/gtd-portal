@@ -1,5 +1,4 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { formatDate } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -13,22 +12,20 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
-import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 import { NotasService } from '../../../srv/payroll/rest/api';
 import {
-  NgGtdDS,
-  initTable,
   gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
 } from '../../../types/common-types';
-import { Payroll } from '../payroll-general/payroll-data';
 import { NotaFormComponent } from './nota-form.component';
-import { Nota, notas, displayedColumns } from './notas-data';
+import { displayedColumns, Nota } from './notas-data';
 
 @Component({
   selector: 'app-payroll-notas',
@@ -96,7 +93,7 @@ export class NotasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
-      nominaIndividualId: ''
+      nominaIndividualId: '',
     });
     this.avance(10);
     this.subscriptions = [
@@ -137,10 +134,7 @@ export class NotasComponent implements OnInit, AfterViewInit, OnDestroy {
       );
   listado = () => {
     this.avance(20);
-    return this.notasAPISrv.listFindAllUsingGET37(
-      'events',
-      true
-    );
+    return of({});
   };
   readResponseError = (err: any) => {
     console.log(err);

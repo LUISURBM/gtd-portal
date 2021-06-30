@@ -15,7 +15,6 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTEmpleadorDto } from '../model/models';
 import { ResponseTEmpleadorDto } from '../model/models';
-import { ResponseTListEmpleadorDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 
@@ -40,12 +39,6 @@ export interface EmpleadoresServiceInterface {
      * @param id Id Empleador
      */
     findByIdUsingGET47(id: string, extraHttpRequestParams?: any): Observable<ResponseTEmpleadorDto>;
-
-    /**
-     * List all Empleador in the system.
-     * 
-     */
-    listFindAllUsingGET30(extraHttpRequestParams?: any): Observable<ResponseTListEmpleadorDto>;
 
     /**
      * save a Empleador in the system.

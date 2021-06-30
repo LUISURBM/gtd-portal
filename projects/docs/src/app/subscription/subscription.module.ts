@@ -1,16 +1,16 @@
-import { CdkTableModule } from "@angular/cdk/table";
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatTableModule } from "@angular/material/table";
-import { FilterValueComponent } from "./filter-value.component";
-import { SubscriptionComponent } from "./subscription.component";
-import { SubscriptionRoutingModule } from "./subscription.routing.module";
-import {MatSortModule} from '@angular/material/sort';
-import { DemoMaterialModule } from "../demo-material-module";
-import { SharedModule } from "../shared/shared.module";
+import { CdkTableModule } from '@angular/cdk/table';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { DemoMaterialModule } from '../demo-material-module';
+import { SharedModule } from '../shared/shared.module';
+import { SubscriptionFormComponent } from './subscription-form.component';
+import { SubscriptionComponent } from './subscription.component';
+import { SubscriptionRoutingModule } from './subscription.routing.module';
 
 @NgModule({
   imports: [
@@ -24,10 +24,10 @@ import { SharedModule } from "../shared/shared.module";
     MatTableModule,
     MatSortModule,
     SubscriptionRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
-  entryComponents: [FilterValueComponent],
-  declarations: [SubscriptionComponent, FilterValueComponent],
+  entryComponents: [SubscriptionFormComponent],
+  declarations: [SubscriptionComponent, SubscriptionFormComponent],
 })
 export class SubscriptionComponentsModule {}

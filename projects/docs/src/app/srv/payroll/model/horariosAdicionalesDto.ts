@@ -13,7 +13,7 @@
 
 export interface HorariosAdicionalesDto { 
     cantidad?: number;
-    devengadoId?: string;
+    devengadosId: string;
     horaFin?: string;
     horaInicio?: string;
     id?: string;

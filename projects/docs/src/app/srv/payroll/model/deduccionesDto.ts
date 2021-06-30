@@ -9,33 +9,20 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { LibranzasDto } from './libranzasDto';
-import { FondoSpDto } from './fondoSpDto';
-import { SaludPensionSindicatoDto } from './saludPensionSindicatoDto';
-import { AnticiposDto } from './anticiposDto';
-import { PagoTercerosDto } from './pagoTercerosDto';
-import { SancionDto } from './sancionDto';
-import { OtrasDeduccionesDto } from './otrasDeduccionesDto';
 
 
 export interface DeduccionesDto { 
     afc?: number;
-    anticipos?: Array<AnticiposDto>;
     cooperativa?: number;
     deuda?: number;
     educacion?: number;
     embargoFiscal?: number;
-    fondoSps?: FondoSpDto;
+    fondoSpId?: string;
     id?: string;
-    libranzas?: Array<LibranzasDto>;
     nominaIndividualId?: string;
-    otrasDeducciones?: Array<OtrasDeduccionesDto>;
-    pagoTerceroses?: Array<PagoTercerosDto>;
     pensionVoluntaria?: number;
     planComplementarios?: number;
     reintegro?: number;
     retencionFuente?: number;
-    saludPensionSindicatos?: Array<SaludPensionSindicatoDto>;
-    sanciones?: Array<SancionDto>;
 }
 

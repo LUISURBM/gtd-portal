@@ -200,12 +200,12 @@ export class PagosService implements PagosServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET40(payrollId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
-    public listFindAllUsingGET40(payrollId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET40(payrollId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET40(payrollId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET14(payrollId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
+    public listFindAllUsingGET14(payrollId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET14(payrollId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET14(payrollId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (payrollId === null || payrollId === undefined) {
-            throw new Error('Required parameter payrollId was null or undefined when calling listFindAllUsingGET40.');
+            throw new Error('Required parameter payrollId was null or undefined when calling listFindAllUsingGET14.');
         }
 
         let headers = this.defaultHeaders;

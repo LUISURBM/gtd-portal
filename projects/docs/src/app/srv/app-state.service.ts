@@ -1,8 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
-import { NgGtdThemes, ValueOption } from '../types/common-types';
-import { THEMES_OPTIONS } from '../values-catalog';
+import { EnumString, NgGtdThemes, ValueOption } from '../types/common-types';
+import { THEMES_OPTIONS, UIMessage } from '../values-catalog';
 import { ValuesCatalog } from './in-mem-data-service';
 import { StyleManagerService } from './style-manager.service';
 
@@ -18,8 +19,8 @@ export interface UIState {
   Large?: boolean;
   messages?: ValuesCatalog[];
   notifications?: ValuesCatalog[];
+  textos?: EnumString;
 }
-
 @Injectable({
   providedIn: 'root',
 })
@@ -34,7 +35,8 @@ export class AppStateService {
 
   constructor(
     breakpointObserver: BreakpointObserver,
-    private styleManager: StyleManagerService
+    private styleManager: StyleManagerService,
+    private _snackBar: MatSnackBar
   ) {
     breakpointObserver
       .observe([
@@ -108,18 +110,22 @@ export class AppStateService {
       loading: !this.themeState$.value.loading,
     });
 
-  message = (message: string, ico: string) =>
+  message = (message: string, state: UIMessage) => {
     this.themeState$.next({
       ...this.themeState$.value,
       messages: [
         {
           id: this.themeState$.value.messages?.length! + 1,
-          code: ico,
-          name: message,
+          code: state.tipo,
+          name: `${message}: ${state.accion}`,
         },
-        ...this.themeState$.value.messages!,
+        ...(this.themeState$.value.messages ?? []),
       ],
     });
+    this._snackBar.open(`${message}: ${state.accion}`, state.tipo, {
+      duration: 50000,
+    });
+  };
   notificate = (message: string, ico: string) =>
     this.themeState$.next({
       ...this.themeState$.value,
@@ -129,7 +135,17 @@ export class AppStateService {
           code: ico,
           name: message,
         },
-        ...this.themeState$.value.notifications!,
+        ...(this.themeState$.value.notifications ?? []),
       ],
     });
+
+  setTextos = (textos: any) =>
+    this.themeState$.next({
+      ...this.themeState$.value,
+      textos: textos,
+    });
+
+  get textos() {
+    return this.themeState$.value.textos;
+  }
 }

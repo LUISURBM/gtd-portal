@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,7 +16,12 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { FondosSPService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { displayedColumns, FondoSP, fondoSPs } from './fondo-sp-data';
 import { FondoSPFormComponent } from './fondo-sp-form.component';
 
@@ -36,12 +47,17 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
-  listado = (data: any) =>
-    this.fondosSPAPISrv.listFindAllUsingGET31('events', true, {});
+  listado = (data: any) => of([]);
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
   constructor(
     public memSrv: InMemService,
@@ -55,7 +71,7 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
       filtro: '',
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
-      devengadosId: undefined,
+      deduccionesId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
@@ -226,14 +242,15 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
       data: fondoSP ?? { id: undefined, name: '' },
     });
 
-    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    }));
+    this.subscriptions.push(
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
 }

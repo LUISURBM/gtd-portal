@@ -19,7 +19,6 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTEmpleadorDto } from '../model/models';
 import { ResponseTEmpleadorDto } from '../model/models';
-import { ResponseTListEmpleadorDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -184,54 +183,6 @@ export class EmpleadoresService implements EmpleadoresServiceInterface {
         }
 
         return this.httpClient.get<ResponseTEmpleadorDto>(`${this.configuration.basePath}/nomina-general/empleadores/${encodeURIComponent(String(id))}`,
-            {
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * List all Empleador in the system.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public listFindAllUsingGET30(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListEmpleadorDto>;
-    public listFindAllUsingGET30(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListEmpleadorDto>>;
-    public listFindAllUsingGET30(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListEmpleadorDto>>;
-    public listFindAllUsingGET30(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let credential: string | undefined;
-        // authentication (apiKey) required
-        credential = this.configuration.lookupCredential('apiKey');
-        if (credential) {
-            headers = headers.set('Authorization', credential);
-        }
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.get<ResponseTListEmpleadorDto>(`${this.configuration.basePath}/nomina-general/empleadores/list`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

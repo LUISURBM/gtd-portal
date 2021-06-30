@@ -96,7 +96,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
         id: undefined,
         comision: comision.comision,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
-        devendadosId: this.form.value.devengadosId,
+        devengadosId: this.form.value.devengadosId,
         enabled: true,
         eventDate: new Date().toDateString(),
         eventType: 'CREATE',
@@ -168,7 +168,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: comision.id,
         comision: comision.comision,
-        devendadosId: this.form.value.devengadosId,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

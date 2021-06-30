@@ -15,7 +15,6 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTBasicoDto } from '../model/models';
 import { ResponseTBasicoDto } from '../model/models';
-import { ResponseTListBasicoDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 
@@ -40,12 +39,6 @@ export interface BasicosServiceInterface {
      * @param id Id Básico
      */
     findByIdUsingGET39(id: string, extraHttpRequestParams?: any): Observable<ResponseTBasicoDto>;
-
-    /**
-     * List all Básico in the system.
-     * 
-     */
-    listBasicoUsingGET1(extraHttpRequestParams?: any): Observable<ResponseTListBasicoDto>;
 
     /**
      * save a Básico in the system.

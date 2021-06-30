@@ -49,12 +49,6 @@ export interface BonificacionesServiceInterface {
     listFindAllDevengadosUsingGET15(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListBonificacionDto>;
 
     /**
-     * List all Bonificacion in the system.
-     * 
-     */
-    listFindAllUsingGET24(extraHttpRequestParams?: any): Observable<ResponseTListBonificacionDto>;
-
-    /**
      * save a Bonificacion in the system.
      * 
      * @param dto dto

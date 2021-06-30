@@ -15,6 +15,7 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTNominaIndividualDto } from '../model/models';
 import { ResponseTListHashMapstringobject } from '../model/models';
+import { ResponseTNominaIndividualCompleteDto } from '../model/models';
 import { ResponseTNominaIndividualDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
@@ -39,7 +40,7 @@ export interface NominasIndividualesServiceInterface {
      * 
      * @param id Id Nomina Individual
      */
-    findByIdUsingGET58(id: string, extraHttpRequestParams?: any): Observable<ResponseTNominaIndividualDto>;
+    findByIdUsingGET58(id: string, extraHttpRequestParams?: any): Observable<ResponseTNominaIndividualCompleteDto>;
 
     /**
      * List all Nomina Individual in the system.
@@ -47,7 +48,7 @@ export interface NominasIndividualesServiceInterface {
      * @param businessSubscriptionId businessSubscriptionId
      * @param nominaGeneralId nominaGeneralId
      */
-    listFindAllUsingGET36(businessSubscriptionId: string, nominaGeneralId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET13(businessSubscriptionId: string, nominaGeneralId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Nomina Individual in the system.

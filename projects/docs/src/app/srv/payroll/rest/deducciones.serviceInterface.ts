@@ -14,8 +14,8 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { RequestTDeduccionesDto } from '../model/models';
+import { ResponseTDeduccionesCompleteDto } from '../model/models';
 import { ResponseTDeduccionesDto } from '../model/models';
-import { ResponseTListDeduccionesDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 
@@ -39,7 +39,7 @@ export interface DeduccionesServiceInterface {
      * 
      * @param deduccionId DeduccionId
      */
-    findAllDevengadosUsingGET1(deduccionId: string, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;
+    findAllDeduccionUsingGET1(deduccionId: string, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesCompleteDto>;
 
     /**
      * find by id Deducciones in the system.
@@ -47,12 +47,6 @@ export interface DeduccionesServiceInterface {
      * @param id Id Deducciones
      */
     findByIdUsingGET45(id: string, extraHttpRequestParams?: any): Observable<ResponseTDeduccionesDto>;
-
-    /**
-     * List all Deducciones in the system.
-     * 
-     */
-    listFindAllUsingGET28(extraHttpRequestParams?: any): Observable<ResponseTListDeduccionesDto>;
 
     /**
      * save a Deducciones in the system.

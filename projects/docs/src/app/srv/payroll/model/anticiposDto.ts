@@ -13,8 +13,8 @@
 
 export interface AnticiposDto { 
     anticipo?: number;
-    deduccionId?: string;
-    devengadoId?: string;
+    deduccionesId?: string;
+    devengadosId?: string;
     id?: string;
 }
 

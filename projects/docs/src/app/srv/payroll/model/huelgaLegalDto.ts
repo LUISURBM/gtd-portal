@@ -13,7 +13,7 @@
 
 export interface HuelgaLegalDto { 
     cantidad?: number;
-    devengadoId?: string;
+    devengadosId: string;
     fechaFin?: string;
     fechaInicio?: string;
     id?: string;

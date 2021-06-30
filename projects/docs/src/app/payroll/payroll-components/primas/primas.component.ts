@@ -1,5 +1,11 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -13,7 +19,11 @@ import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-d
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { PrimasService } from '../../../srv/payroll/rest/api';
-import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
+import {
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { displayedColumns, EMPTY, Prima } from './prima-data';
 import { PrimaFormComponent } from './prima-form.component';
 
@@ -22,14 +32,13 @@ import { PrimaFormComponent } from './prima-form.component';
   templateUrl: './primas.component.html',
   styleUrls: ['./prima.component.css'],
 })
-export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
-{
+export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup = new FormGroup({});
 
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
     datasource: new MatTableDataSource<Prima>([]),
     displayedColumns: displayedColumns,
-    loading: 0
+    loading: 0,
   });
 
   selection = new SelectionModel<Prima>(false, []);
@@ -55,21 +64,27 @@ export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
   JSON = JSON;
 
   listado = (data: any) =>
-    this.primasAPISrv.listFindAllUsingGET42(
-      data.devengadosId,
-      'events',
-      true
-    ).pipe(
-      tap({
-        next: (x:any) => this.avance((x?.type ?? 1) * 25),
-        error: err => { console.error(err); },
-      })
-    );
+    this.primasAPISrv
+      .listFindAllUsingGET16(data.devengadosId, 'events', true)
+      .pipe(
+        tap({
+          next: (x: any) => this.avance((x?.type ?? 1) * 25),
+          error: (err) => {
+            console.error(err);
+          },
+        })
+      );
 
   readList = (data: any, message?: string) => {
     this.avance((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -81,7 +96,7 @@ export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
     public navSrv: NavigationService,
     private primasAPISrv: PrimasService
   ) {
-  this.form = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
       estado: '',
@@ -118,6 +133,7 @@ export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
         cantidad: prima.cantidad,
         pagoNS: prima.pagoNS,
         pagoS: prima.pagoS,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -185,15 +201,43 @@ export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
   }
 
   edit(prima: Prima): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editedData = datasource.data.map((h: any) =>
-      h.id !== prima.id ? h : prima
+    const request = {
+      entidad: {
+        id: prima.id,
+        cantidad: prima.cantidad,
+        pagoNS: prima.pagoNS,
+        pagoS: prima.pagoS,
+        devengadosId: this.form.value.devengadosId,
+        businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        enabled: true,
+        eventDate: new Date().toISOString(),
+        eventType: 'CREATE',
+        eventUser: 'LFUM',
+        removed: false,
+      },
+      headerRequest: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+      },
+    };
+
+    this.subscriptions.push(
+      this.primasAPISrv
+        .updateUsingPUT66(request, 'events', true, {
+          httpHeaderAccept: 'application/json',
+        })
+        .pipe(
+          switchMap((response: any) => {
+            this._snackBar.open(`Prima`, 'actualizado!', {
+              duration: 50000,
+            });
+            return this.listado(this.form.value);
+          })
+        )
+        .subscribe({
+          next: this.readList,
+          complete: this.avance,
+        })
     );
-    datasource.data = editedData;
-    this.dataSource$.next({
-      ...this.dataSource$.value,
-      datasource: datasource,
-    });
   }
 
   applyFilter(event: Event) {
@@ -230,7 +274,9 @@ export class PrimasComponent implements OnInit, AfterViewInit , OnDestroy
     dp.close();
   }
 
-  avance = (loading?:any) => {this.dataSource$.next({...this.dataSource$.value, loading: loading});}
+  avance = (loading?: any) => {
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
+  };
 
   confirm(pregunta: string, titulo?: string) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

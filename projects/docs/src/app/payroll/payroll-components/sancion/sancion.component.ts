@@ -1,17 +1,28 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subscription, of } from 'rxjs';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { SancionesService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
-import { displayedColumns, Sancion, sanciones } from './sancion-data';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
+import { displayedColumns, Sancion } from './sancion-data';
 import { SancionFormComponent } from './sancion-form.component';
 
 @Component({
@@ -37,11 +48,22 @@ export class SancionComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.sancionesAPISrv.listFindAllUsingGET45(data.deduccionesId, 'events', true, {});
+    this.sancionesAPISrv.listFindAllUsingGET19(
+      data.deduccionesId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(

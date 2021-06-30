@@ -12,7 +12,7 @@
 
 
 export interface CesantiasDto { 
-    devengadoId?: string;
+    devengadosId?: string;
     id?: string;
     pago?: number;
     pagoIntereses?: number;

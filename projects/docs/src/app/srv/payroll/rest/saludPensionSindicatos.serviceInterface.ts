@@ -54,7 +54,7 @@ export interface SaludPensionSindicatosServiceInterface {
      * 
      * @param deduccionesId DeduccionesId
      */
-    listFindAllUsingGET44(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET18(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Salud Pension Sindicato in the system.

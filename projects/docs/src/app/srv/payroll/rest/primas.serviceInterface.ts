@@ -46,7 +46,7 @@ export interface PrimasServiceInterface {
      * 
      * @param param param
      */
-    listFindAllUsingGET42(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET16(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Prima in the system.

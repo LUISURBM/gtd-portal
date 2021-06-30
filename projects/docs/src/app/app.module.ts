@@ -6,7 +6,7 @@ import {
   LocationStrategy,
   NumberSymbol,
   PathLocationStrategy,
-  registerLocaleData
+  registerLocaleData,
 } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import localeCo from '@angular/common/locales/es-CO';
@@ -26,7 +26,7 @@ import {
   MsalService,
   MSAL_GUARD_CONFIG,
   MSAL_INSTANCE,
-  MSAL_INTERCEPTOR_CONFIG
+  MSAL_INTERCEPTOR_CONFIG,
 } from '@azure/msal-angular';
 import {
   BrowserCacheLocation,
@@ -34,7 +34,7 @@ import {
   InteractionType,
   IPublicClientApplication,
   LogLevel,
-  PublicClientApplication
+  PublicClientApplication,
 } from '@azure/msal-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { pairwise } from 'rxjs/operators';
@@ -58,14 +58,13 @@ import { InMemService } from './srv/in-mem-service';
 import { ApiModule } from './srv/payroll/api.module';
 import {
   Configuration,
-  ConfigurationParameters
+  ConfigurationParameters,
 } from './srv/payroll/configuration';
 import { StyleManagerService } from './srv/style-manager.service';
 import { NgGtdThemes } from './types/common-types';
 
-
 registerLocaleData(localeCo, 'es-Co');
-getLocaleNumberSymbol('es-CO', NumberSymbol.CurrencyGroup)
+getLocaleNumberSymbol('es-CO', NumberSymbol.CurrencyGroup);
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -202,7 +201,6 @@ export class AppModule {
   constructor(overlayContainer: OverlayContainer, stateSrv: AppStateService) {
     overlayContainer.getContainerElement().classList.add(NgGtdThemes.FpiSkin);
     stateSrv.themeState$.pipe(pairwise()).subscribe(([p, q]) => {
-      console.log(p, q);
       if (q)
         overlayContainer.getContainerElement().classList.remove(p.uiPalette);
       if (p) overlayContainer.getContainerElement().classList.add(q.uiPalette);

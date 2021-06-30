@@ -12,8 +12,8 @@
 
 
 export interface PagoTercerosDto { 
-    deduccionId?: string;
-    devengadoId?: string;
+    deduccionesId?: string;
+    devengadosId?: string;
     id?: string;
     pagoTercero?: number;
 }

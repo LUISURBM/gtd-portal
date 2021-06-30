@@ -153,6 +153,7 @@ export class BonificacionesComponent
       entidad: {
         bonificacionNs: bonificacion.bonificacionNS,
         bonificacionS: bonificacion.bonificacionS,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -223,6 +224,7 @@ export class BonificacionesComponent
         id: bonificacion.id,
         bonificacionNs: bonificacion.bonificacionNS,
         bonificacionS: bonificacion.bonificacionS,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

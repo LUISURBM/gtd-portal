@@ -200,12 +200,12 @@ export class InformacionesGeneralesService implements InformacionesGeneralesServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET32(deducionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
-    public listFindAllUsingGET32(deducionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET32(deducionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET32(deducionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET11(deducionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
+    public listFindAllUsingGET11(deducionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET11(deducionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET11(deducionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (deducionesId === null || deducionesId === undefined) {
-            throw new Error('Required parameter deducionesId was null or undefined when calling listFindAllUsingGET32.');
+            throw new Error('Required parameter deducionesId was null or undefined when calling listFindAllUsingGET11.');
         }
 
         let headers = this.defaultHeaders;

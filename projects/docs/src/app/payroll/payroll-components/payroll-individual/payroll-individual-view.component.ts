@@ -105,9 +105,9 @@ export class PayrollindividualViewComponent implements OnDestroy {
       }),
       deduccionesId: builder.control(''),
       devengadosId: builder.control(''),
-      deduccion: 99999999,
-      devengos: 99999999,
-      totalAPagar: 99999999,
+      deduccion: 0,
+      devengos: 0,
+      totalAPagar: 0,
       nominaGeneralId: builder.control(''),
       nominaIndividualId: undefined,
       fechaCorte: new Date(),
@@ -123,8 +123,8 @@ export class PayrollindividualViewComponent implements OnDestroy {
         .pipe(
           switchMap((params) => {
             const data = params['data']? JSON.parse(params['data']) : params;
-            if (gtdIsNull(data['nominaIndividualId'])) return of(form.value);
             this.form.patchValue(data);
+            if (gtdIsNull(data['nominaIndividualId'])) return of(form.value);
             return nominaIndividualAPISrv.findByIdUsingGET58(
               data['nominaIndividualId'],
               'events',

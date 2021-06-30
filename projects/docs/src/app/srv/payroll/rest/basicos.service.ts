@@ -19,7 +19,6 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTBasicoDto } from '../model/models';
 import { ResponseTBasicoDto } from '../model/models';
-import { ResponseTListBasicoDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -184,54 +183,6 @@ export class BasicosService implements BasicosServiceInterface {
         }
 
         return this.httpClient.get<ResponseTBasicoDto>(`${this.configuration.basePath}/nomina-general/basicos/${encodeURIComponent(String(id))}`,
-            {
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * List all Básico in the system.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public listBasicoUsingGET1(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListBasicoDto>;
-    public listBasicoUsingGET1(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListBasicoDto>>;
-    public listBasicoUsingGET1(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListBasicoDto>>;
-    public listBasicoUsingGET1(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let credential: string | undefined;
-        // authentication (apiKey) required
-        credential = this.configuration.lookupCredential('apiKey');
-        if (credential) {
-            headers = headers.set('Authorization', credential);
-        }
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.get<ResponseTListBasicoDto>(`${this.configuration.basePath}/nomina-general/basicos/list`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

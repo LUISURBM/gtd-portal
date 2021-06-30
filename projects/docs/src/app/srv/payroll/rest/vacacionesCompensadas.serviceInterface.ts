@@ -49,12 +49,6 @@ export interface VacacionesCompensadasServiceInterface {
     listFindAllDevengadosUsingGET26(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListVacacionesCompensadasDto>;
 
     /**
-     * List all Vacaciones Compensada in the system.
-     * 
-     */
-    listFindAllUsingGET46(extraHttpRequestParams?: any): Observable<ResponseTListVacacionesCompensadasDto>;
-
-    /**
      * save a Vacaciones Compensada in the system.
      * 
      * @param dto dto

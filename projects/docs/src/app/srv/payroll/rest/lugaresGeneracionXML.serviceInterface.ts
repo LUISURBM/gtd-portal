@@ -14,7 +14,6 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { RequestTLugarGeneracionXmlDto } from '../model/models';
-import { ResponseTListLugarGeneracionXmlDto } from '../model/models';
 import { ResponseTLugarGeneracionXmlDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
@@ -40,12 +39,6 @@ export interface LugaresGeneracionXMLServiceInterface {
      * @param id Id Lugar Generacion xml
      */
     findByIdUsingGET56(id: string, extraHttpRequestParams?: any): Observable<ResponseTLugarGeneracionXmlDto>;
-
-    /**
-     * List all Lugar Generacion xml in the system.
-     * 
-     */
-    listFindAllUsingGET34(extraHttpRequestParams?: any): Observable<ResponseTListLugarGeneracionXmlDto>;
 
     /**
      * save a Lugar Generacion xml in the system.

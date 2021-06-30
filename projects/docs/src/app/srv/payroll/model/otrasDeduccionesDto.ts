@@ -12,7 +12,7 @@
 
 
 export interface OtrasDeduccionesDto { 
-    deduccionId?: string;
+    deduccionesId: string;
     id?: string;
     otraDeduccion?: number;
 }

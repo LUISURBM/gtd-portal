@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToolbarComponent } from '../../material-component/toolbar/toolbar.component';
 import { MenuItems } from '../../shared/menu-items/menu-items';
@@ -15,7 +9,7 @@ import { NavigationService } from '../../srv/navigation.service';
   templateUrl: 'full.component.html',
   styleUrls: ['full.component.scss'],
 })
-export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
+export class FullComponent {
   @ViewChild(ToolbarComponent)
   selectedPane: any;
 
@@ -43,13 +37,6 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
     public router: Router,
     public navSrv: NavigationService
   ) {}
-
-  ngOnInit() {
-    console.log('configured routes: ', this.router.config);
-  }
-  ngOnDestroy(): void {}
-  ngAfterViewInit() {}
-
   toggleMenu() {
     this.stateSrv.toggleMenu();
   }
@@ -58,7 +45,4 @@ export class FullComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.stateSrv.themeState$;
   }
 
-  codePoint(emojiCodePoint: number) {
-    return String.fromCodePoint(emojiCodePoint);
-  }
 }

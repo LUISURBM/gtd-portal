@@ -103,7 +103,7 @@ import { InMemService } from "../srv/in-mem-service";
     </form>
   `,
 })
-export class FilterValueComponent {
+export class SubscriptionFormComponent {
   position = 'below';
   form = new FormGroup({
     id: new FormControl(undefined),
@@ -119,7 +119,7 @@ export class FilterValueComponent {
   });
 
   constructor(
-    public dialogRef: MatDialogRef<FilterValueComponent>,
+    public dialogRef: MatDialogRef<SubscriptionFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public inMemSrv: InMemService,
     public builder: FormBuilder

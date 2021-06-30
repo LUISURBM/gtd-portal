@@ -18,7 +18,6 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 import { RequestTNumeroSecuenciaXmlDto } from '../model/models';
-import { ResponseTListNumeroSecuenciaXmlDto } from '../model/models';
 import { ResponseTNumeroSecuenciaXmlDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
@@ -184,54 +183,6 @@ export class NumerosSecuenciaXMLService implements NumerosSecuenciaXMLServiceInt
         }
 
         return this.httpClient.get<ResponseTNumeroSecuenciaXmlDto>(`${this.configuration.basePath}/nomina-general/numerosSecuenciaXML/${encodeURIComponent(String(id))}`,
-            {
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * List all NumeroSecuenciaXml in the system.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public listFindAllUsingGET38(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListNumeroSecuenciaXmlDto>;
-    public listFindAllUsingGET38(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListNumeroSecuenciaXmlDto>>;
-    public listFindAllUsingGET38(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListNumeroSecuenciaXmlDto>>;
-    public listFindAllUsingGET38(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let credential: string | undefined;
-        // authentication (apiKey) required
-        credential = this.configuration.lookupCredential('apiKey');
-        if (credential) {
-            headers = headers.set('Authorization', credential);
-        }
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.get<ResponseTListNumeroSecuenciaXmlDto>(`${this.configuration.basePath}/nomina-general/numerosSecuenciaXML/list`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

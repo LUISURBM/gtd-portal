@@ -11,14 +11,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { MenuItems } from '../../../../shared/menu-items/menu-items';
 import { AppStateService } from '../../../../srv/app-state.service';
-import { ValuesCatalog } from '../../../../srv/in-mem-data-service';
 import { InMemService } from '../../../../srv/in-mem-service';
 import { NavigationService } from '../../../../srv/navigation.service';
 import {
@@ -32,8 +30,16 @@ import {
   initTable,
   NgGtdDS,
   OpenDialog,
+  txtEliminar,
   valoresCatalogos,
 } from '../../../../types/common-types';
+import {
+  UICreado,
+  UIEditado,
+  UIEliminado,
+  UINoEliminado,
+  UIOk,
+} from '../../../../values-catalog';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
 import { PayrollGeneralFormComponent } from '../form/payroll-general-form.component';
 import { displayedColumns, EMPTY, Payroll } from '../payroll-data';
@@ -91,13 +97,11 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subscriptions: Subscription[];
   JSON = JSON;
-  textos?: EnumString;
 
   constructor(
     public formBuilder: FormBuilder,
     public memSrv: InMemService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
     public navSrv: NavigationService,
     private storedProcedureAPISrv: StoredProcedureService,
     private nominaGeneralAPISrv: NominasGeneralesService,
@@ -115,14 +119,6 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         next: this.leerListado,
         complete: this.avance,
         error: this.readResponseError,
-      }),
-      this.exectuteProcedureUsingPOST1(
-        valoresCatalogos({
-          codigoCatalogo: 'TextosNE',
-        })
-      ).subscribe({
-        next: this.leerTextos,
-        error: (err: any) => console.log(err),
       }),
     ];
   }
@@ -143,14 +139,9 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
             response?.status === 200 &&
             response?.body?.bodyDto?.[0]
           ) {
-            this._snackBar.open(`${payroll.nombre}`, 'eliminado!', {
-              duration: 50000,
-            });
+            this.stateSrv.message(`${payroll.nombre}`, UIEliminado);
             return this.listado();
           }
-          this._snackBar.open(`${payroll.nombre}`, 'no eliminado!', {
-            duration: 50000,
-          });
           return of();
         })
       );
@@ -185,14 +176,6 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       true,
       { httpHeaderAccept: 'application/json' }
     );
-  leerTextos = (data?: any) => {
-    if (!data.body?.body) return;
-    this.textos = data.body?.body?.reduce((y: any, t: any) => {
-      y[y['code']] = { name: y['name'], description: y['description'] };
-      y[t['code']] = { name: t['name'], description: t['description'] };
-      return y;
-    });
-  };
 
   ngOnInit(): void {}
 
@@ -221,13 +204,11 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
           : undefined;
       });
     if (payroll.nombre.length < 1) {
-      this._snackBar.open('Nombre inválido', 'cerrar', { duration: 50000 });
+      this.stateSrv.message(`Nombre inválido`, UIOk);
       return;
     }
     if (validations.length > 0) {
-      validations.forEach((m) =>
-        this._snackBar.open(`${m}`, 'No guardado', { duration: 50000 })
-      );
+      validations.forEach((m) => this.stateSrv.message(`${m}`, UINoEliminado));
       return;
     }
     if (!payroll) {
@@ -260,9 +241,8 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${payroll.nombre}`, 'creada!', {
-                duration: 50000,
-              });
+              this.stateSrv.message(`${payroll.nombre}`, UICreado);
+
             return this.listado();
           })
         )
@@ -325,9 +305,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((general) => {
-            this._snackBar.open(`${payroll.nombre}`, 'actualizado!', {
-              duration: 50000,
-            });
+            this.stateSrv.message(`${payroll.nombre}`, UIEditado);
             return this.listado();
           })
         )
@@ -377,4 +355,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
   avance = (loading?: number) => {
     this.loading = loading;
   };
+
+  txtEliminar = (payroll: Payroll) =>
+    txtEliminar(
+      this.stateSrv.textos?.PreguntaEliminadoNE?.name ?? "¿Eliminar 'P_1'?",
+      payroll.nombre
+    );
 }

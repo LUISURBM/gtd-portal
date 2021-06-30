@@ -5,7 +5,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
@@ -17,18 +17,19 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, EMPTY, of, Subscription } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import {
-  StoredProcedureService,
   NominasIndividualesService,
+  StoredProcedureService
 } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
+  txtEliminar
 } from '../../../types/common-types';
 import { displayedColumns, Individual } from './individual-data';
 
@@ -136,7 +137,8 @@ export class PayrollIndividualTableComponent
     private route: ActivatedRoute,
     public navSrv: NavigationService,
     private nominaIndividualAPISrv: NominasIndividualesService,
-    public procedureAPISrv: StoredProcedureService
+    public procedureAPISrv: StoredProcedureService,
+    public stateSrv: AppStateService
   ) {
     this.form = this.formBuilder.group({
       filtro: '',
@@ -271,4 +273,9 @@ export class PayrollIndividualTableComponent
   avance = (loading?: any) => {
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
   };
+  txtEliminar = (payroll: Individual) =>
+    txtEliminar(
+      this.stateSrv.textos?.PreguntaEliminadoNE?.name ?? "¿Eliminar 'P_1'?",
+      'Nómina Individual'
+    );
 }

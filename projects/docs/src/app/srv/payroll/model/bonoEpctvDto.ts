@@ -12,7 +12,7 @@
 
 
 export interface BonoEpctvDto { 
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
     pagoAlimentacionNs?: number;
     pagoAlimentacionS?: number;

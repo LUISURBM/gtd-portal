@@ -50,8 +50,8 @@ export class GtdInputFormatterDirective {
   }
 
   private unFormatValue() {
-    const value = this.elementRef.nativeElement.value;
-    this._value = value.replace(/[^\d.-]/g, '');
+    const value = +this.elementRef.nativeElement.value;
+    this._value = value.toString();
     if (value) {
       this.elementRef.nativeElement.value = this._value;
     } else {

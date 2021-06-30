@@ -12,7 +12,7 @@
 
 
 export interface SancionDto { 
-    deduccionId?: string;
+    deduccionesId: string;
     id?: string;
     sancionPriv?: number;
     sancionPublic?: number;

@@ -13,7 +13,7 @@
 
 export interface ComisionDto { 
     comision?: number;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
 }
 

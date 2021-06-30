@@ -13,7 +13,7 @@
 
 export interface TransporteDto { 
     auxilioTransporte?: number;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
     viaticoManutAlojNs?: number;
     viaticoManutAlojS?: number;

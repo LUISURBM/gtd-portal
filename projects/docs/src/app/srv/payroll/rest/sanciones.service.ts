@@ -200,12 +200,12 @@ export class SancionesService implements SancionesServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET45(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListSancionDto>;
-    public listFindAllUsingGET45(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListSancionDto>>;
-    public listFindAllUsingGET45(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListSancionDto>>;
-    public listFindAllUsingGET45(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET19(deduccionesId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListSancionDto>;
+    public listFindAllUsingGET19(deduccionesId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListSancionDto>>;
+    public listFindAllUsingGET19(deduccionesId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListSancionDto>>;
+    public listFindAllUsingGET19(deduccionesId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (deduccionesId === null || deduccionesId === undefined) {
-            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllUsingGET45.');
+            throw new Error('Required parameter deduccionesId was null or undefined when calling listFindAllUsingGET19.');
         }
 
         let headers = this.defaultHeaders;

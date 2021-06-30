@@ -199,12 +199,12 @@ export class NominasGeneralesService implements NominasGeneralesServiceInterface
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listFindAllUsingGET35(businessSubscriptionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
-    public listFindAllUsingGET35(businessSubscriptionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET35(businessSubscriptionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
-    public listFindAllUsingGET35(businessSubscriptionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public listFindAllUsingGET12(businessSubscriptionId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListHashMapstringobject>;
+    public listFindAllUsingGET12(businessSubscriptionId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET12(businessSubscriptionId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListHashMapstringobject>>;
+    public listFindAllUsingGET12(businessSubscriptionId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (businessSubscriptionId === null || businessSubscriptionId === undefined) {
-            throw new Error('Required parameter businessSubscriptionId was null or undefined when calling listFindAllUsingGET35.');
+            throw new Error('Required parameter businessSubscriptionId was null or undefined when calling listFindAllUsingGET12.');
         }
 
         let headers = this.defaultHeaders;

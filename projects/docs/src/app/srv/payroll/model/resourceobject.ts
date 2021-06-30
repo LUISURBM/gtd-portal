@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+
 export interface Resourceobject {
-  links?: Array<any>;
+    links?: Array<any>;
 }
+

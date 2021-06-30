@@ -15,7 +15,6 @@ import { Observable }                                        from 'rxjs';
 
 import { RequestTFondoSpDto } from '../model/models';
 import { ResponseTFondoSpDto } from '../model/models';
-import { ResponseTListFondoSpDto } from '../model/models';
 import { ResponseTstring } from '../model/models';
 
 
@@ -40,12 +39,6 @@ export interface FondosSPServiceInterface {
      * @param id Id FondoSp
      */
     findByIdUsingGET49(id: string, extraHttpRequestParams?: any): Observable<ResponseTFondoSpDto>;
-
-    /**
-     * List all FondoSp in the system.
-     * 
-     */
-    listFindAllUsingGET31(extraHttpRequestParams?: any): Observable<ResponseTListFondoSpDto>;
 
     /**
      * save a FondoSp in the system.

@@ -12,6 +12,7 @@
 
 
 export interface BasicoDto { 
+    devengadosId?: string;
     diasTrabajados?: number;
     id?: string;
     sueldoTrabajado?: number;

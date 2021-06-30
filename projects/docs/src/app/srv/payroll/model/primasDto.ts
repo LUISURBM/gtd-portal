@@ -13,7 +13,7 @@
 
 export interface PrimasDto { 
     cantidad?: number;
-    devengadoId?: string;
+    devengadosId?: string;
     id?: string;
     pago?: number;
     pagoNs?: number;

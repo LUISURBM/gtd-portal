@@ -14,7 +14,7 @@
 export interface AuxilioDto { 
     auxilioNs?: number;
     auxilioS?: number;
-    devengadosId?: string;
+    devengadosId: string;
     id?: string;
 }
 

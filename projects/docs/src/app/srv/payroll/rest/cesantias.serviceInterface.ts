@@ -46,7 +46,7 @@ export interface CesantiasServiceInterface {
      * 
      * @param devengadosId DevengadosId
      */
-    listFindAllUsingGET26(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET10(devengadosId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Cesantias in the system.

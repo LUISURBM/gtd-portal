@@ -90,7 +90,7 @@ export class PeriodosComponent implements OnInit, AfterViewInit {
       );
   listado = () => {
     this.avance(20);
-    return this.periodosAPISrv.listFindAllUsingGET41(
+    return this.periodosAPISrv.listFindAllUsingGET15(
       this.form.value.nominaIndividualId,
       'events',
       true

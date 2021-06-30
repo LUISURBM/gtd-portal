@@ -9,48 +9,19 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { BonificacionDto } from './bonificacionDto';
-import { CompensacionDto } from './compensacionDto';
-import { HorariosAdicionalesDto } from './horariosAdicionalesDto';
-import { PrimasDto } from './primasDto';
-import { BasicoDto } from './basicoDto';
-import { PagoTercerosDto } from './pagoTercerosDto';
-import { CesantiasDto } from './cesantiasDto';
-import { LicenciasDto } from './licenciasDto';
-import { VacacionesComunesDto } from './vacacionesComunesDto';
-import { BonoEpctvDto } from './bonoEpctvDto';
-import { ComisionDto } from './comisionDto';
-import { VacacionesCompensadasDto } from './vacacionesCompensadasDto';
-import { OtroConceptoDto } from './otroConceptoDto';
-import { AuxilioDto } from './auxilioDto';
-import { TransporteDto } from './transporteDto';
-import { HuelgaLegalDto } from './huelgaLegalDto';
 
 
 export interface DevengadosDto { 
     apoyoSost?: number;
-    auxilios?: Array<AuxilioDto>;
-    basico?: BasicoDto;
+    basicoId?: string;
     bonifRetiro?: number;
-    bonificacions?: Array<BonificacionDto>;
-    bonoEpctvs?: Array<BonoEpctvDto>;
-    cesantias?: CesantiasDto;
-    comisions?: Array<ComisionDto>;
-    compensacions?: Array<CompensacionDto>;
+    cesantiasId?: string;
     dotacion?: number;
-    horariosAdicionaleses?: Array<HorariosAdicionalesDto>;
-    huelgaLegals?: Array<HuelgaLegalDto>;
     id?: string;
     indemnizacion?: number;
-    licenciases?: Array<LicenciasDto>;
     nominaIndividualId?: string;
-    otroConceptos?: Array<OtroConceptoDto>;
-    pagoTerceroses?: Array<PagoTercerosDto>;
-    primas?: PrimasDto;
+    primasId?: string;
     reintegro?: number;
     teletrabajo?: number;
-    transporte?: Array<TransporteDto>;
-    vacacionesCompensadas?: Array<VacacionesCompensadasDto>;
-    vacacionesComuns?: Array<VacacionesComunesDto>;
 }
 

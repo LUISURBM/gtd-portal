@@ -32,4 +32,4 @@ export const sanciones: Sancion[] = [
     },
 ]
 
-export const displayedColumns: string[] = ['id', 'sancionPriv', 'sancionPublic', 'action'];
+export const displayedColumns: string[] = ['sancionPriv', 'sancionPublic', 'action'];

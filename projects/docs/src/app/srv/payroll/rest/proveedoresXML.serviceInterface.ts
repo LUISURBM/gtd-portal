@@ -46,7 +46,7 @@ export interface ProveedoresXMLServiceInterface {
      * 
      * @param param param
      */
-    listFindAllUsingGET43(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET17(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Proveedor Xml in the system.

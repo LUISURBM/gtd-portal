@@ -14,7 +14,7 @@
 export interface CompensacionDto { 
     compensacionE?: number;
     compensacionO?: number;
-    devengadoId?: string;
+    devengadosId: string;
     id?: string;
 }
 

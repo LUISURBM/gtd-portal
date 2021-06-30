@@ -46,7 +46,7 @@ export interface SancionesServiceInterface {
      * 
      * @param deduccionesId DeduccionesId
      */
-    listFindAllUsingGET45(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListSancionDto>;
+    listFindAllUsingGET19(deduccionesId: string, extraHttpRequestParams?: any): Observable<ResponseTListSancionDto>;
 
     /**
      * save a Sancion in the system.

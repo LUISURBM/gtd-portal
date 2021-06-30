@@ -46,7 +46,7 @@ export interface PeriodosServiceInterface {
      * 
      * @param param param
      */
-    listFindAllUsingGET41(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET15(param: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Periodo in the system.

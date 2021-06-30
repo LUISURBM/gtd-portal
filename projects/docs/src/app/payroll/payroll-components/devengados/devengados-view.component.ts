@@ -134,6 +134,7 @@ export class DevengadosViewComponent {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
       devengadosId: this.form.value.devengadosId,
+      nominaGeneralId: this.form.value.nominaGeneralId,
       fechaCorte: this.form.value.fechaCorte,
     });
   };
@@ -146,6 +147,7 @@ export class DevengadosViewComponent {
   };
   individualData = () => {
     return JSON.stringify({
+      nominaGeneralId: this.form.value.nominaGeneralId,
       nominaIndividualId: this.form.value.nominaIndividualId,
       fechaCorte: this.form.value.fechaCorte,
     });

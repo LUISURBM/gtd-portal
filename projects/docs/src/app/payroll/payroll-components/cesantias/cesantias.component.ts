@@ -43,7 +43,7 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.cesantiasAPISrv.listFindAllUsingGET26(
+    this.cesantiasAPISrv.listFindAllUsingGET10(
       data.devengadosId,
       'events',
       true,
@@ -109,6 +109,7 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
         pago: cesantia.pago,
         pagoIntereses: cesantia.pagoIntereses,
         porcentaje: cesantia.porcentaje,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -181,6 +182,7 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: cesantia.id,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        devengadosId: this.form.value.devengadosId,
         enabled: true,
         eventDate: new Date().toISOString(),
         eventType: 'CREATE',

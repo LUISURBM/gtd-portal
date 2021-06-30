@@ -195,54 +195,6 @@ export class AnticiposService implements AnticiposServiceInterface {
     }
 
     /**
-     * List all Anticipo in the system.
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public getListUsingGET1(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTListAnticiposDto>;
-    public getListUsingGET1(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTListAnticiposDto>>;
-    public getListUsingGET1(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTListAnticiposDto>>;
-    public getListUsingGET1(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        let credential: string | undefined;
-        // authentication (apiKey) required
-        credential = this.configuration.lookupCredential('apiKey');
-        if (credential) {
-            headers = headers.set('Authorization', credential);
-        }
-
-        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (httpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (httpHeaderAcceptSelected !== undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.get<ResponseTListAnticiposDto>(`${this.configuration.basePath}/nomina-general/anticipos/list`,
-            {
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * List all Anticipo in the system by DeduccionesId.
      * @param deduccionesId DeduccionesId
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -283,7 +235,7 @@ export class AnticiposService implements AnticiposServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListAnticiposDto>(`${this.configuration.basePath}/nomina-general/anticipos/list/${encodeURIComponent(String(deduccionesId))}`,
+        return this.httpClient.get<ResponseTListAnticiposDto>(`${this.configuration.basePath}/nomina-general/anticipos/list/deducciones/${encodeURIComponent(String(deduccionesId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -335,7 +287,7 @@ export class AnticiposService implements AnticiposServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListAnticiposDto>(`${this.configuration.basePath}/nomina-general/anticipos/list/${encodeURIComponent(String(devengadosId))}`,
+        return this.httpClient.get<ResponseTListAnticiposDto>(`${this.configuration.basePath}/nomina-general/anticipos/list/devengados/${encodeURIComponent(String(devengadosId))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

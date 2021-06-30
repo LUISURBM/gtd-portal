@@ -128,6 +128,7 @@ export class DeduccionesViewComponent implements OnInit{
 
   generalData = () => {
     return JSON.stringify({
+      nominaIndividualId: this.form.value.nominaIndividualId,
       nominaGeneralId: this.form.value.nominaGeneralId,
       fechaCorte: this.form.value.fechaCorte,
     });
@@ -136,6 +137,7 @@ export class DeduccionesViewComponent implements OnInit{
   deduccionesData = () => {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
+      nominaGeneralId: this.form.value.nominaGeneralId,
       deduccionesId: this.form.value.deduccionesId,
       fechaCorte: this.form.value.fechaCorte,
     });
@@ -143,6 +145,7 @@ export class DeduccionesViewComponent implements OnInit{
 
   individualData = () => {
     return JSON.stringify({
+      nominaGeneralId: this.form.value.nominaGeneralId,
       nominaIndividualId: this.form.value.nominaIndividualId,
       fechaCorte: this.form.value.fechaCorte,
     });

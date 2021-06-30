@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,7 +19,7 @@ import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { InMemService } from '../../../srv/in-mem-service';
 import { AuxiliosService } from '../../../srv/payroll/rest/api';
 import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
-import { Auxilio, auxilios, displayedColumns, EMPTY } from './auxilio-data';
+import { Auxilio, displayedColumns, EMPTY } from './auxilio-data';
 import { AuxilioFormComponent } from './auxilio-form.component';
 
 @Component({
@@ -111,6 +111,7 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
         auxilioNs: auxilio.auxilioNS,
         auxilioS: auxilio.auxilioS,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
+        devengadosId: this.form.value.devengadosId,
         enabled: true,
         eventDate: new Date().toDateString(),
         eventType: 'CREATE',
@@ -185,6 +186,7 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
         id: auxilio.id,
         auxilioNs: auxilio.auxilioNS,
         auxilioS: auxilio.auxilioS,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

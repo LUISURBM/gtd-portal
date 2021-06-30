@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,7 +20,7 @@ import {
   confirm,
   gtdArrayToLowerCase,
   initTable,
-  NgGtdDS,
+  NgGtdDS
 } from '../../../types/common-types';
 import { Anticipo, displayedColumns } from './anticipo-data';
 import { AnticipoFormComponent } from './anticipo-form.component';

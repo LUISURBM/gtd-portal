@@ -13,8 +13,8 @@
 
 export interface FondoSpDto { 
     deduccion?: number;
-    deduccionId?: string;
     deduccionSub?: number;
+    deduccionesId?: string;
     id?: string;
     porcentaje?: number;
     porcentajeSub?: number;

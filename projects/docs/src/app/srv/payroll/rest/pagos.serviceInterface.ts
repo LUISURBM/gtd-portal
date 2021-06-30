@@ -46,7 +46,7 @@ export interface PagosServiceInterface {
      * 
      * @param payrollId PayrollId
      */
-    listFindAllUsingGET40(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
+    listFindAllUsingGET14(payrollId: string, extraHttpRequestParams?: any): Observable<ResponseTListHashMapstringobject>;
 
     /**
      * save a Pago in the system.
