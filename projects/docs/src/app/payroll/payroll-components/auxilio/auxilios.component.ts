@@ -108,7 +108,7 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const request = {
       entidad: {
-        auxilioNs: auxilio.auxilioNS,
+        auxilioNs: auxilio.auxilioNs,
         auxilioS: auxilio.auxilioS,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         devengadosId: this.form.value.devengadosId,
@@ -151,7 +151,7 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
   delete(auxilio: Auxilio): void {
     if(!auxilio.id) return;
     this.subscriptions.push(
-      this.confirm(`¿Eliminar auxilio!?`)
+      this.confirm(`¿Eliminar auxilio?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -184,7 +184,7 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: auxilio.id,
-        auxilioNs: auxilio.auxilioNS,
+        auxilioNs: auxilio.auxilioNs,
         auxilioS: auxilio.auxilioS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -234,13 +234,10 @@ export class AuxiliosComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(auxilio?: Auxilio): void {
     const dialogRef = this.dialog.open(AuxilioFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: auxilio ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

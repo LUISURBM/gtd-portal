@@ -9,6 +9,7 @@ export interface Vacacion {
   cantidad: number;
   pago: number;
   catalog: string;
+  valueCatalogName?: string
 }
 
 export const vacaciones: Vacacion[] = [
@@ -176,7 +177,7 @@ export const vacaciones: Vacacion[] = [
 
 export const catalogs: ValuesCatalog[] = [
   { id: 1, code: 'COMP', name: 'Compensada' },
-  { id: 2, code: 'COMU', name: 'Comun' },
+  { id: 2, code: 'COMU', name: 'Común' },
 ];
 
 export const displayedColumns: string[] = [

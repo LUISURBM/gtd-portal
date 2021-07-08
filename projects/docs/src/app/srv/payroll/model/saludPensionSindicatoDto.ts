@@ -16,6 +16,7 @@ export interface SaludPensionSindicatoDto {
     deduccionesId: string;
     id?: string;
     porcentaje?: number;
+    valueCatalogName?: string;
     valueCatalogType: string;
 }
 

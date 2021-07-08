@@ -52,3 +52,12 @@ mat-toolbar{
 .mat-menu-item{
   color:var(--text-accent-lighter-color)!important;
 }
+
+.mymegamenu button{
+
+  height: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word;
+  display: flex;
+}

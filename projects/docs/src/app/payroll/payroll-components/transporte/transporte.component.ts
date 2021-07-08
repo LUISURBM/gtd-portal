@@ -117,7 +117,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: undefined,
         auxilioTransporte: transporte.auxilioTransporte,
-        viaticoManutAlojNS: transporte.viaticoManutAlojNS,
+        viaticoManutAlojNs: transporte.viaticoManutAlojNs,
         viaticoManutAlojS: transporte.viaticoManutAlojS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -164,7 +164,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar transporte ${transporte.auxilioTransporte}!?`
+        `¿Eliminar transporte ${transporte.auxilioTransporte}?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -199,7 +199,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: transporte.id,
         auxilioTransporte: transporte.auxilioTransporte,
-        viaticoManutAlojNS: transporte.viaticoManutAlojNS,
+        viaticoManutAlojNs: transporte.viaticoManutAlojNs,
         viaticoManutAlojS: transporte.viaticoManutAlojS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',

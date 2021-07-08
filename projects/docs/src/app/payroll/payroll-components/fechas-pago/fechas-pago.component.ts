@@ -175,7 +175,7 @@ export class FechasPagoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     delete(fechaPago: FechaPago): void {
       this.subscriptions.push(
-        this.confirm(`¿Eliminar '${fechaPago.fechaPago}'!?`)
+        this.confirm(`¿Eliminar '${fechaPago.fechaPago}'?`)
           .pipe(
             switchMap((confirmacion) =>
               confirmacion ? this.eliminar(fechaPago) : of()

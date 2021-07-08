@@ -324,6 +324,7 @@ export const MENU_ITEMS = [
   { state: '/nómina/devengos', name: 'General', type: 'link', icon: 'work', emoji: '1F4B5', completo: true },
   { state: 'anticipos', name: 'Anticipo', type: 'link', icon: 'paid', emoji: '1F9FE' },
   { state: 'auxilios', name: 'Auxilios', type: 'link', icon: 'local_atm', emoji: '1F4B8' },
+  { state: 'basicos', name: 'Básicos', type: 'link', icon: 'local_atm', emoji: '1F9FE' },
   { state: 'bonificaciones', name: 'Bonificación', type: 'link', icon: 'money', emoji: '1F4B6' },
   { state: 'bonos', name: 'Bonos', type: 'link', icon: 'local_atm', emoji: '1F4B6' },
   { state: 'cesantías', name: 'Cesantías', type: 'link', icon: 'savings', emoji: '1F416' },

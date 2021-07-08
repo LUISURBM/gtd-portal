@@ -18,6 +18,7 @@ export interface IncapacidadDto {
     fechaInicio?: string;
     id?: string;
     pago?: number;
-    tipo?: number;
+    valueCatalogName?: string;
+    valueCatalogType?: string;
 }
 

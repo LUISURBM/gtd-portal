@@ -61,6 +61,7 @@ import { PagosTercerosComponent } from './payroll-components/pagos-terceros/pago
 import { PayrollGeneralFormComponent } from './payroll-components/payroll-general/form/payroll-general-form.component';
 import { PayrollTableComponent } from './payroll-components/payroll-general/table/payroll-table.component';
 import { PayrollIndividualFormComponent } from './payroll-components/payroll-individual/payroll-individual-form.component';
+import { PayrollIndividualQrComponent } from './payroll-components/payroll-individual/payroll-individual-qr.component';
 import { PayrollIndividualTableComponent } from './payroll-components/payroll-individual/payroll-individual-table.component';
 import { PayrollindividualViewComponent } from './payroll-components/payroll-individual/payroll-individual-view.component';
 import { PeriodoFormComponent } from './payroll-components/periodo/periodo-form.component';
@@ -150,6 +151,7 @@ import { PayrollRoutes } from './payroll.routing';
     PayrollTableComponent,
     PayrollindividualViewComponent,
     PayrollIndividualFormComponent,
+    PayrollIndividualQrComponent,
     PayrollIndividualTableComponent,
     TotalesComponent,
     TotalesFormComponent,
@@ -166,7 +168,7 @@ import { PayrollRoutes } from './payroll.routing';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    QRCodeSVGModule
+    QRCodeSVGModule,
   ],
   exports: [
     PayrollComponent,
@@ -237,10 +239,11 @@ import { PayrollRoutes } from './payroll.routing';
     PayrollindividualViewComponent,
     PayrollIndividualFormComponent,
     PayrollIndividualTableComponent,
+    PayrollIndividualQrComponent,
     TotalesComponent,
     TotalesFormComponent,
     FondoSPComponent,
     FondoSPFormComponent,
-  ]
+  ],
 })
 export class PayrollModule {}

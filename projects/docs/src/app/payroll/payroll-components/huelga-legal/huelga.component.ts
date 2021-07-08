@@ -162,7 +162,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(huelga: Huelga): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar huelga ${huelga.fechaInicio.toISOString()}!?`)
+      this.confirm(`¿Eliminar huelga ${huelga.fechaInicio.toISOString()}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

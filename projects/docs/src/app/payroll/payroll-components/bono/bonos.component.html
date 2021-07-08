@@ -23,18 +23,13 @@
       <mat-progress-bar  mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Bono EPCTV #</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="pagoAlimentacionNS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pago Alimentación NS</th>
-          <td mat-cell *matCellDef="let element">{{ element.pagoAlimentacionNS }}</td>
+        <ng-container matColumnDef="pagoAlimentacionNs">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pago Alimentación Ns</th>
+          <td mat-cell *matCellDef="let element">{{ element.pagoAlimentacionNs }}</td>
         </ng-container>
 
         <!-- Name Column -->
@@ -44,9 +39,9 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="pagoNS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pago NS</th>
-          <td mat-cell *matCellDef="let element">{{ element.pagoNS }}</td>
+        <ng-container matColumnDef="pagoNs">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pago No Salarial</th>
+          <td mat-cell *matCellDef="let element">{{ element.pagoNs }}</td>
         </ng-container>
 
         <!-- Name Column -->

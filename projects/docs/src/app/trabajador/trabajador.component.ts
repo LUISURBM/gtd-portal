@@ -200,7 +200,7 @@ export class TrabajadorComponent implements AfterViewInit, OnDestroy {
 
   delete(trabajador: Trabajador): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar trabajador ${trabajador.primerNombre}!?`)
+      confirm(this.dialog, `¿Eliminar trabajador ${trabajador.primerNombre}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

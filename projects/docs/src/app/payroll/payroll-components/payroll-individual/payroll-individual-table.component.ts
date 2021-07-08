@@ -5,7 +5,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
@@ -22,15 +22,16 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import {
   NominasIndividualesService,
-  StoredProcedureService
+  StoredProcedureService,
 } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
-  txtEliminar
+  txtEliminar,
 } from '../../../types/common-types';
+import { UIEliminado } from '../../../values-catalog';
 import { displayedColumns, Individual } from './individual-data';
 
 export const MY_FORMATS = {
@@ -48,6 +49,16 @@ export const MY_FORMATS = {
 @Component({
   selector: 'app-payroll-individual-table',
   templateUrl: './payroll-individual-table.component.html',
+  styles: [
+    `
+      .mat-column-action {
+        word-wrap: break-word !important;
+        white-space: unset !important;
+        flex: 0 0 25% !important;
+        width: 25% !important;
+      }
+    `,
+  ],
   providers: [{ provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -118,7 +129,7 @@ export class PayrollIndividualTableComponent
         })
       );
 
-  readList = (data: any, message?: string) => {
+  readList = (data: any) => {
     if (!data.body) return;
     initTable(
       this.dataSource$,
@@ -215,7 +226,7 @@ export class PayrollIndividualTableComponent
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar nómina individual de ${payroll.trabajador}!?`
+        `¿Eliminar nómina individual de ${payroll.trabajador}?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -233,13 +244,14 @@ export class PayrollIndividualTableComponent
           switchMap((data: any) => {
             payroll.loading = undefined;
             if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`${payroll.nombre}`, UIEliminado);
               return this.listado(this.form.value);
             }
             return of();
           })
         )
         .subscribe({
-          next: (data: any) => this.readList(data, 'eliminada!'),
+          next: this.readList,
           complete: () => {
             payroll.loading = undefined;
             this.avance;

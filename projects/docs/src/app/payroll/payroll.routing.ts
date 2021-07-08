@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DirtyCheckGuard } from '../guards/dirty-check.guard';
 import { AnticipoComponent } from './payroll-components/anticipo/anticipo.component';
 import { AuxiliosComponent } from './payroll-components/auxilio/auxilios.component';
+import { BasicosComponent } from './payroll-components/basicos/basicos.component';
 import { BonificacionesComponent } from './payroll-components/bonificaciones/bonificaciones.component';
 import { BonosEPCTVComponent } from './payroll-components/bono/bonos.component';
 import { CesantiasComponent } from './payroll-components/cesantias/cesantias.component';
@@ -98,6 +99,10 @@ export const PayrollRoutes: Routes = [
       {
         path: 'primas',
         component: PrimasComponent,
+      },
+      {
+        path: 'basicos',
+        component: BasicosComponent,
       },
       {
         path: 'bonos',

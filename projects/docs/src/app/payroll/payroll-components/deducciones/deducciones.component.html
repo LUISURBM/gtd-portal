@@ -1,16 +1,5 @@
-<div #formView class="mat-card" *ngIf="dataSource$ | async as dataSource">
-  <mat-card-header>
-    <mat-card-title>Deducciones</mat-card-title>
-    <mat-card-subtitle>Total creados <code>{{dataSource.datasource.data?.length}}</code> </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <h4>
-      <mat-form-field class="example-full-width">
-        <mat-label>Buscar</mat-label>
-        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-      </mat-form-field>
-    </h4>
-
+<div class="m-3" *ngIf="dataSource$ | async as dataSource">
+  <div class="m-0 mt-2 mat-card">
     <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
@@ -34,8 +23,6 @@
           </td>
         </tr>
       </table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
-  </mat-card-content>
+  </div>
 </div>

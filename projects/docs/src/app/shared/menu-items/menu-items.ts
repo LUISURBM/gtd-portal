@@ -18,22 +18,15 @@ export interface Menu {
 
 export const MENUITEMS: Menu[] = [
   {
-    state: 'login',
-    name: 'Inicio sesión',
-    type: 'link',
-    icon: 'login',
-    emoji: '1F465',
-  },
-  {
     state: 'dashboard',
-    name: 'inicio',
+    name: 'Tableros',
     type: 'link',
     icon: 'dashboard',
     emoji: '1F4CA',
   },
   {
     state: 'nómina',
-    name: 'Nómina',
+    name: 'Nóminas',
     type: 'link',
     icon: 'drive_folder_upload',
     emoji: '1F4C3',
@@ -177,6 +170,13 @@ export const MENUITEMS: Menu[] = [
         icon: 'all_inclusive',
       },
     ],
+  },
+  {
+    state: 'login',
+    name: 'Inicio sesión',
+    type: 'link',
+    icon: 'login',
+    emoji: '1F465',
   },
 ];
 

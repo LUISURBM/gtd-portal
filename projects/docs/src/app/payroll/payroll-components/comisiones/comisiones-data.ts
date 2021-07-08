@@ -26,4 +26,4 @@ export const comisiones: Comision[] = [
   },
 ];
 
-export const displayedColumns: string[] = ['id', 'comision', 'action'];
+export const displayedColumns: string[] = ['comision', 'action'];

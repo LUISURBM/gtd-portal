@@ -15,6 +15,7 @@ export interface NominaGeneralDto {
     businessSubscriptionId?: string;
     descripcion?: string;
     enabled?: boolean;
+    estado?: string;
     estadoId?: string;
     eventDate?: string;
     eventType?: string;

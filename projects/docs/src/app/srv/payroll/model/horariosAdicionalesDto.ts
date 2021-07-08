@@ -19,6 +19,7 @@ export interface HorariosAdicionalesDto {
     id?: string;
     pago?: number;
     porcentaje?: number;
-    typeValueCatalogId: string;
+    valueCatalogName?: string;
+    valueCatalogType: string;
 }
 

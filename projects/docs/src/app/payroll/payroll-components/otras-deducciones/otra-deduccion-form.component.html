@@ -3,28 +3,29 @@
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-title">
         <div class="card-icon"><em class="material-icons">{{'1F3AB'|gtdEmoji}}</em></div>
-        <h1> Otra Deducción {{ data.id }}</h1>
+        <h1> Otra Deducción </h1>
       </div>
-      <div class="card-body">
-        <h4 class="card-title">Agregar Otra Deducción nueva</h4>
-        <p class="card-category">Información de la Otra Deducción</p>
-        <mat-form-field>
-          <input matInput tabindex="1" formControlName="otraDeduccion" placeholder="Valor de la otra deducción"
-            id="otraDeduccion" type="text" class="form-control" />
-          <div *ngIf="f.otraDeduccion.touched && f.otraDeduccion.invalid" class="alert alert-danger">
-            <div *ngIf="f.otraDeduccion.errors?.required">
-              Otra Deducción es obligatorio.
-            </div>
+    </div>
+
+    <div class="card-body">
+      <h4>Agregar Otra Deducción nueva</h4>
+      <p>Información de la Otra Deducción</p>
+      <mat-form-field>
+        <input matInput tabindex="1" formControlName="otraDeduccion" placeholder="Valor de la otra deducción"
+          id="otraDeduccion" type="text" class="form-control" />
+        <div *ngIf="f.otraDeduccion.touched && f.otraDeduccion.invalid" class="alert alert-danger">
+          <div *ngIf="f.otraDeduccion.errors?.required">
+            Otra Deducción es obligatorio.
           </div>
-        </mat-form-field>
-
-
-        <div>
-          <button mat-button (click)="onNoClick()" tabindex="-1">
-            Cancelar
-          </button>
-          <button mat-button (click)="save()" tabindex="3">Guardar</button>
         </div>
+      </mat-form-field>
+
+
+      <div>
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+          Cancelar
+        </button>
+        <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>
     </div>
   </div>

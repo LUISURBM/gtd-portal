@@ -17,7 +17,7 @@
         <input formControlName="fechaCorte" hidden>
         <mat-form-field>
           <mat-label>{{stateSrv?.textos?.BuscardorTablaNE?.name}}</mat-label>
-          <input type="tel" matInput (keyup)="applyFilter($event)"
+          <input type="tel" matInput (keyup)="applyFilter($event)" [attr.aria-placeholder]="stateSrv?.textos?.BuscardorTablaNE?.description!"
             [placeholder]="stateSrv?.textos?.BuscardorTablaNE?.description!" #input formControlName="filtro">
           <span (click)="openDialog()" matSuffix color="primary" mat-ripple class="gtd-icon-button">
             ➕
@@ -29,7 +29,7 @@
       <mat-progress-bar mode="determinate" [value]="loading"></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource?.datasource!" matSort style="width:100%">
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource?.datasource!" matSort style="width:100%">
 
         <!-- Name Column -->
         <ng-container matColumnDef="fechaCorte">
@@ -45,7 +45,7 @@
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="action" stickyEnd>
-          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <th mat-header-cell *matHeaderCellDef id="generalAcciones">Acciones</th>
           <td mat-cell *matCellDef="let element">
             <ng-container *ngIf="!element.loading">
               <button mat-icon-button *ngIf="element.id" color="primary" [matTooltip]="stateSrv?.textos?.VerNominasINE?.name!"
@@ -53,19 +53,14 @@
                 tabindex="-2">
                 <span>{{'1F50D'|gtdEmoji}}</span>
               </button>
-              <button mat-icon-button color="accent" [matMenuTriggerFor]="sdprofile">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #sdprofile="matMenu" class="mymegamenu">
-                <button mat-menu-item color="primary" (click)="element.loading = 10; openDialog(element)"
+                <button mat-icon-button color="primary" (click)="element.loading = 10; openDialog(element)"
                   [matTooltip]="stateSrv?.textos?.EditarNominasGNE?.description!">
-                  <mat-icon><img src="assets/images/edit.png" alt="ver"></mat-icon> <span>{{stateSrv?.textos?.EditarNominasGNE?.name??'Editar'}}</span>
+                  <mat-icon><img src="assets/images/edit.png" alt="ver"></mat-icon>
                 </button>
-                <button mat-menu-item color="accent" (click)="element.loading = 10; delete(element);"
+                <button mat-icon-button color="accent" (click)="element.loading = 10; delete(element);"
                   [matTooltip]="txtEliminar(element)">
-                  <mat-icon><img src="assets/images/quitar.png" alt="eliminar"></mat-icon> <span>{{txtEliminar(element)}}</span>
+                  <mat-icon><img src="assets/images/quitar.png" alt="eliminar"></mat-icon>
                 </button>
-              </mat-menu>
             </ng-container>
             <ng-container *ngIf="element.loading">
               <mat-progress-bar mode="buffer"></mat-progress-bar>

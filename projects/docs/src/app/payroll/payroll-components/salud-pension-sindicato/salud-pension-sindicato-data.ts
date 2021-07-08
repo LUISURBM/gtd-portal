@@ -5,6 +5,7 @@ export interface SaludPensionSindicato {
   deduccion?: number;
   porcentaje?: number;
   catalog: string | undefined;
+  valueCatalogType?: string;
 }
 
 export const saludPensionSindicatos: SaludPensionSindicato[] = [
@@ -141,7 +142,7 @@ export const EMPTY = {
   id: '',
   deduccion: 0,
   porcentaje: 0,
-  catalog: 'SindicatoNI',
+  valueCatalogType: '',
 };
 
 export const catalogs: ValuesCatalog[] = [

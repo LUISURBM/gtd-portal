@@ -21,6 +21,7 @@ export interface NominaIndividualDto {
     devengadosTotal?: number;
     docNumber?: string;
     empleadorId?: string;
+    estado?: string;
     id?: string;
     informacionGeneralId?: string;
     lugarGeneracionXmlId?: string;
@@ -31,7 +32,6 @@ export interface NominaIndividualDto {
     periodoId?: string;
     proveedorXmlId?: string;
     redondeo?: number;
-    subscriptionId?: string;
     trabajadorId?: string;
 }
 

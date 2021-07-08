@@ -7,7 +7,11 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
-import { numberWithCommas } from '../types/common-types';
+import {
+  numberWithCommas,
+  parseLocaleNumber,
+  stringWithCommas,
+} from '../types/common-types';
 
 @Directive({
   selector: 'input[gtdInputFormatter]',
@@ -43,14 +47,17 @@ export class GtdInputFormatterDirective {
 
   private formatValue(value: string | null) {
     if (value !== null) {
-      this.elementRef.nativeElement.value = numberWithCommas(+value);
+      this.elementRef.nativeElement.value = numberWithCommas(value);
     } else {
       this.elementRef.nativeElement.value = '';
     }
   }
 
   private unFormatValue() {
-    const value = +this.elementRef.nativeElement.value;
+    const value = parseLocaleNumber(
+      this.elementRef.nativeElement.value,
+      'es-CO'
+    );
     this._value = value.toString();
     if (value) {
       this.elementRef.nativeElement.value = this._value;
@@ -62,18 +69,19 @@ export class GtdInputFormatterDirective {
   @HostListener('input', ['$event.target.value'])
   onInput(value: any) {
     // here we cut any non numerical symbols
-    this._value = value.replace(/[^\d.-]/g, '');
+    this._value = value;
+    this.formatValue(value);
     this._onChange(this._value);
   }
 
   @HostListener('blur')
   _onBlur() {
-    this.formatValue(this._value!); // add commas
+    // this.formatValue(this._value!); // add commas
   }
 
   @HostListener('focus')
   onFocus() {
-    this.unFormatValue(); // remove commas for editing purpose
+    // this.unFormatValue(); // remove commas for editing purpose
   }
   _onChange(value: any): void {}
 

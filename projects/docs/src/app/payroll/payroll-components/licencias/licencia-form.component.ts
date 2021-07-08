@@ -57,6 +57,7 @@ export class LicenciaFormComponent {
       cantidad: 0,
       pago: 0,
       catalog: '',
+      valueCatalogType: ''
     });
     this.form.patchValue(data);
   }

@@ -3,17 +3,15 @@
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-title">
         <div class="card-icon"><em class="material-icons">{{'1F468'|gtdEmoji}}</em></div>
-        <h1>Formulario {{ data.catalog }} {{ data.id }}</h1>
+        <h1>Formulario Salud, Pensión & Sindicato </h1>
       </div>
     </div>
 
     <div class="card-body">
-      <p class="card-category">Información de {{ data.catalog }}</p>
-      <h4 class="card-title">Agregar {{ data.catalog ?? '' }} nuevo</h4>
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Ver tipo</span>
         <mat-form-field>
-          <mat-select class="example-select" #catalog tabindex="1" formControlName="catalog" id="catalog">
+          <mat-select class="example-select" #catalog tabindex="1" formControlName="valueCatalogType" id="catalog">
             <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
               {{ catalog.name }}
             </mat-option>

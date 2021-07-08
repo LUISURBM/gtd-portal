@@ -25,18 +25,17 @@ import {
 } from '../../../../srv/payroll/rest/api';
 import {
   confirm,
-  EnumString,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
   OpenDialog,
   txtEliminar,
-  valoresCatalogos,
 } from '../../../../types/common-types';
 import {
   UICreado,
   UIEditado,
   UIEliminado,
+  UINoCreado,
   UINoEliminado,
   UIOk,
 } from '../../../../values-catalog';
@@ -185,14 +184,30 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     const validations = this.dataSource$.value.datasource.data
       .filter((p: Payroll) => {
         const mismoCorte =
-          p.fechaCorte.getMonth() === payroll.fechaCorte.getMonth() &&
-          p.fechaCorte.getUTCFullYear() === payroll.fechaCorte.getUTCFullYear();
+          p.fechaCorte.getMonth() ===
+            (typeof payroll.fechaCorte === 'string'
+              ? new Date(Date.parse(payroll.fechaCorte))
+              : payroll.fechaCorte
+            ).getMonth() &&
+          p.fechaCorte.getUTCFullYear() ===
+            (typeof payroll.fechaCorte === 'string'
+              ? new Date(Date.parse(payroll.fechaCorte))
+              : payroll.fechaCorte
+            ).getUTCFullYear();
         return mismoCorte || p.nombre === payroll.nombre;
       })
       .map((p: Payroll) => {
         const mismoCorte =
-          p.fechaCorte.getMonth() === payroll.fechaCorte.getMonth() &&
-          p.fechaCorte.getUTCFullYear() === payroll.fechaCorte.getUTCFullYear();
+          p.fechaCorte.getMonth() ===
+            (typeof payroll.fechaCorte === 'string'
+              ? new Date(Date.parse(payroll.fechaCorte))
+              : payroll.fechaCorte
+            ).getMonth() &&
+          p.fechaCorte.getUTCFullYear() ===
+            (typeof payroll.fechaCorte === 'string'
+              ? new Date(Date.parse(payroll.fechaCorte))
+              : payroll.fechaCorte
+            ).getUTCFullYear();
         return mismoCorte
           ? `!Fecha corte ${formatDate(
               p.fechaCorte,
@@ -208,7 +223,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
     if (validations.length > 0) {
-      validations.forEach((m) => this.stateSrv.message(`${m}`, UINoEliminado));
+      validations.forEach((m) => this.stateSrv.message(`${m}`, UINoCreado));
       return;
     }
     if (!payroll) {
@@ -219,7 +234,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         nombre: payroll.nombre,
         descripcion: payroll.descripcion,
         estadoId: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
-        fechaCorte: payroll.fechaCorte.toISOString(),
+        fechaCorte: (typeof payroll.fechaCorte === 'string'
+          ? new Date(Date.parse(payroll.fechaCorte))
+          : payroll.fechaCorte
+        ).toISOString(),
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -271,7 +289,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
           next: this.leerListado,
           complete: () => {
             payroll.loading = undefined;
-            this.avance;
+            this.avance();
           },
           error: this.readResponseError,
         })
@@ -284,7 +302,10 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         nombre: payroll.nombre,
         descripcion: payroll.descripcion,
         estadoId: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
-        fechaCorte: payroll.fechaCorte.toISOString(),
+        fechaCorte: (typeof payroll.fechaCorte === 'string'
+          ? new Date(Date.parse(payroll.fechaCorte))
+          : payroll.fechaCorte
+        ).toISOString(),
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -351,7 +372,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
     dp.close();
   }
 
-  loading: number | undefined = 0;
+  loading?: number;
   avance = (loading?: number) => {
     this.loading = loading;
   };

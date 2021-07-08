@@ -34,7 +34,9 @@ export class IncapacidadFormComponent {
 
   leerCatalogos = (data?: any) => {
     if (!data.body?.body) return;
-    this.catalogs = data.body?.body;
+    this.catalogs = data.body?.body?.map((vc: any) => {
+      return { ...vc, name: JSON.parse(vc.name) };
+    });
   };
 
   constructor(

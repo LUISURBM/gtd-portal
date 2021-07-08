@@ -24,4 +24,4 @@ export const anticipos: Anticipo[] = [
   },
 ];
 
-export const displayedColumns: string[] = ["id", "valor", "action"];
+export const displayedColumns: string[] = ["valor", "action"];

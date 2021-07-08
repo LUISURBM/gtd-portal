@@ -1,13 +1,14 @@
 import { Component, Inject, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../srv/in-mem-service';
 import { NavigationService } from '../srv/navigation.service';
 import {
   StoredProcedureService,
-  TrabajadoresService
+  TrabajadoresService,
 } from '../srv/payroll/rest/api';
 import { valoresCatalogos } from '../types/common-types';
 
@@ -240,6 +241,7 @@ export class TrabajadorFormComponent implements OnDestroy {
   constructor(
     public dialogRef: MatDialogRef<TrabajadorFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private route: ActivatedRoute,
     public inMemSrv: InMemService,
     public builder: FormBuilder,
     public navSrv: NavigationService,
@@ -311,6 +313,11 @@ export class TrabajadorFormComponent implements OnDestroy {
         }),
     ];
     if (data) this.form.patchValue(data);
+
+    this.route.params.subscribe((params) => {
+      const data1 = JSON.parse(params['data']);
+      this.form.patchValue(data1);
+    });
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach((s) => s.unsubscribe());

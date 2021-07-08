@@ -126,9 +126,9 @@ export class HorariosAdicionalesComponent
         cantidad: horarioAdicional.cantidad!,
         pago: horarioAdicional.pago!,
         porcentaje: horarioAdicional.porcentaje!,
-        horaInicio: horarioAdicional.horaInicio!,
-        horaFin: horarioAdicional.horaFin!,
-        typeValueCatalogId: horarioAdicional.catalog!,
+        horaInicio: new Date(horarioAdicional.horaInicio!).toISOString(),
+        horaFin: new Date(horarioAdicional.horaFin!).toISOString(),
+        valueCatalogType: horarioAdicional.valueCatalogType!,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -170,7 +170,7 @@ export class HorariosAdicionalesComponent
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar horarioAdicional ${horarioAdicional.catalog}!?`
+        `¿Eliminar horarioAdicional ${horarioAdicional.catalog}?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -207,9 +207,9 @@ export class HorariosAdicionalesComponent
         cantidad: horarioAdicional.cantidad,
         pago: horarioAdicional.pago,
         porcentaje: horarioAdicional.porcentaje,
-        horaInicio: horarioAdicional.horaInicio!,
-        horaFin: horarioAdicional.horaFin!,
-        typeValueCatalogId: horarioAdicional.catalog!,
+        horaInicio: new Date(horarioAdicional.horaInicio!).toISOString(),
+        horaFin: new Date(horarioAdicional.horaFin!).toISOString(),
+        valueCatalogType: horarioAdicional.valueCatalogType!,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -230,7 +230,7 @@ export class HorariosAdicionalesComponent
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${horarioAdicional.catalog}`, 'actualizado!', {
+            this._snackBar.open(`${horarioAdicional.valueCatalogName}`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);

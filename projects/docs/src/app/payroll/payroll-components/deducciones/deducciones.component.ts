@@ -1,9 +1,7 @@
 import {
   AfterViewInit,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
+  Component, OnInit,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,15 +20,11 @@ import {
   gtdArrayToLowerCase,
   gtdExtractDataProcedure,
   initTable,
-  NgGtdDS,
+  NgGtdDS
 } from '../../../types/common-types';
 import {
-  Deducciones,
-  deducciones,
-  displayedColumns,
-  EMPTY,
+  displayedColumns
 } from './deducciones-data';
-import { DeduccionesFormComponent } from './deducciones-form.component';
 
 @Component({
   selector: 'app-payroll-deducciones',

@@ -299,7 +299,6 @@ export const empleadores: Empleador[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'nit',
   'otrosNombres',
   'primerApellido',

@@ -18,7 +18,7 @@ export class TransporteFormComponent {
     this.form = this.builder.group({
       id: 0,
       auxilioTransporte: 0,
-      viaticoManutAlojNS: 0,
+      viaticoManutAlojNs: 0,
       viaticoManutAlojS: 0,
     });
     this.form.patchValue(data);

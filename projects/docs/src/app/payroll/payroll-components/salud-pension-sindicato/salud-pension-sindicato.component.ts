@@ -151,7 +151,7 @@ export class SaludPensionSindicatosComponent
         id: undefined,
         deduccion: saludPensionSindicato.deduccion!,
         porcentaje: saludPensionSindicato.porcentaje!,
-        valueCatalogType: saludPensionSindicato.catalog!,
+        valueCatalogType: saludPensionSindicato.valueCatalogType!,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -176,7 +176,7 @@ export class SaludPensionSindicatosComponent
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(
-                `${saludPensionSindicato.catalog}`,
+                `${saludPensionSindicato.valueCatalogType}`,
                 'creada!',
                 {
                   duration: 50000,
@@ -197,7 +197,7 @@ export class SaludPensionSindicatosComponent
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar saludPensionSindicato ${saludPensionSindicato.catalog}!?`
+        `¿Eliminar salud, Pension & Sindicato?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -233,7 +233,7 @@ export class SaludPensionSindicatosComponent
         id: saludPensionSindicato.id,
         deduccion: saludPensionSindicato.deduccion!,
         porcentaje: saludPensionSindicato.porcentaje,
-        valueCatalogType: saludPensionSindicato.catalog!,
+        valueCatalogType: saludPensionSindicato.valueCatalogType!,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -255,7 +255,7 @@ export class SaludPensionSindicatosComponent
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(
-              `${saludPensionSindicato.catalog}`,
+              `${saludPensionSindicato.valueCatalogType}`,
               'actualizado!',
               {
                 duration: 50000,
@@ -286,13 +286,10 @@ export class SaludPensionSindicatosComponent
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(saludPensionSindicato?: SaludPensionSindicato): void {
     const dialogRef = this.dialog.open(SaludPensionSindicatoFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: saludPensionSindicato ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -115,7 +115,7 @@ export class IncapacidadesComponent
         fechaInicio: incapacidad.fechaInicio?.toISOString(),
         id: undefined,
         pago: incapacidad.pago,
-        tipo: incapacidad.tipo,
+        valueCatalogType: incapacidad.valueCatalogType,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -154,7 +154,7 @@ export class IncapacidadesComponent
 
   delete(incapacidad: Incapacidad): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar incapacidad ${incapacidad.tipo}!?`)
+      this.confirm(`¿Eliminar incapacidad ${incapacidad.tipo}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -191,7 +191,7 @@ export class IncapacidadesComponent
         fechaInicio: incapacidad.fechaInicio?.toISOString(),
         id: incapacidad.id,
         pago: incapacidad.pago,
-        tipo: incapacidad.tipo,
+        valueCatalogType: incapacidad.valueCatalogType,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,

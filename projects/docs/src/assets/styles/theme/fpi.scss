@@ -39,7 +39,7 @@ $sidebar-alt: #f2f6f8;
 $bodycolor: #eef5f9;
 $headingtext: #455a64;
 $bodytext: #67757c;
-$sidebar-icons: #a8ae99;
+$sidebar-icons: #f9f0de;
 $sidebar-icons-alt: $dark-text;
 
 $font-16: 16px;
@@ -147,7 +147,7 @@ $light-bg-darker-30: darken($light-background, 30%);
 $light-bg-lighter-5: lighten($light-background, 5%);
 $light-app-bar-5: lighten($top-bar-alt, 5%);
 $dark-app-bar-5: lighten($top-bar-dark, 5%);
-$dark-bg-tooltip: lighten(#2c2c2c, 20%);
+$dark-bg-tooltip: lighten(#013a41, 20%);
 $dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
 $dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
 
@@ -206,7 +206,7 @@ $mat-light-theme-background: (
   hover: $light-bg-alpha-4,
   card: $dark-app-bar-5,
   dialog: $dark-app-bar-5,
-  tooltip: $theme-color-blacker-5,
+  tooltip: $dark-bg-tooltip,
   disabled-button: $light-bg-alpha-12,
   raised-button: $dark-bg-lighter-30,
   focused-button: $dark-focused,
@@ -336,7 +336,7 @@ $theme-black: mat-light-theme(
   --bodyfont: #{$bodyfont};
   --bodytext: #{$bodytext};
   --headingtext: #{$headingtext};
-  --themecolor: #b1f6f2;
+  --themecolor: #013a41;
   --secondary: #{$theme-color-blacker-5};
   --secondary-light: #{$theme-color-blacker-10};
   --secondary-light-20: #{$theme-color-blacker-20};

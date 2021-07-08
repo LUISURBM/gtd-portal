@@ -27,17 +27,11 @@
     </mat-card>
 
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Bonificacion #</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Name Column -->
-        <ng-container matColumnDef="bonificacionNS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>NS</th>
+        <ng-container matColumnDef="bonificacionNs">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ns</th>
           <td mat-cell *matCellDef="let element">{{ element.bonificacionNs }}</td>
         </ng-container>
 

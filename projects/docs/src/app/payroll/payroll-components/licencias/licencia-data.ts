@@ -8,7 +8,7 @@ export interface Licencia {
   fechaFin: Date;
   cantidad: number;
   pago: number;
-  catalog: string;
+  valueCatalogType: string;
 }
 
 export const licencias: Licencia[] = [
@@ -18,7 +18,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '2',
@@ -26,7 +26,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '3',
@@ -34,7 +34,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '4',
@@ -42,7 +42,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '5',
@@ -50,7 +50,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '6',
@@ -58,7 +58,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '7',
@@ -66,7 +66,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '8',
@@ -74,7 +74,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '9',
@@ -82,7 +82,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '10',
@@ -90,7 +90,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMP',
+    valueCatalogType: 'COMP',
   },
   {
     id: '11',
@@ -98,7 +98,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '12',
@@ -106,7 +106,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '13',
@@ -114,7 +114,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '14',
@@ -122,7 +122,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '15',
@@ -130,7 +130,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '16',
@@ -138,7 +138,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '17',
@@ -146,7 +146,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '18',
@@ -154,7 +154,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '19',
@@ -162,7 +162,7 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
   {
     id: '20',
@@ -170,10 +170,18 @@ export const licencias: Licencia[] = [
     fechaFin: formatToDate('5/17/2021'),
     pago: 1298,
     cantidad: 1,
-    catalog: 'COMU',
+    valueCatalogType: 'COMU',
   },
 ];
 
+export const EMPTY = {
+  id: '',
+  fechaInicio: formatToDate('5/17/2021'),
+  fechaFin: formatToDate('5/17/2021'),
+  pago: 0,
+  cantidad: 0,
+  valueCatalogType: 'COMU',
+};
 export const catalogs: ValuesCatalog[] = [
   { id: 1, code: 'COMP', name: 'Compuesta' },
   { id: 2, code: 'COMU', name: 'Comun' },

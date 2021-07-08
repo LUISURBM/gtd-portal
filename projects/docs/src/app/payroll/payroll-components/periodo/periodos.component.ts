@@ -182,7 +182,7 @@ export class PeriodosComponent implements OnInit, AfterViewInit {
 
   delete(periodo: Periodo): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar Periodo'!?`)
+      this.confirm(`¿Eliminar Periodo'?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion ? this.eliminar(periodo) : of()

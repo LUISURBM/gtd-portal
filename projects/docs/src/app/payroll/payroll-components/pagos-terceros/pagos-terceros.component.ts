@@ -160,7 +160,7 @@ export class PagosTercerosComponent
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar Pago Tercero ${pagoTercero.pagoTercero}!?`
+        `¿Eliminar Pago Tercero ${pagoTercero.pagoTercero}?`
       )
         .pipe(
           switchMap((confirmacion) =>

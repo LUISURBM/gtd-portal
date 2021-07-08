@@ -128,9 +128,7 @@ export const cesantias: Cesantia[] = [
   },
 ];
 
-export const displayedColumns: string[] = [
-  'id',
-  'pago',
+export const displayedColumns: string[] = ['pago',
   'pagoIntereses',
   'porcentaje',
   'action',

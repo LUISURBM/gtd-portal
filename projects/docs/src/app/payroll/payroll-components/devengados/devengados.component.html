@@ -1,22 +1,7 @@
-<div class="mat-card" #formView *ngIf="dataSource$ | async as dataSource">
-  <mat-card-header>
-    <mat-card-title>
-      <div class="card-icon">
-        <em class="material-icons">{{'1F4B5' | gtdEmoji}}</em>
-      </div>
-      <h1 class="card-title">Devengados
-      </h1></mat-card-title>
-    <mat-card-subtitle>Total creados <code>{{dataSource.datasource.data?.length}}</code> </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <h4>
-      <mat-form-field class="example-full-width">
-        <mat-label>Buscar</mat-label>
-        <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-      </mat-form-field>
-    </h4>
+<div class="m-3" #formView *ngIf="dataSource$ | async as dataSource">
+  <div class="m-0 mt-2 mat-card">
 
-    <div class="mat-elevation-z8" >
+    <div class="mat-elevation-z8">
       <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Name Column -->
@@ -33,14 +18,12 @@
 
         <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
-        <tr class="mat-row" *matNoDataRow >
+        <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">
             <em>Sin datos</em>
           </td>
         </tr>
       </table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
-  </mat-card-content>
+  </div>
 </div>

@@ -29,4 +29,4 @@ export const fechaPagos: FechaPago[] = [
 ]
 
 
-export const displayedColumns: string[] = ['id', 'fechaPago', 'action'];
+export const displayedColumns: string[] = ['fechaPago', 'action'];

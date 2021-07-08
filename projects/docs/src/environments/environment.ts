@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // API_GATEWAY: 'https://devapi.fpicolombia.com/'
-  API_GATEWAY: 'http://localhost:8092/'
+  // API_GATEWAY: 'https://devapi.fpicolombia.com'
+  API_GATEWAY: 'http://localhost:8092'
 };
 
 /*

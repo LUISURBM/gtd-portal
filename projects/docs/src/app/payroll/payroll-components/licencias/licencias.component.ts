@@ -18,7 +18,7 @@ import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-d
 import { InMemService } from '../../../srv/in-mem-service';
 import { LicenciasService } from '../../../srv/payroll/rest/api';
 import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
-import { displayedColumns, Licencia, licencias } from './licencia-data';
+import { displayedColumns, EMPTY, Licencia, licencias } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';
 
 @Component({
@@ -104,7 +104,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         fechaInicio: licencia.fechaInicio.toISOString(),
         id: undefined,
         pago: licencia.pago,
-        valueCatalogTipo: licencia.catalog,
+        valueCatalogType: licencia.valueCatalogType,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -128,7 +128,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${licencia.catalog}`, 'creada!', {
+              this._snackBar.open(`${licencia.valueCatalogType}`, 'creada!', {
                 duration: 50000,
               });
 
@@ -144,7 +144,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(licencia: Licencia): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar licencia ${licencia.catalog}!?`)
+      confirm(this.dialog, `¿Eliminar licencia ${licencia.valueCatalogType}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -180,7 +180,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         fechaFin: licencia.fechaFin.toISOString(),
         fechaInicio: licencia.fechaInicio.toISOString(),
         pago: licencia.pago,
-        valueCatalogTipo: licencia.catalog,
+        valueCatalogType: licencia.valueCatalogType,
         id: licencia.id,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -202,7 +202,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${licencia.catalog}`, 'actualizado!', {
+            this._snackBar.open(`${licencia.valueCatalogType}`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);
@@ -234,7 +234,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(licencia);
     const dialogRef = this.dialog.open(LicenciaFormComponent, {
       width: '450px',
-      data: licencia ?? { id: undefined, name: '' },
+      data: licencia ?? EMPTY,
     });
 
     this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {

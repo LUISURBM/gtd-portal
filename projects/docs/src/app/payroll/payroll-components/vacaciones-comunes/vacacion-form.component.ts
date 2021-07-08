@@ -24,6 +24,7 @@ export class VacacionFormComponent {
       cantidad: 0,
       pago: 0,
       catalog: catalogs[0],
+      valueCatalogName: ''
     });
     this.form.patchValue(data);
   }

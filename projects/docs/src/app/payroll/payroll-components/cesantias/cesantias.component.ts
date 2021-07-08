@@ -148,7 +148,7 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(cesantia: Cesantia): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar cesantia ${cesantia.pago}!?`)
+      confirm(this.dialog, `¿Eliminar cesantia ${cesantia.pago}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

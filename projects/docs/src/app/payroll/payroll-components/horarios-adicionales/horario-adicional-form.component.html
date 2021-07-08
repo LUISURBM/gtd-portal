@@ -3,16 +3,14 @@
   <div class="card m-0 mat-card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-icon"><em class="material-icons">{{'1F555'|gtdEmoji}}</em></div>
-      <h1 mat-dialog-title>Formulario Horario Adicional {{ data.id }}</h1>
+      <h1 mat-dialog-title>Formulario Horario Adicional </h1>
     </div>
     <div class="card-body">
-      <h4 class="card-title">Agregar Horario Adicional nuevo</h4>
-      <p class="card-category">Información de Horario Adicional</p>
 
       <div class="type-tooltip-ne" >
         <span>Ver tipos</span>
         <mat-form-field>
-          <mat-select class="example-select" #catalog tabindex="1" formControlName="catalog" id="catalog">
+          <mat-select class="example-select" #catalog tabindex="1" formControlName="valueCatalogType" id="catalog">
             <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
               {{catalog.name}}
             </mat-option>
@@ -23,7 +21,7 @@
       <div class="type-tooltip-ne" >
         <span>Cantidad</span>
         <mat-form-field>
-          <input matInput tabindex="1" formControlName="cantidad" placeholder="cantidad" id="cantidad" type="number"
+          <input matInput tabindex="2" formControlName="cantidad" placeholder="cantidad" id="cantidad" type="number"
             class="form-control" />
           <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
             <div *ngIf="f.cantidad.errors?.required">
@@ -36,7 +34,7 @@
       <div class="type-tooltip-ne" >
         <span>Pago</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pago" placeholder="pago" id="pago" type="number"
+          <input matInput tabindex="3" formControlName="pago" placeholder="pago" id="pago" type="number"
             class="form-control" />
           <div *ngIf="f.pago.touched && f.pago.invalid" class="alert alert-danger">
             <div *ngIf="f.pago.errors?.required">
@@ -50,7 +48,7 @@
       <div class="type-tooltip-ne" >
         <span>Porcentaje</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje" type="number"
+          <input matInput tabindex="4" formControlName="porcentaje" placeholder="Porcentaje" id="porcentaje" type="number"
             class="form-control" />
           <div *ngIf="f.porcentaje.touched && f.porcentaje.invalid" class="alert alert-danger">
             <div *ngIf="f.porcentaje.errors?.required">
@@ -64,7 +62,7 @@
       <div class="type-tooltip-ne" >
         <span>Hora inicio</span>
         <mat-form-field class="example-full-width" appearance="fill">
-          <input matInput tabindex="2" formControlName="horaInicio" placeholder="Porcentaje" id="horaInicio" type="time"
+          <input matInput tabindex="5" formControlName="horaInicio" placeholder="Porcentaje" id="horaInicio" type="datetime-local"
             class="form-control" />
           <div *ngIf="f.horaInicio.touched && f.horaInicio.invalid" class="alert alert-danger">
             <div *ngIf="f.horaInicio.errors?.required">
@@ -78,7 +76,7 @@
       <div class="type-tooltip-ne" >
         <span>Hora fin</span>
         <mat-form-field class="example-full-width" appearance="fill">
-          <input matInput tabindex="2" formControlName="horaFin" placeholder="Porcentaje" id="horaFin" type="time"
+          <input matInput tabindex="6" formControlName="horaFin" placeholder="Porcentaje" id="horaFin" type="datetime-local"
             class="form-control" />
           <div *ngIf="f.horaFin.touched && f.horaFin.invalid" class="alert alert-danger">
             <div *ngIf="f.horaFin.errors?.required">
@@ -92,7 +90,7 @@
         <button mat-button (click)="onNoClick()" tabindex="-1">
           Cancelar
         </button>
-        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="save()" tabindex="7">Guardar</button>
       </div>
     </div>
   </div>

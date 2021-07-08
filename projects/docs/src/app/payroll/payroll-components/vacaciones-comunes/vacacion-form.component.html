@@ -2,7 +2,7 @@
   <div class="m-0 mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
       <div class="card-icon"><em class="material-icons">{{'1F305'|gtdEmoji}}</em></div>
-      <h1 mat-dialog-title>Formulario Vacación {{ data.id }}</h1>
+      <h1 mat-dialog-title>Formulario Vacación </h1>
     </div>
 
     <div class="card-body">
@@ -11,8 +11,8 @@
       <div class="type-tooltip-ne" matTooltip="Tooltip!">
         <span>Tipo</span>
         <mat-form-field>
-          <mat-select class="example-select" #business tabindex="1" formControlName="catalog" id="business">
-            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.code"> {{catalog.name}} </mat-option>
+          <mat-select class="example-select" #business tabindex="1" formControlName="valueCatalogName" id="business">
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.name"> {{catalog.name}} </mat-option>
           </mat-select>
         </mat-form-field>
       </div>

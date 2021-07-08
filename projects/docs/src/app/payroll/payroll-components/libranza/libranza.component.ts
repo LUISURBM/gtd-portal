@@ -137,7 +137,7 @@ export class LibranzaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(libranza: Libranza): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar libranza ${libranza.descripcion}!?`)
+      confirm(this.dialog, '¿Eliminar libranza?')
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

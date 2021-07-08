@@ -109,7 +109,6 @@ export const compensaciones: Compensacion[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'compensacionE',
   'compensacionO',
   'action',

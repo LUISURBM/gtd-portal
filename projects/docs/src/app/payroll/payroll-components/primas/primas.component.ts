@@ -131,7 +131,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: prima.cantidad,
-        pagoNS: prima.pagoNS,
+        pagoNs: prima.pagoNs,
         pagoS: prima.pagoS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -171,7 +171,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(prima: Prima): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar Prima!?`)
+      this.confirm(`¿Eliminar Prima?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -205,7 +205,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: prima.id,
         cantidad: prima.cantidad,
-        pagoNS: prima.pagoNS,
+        pagoNs: prima.pagoNs,
         pagoS: prima.pagoS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',

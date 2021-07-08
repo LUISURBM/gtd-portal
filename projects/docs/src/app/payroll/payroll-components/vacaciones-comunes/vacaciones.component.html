@@ -27,12 +27,12 @@
     </mat-card>
 
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Name Column -->
         <ng-container matColumnDef="catalog">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Vacación</th>
-          <td mat-cell *matCellDef="let element">{{ element.catalog }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.valueCatalogName }}</td>
         </ng-container>
 
         <!-- Name Column -->
@@ -51,14 +51,14 @@
         <!-- Name Column -->
         <ng-container matColumnDef="fechaInicio">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>fechaInicio</th>
-          <td mat-cell *matCellDef="let element">{{ element.fechaInicio | date:'MM/YYYY' }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fechaInicio }}</td>
         </ng-container>
 
 
         <!-- Name Column -->
         <ng-container matColumnDef="fechaFin">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>fechaFin</th>
-          <td mat-cell *matCellDef="let element">{{ element.fechaFin | date:'MM/YYYY' }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fechaFin }}</td>
         </ng-container>
 
         <!-- Symbol Column -->

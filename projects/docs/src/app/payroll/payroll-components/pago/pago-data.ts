@@ -173,7 +173,6 @@ export const pagos: Pago[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'forma',
   'banco',
   'numeroCuenta',

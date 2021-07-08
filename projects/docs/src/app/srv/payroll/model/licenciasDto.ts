@@ -18,6 +18,7 @@ export interface LicenciasDto {
     fechaInicio?: string;
     id?: string;
     pago?: number;
-    valueCatalogTipo?: string;
+    valueCatalogName?: string;
+    valueCatalogType?: string;
 }
 

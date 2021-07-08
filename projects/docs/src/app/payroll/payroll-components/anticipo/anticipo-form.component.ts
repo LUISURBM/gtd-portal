@@ -18,10 +18,7 @@ export class AnticipoFormComponent {
   ) {
     this.form = this.builder.group({
       id: this.builder.control(0),
-      anticipo: this.builder.control(0, [
-        Validators.required,
-        Validators.maxLength(4),
-      ])
+      anticipo: this.builder.control(0, [Validators.required]),
     });
     this.form.patchValue(data);
   }

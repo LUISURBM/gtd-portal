@@ -24,16 +24,10 @@ import { catalogs } from '../payroll-general/payroll-data';
 @Component({
   selector: 'app-payroll-individual-form-dialog',
   templateUrl: './payroll-individual-form.component.html',
-  styles: [
-    `
-      .qr-code {
-        color: black;
-        background: white;
-        max-width: 227px;
-      }
-    `,
-  ],
   animations: animationsForm,
+  host: {
+    '[class.className]' : 'col-4',
+  }
 })
 export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
   position = 'below';

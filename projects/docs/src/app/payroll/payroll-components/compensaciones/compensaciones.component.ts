@@ -143,7 +143,7 @@ export class CompensacionesComponent
 
   delete(compensacion: Compensacion): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar compensacion Compensación!?`)
+      confirm(this.dialog, `¿Eliminar compensacion Compensación?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

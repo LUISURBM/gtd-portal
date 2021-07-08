@@ -1,15 +1,7 @@
 <ng-container *ngIf="stateSrv.themeState$ | async as state">
-  <button mat-icon-button class="m-4" *ngIf="state.messages?.length! > 0">
-    <span color="accent" aria-label="Messages with icon" [attr.disabled]="!state.messages" [matMenuTriggerFor]="messagesMenu" [matBadge]="state.messages?.length!"
-      matBadgeColor="warn">💬</span>
-  </button>
-  <button mat-icon-button class="mr-4" *ngIf="state.notifications?.length! > 0">
-    <span color="accent" aria-label="Notificactions with icon" [attr.disabled]="!state.notifications" [matMenuTriggerFor]="notificationsMenu" [matBadge]="state.notifications?.length!"
-      matBadgeColor="primary">🔔</span>
-  </button>
   <mat-menu #messagesMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">
     <button mat-menu-item *ngFor="let option of state.messages" (click)="$event.stopPropagation();">
-      <mat-icon>{{option.code}}</mat-icon> {{option.name}}
+      <mat-icon class="mt-4">{{option.code}}</mat-icon> <span>{{option.name}}</span>
     </button>
   </mat-menu>
   <mat-menu #notificationsMenu="matMenu" class="mymegamenu" (click)="$event.stopPropagation();">

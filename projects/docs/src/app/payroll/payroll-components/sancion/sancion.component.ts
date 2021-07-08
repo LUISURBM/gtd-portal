@@ -158,7 +158,7 @@ export class SancionComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(sancion: Sancion): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿¡Eliminar sanción!?`)
+      confirm(this.dialog, `¿¡Eliminar sanción?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -191,6 +191,8 @@ export class SancionComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: sancion.id,
+        sancionPriv: sancion.sancionPriv,
+        sancionPublic: sancion.sancionPublic,
         deduccionesId: this.form.value.deduccionesId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,

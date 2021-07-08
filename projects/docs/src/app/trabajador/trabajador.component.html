@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="dataSource$ | async as dataSource">
+<mat-card class="m-3 card" *ngIf="dataSource$ | async as dataSource">
   <mat-card-header class="card-header card-header-primary card-header-icon">
     <mat-card-title>
       <div class="card-icon">
@@ -15,7 +15,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Encontrar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre ó código" #input>
-        <button mat-icon-button (click)="navSrv.navigate('/trabajador/view')" matSuffix color="primary">
+        <button mat-icon-button (click)="navSrv.navigate('/trabajador/form')" matSuffix color="primary">
           <span>➕</span>
         </button>
       </mat-form-field>
@@ -27,7 +27,7 @@
     </mat-card>
 
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort >
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
 
         <ng-container matColumnDef="codigoTrabajador">

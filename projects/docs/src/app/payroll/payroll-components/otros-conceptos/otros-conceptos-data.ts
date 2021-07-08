@@ -131,7 +131,6 @@ export const otrosConceptos: OtroConcepto[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'conceptoNs',
   'conceptoS',
   'descripcionConcepto',

@@ -15,7 +15,10 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
-import { FondosSPService } from '../../../srv/payroll/rest/api';
+import {
+  FondosSPService,
+  StoredProcedureService,
+} from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
@@ -46,8 +49,21 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   subscriptions: Subscription[] = [];
-
-  listado = (data: any) => of([]);
+  request = (): any => {
+    return {
+      body: {
+        params: {
+          deduccionesId: this.form.value.deduccionesId as Object,
+        },
+      },
+      header: {
+        cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+        esquema: 'payroll',
+        procedimientoAlmacenado: 'ConsultarListFondoSPXDeduccionesId',
+      },
+    };
+  };
+  listado = (data: any) => this.procedureAPISrv.exectuteProcedureUsingPOST1(this.request());
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -55,7 +71,7 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
       this.dataSource$,
       this.paginator,
       this.sort,
-      gtdArrayToLowerCase(data?.body?.bodyDto),
+      gtdArrayToLowerCase(data?.body),
       displayedColumns
     );
   };
@@ -65,7 +81,8 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
     private _snackBar: MatSnackBar,
     public formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private fondosSPAPISrv: FondosSPService
+    private fondosSPAPISrv: FondosSPService,
+    public procedureAPISrv: StoredProcedureService
   ) {
     this.form = this.formBuilder.group({
       filtro: '',
@@ -151,7 +168,7 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(fondoSP: FondoSP): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar licencia ${fondoSP.deduccion}!?`)
+      confirm(this.dialog, `¿Eliminar licencia ${fondoSP.deduccion}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

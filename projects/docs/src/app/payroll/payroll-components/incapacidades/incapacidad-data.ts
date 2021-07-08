@@ -7,6 +7,7 @@ export interface Incapacidad {
   tipo?: number;
   fechaInicio?: Date;
   fechaFin?: Date;
+  valueCatalogType?: string;
 }
 
 export const incapacidads: Incapacidad[] = [
@@ -173,7 +174,6 @@ export const incapacidads: Incapacidad[] = [
 ];
 
 export const displayedColumns: string[] = [
-  'id',
   'cantidad',
   'pago',
   'tipo',
@@ -183,10 +183,9 @@ export const displayedColumns: string[] = [
 ];
 
 export const EMPTY = {
-  id: 0,
   cantidad: 0,
   pago: 0,
-  tipo: 0,
+  valueCatalogType: '',
   fechaInicio: formatToDate('5/17/2021'),
   fechaFin: formatToDate('5/17/2021'),
 };

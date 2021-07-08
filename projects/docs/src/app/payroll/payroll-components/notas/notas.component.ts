@@ -216,7 +216,7 @@ export class NotasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(nota: Nota): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar '${nota.nota}'!?`)
+      this.confirm(`¿Eliminar '${nota.nota}'?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion ? this.eliminar(nota) : of()

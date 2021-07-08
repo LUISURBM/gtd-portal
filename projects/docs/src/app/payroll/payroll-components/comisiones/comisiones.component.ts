@@ -134,7 +134,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(comision: Comision): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar comision ${comision.comision}!?`)
+      confirm(this.dialog, `¿Eliminar comision ${comision.comision}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -216,13 +216,10 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(comision?: Comision): void {
     const dialogRef = this.dialog.open(ComisionFormComponent, {
       width: '450px',
-      data: editing ? editing : { id: undefined, name: '' },
+      data: comision,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

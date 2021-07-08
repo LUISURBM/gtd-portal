@@ -1018,6 +1018,39 @@ tabs
     }
   }
 }
+::selection,
+::-moz-selection,
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: var(--secondary-light)!important;
+  box-shadow: 0 1px 1px var(--secondary) inset, 0 0 8px var(--secondary-light);
+  outline: 0 none;
+  color: var(--bodytext)!important;
+  background: var(--bg-dialog)!important;
+  caret-color: var(--info)!important;
+}
+
+.mat-snack-bar-container{
+  background-color: var(--themecolor)!important;
+  color: var(--sidebar-icons)!important;
+}
 .gtd-overlay-backdrop {
   opacity: 0.9;
   backdrop-filter: blur(2px);

@@ -9,34 +9,28 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { HttpHeaders }                                       from '@angular/common/http';
-
-import { Observable }                                        from 'rxjs';
-
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Configuration } from '../configuration';
 import { ListNominaIndividualRequest } from '../model/models';
-import { PayrollSent } from '../model/models';
-
-
-
-import { Configuration }                                     from '../configuration';
-
-
 
 export interface PayrollsServiceInterface {
-    defaultHeaders: HttpHeaders;
-    configuration: Configuration;
+  defaultHeaders: HttpHeaders;
+  configuration: Configuration;
 
-    /**
-     * Find a Payroll by docNumber in the system.
-     *
-     */
-    payrollListUsingGET1(extraHttpRequestParams?: any): Observable<string>;
+  /**
+   * Find a Payroll by docNumber in the system.
+   *
+   */
+  payrollListUsingGET1(extraHttpRequestParams?: any): Observable<string>;
 
-    /**
-     * Send a Payroll to prepare and send the document to DIAN.
-     *
-     * @param list list
-     */
-    sendListUsingPOST4(list: ListNominaIndividualRequest, extraHttpRequestParams?: any): Observable<Array<any>>;
-
+  /**
+   * Send a Payroll to prepare and send the document to DIAN.
+   *
+   * @param list list
+   */
+  sendListUsingPOST4(
+    list: ListNominaIndividualRequest,
+    extraHttpRequestParams?: any
+  ): Observable<Array<any>>;
 }

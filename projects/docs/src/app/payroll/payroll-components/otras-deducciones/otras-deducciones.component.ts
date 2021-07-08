@@ -166,7 +166,7 @@ export class OtrasDeduccionesComponent
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar Deducción ${otraDeduccion.otraDeduccion}!?`
+        `¿Eliminar Deducción ${otraDeduccion.otraDeduccion}?`
       )
         .pipe(
           switchMap((confirmacion) =>

@@ -26,7 +26,7 @@ export const pagosTerceros: PagoTercero[] = [
   },
 ];
 
-export const displayedColumns: string[] = ['id', 'pagoTercero', 'action'];
+export const displayedColumns: string[] = ['pagoTercero', 'action'];
 
 export const EMPTY = {
   id: '',

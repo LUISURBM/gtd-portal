@@ -1,0 +1,19 @@
+<form class="d-flex main-container main-form">
+  <div class="mat-card card">
+    <div class="card-header mat-card-header card-header-primary card-header-icon">
+      <div class="card-title">
+        <div class="card-icon"><em class="material-icons">📜</em></div>
+        <h1>
+          Nómina individual
+        </h1>
+        <p clasas="font-italic"></p>
+      </div>
+    </div>
+    <div class="card-body row" [@heightGrow]="state" *ngIf="form">
+      <div class="col-6 " style="text-align-last: center; width: 200px; align-self: center;">
+        <qrcode-svg class="img-thumbnail" style="width: 200px;height: auto;" [value]="form">
+        </qrcode-svg>
+      </div>
+    </div>
+  </div>
+</form>

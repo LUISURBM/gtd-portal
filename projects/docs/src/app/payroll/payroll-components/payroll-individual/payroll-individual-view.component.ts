@@ -15,10 +15,12 @@ import {
   gtdNombreCompleto,
   confirm,
   gtdScrollEvent,
+  OpenDialog,
 } from '../../../types/common-types';
 import { MENU_ITEMS } from '../payroll-general/payroll-data';
 import { MENU_ITEMS as ITEMS_DEDUCCIONES } from '../deducciones/deducciones-data';
 import { MENU_ITEMS as ITEMS_DEVENGADOS } from '../devengados/devengados-data';
+import { PayrollIndividualQrComponent } from './payroll-individual-qr.component';
 
 @Component({
   selector: 'app-payroll-individual-view',
@@ -122,7 +124,7 @@ export class PayrollindividualViewComponent implements OnDestroy {
       this.route.params
         .pipe(
           switchMap((params) => {
-            const data = params['data']? JSON.parse(params['data']) : params;
+            const data = params['data'] ? JSON.parse(params['data']) : params;
             this.form.patchValue(data);
             if (gtdIsNull(data['nominaIndividualId'])) return of(form.value);
             return nominaIndividualAPISrv.findByIdUsingGET58(
@@ -287,7 +289,7 @@ export class PayrollindividualViewComponent implements OnDestroy {
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar nómina ${this.form.value.trabajador.primerNombre}!?`
+        `¿Eliminar nómina ${this.form.value.trabajador.primerNombre}?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -327,4 +329,7 @@ export class PayrollindividualViewComponent implements OnDestroy {
       ...this.form.value,
       loading: !this.form.value.loading,
     });
+
+  viewQr = () =>
+    OpenDialog(this.dialog, PayrollIndividualQrComponent, this.form.value);
 }

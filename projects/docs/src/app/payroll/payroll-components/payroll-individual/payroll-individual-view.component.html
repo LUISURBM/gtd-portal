@@ -1,17 +1,13 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<form [formGroup]="form" class="m-0 d-flex main-container main-form"
-  *ngIf="stateSrv.themeState$ | async as state; else loading">
+<div class="m-0 d-flex main-container main-form" *ngIf="stateSrv.themeState$ | async as state; else loading">
   <mat-card *ngIf="form?.value?.loading" class="m-0"
     style="display: flex; justify-content: center; align-items: center">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </mat-card>
   <ng-container *ngIf="!form?.value?.loading">
     <mat-toolbar class="primary topbar">
-      <button mat-icon-button (click)="formMenu.toggle()" value="sidebarclosed">
-        <mat-icon>menu</mat-icon>
-      </button>
 
       <!-- ============================================================== -->
       <!-- Logo - style you can find in header.scss -->
@@ -48,7 +44,7 @@
 
 
       <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-        <mat-chip class="btn btn-outline-primary " class="primary" (click)="save()" *ngIf="form.dirty">
+        <mat-chip class="btn btn-outline-primary " class="primary" (click)="save()" *ngIf="form.dirty || !form.value.id">
           <span class="button__text">{{'1F4D1'|gtdEmoji}}</span><span
             *ngIf="!(state.XSmall || state.Small)">Generar</span>
         </mat-chip>
@@ -71,6 +67,9 @@
           (click)="navSrv.navigate('/nómina/devengos', this.individualData())">
           <mat-icon>➕</mat-icon> Devengo
         </button>
+        <button mat-menu-item *ngIf="this.form.value.nominaIndividualIdd" (click)="viewQr()">
+          <mat-icon><img src="assets/images/codigo-qr.png" alt="ver qr"></mat-icon>
+        </button>
         <button mat-menu-item (click)="delete()" *ngIf="this.form.value.nominaIndividualId">
           <mat-icon>delete</mat-icon> Eliminar
         </button>
@@ -88,72 +87,23 @@
       </mat-menu>
 
     </mat-toolbar>
-    <mat-sidenav-container class="page-container" style.marginTop.px="0">
 
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
 
-      <mat-sidenav #formMenu id="formMenu" class="dark-sidebar pl-xs" fixedTopGap="0" opened="true"
-        [mode]="(state.XSmall || state.Small) ? 'over' : 'side'" fixedTopGap="0"
-        [opened]="!(state.XSmall || state.Small)" style="direction: rtl;">
-
-        <mat-nav-list appAccordion style="direction: ltr ">
-          <div class="m-0 d-flex main-container main-form">
-            <mat-form-field class="find-menu-item" style="direction: ltr; padding: 0px 15px ">
-              <mat-label>Buscar...</mat-label>
-              <input type="text" matInput formControlName="menuItem" placeholder="Buscar" #buscar>
-              <mat-icon *ngIf="buscar.value" (click)="buscar.value = ''; filter('');" matSuffix mat-fab>clear</mat-icon>
-            </mat-form-field>
-          </div>
-          <mat-list-item appAccordionLink routerLinkActive="selected">
-            <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ind.formView)">
-              <span>📜</span>
-              <span>Nómina Individual</span>
-              <span fxFlex></span>
-            </a>
-          </mat-list-item>
-          <mat-list-item appAccordionLink routerLinkActive="selected">
-            <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(dev.formView)">
-              <span>💵</span>
-              <span>Devengos</span>
-              <span fxFlex></span>
-            </a>
-          </mat-list-item>
-          <mat-list-item appAccordionLink routerLinkActive="selected">
-            <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(ded.formView)">
-              <span>🧾</span>
-              <span>Deducciones</span>
-              <span fxFlex></span>
-            </a>
-          </mat-list-item>
-          <mat-list-item appAccordionLink routerLinkActive="selected">
-            <a class="" appAccordionToggle (click)="formMenu.toggle(); scrollToElement(notas.formView)">
-              <span>{{'1F4D1'|gtdEmoji}}</span>
-              <span>Notas</span>
-              <span fxFlex></span>
-            </a>
-          </mat-list-item>
-        </mat-nav-list>
-
-      </mat-sidenav>
-      <!-- ============================================================== -->
-      <!-- Sidebar - style you can find in sidebar.scss -->
-      <!-- ============================================================== -->
-
-      <!-- ============================================================== -->
-      <!-- Page container - style you can find in pages.scss -->
-      <!-- ============================================================== -->
-      <mat-sidenav-content class="page-view">
-        <app-payroll-individual-form-dialog [form]="form" #ind></app-payroll-individual-form-dialog>
-        <app-payroll-devengados #dev></app-payroll-devengados>
-        <app-payroll-deducciones #ded></app-payroll-deducciones>
-        <app-payroll-notas #notas> </app-payroll-notas>
-      </mat-sidenav-content>
-      <!-- ============================================================== -->
-      <!-- Page container - style you can find in pages.scss -->
-      <!-- ============================================================== -->
-    </mat-sidenav-container>
+    <!-- ============================================================== -->
+    <!-- Page container - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div class="page-view d-flex row">
+      <app-payroll-individual-form-dialog [form]="form" #ind class="p-0 col-12-sm col-md-4">
+      </app-payroll-individual-form-dialog>
+      <app-payroll-deducciones #ded class="p-0 col-12-sm col-md-4"></app-payroll-deducciones>
+      <app-payroll-devengados #dev class="p-0 col-12-sm col-md-4"></app-payroll-devengados>
+    </div>
 
   </ng-container>
-</form>
+</div>
 
 <ng-template #loading>
   Loading User...

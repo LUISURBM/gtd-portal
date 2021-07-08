@@ -33,7 +33,7 @@
       <mat-progress-bar mode="determinate" [value]="dataSource.loading"></mat-progress-bar>
     </mat-card>
     <div class="mat-elevation-z8">
-      <table mat-table class="table-responsive" [dataSource]="dataSource.datasource" matSort style="width:100%">
+      <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
 
         <!-- Name Column -->
         <ng-container matColumnDef="trabajador">
@@ -50,17 +50,17 @@
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="action" stickyEnd>
+        <ng-container matColumnDef="action" stickyEnd fxFlex.gt-sm="25" fxFlex="25">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element">
+          <td mat-cell *matCellDef="let element" style="text-align: center;" >
             <ng-container *ngIf="!element.loading">
               <button mat-icon-button color="primary" [matTooltip]="stateSrv?.textos?.VerNominasINE?.name! ?? 'Ver'"
                 (click)="element.loading = 10; navSrv.navigate('/nómina/view', JSON.stringify({ nominaIndividualId: element.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))">
-                <span>{{'1F4D1'|gtdEmoji}}</span>
+                <span style="font-size: 23px" >{{'1F4D1'|gtdEmoji}}</span>
               </button>
-              <button mat-icon-button color="accent" [matTooltip]="txtEliminar(element)"
-                (click)="element.loading = 10; element.loading = 10; delete(element);">
-                <span>{{'1F9FA'|gtdEmoji}}</span>
+              <button mat-icon-button color="accent" (click)="element.loading = 10; delete(element);"
+                [matTooltip]="txtEliminar(element)">
+                <img style="height: 29px;" src="assets/images/caneca.png" alt="eliminar">
               </button>
             </ng-container>
             <ng-container *ngIf="element.loading">

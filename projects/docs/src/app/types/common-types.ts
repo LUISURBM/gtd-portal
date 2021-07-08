@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { fromEvent } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../shared/dialog/confirm/confirm-dialog.component';
 import { ValuesCatalog } from '../srv/in-mem-data-service';
 import { TrabajadorDto } from '../srv/payroll/model/trabajadorDto';
@@ -111,11 +112,20 @@ export const gtdArrayToLowerCase = (bodyDto: any[]) =>
     var newobj: any = {};
     while (n--) {
       key = keys[n];
+      if(!element[key]) continue;
       if (key.toLowerCase().split('fecha').length > 1) {
         element[key] = new Date(element[key]);
-      }
+      } /* else if (typeof element[key] === 'number') {
+        element[key] = numberWithCommas(element[key]);
+      } */
+
       newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
         element[key];
+    }
+    try{
+      newobj[`valueCatalogName`] = JSON.parse(newobj[`valueCatalogName`]);
+    }catch(e){
+
     }
     return newobj;
   });
@@ -132,7 +142,7 @@ export const confirm = (
       pregunta: pregunta,
     },
   });
-  return dialogRef.afterClosed();
+  return dialogRef.afterClosed().pipe(take(1));
 };
 
 export const OpenDialog = (dialog: MatDialog, cmp: any, data: any) =>
@@ -182,10 +192,29 @@ export const gtdSueldoTrabajador = (sueldo: string) =>
   formatNumber(Number(sueldo), 'es-CO', '1.2-2');
 
 export const gtdBeforeUnload = () => fromEvent(window, 'beforeunload');
-export const numberWithCommas = (value: any) =>
-  formatNumber(value, 'es-Co', '1.2-2');
+export const numberWithCommas = (value: string) =>
+  formatNumber(
+    typeof value === 'number' ? value : +value?.replace(/\./g, '') ?? 0,
+    'es-Co',
+    '1.0-2'
+  );
+export const stringWithCommas = (value: string) =>
+  (+value).toLocaleString('es-CO');
 export const gtdScrollEvent = () => fromEvent(window, 'scroll');
+export const parseLocaleNumber = (stringNumber: string, locale: string) => {
+  var thousandSeparator = Intl.NumberFormat(locale)
+    .format(11111)
+    .replace(/\p{Number}/gu, '');
+  var decimalSeparator = Intl.NumberFormat(locale)
+    .format(1.1)
+    .replace(/\p{Number}/gu, '');
 
+  return parseFloat(
+    stringNumber
+      .replace(new RegExp('\\' + thousandSeparator, 'g'), '')
+      .replace(new RegExp('\\' + decimalSeparator), '.')
+  );
+};
 export const gtdExtractDataProcedure = (body: any) =>
   body.map((b: any) => {
     let valores: ValuesCatalog[] = [];
@@ -195,7 +224,19 @@ export const gtdExtractDataProcedure = (body: any) =>
     var keys = Object.keys(data);
     var n = keys.length;
     var newobj: any = {};
-
+    data?.[keys?.[0]]?.forEach?.((element: any) => {
+      var keys = Object.keys(data);
+      var n = keys.length;
+      while (n--) {
+        valores.push({
+          id: y + 1,
+          value: element[keys[n]],
+          code: keys[n],
+          name: keys[n],
+          catalog: '',
+        });
+      }
+    });
     while (n--) {
       var gtdMember = keys[n];
       var valor = data[gtdMember];

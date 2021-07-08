@@ -151,7 +151,7 @@ export class BonificacionesComponent
 
     const request = {
       entidad: {
-        bonificacionNs: bonificacion.bonificacionNS,
+        bonificacionNs: bonificacion.bonificacionNs,
         bonificacionS: bonificacion.bonificacionS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -192,7 +192,7 @@ export class BonificacionesComponent
 
   delete(bonificacion: Bonificacion): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar bonificación !?`)
+      this.confirm(`¿Eliminar bonificación ?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -222,7 +222,7 @@ export class BonificacionesComponent
     const request = {
       entidad: {
         id: bonificacion.id,
-        bonificacionNs: bonificacion.bonificacionNS,
+        bonificacionNs: bonificacion.bonificacionNs,
         bonificacionS: bonificacion.bonificacionS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',

@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "..\\..\\..\\..\\..\\..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\junio\\fe-api-rest"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Documents\\SQL Server Management Studio"
 		}
 	],
 	"settings": {

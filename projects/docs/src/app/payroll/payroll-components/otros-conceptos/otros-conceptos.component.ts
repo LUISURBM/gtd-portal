@@ -164,7 +164,7 @@ export class OtrosConceptosComponent
 
   delete(otroConcepto: OtroConcepto): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar Concepto!?`)
+      confirm(this.dialog, `¿Eliminar Concepto?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion

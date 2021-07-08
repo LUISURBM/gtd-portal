@@ -3,18 +3,17 @@ import {
   ModuleWithProviders,
   NgModule,
   Optional,
-  SkipSelf,
+  SkipSelf
 } from '@angular/core';
-import { PayrollsService } from './rest/payrolls.service';
 import { Configuration } from './configuration';
 import { StoredProcedureService } from './rest/api';
-import { BasicoService } from '../../service/mgmt/basicos/basicos';
+import { PayrollsService } from './rest/payrolls.service';
 
 @NgModule({
   imports: [],
   declarations: [],
   exports: [],
-  providers: [BasicoService, StoredProcedureService, PayrollsService],
+  providers: [StoredProcedureService, PayrollsService],
 })
 export class ApiModule {
   public static forRoot(

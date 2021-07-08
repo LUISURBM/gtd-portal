@@ -16,9 +16,13 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { BonosEPCTVService } from '../../../srv/payroll/rest/api';
-import { LicenciasService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
-import { Bono, bonos, displayedColumns, EMPTY } from './bono-data';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
+import { Bono, displayedColumns, EMPTY } from './bono-data';
 import { BonoEPCTVFormComponent } from './bono-form.component';
 
 @Component({
@@ -29,7 +33,7 @@ import { BonoEPCTVFormComponent } from './bono-form.component';
 export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
   dataSource$: BehaviorSubject<NgGtdDS> = new BehaviorSubject<NgGtdDS>({
-    datasource: new MatTableDataSource<Bono>(bonos),
+    datasource: new MatTableDataSource<Bono>([]),
     displayedColumns: displayedColumns,
   });
 
@@ -45,11 +49,22 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.bonosAPISrv.listFindAllDevengadosUsingGET16( data?.devengadosId, 'events', true, {});
+    this.bonosAPISrv.listFindAllDevengadosUsingGET16(
+      data?.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -101,9 +116,9 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: undefined,
-        pagoAlimentacionNS: bono.pagoAlimentacionNS,
+        pagoAlimentacionNs: bono.pagoAlimentacionNs,
         pagoAlimentacionS: bono.pagoAlimentacionS,
-        pagoNS: bono.pagoNS,
+        pagoNs: bono.pagoNs,
         pagoS: bono.pagoS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -144,7 +159,7 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(bono: Bono): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar bono!?`)
+      confirm(this.dialog, `¿Eliminar bono?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -172,9 +187,9 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: bono.id,
-        pagoAlimentacionNS: bono.pagoAlimentacionNS,
+        pagoAlimentacionNs: bono.pagoAlimentacionNs,
         pagoAlimentacionS: bono.pagoAlimentacionS,
-        pagoNS: bono.pagoNS,
+        pagoNs: bono.pagoNs,
         pagoS: bono.pagoS,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',

@@ -65,10 +65,13 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   readResponseTList = (data: any, message?: string) => {
     this.loading(75);
     if (!(data?.[0]?.body?.bodyDto || data?.[1]?.body?.bodyDto)) return;
-    const dataarray = [
-      ...data?.[0]?.body?.bodyDto,
-      ...data?.[1]?.body?.bodyDto,
-    ];
+    const compensadas = data?.[0]?.body?.bodyDto.map((dto: any) => {
+      return { ...dto, valueCatalogName: catalogs[0].name };
+    });
+    const comunes = data?.[1]?.body?.bodyDto.map((dto: any) => {
+      return { ...dto, valueCatalogName: catalogs[1].name };
+    });
+    const dataarray = [...compensadas, ...comunes];
     this.loading(85);
     initTable(
       this.dataSource$,
@@ -142,8 +145,8 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
         fechaFin: vacacion.fechaFin.toISOString(),
         fechaInicio: vacacion.fechaInicio.toISOString(),
         pago: vacacion.pago,
-        valueCatalogTipo: vacacion.catalog,
-        devengadoId: this.form.value.devengadosId,
+        valueCatalogName: vacacion.valueCatalogName,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -163,7 +166,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${vacacion.catalog}`, 'creada!', {
+              this._snackBar.open(`${vacacion.valueCatalogName}`, 'creada!', {
                 duration: 50000,
               });
 
@@ -179,7 +182,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(vacacion: Vacacion): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar vacación ${vacacion.catalog}!?`)
+      confirm(this.dialog, `¿Eliminar vacación ${vacacion.valueCatalogName}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion ? this.remove(vacacion) : of()
@@ -206,9 +209,9 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
         fechaFin: vacacion.fechaFin.toISOString(),
         fechaInicio: vacacion.fechaInicio.toISOString(),
         pago: vacacion.pago,
-        valueCatalogTipo: vacacion.catalog,
+        valueCatalogName: vacacion.valueCatalogName,
         id: vacacion.id,
-        devengadoId: this.form.value.devengadosId,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -225,7 +228,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.update(request)
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${vacacion.catalog}`, 'actualizado!', {
+            this._snackBar.open(`${vacacion.valueCatalogName}`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);
@@ -267,7 +270,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   save = (request: any) => {
-    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+    if (request.entidad.valueCatalogName === catalogs[0].name)
       return this.vacacionesCompensadasAPISrv.saveUsingPOST72(
         request,
         'events',
@@ -276,7 +279,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+    else if (request.entidad.valueCatalogName === catalogs[1].name)
       return this.vacacionesComunesAPISrv.saveUsingPOST73(
         request,
         'events',
@@ -289,7 +292,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   remove = (request: any) => {
-    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+    if (request.entidad.valueCatalogName === catalogs[0].name)
       return this.vacacionesCompensadasAPISrv.deleteUsingDELETE72(
         request.id,
         'events',
@@ -298,7 +301,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+    else if (request.entidad.valueCatalogName === catalogs[1].name)
       return this.vacacionesComunesAPISrv.deleteUsingDELETE73(
         request.id,
         'events',
@@ -310,7 +313,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
     else return of();
   };
   update = (request: any) => {
-    if (request.entidad.valueCatalogTipo === catalogs[0].code)
+    if (request.entidad.valueCatalogName === catalogs[0].name)
       return this.vacacionesCompensadasAPISrv.updateUsingPUT72(
         request,
         'events',
@@ -319,7 +322,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else if (request.entidad.valueCatalogTipo === catalogs[1].code)
+    else if (request.entidad.valueCatalogName === catalogs[1].name)
       return this.vacacionesComunesAPISrv.updateUsingPUT73(
         request,
         'events',
