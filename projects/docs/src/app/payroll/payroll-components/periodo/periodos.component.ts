@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { PeriodosService } from '../../../srv/payroll/rest/api';
 import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
@@ -39,6 +40,7 @@ export class PeriodosComponent implements OnInit, AfterViewInit {
   subscriptions: Subscription[];
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,

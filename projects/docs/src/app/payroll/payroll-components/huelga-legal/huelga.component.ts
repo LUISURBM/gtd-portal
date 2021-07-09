@@ -17,6 +17,7 @@ import {
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
+  OpenDialog,
 } from '../../../types/common-types';
 import { displayedColumns, Huelga, huelgas } from './huelga-data';
 import { HuelgaFormComponent } from './huelga-form.component';
@@ -25,6 +26,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HuelgasLegalesService } from '../../../srv/payroll/rest/api';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
+import { AppStateService } from '../../../srv/app-state.service';
 
 @Component({
   selector: 'app-payroll-huelgas',
@@ -69,6 +71,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -251,16 +254,15 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(huelga?: Huelga): void {
-    const dialogRef = this.dialog.open(HuelgaFormComponent, {
-      width: '450px',
-      data: huelga ?? { id: undefined, name: '' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    });
+    this.subscriptions.push(
+      OpenDialog(this.dialog, HuelgaFormComponent, huelga).subscribe(
+        (result) => {
+          console.log(result);
+          if (result?.id) this.edit(result);
+          else this.add(result);
+        }
+      )
+    );
   }
 
   loading = (loading = 100) =>

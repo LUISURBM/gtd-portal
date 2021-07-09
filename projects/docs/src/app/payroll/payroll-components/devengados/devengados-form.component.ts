@@ -136,8 +136,6 @@ export class DevengadosFormComponent {
                     });
                   }
                 }
-                console.log(data);
-                console.log(this.valores);
                 this.valores.forEach((v) => {
                   this.form.addControl(v.code!!, this.builder.control(v.value));
                 });

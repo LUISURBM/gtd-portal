@@ -3,9 +3,10 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AppStateService } from '../../../../srv/app-state.service';
 import { MenuItems } from '../../../../shared/menu-items/menu-items';
+import { AppStateService } from '../../../../srv/app-state.service';
 import { NavigationService } from '../../../../srv/navigation.service';
+import { gtdDate } from '../../../../types/common-types';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
 @Component({
   selector: 'app-payroll-general-form-dialog',
@@ -28,12 +29,13 @@ export class PayrollGeneralFormComponent {
   ) {
     this.form = this.builder.group({
       id: '',
-      fechaCorte: new Date(),
+      fechaCorte: this.builder.control(new Date()),
       nombre: this.builder.control('', [Validators.required]),
       descripcion: '',
       estado: 'TEST',
     });
-    if (data) this.form.patchValue(data);
+    if (data)
+      this.form.patchValue({ ...data, fechaCorte: gtdDate(data.FechaCorte) });
   }
 
   onNoClick(): void {

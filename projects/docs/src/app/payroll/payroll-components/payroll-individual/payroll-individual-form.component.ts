@@ -7,6 +7,7 @@ import { BehaviorSubject, iif, of, Subscription } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 import { animationsForm } from '../../../animations/form-animation';
 import { DirtyComponent } from '../../../guards/dirty-check.guard';
+import { AppStateService } from '../../../srv/app-state.service';
 import { NavigationService } from '../../../srv/navigation.service';
 import {
   NominasIndividualesService,
@@ -40,6 +41,7 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
   isDirty$: BehaviorSubject<boolean>;
 
   constructor(
+    public stateSrv: AppStateService,
     public builder: FormBuilder,
     private route: ActivatedRoute,
     public navSrv: NavigationService,
@@ -95,7 +97,6 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
         )
         .subscribe({
           next: (data: any) => {
-            console.log(data);
             if (data?.type === 4 && data?.status == 200 && data?.body?.bodyDto)
               this.form.patchValue({
                 ...data?.body?.bodyDto,
@@ -161,7 +162,6 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
   };
 
   ngOnInit(): void {
-    console.log(this.form.value);
     this.subscriptions.push(
       gtdBeforeUnload()
         .pipe(filter(() => this.form.dirty))

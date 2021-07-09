@@ -3,14 +3,13 @@ import {
   ElementRef,
   forwardRef,
   HostListener,
-  Input,
+  Input
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
 import {
   numberWithCommas,
-  parseLocaleNumber,
-  stringWithCommas,
+  parseLocaleNumber
 } from '../types/common-types';
 
 @Directive({
@@ -28,12 +27,9 @@ import {
   ],
 })
 export class GtdInputFormatterDirective {
-  // tslint:disable-next-line:variable-name
   private _value?: string;
 
-  constructor(private elementRef: ElementRef<HTMLInputElement>) {
-    console.log('created directive');
-  }
+  constructor(private elementRef: ElementRef<HTMLInputElement>) {}
 
   get value(): string {
     return this._value!;

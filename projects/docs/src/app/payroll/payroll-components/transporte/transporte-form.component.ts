@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppStateService } from '../../../srv/app-state.service';
 @Component({
   selector: 'app-transporte-form-dialog',
   templateUrl: './transporte-form.component.html',
@@ -11,6 +12,7 @@ export class TransporteFormComponent {
   form: FormGroup;
 
   constructor(
+    public stateSrv: AppStateService,
     public dialogRef: MatDialogRef<TransporteFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder

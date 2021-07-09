@@ -89,12 +89,10 @@ export class DeduccionesComponent implements OnInit, AfterViewInit {
           })
         )
         .subscribe((response: any) => {
-          console.log(response);
           if (!response?.body?.body) return;
           const valores: ValuesCatalog[] = gtdExtractDataProcedure(
             response.body?.body
           );
-          console.log(valores);
           initTable(
             this.dataSource$,
             this.paginator,

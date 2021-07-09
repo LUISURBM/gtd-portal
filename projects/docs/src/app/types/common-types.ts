@@ -1,4 +1,4 @@
-import { formatNumber } from '@angular/common';
+import { formatDate, formatNumber } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -112,9 +112,9 @@ export const gtdArrayToLowerCase = (bodyDto: any[]) =>
     var newobj: any = {};
     while (n--) {
       key = keys[n];
-      if(!element[key]) continue;
+      if (!element[key]) continue;
       if (key.toLowerCase().split('fecha').length > 1) {
-        element[key] = new Date(element[key]);
+        element[key] = gtdDate(element[key]);
       } /* else if (typeof element[key] === 'number') {
         element[key] = numberWithCommas(element[key]);
       } */
@@ -122,11 +122,9 @@ export const gtdArrayToLowerCase = (bodyDto: any[]) =>
       newobj[`${key.charAt(0).toLowerCase()}${key.substr(1, key.length)}`] =
         element[key];
     }
-    try{
+    try {
       newobj[`valueCatalogName`] = JSON.parse(newobj[`valueCatalogName`]);
-    }catch(e){
-
-    }
+    } catch (e) {}
     return newobj;
   });
 
@@ -192,6 +190,10 @@ export const gtdSueldoTrabajador = (sueldo: string) =>
   formatNumber(Number(sueldo), 'es-CO', '1.2-2');
 
 export const gtdBeforeUnload = () => fromEvent(window, 'beforeunload');
+export const gtdTime = (value: number | string | Date) =>
+  formatDate(value, 'yyyy-MM-dd', 'es-Co');
+export const gtdDate = (value: number | string | Date) =>
+  formatDate(value, 'yyyy-MM-ddThh:mm', 'es-Co');
 export const numberWithCommas = (value: string) =>
   formatNumber(
     typeof value === 'number' ? value : +value?.replace(/\./g, '') ?? 0,
@@ -224,19 +226,19 @@ export const gtdExtractDataProcedure = (body: any) =>
     var keys = Object.keys(data);
     var n = keys.length;
     var newobj: any = {};
-    data?.[keys?.[0]]?.forEach?.((element: any) => {
-      var keys = Object.keys(data);
-      var n = keys.length;
-      while (n--) {
-        valores.push({
-          id: y + 1,
-          value: element[keys[n]],
-          code: keys[n],
-          name: keys[n],
-          catalog: '',
-        });
-      }
-    });
+    // data?.[keys?.[0]]?.forEach?.((element: any) => {
+    //   var keys = Object.keys(data);
+    //   var n = keys.length;
+    //   while (n--) {
+    //     valores.push({
+    //       id: y + 1,
+    //       value: element[keys[n]],
+    //       code: keys[n],
+    //       name: keys[n],
+    //       catalog: '',
+    //     });
+    //   }
+    // });
     while (n--) {
       var gtdMember = keys[n];
       var valor = data[gtdMember];

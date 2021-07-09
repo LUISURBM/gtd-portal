@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
+import { gtdDate, gtdTime } from '../../../types/common-types';
 @Component({
   selector: 'app-incapacidad-form-dialog',
   templateUrl: './incapacidad-form.component.html',
@@ -52,7 +53,11 @@ export class IncapacidadFormComponent {
       }),
     ];
     this.form = this.builder.group(data);
-    this.form.patchValue(data);
+    this.form.patchValue({
+      ...data,
+      fechaInicio: gtdTime(data.fechaInicio),
+      fechaFin: gtdTime(data.fechaFin),
+    });
   }
 
   onNoClick(): void {

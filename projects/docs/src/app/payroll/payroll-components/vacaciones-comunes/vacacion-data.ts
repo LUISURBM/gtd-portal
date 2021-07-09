@@ -9,7 +9,7 @@ export interface Vacacion {
   cantidad: number;
   pago: number;
   catalog: string;
-  valueCatalogName?: string
+  valueCatalogName?: string;
 }
 
 export const vacaciones: Vacacion[] = [
@@ -188,3 +188,12 @@ export const displayedColumns: string[] = [
   'fechaFin',
   'action',
 ];
+
+export const EMPTY = {
+  id: '',
+  fechaInicio: new Date(),
+  fechaFin: new Date(),
+  pago: 0,
+  cantidad: 0,
+  catalog: '',
+};

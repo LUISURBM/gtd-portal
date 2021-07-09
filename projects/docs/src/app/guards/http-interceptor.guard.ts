@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
@@ -7,13 +7,19 @@ import {
   HttpClient,
 } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()
-export class GtdHttpInterceptor implements HttpInterceptor {
-  constructor(private httpClient: HttpClient) {}
+export class GtdHttpInterceptor implements HttpInterceptor, OnDestroy {
+  subscriptions: Subscription[];
+  constructor(private httpClient: HttpClient) {
+    this.subscriptions = [];
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((s) => s.unsubscribe());
+  }
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -23,62 +29,59 @@ export class GtdHttpInterceptor implements HttpInterceptor {
         req?.url?.split(environment.API_GATEWAY.split('//')?.[1])[1] ??
         req?.url;
       try {
-        const data = JSON.stringify({
-          perición: req,
-          username: 'Nómina Electrónica Angular 🎮',
-          icon_emoji: ':ghost:',
-        });
-        this.httpClient
-          .post<any>(
-            `https://hooks.slack.com/services/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`,
-            {
-              text: 'fe-api-rest request',
-              blocks: [
-                {
-                  type: 'section',
-                  text: {
-                    type: 'mrkdwn',
-                    text: environment.API_GATEWAY.split('//')?.[1],
-                  },
-                },
-                {
-                  type: 'section',
-                  block_id: 'section567',
-                  text: {
-                    type: 'mrkdwn',
-                    text: req.body?.body
-                      ? JSON.stringify(req.body?.body)
-                      : req.body?.params
-                      ? JSON.stringify(req.body?.params)
-                      : JSON.stringify(`${req.method}`),
-                  },
-                },
-                {
-                  type: 'section',
-                  block_id: 'section789',
-                  fields: [
-                    {
+        this.subscriptions.push(
+          this.httpClient
+            .post<any>(
+              `https://hooks.slack.com/services/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`,
+              {
+                text: 'fe-api-rest request',
+                blocks: [
+                  {
+                    type: 'section',
+                    text: {
                       type: 'mrkdwn',
-                      text: req.body?.header
-                        ? JSON.stringify(
-                            req.body?.header?.procedimientoAlmacenado
-                          )
-                        : JSON.stringify(`${uri}`),
+                      text: environment.API_GATEWAY.split('//')?.[1],
                     },
-                  ],
-                },
-              ],
-            },
-            {
-              headers: {
-                'Content-type': 'application/x-www-form-urlencoded',
+                  },
+                  {
+                    type: 'section',
+                    block_id: 'section567',
+                    text: {
+                      type: 'mrkdwn',
+                      text: req.body?.body
+                        ? JSON.stringify(req.body?.body)
+                        : req.body?.params
+                        ? JSON.stringify(req.body?.params)
+                        : req.body?.entidad
+                        ? `${req.method} :: ${JSON.stringify(req.body.entidad)}`
+                        : `${req.method}`,
+                    },
+                  },
+                  {
+                    type: 'section',
+                    block_id: 'section789',
+                    fields: [
+                      {
+                        type: 'mrkdwn',
+                        text: req.body?.header
+                          ? JSON.stringify(
+                              req.body?.header?.procedimientoAlmacenado
+                            )
+                          : JSON.stringify(`${uri}`),
+                      },
+                    ],
+                  },
+                ],
               },
-            }
-          )
-          .subscribe({ next: (r) => {}, error: (error) => console.log(error) });
-      } catch (error) {
-        console.error(error);
-      }
+              {
+                headers: {
+                  'Content-type': 'application/x-www-form-urlencoded',
+                },
+              }
+            )
+            .subscribe({ next: (r) => {}, error: (error) => {} })
+        );
+      } catch (error) {}
     }
     return next.handle(req);
   }

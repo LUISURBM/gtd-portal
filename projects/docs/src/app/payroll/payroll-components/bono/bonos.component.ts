@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { BonosEPCTVService } from '../../../srv/payroll/rest/api';
 import {
@@ -73,8 +74,9 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
     private _snackBar: MatSnackBar,
     public formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private bonosAPISrv: BonosEPCTVService
-  ) {
+    private bonosAPISrv: BonosEPCTVService,
+    public stateSrv: AppStateService
+    ) {
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),

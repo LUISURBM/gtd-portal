@@ -17,6 +17,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { BonificacionesService } from '../../../srv/payroll/rest/api';
 import { NgGtdDS } from '../../../types/common-types';
@@ -94,6 +95,7 @@ export class BonificacionesComponent
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,

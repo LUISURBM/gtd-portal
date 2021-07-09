@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,11 +14,16 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
 import { LicenciasService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
-import { displayedColumns, EMPTY, Licencia, licencias } from './licencia-data';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+  OpenDialog,
+} from '../../../types/common-types';
+import { displayedColumns, EMPTY, Licencia } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';
 
 @Component({
@@ -44,11 +49,22 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.licenciasAPISrv.listFindAllDevengadosUsingGET22(data?.devengadosId, 'events', true, {});
+    this.licenciasAPISrv.listFindAllDevengadosUsingGET22(
+      data?.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
   constructor(
     public memSrv: InMemService,
@@ -89,8 +105,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
   add(licencia: Licencia): void {
     if (!licencia) {
@@ -202,9 +217,13 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${licencia.valueCatalogType}`, 'actualizado!', {
-              duration: 50000,
-            });
+            this._snackBar.open(
+              `${licencia.valueCatalogType}`,
+              'actualizado!',
+              {
+                duration: 50000,
+              }
+            );
             return this.listado(this.form.value);
           })
         )
@@ -231,20 +250,15 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(licencia?: Licencia): void {
-    console.log(licencia);
-    const dialogRef = this.dialog.open(LicenciaFormComponent, {
-      width: '450px',
-      data: licencia ?? EMPTY,
-    });
-
-    this.subscriptions.push(dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    }));
+    OpenDialog(this.dialog, LicenciaFormComponent, licencia ?? EMPTY).subscribe(
+      (result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      }
+    );
   }
 
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
 }

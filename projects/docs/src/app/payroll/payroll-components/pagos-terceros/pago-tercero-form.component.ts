@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppStateService } from '../../../srv/app-state.service';
 
 @Component({
   selector: 'app-pago-tercero-form-dialog',
@@ -12,6 +13,7 @@ export class PagoTerceroFormComponent {
   form: FormGroup;
 
   constructor(
+    public stateSrv: AppStateService,
     public dialogRef: MatDialogRef<PagoTerceroFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder

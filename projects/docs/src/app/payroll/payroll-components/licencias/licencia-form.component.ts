@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
+import { gtdDate, gtdTime } from '../../../types/common-types';
 import { catalogs } from './licencia-data';
 @Component({
   selector: 'app-licencia-form-dialog',
@@ -59,7 +60,11 @@ export class LicenciaFormComponent {
       catalog: '',
       valueCatalogType: ''
     });
-    this.form.patchValue(data);
+    this.form.patchValue({
+      ...data,
+      fechaInicio: gtdTime(data.fechaInicio),
+      fechaFin: gtdTime(data.fechaFin),
+    });
   }
 
   onNoClick(): void {

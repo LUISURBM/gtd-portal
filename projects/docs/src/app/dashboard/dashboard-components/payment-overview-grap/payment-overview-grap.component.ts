@@ -83,11 +83,11 @@ export class PaymentOverviewGrapComponent implements OnInit {
         })??data;
 
 
-          console.log(newarray);
+          // console.log(newarray);
           // this.data = newarray;
       },
         error: (err: any) => {
-          console.log(err);
+          // console.log(err);
         }
       });
   }

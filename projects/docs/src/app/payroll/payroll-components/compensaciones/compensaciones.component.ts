@@ -226,13 +226,10 @@ export class CompensacionesComponent
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(compensacion?: Compensacion): void {
     const dialogRef = this.dialog.open(CompensacionFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: compensacion ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

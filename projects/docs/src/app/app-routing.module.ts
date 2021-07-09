@@ -74,6 +74,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', redirectTo: '/dashboard'},
 ];
 
 const isIframe = window !== window.parent && !window.opener;

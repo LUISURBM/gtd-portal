@@ -19,8 +19,10 @@ import { HorariosAdicionalesService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
+  gtdDate,
   initTable,
   NgGtdDS,
+  OpenDialog,
 } from '../../../types/common-types';
 import {
   displayedColumns,
@@ -230,9 +232,13 @@ export class HorariosAdicionalesComponent
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${horarioAdicional.valueCatalogName}`, 'actualizado!', {
-              duration: 50000,
-            });
+            this._snackBar.open(
+              `${horarioAdicional.valueCatalogName}`,
+              'actualizado!',
+              {
+                duration: 50000,
+              }
+            );
             return this.listado(this.form.value);
           })
         )
@@ -259,12 +265,12 @@ export class HorariosAdicionalesComponent
   }
 
   openDialog(horarioAdicional?: HorarioAdicional): void {
-    const dialogRef = this.dialog.open(HorarioAdicionalFormComponent, {
-      width: '450px',
-      data: horarioAdicional ?? EMPTY,
-    });
     this.subscriptions.push(
-      dialogRef.afterClosed().subscribe((result) => {
+      OpenDialog(this.dialog, HorarioAdicionalFormComponent, {
+        ...horarioAdicional,
+        horaInicio: gtdDate(horarioAdicional?.horaInicio ?? new Date()),
+        horaFin: gtdDate(horarioAdicional?.horaFin ?? new Date()),
+      }).subscribe((result) => {
         console.log(result);
         if (result?.id) this.edit(result);
         else this.add(result);

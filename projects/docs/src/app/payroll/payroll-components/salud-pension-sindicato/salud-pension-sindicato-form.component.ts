@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { AppStateService } from '../../../srv/app-state.service';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
 import { catalogs } from './salud-pension-sindicato-data';
 @Component({
@@ -41,6 +42,7 @@ export class SaludPensionSindicatoFormComponent {
     this.catalogs = data.body?.body;
   };
   constructor(
+    public stateSrv: AppStateService,
     public dialogRef: MatDialogRef<SaludPensionSindicatoFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder,

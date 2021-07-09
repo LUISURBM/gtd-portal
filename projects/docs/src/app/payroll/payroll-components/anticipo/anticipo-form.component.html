@@ -10,7 +10,7 @@
 
       <mat-form-field>
         <input matInput tabindex="1" formControlName="anticipo" placeholder="Valor del anticipo" id="anticipo"
-          type="number" step="0.01" gtdInputFormatter class="form-control" />
+          type="number" step="0.01" class="form-control" />
         <div *ngIf="f.anticipo.touched && f.anticipo.invalid" class="alert alert-danger">
           <div *ngIf="f.anticipo.errors?.required">
             Valor del Anticipo es obligatorio.

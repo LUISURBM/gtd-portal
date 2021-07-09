@@ -235,7 +235,7 @@ export class PrimasService implements PrimasServiceInterface {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResponseTListHashMapstringobject>(`${this.configuration.basePath}/nomina-general/primas/list/${encodeURIComponent(String())}`,
+        return this.httpClient.get<ResponseTListHashMapstringobject>(`${this.configuration.basePath}/nomina-general/primas/list/${encodeURIComponent(String(param))}`,
             {
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

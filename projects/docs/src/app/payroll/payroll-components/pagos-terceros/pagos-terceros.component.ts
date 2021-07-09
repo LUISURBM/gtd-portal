@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { PagosTercerosService } from '../../../srv/payroll/rest/api';
 import {
@@ -50,12 +51,22 @@ export class PagosTercerosComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.pagosTercerosAPISrv.listFindAllDeduccionesUsingGET6(
-      data.deduccionesId,
-      'events',
-      true,
-      {}
-    );
+    data?.deduccionesId &&
+    data?.deduccionesId != null &&
+    data?.deduccionesId != undefined &&
+    data?.deduccionesId != 'undefined'
+      ? this.pagosTercerosAPISrv.listFindAllDeduccionesUsingGET6(
+          data?.deduccionesId,
+          'events',
+          true,
+          {}
+        )
+      : this.pagosTercerosAPISrv.listFindAllDevengadosUsingGET24(
+          data?.devengadosId,
+          'events',
+          true,
+          {}
+        );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -69,6 +80,7 @@ export class PagosTercerosComponent
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -81,6 +93,7 @@ export class PagosTercerosComponent
       fechaCorte: new Date(),
       nominaGeneralId: undefined,
       deduccionesId: undefined,
+      devengadosId: undefined,
     });
     this.subscriptions = [
       this.form.valueChanges
@@ -120,6 +133,7 @@ export class PagosTercerosComponent
         id: undefined,
         pagoTercero: pagoTercero.pagoTercero,
         deduccionesId: this.form.value.deduccionesId,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018859FDED4E',
         enabled: true,
         eventDate: new Date().toDateString(),
@@ -158,10 +172,7 @@ export class PagosTercerosComponent
 
   delete(pagoTercero: PagoTercero): void {
     this.subscriptions.push(
-      confirm(
-        this.dialog,
-        `¿Eliminar Pago Tercero ${pagoTercero.pagoTercero}?`
-      )
+      confirm(this.dialog, `¿Eliminar Pago Tercero ${pagoTercero.pagoTercero}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -196,6 +207,7 @@ export class PagosTercerosComponent
         pagoTercero: pagoTercero.pagoTercero,
         id: pagoTercero.id,
         deduccionesId: this.form.value.deduccionesId,
+        devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018859FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

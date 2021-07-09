@@ -17,7 +17,13 @@ import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { InMemService } from '../../../srv/in-mem-service';
 import { IncapacidadesService } from '../../../srv/payroll/rest/api';
-import { gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
+import {
+  gtdArrayToLowerCase,
+  gtdDate,
+  gtdTime,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import {
   displayedColumns,
   Incapacidad,
@@ -59,7 +65,13 @@ export class IncapacidadesComponent
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
   subscriptions: Subscription[];
   constructor(
@@ -111,8 +123,8 @@ export class IncapacidadesComponent
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: incapacidad.fechaFin?.toISOString(),
-        fechaInicio: incapacidad.fechaInicio?.toISOString(),
+        fechaFin: gtdTime(incapacidad.fechaFin!),
+        fechaInicio: gtdTime(incapacidad.fechaInicio!),
         id: undefined,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,
@@ -187,8 +199,8 @@ export class IncapacidadesComponent
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: incapacidad.fechaFin?.toISOString(),
-        fechaInicio: incapacidad.fechaInicio?.toISOString(),
+        fechaFin: gtdTime(incapacidad.fechaFin!),
+        fechaInicio: gtdTime(incapacidad.fechaInicio!),
         id: incapacidad.id,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,

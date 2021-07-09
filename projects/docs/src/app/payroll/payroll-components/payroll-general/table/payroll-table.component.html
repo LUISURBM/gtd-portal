@@ -48,18 +48,18 @@
           <th mat-header-cell *matHeaderCellDef id="generalAcciones">Acciones</th>
           <td mat-cell *matCellDef="let element">
             <ng-container *ngIf="!element.loading">
-              <button mat-icon-button *ngIf="element.id" color="primary" [matTooltip]="stateSrv?.textos?.VerNominasINE?.name!"
+              <button mat-icon-button *ngIf="element.id" [matTooltip]="stateSrv?.textos?.VerNominasINE?.name!"
                 (click)="navSrv.navigate('/nómina/individual', JSON.stringify({ nominaGeneralId: element.id, fechaCorte: element.fechaCorte}))"
                 tabindex="-2">
                 <span>{{'1F50D'|gtdEmoji}}</span>
               </button>
-                <button mat-icon-button color="primary" (click)="element.loading = 10; openDialog(element)"
+                <button mat-icon-button class="gtd-icon-button" (click)="element.loading = 10; openDialog(element)"
                   [matTooltip]="stateSrv?.textos?.EditarNominasGNE?.description!">
-                  <mat-icon><img src="assets/images/edit.png" alt="ver"></mat-icon>
+                  <span>{{'270F'|gtdEmoji}}</span>
                 </button>
-                <button mat-icon-button color="accent" (click)="element.loading = 10; delete(element);"
+                <button mat-icon-button class="gtd-icon-button" (click)="element.loading = 10; delete(element);"
                   [matTooltip]="txtEliminar(element)">
-                  <mat-icon><img src="assets/images/quitar.png" alt="eliminar"></mat-icon>
+                  <span>{{'1F5D1'|gtdEmoji}}</span>
                 </button>
             </ng-container>
             <ng-container *ngIf="element.loading">
@@ -77,7 +77,7 @@
         </tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20, 200, 2000]" showFirstLastButtons></mat-paginator>
     </div>
   </mat-card-content>
 </mat-card>

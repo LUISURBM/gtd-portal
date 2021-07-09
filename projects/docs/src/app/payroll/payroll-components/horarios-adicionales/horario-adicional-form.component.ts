@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
-import { catalogs } from './horario-adicional-data';
+import { gtdDate } from '../../../types/common-types';
 
 @Component({
   selector: 'app-horario-adicional-form-dialog',
@@ -13,7 +13,7 @@ export class HorarioAdicionalFormComponent {
   position = 'below';
 
   form: FormGroup;
-  catalogs:any = [];
+  catalogs: any = [];
   requestCatalogos: any = {
     body: {
       params: {
@@ -45,14 +45,25 @@ export class HorarioAdicionalFormComponent {
     public builder: FormBuilder,
     private storedProcedureAPISrv: StoredProcedureService
   ) {
+
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      cantidad: this.builder.control(0),
+      pago: this.builder.control(0),
+      porcentaje: this.builder.control(0),
+      horaInicio: this.builder.control(gtdDate(new Date())),
+      horaFin: this.builder.control(gtdDate(new Date())),
+      valueCatalogType: this.builder.control('HEDS'),
+    });
+
     this.subscriptions = [
       this.catalogos.subscribe({
         next: this.leerCatalogos,
         error: (err: any) => console.log(err),
       }),
     ];
-    this.form = this.builder.group(data);
-    this.form.patchValue(data);
+    if (data)
+      this.form.patchValue(data);
   }
 
   onNoClick(): void {

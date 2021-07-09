@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { SaludPensionSindicatosService } from '../../../srv/payroll/rest/api';
 import { confirm, NgGtdDS } from '../../../types/common-types';
@@ -99,6 +100,7 @@ export class SaludPensionSindicatosComponent
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,

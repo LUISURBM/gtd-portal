@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BehaviorSubject } from 'rxjs';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NgGtdDS } from '../../../types/common-types';
 import { displayedColumns, EMPTY, Pago, pagos } from './pago-data';
@@ -25,6 +26,7 @@ export class PagosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
@@ -101,13 +103,10 @@ export class PagosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openDialog(id?: number): void {
-    let datasource = this.dataSource$.value.datasource;
-    const editing = datasource.data.filter((v) => v.id == id)?.[0];
-    console.log(editing);
+  openDialog(pago?: Pago): void {
     const dialogRef = this.dialog.open(PagoFormComponent, {
       width: '450px',
-      data: editing ? editing : EMPTY,
+      data: pago ?? EMPTY,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

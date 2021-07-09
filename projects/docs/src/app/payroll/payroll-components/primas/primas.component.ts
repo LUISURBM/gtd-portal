@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { PrimasService } from '../../../srv/payroll/rest/api';
@@ -23,6 +24,7 @@ import {
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
+  OpenDialog,
 } from '../../../types/common-types';
 import { displayedColumns, EMPTY, Prima } from './prima-data';
 import { PrimaFormComponent } from './prima-form.component';
@@ -88,6 +90,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public formBuilder: FormBuilder,
     public memSrv: InMemService,
     public dialog: MatDialog,
@@ -101,6 +104,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
       fechaCorte: new Date(),
       estado: '',
       nombre: '',
+      devengadosId: '',
       nominaGeneralId: '',
     });
 
@@ -132,7 +136,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         cantidad: prima.cantidad,
         pagoNs: prima.pagoNs,
-        pagoS: prima.pagoS,
+        pago: prima.pago,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -206,7 +210,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
         id: prima.id,
         cantidad: prima.cantidad,
         pagoNs: prima.pagoNs,
-        pagoS: prima.pagoS,
+        pago: prima.pago,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -257,7 +261,7 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
   openDialog(prima?: Prima): void {
     const dialogRef = this.dialog.open(PrimaFormComponent, {
       width: '500px',
-      data: prima ?? EMPTY,
+      data: prima,
     });
     this.subscriptions.push(
       dialogRef.afterClosed().subscribe((result) => {
@@ -279,14 +283,9 @@ export class PrimasComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   confirm(pregunta: string, titulo?: string) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '350px',
-      data: {
-        titulo: titulo,
-        pregunta: pregunta,
-      },
+    return OpenDialog(this.dialog, ConfirmDialogComponent, {
+      titulo: titulo,
+      pregunta: pregunta,
     });
-
-    return dialogRef.afterClosed();
   }
 }

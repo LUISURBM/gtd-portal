@@ -13,7 +13,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, forkJoin, of, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { VacacionesCompensadasService } from '../../../srv/payroll/rest/api';
 import { VacacionesComunesService } from '../../../srv/payroll/rest/api';
@@ -22,8 +23,10 @@ import {
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
+  OpenDialog,
 } from '../../../types/common-types';
-import { catalogs, displayedColumns, Vacacion } from './vacacion-data';
+import { UIEditado, UIEliminado, UINoEditado } from '../../../values-catalog';
+import { catalogs, displayedColumns, EMPTY, Vacacion } from './vacacion-data';
 import { VacacionFormComponent } from './vacacion-form.component';
 
 @Component({
@@ -83,6 +86,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loading(100);
   };
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -228,9 +232,13 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.update(request)
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${vacacion.valueCatalogName}`, 'actualizado!', {
-              duration: 50000,
-            });
+            this._snackBar.open(
+              `${vacacion.valueCatalogName}`,
+              'actualizado!',
+              {
+                duration: 50000,
+              }
+            );
             return this.listado(this.form.value);
           })
         )
@@ -257,16 +265,17 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(vacacion?: Vacacion): void {
-    const dialogRef = this.dialog.open(VacacionFormComponent, {
-      width: '450px',
-      data: vacacion ?? { id: undefined, name: '' },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    });
+    this.subscriptions.push(
+      OpenDialog(
+        this.dialog,
+        VacacionFormComponent,
+        vacacion ?? EMPTY
+      ).subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
 
   save = (request: any) => {
@@ -292,8 +301,9 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   remove = (request: any) => {
-    if (request.entidad.valueCatalogName === catalogs[0].name)
-      return this.vacacionesCompensadasAPISrv.deleteUsingDELETE72(
+    let toReturn;
+    if (request.valueCatalogName === catalogs[0].name)
+      toReturn = this.vacacionesCompensadasAPISrv.deleteUsingDELETE72(
         request.id,
         'events',
         true,
@@ -301,8 +311,8 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else if (request.entidad.valueCatalogName === catalogs[1].name)
-      return this.vacacionesComunesAPISrv.deleteUsingDELETE73(
+    else if (request.valueCatalogName === catalogs[1].name)
+      toReturn = this.vacacionesComunesAPISrv.deleteUsingDELETE73(
         request.id,
         'events',
         true,
@@ -310,11 +320,18 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else return of();
+    else toReturn = of();
+    return toReturn.pipe(
+      tap({
+        next: () =>
+          this.stateSrv.message(`${request.valueCatalogName}`, UIEliminado),
+      })
+    );
   };
   update = (request: any) => {
+    let toReturn;
     if (request.entidad.valueCatalogName === catalogs[0].name)
-      return this.vacacionesCompensadasAPISrv.updateUsingPUT72(
+      toReturn = this.vacacionesCompensadasAPISrv.updateUsingPUT72(
         request,
         'events',
         true,
@@ -323,7 +340,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       );
     else if (request.entidad.valueCatalogName === catalogs[1].name)
-      return this.vacacionesComunesAPISrv.updateUsingPUT73(
+      toReturn = this.vacacionesComunesAPISrv.updateUsingPUT73(
         request,
         'events',
         true,
@@ -331,7 +348,28 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else return of();
+    else toReturn = of();
+    return toReturn.pipe(
+      tap({
+        next: (response: any) => {
+          if (
+            response?.type === 4 &&
+            response?.status === 200 &&
+            response?.body?.bodyDto?.[0]
+          ) {
+            this.stateSrv.message(
+              `${request?.entidad?.nombre ?? 'Vacación'}`,
+              UIEditado
+            );
+          } else if (response?.type === 4 && response?.status !== 200) {
+            this.stateSrv.message(
+              `${request?.entidad?.nombre ?? 'Vacación'}`,
+              UINoEditado
+            );
+          }
+        },
+      })
+    );
   };
 
   loading = (loading = 100) =>
