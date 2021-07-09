@@ -15,6 +15,7 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { InMemService } from '../../../srv/in-mem-service';
 import {
   gtdArrayToLowerCase,
+  gtdDate,
   initTable,
   NgGtdDS,
   OpenDialog,
@@ -27,6 +28,7 @@ import { HuelgasLegalesService } from '../../../srv/payroll/rest/api';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { AppStateService } from '../../../srv/app-state.service';
+import { UICreado, UIEditado, UIEliminado } from '../../../values-catalog';
 
 @Component({
   selector: 'app-payroll-huelgas',
@@ -120,8 +122,8 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: huelga.cantidad,
-        fechaFin: huelga.fechaFin.toISOString(),
-        fechaInicio: huelga.fechaInicio.toISOString(),
+        fechaFin: gtdDate(huelga.fechaFin!),
+        fechaInicio: gtdDate(huelga.fechaInicio!),
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -142,18 +144,13 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         })
         .pipe(
-          switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
-            if (response.type === 4 && response.status == 200)
-              this._snackBar.open(
-                `Huelga ${huelga.fechaInicio.toISOString()}`,
-                'creada!',
-                {
-                  duration: 50000,
-                }
-              );
-
-            return this.listado(this.form.value);
+          switchMap((data: any) => {
+            huelga.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Huelga`, UICreado);
+              return this.listado(this.form.value);
+            }
+            return of();
           })
         )
         .subscribe({
@@ -165,7 +162,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(huelga: Huelga): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar huelga ${huelga.fechaInicio.toISOString()}?`)
+      this.confirm(`¿Eliminar huelga ${huelga.fechaInicio?.toString()}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -179,10 +176,13 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
+          switchMap((data: any) =>{
+            huelga.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Huelga`, UIEliminado);
+              return this.listado(this.form.value);
+            }
+            return of();}
           )
         )
         .subscribe({
@@ -198,13 +198,13 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: huelga.cantidad,
-        fechaFin: huelga.fechaFin.toISOString(),
-        fechaInicio: huelga.fechaInicio.toISOString(),
+        fechaFin: huelga.fechaFin?.toString(),
+        fechaInicio: huelga.fechaInicio?.toString(),
         id: huelga.id,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
-        eventDate: new Date().toISOString(),
+        eventDate: new Date()?.toString(),
         eventType: 'CREATE',
         eventUser: 'LFUM',
         removed: false,
@@ -220,15 +220,13 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         })
         .pipe(
-          switchMap((response: any) => {
-            this._snackBar.open(
-              `Huelga ${huelga.fechaInicio.toISOString()}`,
-              'actualizado!',
-              {
-                duration: 50000,
-              }
-            );
-            return this.listado(this.form.value);
+          switchMap((data: any) => {
+            huelga.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Huelga`, UIEditado);
+              return this.listado(this.form.value);
+            }
+            return of();
           })
         )
         .subscribe({

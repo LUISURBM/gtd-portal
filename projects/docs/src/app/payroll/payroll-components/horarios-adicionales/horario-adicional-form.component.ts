@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
-import { gtdDate } from '../../../types/common-types';
+import { gtdDateTime } from '../../../types/common-types';
 
 @Component({
   selector: 'app-horario-adicional-form-dialog',
@@ -45,15 +45,14 @@ export class HorarioAdicionalFormComponent {
     public builder: FormBuilder,
     private storedProcedureAPISrv: StoredProcedureService
   ) {
-
     this.form = this.builder.group({
       id: this.builder.control(''),
       cantidad: this.builder.control(0),
       pago: this.builder.control(0),
       porcentaje: this.builder.control(0),
-      horaInicio: this.builder.control(gtdDate(new Date())),
-      horaFin: this.builder.control(gtdDate(new Date())),
-      valueCatalogType: this.builder.control('HEDS'),
+      horaInicio: this.builder.control(gtdDateTime(new Date())),
+      horaFin: this.builder.control(gtdDateTime(new Date())),
+      valueCatalogType: this.builder.control('HEDS', [Validators.required]),
     });
 
     this.subscriptions = [
@@ -62,8 +61,7 @@ export class HorarioAdicionalFormComponent {
         error: (err: any) => console.log(err),
       }),
     ];
-    if (data)
-      this.form.patchValue(data);
+    if (data) this.form.patchValue(data);
   }
 
   onNoClick(): void {

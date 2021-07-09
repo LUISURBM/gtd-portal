@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,20 +15,18 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { IncapacidadesService } from '../../../srv/payroll/rest/api';
 import {
-  gtdArrayToLowerCase,
-  gtdDate,
-  gtdTime,
+  gtdArrayToLowerCase, gtdDate,
   initTable,
   NgGtdDS,
+  OpenDialog
 } from '../../../types/common-types';
+import { UIEditado, UIEliminado } from '../../../values-catalog';
 import {
-  displayedColumns,
-  Incapacidad,
-  incapacidads,
-  EMPTY,
+  displayedColumns, EMPTY, Incapacidad
 } from './incapacidad-data';
 import { IncapacidadFormComponent } from './incapacidad-form.component';
 
@@ -75,6 +73,7 @@ export class IncapacidadesComponent
   };
   subscriptions: Subscription[];
   constructor(
+    public stateSrv: AppStateService,
     public formBuilder: FormBuilder,
     public memSrv: InMemService,
     public dialog: MatDialog,
@@ -123,8 +122,8 @@ export class IncapacidadesComponent
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: gtdTime(incapacidad.fechaFin!),
-        fechaInicio: gtdTime(incapacidad.fechaInicio!),
+        fechaFin: gtdDate(incapacidad.fechaFin!),
+        fechaInicio: gtdDate(incapacidad.fechaInicio!),
         id: undefined,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,
@@ -148,14 +147,13 @@ export class IncapacidadesComponent
         httpHeaderAccept: 'application/json',
       })
       .pipe(
-        switchMap((response: any) => {
-          if (!(response.type === 4)) return of();
-          if (response.type === 4 && response.status == 200)
-            this._snackBar.open(`${incapacidad.tipo}`, 'creada!', {
-              duration: 50000,
-            });
-
-          return this.listado(this.form.value);
+        switchMap((data: any) => {
+          incapacidad.loading = undefined;
+          if (data?.type === 4 && data?.status === 200) {
+            this.stateSrv.message(`Incapacidad`, UIEditado);
+            return this.listado(this.form.value);
+          }
+          return of();
         })
       )
       .subscribe({
@@ -180,10 +178,14 @@ export class IncapacidadesComponent
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
+          switchMap((data: any) =>{
+            incapacidad.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Incapacidad`, UIEliminado);
+              return this.listado(this.form.value);
+            }
+            return of();
+          }
           )
         )
         .subscribe({
@@ -199,8 +201,8 @@ export class IncapacidadesComponent
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: gtdTime(incapacidad.fechaFin!),
-        fechaInicio: gtdTime(incapacidad.fechaInicio!),
+        fechaFin: gtdDate(incapacidad.fechaFin!),
+        fechaInicio: gtdDate(incapacidad.fechaInicio!),
         id: incapacidad.id,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,
@@ -223,11 +225,13 @@ export class IncapacidadesComponent
           httpHeaderAccept: 'application/json',
         })
         .pipe(
-          switchMap((response: any) => {
-            this._snackBar.open(`${incapacidad.tipo}`, 'actualizada!', {
-              duration: 50000,
-            });
-            return this.listado(this.form.value);
+          switchMap((data: any) => {
+            incapacidad.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Incapacidad`, UIEditado);
+              return this.listado(this.form.value);
+            }
+            return of();
           })
         )
         .subscribe({
@@ -253,16 +257,17 @@ export class IncapacidadesComponent
   }
 
   openDialog(incapacidad?: Incapacidad): void {
-    const dialogRef = this.dialog.open(IncapacidadFormComponent, {
-      width: '450px',
-      data: incapacidad ?? EMPTY,
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-      if (result?.id) this.edit(result);
-      else this.add(result);
-    });
+    this.subscriptions.push(
+      OpenDialog(
+        this.dialog,
+        IncapacidadFormComponent,
+        incapacidad ?? EMPTY
+      ).subscribe((result) => {
+        console.log(result);
+        if (result?.id) this.edit(result);
+        else this.add(result);
+      })
+    );
   }
   loading = (loading = 100) =>
     this.dataSource$.next({ ...this.dataSource$.value, loading: loading });

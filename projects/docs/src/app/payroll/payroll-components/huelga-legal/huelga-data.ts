@@ -7,6 +7,7 @@ export interface Huelga {
   fechaInicio: Date;
   fechaFin: Date;
   cantidad: number;
+  loading?: boolean;
 }
 
 export const huelgas: Huelga[] = [

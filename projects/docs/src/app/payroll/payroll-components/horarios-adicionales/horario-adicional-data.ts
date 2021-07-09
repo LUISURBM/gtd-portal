@@ -11,6 +11,7 @@ export interface HorarioAdicional {
   catalog?: string;
   valueCatalogType?: string;
   valueCatalogName?: string;
+  loading?: boolean;
 }
 
 export const HorariosAdicionales: HorarioAdicional[] = [

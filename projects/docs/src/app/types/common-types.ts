@@ -114,7 +114,7 @@ export const gtdArrayToLowerCase = (bodyDto: any[]) =>
       key = keys[n];
       if (!element[key]) continue;
       if (key.toLowerCase().split('fecha').length > 1) {
-        element[key] = gtdDate(element[key]);
+        element[key] = gtdDateTime(element[key]);
       } /* else if (typeof element[key] === 'number') {
         element[key] = numberWithCommas(element[key]);
       } */
@@ -190,9 +190,9 @@ export const gtdSueldoTrabajador = (sueldo: string) =>
   formatNumber(Number(sueldo), 'es-CO', '1.2-2');
 
 export const gtdBeforeUnload = () => fromEvent(window, 'beforeunload');
-export const gtdTime = (value: number | string | Date) =>
+export const gtdDate = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-dd', 'es-Co');
-export const gtdDate = (value: number | string | Date) =>
+export const gtdDateTime = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-ddThh:mm', 'es-Co');
 export const numberWithCommas = (value: string) =>
   formatNumber(

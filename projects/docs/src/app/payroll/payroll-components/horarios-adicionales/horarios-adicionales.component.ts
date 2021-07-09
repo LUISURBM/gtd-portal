@@ -14,16 +14,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { HorariosAdicionalesService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
-  gtdDate,
+  gtdDateTime,
   initTable,
   NgGtdDS,
   OpenDialog,
 } from '../../../types/common-types';
+import { UICreado, UIEliminado } from '../../../values-catalog';
 import {
   displayedColumns,
   EMPTY,
@@ -76,6 +78,7 @@ export class HorariosAdicionalesComponent
   };
 
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -151,14 +154,13 @@ export class HorariosAdicionalesComponent
           httpHeaderAccept: 'application/json',
         })
         .pipe(
-          switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
-            if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${horarioAdicional.catalog}`, 'creada!', {
-                duration: 50000,
-              });
-
-            return this.listado(this.form.value);
+          switchMap((data: any) => {
+            horarioAdicional.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Horario Adicional`, UICreado);
+              return this.listado(this.form.value);
+            }
+            return of();
           })
         )
         .subscribe({
@@ -187,10 +189,14 @@ export class HorariosAdicionalesComponent
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
+          switchMap((data: any) => {
+            horarioAdicional.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Horario Adicional`, UIEliminado);
+              return this.listado(this.form.value);
+            }
+            return of();
+          }
           )
         )
         .subscribe({
@@ -231,15 +237,13 @@ export class HorariosAdicionalesComponent
           httpHeaderAccept: 'application/json',
         })
         .pipe(
-          switchMap((response: any) => {
-            this._snackBar.open(
-              `${horarioAdicional.valueCatalogName}`,
-              'actualizado!',
-              {
-                duration: 50000,
-              }
-            );
-            return this.listado(this.form.value);
+          switchMap((data: any) => {
+            horarioAdicional.loading = undefined;
+            if (data?.type === 4 && data?.status === 200) {
+              this.stateSrv.message(`Horario Adicional`, UICreado);
+              return this.listado(this.form.value);
+            }
+            return of();
           })
         )
         .subscribe({
@@ -268,8 +272,8 @@ export class HorariosAdicionalesComponent
     this.subscriptions.push(
       OpenDialog(this.dialog, HorarioAdicionalFormComponent, {
         ...horarioAdicional,
-        horaInicio: gtdDate(horarioAdicional?.horaInicio ?? new Date()),
-        horaFin: gtdDate(horarioAdicional?.horaFin ?? new Date()),
+        horaInicio: gtdDateTime(horarioAdicional?.horaInicio ?? new Date()),
+        horaFin: gtdDateTime(horarioAdicional?.horaFin ?? new Date()),
       }).subscribe((result) => {
         console.log(result);
         if (result?.id) this.edit(result);

@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppStateService } from '../../../srv/app-state.service';
-import { gtdDate, gtdTime } from '../../../types/common-types';
+import { gtdDateTime, gtdDate } from '../../../types/common-types';
 import { catalogs } from './vacacion-data';
 @Component({
   selector: 'app-vacacion-form-dialog',
@@ -31,8 +31,8 @@ export class VacacionFormComponent {
     });
     this.form.patchValue({
       ...data,
-      fechaInicio: gtdTime(data.fechaInicio),
-      fechaFin: gtdTime(data.fechaFin),
+      fechaInicio: gtdDate(data?.fechaInicio),
+      fechaFin: gtdDate(data?.fechaFin),
     });
   }
 

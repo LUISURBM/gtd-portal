@@ -115,8 +115,8 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: licencia.cantidad,
-        fechaFin: licencia.fechaFin.toISOString(),
-        fechaInicio: licencia.fechaInicio.toISOString(),
+        fechaFin: licencia.fechaFin.toString(),
+        fechaInicio: licencia.fechaInicio.toString(),
         id: undefined,
         pago: licencia.pago,
         valueCatalogType: licencia.valueCatalogType,
@@ -192,8 +192,8 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: licencia.cantidad,
-        fechaFin: licencia.fechaFin.toISOString(),
-        fechaInicio: licencia.fechaInicio.toISOString(),
+        fechaFin: licencia.fechaFin.toString(),
+        fechaInicio: licencia.fechaInicio.toString(),
         pago: licencia.pago,
         valueCatalogType: licencia.valueCatalogType,
         id: licencia.id,

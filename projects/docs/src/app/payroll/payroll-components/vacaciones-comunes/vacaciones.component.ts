@@ -21,6 +21,7 @@ import { VacacionesComunesService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
+  gtdDate,
   initTable,
   NgGtdDS,
   OpenDialog,
@@ -146,8 +147,8 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: undefined,
         cantidad: vacacion.cantidad,
-        fechaFin: vacacion.fechaFin.toISOString(),
-        fechaInicio: vacacion.fechaInicio.toISOString(),
+        fechaFin: gtdDate(vacacion.fechaFin!),
+        fechaInicio: gtdDate(vacacion.fechaInicio!),
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
         devengadosId: this.form.value.devengadosId,
@@ -210,8 +211,8 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: vacacion.cantidad,
-        fechaFin: vacacion.fechaFin.toISOString(),
-        fechaInicio: vacacion.fechaInicio.toISOString(),
+        fechaFin: gtdDate(vacacion.fechaFin!),
+        fechaInicio: gtdDate(vacacion.fechaInicio!),
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
         id: vacacion.id,

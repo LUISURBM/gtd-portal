@@ -26,6 +26,8 @@ import {
 import {
   confirm,
   gtdArrayToLowerCase,
+  gtdDateTime,
+  gtdDate,
   initTable,
   NgGtdDS,
   OpenDialog,
@@ -36,7 +38,6 @@ import {
   UIEditado,
   UIEliminado,
   UINoCreado,
-  UINoEliminado,
   UIOk,
 } from '../../../../values-catalog';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
@@ -183,13 +184,14 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
   add(payroll: Payroll): void {
     const validations = this.dataSource$.value.datasource.data
       .filter((p: Payroll) => {
+        const pFechaCorte = new Date(Date.parse(p.fechaCorte));
         const mismoCorte =
-          p.fechaCorte.getMonth() ===
+          pFechaCorte.getMonth() ===
             (typeof payroll.fechaCorte === 'string'
               ? new Date(Date.parse(payroll.fechaCorte))
               : payroll.fechaCorte
             ).getMonth() &&
-          p.fechaCorte.getUTCFullYear() ===
+          pFechaCorte.getUTCFullYear() ===
             (typeof payroll.fechaCorte === 'string'
               ? new Date(Date.parse(payroll.fechaCorte))
               : payroll.fechaCorte
@@ -197,13 +199,14 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         return mismoCorte || p.nombre === payroll.nombre;
       })
       .map((p: Payroll) => {
+        const pFechaCorte = new Date(Date.parse(p.fechaCorte));
         const mismoCorte =
-          p.fechaCorte.getMonth() ===
+          pFechaCorte.getMonth() ===
             (typeof payroll.fechaCorte === 'string'
               ? new Date(Date.parse(payroll.fechaCorte))
               : payroll.fechaCorte
             ).getMonth() &&
-          p.fechaCorte.getUTCFullYear() ===
+          pFechaCorte.getUTCFullYear() ===
             (typeof payroll.fechaCorte === 'string'
               ? new Date(Date.parse(payroll.fechaCorte))
               : payroll.fechaCorte
@@ -301,6 +304,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         nombre: payroll.nombre,
         descripcion: payroll.descripcion,
+        estado: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
         estadoId: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
         fechaCorte: (typeof payroll.fechaCorte === 'string'
           ? new Date(Date.parse(payroll.fechaCorte))

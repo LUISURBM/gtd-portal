@@ -8,6 +8,7 @@ export interface Incapacidad {
   fechaInicio?: Date;
   fechaFin?: Date;
   valueCatalogType?: string;
+  loading?: boolean;
 }
 
 export const incapacidads: Incapacidad[] = [

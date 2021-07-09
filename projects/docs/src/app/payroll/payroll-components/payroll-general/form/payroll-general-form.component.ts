@@ -35,7 +35,7 @@ export class PayrollGeneralFormComponent {
       estado: 'TEST',
     });
     if (data)
-      this.form.patchValue({ ...data, fechaCorte: gtdDate(data.FechaCorte) });
+      this.form.patchValue({ ...data, fechaCorte: gtdDate(data.fechaCorte) });
   }
 
   onNoClick(): void {
