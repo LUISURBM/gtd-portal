@@ -9,16 +9,19 @@
       <p class="card-category">Información de comision</p>
       <mat-form-field>
         <input matInput tabindex="1" formControlName="comision" placeholder="Valor de la comision" id="comision"
-          type="text" class="form-control" />
+          type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.comision.touched && f.comision.invalid" class="alert alert-danger">
+          <div *ngIf="f.comision.errors?.min || f.comision.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.comision.errors?.required">
             comision es obligatorio.
           </div>
         </div>
       </mat-form-field>
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>

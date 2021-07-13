@@ -156,7 +156,7 @@ export class PagosTercerosComponent
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${pagoTercero.pagoTercero}`, 'creada!', {
+              this._snackBar.open(`Pago Tercero`, 'creada!', {
                 duration: 590000,
               });
 
@@ -172,7 +172,7 @@ export class PagosTercerosComponent
 
   delete(pagoTercero: PagoTercero): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar Pago Tercero ${pagoTercero.pagoTercero}?`)
+      confirm(this.dialog, `¿Eliminar Pago Tercero?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -227,7 +227,7 @@ export class PagosTercerosComponent
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${pagoTercero.pagoTercero}`, 'actualizado!', {
+            this._snackBar.open(`Pago Tercero`, 'actualizado!', {
               duration: 590000,
             });
             return this.listado(this.form.value);

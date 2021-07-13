@@ -6,64 +6,79 @@
     </div>
     <div class="card-body">
       <h4 class="card-title">Agregar Bono nuevo</h4>
-      <p class="card-subtitle">Información de Bono</p>
-      <div class="type-tooltip-ne" >
+      <div class="type-tooltip-ne">
         <span>Pago alimentación Ns</span>
         <mat-form-field>
-          <input matInput tabindex="1" formControlName="pagoAlimentacionNs" placeholder="pagoAlimentacionNs"
-            id="pagoAlimentacionNs" type="text" class="form-control" />
+          <input matInput tabindex="1" formControlName="pagoAlimentacionNs" placeholder="pagoAlimentacion No salarial"
+            id="pagoAlimentacionNs" type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoAlimentacionNs.touched && f.pagoAlimentacionNs.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoAlimentacionNs.errors?.min || f.pagoAlimentacionNs.errors?.max">
+              Máximo 999.999.999'999.999; mínimo 0
+            </div>
+
             <div *ngIf="f.pagoAlimentacionNs.errors?.required">
-              pagoAlimentacionNs es obligatorio.
+              Pago Alimentación No Salarial es obligatorio
             </div>
           </div>
         </mat-form-field>
       </div>
 
-      <div class="type-tooltip-ne" >
+      <div class="type-tooltip-ne">
         <span>Pago alimentación S</span>
         <mat-form-field>
           <input matInput tabindex="2" formControlName="pagoAlimentacionS" placeholder="pagoAlimentacionS"
-            id="pagoAlimentacionS" type="text" class="form-control" />
+            id="pagoAlimentacionS" type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoAlimentacionS.touched && f.pagoAlimentacionS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoAlimentacionS.errors?.min || f.pagoAlimentacionS.errors?.max">
+              Máximo 999.999.999'999.999; mínimo 0
+            </div>
+
             <div *ngIf="f.pagoAlimentacionS.errors?.required">
-              pagoAlimentacionS es obligatorio.
+              Pago Alimentación Salarial es obligatorio
             </div>
           </div>
         </mat-form-field>
 
       </div>
 
-      <div class="type-tooltip-ne" >
+      <div class="type-tooltip-ne">
         <span>Pago Ns</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pagoNs" placeholder="pagoNs" id="pagoNs" type="text"
-            class="form-control" />
+          <input matInput tabindex="2" formControlName="pagoNs" placeholder="pagoNs" id="pagoNs" type="number" min="0"
+            max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoNs.touched && f.pagoNs.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoNs.errors?.min || f.pagoNs.errors?.max">
+              Máximo 999.999.999'999.999; mínimo 0
+            </div>
+
             <div *ngIf="f.pagoNs.errors?.required">
-              pagoNs es obligatorio.
+              Pago No Salarial es obligatorio
             </div>
           </div>
         </mat-form-field>
 
       </div>
 
-      <div class="type-tooltip-ne" >
+      <div class="type-tooltip-ne">
         <span>Pago S</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pagoS" placeholder="pagoS" id="pagoS" type="text"
-            class="form-control" />
+          <input matInput tabindex="2" formControlName="pagoS" placeholder="pagoS" id="pagoS" type="number" min="0"
+            max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
+            <div *ngIf="f.pagoS.errors?.min || f.pagoS.errors?.max">
+              Máximo 999.999.999'999.999; mínimo 0
+            </div>
+
             <div *ngIf="f.pagoS.errors?.required">
-              pagoS es obligatorio.
+              Pago Salarial es obligatorio
             </div>
           </div>
         </mat-form-field>
 
       </div>
-      <div mat-dialog-actions>
+      <div>
         <a mat-button (click)="onNoClick()" tabindex="-1" color="accent">
-          Cancelar
+          Volver
         </a>
         <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>

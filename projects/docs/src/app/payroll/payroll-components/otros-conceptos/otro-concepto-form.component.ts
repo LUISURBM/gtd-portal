@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { catalogs } from './otros-conceptos-data';
 @Component({
@@ -17,7 +17,14 @@ export class OtroConceptoFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      conceptoNs: this.builder.control(0),
+      conceptoS: this.builder.control(0),
+      descripcion: this.builder.control('', [
+        Validators.maxLength(400),
+      ]),
+    });
     this.form.patchValue(data);
   }
 
@@ -33,7 +40,9 @@ export class OtroConceptoFormComponent {
     return this.form.controls;
   }
 
-  number(value:any){return value +1;}
+  number(value: any) {
+    return value + 1;
+  }
   parse(value: any): string {
     return value as string;
   }

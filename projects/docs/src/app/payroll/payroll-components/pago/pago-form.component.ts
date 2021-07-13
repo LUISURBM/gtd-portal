@@ -20,7 +20,14 @@ export class PagoFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(0),
+      forma: this.builder.control(0),
+      banco: this.builder.control(''),
+      numeroCuenta: this.builder.control(''),
+      tipoCuenta: this.builder.control(''),
+      metodo: this.builder.control(1),
+    });
     this.form.patchValue(data);
   }
 

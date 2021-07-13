@@ -63,7 +63,6 @@ export class DeduccionesFormComponent {
 
       .subscribe({
         next: (data: any) => {
-          console.dir(data);
           if (!data?.body?.body) return;
           let newarray = data?.body?.body?.map((element: any) => {
             var key,

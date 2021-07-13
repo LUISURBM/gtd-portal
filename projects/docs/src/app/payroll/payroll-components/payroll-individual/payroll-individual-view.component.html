@@ -30,8 +30,7 @@
           </strong>
         </span>
         <ng-container>
-          <mat-icon class="material-icons-outlined"
-            *ngIf="form.value.trabajador?.primerNombre">
+          <mat-icon class="material-icons-outlined" *ngIf="form.value.trabajador?.primerNombre">
             arrow_right
           </mat-icon>
           <a class="ml-2 navbar-brand" style="cursor:none">
@@ -43,19 +42,21 @@
       <span fxFlex></span>
 
 
-      <mat-chip-list ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
-        <mat-chip class="btn btn-outline-primary " class="primary" (click)="save()" *ngIf="form.dirty || !form.value.id">
+      <div ariaOrientation="horizontal" *ngIf="!(state.XSmall || state.Small)">
+        <button class="btn btn-outline-primary" style="cursor: pointer" (click)="save()" *ngIf="form.dirty || !form.value.id">
           <span class="button__text">{{'1F4D1'|gtdEmoji}}</span><span
             *ngIf="!(state.XSmall || state.Small)">Generar</span>
-        </mat-chip>
-        <mat-chip color="primary" class="" selected="true" *ngIf="this.form.value.deduccionesId"
-          (click)="navSrv.navigate('/nómina/deducciones', this.individualData())"><span class="button__text">➕
-            Deducción</span></mat-chip>
-        <mat-chip color="primary" class="" selected="true" *ngIf="this.form.value.devengadosId"
-          (click)="navSrv.navigate('/nómina/devengos', this.individualData())"><span class="button__text">➕
-            Devengo</span></mat-chip>
-      </mat-chip-list>
-      <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="accent">
+        </button>
+        <button color="primary" class="ml-2 btn btn-primary" selected="true" *ngIf="this.form.value.deduccionesId"
+          (click)="navSrv.navigate('/nómina/deducciones', this.individualData())"><span
+            class="button__emoji">➕</span><span class="button__text">
+            Deducción</span></button>
+        <button color="primary" class="ml-2 btn btn-primary" selected="true" *ngIf="this.form.value.devengadosId"
+          (click)="navSrv.navigate('/nómina/devengos', this.individualData())"><span class="button__emoji">➕</span><span
+            class="button__text">
+            Devengo</span></button>
+      </div>
+      <button [matMenuTriggerFor]="sdprofile" mat-icon-button color="accent" class="ml-2">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #sdprofile="matMenu" class="mymegamenu">
@@ -88,13 +89,6 @@
 
     </mat-toolbar>
 
-    <!-- ============================================================== -->
-    <!-- Sidebar - style you can find in sidebar.scss -->
-    <!-- ============================================================== -->
-
-    <!-- ============================================================== -->
-    <!-- Page container - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div class="page-view d-flex row">
       <app-payroll-individual-form-dialog [form]="form" #ind class="p-0 col-12-sm col-md-4">
       </app-payroll-individual-form-dialog>

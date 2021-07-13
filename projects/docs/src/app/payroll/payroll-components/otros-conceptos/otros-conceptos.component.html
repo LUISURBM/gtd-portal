@@ -31,19 +31,19 @@
         <!-- Name Column -->
         <ng-container matColumnDef="conceptoNs">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Ns</th>
-          <td mat-cell *matCellDef="let element">{{ element.conceptoNs }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.conceptoNs | currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="conceptoS">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>S</th>
-          <td mat-cell *matCellDef="let element">{{ element.conceptoS }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.conceptoS | currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="descripcionConcepto">
+        <ng-container matColumnDef="descripcion">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
-          <td mat-cell *matCellDef="let element">{{ element.descripcionConcepto }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
         </ng-container>
 
         <!-- Symbol Column -->

@@ -29,13 +29,6 @@ mat-toolbar{
         border-radius: 100%;
         background: var(--white)!important;;
     }
-    button:last-child{
-      color: var(--black)!important;
-      background: transparent;
-    }
-    button:nth-last-child(1){
-      background-color: var(--secondary-light);
-    }
 }
 /*******************
  Topbar

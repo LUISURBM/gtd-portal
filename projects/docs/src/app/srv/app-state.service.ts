@@ -2,7 +2,12 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
-import { EnumString, NgGtdThemes, ValueOption } from '../types/common-types';
+import {
+  EnumCatalogs,
+  EnumString,
+  NgGtdThemes,
+  ValueOption,
+} from '../types/common-types';
 import { THEMES_OPTIONS, UIMessage } from '../values-catalog';
 import { ValuesCatalog } from './in-mem-data-service';
 import { StyleManagerService } from './style-manager.service';
@@ -20,7 +25,9 @@ export interface UIState {
   messages?: ValuesCatalog[];
   notifications?: ValuesCatalog[];
   textos?: EnumString;
+  catalogos?: EnumCatalogs;
 }
+
 @Injectable({
   providedIn: 'root',
 })
@@ -148,4 +155,9 @@ export class AppStateService {
   get textos() {
     return this.themeState$.value.textos;
   }
+  agregarCatalogo = (catalogo: EnumCatalogs) =>
+    this.themeState$.next({
+      ...this.themeState$.value,
+      catalogos: { ...(this.themeState$.value.catalogos ?? {}), ...catalogo },
+    });
 }

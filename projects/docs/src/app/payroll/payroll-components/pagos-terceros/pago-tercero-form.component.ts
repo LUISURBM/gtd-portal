@@ -18,7 +18,10 @@ export class PagoTerceroFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      pagoTercero: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 

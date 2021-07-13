@@ -147,8 +147,8 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       entidad: {
         id: undefined,
         cantidad: vacacion.cantidad,
-        fechaFin: gtdDate(vacacion.fechaFin!),
-        fechaInicio: gtdDate(vacacion.fechaInicio!),
+        fechaFin: vacacion.fechaFin,
+        fechaInicio: vacacion.fechaInicio,
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
         devengadosId: this.form.value.devengadosId,
@@ -169,7 +169,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.save(request)
         .pipe(
           switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
+            if (response.type !== 4) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`${vacacion.valueCatalogName}`, 'creada!', {
                 duration: 50000,
@@ -211,10 +211,11 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: vacacion.cantidad,
-        fechaFin: gtdDate(vacacion.fechaFin!),
-        fechaInicio: gtdDate(vacacion.fechaInicio!),
+        fechaFin: vacacion.fechaFin,
+        fechaInicio: vacacion.fechaInicio,
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
+        prevValueCatalogName: vacacion.prevValueCatalogName,
         id: vacacion.id,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -231,7 +232,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.subscriptions.push(
       this.update(request)
-        .pipe(
+        ?.pipe(
           switchMap((response: any) => {
             this._snackBar.open(
               `${vacacion.valueCatalogName}`,
@@ -243,11 +244,11 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
             return this.listado(this.form.value);
           })
         )
-        .subscribe({
+        ?.subscribe({
           next: this.readResponseTList,
           complete: this.loading,
           error: this.readResponseError,
-        })
+        })!
     );
   }
 
@@ -273,6 +274,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
         vacacion ?? EMPTY
       ).subscribe((result) => {
         console.log(result);
+        if (result) result.prevValueCatalogName = vacacion?.valueCatalogName;
         if (result?.id) this.edit(result);
         else this.add(result);
       })
@@ -331,7 +333,36 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   };
   update = (request: any) => {
     let toReturn;
-    if (request.entidad.valueCatalogName === catalogs[0].name)
+    if (
+      request.entidad.prevValueCatalogName !== request.entidad.valueCatalogName
+    ) {
+      if (request.entidad.valueCatalogName === catalogs[0].name) {
+        toReturn = this.vacacionesComunesAPISrv.deleteUsingDELETE73(
+          request.entidad.id,
+          'events',
+          true,
+          {
+            httpHeaderAccept: 'application/json',
+          }
+        );
+      } else if (request.entidad.valueCatalogName === catalogs[1].name) {
+        toReturn = this.vacacionesCompensadasAPISrv.deleteUsingDELETE72(
+          request.entidad.id,
+          'events',
+          true,
+          {
+            httpHeaderAccept: 'application/json',
+          }
+        );
+      }
+      return toReturn?.pipe(
+        switchMap((response: any) =>
+          response?.type === 4 && response?.status === 200
+            ? this.save(request)
+            : of()
+        )
+      );
+    } else if (request.entidad.valueCatalogName === catalogs[0].name) {
       toReturn = this.vacacionesCompensadasAPISrv.updateUsingPUT72(
         request,
         'events',
@@ -340,7 +371,7 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else if (request.entidad.valueCatalogName === catalogs[1].name)
+    } else if (request.entidad.valueCatalogName === catalogs[1].name) {
       toReturn = this.vacacionesComunesAPISrv.updateUsingPUT73(
         request,
         'events',
@@ -349,7 +380,9 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
           httpHeaderAccept: 'application/json',
         }
       );
-    else toReturn = of();
+    } else {
+      toReturn = of();
+    }
     return toReturn.pipe(
       tap({
         next: (response: any) => {

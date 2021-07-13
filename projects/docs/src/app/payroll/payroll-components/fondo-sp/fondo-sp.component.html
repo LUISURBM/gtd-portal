@@ -31,26 +31,26 @@
         <!-- Name Column -->
         <ng-container matColumnDef="deduccion">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>deduccion</th>
-          <td mat-cell *matCellDef="let element">{{ element.deduccion }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.deduccion |currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="deduccionSub">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>deduccionSub</th>
-          <td mat-cell *matCellDef="let element">{{ element.deduccionSub }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.deduccionSub |currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="porcentaje">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>porcentaje</th>
-          <td mat-cell *matCellDef="let element">{{ element.porcentaje }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.porcentaje |number}}</td>
         </ng-container>
 
 
         <!-- Name Column -->
         <ng-container matColumnDef="porcentajeSub">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>porcentajeSub</th>
-          <td mat-cell *matCellDef="let element">{{ element.porcentajeSub }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.porcentajeSub |number}}</td>
         </ng-container>
 
         <!-- Symbol Column -->

@@ -31,19 +31,19 @@
         <!-- Name Column -->
         <ng-container matColumnDef="auxilioTransporte">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Auxilio Transporte</th>
-          <td mat-cell *matCellDef="let element">{{ element.auxilioTransporte }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.auxilioTransporte |currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="viaticoManutAlojNs">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Viatico Manut. Aloj. Ns</th>
-          <td mat-cell *matCellDef="let element">{{ element.viaticoManutAlojNs }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.viaticoManutAlojNs |currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="viaticoManutAlojS">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Viatico Manut. Aloj. S</th>
-          <td mat-cell *matCellDef="let element">{{ element.viaticoManutAlojS }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.viaticoManutAlojS |currency}}</td>
         </ng-container>
 
         <!-- Symbol Column -->

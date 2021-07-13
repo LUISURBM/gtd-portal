@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ValuesCatalog } from '../../srv/in-mem-data-service';
 
 interface MenuState {
-  menuItems: Menu[];
+  menuItems: ValuesCatalog[];
 }
 
-export interface Menu {
-  state: string;
-  name: string;
-  type: string;
-  icon: string;
-  emoji?: string;
-  badge?: [{ type: string; value: string }];
-  menuItems?: Menu[];
-  completo?: boolean;
-}
-
-export const MENUITEMS: Menu[] = [
+export const MENUITEMS: ValuesCatalog[] = [
   {
     state: 'dashboard',
     name: 'Tableros',

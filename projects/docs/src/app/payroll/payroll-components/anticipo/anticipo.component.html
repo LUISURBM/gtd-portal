@@ -32,7 +32,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="valor">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
-          <td mat-cell *matCellDef="let element">{{ element.anticipo }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.anticipo | currency }}</td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -42,7 +42,7 @@
             <button mat-icon-button class="gtd-icon-button" (click)="openDialog(element)">
               <span>{{'270F'|gtdEmoji}}</span>
             </button>
-            <button mat-icon-button (click)="delete(element)">
+            <button mat-icon-button class="gtd-icon-button" (click)="delete(element)">
               <span>{{'1F5D1'|gtdEmoji}}</span>
             </button>
           </td>

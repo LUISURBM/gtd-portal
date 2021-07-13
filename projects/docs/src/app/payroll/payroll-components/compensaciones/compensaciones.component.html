@@ -29,14 +29,14 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="compensacionE">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>E</th>
-          <td mat-cell *matCellDef="let element">{{ element.compensacionE }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Extraordinaria</th>
+          <td mat-cell *matCellDef="let element">{{ element.compensacionE |currency }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="compensacionO">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>O</th>
-          <td mat-cell *matCellDef="let element">{{ element.compensacionO }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ordinaria</th>
+          <td mat-cell *matCellDef="let element">{{ element.compensacionO |currency}}</td>
         </ng-container>
 
         <!-- Symbol Column -->

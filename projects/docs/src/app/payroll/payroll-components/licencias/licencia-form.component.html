@@ -14,23 +14,30 @@
         <span>Tipo</span>
         <mat-form-field>
           <mat-select class="example-select" #business tabindex="1" formControlName="valueCatalogType" id="business">
-            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description"> {{catalog.name}} </mat-option>
+            <mat-option *ngFor="let catalog of catalogs" [value]="catalog.id" [matTooltip]="catalog.description">
+              {{catalog.name}} </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <mat-form-field>
-        <input matInput tabindex="2" formControlName="pago" placeholder="Valor de la pago" id="pago" type="text"
-          class="form-control" />
+        <input matInput tabindex="2" formControlName="pago" placeholder="Valor de la pago" id="pago" type="number"
+          min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.pago.touched && f.pago.invalid" class="alert alert-danger">
+          <div *ngIf="f.pago.errors?.min || f.pago.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.pago.errors?.required">
             pago es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="text"
-          class="form-control" />
+        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="number"
+          min="0" max="2146000000" step="1" class="form-control" />
         <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          <div *ngIf="f.cantidad.errors?.min || f.cantidad.errors?.max">
+            Máximo 2.146'000.000; mínimo 0
+          </div>
           <div *ngIf="f.cantidad.errors?.required">
             cantidad es obligatorio.
           </div>
@@ -39,24 +46,22 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Fecha de Inicio</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fechaInicio" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker></mat-datepicker>
+        <input matInput tabindex="4" formControlName="fechaInicio" placeholder="Porcentaje" id="horaInicio" type="date"
+          class="form-control" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Fecha de fin</mat-label>
-        <input matInput [matDatepicker]="pickerFin" formControlName="fechaFin" />
-        <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #pickerFin></mat-datepicker>
+        <input matInput tabindex="5" formControlName="fechaFin" placeholder="Porcentaje" id="fechaFin" type="date"
+          class="form-control" />
       </mat-form-field>
 
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
-        <button mat-button (click)="save()" tabindex="4">Guardar</button>
+        <button mat-button (click)="save()" tabindex="6">Guardar</button>
       </div>
     </div>
   </div>

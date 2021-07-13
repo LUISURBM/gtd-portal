@@ -122,7 +122,6 @@ export class PayrollIndividualFormComponent implements OnInit, DirtyComponent {
         .subscribe({
           next: (data: any) => {
             if (!data.body?.bodyDto) return;
-            console.log(data.body?.bodyDto);
             this.trabajadores = gtdArrayToLowerCase(data.body?.bodyDto);
           },
           error: (error: any) => console.log(error),

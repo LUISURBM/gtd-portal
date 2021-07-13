@@ -15,7 +15,13 @@ export class BonoEPCTVFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      pagoAlimentacionNs: this.builder.control(0),
+      pagoAlimentacionS: this.builder.control(0),
+      pagoNs: this.builder.control(0),
+      pagoS: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 
@@ -30,5 +36,4 @@ export class BonoEPCTVFormComponent {
   get f() {
     return this.form.controls;
   }
-
 }

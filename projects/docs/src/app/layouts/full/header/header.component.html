@@ -9,7 +9,7 @@
       <mat-icon>{{option.code}}</mat-icon> {{option.name}}
     </button>
   </mat-menu>
-  <button [matMenuTriggerFor]="options" mat-icon-button class="m-4"> <img src="assets/images/logo__globaltek.png"
+  <button mat-icon-button class="m-4"> <img src="assets/images/logo__globaltek.png"
       alt="user" class="profile-pic"> </button>
   <mat-menu #options="matMenu" class="mymegamenu">
     <button mat-menu-item [routerLink]="['profile']">

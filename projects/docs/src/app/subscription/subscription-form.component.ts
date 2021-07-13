@@ -14,7 +14,7 @@ import { InMemService } from "../srv/in-mem-service";
         <p>What's your info?</p>
       </div>
       <div class="card-body">
-        <div class="type-tooltip-ne" matTooltip="Tooltip!" *ngIf="inMemSrv.empresas | async as businesses">
+        <div class="type-tooltip-ne"  *ngIf="inMemSrv.empresas | async as businesses">
           <span>Show business</span>
           <mat-form-field>
 				    <mat-select class="example-select"
@@ -41,7 +41,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.name.touched && f.name.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.name.errors?.required">name es obligatorio.</div>
+            <div *ngIf="f.name.errors?.required">nombre es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field>
@@ -57,7 +57,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.code.touched && f.code.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.code.errors?.required">code es obligatorio.</div>
+            <div *ngIf="f.code.errors?.required">codigo es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field>
@@ -73,7 +73,7 @@ import { InMemService } from "../srv/in-mem-service";
             *ngIf="f.catalog.touched && f.catalog.invalid"
             class="alert alert-danger"
           >
-            <div *ngIf="f.catalog.errors?.required">catalog es obligatorio.</div>
+            <div *ngIf="f.catalog.errors?.required">catalogo es obligatorio.</div>
           </div>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
@@ -94,10 +94,10 @@ import { InMemService } from "../srv/in-mem-service";
           hidden
           class="form-control"
         />
-          <button mat-button (click)="save()" tabindex="3">Aceptar</button>
-          <button mat-button (click)="onNoClick()" tabindex="-1">
-            No Thanks
+        <button mat-button (click)="onNoClick()" tabindex="-1">
+            Cerrar
           </button>
+          <button mat-button (click)="save()" tabindex="3">Aceptar</button>
         </div>
       </div>
     </form>

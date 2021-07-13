@@ -17,7 +17,11 @@ export class AuxilioFormComponent {
     public builder: FormBuilder,
     public menuItemsSrv: MenuItems
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(undefined),
+      auxilioNs: this.builder.control(0),
+      auxilioS: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 

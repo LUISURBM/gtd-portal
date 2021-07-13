@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { switchMap, tap } from 'rxjs/operators';
 import { AppStateService } from '../../../srv/app-state.service';
 import { gtdDateTime, gtdDate } from '../../../types/common-types';
 import { catalogs } from './vacacion-data';
@@ -22,18 +23,33 @@ export class VacacionFormComponent {
   ) {
     this.form = this.builder.group({
       id: 0,
-      fechaInicio: new Date(),
-      fechaFin: new Date(),
+      fechaInicio: gtdDate(new Date()),
+      fechaFin: gtdDate(new Date()),
       cantidad: 0,
       pago: 0,
-      catalog: catalogs[0],
-      valueCatalogName: '',
+      catalog: catalogs[1],
+      valueCatalogName: catalogs[1],
     });
-    this.form.patchValue({
-      ...data,
-      fechaInicio: gtdDate(data?.fechaInicio),
-      fechaFin: gtdDate(data?.fechaFin),
+    this.form.patchValue({...data,
+      fechaInicio: gtdDate(data?.fechaInicio ?? new Date()),
+      fechaFin: gtdDate(data?.fechaFin ?? new Date()),
     });
+    this.form.valueChanges.pipe(
+      tap({
+        next: (d: any) => {
+          if (catalogs[0] !== d.valueCatalogName) {
+            this.form.patchValue(
+              {
+                ...d,
+                fechaInicio: undefined,
+                fechaFin: undefined,
+              },
+              { emitEvent: false }
+            );
+          }
+        },
+      })
+    );
   }
 
   onNoClick(): void {

@@ -1,13 +1,5 @@
 <ng-container  *ngIf="themeState$ | async as state" >
-    <!-- ============================================================== -->
-    <!-- sidebar -->
-    <!-- ============================================================== -->
     <div class="user-profile">
-      <!-- User profile image -->
-      <!-- User profile text-->
-      <!-- ============================================================== -->
-      <!-- Profile - style you can find in header.scss -->
-      <!-- ============================================================== -->
       <div class="profile-text">
         <a [matMenuTriggerFor]="sdprofile" class="">
           Administrador
@@ -43,7 +35,7 @@
     <mat-nav-list appAccordion style="direction: ltr " *ngIf="menuItemsSrv.menuState$ | async as menuState">
       <mat-list-item appAccordionLink *ngFor="let menuitem of menuState.menuItems; let i = index;" routerLinkActive="selected"
         group="{{menuitem.state}}" class="list-item">
-        <a class="" appAccordionToggle (click)="stateSrv.toggleMenu();" (click)="navSrv.navigate(menuitem.state)"
+        <a class="" appAccordionToggle (click)="stateSrv.toggleMenu();" (click)="navSrv.navigate(menuitem.state!)"
           *ngIf="menuitem.type === 'link'">
           <!-- <mat-icon>{{ menuitem.icon }}</mat-icon> -->
           <span class="dd-icon">{{ menuItemsSrv.codePoint(menuitem.emoji) }}&nbsp;</span>
@@ -56,9 +48,9 @@
 
 
 
-  <app-helper-overview-grap>
+  <!-- <app-helper-overview-grap>
     <button mat-icon-button (click)="stateSrv.toggleMenu()" value="sidebarclosed" style="color: var(--light-accent-text)">
       <mat-icon>menu</mat-icon>
     </button>
-  </app-helper-overview-grap>
+  </app-helper-overview-grap> -->
 </ng-container>

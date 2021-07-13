@@ -5,7 +5,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
@@ -17,28 +17,24 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { MenuItems } from '../../../../shared/menu-items/menu-items';
 import { AppStateService } from '../../../../srv/app-state.service';
-import { InMemService } from '../../../../srv/in-mem-service';
 import { NavigationService } from '../../../../srv/navigation.service';
 import {
   NominasGeneralesService,
-  StoredProcedureService,
+  StoredProcedureService
 } from '../../../../srv/payroll/rest/api';
 import {
   confirm,
-  gtdArrayToLowerCase,
-  gtdDateTime,
-  gtdDate,
-  initTable,
+  gtdArrayToLowerCase, initTable,
   NgGtdDS,
   OpenDialog,
-  txtEliminar,
+  txtEliminar
 } from '../../../../types/common-types';
 import {
   UICreado,
   UIEditado,
   UIEliminado,
   UINoCreado,
-  UIOk,
+  UIOk
 } from '../../../../values-catalog';
 import { MY_FORMATS } from '../../payroll-individual/payroll-individual-table.component';
 import { PayrollGeneralFormComponent } from '../form/payroll-general-form.component';
@@ -99,14 +95,13 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
   JSON = JSON;
 
   constructor(
+    public stateSrv: AppStateService,
     public formBuilder: FormBuilder,
-    public memSrv: InMemService,
     public dialog: MatDialog,
     public navSrv: NavigationService,
     private storedProcedureAPISrv: StoredProcedureService,
     private nominaGeneralAPISrv: NominasGeneralesService,
     public menuItemsSrv: MenuItems,
-    public stateSrv: AppStateService
   ) {
     this.avance(0);
     this.form = this.formBuilder.group({
@@ -260,10 +255,9 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
+            if (response.type !== 4) return of();
             if (response.type === 4 && response.status == 200)
               this.stateSrv.message(`${payroll.nombre}`, UICreado);
-
             return this.listado();
           })
         )

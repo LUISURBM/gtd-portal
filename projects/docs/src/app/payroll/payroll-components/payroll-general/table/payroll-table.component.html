@@ -19,7 +19,7 @@
           <mat-label>{{stateSrv?.textos?.BuscardorTablaNE?.name}}</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" [attr.aria-placeholder]="stateSrv?.textos?.BuscardorTablaNE?.description!"
             [placeholder]="stateSrv?.textos?.BuscardorTablaNE?.description!" #input formControlName="filtro">
-          <span (click)="openDialog()" matSuffix color="primary" mat-ripple class="gtd-icon-button">
+          <span (click)="openDialog()" matSuffix color="primary" mat-ripple class="gtd-icon-button mat-button">
             ➕
           </span>
         </mat-form-field>

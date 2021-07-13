@@ -7,9 +7,12 @@
       <h4 class="card-title">Agregar huelga nuevo</h4>
       <p class="card-category">Información de huelga</p>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="text"
-          class="form-control" />
+        <input matInput tabindex="1" formControlName="cantidad" placeholder="Cantidad" id="cantidad" type="number"
+          min="0" max="2146000000" step="1" class="form-control" />
         <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          <div *ngIf="f.cantidad.errors?.min || f.cantidad.errors?.max">
+            Máximo 2.146'000.000; mínimo 0
+          </div>
           <div *ngIf="f.cantidad.errors?.required">
             cantidad es obligatorio.
           </div>
@@ -18,22 +21,19 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Fecha de Inicio</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fechaInicio" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker></mat-datepicker>
+        <input matInput tabindex="2" formControlName="fechaInicio" id="fechaInicio" type="date" class="form-control" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Fecha de fin</mat-label>
-        <input matInput [matDatepicker]="pickerFin" formControlName="fechaFin" />
-        <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #pickerFin></mat-datepicker>
+
+        <input matInput tabindex="3" formControlName="fechaFin" id="fechaFin" type="date" class="form-control" />
       </mat-form-field>
 
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="4">Guardar</button>
       </div>

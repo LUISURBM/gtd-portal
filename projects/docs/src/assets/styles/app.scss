@@ -745,7 +745,7 @@ froms
 }
 
 .gtd-icon-button {
-  font-family: "Segoe UI Emoji"!important;
+  font-family: "Segoe UI Emoji" !important;
   font-size: var(--icon-button-size) !important;
 }
 
@@ -783,7 +783,7 @@ Mat card
 .mat-card {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05) !important;
   -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05) !important;
-  margin: 55px 15px;
+  margin: 25px;
   padding: 0px !important;
   border-radius: var(--radius);
   background-color: var(--bg-card) !important;
@@ -850,7 +850,10 @@ Mat card
           td {
             color: var(--text-primary-color) !important;
             &.mat-column-action {
-              width: 20px;
+              word-wrap: break-word !important;
+              white-space: unset !important;
+              flex: 0 0 9% !important;
+              width: 9% !important;
               padding-right: 8px;
             }
           }
@@ -1040,17 +1043,16 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-  border-color: var(--secondary-light)!important;
+  border-color: var(--secondary-light) !important;
   box-shadow: 0 1px 1px var(--secondary) inset, 0 0 8px var(--secondary-light);
   outline: 0 none;
-  color: var(--bodytext)!important;
-  background: var(--bg-dialog)!important;
-  caret-color: var(--info)!important;
+  color: var(--bodytext) !important;
+  background: var(--bg-dialog) !important;
+  caret-color: var(--info) !important;
 }
-
-.mat-snack-bar-container{
-  background-color: var(--themecolor)!important;
-  color: var(--sidebar-icons)!important;
+.mat-snack-bar-container {
+  background-color: var(--themecolor) !important;
+  color: var(--sidebar-icons) !important;
 }
 .gtd-overlay-backdrop {
   opacity: 0.9;

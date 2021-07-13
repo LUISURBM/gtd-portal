@@ -60,10 +60,10 @@ export class SubscriptionComponent implements OnInit, AfterViewInit {
   add(name: ValuesCatalog): void {
     if (!name) {
       return;
-    }
+    }let i = 0;
     this.dataSource.data = [
       ...this.dataSource.data,
-      { ...name, id: this.memSrv.genId(this.dataSource.data, 'valuesCatalog') },
+      { ...name, id: i++ },
     ];
   }
 

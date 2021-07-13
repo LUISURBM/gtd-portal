@@ -1,4 +1,4 @@
-import { PIVOT_DATA } from "./data";
+import { PIVOT_DATA } from './data';
 
 export const PIVOT_CFG = {
   dataSource: {
@@ -11,7 +11,7 @@ export const PIVOT_CFG = {
         sort: 'asc',
       },
       {
-        uniqueName: 'Tipo',
+        uniqueName: 'Category',
         sort: 'asc',
       },
       {
@@ -20,17 +20,20 @@ export const PIVOT_CFG = {
     ],
     columns: [
       {
-        uniqueName: 'Category',
+        uniqueName: 'Tipo',
         sort: 'asc',
       },
     ],
     measures: [
       {
         uniqueName: 'Pago',
+        aggregation: 'sum',
+        format: "currency"
       },
       {
         uniqueName: 'Cantidad',
         aggregation: 'sum',
+        format: "currency"
       },
     ],
     expands: {
@@ -89,4 +92,4 @@ export const PIVOT_CFG = {
       divideByZeroValue: 'Infinity',
     },
   ],
-};
+} as WebDataRocks.Report;

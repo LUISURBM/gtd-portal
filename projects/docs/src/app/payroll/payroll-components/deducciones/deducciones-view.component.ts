@@ -9,12 +9,17 @@ import {
 } from '@angular/animations';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, NavigationStart, Router, RouterOutlet } from '@angular/router';
-import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
-import { NavigationService } from '../../../srv/navigation.service';
-import { AppStateService } from '../../../srv/app-state.service';
-import { MENU_ITEMS } from './deducciones-data';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { MenuItems } from '../../../shared/menu-items/menu-items';
+import { AppStateService } from '../../../srv/app-state.service';
+import { ValuesCatalog } from '../../../srv/in-mem-data-service';
+import { NavigationService } from '../../../srv/navigation.service';
+import { StoredProcedureService } from '../../../srv/payroll/rest/storedProcedure.service';
+import { EnumCatalogs } from '../../../types/common-types';
+import { catalogosSaludPensionSindicatoReq } from '../salud-pension-sindicato/salud-pension-sindicato-data';
+import { MENU_ITEMS } from './deducciones-data';
 export const slideInAnimation = trigger('routeAnimations', [
   transition('HomePage <=> AboutPage', [
     style({ position: 'relative' }),
@@ -57,14 +62,47 @@ export const slideInAnimation = trigger('routeAnimations', [
   selector: 'app-deducciones-view',
   styleUrls: ['./deducciones.component.scss'],
   templateUrl: './deducciones-view.component.html',
-  animations: [slideInAnimation]
+  animations: [slideInAnimation],
 })
-export class DeduccionesViewComponent implements OnInit{
+export class DeduccionesViewComponent implements OnInit {
   position = 'below';
-  public menuItems: Menu[];
+  public FULL_ITEMS: ValuesCatalog[] = [];
+  public menuItems: ValuesCatalog[] = [];
 
   form: FormGroup;
   subscriptions: Subscription[] = [];
+
+  catalogosSaludPensionSindicato$ = this.storedProcedureAPISrv
+    .exectuteProcedureUsingPOST1(
+      catalogosSaludPensionSindicatoReq,
+      'events',
+      true,
+      { httpHeaderAccept: 'application/json' }
+    )
+    .pipe(
+      tap({
+        next: (data: any) => {
+          if (!data.body?.body) return;
+          const saludPScatalogs = {
+            saludPensionSindicato: data.body?.body,
+          } as EnumCatalogs;
+          this.stateSrv.agregarCatalogo(saludPScatalogs);
+
+          this.FULL_ITEMS = [
+            ...MENU_ITEMS,
+            ...data.body?.body?.map((c: ValuesCatalog, i: number) => {
+              return {
+                ...c,
+                state: 'salud-pension-sindicato',
+                emoji: '1F468',
+              };
+            }),
+          ];
+          this.menuItems = this.FULL_ITEMS;
+        },
+      })
+    );
+
   constructor(
     public builder: FormBuilder,
     public router: Router,
@@ -72,10 +110,9 @@ export class DeduccionesViewComponent implements OnInit{
     public stateSrv: AppStateService,
     private elRef: ElementRef,
     public navSrv: NavigationService,
-    public menuItemsSrv: MenuItems
+    public menuItemsSrv: MenuItems,
+    private storedProcedureAPISrv: StoredProcedureService
   ) {
-    this.menuItems = MENU_ITEMS;
-
     this.form = this.builder.group({
       menuItem: builder.control(''),
       nominaIndividualId: undefined,
@@ -85,19 +122,29 @@ export class DeduccionesViewComponent implements OnInit{
       primerNombre: builder.control(''),
     });
     this.subscriptions = [
+      this.catalogosSaludPensionSindicato$.subscribe({
+        error: console.log,
+      }),
       this.route.params.subscribe((params) => {
         const data1 = JSON.parse(params['data']);
         this.form.patchValue(data1);
       }),
       this.form.valueChanges.subscribe((filter) => {
         this.filter(filter?.menuItem);
-      })
+      }),
     ];
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onNoClick(): void {
-    this.navSrv.navigate('/nónima/view', JSON.stringify({ nominaIndividualId: this.form.value.nominaIndividualId.id, nominaGeneralId: this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}));
+    this.navSrv.navigate(
+      '/nónima/view',
+      JSON.stringify({
+        nominaIndividualId: this.form.value.nominaIndividualId.id,
+        nominaGeneralId: this.form.value.nominaGeneralId,
+        fechaCorte: this.form.value.fechaCorte,
+      })
+    );
   }
 
   save() {}
@@ -107,7 +154,7 @@ export class DeduccionesViewComponent implements OnInit{
   }
 
   filter(menuItemName: string) {
-    this.menuItems = MENU_ITEMS;
+    this.menuItems = this.FULL_ITEMS;
     if (menuItemName) {
       this.menuItems = this.menuItems.filter((item) =>
         item.name
@@ -134,12 +181,13 @@ export class DeduccionesViewComponent implements OnInit{
     });
   };
 
-  deduccionesData = () => {
+  deduccionesData = (route: ValuesCatalog) => {
     return JSON.stringify({
       nominaIndividualId: this.form.value.nominaIndividualId,
       nominaGeneralId: this.form.value.nominaGeneralId,
       deduccionesId: this.form.value.deduccionesId,
       fechaCorte: this.form.value.fechaCorte,
+      ruta: route,
     });
   };
 
@@ -151,7 +199,7 @@ export class DeduccionesViewComponent implements OnInit{
     });
   };
 
-  primerNombreTrabajador(){
+  primerNombreTrabajador() {
     return `${this.form.value.primerNombre ?? ''}`;
   }
 }

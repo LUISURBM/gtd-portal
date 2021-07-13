@@ -13,7 +13,7 @@
     <div class="card-body row">
 
       <mat-form-field class="col-6">
-        <input matInput tabindex="1" formControlName="codigoTrabajador" placeholder="Código de trabajador"
+        <input gtdTextFormatter matInput tabindex="1" formControlName="codigoTrabajador" placeholder="Código de trabajador"
           id="codigoTrabajador" type="number" class="form-control" />
         <div *ngIf="f.codigoTrabajador.touched && f.codigoTrabajador.invalid" class="alert alert-danger">
           <div *ngIf="f.codigoTrabajador.errors?.required">
@@ -23,7 +23,7 @@
       </mat-form-field>
 
       <mat-form-field class="col-6">
-        <input matInput tabindex="1" formControlName="primerNombre" placeholder="Primer Nombre" id="primerNombre"
+        <input gtdTextFormatter matInput tabindex="1" formControlName="primerNombre" placeholder="Primer Nombre" id="primerNombre"
           type="text" class="form-control" />
         <div *ngIf="f.primerNombre.touched && f.primerNombre.invalid" class="alert alert-danger">
           <div *ngIf="f.primerNombre.errors?.required">
@@ -33,13 +33,13 @@
       </mat-form-field>
 
       <mat-form-field class="col-12">
-        <input matInput tabindex="1" formControlName="otrosNombres" placeholder="Segundo Nombre" id="otrosNombres"
+        <input gtdTextFormatter matInput tabindex="1" formControlName="otrosNombres" placeholder="Segundo Nombre" id="otrosNombres"
           type="text" class="form-control" />
         <div *ngIf="f.otrosNombres.touched && f.otrosNombres.invalid" class="alert alert-danger"></div>
       </mat-form-field>
 
       <mat-form-field class="col-6">
-        <input matInput tabindex="1" formControlName="primerApellido" placeholder="Apellido" id="primerApellido"
+        <input gtdTextFormatter matInput tabindex="1" formControlName="primerApellido" placeholder="Apellido" id="primerApellido"
           type="text" class="form-control" />
         <div *ngIf="f.primerApellido.touched && f.primerApellido.invalid" class="alert alert-danger">
           <div *ngIf="f.primerApellido.errors?.required">
@@ -49,7 +49,7 @@
       </mat-form-field>
 
       <mat-form-field class="col-6">
-        <input matInput tabindex="1" formControlName="segundoApellido" placeholder="Segundo Apellido"
+        <input gtdTextFormatter matInput tabindex="1" formControlName="segundoApellido" placeholder="Segundo Apellido"
           id="segundoApellido" type="text" class="form-control" />
         <div *ngIf="f.segundoApellido.touched && f.segundoApellido.invalid" class="alert alert-danger">
           <div *ngIf="f.segundoApellido.errors?.required">

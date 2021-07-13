@@ -181,6 +181,9 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         id: cesantia.id,
+        pago: cesantia.pago,
+        pagoIntereses: cesantia.pagoIntereses,
+        porcentaje: cesantia.porcentaje,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         devengadosId: this.form.value.devengadosId,
         enabled: true,

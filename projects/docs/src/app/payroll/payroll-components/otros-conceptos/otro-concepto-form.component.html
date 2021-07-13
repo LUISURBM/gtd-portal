@@ -8,55 +8,46 @@
       <h4 class="card-title">Agregar Otro concepto nuevo</h4>
       <p class="card-category">Información de Otro concepto</p>
       <form [formGroup]="form">
-        <ng-container *ngFor="let row of f | keyvalue; let i = index;">
-          <div [ngSwitch]="typeof(row.value)" class="type-tooltip-ne" matTooltip="Tooltip!">
-            <span>{{row.key}}</span>
-            <mat-form-field *ngSwitchCase="'string'">
-              <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
-                [id]="parse(row.key)" type="text" class="form-control" />
-              <div *ngIf="f[parse(row.key)].touched && f[parse(row.key)].invalid" class="alert alert-danger">
-                <div *ngIf="f[parse(row.key)].errors?.required">
-                  {{row.key}} es obligatorio.
-                </div>
-              </div>
-            </mat-form-field>
-
-
-            <ng-container *ngSwitchCase="'number'">
-              <mat-form-field *ngIf="parse(row.key) !== 'id'">
-                <input matInput [tabindex]="i+1" [formControlName]="parse(row.key)" [placeholder]="parse(row.key)"
-                  [id]="parse(row.key)" type="text" class="form-control" />
-                <div *ngIf="parse(row.key) !== 'id' && f[parse(row.key)].touched && f[parse(row.key)].invalid"
-                  class="alert alert-danger">
-                  <div *ngIf="f[parse(row.key)].errors?.required">
-                    {{row.key}} es obligatorio.
-                  </div>
-                </div>
-              </mat-form-field>
-            </ng-container>
-
-            <mat-form-field *ngSwitchCase="'object'">
-              <mat-select class="example-select" #business [tabindex]="i+1" [formControlName]="parse(row.key)"
-                [placeholder]="parse(row.key)" [id]="parse(row.key)" type="text" class="form-control">
-                <mat-option *ngFor="let bus of catalogs" [value]="bus">
-                  {{bus.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field *ngSwitchCase="'date'" class="example-full-width" appearance="fill">
-              <mat-label>Date</mat-label>
-              <input [tabindex]="i" matInput [matDatepicker]="picker" [formControlName]="parse(row.key)" />
-              <mat-datepicker-toggle matSuffix [tabindex]="-1" [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker touchUi #picker></mat-datepicker>
-            </mat-form-field>
+        <mat-form-field>
+          <input matInput tabindex="1" formControlName="conceptoNs" placeholder="Valor de la otra deducción"
+            id="conceptoNs" type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
+          <div *ngIf="f.conceptoNs.touched && f.conceptoNs.invalid" class="alert alert-danger">
+            <div *ngIf="f.conceptoNs.errors?.min || f.otraDeduccion.errors?.max">
+              Máximo 99.999.999.999'999.999; mínimo 0
+            </div>
+            <div *ngIf="f.conceptoNs.errors?.required">
+              Concepto No Salarial es obligatorio.
+            </div>
           </div>
-        </ng-container>
-        <div mat-dialog-actions>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput tabindex="1" formControlName="conceptoS" placeholder="Valor de la otra deducción"
+            id="conceptoS" type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
+          <div *ngIf="f.conceptoS.touched && f.conceptoS.invalid" class="alert alert-danger">
+            <div *ngIf="f.conceptoS.errors?.min || f.conceptoS.errors?.max">
+              Máximo 99.999.999.999'999.999; mínimo 0
+            </div>
+            <div *ngIf="f.conceptoS.errors?.required">
+              Concepto Salarial es obligatorio.
+            </div>
+          </div>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput gtdTextFormatter tabindex="2" formControlName="descripcion" type="text"
+            placeholder="Descripcion de la deducción" id="descripcion" class="form-control" />
+          <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
+            {{f.descripcion.errors|json}}
+            <div *ngIf="f.descripcion.errors?.required">
+              descripcion es obligatorio.
+            </div>
+          </div>
+        </mat-form-field>
+
+        <div>
           <button mat-button (click)="onNoClick()" tabindex="-1">
-            Cancelar
+            Cerrar
           </button>
-          <button mat-button (click)="save()" tabindex="9999">Guardar</button>
+          <button mat-button (click)="save()" tabindex="4">Guardar</button>
         </div>
       </form>
     </div>

@@ -15,7 +15,11 @@ export class BonificacionFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      bonificacionNs: this.builder.control(0),
+      bonificacionS: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 

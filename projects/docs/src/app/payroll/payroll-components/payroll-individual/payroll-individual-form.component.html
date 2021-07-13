@@ -32,7 +32,7 @@
         <mat-form-field>
           <mat-label>Sueldo</mat-label>
           <input matInput tabindex="1" formControlName="sueldo" id="sueldo" placeholder="Sueldo " class="form-control"
-            max="99999999" min="0" gtdInputFormatter step="0.01">
+            max="99999999" min="0" gtdInputFormatter step="0.01" readonly>
           <div *ngIf="f.trabajador.value.sueldo?.touched && f.trabajador.value.sueldo?.invalid"
             class="alert alert-danger">
             sueldo máximo permitido es $99'000.000.

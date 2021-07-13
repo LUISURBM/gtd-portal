@@ -171,11 +171,6 @@ export function apiConfigFactory(): Configuration {
       multi: true,
     },
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: GtdHttpInterceptor,
-      multi: true,
-    },
-    {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory,
     },

@@ -5,14 +5,15 @@ import {
   query,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations';
 import { Component, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Menu, MenuItems } from '../../../shared/menu-items/menu-items';
+import { MenuItems } from '../../../shared/menu-items/menu-items';
 import { AppStateService } from '../../../srv/app-state.service';
+import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { DevengadosService } from '../../../srv/payroll/rest/api';
 import { MENU_ITEMS } from './devengados-data';
@@ -65,7 +66,7 @@ export const slideInAnimation = trigger('routeAnimations', [
 })
 export class DevengadosViewComponent {
   position = 'below';
-  public menuItems: Menu[];
+  public menuItems: ValuesCatalog[];
 
   form: FormGroup;
 

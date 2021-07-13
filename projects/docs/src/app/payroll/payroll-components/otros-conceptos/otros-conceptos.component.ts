@@ -124,7 +124,7 @@ export class OtrosConceptosComponent
         id: undefined,
         conceptoNs: otroConcepto.conceptoNs,
         conceptoS: otroConcepto.conceptoS,
-        descripcionConcepto: otroConcepto.descripcionConcepto,
+        descripcion: otroConcepto.descripcion,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018857FDED4E',
         enabled: true,
@@ -146,7 +146,7 @@ export class OtrosConceptosComponent
         })
         .pipe(
           switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
+            if ((response.type !== 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(`Concepto`, 'creado!', {
                 duration: 570000,
@@ -199,7 +199,7 @@ export class OtrosConceptosComponent
         id: otroConcepto.id,
         conceptoNs: otroConcepto.conceptoNs,
         conceptoS: otroConcepto.conceptoS,
-        descripcionConcepto: otroConcepto.descripcionConcepto,
+        descripcion: otroConcepto.descripcion,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018857FDED4E',
         enabled: true,

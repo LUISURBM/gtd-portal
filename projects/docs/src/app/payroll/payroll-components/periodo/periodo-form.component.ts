@@ -18,7 +18,16 @@ export class PeriodoFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      fechaGen: this.builder.control(new Date()),
+      fechaIngreso: this.builder.control(new Date()),
+      fechaLiquidacion: this.builder.control(new Date()),
+      fechaLiquidacionInicio: this.builder.control(new Date()),
+      fechaLiquidacionFin: this.builder.control(new Date()),
+      fechaRetiro: this.builder.control(new Date()),
+      tiempoLaborado: this.builder.control(6),
+    });
     this.form.patchValue(data);
   }
 

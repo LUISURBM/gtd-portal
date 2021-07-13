@@ -14,7 +14,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Mia" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">add</mat-icon>
+        <mat-icon class="mat-button" (click)="openDialog()" matSuffix mat-fab color="primary">➕</mat-icon>
       </mat-form-field>
     </h4>
 
@@ -24,18 +24,18 @@
         <!-- Name Column -->
         <ng-container matColumnDef="cantidad">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>cantidad</th>
-          <td mat-cell *matCellDef="let element">{{ element.cantidad }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.cantidad |number}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="pagoNs">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>pagoNs</th>
-          <td mat-cell *matCellDef="let element">{{ element.pagoNs }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.pagoNs |currency }}</td>
         </ng-container>
         <!-- Name Column -->
         <ng-container matColumnDef="pago">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>pago</th>
-          <td mat-cell *matCellDef="let element">{{ element.pago }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.pago |currency }}</td>
         </ng-container>
 
         <!-- Symbol Column -->

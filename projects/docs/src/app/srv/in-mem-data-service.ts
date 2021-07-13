@@ -4,7 +4,14 @@ import { of } from "rxjs";
 import { delay } from "rxjs/operators";
 
 export interface ValuesCatalog {
-  id: number;
+  state?: string;
+  type?: string;
+  icon?: string;
+  emoji?: string;
+  badge?: [{ type: string; value: string }];
+  menuItems?: ValuesCatalog[];
+  completo?: boolean;
+  id?: number;
   name?: string;
   description?: string;
   code?: string;

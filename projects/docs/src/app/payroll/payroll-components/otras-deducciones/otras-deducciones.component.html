@@ -17,7 +17,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Buscar</mat-label>
         <input type="tel" matInput (keyup)="applyFilter($event)" placeholder="Ej. Nota1" #input>
-        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary">
+        <mat-icon (click)="openDialog()" matSuffix mat-fab color="primary" class="mat-button">
           <span>➕</span>
         </mat-icon>
       </mat-form-field>
@@ -34,7 +34,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="otraDeduccion">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor Otra Deducción</th>
-          <td mat-cell *matCellDef="let element">{{ element.otraDeduccion }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.otraDeduccion|currency }}</td>
         </ng-container>
 
 

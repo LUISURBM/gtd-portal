@@ -17,7 +17,11 @@ export class BasicoFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      diasTrabajados: this.builder.control(0),
+      sueldoTrabajado: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 
@@ -39,5 +43,4 @@ export class BasicoFormComponent {
   parse(value: any): string {
     return value as string;
   }
-
 }

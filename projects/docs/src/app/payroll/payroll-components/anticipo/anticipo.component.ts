@@ -163,7 +163,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${anticipo.anticipo}`, 'creado!', {
+              this._snackBar.open(`Anticipo`, 'creado!', {
                 duration: 50000,
               });
 
@@ -246,7 +246,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${anticipo.anticipo}`, 'actualizado!', {
+            this._snackBar.open(`Anticipo`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);

@@ -19,6 +19,7 @@ import { LicenciasService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
+  gtdDate,
   initTable,
   NgGtdDS,
   OpenDialog,
@@ -115,8 +116,8 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     const request = {
       entidad: {
         cantidad: licencia.cantidad,
-        fechaFin: licencia.fechaFin.toString(),
-        fechaInicio: licencia.fechaInicio.toString(),
+        fechaFin: licencia.fechaFin,
+        fechaInicio: licencia.fechaInicio,
         id: undefined,
         pago: licencia.pago,
         valueCatalogType: licencia.valueCatalogType,
@@ -143,7 +144,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((response: any) => {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${licencia.valueCatalogType}`, 'creada!', {
+              this._snackBar.open(`Licencia`, 'creada!', {
                 duration: 50000,
               });
 
@@ -159,7 +160,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(licencia: Licencia): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar licencia ${licencia.valueCatalogType}?`)
+      confirm(this.dialog, `¿Eliminar licencia?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -218,7 +219,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(
-              `${licencia.valueCatalogType}`,
+              `Licencia`,
               'actualizado!',
               {
                 duration: 50000,
@@ -250,13 +251,19 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(licencia?: Licencia): void {
-    OpenDialog(this.dialog, LicenciaFormComponent, licencia ?? EMPTY).subscribe(
-      (result) => {
-        console.log(result);
-        if (result?.id) this.edit(result);
-        else this.add(result);
-      }
-    );
+    OpenDialog(
+      this.dialog,
+      LicenciaFormComponent,
+      {
+        ...licencia,
+        fechaInicio: gtdDate(licencia?.fechaInicio ?? new Date()),
+        fechaFin: gtdDate(licencia?.fechaFin ?? new Date()),
+      } ?? EMPTY
+    ).subscribe((result) => {
+      console.log(result);
+      if (result?.id) this.edit(result);
+      else this.add(result);
+    });
   }
 
   loading = (loading = 100) =>

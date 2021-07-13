@@ -53,18 +53,14 @@ export class LicenciaFormComponent {
     ];
     this.form = this.builder.group({
       id: 0,
-      fechaInicio: new Date(),
-      fechaFin: new Date(),
+      fechaInicio: this.builder.control(gtdDate(new Date())),
+      fechaFin: this.builder.control(gtdDate(new Date())),
       cantidad: 0,
       pago: 0,
       catalog: '',
       valueCatalogType: '',
     });
-    this.form.patchValue({
-      ...data,
-      fechaInicio: gtdDate(data?.fechaInicio),
-      fechaFin: gtdDate(data?.fechaFin),
-    });
+    this.form.patchValue(data);
   }
 
   onNoClick(): void {

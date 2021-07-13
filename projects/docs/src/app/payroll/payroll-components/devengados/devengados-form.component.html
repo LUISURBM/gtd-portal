@@ -1,18 +1,18 @@
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
 <form #formView [formGroup]="form" class="m-0 d-flex main-container main-form">
 
   <div class="mat-card card">
     <div class="card-header mat-card-header card-header-primary card-header-icon">
-      <div class="card-icon">
-        <em class="material-icons">💵</em>
+
+      <div class="card-title">
+        <div class="card-icon">
+          <em class="material-icons">💵</em>
+        </div>
+        <h1>Agregar nuevo Devengado</h1>
       </div>
-      <h1 class="card-title">Agregar nuevo Devengado</h1>
-      <p class="card-category">Información de Devengos</p>
     </div>
     <div class="row card-body">
 
+      <h3>Use el menú de la izquierda para visualizar y/o agregar el respectivo <em>Devengado</em>.</h3>
       <div class="col-12 type-tooltip-ne" *ngFor="let valor of valores; let i = index;">
         <span>{{valor.name!}} | {{valor.catalog!}}</span>
         <mat-form-field [ngSwitch]="valor.catalog!" appearance="fill">

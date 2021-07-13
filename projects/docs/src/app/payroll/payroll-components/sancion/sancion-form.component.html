@@ -9,22 +9,28 @@
     <div class="card-body">
       <mat-form-field>
         <input matInput tabindex="1" formControlName="sancionPriv" placeholder="Valor de la sanción privida"
-          id="sancionPriv" type="text" class="form-control" />
+          id="sancionPriv" type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.sancionPriv.touched && f.sancionPriv.invalid" class="alert alert-danger">
+          <div *ngIf="f.sancionPriv.errors?.min || f.sancionPriv.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.sancionPriv.errors?.required">sancion es obligatorio.</div>
         </div>
       </mat-form-field>
       <mat-form-field>
         <input matInput tabindex="1" formControlName="sancionPublic" placeholder="Valor de la sanción públic"
-          id="sancionPublic" type="text" class="form-control" />
+          id="sancionPublic" type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.sancionPublic.touched && f.sancionPublic.invalid" class="alert alert-danger">
+          <div *ngIf="f.sancionPublic.errors?.min || f.sancionPublic.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.sancionPublic.errors?.required">
             sancion es obligatorio.
           </div>
         </div>
       </mat-form-field>
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
         <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>

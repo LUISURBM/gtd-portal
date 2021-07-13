@@ -6,42 +6,54 @@
     </div>
     <div class="card-body">
 
-      <h4 >Agregar Fondo Seguridad Pensional nuevo</h4>
-      <p >Información de Fondo Seguridad Pensional</p>
+      <h4>Agregar Fondo Seguridad Pensional nuevo</h4>
+      <p>Información de Fondo Seguridad Pensional</p>
 
 
 
       <mat-form-field>
-        <input matInput tabindex="2" formControlName="deduccion" placeholder="Valor de la deduccion" id="deduccion" type="text"
-          class="form-control" />
+        <input matInput tabindex="2" formControlName="deduccion" placeholder="Valor de la deduccion" id="deduccion"
+          type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
+          <div *ngIf="f.deduccion.errors?.min || f.deduccion.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.deduccion.errors?.required">
             deduccion es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="deduccionSub" placeholder="deduccionSub" id="deduccionSub" type="text"
-          class="form-control" />
+        <input matInput tabindex="3" formControlName="deduccionSub" placeholder="deduccionSub" id="deduccionSub"
+          type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.deduccionSub.touched && f.deduccionSub.invalid" class="alert alert-danger">
+          <div *ngIf="f.deduccionSub.errors?.min || f.deduccionSub.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.deduccionSub.errors?.required">
             deduccionSub es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="porcentaje" placeholder="porcentaje" id="porcentaje" type="text"
-          class="form-control" />
+        <input matInput tabindex="3" formControlName="porcentaje" placeholder="porcentaje" id="porcentaje" type="number"
+          min="0" max="100" step="0.01" class="form-control" />
         <div *ngIf="f.porcentaje.touched && f.porcentaje.invalid" class="alert alert-danger">
+          <div *ngIf="f.porcentaje.errors?.min || f.porcentaje.errors?.max">
+            Máximo 100; mínimo 0
+          </div>
           <div *ngIf="f.porcentaje.errors?.required">
             porcentaje es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="porcentajeSub" placeholder="porcentajeSub" id="porcentajeSub" type="text"
-          class="form-control" />
+        <input matInput tabindex="3" formControlName="porcentajeSub" placeholder="porcentajeSub" id="porcentajeSub"
+          type="number" min="0" max="100" step="0.01" class="form-control" />
         <div *ngIf="f.porcentajeSub.touched && f.porcentajeSub.invalid" class="alert alert-danger">
+          <div *ngIf="f.porcentajeSub.errors?.min || f.porcentajeSub.errors?.max">
+            Máximo 100; mínimo 0
+          </div>
           <div *ngIf="f.porcentajeSub.errors?.required">
             porcentajeSub es obligatorio.
           </div>
@@ -49,9 +61,9 @@
       </mat-form-field>
 
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="4">Guardar</button>
       </div>

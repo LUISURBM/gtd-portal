@@ -15,7 +15,11 @@ export class CompensacionFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public builder: FormBuilder
   ) {
-    this.form = this.builder.group(data);
+    this.form = this.builder.group({
+      id: this.builder.control(''),
+      compensacionE: this.builder.control(0),
+      compensacionO: this.builder.control(0),
+    });
     this.form.patchValue(data);
   }
 
@@ -37,5 +41,4 @@ export class CompensacionFormComponent {
   parse(value: any): string {
     return value as string;
   }
-
 }

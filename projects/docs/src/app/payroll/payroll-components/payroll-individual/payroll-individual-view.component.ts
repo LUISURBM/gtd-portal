@@ -5,21 +5,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
-import { Menu } from '../../../shared/menu-items/menu-items';
 import { AppStateService } from '../../../srv/app-state.service';
+import { ValuesCatalog } from '../../../srv/in-mem-data-service';
 import { NavigationService } from '../../../srv/navigation.service';
 import { NominasIndividualesService } from '../../../srv/payroll/rest/api';
 import {
+  confirm,
   gtdIsNull,
   gtdNombreCompleto,
-  confirm,
-  gtdScrollEvent,
   OpenDialog,
 } from '../../../types/common-types';
-import { MENU_ITEMS } from '../payroll-general/payroll-data';
 import { MENU_ITEMS as ITEMS_DEDUCCIONES } from '../deducciones/deducciones-data';
 import { MENU_ITEMS as ITEMS_DEVENGADOS } from '../devengados/devengados-data';
+import { MENU_ITEMS } from '../payroll-general/payroll-data';
 import { PayrollIndividualQrComponent } from './payroll-individual-qr.component';
 
 @Component({
@@ -29,7 +27,7 @@ import { PayrollIndividualQrComponent } from './payroll-individual-qr.component'
 })
 export class PayrollindividualViewComponent implements OnDestroy {
   position = 'below';
-  public menuItems: Menu[];
+  public menuItems: ValuesCatalog[];
 
   form: FormGroup;
 

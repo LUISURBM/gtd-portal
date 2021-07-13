@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { HostListener, Injectable, OnDestroy } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   ActivatedRoute,
   NavigationCancel,
@@ -42,7 +43,8 @@ export class NavigationService implements OnDestroy {
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
-  ) {
+    private _snackBar: MatSnackBar,
+    ) {
     this.subscriptions.push(
       location.subscribe((v: any) => {
         console.log(v);
@@ -52,6 +54,7 @@ export class NavigationService implements OnDestroy {
         if (event instanceof NavigationEnd) {
           this.navigationInterceptor(event);
           this.history.push(event.urlAfterRedirects);
+          _snackBar.dismiss();
         }
       })
     );

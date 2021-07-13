@@ -63,7 +63,6 @@ export class DevengadosFormComponent {
         )
         .subscribe({
           next: (response: any) => {
-            console.log(response);
             if (
               response?.type === 4 &&
               response?.status == 200 &&

@@ -38,13 +38,13 @@
         <!-- Name Column -->
         <ng-container matColumnDef="pago">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>pago</th>
-          <td mat-cell *matCellDef="let element">{{ element.pago }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.pago|currency }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="cantidad">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>cantidad</th>
-          <td mat-cell *matCellDef="let element">{{ element.cantidad }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.cantidad |number}}</td>
         </ng-container>
 
 

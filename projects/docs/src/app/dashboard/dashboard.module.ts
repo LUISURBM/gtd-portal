@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { ChartistModule } from 'ng-chartist';
 import { DemoMaterialModule } from '../demo-material-module';
+import { SharedModule } from '../shared/shared.module';
 import { ActivityComponent } from './dashboard-components/activity/activity.component';
 import { ContactsComponent } from './dashboard-components/contacts/contacts.component';
 import { MetricsComponent } from './dashboard-components/metrics/metrics.component';
@@ -25,9 +26,9 @@ import { DashboardRoutes } from './dashboard.routing';
     ChartistModule,
     RouterModule.forChild(DashboardRoutes),
     GoogleChartsModule,
+    SharedModule,
   ],
   declarations: [
-    WebdatarocksComponent,
     DashboardComponent,
     SalesOverviewGrapComponent,
     VisiterGraphComponent,

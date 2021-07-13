@@ -24,7 +24,7 @@ import {
   NgGtdDS,
   OpenDialog
 } from '../../../types/common-types';
-import { UIEditado, UIEliminado } from '../../../values-catalog';
+import { UICreado, UIEditado, UIEliminado } from '../../../values-catalog';
 import {
   displayedColumns, EMPTY, Incapacidad
 } from './incapacidad-data';
@@ -150,7 +150,7 @@ export class IncapacidadesComponent
         switchMap((data: any) => {
           incapacidad.loading = undefined;
           if (data?.type === 4 && data?.status === 200) {
-            this.stateSrv.message(`Incapacidad`, UIEditado);
+            this.stateSrv.message(`Incapacidad`, UICreado);
             return this.listado(this.form.value);
           }
           return of();

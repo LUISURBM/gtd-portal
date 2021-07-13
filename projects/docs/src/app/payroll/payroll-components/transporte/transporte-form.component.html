@@ -7,37 +7,46 @@
     <div class="card-body">
       <p class="card-category">Información de Transporte</p>
       <mat-form-field>
-        <input matInput tabindex="2" formControlName="auxilioTransporte" placeholder="Valor de la auxilioTransporte"
-          id="auxilioTransporte" type="text" class="form-control" />
+        <input matInput tabindex="2" formControlName="auxilioTransporte" placeholder="Valor de la auxilio Transporte"
+          id="auxilioTransporte"  type="number" min="0" max="9999999999999999" step="0.01"  class="form-control" />
         <div *ngIf="f.auxilioTransporte.touched && f.auxilioTransporte.invalid" class="alert alert-danger">
+          <div *ngIf="f.auxilioTransporte.errors?.min || f.auxilioTransporte.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.auxilioTransporte.errors?.required">
             auxilioTransporte es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="viaticoManutAlojNs" placeholder="Viatico Manu. Aloj Ns" id="viaticoManutAlojNs"
-          type="text" class="form-control" />
+        <input matInput tabindex="3" formControlName="viaticoManutAlojNs" placeholder="Viatico Manutención Alojamiento No Salarial"
+          id="viaticoManutAlojNs"  type="number" min="0" max="9999999999999999" step="1"  class="form-control" />
         <div *ngIf="f.viaticoManutAlojNs.touched && f.viaticoManutAlojNs.invalid" class="alert alert-danger">
+          <div *ngIf="f.viaticoManutAlojNs.errors?.min || f.viaticoManutAlojNs.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.viaticoManutAlojNs.errors?.required">
-            viaticoManutAlojNs es obligatorio.
+            viaticoManutAlojNo Salarial es obligatorio
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="viaticoManutAlojS" placeholder="Viatico Manu. Aloj S" id="viaticoManutAlojS"
-          type="text" class="form-control" />
+        <input matInput tabindex="3" formControlName="viaticoManutAlojS" placeholder="Viatico Manutención Alojamiento Salarial"
+          id="viaticoManutAlojS"  type="number" min="0" max="9999999999999999" step="1"  class="form-control" />
         <div *ngIf="f.viaticoManutAlojS.touched && f.viaticoManutAlojS.invalid" class="alert alert-danger">
+          <div *ngIf="f.viaticoManutAlojS.errors?.min || f.viaticoManutAlojS.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.viaticoManutAlojS.errors?.required">
-            viaticoManutAlojS es obligatorio.
+            viaticoManutAloj Salarial es obligatorio
           </div>
         </div>
       </mat-form-field>
 
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="4">Guardar</button>
       </div>

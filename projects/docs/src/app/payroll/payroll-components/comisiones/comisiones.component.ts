@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,14 +16,19 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { ComisionesService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';;
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { ComisionFormComponent } from './comision-form.component';
 import { Comision, displayedColumns } from './comisiones-data';
 
 @Component({
   selector: 'app-payroll-comision',
   templateUrl: './comisiones.component.html',
-  styleUrls: ['./comisiones.component.css']
+  styleUrls: ['./comisiones.component.css'],
 })
 export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
   form: FormGroup;
@@ -37,11 +48,22 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.comisionesAPISrv.listFindAllDevengadosUsingGET17(data.devengadosId, 'events', true, {});
+    this.comisionesAPISrv.listFindAllDevengadosUsingGET17(
+      data.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -116,9 +138,9 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            if (!(response.type === 4)) return of();
+            if (response.type !== 4) return of();
             if (response.type === 4 && response.status == 200)
-              this._snackBar.open(`${comision.comision}`, 'creada!', {
+              this._snackBar.open(`Comisión`, 'creada!', {
                 duration: 50000,
               });
 
@@ -134,7 +156,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(comision: Comision): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar comision ${comision.comision}?`)
+      confirm(this.dialog, `¿Eliminar Comisión?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -188,7 +210,7 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${comision.comision}`, 'actualizado!', {
+            this._snackBar.open(`Comisión`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);
@@ -230,6 +252,5 @@ export class ComisionesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loading = (loading = 100) =>
-  this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
-
+    this.dataSource$.next({ ...this.dataSource$.value, loading: loading });
 }

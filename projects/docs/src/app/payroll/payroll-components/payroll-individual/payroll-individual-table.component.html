@@ -20,7 +20,7 @@
         <mat-form-field class="example-full-width">
           <mat-label>{{stateSrv?.textos?.BuscardorTablaNE?.name}}</mat-label>
           <input type="tel" matInput (keyup)="applyFilter($event)" #input formControlName="filtro">
-          <span mat-ripple
+          <span mat-ripple class="mat-button"
             (click)="navSrv.navigate('/nómina/view', JSON.stringify({nominaGeneralId:this.form.value.nominaGeneralId, fechaCorte: this.form.value.fechaCorte}))"
             matSuffix color="primary">
             ➕

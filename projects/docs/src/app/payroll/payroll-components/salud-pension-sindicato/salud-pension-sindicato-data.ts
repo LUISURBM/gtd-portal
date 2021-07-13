@@ -149,3 +149,16 @@ export const catalogs: ValuesCatalog[] = [
   { id: 1, code: 'SaludNI', name: 'Salud' },
   { id: 2, code: 'SindicatoNI', name: 'Sindicato' },
 ];
+
+export const catalogosSaludPensionSindicatoReq: any = {
+  body: {
+    params: {
+      codigoCatalogo: 'DeduccionesAdicionalesNE' as Object,
+    },
+  },
+  header: {
+    cliente: 'FF841F95-5FDC-4879-A6BD-EE8C93A82943',
+    esquema: 'payroll',
+    procedimientoAlmacenado: 'ConsultarValoresCatalogosPorCodigoCatalogo',
+  },
+};

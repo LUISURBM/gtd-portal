@@ -14,16 +14,25 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import {
   FondosSPService,
   StoredProcedureService,
 } from '../../../srv/payroll/rest/api';
 import {
+  UICreado,
+  UIEditado,
+  UIEliminado,
+  UINoCreado,
+  UIOk,
+} from '../../../values-catalog';
+import {
   confirm,
   gtdArrayToLowerCase,
   initTable,
   NgGtdDS,
+  OpenDialog,
 } from '../../../types/common-types';
 import { displayedColumns, FondoSP, fondoSPs } from './fondo-sp-data';
 import { FondoSPFormComponent } from './fondo-sp-form.component';
@@ -63,7 +72,8 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
       },
     };
   };
-  listado = (data: any) => this.procedureAPISrv.exectuteProcedureUsingPOST1(this.request());
+  listado = (data: any) =>
+    this.procedureAPISrv.exectuteProcedureUsingPOST1(this.request());
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -76,6 +86,7 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   };
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -168,23 +179,30 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(fondoSP: FondoSP): void {
     this.subscriptions.push(
-      confirm(this.dialog, `¿Eliminar licencia ${fondoSP.deduccion}?`)
+      confirm(this.dialog, `¿Eliminar Fondo SP ${fondoSP.deduccion}?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
-              ? this.fondosSPAPISrv.deleteUsingDELETE49(
-                  fondoSP.id,
-                  'events',
-                  true,
-                  {
+              ? this.fondosSPAPISrv
+                  .deleteUsingDELETE49(fondoSP.id, 'events', true, {
                     httpHeaderAccept: 'application/json',
-                  }
-                )
-              : of()
-          ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
+                  })
+                  .pipe(
+                    switchMap((response: any) => {
+                      if (response?.type !== 4) return of();
+                      if (
+                        response?.type === 4 &&
+                        response?.status === 200
+                      ) {
+                        this.stateSrv.message(
+                          `Fondo SP`,
+                          UIEliminado
+                        );
+                        return this.listado(this.form.value);
+                      }
+                      return of();
+                    })
+                  )
               : of()
           )
         )
@@ -225,7 +243,7 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
         })
         .pipe(
           switchMap((response: any) => {
-            this._snackBar.open(`${fondoSP.deduccion}`, 'actualizado!', {
+            this._snackBar.open(`Fondo SP`, 'actualizado!', {
               duration: 50000,
             });
             return this.listado(this.form.value);
@@ -254,13 +272,12 @@ export class FondoSPComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openDialog(fondoSP?: number): void {
-    const dialogRef = this.dialog.open(FondoSPFormComponent, {
-      width: '450px',
-      data: fondoSP ?? { id: undefined, name: '' },
-    });
-
     this.subscriptions.push(
-      dialogRef.afterClosed().subscribe((result) => {
+      OpenDialog(
+        this.dialog,
+        FondoSPFormComponent,
+        fondoSP ?? { id: undefined, name: '' }
+      ).subscribe((result) => {
         console.log(result);
         if (result?.id) this.edit(result);
         else this.add(result);

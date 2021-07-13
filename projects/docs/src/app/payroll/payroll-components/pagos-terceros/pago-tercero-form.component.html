@@ -7,8 +7,11 @@
     <div class="card-body">
       <mat-form-field>
         <input matInput tabindex="1" formControlName="pagoTercero" placeholder="Valor del pago tercero" id="pagoTercero"
-          type="text" class="form-control" />
+          type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.pagoTercero.touched && f.pagoTercero.invalid" class="alert alert-danger">
+          <div *ngIf="f.pagoTercero.errors?.min || f.pagoTercero.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.pagoTercero.errors?.required">
             Pago Tercero es obligatorio.
           </div>
@@ -16,9 +19,9 @@
       </mat-form-field>
       <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
-        <button mat-button (click)="save()" tabindex="3">Guardar</button>
+        <button mat-button (click)="save()" tabindex="2">Guardar</button>
       </div>
     </div>
   </div>

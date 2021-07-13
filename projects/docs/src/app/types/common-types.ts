@@ -34,6 +34,9 @@ export interface EnumObject {
 export interface EnumString {
   [enumValue: string]: ValuesCatalog;
 }
+export interface EnumCatalogs {
+  [enumValue: string]: ValuesCatalog[];
+}
 
 export function getEnumValues(e: EnumObject): string[] {
   return Object.keys(e).map((i: any) => e[i]);
@@ -202,6 +205,7 @@ export const numberWithCommas = (value: string) =>
   );
 export const stringWithCommas = (value: string) =>
   (+value).toLocaleString('es-CO');
+export const safeText = (value: string) => value?.replace(/[^\w\s]/gi, '');
 export const gtdScrollEvent = () => fromEvent(window, 'scroll');
 export const parseLocaleNumber = (stringNumber: string, locale: string) => {
   var thousandSeparator = Intl.NumberFormat(locale)
@@ -226,23 +230,25 @@ export const gtdExtractDataProcedure = (body: any) =>
     var keys = Object.keys(data);
     var n = keys.length;
     var newobj: any = {};
-    // data?.[keys?.[0]]?.forEach?.((element: any) => {
-    //   var keys = Object.keys(data);
-    //   var n = keys.length;
-    //   while (n--) {
-    //     valores.push({
-    //       id: y + 1,
-    //       value: element[keys[n]],
-    //       code: keys[n],
-    //       name: keys[n],
-    //       catalog: '',
-    //     });
-    //   }
-    // });
     while (n--) {
       var gtdMember = keys[n];
       var valor = data[gtdMember];
-      if (typeof valor === 'object') {
+      if (Array.isArray(valor)) {
+        valor.forEach((v, i) => {
+          var keys1 = Object.keys(v);
+          valores.push(
+            ...keys1.map((k, y) => {
+              return {
+                id: keys.length - n + i + y,
+                value: typeof v[k] === 'number' ? numberWithCommas(v[k]) : v[k],
+                code: `${k}${gtdMember}`,
+                name: `${gtdMember}: ${k}`,
+                catalog: typeof v[k],
+              };
+            })
+          );
+        });
+      } else if (typeof valor === 'object') {
         var keys1 = Object.keys(valor?.[0]);
         var y = keys1.length;
         while (y--) {

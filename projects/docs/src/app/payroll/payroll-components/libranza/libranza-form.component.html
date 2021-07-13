@@ -13,17 +13,25 @@
       <p class="card-category">Información de libranza</p>
       <mat-form-field>
         <input matInput tabindex="1" formControlName="deduccion" placeholder="Valor de la deduccion" id="deduccion"
-          type="text" class="form-control" />
+          type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.deduccion.touched && f.deduccion.invalid" class="alert alert-danger">
+
+          <div *ngIf="f.deduccion.errors?.min || f.deduccion.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.deduccion.errors?.required">
             deducción es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="1" formControlName="descripcion" placeholder="Descripcion de la deducción"
-          id="descripcion" type="text" class="form-control" />
+        <textarea matInput gtdTextFormatter tabindex="2" formControlName="descripcion" type="text"
+          placeholder="Descripcion de la deducción" id="descripcion" class="form-control" ></textarea>
         <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
+
+          <div *ngIf="f.descripcion.errors?.min || f.descripcion.errors?.max">
+            Máximo 999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.descripcion.errors?.required">
             descripcion es obligatorio.
           </div>
@@ -33,7 +41,7 @@
 
       <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="3">Guardar</button>
       </div>

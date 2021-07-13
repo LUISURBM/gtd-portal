@@ -8,35 +8,41 @@
       <div class="card-body">
         <h4 class="card-title">Agregar Compensaciones nuevo</h4>
         <p class="card-category">Información de Compensaciones</p>
-        <div class="type-tooltip-ne" >
-          <span>Compensacion E</span>
+        <div class="type-tooltip-ne">
+          <span>Compensacion Extraordinaria</span>
           <mat-form-field>
-            <input matInput tabindex="1" formControlName="compensacionE" placeholder="compensacionE" id="compensacionE"
-              type="text" class="form-control" />
+            <input matInput tabindex="1" formControlName="compensacionE" id="compensacionE"
+              type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
             <div *ngIf="f.compensacionE.touched && f.compensacionE.invalid" class="alert alert-danger">
+              <div *ngIf="f.compensacionE.errors?.min || f.compensacionE.errors?.max">
+                Máximo 999.999.999'999.999; mínimo 0
+              </div>
               <div *ngIf="f.compensacionE.errors?.required">
-                compensacionE es obligatorio.
+                Compensación Extraordinaria es obligatorio.
               </div>
             </div>
           </mat-form-field>
         </div>
 
-        <div class="type-tooltip-ne" >
-          <span>Compensacion O</span>
+        <div class="type-tooltip-ne">
+          <span>Compensacion Ordinaria</span>
           <mat-form-field>
-            <input matInput tabindex="2" formControlName="compensacionO" placeholder="compensacionO" id="compensacionO"
-              type="text" class="form-control" />
+            <input matInput tabindex="2" formControlName="compensacionO" id="compensacionO"
+              type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
             <div *ngIf="f.compensacionO.touched && f.compensacionO.invalid" class="alert alert-danger">
+              <div *ngIf="f.compensacionO.errors?.min || f.compensacionO.errors?.max">
+                Máximo 999.999.999'999.999; mínimo 0
+              </div>
               <div *ngIf="f.compensacionO.errors?.required">
-                compensacionO es obligatorio.
+                Compensación Ordinaria es obligatorio.
               </div>
             </div>
           </mat-form-field>
 
         </div>
-        <div mat-dialog-actions>
+        <div>
           <button mat-button (click)="onNoClick()" tabindex="-1">
-            Cancelar
+            Volver
           </button>
           <button mat-button (click)="save()" tabindex="3">Guardar</button>
         </div>

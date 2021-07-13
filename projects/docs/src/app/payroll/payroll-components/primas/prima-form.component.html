@@ -12,26 +12,36 @@
     <div class="card-body">
       <mat-form-field>
         <input matInput tabindex="1" formControlName="cantidad" placeholder="Valor de cantidad" id="cantidad"
-          type="number" class="form-control" />
+          type="number" min="0" max="2146000000" step="1" class="form-control" />
         <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+          {{f.cantidad.errors|json}}
+          <div *ngIf="f.cantidad.errors?.min || f.cantidad.errors?.max">
+            Máximo 2.146'000.000; mínimo 0
+          </div>
           <div *ngIf="f.cantidad.errors?.required">
             cantidad es obligatorio.
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="2" formControlName="pagoNs" placeholder="Valor de PagoNs" id="pagoNs" type="number"
-          class="form-control" />
+        <input matInput tabindex="2" formControlName="pagoNs" placeholder="Valor de Pago No Salarial" id="pagoNs" type="number"
+          min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.pagoNs.touched && f.pagoNs.invalid" class="alert alert-danger">
+          <div *ngIf="f.pagoNs.errors?.min || f.pagoNs.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.pagoNs.errors?.required">
-            Pago Ns es obligatorio.
+            Pago No Salarial es obligatorio
           </div>
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="3" formControlName="pago" placeholder="Valor de Pago" id="pago" type="number"
-          class="form-control" />
+        <input matInput tabindex="3" formControlName="pago" placeholder="Valor de Pago" id="pago" type="number" min="0"
+          max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.pago.touched && f.pago.invalid" class="alert alert-danger">
+          <div *ngIf="f.pago.errors?.min || f.pago.errors?.max">
+            Máximo 99.999.999.999'999.999; mínimo 0
+          </div>
           <div *ngIf="f.pago.errors?.required">
             pago es obligatorio.
           </div>
@@ -39,9 +49,9 @@
       </mat-form-field>
 
 
-      <div mat-dialog-actions>
+      <div>
         <button mat-button (click)="onNoClick()" tabindex="-1">
-          Cancelar
+          Volver
         </button>
         <button mat-button (click)="save()" tabindex="4">Guardar</button>
       </div>
