@@ -175,13 +175,13 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
           switchMap((data: any) => {
             if (!(data.type === 4 && data.status === 200)) return of();
             if (data.type === 4 && data.status !== 200) {
-              this._snackBar.open(`Bonificación`, 'No Eliminada!', {
+              this._snackBar.open(`Cesantías`, 'No Eliminada!', {
                 duration: 50000,
               });
               return of();
             }
 
-            this._snackBar.open(`Bonificación`, 'Eliminada!', {
+            this._snackBar.open(`Cesantías`, 'Eliminada!', {
               duration: 50000,
             });
             return this.listado(this.form.value);
