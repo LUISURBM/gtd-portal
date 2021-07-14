@@ -198,7 +198,7 @@ export const gtdDate = (value: number | string | Date = new Date()) =>
 export const gtdDateTimeInput = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-ddThh:mm', 'es-Co');
 export const gtdApiDateTime = (value: number | string | Date = new Date()) =>
-  formatDate(value, 'yyyy-MM-ddThh:mmaZZZZZ', 'es-Co');
+  formatDate(value, 'yyyy-MM-ddThh:mmZZZZZ', 'es-Co');
 export const gtdDateTime = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-ddThh:mmZZZZZ', 'es-Co');
 export const numberWithCommas = (value: string) =>

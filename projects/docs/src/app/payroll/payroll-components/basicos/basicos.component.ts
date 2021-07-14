@@ -180,11 +180,15 @@ export class BasicosComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((data: any) =>{
+            if(!(data.type === 4 && data.status === 200)) return of();
+
+            this._snackBar.open(`Basico`, 'Eliminado!', {
+              duration: 50000,
+            });
+
+            return this.listado(this.form.value);
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminado!'),

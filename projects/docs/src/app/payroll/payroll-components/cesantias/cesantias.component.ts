@@ -16,7 +16,12 @@ import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { InMemService } from '../../../srv/in-mem-service';
 import { CesantiasService } from '../../../srv/payroll/rest/api';
-import { confirm, gtdArrayToLowerCase, initTable, NgGtdDS } from '../../../types/common-types';
+import {
+  confirm,
+  gtdArrayToLowerCase,
+  initTable,
+  NgGtdDS,
+} from '../../../types/common-types';
 import { Cesantia, displayedColumns, cesantias, EMPTY } from './cesantia-data';
 import { CesantiaFormComponent } from './cesantia-form.component';
 
@@ -52,8 +57,13 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
-    initTable(this.dataSource$, this.paginator, this.sort, gtdArrayToLowerCase(data?.body?.bodyDto), displayedColumns);
-
+    initTable(
+      this.dataSource$,
+      this.paginator,
+      this.sort,
+      gtdArrayToLowerCase(data?.body?.bodyDto),
+      displayedColumns
+    );
   };
 
   constructor(
@@ -162,11 +172,20 @@ export class CesantiasComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((data: any) => {
+            if (!(data.type === 4 && data.status === 200)) return of();
+            if (data.type === 4 && data.status !== 200) {
+              this._snackBar.open(`Bonificación`, 'No Eliminada!', {
+                duration: 50000,
+              });
+              return of();
+            }
+
+            this._snackBar.open(`Bonificación`, 'Eliminada!', {
+              duration: 50000,
+            });
+            return this.listado(this.form.value);
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),

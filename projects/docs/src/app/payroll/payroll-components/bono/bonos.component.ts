@@ -76,7 +76,7 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private bonosAPISrv: BonosEPCTVService,
     public stateSrv: AppStateService
-    ) {
+  ) {
     this.form = this.formBuilder.group({
       filtro: '',
       fechaCorte: new Date(),
@@ -170,11 +170,20 @@ export class BonosEPCTVComponent implements OnInit, AfterViewInit, OnDestroy {
                 })
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((data: any) => {
+            if (!(data.type === 4 && data.status === 200)) return of();
+            if (data.type === 4 && data.status !== 200) {
+              this._snackBar.open(`Bono`, 'No Eliminado!', {
+                duration: 50000,
+              });
+              return of();
+            }
+
+            this._snackBar.open(`Bono`, 'Eliminado!', {
+              duration: 50000,
+            });
+            return this.listado(this.form.value);
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminado!'),

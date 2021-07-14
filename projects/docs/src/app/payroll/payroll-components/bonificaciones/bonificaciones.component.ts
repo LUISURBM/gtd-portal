@@ -50,7 +50,12 @@ export class BonificacionesComponent
   subscriptions: Subscription[] = [];
 
   listado = (data: any) =>
-    this.bonificacionesAPISrv.listFindAllDevengadosUsingGET15( data?.devengadosId, 'events', true, {});
+    this.bonificacionesAPISrv.listFindAllDevengadosUsingGET15(
+      data?.devengadosId,
+      'events',
+      true,
+      {}
+    );
   readResponseTList = (data: any, message?: string) => {
     this.loading((data?.type ?? 1) * 25);
     if (!data.body) return;
@@ -205,11 +210,20 @@ export class BonificacionesComponent
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((data: any) => {
+            if (!(data.type === 4 && data.status === 200)) return of();
+            if (data.type === 4 && data.status !== 200) {
+              this._snackBar.open(`Bonificación`, 'No Eliminada!', {
+                duration: 50000,
+              });
+              return of();
+            }
+
+            this._snackBar.open(`Bonificación`, 'Eliminada!', {
+              duration: 50000,
+            });
+            return this.listado(this.form.value);
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),
