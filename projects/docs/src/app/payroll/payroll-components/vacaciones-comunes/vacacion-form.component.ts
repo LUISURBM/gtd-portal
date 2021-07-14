@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { switchMap, tap } from 'rxjs/operators';
 import { AppStateService } from '../../../srv/app-state.service';
-import { gtdDateTime, gtdDate } from '../../../types/common-types';
+import { gtdDateTime, gtdDate, gtdDateTimeInput } from '../../../types/common-types';
 import { catalogs } from './vacacion-data';
 @Component({
   selector: 'app-vacacion-form-dialog',

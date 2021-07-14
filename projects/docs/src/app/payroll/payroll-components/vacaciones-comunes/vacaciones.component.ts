@@ -22,11 +22,17 @@ import {
   confirm,
   gtdArrayToLowerCase,
   gtdDate,
+  gtdDateTime,
   initTable,
   NgGtdDS,
   OpenDialog,
 } from '../../../types/common-types';
-import { UIEditado, UIEliminado, UINoEditado } from '../../../values-catalog';
+import {
+  UIEditado,
+  UIEliminado,
+  UINoCreado,
+  UINoEditado,
+} from '../../../values-catalog';
 import { catalogs, displayedColumns, EMPTY, Vacacion } from './vacacion-data';
 import { VacacionFormComponent } from './vacacion-form.component';
 
@@ -143,12 +149,24 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
+    if (!vacacion.fechaInicio || !vacacion.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoCreado);
+      return;
+    }
+    if (vacacion.fechaInicio > vacacion.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoCreado
+      );
+      return;
+    }
+
     const request = {
       entidad: {
         id: undefined,
         cantidad: vacacion.cantidad,
-        fechaFin: vacacion.fechaFin,
-        fechaInicio: vacacion.fechaInicio,
+        fechaFin: gtdDateTime(vacacion.fechaFin!),
+        fechaInicio: gtdDateTime(vacacion.fechaInicio!),
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
         devengadosId: this.form.value.devengadosId,
@@ -208,11 +226,26 @@ export class VacacionesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   edit(vacacion: Vacacion): void {
+    if (!vacacion) {
+      return;
+    }
+
+    if (!vacacion.fechaInicio || !vacacion.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoEditado);
+      return;
+    }
+    if (vacacion.fechaInicio > vacacion.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoEditado
+      );
+      return;
+    }
     const request = {
       entidad: {
         cantidad: vacacion.cantidad,
-        fechaFin: vacacion.fechaFin,
-        fechaInicio: vacacion.fechaInicio,
+        fechaFin: gtdDateTime(vacacion.fechaFin!),
+        fechaInicio: gtdDateTime(vacacion.fechaInicio!),
         pago: vacacion.pago,
         valueCatalogName: vacacion.valueCatalogName,
         prevValueCatalogName: vacacion.prevValueCatalogName,

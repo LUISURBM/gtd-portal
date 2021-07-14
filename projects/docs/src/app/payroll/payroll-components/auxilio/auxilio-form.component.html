@@ -7,11 +7,10 @@
           <em class="material-icons">{{'1F4C3'|gtdEmoji}}</em>
         </div>
         <h1 mat-dialog-title>Formulario Auxilio</h1>
-        <h4>Agregar Auxilio nuevo</h4>
-        <p class="card-category">Información de Auxilio</p>
       </div>
     </div>
     <div class="card-body">
+      <h4 class="card-title">{{form.value.id? 'Editar':'Agregar'}} Auxilio</h4>
       <div class="type-tooltip-ne" >
         <span>Auxilio No Salarial</span>
         <mat-form-field>

@@ -6,10 +6,12 @@
           <em class="material-icons">{{'1F4C3'|gtdEmoji}}</em>
         </div>
         <h1 mat-dialog-title>Formulario Prima </h1>
+
       </div>
     </div>
 
     <div class="card-body">
+      <h4 class="card-title">{{form.value.id? 'Editar':'Agregar'}} Prima</h4>
       <mat-form-field>
         <input matInput tabindex="1" formControlName="cantidad" placeholder="Valor de cantidad" id="cantidad"
           type="number" min="0" max="2146000000" step="1" class="form-control" />
@@ -24,8 +26,8 @@
         </div>
       </mat-form-field>
       <mat-form-field>
-        <input matInput tabindex="2" formControlName="pagoNs" placeholder="Valor de Pago No Salarial" id="pagoNs" type="number"
-          min="0" max="9999999999999999" step="0.01" class="form-control" />
+        <input matInput tabindex="2" formControlName="pagoNs" placeholder="Valor de Pago No Salarial" id="pagoNs"
+          type="number" min="0" max="9999999999999999" step="0.01" class="form-control" />
         <div *ngIf="f.pagoNs.touched && f.pagoNs.invalid" class="alert alert-danger">
           <div *ngIf="f.pagoNs.errors?.min || f.pagoNs.errors?.max">
             Máximo 99.999.999.999'999.999; mínimo 0

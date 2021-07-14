@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { StoredProcedureService } from '../../../srv/payroll/rest/api';
-import { gtdDateTime } from '../../../types/common-types';
+import { gtdDateTime, gtdDateTimeInput } from '../../../types/common-types';
 
 @Component({
   selector: 'app-horario-adicional-form-dialog',
@@ -50,8 +50,8 @@ export class HorarioAdicionalFormComponent {
       cantidad: this.builder.control(0),
       pago: this.builder.control(0),
       porcentaje: this.builder.control(0),
-      horaInicio: this.builder.control(gtdDateTime(new Date())),
-      horaFin: this.builder.control(gtdDateTime(new Date())),
+      horaInicio: this.builder.control(gtdDateTimeInput(new Date())),
+      horaFin: this.builder.control(gtdDateTimeInput(new Date())),
       valueCatalogType: this.builder.control('HEDS', [Validators.required]),
     });
 

@@ -5,9 +5,9 @@
       <h1 class="card-category">Formulario Bono </h1>
     </div>
     <div class="card-body">
-      <h4 class="card-title">Agregar Bono nuevo</h4>
+      <h4 class="card-title">{{form.value.id? 'Editar':'Agregar'}} Bono nuevo</h4>
       <div class="type-tooltip-ne">
-        <span>Pago alimentación Ns</span>
+        <span>Pago alimentación No Salarial</span>
         <mat-form-field>
           <input matInput tabindex="1" formControlName="pagoAlimentacionNs" placeholder="pagoAlimentacion No salarial"
             id="pagoAlimentacionNs" type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
@@ -24,7 +24,7 @@
       </div>
 
       <div class="type-tooltip-ne">
-        <span>Pago alimentación S</span>
+        <span>Pago Alimentación Salarial</span>
         <mat-form-field>
           <input matInput tabindex="2" formControlName="pagoAlimentacionS" placeholder="pagoAlimentacionS"
             id="pagoAlimentacionS" type="number" min="0" max="999999999999999" step="0.01" class="form-control" />
@@ -42,9 +42,9 @@
       </div>
 
       <div class="type-tooltip-ne">
-        <span>Pago Ns</span>
+        <span>Pago No Salarial</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pagoNs" placeholder="pagoNs" id="pagoNs" type="number" min="0"
+          <input matInput tabindex="2" formControlName="pagoNs" placeholder="pago No Salarial" id="pagoNs" type="number" min="0"
             max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoNs.touched && f.pagoNs.invalid" class="alert alert-danger">
             <div *ngIf="f.pagoNs.errors?.min || f.pagoNs.errors?.max">
@@ -60,9 +60,9 @@
       </div>
 
       <div class="type-tooltip-ne">
-        <span>Pago S</span>
+        <span>Pago Salarial</span>
         <mat-form-field>
-          <input matInput tabindex="2" formControlName="pagoS" placeholder="pagoS" id="pagoS" type="number" min="0"
+          <input matInput tabindex="2" formControlName="pagoS" placeholder="pago Salarial" id="pagoS" type="number" min="0"
             max="999999999999999" step="0.01" class="form-control" />
           <div *ngIf="f.pagoS.touched && f.pagoS.invalid" class="alert alert-danger">
             <div *ngIf="f.pagoS.errors?.min || f.pagoS.errors?.max">

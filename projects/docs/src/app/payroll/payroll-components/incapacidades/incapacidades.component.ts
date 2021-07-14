@@ -20,11 +20,12 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { IncapacidadesService } from '../../../srv/payroll/rest/api';
 import {
   gtdArrayToLowerCase, gtdDate,
+  gtdDateTime,
   initTable,
   NgGtdDS,
   OpenDialog
 } from '../../../types/common-types';
-import { UICreado, UIEditado, UIEliminado } from '../../../values-catalog';
+import { UICreado, UIEditado, UIEliminado, UINoCreado, UINoEditado } from '../../../values-catalog';
 import {
   displayedColumns, EMPTY, Incapacidad
 } from './incapacidad-data';
@@ -119,11 +120,22 @@ export class IncapacidadesComponent
       return;
     }
 
+    if (!incapacidad.fechaInicio || !incapacidad.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoCreado);
+      return;
+    }
+    if (incapacidad.fechaInicio > incapacidad.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoCreado
+      );
+      return;
+    }
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: gtdDate(incapacidad.fechaFin!),
-        fechaInicio: gtdDate(incapacidad.fechaInicio!),
+        fechaFin: gtdDateTime(incapacidad.fechaFin!),
+        fechaInicio: gtdDateTime(incapacidad.fechaInicio!),
         id: undefined,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,
@@ -164,7 +176,7 @@ export class IncapacidadesComponent
 
   delete(incapacidad: Incapacidad): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar incapacidad ${incapacidad.tipo}?`)
+      this.confirm(`¿Eliminar incapacidad?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -198,11 +210,26 @@ export class IncapacidadesComponent
   }
 
   edit(incapacidad: Incapacidad): void {
+    if (!incapacidad) {
+      return;
+    }
+
+    if (!incapacidad.fechaInicio || !incapacidad.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoEditado);
+      return;
+    }
+    if (incapacidad.fechaInicio > incapacidad.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoEditado
+      );
+      return;
+    }
     const request = {
       entidad: {
         cantidad: incapacidad.cantidad,
-        fechaFin: gtdDate(incapacidad.fechaFin!),
-        fechaInicio: gtdDate(incapacidad.fechaInicio!),
+        fechaFin: gtdDateTime(incapacidad.fechaFin!),
+        fechaInicio: gtdDateTime(incapacidad.fechaInicio!),
         id: incapacidad.id,
         pago: incapacidad.pago,
         valueCatalogType: incapacidad.valueCatalogType,

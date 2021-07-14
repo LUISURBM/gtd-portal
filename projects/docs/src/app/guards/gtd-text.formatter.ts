@@ -40,8 +40,10 @@ export class GtdTextFormatterDirective {
 
   private formatValue(value: string | null) {
     if (value !== null) {
+      this._value = safeText(value);
       this.elementRef.nativeElement.value = safeText(value);
     } else {
+      this._value = '';
       this.elementRef.nativeElement.value = '';
     }
   }
@@ -54,13 +56,11 @@ export class GtdTextFormatterDirective {
       this.elementRef.nativeElement.value = '';
     }
   }
-  @HostListener('textarea', ['$event.target.value'])
-  onTextArea = (value:any) => this.onInput(value);
 
   @HostListener('input', ['$event.target.value'])
   onInput(value: any) {
     // here we cut any non numerical symbols
-    this._value = value;
+    this._value = safeText(value);
     this.formatValue(value);
     this._onChange(this._value);
   }
@@ -77,7 +77,7 @@ export class GtdTextFormatterDirective {
   _onChange(value: any): void {}
 
   writeValue(value: any) {
-    this._value = value;
+    this._value = safeText(value);
     this.formatValue(this._value!); // format Value
   }
 

@@ -23,6 +23,7 @@ import {
   initTable,
   NgGtdDS,
 } from '../../../types/common-types';
+import { UIEliminado } from '../../../values-catalog';
 import { displayedColumns, Sancion } from './sancion-data';
 import { SancionFormComponent } from './sancion-form.component';
 
@@ -174,11 +175,14 @@ export class SancionComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((response: any) => {
+            if (response?.type !== 4) return of();
+            if (response?.type === 4 && response?.status === 200) {
+              this.stateSrv.message(`Sancion`, UIEliminado);
+              return this.listado(this.form.value);
+            }
+            return of();
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),

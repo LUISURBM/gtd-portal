@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,14 +14,17 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { AnticiposService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
+  gtdEmptyEntity,
   initTable,
-  NgGtdDS
+  NgGtdDS,
 } from '../../../types/common-types';
+import { UIEliminado } from '../../../values-catalog';
 import { Anticipo, displayedColumns } from './anticipo-data';
 import { AnticipoFormComponent } from './anticipo-form.component';
 
@@ -76,6 +79,7 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   };
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -122,7 +126,9 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!anticipo) {
       return;
     }
-
+    if (gtdEmptyEntity(anticipo)) {
+      return;
+    }
     const request = {
       entidad: {
         id: undefined,
@@ -193,11 +199,14 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>
-            data.type === 4 && data.status === 200
-              ? this.listado(this.form.value)
-              : of()
-          )
+          switchMap((response: any) => {
+            if (response?.type !== 4) return of();
+            if (response?.type === 4 && response?.status === 200) {
+              this.stateSrv.message(`Anticipo`, UIEliminado);
+              return this.listado(this.form.value);
+            }
+            return of();
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),
@@ -209,6 +218,10 @@ export class AnticipoComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   edit(anticipo: Anticipo): void {
+
+    if (gtdEmptyEntity(anticipo)) {
+      return;
+    }
     const request = {
       entidad: {
         id: anticipo.id,

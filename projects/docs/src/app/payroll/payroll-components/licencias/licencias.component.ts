@@ -14,16 +14,20 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { AppStateService } from '../../../srv/app-state.service';
 import { InMemService } from '../../../srv/in-mem-service';
 import { LicenciasService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
   gtdArrayToLowerCase,
   gtdDate,
+  gtdDateTime,
+  gtdDateTimeInput,
   initTable,
   NgGtdDS,
   OpenDialog,
 } from '../../../types/common-types';
+import { UINoCreado, UINoEditado } from '../../../values-catalog';
 import { displayedColumns, EMPTY, Licencia } from './licencia-data';
 import { LicenciaFormComponent } from './licencia-form.component';
 
@@ -68,6 +72,7 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   };
   constructor(
+    public stateSrv: AppStateService,
     public memSrv: InMemService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -113,11 +118,23 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
+    if (!licencia.fechaInicio || !licencia.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoCreado);
+      return;
+    }
+    if (licencia.fechaInicio > licencia.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoCreado
+      );
+      return;
+    }
+
     const request = {
       entidad: {
         cantidad: licencia.cantidad,
-        fechaFin: licencia.fechaFin,
-        fechaInicio: licencia.fechaInicio,
+        fechaFin: gtdDateTime(licencia.fechaFin!),
+        fechaInicio: gtdDateTime(licencia.fechaInicio!),
         id: undefined,
         pago: licencia.pago,
         valueCatalogType: licencia.valueCatalogType,
@@ -190,11 +207,26 @@ export class LicenciaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   edit(licencia: Licencia): void {
+    if (!licencia) {
+      return;
+    }
+
+    if (!licencia.fechaInicio || !licencia.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoEditado);
+      return;
+    }
+    if (licencia.fechaInicio > licencia.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoEditado
+      );
+      return;
+    }
     const request = {
       entidad: {
         cantidad: licencia.cantidad,
-        fechaFin: licencia.fechaFin.toString(),
-        fechaInicio: licencia.fechaInicio.toString(),
+        fechaFin: gtdDateTime(licencia.fechaFin!),
+        fechaInicio: gtdDateTime(licencia.fechaInicio!),
         pago: licencia.pago,
         valueCatalogType: licencia.valueCatalogType,
         id: licencia.id,

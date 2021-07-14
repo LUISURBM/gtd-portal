@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,17 +19,16 @@ import { InMemService } from '../../../srv/in-mem-service';
 import { HorariosAdicionalesService } from '../../../srv/payroll/rest/api';
 import {
   confirm,
-  gtdArrayToLowerCase,
-  gtdDateTime,
+  gtdApiDateTime,
+  gtdArrayToLowerCase, gtdDateTime,
+  gtdDateTimeInput,
   initTable,
   NgGtdDS,
-  OpenDialog,
+  OpenDialog
 } from '../../../types/common-types';
-import { UICreado, UIEliminado } from '../../../values-catalog';
+import { UICreado, UIEliminado, UINoCreado, UINoEditado } from '../../../values-catalog';
 import {
-  displayedColumns,
-  EMPTY,
-  HorarioAdicional,
+  displayedColumns, HorarioAdicional
 } from './horario-adicional-data';
 import { HorarioAdicionalFormComponent } from './horario-adicional-form.component';
 
@@ -124,6 +123,20 @@ export class HorariosAdicionalesComponent
     if (!horarioAdicional) {
       return;
     }
+    if (!horarioAdicional.horaFin || !horarioAdicional.horaInicio) {
+      this.stateSrv.message(`Hora inicio/fin son obligatorios`, UINoCreado);
+      return;
+    }
+
+    const hFin = new Date(Date.parse(horarioAdicional.horaFin));
+    const hInicio = new Date(Date.parse(horarioAdicional.horaInicio));
+    if (hInicio > hFin) {
+      this.stateSrv.message(
+        `Hora inicio debe ser inferior a Hora fin`,
+        UINoCreado
+      );
+      return;
+    }
 
     const request = {
       entidad: {
@@ -131,8 +144,8 @@ export class HorariosAdicionalesComponent
         cantidad: horarioAdicional.cantidad!,
         pago: horarioAdicional.pago!,
         porcentaje: horarioAdicional.porcentaje!,
-        horaInicio: new Date(horarioAdicional.horaInicio!).toISOString(),
-        horaFin: new Date(horarioAdicional.horaFin!).toISOString(),
+        horaInicio: gtdApiDateTime(horarioAdicional.horaInicio!),
+        horaFin: gtdApiDateTime(horarioAdicional.horaFin!),
         valueCatalogType: horarioAdicional.valueCatalogType!,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -196,8 +209,7 @@ export class HorariosAdicionalesComponent
               return this.listado(this.form.value);
             }
             return of();
-          }
-          )
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),
@@ -209,14 +221,31 @@ export class HorariosAdicionalesComponent
   }
 
   edit(horarioAdicional: HorarioAdicional): void {
+    if (!horarioAdicional) {
+      return;
+    }
+    if (!horarioAdicional.horaFin || !horarioAdicional.horaInicio) {
+      this.stateSrv.message(`Hora inicio/fin son obligatorios`, UINoEditado);
+      return;
+    }
+
+    const hFin = new Date(Date.parse(horarioAdicional.horaFin));
+    const hInicio = new Date(Date.parse(horarioAdicional.horaInicio));
+    if (hInicio > hFin) {
+      this.stateSrv.message(
+        `Hora inicio debe ser inferior a Hora fin`,
+        UINoEditado
+      );
+      return;
+    }
     const request = {
       entidad: {
         id: horarioAdicional.id,
         cantidad: horarioAdicional.cantidad,
         pago: horarioAdicional.pago,
         porcentaje: horarioAdicional.porcentaje,
-        horaInicio: new Date(horarioAdicional.horaInicio!).toISOString(),
-        horaFin: new Date(horarioAdicional.horaFin!).toISOString(),
+        horaInicio: gtdApiDateTime(horarioAdicional.horaInicio!),
+        horaFin: gtdApiDateTime(horarioAdicional.horaFin!),
         valueCatalogType: horarioAdicional.valueCatalogType!,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
@@ -272,8 +301,8 @@ export class HorariosAdicionalesComponent
     this.subscriptions.push(
       OpenDialog(this.dialog, HorarioAdicionalFormComponent, {
         ...horarioAdicional,
-        horaInicio: gtdDateTime(horarioAdicional?.horaInicio ?? new Date()),
-        horaFin: gtdDateTime(horarioAdicional?.horaFin ?? new Date()),
+        horaInicio: gtdDateTimeInput(horarioAdicional?.horaInicio ?? new Date()),
+        horaFin: gtdDateTimeInput(horarioAdicional?.horaFin ?? new Date()),
       }).subscribe((result) => {
         console.log(result);
         if (result?.id) this.edit(result);

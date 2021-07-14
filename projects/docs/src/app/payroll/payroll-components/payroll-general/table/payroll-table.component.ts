@@ -24,7 +24,7 @@ import {
 } from '../../../../srv/payroll/rest/api';
 import {
   confirm,
-  gtdArrayToLowerCase, initTable,
+  gtdArrayToLowerCase, gtdDateTime, initTable,
   NgGtdDS,
   OpenDialog,
   txtEliminar
@@ -232,10 +232,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         nombre: payroll.nombre,
         descripcion: payroll.descripcion,
         estadoId: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
-        fechaCorte: (typeof payroll.fechaCorte === 'string'
-          ? new Date(Date.parse(payroll.fechaCorte))
-          : payroll.fechaCorte
-        ).toISOString(),
+        fechaCorte: gtdDateTime(payroll.fechaCorte),
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),
@@ -300,10 +297,7 @@ export class PayrollTableComponent implements OnInit, AfterViewInit, OnDestroy {
         descripcion: payroll.descripcion,
         estado: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
         estadoId: '487C190C-F0F3-4E4E-9B60-A959C2124CCE',
-        fechaCorte: (typeof payroll.fechaCorte === 'string'
-          ? new Date(Date.parse(payroll.fechaCorte))
-          : payroll.fechaCorte
-        ).toISOString(),
+        fechaCorte: gtdDateTime(payroll.fechaCorte),
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
         eventDate: new Date().toISOString(),

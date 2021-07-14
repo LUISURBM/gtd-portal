@@ -195,8 +195,12 @@ export const gtdSueldoTrabajador = (sueldo: string) =>
 export const gtdBeforeUnload = () => fromEvent(window, 'beforeunload');
 export const gtdDate = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-dd', 'es-Co');
-export const gtdDateTime = (value: number | string | Date = new Date()) =>
+export const gtdDateTimeInput = (value: number | string | Date = new Date()) =>
   formatDate(value, 'yyyy-MM-ddThh:mm', 'es-Co');
+export const gtdApiDateTime = (value: number | string | Date = new Date()) =>
+  formatDate(value, 'yyyy-MM-ddThh:mmaZZZZZ', 'es-Co');
+export const gtdDateTime = (value: number | string | Date = new Date()) =>
+  formatDate(value, 'yyyy-MM-ddThh:mmZZZZZ', 'es-Co');
 export const numberWithCommas = (value: string) =>
   formatNumber(
     typeof value === 'number' ? value : +value?.replace(/\./g, '') ?? 0,
@@ -309,4 +313,12 @@ export const valoresCatalogos = (params: any) => {
 
 export const txtEliminar = (texto: string, objeto: string) => {
   return `${texto.replace('P_1', objeto)}`;
+};
+
+export const gtdEmptyEntity = (bodyDto: any) => {
+  return Object.keys(bodyDto)
+    .map((i: any) =>
+      i.toLowerCase().split('id').length > 1 ? undefined : !bodyDto[i]
+    )
+    .reduce((x, y) => x && y);
 };

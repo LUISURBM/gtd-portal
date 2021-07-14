@@ -21,7 +21,7 @@ export class OtroConceptoFormComponent {
       id: this.builder.control(''),
       conceptoNs: this.builder.control(0),
       conceptoS: this.builder.control(0),
-      descripcion: this.builder.control('', [
+      descripcionConcepto: this.builder.control('', [
         Validators.maxLength(400),
       ]),
     });

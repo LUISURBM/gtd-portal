@@ -5,7 +5,7 @@
       <h1 mat-dialog-title>Formulario Otro concepto </h1>
     </div>
     <div class="card-body">
-      <h4 class="card-title">Agregar Otro concepto nuevo</h4>
+      <h4 class="card-title">{{form.value.id? 'Editar':'Agregar'}} Otro concepto</h4>
       <p class="card-category">Información de Otro concepto</p>
       <form [formGroup]="form">
         <mat-form-field>
@@ -33,11 +33,11 @@
           </div>
         </mat-form-field>
         <mat-form-field>
-          <input matInput gtdTextFormatter tabindex="2" formControlName="descripcion" type="text"
-            placeholder="Descripcion de la deducción" id="descripcion" class="form-control" />
-          <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
-            {{f.descripcion.errors|json}}
-            <div *ngIf="f.descripcion.errors?.required">
+          <input matInput gtdTextFormatter tabindex="2" formControlName="descripcionConcepto" type="text"
+            placeholder="Descripcion de la deducción" id="descripcionConcepto" class="form-control" />
+          <div *ngIf="f.descripcionConcepto.touched && f.descripcionConcepto.invalid" class="alert alert-danger">
+            {{f.descripcionConcepto.errors|json}}
+            <div *ngIf="f.descripcionConcepto.errors?.required">
               descripcion es obligatorio.
             </div>
           </div>

@@ -30,20 +30,20 @@
       <table mat-table class="table-responsive-sm" [dataSource]="dataSource.datasource" matSort style="width:100%">
         <!-- Name Column -->
         <ng-container matColumnDef="conceptoNs">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ns</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>No Salarial</th>
           <td mat-cell *matCellDef="let element">{{ element.conceptoNs | currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="conceptoS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>S</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Salarial</th>
           <td mat-cell *matCellDef="let element">{{ element.conceptoS | currency}}</td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="descripcion">
+        <ng-container matColumnDef="descripcionConcepto">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
-          <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.descripcionConcepto }}</td>
         </ng-container>
 
         <!-- Symbol Column -->

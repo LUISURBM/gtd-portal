@@ -25,8 +25,8 @@
         </div>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput gtdTextFormatter tabindex="2" formControlName="descripcion" type="text"
-          placeholder="Descripcion de la deducción" id="descripcion" class="form-control" ></textarea>
+        <input matInput gtdTextFormatter tabindex="2" formControlName="descripcion" type="text"
+          placeholder="Descripcion de la deducción" id="descripcion" class="form-control" />
         <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
 
           <div *ngIf="f.descripcion.errors?.min || f.descripcion.errors?.max">

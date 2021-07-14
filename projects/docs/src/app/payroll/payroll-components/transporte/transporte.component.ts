@@ -145,7 +145,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
             if (!(response.type === 4)) return of();
             if (response.type === 4 && response.status == 200)
               this._snackBar.open(
-                `${transporte.auxilioTransporte}`,
+                `Transporte`,
                 'creado!',
                 {
                   duration: 50000,
@@ -166,7 +166,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscriptions.push(
       confirm(
         this.dialog,
-        `¿Eliminar transporte ${transporte.auxilioTransporte}?`
+        `¿Eliminar transporte?`
       )
         .pipe(
           switchMap((confirmacion) =>
@@ -224,7 +224,7 @@ export class TransportesComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(
           switchMap((response: any) => {
             this._snackBar.open(
-              `${transporte.auxilioTransporte}`,
+              `Transporte`,
               'actualizado!',
               {
                 duration: 50000,

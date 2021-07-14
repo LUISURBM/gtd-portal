@@ -16,6 +16,7 @@ import { InMemService } from '../../../srv/in-mem-service';
 import {
   gtdArrayToLowerCase,
   gtdDate,
+  gtdDateTime,
   initTable,
   NgGtdDS,
   OpenDialog,
@@ -28,7 +29,13 @@ import { HuelgasLegalesService } from '../../../srv/payroll/rest/api';
 import { switchMap } from 'rxjs/operators';
 import { ConfirmDialogComponent } from '../../../shared/dialog/confirm/confirm-dialog.component';
 import { AppStateService } from '../../../srv/app-state.service';
-import { UICreado, UIEditado, UIEliminado } from '../../../values-catalog';
+import {
+  UICreado,
+  UIEditado,
+  UIEliminado,
+  UINoCreado,
+  UINoEditado,
+} from '../../../values-catalog';
 
 @Component({
   selector: 'app-payroll-huelgas',
@@ -119,11 +126,23 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
+    if (!huelga.fechaInicio || !huelga.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoCreado);
+      return;
+    }
+    if (huelga.fechaInicio > huelga.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoCreado
+      );
+      return;
+    }
+
     const request = {
       entidad: {
         cantidad: huelga.cantidad,
-        fechaFin: gtdDate(huelga.fechaFin!),
-        fechaInicio: gtdDate(huelga.fechaInicio!),
+        fechaFin: gtdDateTime(huelga.fechaFin!),
+        fechaInicio: gtdDateTime(huelga.fechaInicio!),
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
         enabled: true,
@@ -162,7 +181,7 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   delete(huelga: Huelga): void {
     this.subscriptions.push(
-      this.confirm(`¿Eliminar huelga ${huelga.fechaInicio?.toString()}?`)
+      this.confirm(`¿Eliminar huelga?`)
         .pipe(
           switchMap((confirmacion) =>
             confirmacion
@@ -176,14 +195,14 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
                 )
               : of()
           ),
-          switchMap((data: any) =>{
+          switchMap((data: any) => {
             huelga.loading = undefined;
             if (data?.type === 4 && data?.status === 200) {
               this.stateSrv.message(`Huelga`, UIEliminado);
               return this.listado(this.form.value);
             }
-            return of();}
-          )
+            return of();
+          })
         )
         .subscribe({
           next: (data: any) => this.readResponseTList(data, 'eliminada!'),
@@ -195,11 +214,26 @@ export class HuelgasComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   edit(huelga: Huelga): void {
+    if (!huelga) {
+      return;
+    }
+
+    if (!huelga.fechaInicio || !huelga.fechaFin) {
+      this.stateSrv.message(`Fecha inicio/fin son obligatorios`, UINoEditado);
+      return;
+    }
+    if (huelga.fechaInicio > huelga.fechaFin) {
+      this.stateSrv.message(
+        `Fecha inicio debe ser inferior a Hora fin`,
+        UINoEditado
+      );
+      return;
+    }
     const request = {
       entidad: {
         cantidad: huelga.cantidad,
-        fechaFin: huelga.fechaFin?.toString(),
-        fechaInicio: huelga.fechaInicio?.toString(),
+        fechaFin: gtdDateTime(huelga.fechaFin!),
+        fechaInicio: gtdDateTime(huelga.fechaInicio!),
         id: huelga.id,
         devengadosId: this.form.value.devengadosId,
         businessSubscriptionId: '5B067D71-9EC0-4910-8D53-018850FDED4E',
