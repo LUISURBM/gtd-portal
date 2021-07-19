@@ -1,3 +1,62 @@
 [
-  { "primary": "#673AB7",  "accent": "#FFC107",  "name": "unicorn-theme", "isDark": false }, {  "primary": "#3F51B5",  "accent": "#E91E63",  "name": "indigo-pink",  "isDark": false,  "isDefault": true }, { "primary": "#E91E63",  "accent": "#607D8B",  "name": "pink-grey", "isDark": true }, {  "primary": "#9C27B0",  "accent": "#4CAF50", "name": "purple-green",  "isDark": true }
+  {
+    "tipo": "BLOQUE-CARTA",
+    "leyendas": [
+      { "tipo": "string", "name": "Titulo", "emoji": "string" },
+      { "tipo": "string", "name": "SubTitulo" },
+      { "tipo": "string", "name": "Categoria" }
+    ]
+  },
+  {
+    "tipo": "TABLA",
+    "leyendas": [
+      { "tipo": "string", "name": "Filtro" },
+      { "tipo": "string", "name": "Ayuda fitro" },
+      { "tipo": "string", "name": "Paginación" },
+      { "tipo": "string", "name": "PaginaActual" },
+      { "tipo": "string", "name": "SinDatos" },
+      { "tipo": "string", "name": "AnteriorLabel" },
+      { "tipo": "string", "name": "PrimeroLabel" },
+      { "tipo": "string", "name": "ÚltimoLabel" },
+      { "tipo": "string", "name": "SiguienteLabel" },
+      { "tipo": "OPCIONES" }
+    ]
+  },
+  {
+    "tipo": "FORMULARIO",
+    "leyendas": [
+      { "tipo": "string", "name": "Titulo", "emoji": "string" },
+      { "tipo": "string", "name": "SubTitulo" },
+      { "tipo": "OPCIONES" }
+    ]
+  },
+  {
+    "tipo": "OPCIONES",
+    "tipos": [
+      {
+        "tipo": "string",
+        "name": "cancelar",
+        "mensaje": "acciones"
+      },
+      { "tipo": "string", "name": "aceptar",
+        "mensaje": "acciones"
+      }
+    ]
+  },
+  {
+    "acciones": [
+      { "tipo": "string", "name": "Confirmacion" },
+      { "tipo": "string", "name": "Exito" },
+      { "tipo": "string", "name": "Error" }
+    ]
+  },
+  {
+    "tipo": "CAMPOS-FORMULARIOS",
+    "nombre": "string",
+    "ayuda": "aceptar"
+  },
+  {
+    "tipo": "MENU-ITEM",
+    "nombre": ""
+  }
 ]

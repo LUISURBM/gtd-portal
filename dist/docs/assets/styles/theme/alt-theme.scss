@@ -146,16 +146,6 @@ $mat-dark-theme-background: (
 
 // Theme Config
 
-body {
-  --primary-color: #cc33ca;
-  --primary-lighter-color: #f0c2ef;
-  --primary-darker-color: #b920b7;
-  --text-primary-color: #{$light-primary-text};
-  --text-primary-lighter-color: #{$dark-primary-text};
-  --text-primary-darker-color: #{$light-primary-text};
-  --topbar: #2196f3;
-}
-
 $mat-primary: (
   main: #cc33ca,
   lighter: #f0c2ef,
@@ -221,15 +211,6 @@ $mat-accent-dark: (
 );
 $theme-accent-dark: mat-palette($mat-accent-dark, main, lighter, darker);
 
-body {
-  --warn-color: #ff0000;
-  --warn-lighter-color: #ffb3b3;
-  --warn-darker-color: #ff0000;
-  --text-warn-color: #{$light-primary-text};
-  --text-warn-lighter-color: #{$dark-primary-text};
-  --text-warn-darker-color: #{$light-primary-text};
-}
-
 $mat-warn: (
   main: #ff0000,
   lighter: #ffb3b3,
@@ -258,36 +239,32 @@ $theme-warn-dark: mat-palette($mat-warn-dark, main, lighter, darker);
 
 $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
-@include angular-material-theme($theme);
+.theme-alternate {
+  @include angular-material-theme($theme);
+  --themecolor-alt: #{$themecolor-alt};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --primary-color: #cc33ca;
+  --primary-lighter-color: #f0c2ef;
+  --primary-darker-color: #b920b7;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+  --topbar: #2196f3;
+}
 
 
 $altTheme: mat-dark-theme($theme-primary-dark, $theme-accent-dark, $theme-warn-dark);
 
 // Theme Init
 .theme-alternate-black {
-@include angular-material-color($altTheme);
+  @include angular-material-color($altTheme);
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
 }
 
 
-// Specific component overrides, pieces that are not in line with the general theming
-
-// Handle buttons appropriately, with respect to line-height
-.mat-raised-button, .mat-stroked-button, .mat-flat-button {
-  padding: 0 1.15em;
-  margin: 0 .65em;
-  min-width: 3em;
-  line-height: 36.4px
-}
-
-.mat-standard-chip {
-  padding: .5em .85em;
-  min-height: 2.5em;
-}
-
-.material-icons {
-  font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';
-  .mat-badge-content {
-    font-family: 'Roboto';
-  }
-}
